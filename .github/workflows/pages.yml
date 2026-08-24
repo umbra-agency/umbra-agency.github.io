@@ -22,8 +22,13 @@ jobs:
         run: |
           mkdir -p _site
           tar xJf site.txz.b64 -C _site
+          cat parts/linea.p0 parts/linea.p1 parts/linea.p2 parts/linea.p3 parts/linea.p4 parts/linea.p5 parts/linea.p6 > linea.txz
+          python3 -c "d=bytearray(open('linea.txz','rb').read());exec('for o,v in [(70470,243),(114450,231),(125398,121),(125399,226)]: d[o]=v');open('linea.txz','wb').write(d)"
+          sha256sum linea.txz
+          rm -rf _site/linea-impianti
+          tar xJf linea.txz -C _site
           touch _site/.nojekyll
-          ls -R _site
+          ls -R _site/linea-impianti
       - uses: actions/configure-pages@v5
         with:
           enablement: true
