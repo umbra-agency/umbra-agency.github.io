@@ -28,6 +28,7 @@ jobs:
           rm -rf _site/linea-impianti
           tar xJf linea.txz -C _site
           touch _site/.nojekyll
+          if [ -d ncc ]; then cp -R ncc _site/ncc; fi
           ls -R _site/linea-impianti
       - uses: actions/configure-pages@v5
         with:
