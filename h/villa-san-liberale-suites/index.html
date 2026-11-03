@@ -480,7 +480,7 @@ window.PZ={"short": "villa-san-liberale-suites", "rate": null, "max": null};
 #um .um-bd{position:fixed;inset:0;z-index:9998;background:rgba(5,5,6,.35);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
 #um .um-bd.um-on{opacity:1;visibility:visible;transition:opacity .45s}
 #um .um-dr{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:min(560px,50vw);background:var(--k);border-left:1px solid rgba(216,216,220,.22);box-shadow:-30px 0 80px rgba(0,0,0,.45);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.7,.2,1);padding-top:env(safe-area-inset-top,0px)}
-#um .um-dr{visibility:hidden}#um .um-dr.um-on{transform:none;visibility:visible}
+#um.um-lb .um-pill,#um.um-lb .um-tz{opacity:0!important;visibility:hidden!important;pointer-events:none}#um .um-dr{visibility:hidden}#um .um-dr.um-on{transform:none;visibility:visible}
 #um .um-dr .um-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;border-bottom:1px solid var(--ln);flex:none}
 #um .um-dr .um-top .um-br{font:italic 22px/1 var(--se)}
 #um .um-dr .um-top .um-br small{font:11px var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ch2);margin-left:10px;-webkit-text-fill-color:var(--ch2)}
@@ -714,6 +714,9 @@ window.PZ={"short": "villa-san-liberale-suites", "rate": null, "max": null};
     a.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Ciao Umbra, vorrei attivare '+lab+' per '+(d.nome||'la mia struttura')+(d.comune?' ('+d.comune+')':'')+'. Come procedo?');
     a.target='_blank';a.rel='noopener';
   });
+  // nasconde card e pulsante quando la guida apre una galleria a tutto schermo
+  var lbq=false;function lbChk(){lbq=false;var open=[].some.call(document.querySelectorAll('[aria-modal="true"]'),function(e){return !um.contains(e)&&e.getAttribute('aria-hidden')!=='true'&&!e.closest('[aria-hidden="true"],[hidden]')&&e.getClientRects().length>0})||(document.body.style.overflow==='hidden'&&!dr.classList.contains('um-on'));um.classList.toggle('um-lb',open)}
+  new MutationObserver(function(){if(!lbq){lbq=true;requestAnimationFrame(lbChk)}}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['style','hidden','open','aria-hidden']});
 })();
 </script>
 
