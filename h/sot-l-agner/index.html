@@ -434,6 +434,82 @@ window.addEventListener("hashchange",()=>{render();window.scrollTo(0,0)});
 render();
 })();
 </script>
+<!-- ===== UMBRA · livello qualità guida ===== -->
+<style>
+/* lettura: corpo più grande, testo secondario più contrastato, più respiro */
+body{font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@media (min-width:900px){body{font-size:18px}}
+.m{font-size:16px;line-height:1.6;color:color-mix(in srgb,var(--ink) 74%,var(--bg))}
+.lead{line-height:1.6}
+.src{font-size:12px;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.sec{padding-block:clamp(48px,9vw,84px);gap:20px}
+.sec h2{font-size:clamp(30px,7.4vw,46px);line-height:1.08;letter-spacing:-.005em}
+.sec>p,.sec .lead{max-width:62ch}
+.sub{margin-top:8px}
+.c{padding:20px 20px 18px;gap:8px;transition:transform .35s ease,box-shadow .35s ease}
+.c h3{font-size:18px;line-height:1.3}
+.c p{line-height:1.55}
+.grid{gap:14px}
+@media (min-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.c:hover{transform:translateY(-2px);box-shadow:0 14px 30px -18px color-mix(in srgb,var(--ink) 45%,transparent)}}
+.kv{font-size:16px}
+.check label{padding:14px 0;font-size:17px}
+ul.rules{gap:10px;font-size:17px}
+.brk img,.rooms-ph figure,.gal figure{box-shadow:0 18px 40px -26px color-mix(in srgb,var(--ink) 55%,transparent)}
+.brk img{height:clamp(240px,58vw,580px)}
+.times dd{font-size:clamp(26px,6vw,32px)}
+.calc input{font-size:17px;padding:10px}
+mark.ph{border-radius:4px;padding:.05em .35em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+/* liste lunghe: le prime 3 visibili, il resto dietro un bottone */
+.up-more-hidden{display:none!important}
+.up-more{align-self:flex-start;margin-top:4px;font:600 15px/1 var(--fb);color:var(--acc);background:transparent;border:1.5px solid color-mix(in srgb,var(--acc) 55%,transparent);border-radius:999px;padding:12px 18px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.up-more:hover{background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.up-more span{font-size:13px;opacity:.8}
+/* barra di lettura */
+#up-bar{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;z-index:60;transform-origin:0 50%;transform:scaleX(0);background:var(--acc);opacity:.85;pointer-events:none}
+/* comparsa morbida: solo quando il JS è attivo; la pagina resta completa senza */
+html.up-js .up-rv{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+html.up-js .up-rv.up-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html.up-js .up-rv{opacity:1!important;transform:none!important;transition:none!important}#up-bar{display:none}}
+</style>
+<div id="up-bar" aria-hidden="true"></div>
+<script>
+(function(){
+  var app=document.getElementById('app');if(!app)return;
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var en=function(){return (document.documentElement.lang||'it').indexOf('en')===0};
+  var io=('IntersectionObserver' in window)&&!rm?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('up-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'}):null;
+  function enhance(){
+    // compatta le griglie lunghe
+    app.querySelectorAll('.grid').forEach(function(g){
+      if(g.dataset.up)return;g.dataset.up='1';
+      var items=[].filter.call(g.children,function(x){return x.classList.contains('c')});
+      if(items.length<=3)return;
+      var extra=items.slice(3);extra.forEach(function(x){x.classList.add('up-more-hidden')});
+      var b=document.createElement('button');b.type='button';b.className='up-more';
+      b.innerHTML=(en()?'Show ':'Mostra altri ')+extra.length+' <span>↓</span>';
+      b.addEventListener('click',function(){extra.forEach(function(x){x.classList.remove('up-more-hidden')});b.remove()});
+      g.insertAdjacentElement('afterend',b);
+    });
+    // comparsa morbida delle sezioni e delle foto
+    if(io){
+      document.documentElement.classList.add('up-js');
+      app.querySelectorAll('.sec>*,.brk,.c').forEach(function(el){
+        if(el.dataset.rv)return;el.dataset.rv='1';
+        var r=el.getBoundingClientRect();if(r.top<innerHeight*0.9)return; // ciò che è già in vista resta fermo
+        el.classList.add('up-rv');io.observe(el);
+      });
+      setTimeout(function(){app.querySelectorAll('.up-rv:not(.up-in)').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('up-in')})},1500);
+    }
+  }
+  enhance();
+  new MutationObserver(function(){enhance()}).observe(app,{childList:true});
+  // barra di lettura
+  var bar=document.getElementById('up-bar'),tick=false;
+  function upd(){tick=false;var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')'}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+})();
+</script>
+
 <!-- ===== UMBRA · cornice commerciale (non tocca la guida) ===== -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -478,7 +554,7 @@ render();
 #um .um-bd{position:fixed;inset:0;z-index:9998;background:rgba(5,5,6,.35);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
 #um .um-bd.um-on{opacity:1;visibility:visible;transition:opacity .45s}
 #um .um-dr{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:min(560px,50vw);background:var(--k);border-left:1px solid rgba(216,216,220,.22);box-shadow:-30px 0 80px rgba(0,0,0,.45);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.7,.2,1);padding-top:env(safe-area-inset-top,0px)}
-#um .um-dr.um-on{transform:none}
+#um .um-dr{visibility:hidden}#um .um-dr.um-on{transform:none;visibility:visible}
 #um .um-dr .um-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;border-bottom:1px solid var(--ln);flex:none}
 #um .um-dr .um-top .um-br{font:italic 22px/1 var(--se)}
 #um .um-dr .um-top .um-br small{font:11px var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ch2);margin-left:10px;-webkit-text-fill-color:var(--ch2)}
