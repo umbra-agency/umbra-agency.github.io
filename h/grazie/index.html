@@ -1,0 +1,127 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Host in Regola · Grazie</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+*{box-sizing:border-box}
+/* Layout: conferma in alto, poi i passi in sequenza; modulo da copiare. Pagina deliberatamente solo scura. */
+:root{--bg:#050506;--bg2:#0f0f12;--bg3:#16161a;--fg:#f2f1ee;--fg2:#b3b2ae;--fg3:#7a7976;--ch:#d8d8dc;--ch2:#8d8e95;--ln:rgba(216,216,220,.14);--ok:#9fd8b0;
+ --se:'Instrument Serif',Georgia,serif;--sa:'Archivo','Helvetica Neue',Arial,sans-serif;--mo:'IBM Plex Mono',ui-monospace,Menlo,monospace;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:300 16px/1.6 var(--sa);margin:0;-webkit-font-smoothing:antialiased}
+.w{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:56px 80px}
+.br{font:italic 24px/1 var(--se);background:linear-gradient(100deg,#f4f4f6,#9c9da4 40%,#fff 60%,#8e8f96);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.ok{display:inline-flex;align-items:center;gap:8px;margin-top:36px;font:11px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:var(--ok)}
+.ok::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 12px var(--ok)}
+h1{font:400 clamp(40px,7vw,64px)/1.02 var(--se);margin:14px 0 14px;letter-spacing:-.01em;text-wrap:balance}
+h1 em{font-style:italic}
+.lead{color:var(--fg2);font-size:18px;max-width:52ch;margin:0}
+.steps{list-style:none;margin:44px 0 0;padding:0}
+.st{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:26px 0;border-top:1px solid var(--ln)}
+.st:last-child{border-bottom:1px solid var(--ln)}
+.st .n{font:400 34px/1 var(--se);color:var(--ch)}
+.st .t{min-width:0}
+.st h2{font:400 26px/1.15 var(--se);margin:0 0 6px}
+.st p{margin:0 0 12px;color:var(--fg2)}
+.when{font:11px var(--mo);letter-spacing:.12em;text-transform:uppercase;color:var(--ch2)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.b{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid var(--ch);color:var(--fg);text-decoration:none;font:500 14px var(--sa);background:transparent;cursor:pointer}
+.b:hover{background:var(--ch);color:#0a0a0c}
+.b.s{background:linear-gradient(135deg,#f3f3f5,#b9bac0);color:#0a0a0c;border-color:transparent}
+.b.s:hover{background:#fff}
+.form{background:var(--bg2);border:1px solid var(--ln);border-radius:14px;padding:18px;margin:6px 0 14px}
+.form pre{margin:0;white-space:pre-wrap;font:14px/1.7 var(--mo);color:var(--fg)}
+.copied{font:11px var(--mo);color:var(--ok);letter-spacing:.08em;margin-left:6px}
+.kit{display:grid;gap:8px;margin:6px 0 4px}
+.kit a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--ln);border-radius:12px;text-decoration:none;color:var(--fg);background:var(--bg2)}
+.kit a:hover{border-color:var(--ch)}
+.kit a span{font:12px var(--mo);color:var(--ch2)}
+.mail{user-select:all;color:var(--fg);font-weight:500}
+.help{margin-top:40px;color:var(--fg2);font-size:15px}
+.help b{color:var(--fg);font-weight:500}
+.ft{margin-top:48px;font:12px var(--mo);color:var(--fg3)}
+.ft a{color:var(--fg2)}
+</style>
+
+<div class="w">
+  <div class="br">Umbra</div>
+  <div class="ok">Pagamento ricevuto</div>
+  <h1>Grazie. Adesso la guida la <em>finiamo noi</em>.</h1>
+  <p class="lead">La ricevuta vi arriva via email da Stripe. Mancano solo le informazioni della vostra struttura: ci vogliono circa 10 minuti.</p>
+
+  <ol class="steps">
+    <li class="st" id="kit-step" hidden>
+      <span class="n">↓</span>
+      <div class="t">
+        <h2>Il Kit Host in Regola arriva via email</h2>
+        <p>Registro Excel, 16 messaggi per gli ospiti e calendario scadenze 2027: ve li mandiamo all'email usata per il pagamento entro 1 giorno lavorativo.</p>
+      </div>
+    </li>
+    <li class="st">
+      <span class="n">1</span>
+      <div class="t">
+        <h2>Mandateci le informazioni della casa</h2>
+        <p>Copiate queste domande, rispondete sotto ognuna e mandatecele su WhatsApp o per email. Le foto potete allegarle direttamente.</p>
+        <div class="form"><pre id="q">Struttura:
+1. Nome e password del Wi-Fi:
+2. Orari di check-in e check-out (e se c'è il self check-in, come funziona):
+3. Colazione: orari e dove si fa:
+4. Regole della casa (animali, fumo, rumore, raccolta differenziata):
+5. Parcheggio e come arrivare (indicazioni utili, cancello, codice):
+6. Un numero per gli ospiti in caso di necessità:
+Foto: 8–15 foto orizzontali delle camere, degli spazi comuni e dell'esterno (allegate al messaggio).</pre></div>
+        <div class="btns">
+          <button class="b" type="button" id="cp">Copia le domande</button>
+          <a class="b s" id="wa" href="https://wa.me/393514618847" target="_blank" rel="noopener">Rispondi su WhatsApp</a>
+        </div>
+        <p style="margin-top:12px">Oppure per email a <span class="mail">info@umbragency.it</span></p>
+        <span class="when">10 minuti</span>
+      </div>
+    </li>
+    <li class="st">
+      <span class="n">2</span>
+      <div class="t">
+        <h2>Prepariamo la vostra guida</h2>
+        <p>Mettiamo le vostre foto e i vostri dati al posto di quelli della demo e ve la mandiamo da controllare.</p>
+        <span class="when">Entro 5 giorni lavorativi</span>
+      </div>
+    </li>
+    <li class="st">
+      <span class="n">3</span>
+      <div class="t">
+        <h2>Ci dite cosa cambiare</h2>
+        <p>Un solo messaggio con tutte le correzioni e le applichiamo. <span id="rev">Avete 1 revisione inclusa.</span></p>
+        <span class="when">Entro 2 giorni lavorativi</span>
+      </div>
+    </li>
+    <li class="st">
+      <span class="n">4</span>
+      <div class="t">
+        <h2>La date agli ospiti</h2>
+        <p>Ricevete il link definitivo e il QR da stampare. Mettete il link nel messaggio di conferma della prenotazione e il QR in camera.</p>
+        <span class="when">Senza canoni, per sempre</span>
+      </div>
+    </li>
+  </ol>
+
+  <p class="help"><b>Ripensamento?</b> Rimborso integrale entro 30 giorni con una email, senza domande.</p>
+  <p class="ft">Umbra Agency · P.IVA 01694380294 · <a href="../condizioni/" target="_blank" rel="noopener">Condizioni e privacy</a></p>
+</div>
+
+<script>
+(function(){
+  var kit=(location.hash||'').slice(1)==='kit';
+  document.getElementById('kit-step').hidden=!kit;
+  document.getElementById('rev').textContent=kit?'Avete 3 revisioni incluse.':'Avete 1 revisione inclusa.';
+  var q=document.getElementById('q').textContent;
+  document.getElementById('wa').href='https://wa.me/393514618847?text='+encodeURIComponent('Ciao, ho appena acquistato '+(kit?'Guida + Kit Host in Regola':'la Guida della Casa')+'. Ecco le informazioni:\n\n'+q);
+  var cp=document.getElementById('cp');
+  cp.addEventListener('click',function(){
+    function done(){var s=document.createElement('span');s.className='copied';s.textContent='Copiate';cp.after(s);setTimeout(function(){s.remove()},2000)}
+    try{navigator.clipboard.writeText(q).then(done,sel)}catch(e){sel()}
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('q'));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  });
+})();
+</script>
+
+</html>
