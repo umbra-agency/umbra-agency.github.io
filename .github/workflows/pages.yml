@@ -30,6 +30,7 @@ jobs:
           touch _site/.nojekyll
           if [ -d ncc ]; then cp -R ncc _site/ncc; fi
           if [ -d h ]; then cp -R h _site/h; fi
+          if [ -d nozze ]; then cp -R nozze _site/nozze; fi
           ls -R _site/linea-impianti
       - uses: actions/configure-pages@v5
         with:
