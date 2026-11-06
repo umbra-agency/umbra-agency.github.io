@@ -31,6 +31,7 @@ jobs:
           if [ -d ncc ]; then cp -R ncc _site/ncc; fi
           if [ -d h ]; then cp -R h _site/h; fi
           if [ -d nozze ]; then cp -R nozze _site/nozze; fi
+          if [ -d fvg ]; then cp -R fvg _site/fvg; fi
           if [ -d nozze ]; then for d in nozze/*/; do n=$(basename "$d"); [ -e "_site/$n" ] || cp -R "$d" "_site/$n"; done; fi
           ls -R _site/linea-impianti
       - uses: actions/configure-pages@v5
