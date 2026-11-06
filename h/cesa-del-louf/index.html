@@ -717,7 +717,7 @@ html.up-js .up-rv.up-in{opacity:1;transform:none}
         <ol class="um-steps">
           <li><span class="um-n">1</span><div class="um-t"><b>Scegliete e pagate</b><span class="um-d">Carta di credito o debito, pagamento sicuro con Stripe. Ricevuta via email.</span><span class="um-when">1 minuto</span></div></li>
           <li><span class="um-n">2</span><div class="um-t"><b>Compilate un breve modulo</b><span class="um-d">Vi arriva un'email con 6 domande: password Wi-Fi, orari, regole della casa, un numero per le emergenze, e dove caricare le vostre foto migliori.</span><span class="um-when">10 minuti</span></div></li>
-          <li><span class="um-n">3</span><div class="um-t"><b>Noi completiamo la guida</b><span class="um-d">Scegliamo con voi le foto migliori, inseriamo i vostri dati e ve la mandiamo da controllare.</span><span class="um-when">Entro 5 giorni lavorativi</span></div></li>
+          <li><span class="um-n">3</span><div class="um-t"><b>Noi completiamo la guida</b><span class="um-d">Scegliamo con voi le foto migliori, inseriamo i vostri dati e ve la mandiamo da controllare.</span><span class="um-when">Entro 3 giorni lavorativi</span></div></li>
           <li><span class="um-n">↺</span><div class="um-t"><b>Ci dite cosa cambiare</b><span class="um-d">Rispondete all'email con le correzioni (un testo, una foto, un orario) e noi le applichiamo. 1 revisione con la Guida, 3 con Guida + Kit.</span><span class="um-when">Entro 2 giorni lavorativi per revisione</span></div></li>
           <li><span class="um-n">4</span><div class="um-t"><b>La date agli ospiti</b><span class="um-d">Ricevete il link definitivo e il QR da stampare. Lo inserite nel messaggio di conferma prenotazione e il gioco è fatto. Se scegliete il kit, Registro, messaggi e calendario arrivano subito via email.</span><span class="um-when">Per sempre, senza canone</span></div></li>
         </ol>
@@ -753,7 +753,7 @@ html.up-js .up-rv.up-in{opacity:1;transform:none}
 <script>
 (function(){
   // Stripe Payment Link: incollare qui quando pronti.
-  var STRIPE={guida:'',kit:''}, WA='393514618847';
+  var STRIPE={guida:'https://buy.stripe.com/3cI8wOgts6d65ge09Q57W09',kit:'https://buy.stripe.com/3cI4gydhgfNG3867Ci57W0a'}, WA='393514618847';
   var $=function(id){return document.getElementById(id)};
   // dati della demo aperta
   var um=document.getElementById('um');
@@ -784,7 +784,7 @@ html.up-js .up-rv.up-in{opacity:1;transform:none}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dr.classList.contains('um-on'))closeDr()});
   document.querySelectorAll('#um [data-um]').forEach(function(a){
     var k=a.getAttribute('data-um');
-    if(STRIPE[k]){a.href=STRIPE[k];a.target='_blank';a.rel='noopener';return}
+    if(STRIPE[k]){var ref=(location.pathname.split('/').filter(Boolean).pop()||'').replace(/[^A-Za-z0-9_-]/g,'');a.href=STRIPE[k]+(ref?'?client_reference_id='+ref:'');a.target='_blank';a.rel='noopener';return}
     var d=cur()||{},lab=k==='kit'?'Guida + Kit Host in Regola (147 €)':'Guida della Casa (97 €)';
     a.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Ciao Umbra, vorrei attivare '+lab+' per '+(d.nome||'la mia struttura')+(d.comune?' ('+d.comune+')':'')+'. Come procedo?');
     a.target='_blank';a.rel='noopener';
