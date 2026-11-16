@@ -1,0 +1,26 @@
+name: Ambiente - scarica foto
+on:
+  push:
+    branches: [main]
+    paths: ['ambiente/_media.tsv']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ambiente-media
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet pillow
+      - run: python3 ambiente/_tools/fetch_media.py
+      - name: Salva le foto nel repository
+        run: |
+          git config user.name "Umbra Agency"
+          git config user.email "info@umbragency.it"
+          git add ambiente
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Ambiente: foto scaricate e ottimizzate"
+          for i in 1 2 3; do git pull --rebase -q origin main && git push -q origin HEAD:main && break; sleep 5; done
