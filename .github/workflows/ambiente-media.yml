@@ -2,7 +2,7 @@ name: Ambiente - scarica foto
 on:
   push:
     branches: [main]
-    paths: ['ambiente/_media.tsv']
+    paths: ['ambiente/_media.tsv', 'ambiente/_sites.tsv']
   workflow_dispatch:
 permissions:
   contents: write
