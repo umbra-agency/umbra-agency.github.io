@@ -1,0 +1,502 @@
+{
+"_stock/bonifica-1.jpg": {
+"h": 1467,
+"kb": 360,
+"lum": 115,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1674485135526-b5a686b33dfe?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/bonifica-2.jpg": {
+"h": 3300,
+"kb": 239,
+"lum": 172,
+"ok": true,
+"sh": 2200,
+"sw": 1467,
+"url": "https://images.unsplash.com/photo-1586947292720-16654d57e52e?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/bonifica-3.jpg": {
+"h": 1235,
+"kb": 283,
+"lum": 33,
+"ok": true,
+"sh": 1235,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1783229610939-12c5811a6621?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/bonifica-4.jpg": {
+"h": 2933,
+"kb": 295,
+"lum": 116,
+"ok": true,
+"sh": 2200,
+"sw": 1650,
+"url": "https://images.unsplash.com/photo-1612008084708-bc7a856cdd26?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/camion-1.jpg": {
+"h": 1467,
+"kb": 410,
+"lum": 111,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1586828909860-faf5ed195143?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/camion-2.jpg": {
+"h": 3300,
+"kb": 357,
+"lum": 105,
+"ok": true,
+"sh": 2200,
+"sw": 1467,
+"url": "https://images.unsplash.com/photo-1599729576786-3bee5c793c6a?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/camion-3.jpg": {
+"h": 2933,
+"kb": 724,
+"lum": 99,
+"ok": true,
+"sh": 2200,
+"sw": 1650,
+"url": "https://images.unsplash.com/photo-1540085332630-9d9cf28e69e7?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/camion-4.jpg": {
+"h": 1467,
+"kb": 290,
+"lum": 125,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1574359134132-34647f92dbbc?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/camion-5.jpg": {
+"h": 1235,
+"kb": 301,
+"lum": 149,
+"ok": true,
+"sh": 1235,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1776988038414-29a4a1869275?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/cantiere-1.jpg": {
+"h": 1728,
+"kb": 898,
+"lum": 95,
+"ok": true,
+"sh": 1728,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1534097575056-ddba81f714c8?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/cantiere-2.jpg": {
+"h": 1467,
+"kb": 438,
+"lum": 141,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1778068846016-b0ae7a27abbe?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/cantiere-3.jpg": {
+"h": 1467,
+"kb": 463,
+"lum": 107,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1760568787655-247d67618f37?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/cantiere-4.jpg": {
+"h": 1434,
+"kb": 751,
+"lum": 114,
+"ok": true,
+"sh": 1434,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1764116858315-6b149603efe9?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/cantiere-5.jpg": {
+"h": 1467,
+"kb": 414,
+"lum": 144,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1778066995093-a7f7d1049f8f?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/cantiere-6.jpg": {
+"h": 1467,
+"kb": 927,
+"lum": 106,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1776108508788-368a60d8fe88?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/container-1.jpg": {
+"h": 1467,
+"kb": 466,
+"lum": 160,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1707960190213-1ee0c16e054a?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/container-2.jpg": {
+"h": 2933,
+"kb": 795,
+"lum": 118,
+"ok": true,
+"sh": 2200,
+"sw": 1650,
+"url": "https://images.unsplash.com/photo-1661554740230-6cb1749eaedb?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/container-3.jpg": {
+"h": 1467,
+"kb": 616,
+"lum": 143,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1552741957-4b321eb4acd2?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/container-4.jpg": {
+"h": 1190,
+"kb": 374,
+"lum": 121,
+"ok": true,
+"sh": 1190,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1707960186132-cee9548de238?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-1.jpg": {
+"h": 3300,
+"kb": 396,
+"lum": 43,
+"ok": true,
+"sh": 2200,
+"sw": 1467,
+"url": "https://images.unsplash.com/photo-1763315156830-07870b159121?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-2.jpg": {
+"h": 1467,
+"kb": 642,
+"lum": 145,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1772544386001-637f7b34a24c?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-3.jpg": {
+"h": 449,
+"kb": 372,
+"lum": 98,
+"ok": true,
+"sh": 449,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1775673301786-aff05a381744?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-4.jpg": {
+"h": 1650,
+"kb": 1026,
+"lum": 134,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1781243680823-aae6c7f1ff12?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-5.jpg": {
+"h": 1238,
+"kb": 565,
+"lum": 134,
+"ok": true,
+"sh": 1238,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1773852184074-e7ecb1dd3665?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-6.jpg": {
+"h": 1650,
+"kb": 849,
+"lum": 114,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1653406384710-08688ec6b979?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/impianto-7.jpg": {
+"h": 3300,
+"kb": 486,
+"lum": 90,
+"ok": true,
+"sh": 2200,
+"sw": 1467,
+"url": "https://images.unsplash.com/photo-1710189605189-9b7e94dc04cb?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/notte-1.jpg": {
+"h": 1467,
+"kb": 483,
+"lum": 42,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1670689334799-cdc6777db8cc?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/notte-2.jpg": {
+"h": 1469,
+"kb": 448,
+"lum": 54,
+"ok": true,
+"sh": 1469,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1768128834406-f5b1b962af9d?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/notte-3.jpg": {
+"h": 3300,
+"kb": 327,
+"lum": 50,
+"ok": true,
+"sh": 2200,
+"sw": 1467,
+"url": "https://images.unsplash.com/photo-1670689334024-ad61dd564fe2?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/notte-4.jpg": {
+"h": 1467,
+"kb": 516,
+"lum": 49,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1670689334896-8fa8291daa27?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/notte-5.jpg": {
+"h": 1462,
+"kb": 510,
+"lum": 63,
+"ok": true,
+"sh": 1462,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1600683729960-0b586e23ec3b?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-1.jpg": {
+"h": 1467,
+"kb": 592,
+"lum": 128,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1785595350273-df34196d462a?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-2.jpg": {
+"h": 1467,
+"kb": 589,
+"lum": 99,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1574974671999-24b7dfbb0d53?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-3.jpg": {
+"h": 1759,
+"kb": 1106,
+"lum": 79,
+"ok": true,
+"sh": 1759,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1635691315495-ff39debe5764?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-4.jpg": {
+"h": 1650,
+"kb": 430,
+"lum": 119,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1648848568410-829a327c7b1e?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-5.jpg": {
+"h": 3300,
+"kb": 304,
+"lum": 29,
+"ok": true,
+"sh": 2200,
+"sw": 1467,
+"url": "https://images.unsplash.com/photo-1711588312193-96aac598e5e4?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-6.jpg": {
+"h": 1100,
+"kb": 466,
+"lum": 98,
+"ok": true,
+"sh": 1100,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1608476524605-2ad765c3bd78?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-7.jpg": {
+"h": 3004,
+"kb": 567,
+"lum": 109,
+"ok": true,
+"sh": 2200,
+"sw": 1611,
+"url": "https://images.unsplash.com/photo-1771335976740-9b907cdc08c3?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/raccolta-8.jpg": {
+"h": 1571,
+"kb": 616,
+"lum": 95,
+"ok": true,
+"sh": 1571,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1612145342813-849b0c3e7f71?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/spazzamento-1.jpg": {
+"h": 1588,
+"kb": 521,
+"lum": 67,
+"ok": true,
+"sh": 1588,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1755795603389-235d0626a22a?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/spazzamento-2.jpg": {
+"h": 3312,
+"kb": 392,
+"lum": 60,
+"ok": true,
+"sh": 2200,
+"sw": 1461,
+"url": "https://images.unsplash.com/photo-1755795603337-ada82984ef4d?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/spazzamento-3.jpg": {
+"h": 1467,
+"kb": 483,
+"lum": 74,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1764981966665-1abf644d10a4?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/spazzamento-4.jpg": {
+"h": 1467,
+"kb": 487,
+"lum": 101,
+"ok": true,
+"sh": 1467,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1514955180492-deb713a7e66e?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-1.jpg": {
+"h": 1236,
+"kb": 964,
+"lum": 95,
+"ok": true,
+"sh": 1236,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1781622196330-f7f5f4259e62?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-2.jpg": {
+"h": 1236,
+"kb": 679,
+"lum": 118,
+"ok": true,
+"sh": 1236,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1781622196024-afb1904a3010?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-3.jpg": {
+"h": 1650,
+"kb": 801,
+"lum": 95,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1733057064296-1da64b0c875d?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-4.jpg": {
+"h": 2933,
+"kb": 913,
+"lum": 118,
+"ok": true,
+"sh": 2200,
+"sw": 1650,
+"url": "https://images.unsplash.com/photo-1733057064797-a09dcb2b7225?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-5.jpg": {
+"h": 1650,
+"kb": 748,
+"lum": 145,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1601054584446-80bc645c8d79?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-6.jpg": {
+"h": 1650,
+"kb": 1103,
+"lum": 131,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1600625109255-4e5d0141528b?w=2200&q=80&fm=jpg",
+"w": 2200
+},
+"_stock/territorio-7.jpg": {
+"h": 1650,
+"kb": 988,
+"lum": 108,
+"ok": true,
+"sh": 1650,
+"sw": 2200,
+"url": "https://images.unsplash.com/photo-1724398931860-b13443c86997?w=2200&q=80&fm=jpg",
+"w": 2200
+}
+}
