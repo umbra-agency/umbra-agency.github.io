@@ -346,7 +346,8 @@
 "hash": "1000100011001100110110001101110111111111100111110011110100100011",
 "kb": 53,
 "lum": 160,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.alterecosrl.it/wp-content/uploads/2019/04/about.jpg",
 "w": 800
@@ -356,7 +357,8 @@
 "hash": "1001000010000100100010011110111111000111011001110110111110001010",
 "kb": 65,
 "lum": 188,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.alterecosrl.it/wp-content/uploads/2026/01/high-angle-business-plans-company2.jpg",
 "w": 1000
@@ -680,7 +682,8 @@
 "hash": "1001110000010110001100110111000101111001010010101110001100110111",
 "kb": 141,
 "lum": 126,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://avioservice.it/wp-content/uploads/2022/09/recycling.png",
 "w": 1200
@@ -1482,7 +1485,8 @@
 "hash": "0110000001100000010011110001011100010111000011000110101011000011",
 "kb": 41,
 "lum": 28,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bwr.it/wp-content/uploads/2026/01/betonform.png",
 "w": 1275
@@ -1492,7 +1496,8 @@
 "hash": "0000000000000000000011000001010000010100000011000000000001000000",
 "kb": 27,
 "lum": 42,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bwr.it/wp-content/uploads/borlabs-cookie/1/brlbs-cb-vimeo-main.png",
 "w": 1810
@@ -1502,7 +1507,8 @@
 "hash": "0011100010110000010011010101011100010111000011100011111100111011",
 "kb": 195,
 "lum": 220,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bwr.it/wp-content/uploads/borlabs-cookie/1/brlbs-cb-google-maps-main.png",
 "w": 1810
@@ -1974,7 +1980,8 @@
 "hash": "1011111011011110110011001110110111011111111011101111111111111111",
 "kb": 143,
 "lum": 96,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/Ragno-x-sito-servizi-2.jpg",
 "w": 1913
@@ -2762,7 +2769,8 @@
 "hash": "0110110001011110010110010111100101110001010100010100100110011001",
 "kb": 89,
 "lum": 152,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecoservicesrl.info/wp-content/uploads/2021/01/donatella-avezzu-eco-service.jpg",
 "w": 720
@@ -2772,7 +2780,8 @@
 "hash": "0110011000011110110111101100011011100101110011001001111000011110",
 "kb": 45,
 "lum": 142,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecoservicesrl.info/wp-content/uploads/2022/11/andrea-seren-rosso.jpg",
 "w": 720
@@ -2851,7 +2860,8 @@
 "hash": "1000101101000111001001100000011001110001011110010111001000011011",
 "kb": 254,
 "lum": 113,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "http://www.eco-studio.it/images/logo.jpg",
 "w": 700
 },
@@ -2969,7 +2979,8 @@
 "hash": "0000001110000111010100110011110100001011100000110000111100001011",
 "kb": 445,
 "lum": 28,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://ecodem.it/wp-content/uploads/2020/10/sfondo_drain_dark.jpg",
 "w": 1920
@@ -3305,7 +3316,8 @@
 "hash": "0000111100000111000111111001011100010111000101110001010100010111",
 "kb": 366,
 "lum": 97,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecologica2006.it/wp-content/uploads/2025/11/locali.jpeg",
 "w": 1920
@@ -3315,7 +3327,8 @@
 "hash": "0000000011000001100001000010000000110000000110000000110000000110",
 "kb": 48,
 "lum": 252,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecologica2006.it/wp-content/uploads/2025/10/bg-waves.jpg",
 "w": 1440
@@ -3335,7 +3348,8 @@
 "hash": "1010011010000110100111101001110010011100100111000011110000111010",
 "kb": 78,
 "lum": 203,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecologica2006.it/wp-content/uploads/2026/10/welfarecare-prevenzione-ottobre-2026.jpg",
 "w": 1200
@@ -3528,7 +3542,8 @@
 "hash": "1001000110000101000011000011001010010110110111001101110101010100",
 "kb": 245,
 "lum": 215,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.econord.tn.it/wp-content/uploads/2020/12/Schermata-2021-05-06-alle-22.43.15.png",
 "w": 2016
@@ -3784,7 +3799,8 @@
 "hash": "1100110001001100101100010111101100101001101100000110011001100111",
 "kb": 198,
 "lum": 195,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://ecotop.it/wp-content/uploads/2021/09/1-raccoltaerecupero.jpg",
 "w": 2048
 },
@@ -3793,7 +3809,8 @@
 "hash": "0010101100111011001101110011010101101111110010111100110011101101",
 "kb": 264,
 "lum": 193,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://ecotop.it/wp-content/uploads/2021/09/economiacircolare.jpg",
 "w": 2048
 },
@@ -3802,7 +3819,8 @@
 "hash": "0101011100010111100111011011011010110111110100100111001100111000",
 "kb": 341,
 "lum": 121,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://ecotop.it/wp-content/uploads/2021/09/1-ricercaesviluppo.jpg",
 "w": 2048
 },
@@ -3930,7 +3948,8 @@
 "hash": "0000000001100000010010001010100010111000101001011000000000000000",
 "kb": 41,
 "lum": 243,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ekologica.biz/wp-content/uploads/2020/11/servizi_featured_01.jpeg",
 "w": 1920
@@ -3940,7 +3959,8 @@
 "hash": "0111101101111110001111100011101100010011001011010010110100100101",
 "kb": 84,
 "lum": 169,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ekologica.biz/wp-content/uploads/2020/10/ritiro-e-valutazione-usato_intro.jpeg",
 "w": 1920
@@ -3950,7 +3970,8 @@
 "hash": "0111111101111001011110110011101100011011000010110001001100100111",
 "kb": 274,
 "lum": 142,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ekologica.biz/wp-content/uploads/2020/09/bagni-chimici-mod-marlin-da-cantiere_featured_01.jpeg",
 "w": 1920
@@ -3960,7 +3981,8 @@
 "hash": "1110011010100110101111001011011101111010011111110011111100011111",
 "kb": 143,
 "lum": 144,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ekologica.biz/wp-content/uploads/2020/09/bagni-chimici-mod-marlin-da-manifestazione_featured_01.jpeg",
 "w": 1920
@@ -4099,7 +4121,8 @@
 "hash": "0010000001110101011011110100010110011001100100110010010111000110",
 "kb": 57,
 "lum": 136,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_904x700/page/fileadmin/user_upload/ekos_Enviro_Services/360_Grad-Oelabscheiderkompetenz.jpg",
 "w": 904
@@ -4230,7 +4253,8 @@
 "hash": "0000001100001011010000010101100101000001011100010010111100111100",
 "kb": 62,
 "lum": 84,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.erdbau.it/resources/img/logo-bewusst-suedtirol.png",
 "w": 400
 },
@@ -4239,7 +4263,8 @@
 "hash": "0000000000110000001100000011000010110110101100101011000000000000",
 "kb": 41,
 "lum": 236,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.erdbau.it/resources/img/geobimm.jpg",
 "w": 1230
@@ -4249,7 +4274,8 @@
 "hash": "1110000011001000011000001111100011001100111100000011000010010000",
 "kb": 102,
 "lum": 237,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.erdbau.it/images/image_fullscreen/7_12_2026_1.png?ts=1794836659",
 "w": 1920
@@ -4269,7 +4295,8 @@
 "hash": "1100100001101000111010000110100011100000111100101000011010101110",
 "kb": 143,
 "lum": 233,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.erdbau.it/images/image_fullscreen/rc_naturns_rc_naturno_geschlossen_18.12.202_ab_12_uhr_-_12.01.2024_chiuso_19122023_dalle_ore_12-_12012024_4.png?ts=1794836711",
 "w": 1920
@@ -4289,7 +4316,8 @@
 "hash": "0101101101110001011100010111000101100010011000000110000000110001",
 "kb": 116,
 "lum": 143,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.erdbau.it/images/image_fullscreen/schaufel.jpg?ts=1540192883",
 "w": 1920
@@ -4566,7 +4594,8 @@
 "hash": "0000101101101010011001110100111010001100001011100010110000100000",
 "kb": 63,
 "lum": 128,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.autodemolizionirigotti.it/wp-content/uploads/revslider/video-media/anim50_02_3.jpeg",
 "w": 1280
 },
@@ -4599,7 +4628,8 @@
 "hash": "0110101100111100111101001111001011100011111100011011000111100011",
 "kb": 312,
 "lum": 124,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2026/09/rifiuti-pericolosi-e-non-pericolosi.png",
 "w": 2240
@@ -4609,7 +4639,8 @@
 "hash": "0110010001100100010011000101010110100101011001100100011011010110",
 "kb": 289,
 "lum": 122,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2026/09/fir-digitale-1.png",
 "w": 2240
@@ -4782,7 +4813,8 @@
 "hash": "1100011011000110100001101000010011000100100011001100010111000110",
 "kb": 70,
 "lum": 193,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fioresegroup.it/wp-content/uploads/2021/07/Serbatoio-e-Elettropompa.jpg",
 "w": 1500
@@ -5171,7 +5203,8 @@
 "hash": "1100110111010111011100000110100011111000101110001011100011101000",
 "kb": 99,
 "lum": 153,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gaiambiente.it/wp-content/uploads/2024/03/Sara-Lizzi.jpg",
 "w": 900
@@ -5181,7 +5214,8 @@
 "hash": "1100101111010111011100000110100011111000101110001011100011101000",
 "kb": 67,
 "lum": 153,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gaiambiente.it/wp-content/uploads/2024/03/Sara-Lizzi-768x1024.jpg",
 "w": 768
@@ -5221,7 +5255,8 @@
 "hash": "1111001111111001111110011111100111111001111110011111100011101000",
 "kb": 156,
 "lum": 139,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gaiambiente.it/wp-content/uploads/2022/12/Matteo-Lepre.jpg",
 "w": 2592
@@ -5485,7 +5520,8 @@
 "hash": "1000001110110001010000010100001001001110000111100001100000000100",
 "kb": 145,
 "lum": 115,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2022/09/impianti-sportivi.png",
 "w": 1200
@@ -5495,7 +5531,8 @@
 "hash": "0100010010001100101010000011010001010110100100011001100010010100",
 "kb": 69,
 "lum": 221,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2023/01/activa-servizi-nuovo-simplified-1.png",
 "w": 2121
@@ -5505,7 +5542,8 @@
 "hash": "0000000011001100110010001011100010110110100100101001100000011000",
 "kb": 60,
 "lum": 231,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2023/01/activa-ambiente.png",
 "w": 3000
@@ -5515,7 +5553,8 @@
 "hash": "0000000010000100100001000110100000111001100100001011110000000000",
 "kb": 71,
 "lum": 228,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2023/01/reactiva.png",
 "w": 3000
@@ -5525,7 +5564,8 @@
 "hash": "1000011100000110000001100000010100000101100001101000011010100110",
 "kb": 46,
 "lum": 92,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2024/02/Formato-articolo.png",
 "w": 831
@@ -5535,7 +5575,8 @@
 "hash": "0100101000110110011100011101000001101000011010010001100000000100",
 "kb": 59,
 "lum": 214,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2024/01/Gender-Equality-2-2.png",
 "w": 1662
@@ -5545,7 +5586,8 @@
 "hash": "1101101011001010110110101101101010110010110110101101101011001010",
 "kb": 67,
 "lum": 172,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2023/12/activa-servizi-home.jpg",
 "w": 1290
@@ -5555,7 +5597,8 @@
 "hash": "0001111100001110001101110011001100111001000010010000110100011111",
 "kb": 96,
 "lum": 122,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppo-activa.it/wp-content/uploads/2023/10/gestione-aziendali.jpg",
 "w": 1290
@@ -5629,7 +5672,8 @@
 "hash": "0010001100100001010011001101110000011001100000010001010010000110",
 "kb": 521,
 "lum": 106,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://cdn.prod.website-files.com/66f3dc0bae8339b53f8c3574%2F6759c265eeceeea0c24e7aee_Bonora_HomeVideo_NOLogo-poster-00001.jpg",
 "w": 1280
 },
@@ -5802,7 +5846,8 @@
 "hash": "0000100100001110001101000110001001100000101000011011001011111000",
 "kb": 200,
 "lum": 114,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fironline.it/images/news/2024/screenshot-2026-09-08-alle-15-16-23-2.png",
 "w": 1876
@@ -5812,7 +5857,8 @@
 "hash": "1101000111010001110100100010010110001101111001100100101101011011",
 "kb": 261,
 "lum": 57,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fironline.it/images/azienda/screenshot-2025-11-07-alle-16-37-40.png",
 "w": 1199
@@ -5822,7 +5868,8 @@
 "hash": "0001100101001011010110100001101001111010010110100011101001011100",
 "kb": 158,
 "lum": 88,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fironline.it/images/news/2024/bilancioSostenibilita2024.png",
 "w": 789
@@ -5832,7 +5879,8 @@
 "hash": "0100110010001100000000000010000110011000010101010101011110111001",
 "kb": 46,
 "lum": 98,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fironline.it/images/news/progetto-senza-titolo-21.png",
 "w": 1080
@@ -5842,7 +5890,8 @@
 "hash": "1100001111001111011111110111111111111010111110111111110111100010",
 "kb": 163,
 "lum": 153,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fironline.it/images/news/progetto-senza-titolo-18.png",
 "w": 1080
@@ -5912,7 +5961,8 @@
 "hash": "0000001100110011001000110010001101000011000000110111111101111100",
 "kb": 9,
 "lum": 53,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.ineco-srl.com/templates/buonobruttocreativo/images/buonobruttocreativo.png",
 "w": 100
 },
@@ -6084,7 +6134,8 @@
 "hash": "1001100110111001101100101000110010011000011101100011110011111001",
 "kb": 148,
 "lum": 57,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.italsiadisinfestazioni.it/wp-content/uploads/2026/08/italsia-cimici-vegetali.jpeg",
 "w": 1920
@@ -6368,7 +6419,8 @@
 "hash": "1000111110100110101001101010010010101000101010001100110011001000",
 "kb": 119,
 "lum": 184,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.kanaltec.it/assets/images/slider4.jpg",
 "w": 1920
 },
@@ -6386,7 +6438,8 @@
 "hash": "0000001100101111001011010100100101001001010011110100011101000111",
 "kb": 361,
 "lum": 108,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.kanaltec.it/assets/images/slider6.jpg",
 "w": 1920
 },
@@ -6437,7 +6490,8 @@
 "hash": "0000000000000011000101011101001011010010110000110001001100000000",
 "kb": 15,
 "lum": 96,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.logicafvg.eu/wp-content/uploads/2023/11/coesioneitalia_logo-orizz_colori.png",
 "w": 710
 },
@@ -6889,7 +6943,8 @@
 "hash": "0000000001010111011100111011110110011001011100110000000000000000",
 "kb": 7,
 "lum": 42,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://metfer.com/wp-content/themes/brainblank/images/Logo-ESNA-SOA-BIANCO.png",
 "w": 600
 },
@@ -7116,7 +7171,8 @@
 "hash": "1111100011011100001011100010001100110011101110101100110011111000",
 "kb": 44,
 "lum": 152,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.miroservizi.it/assets/img/06_noleggi.png",
 "w": 787
@@ -7308,7 +7364,8 @@
 "hash": "1111110010110001011100001101100001100100011000000010101100101011",
 "kb": 219,
 "lum": 130,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.mosolecorradosrl.com/blogMosoleCorradoSrl/wp-content/uploads/2026/09/rifacimento-impermeabilizzazione-del-tetto-di-un-capannone-commerciale-compromesso-scarico-con-manto-distaccato-dal-supporto-a-padova-mosolecorradosrl.jpg",
 "w": 940
@@ -8288,7 +8345,8 @@
 "hash": "0001000101001011100010110101011100000011001101011100110011001111",
 "kb": 200,
 "lum": 134,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.paservicesrl.com/wp-content/uploads/2023/04/mappa_UE_04.png",
 "w": 2161
@@ -8308,7 +8366,8 @@
 "hash": "0000000011111110110110101101110011001010111000001100000000000000",
 "kb": 41,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/PASI-ES.png",
 "w": 1600
@@ -8318,7 +8377,8 @@
 "hash": "0000000011111110110110101101110011001110101000001100000000000000",
 "kb": 41,
 "lum": 226,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/PASI-DK.png",
 "w": 1600
@@ -8328,7 +8388,8 @@
 "hash": "0000000000100000001100000001100100011001001010010010001000000000",
 "kb": 32,
 "lum": 13,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.paservicesrl.com/wp-content/uploads/2021/02/PA_Service.png",
 "w": 1018
@@ -8338,7 +8399,8 @@
 "hash": "0000010001001011010000110001001110010101100100010001100100001111",
 "kb": 200,
 "lum": 21,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.paservicesrl.com/wp-content/uploads/2020/05/home-hero.png",
 "w": 1924
@@ -9606,7 +9668,8 @@
 "hash": "0110111111000000110001000000010010001100100011001110010000111001",
 "kb": 228,
 "lum": 150,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com//483bf4df/dms3rep/multi/opt/1-1920w.jpg",
 "w": 490
 },
@@ -9615,7 +9678,8 @@
 "hash": "0011011100110011001101110000101100000011000000110000000100000010",
 "kb": 227,
 "lum": 198,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//483bf4df/dms3rep/multi/opt/wrapper_sub-1920x1120-1920w.jpg",
 "w": 1920
@@ -10382,7 +10446,8 @@
 "hash": "0011011000110101001111010001111100011111000111100001111000011101",
 "kb": 88,
 "lum": 122,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.sudtirolfer.com/wp-content/uploads/2018/04/Suedtirolfer2.jpg",
 "w": 2000
 },
@@ -10652,7 +10717,8 @@
 "hash": "0000000000000000000000000000000000000110000001100000011000000000",
 "kb": 19,
 "lum": 248,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "http://termerecuperi.it/web/wp-content/uploads/2019/05/main-bg-1.png",
 "w": 1920
@@ -10673,7 +10739,8 @@
 "hash": "0100100001001001011100110001001110010011111010111110110001110100",
 "kb": 66,
 "lum": 54,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.termerecuperi.it/web/wp-content/uploads/2020/07/banner-09.jpg",
 "w": 1920

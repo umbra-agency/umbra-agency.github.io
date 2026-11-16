@@ -87,11 +87,20 @@ STOCK = {'raccolta': 6, 'spazzamento': 4, 'impianto': 6, 'notte': 5, 'territorio
 STOCK_FOR = {'spurghi': 'camion', 'bonifica': 'bonifica', 'impianto': 'impianto', 'cantiere': 'cantiere', 'container': 'container',
              'spazzamento': 'spazzamento', 'raccolta': 'raccolta', 'disinfestazione': 'territorio', 'consulenza': 'territorio'}
 
-def sector_of(text):
+def sector_of1(text):
     t = (text or '').lower()
     for k, rx in SECT:
         if re.search(rx, t): return k
-    return 'raccolta'
+    return None
+
+def sector_of(text, items=None):
+    if items:
+        from collections import Counter
+        c = Counter(s for s in (sector_of1(x) for x in items) if s)
+        if c:
+            best = max(c.values()); order = [k for k, _ in SECT]
+            return sorted([k for k, v in c.items() if v == best], key=order.index)[0]
+    return sector_of1(text) or 'raccolta'
 
 SERV_DESC = {
  'spurghi': 'Spurgo e pulizia di fosse, pozzetti e condotte, con mezzi attrezzati e smaltimento autorizzato di quanto aspirato.',
@@ -136,7 +145,7 @@ def norm(L):
     d['cert'] = [c for c in (d.get('certificazioni') or []) if c][:8]
     d['nk'] = [n for n in (d.get('numeri_chiave') or []) if n][:4]
     d['foto'] = [u for u in (d.get('foto_urls') or []) if isinstance(u, str) and u.startswith('http')][:8]
-    d['sector'] = sector_of(' '.join(d['servizi']) + ' ' + (d.get('claim') or '') + ' ' + d['nome'])
+    d['sector'] = sector_of(' '.join(d['servizi']) + ' ' + (d.get('claim') or '') + ' ' + d['nome'], d['servizi'] + [d['nome']])
     d['prov'] = (d.get('provincia') or '').upper()[:2]
     d['gen'] = d.get('generazione_famiglia') or d.get('generazione/famiglia') or d.get('generazione')
     if not d.get('anno_fondazione'):
@@ -179,7 +188,16 @@ class Photos:
         self.cat = STOCK_FOR.get(d['sector'], 'raccolta'); self.k = 0; self.used = set()
         h = int(hashlib.md5(d['slug'].encode()).hexdigest(), 16); self.off = h % 7
         lr = rep.get(f"{d['slug']}/m/logo.png", {})
-        self.logo = 'm/logo.png' if lr.get('ok') else None
+        self.logo = 'm/logo.png' if lr.get('ok') and os.path.exists(os.path.join(ROOT, d['slug'], 'm', 'logo.png')) else None
+        self.logo_light = False
+        if self.logo:
+            from PIL import Image
+            im = Image.open(os.path.join(ROOT, d['slug'], 'm', 'logo.png')).convert('RGBA'); im.thumbnail((120, 120))
+            px = [(r, g, b) for r, g, b, a in im.getdata() if a > 180]
+            if px:
+                lm = sum(.299 * r + .587 * g + .114 * b for r, g, b in px) / len(px)
+                opaque = len(px) / (im.size[0] * im.size[1])
+                self.logo_light = lm > 205 and opaque < .9
     def big(self, minw=1300):
         return [x for x in self.items if x['w'] >= minw]
     def hero(self):
@@ -317,7 +335,8 @@ def nav(d, P, arch, dark):
     logo = P.logo
     if logo:
         b = f'<img src="{logo}" alt="{E(d["nome"])}">'
-        b = f'<span class="brand__chip">{b}</span>' if dark else b
+        if P.logo_light and not dark: b = f'<span>{E(d["nome"])}</span>'
+        elif dark and not P.logo_light: b = f'<span class="brand__chip">{b}</span>'
     else:
         b = f'<span>{E(d["nome"])}</span>'
     links = ''.join(f'<a href="#{a}">{t}</a>' for a, t in d['_nav'])
@@ -561,17 +580,55 @@ FONTS = {
 }
 
 def choose_arch(d, P):
-    h = int(hashlib.md5(d['slug'].encode()).hexdigest(), 16)
     if d.get('stile') in ('T', 'I', 'X'): return d['stile']
-    if d['sector'] in ('impianto', 'cantiere', 'spurghi', 'container') and P.own_count() >= 2: return 'X' if h % 3 else 'T'
-    if d['anno'] and d['anno'] < 1995: return 'I' if h % 4 else 'T'
-    return ['T', 'I', 'X'][h % 3]
+    h = int(hashlib.md5(d['slug'].encode()).hexdigest(), 16)
+    a = ['T', 'I', 'X'][h % 3]
+    if d['anno'] and d['anno'] < 1985 and h % 2: a = 'I'
+    if a == 'X' and not P.big(1300): a = 'T' if h % 2 else 'I'
+    return a
+
+def brand_color(slug, files):
+    from PIL import Image
+    from collections import Counter
+    import colorsys as cs
+    for f, weight_min in files:
+        fp = os.path.join(ROOT, slug, f)
+        if not os.path.exists(fp): continue
+        try:
+            im = Image.open(fp).convert('RGBA'); im.thumbnail((160, 160))
+            c = Counter()
+            for r, g, b, a in im.getdata():
+                if a < 200: continue
+                h, l, s = cs.rgb_to_hls(r / 255, g / 255, b / 255)
+                if s < .38 or l < .16 or l > .86: continue
+                c[(round(h * 24) % 24)] += 1
+            tot = im.size[0] * im.size[1]
+            if not c: continue
+            hb, n = c.most_common(1)[0]
+            if n / tot < weight_min: continue
+            px = [(r, g, b) for r, g, b, a in im.getdata() if a >= 200]
+            sel = [p for p in px if (lambda h, l, s: s >= .38 and .16 <= l <= .86 and round(h * 24) % 24 == hb)(*cs.rgb_to_hls(p[0] / 255, p[1] / 255, p[2] / 255))]
+            r = sum(p[0] for p in sel) / len(sel); g = sum(p[1] for p in sel) / len(sel); b = sum(p[2] for p in sel) / len(sel)
+            return '#%02x%02x%02x' % (int(r), int(g), int(b)), f
+        except Exception:
+            continue
+    return None, None
 
 def build(L, rep):
     d = norm(L); P = Photos(d, rep)
     arch = choose_arch(d, P); d['_arch'] = arch
     dark = arch in ('T', 'X')
-    acc, acct, on = tone_accent(pick_accent(d.get('colori_brand')), dark)
+    base = pick_accent(d.get('colori_brand'))
+    src = 'sito'
+    if base is None:
+        files = [('m/logo.png', .04)] + [(x['src'], .12) for x in P.items[:4]]
+        hx, src = brand_color(d['slug'], files)
+        base = hrgb(hx) if hx else None
+    d['_colsrc'] = src if base else 'default'
+    if base is None:
+        pal = ['#2f8f6a', '#1f6fa8', '#e07b24', '#3c8d3a', '#0f7c86', '#c8a12a', '#5a7f2b', '#2a5f9e']
+        base = hrgb(pal[int(hashlib.md5(d['slug'].encode()).hexdigest(), 16) % len(pal)])
+    acc, acct, on = tone_accent(base, dark)
     nav_items = [('azienda', 'Azienda'), ('servizi', 'Servizi'), ('metodo', 'Metodo')]
     if d['cert']: nav_items.append(('certificazioni', 'Certificazioni'))
     nav_items.append(('lavora', 'Lavora con noi'))
@@ -596,7 +653,7 @@ def build(L, rep):
 {nav(d, P, arch, dark)}<main>{body}{contacts(d, arch)}</main>{umbra(d)}{footer(d)}{fab(d)}</body></html>'''
     out = os.path.join(ROOT, d['slug']); os.makedirs(out, exist_ok=True)
     open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(page)
-    return {'slug': d['slug'], 'arch': arch, 'acc': acc, 'foto_proprie': P.own_count(), 'logo': bool(P.logo), 'sector': d['sector']}
+    return {'slug': d['slug'], 'arch': arch, 'acc': acc, 'colsrc': d['_colsrc'], 'foto_proprie': P.own_count(), 'logo': bool(P.logo), 'sector': d['sector']}
 
 if __name__ == '__main__':
     leads = json.load(open(sys.argv[1], encoding='utf-8'))

@@ -1,0 +1,1001 @@
+[
+ {
+  "slug": "fratelli-stradiotto-spurghi",
+  "arch": "I",
+  "acc": "#e30613",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 20,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "servizi-ecologici-imec",
+  "arch": "X",
+  "acc": "#1de275",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "vidotto-servizi",
+  "arch": "T",
+  "acc": "#54c837",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 5,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "peruch",
+  "arch": "T",
+  "acc": "#69a2d3",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 12,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "mi-ro-servizi",
+  "arch": "I",
+  "acc": "#008f3c",
+  "colsrc": "sito",
+  "foto_proprie": 10,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "campigotto",
+  "arch": "I",
+  "acc": "#3891e1",
+  "colsrc": "m/s1.jpg",
+  "foto_proprie": 6,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "marcon",
+  "arch": "T",
+  "acc": "#00ff7c",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 12,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "treviso-eco-servizi",
+  "arch": "X",
+  "acc": "#18abe7",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "trevimetal",
+  "arch": "T",
+  "acc": "#64a1d3",
+  "colsrc": "m/s11.jpg",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "adria-servizi",
+  "arch": "X",
+  "acc": "#8ac348",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 17,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "mosole-corrado",
+  "arch": "T",
+  "acc": "#8c8cfd",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "binotto-scavi",
+  "arch": "X",
+  "acc": "#af8bdf",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "ecomultiservice",
+  "arch": "I",
+  "acc": "#c8a12a",
+  "colsrc": "default",
+  "foto_proprie": 2,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "new-ecology",
+  "arch": "T",
+  "acc": "#82c260",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 14,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "fiorese-group",
+  "arch": "X",
+  "acc": "#e3807c",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "ecospurghi",
+  "arch": "I",
+  "acc": "#3da942",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "ekologica-services",
+  "arch": "X",
+  "acc": "#4db4e2",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "brunello-evaristo",
+  "arch": "T",
+  "acc": "#de7e51",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "nord-est-ecologia",
+  "arch": "I",
+  "acc": "#297125",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "rameveca",
+  "arch": "I",
+  "acc": "#ca8534",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "ri-e-co",
+  "arch": "I",
+  "acc": "#79b63d",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 10,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "eco-gest",
+  "arch": "T",
+  "acc": "#6699d6",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "alba-autospurghi",
+  "arch": "T",
+  "acc": "#4bff00",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "n-p-m-bonifiche-amianto",
+  "arch": "X",
+  "acc": "#5e9ccf",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 17,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "ecoricicli-metalli",
+  "arch": "I",
+  "acc": "#4376b2",
+  "colsrc": "m/s7.jpg",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "c-e-r-centro-ecologico-recuperi",
+  "arch": "T",
+  "acc": "#71a0cc",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 4,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "ecodem",
+  "arch": "T",
+  "acc": "#52b948",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 13,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "pozzi-neri-fasoli",
+  "arch": "I",
+  "acc": "#5bc059",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "pozzi-neri-cacciatori",
+  "arch": "I",
+  "acc": "#68c059",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "squaranti-spurgo-pozzi-neri",
+  "arch": "T",
+  "acc": "#46b8e4",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "oliboni-group",
+  "arch": "X",
+  "acc": "#859fd1",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 15,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "sartori-fratelli",
+  "arch": "I",
+  "acc": "#966539",
+  "colsrc": "m/2.jpg",
+  "foto_proprie": 6,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "autospurgo-bordin",
+  "arch": "I",
+  "acc": "#ebdd2e",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "alter-eco",
+  "arch": "T",
+  "acc": "#709edc",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 12,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "seri",
+  "arch": "T",
+  "acc": "#948edc",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 4,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "terme-recuperi",
+  "arch": "T",
+  "acc": "#7bace4",
+  "colsrc": "m/s28.jpg",
+  "foto_proprie": 4,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "italsia",
+  "arch": "I",
+  "acc": "#a7c938",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "disinfestazione"
+ },
+ {
+  "slug": "de-zuani-ecologia",
+  "arch": "I",
+  "acc": "#34aee5",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "capuzzo-nicola",
+  "arch": "X",
+  "acc": "#82b946",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 16,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "voltan-autoespurgo",
+  "arch": "X",
+  "acc": "#4e99ee",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 18,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "giusto-spurghi",
+  "arch": "I",
+  "acc": "#5787c2",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 19,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "dama-servizi-ecologici",
+  "arch": "T",
+  "acc": "#6a9ccf",
+  "colsrc": "m/s7.jpg",
+  "foto_proprie": 6,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "autospurghi-tonetto",
+  "arch": "T",
+  "acc": "#49b946",
+  "colsrc": "default",
+  "foto_proprie": 1,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "se-fi-ambiente",
+  "arch": "T",
+  "acc": "#a2bf40",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 5,
+  "logo": false,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "nuova-esperia",
+  "arch": "X",
+  "acc": "#ef7178",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "zaccheo-group",
+  "arch": "T",
+  "acc": "#93df20",
+  "colsrc": "sito",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "scarante-autoespurghi",
+  "arch": "I",
+  "acc": "#e23641",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 16,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "eco-service",
+  "arch": "T",
+  "acc": "#44a4da",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "manente-spurghi",
+  "arch": "I",
+  "acc": "#254969",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 14,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "bedendo-ambiente-cml-bedendo",
+  "arch": "T",
+  "acc": "#e27979",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "polaris-ambiente",
+  "arch": "X",
+  "acc": "#6fc9c5",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "ecologica-2006",
+  "arch": "I",
+  "acc": "#35a833",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 12,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "bozzato-servizi",
+  "arch": "I",
+  "acc": "#018e60",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 4,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "zatta",
+  "arch": "X",
+  "acc": "#badc23",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 9,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "ecologia-lena",
+  "arch": "I",
+  "acc": "#3776bd",
+  "colsrc": "m/s14.jpg",
+  "foto_proprie": 15,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "its-ecologia-italspurghi",
+  "arch": "T",
+  "acc": "#0f9eff",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 18,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "calcina-iniziative-ambientali",
+  "arch": "I",
+  "acc": "#e07b24",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "la-igienica",
+  "arch": "I",
+  "acc": "#399037",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "boz-sei",
+  "arch": "X",
+  "acc": "#bdcfe6",
+  "colsrc": "m/s36.jpg",
+  "foto_proprie": 5,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "martin-ecologia-e-servizi",
+  "arch": "T",
+  "acc": "#afc65f",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "tecno-ecologic",
+  "arch": "I",
+  "acc": "#c8a12a",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "si-eco",
+  "arch": "X",
+  "acc": "#72adc9",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "eco-studio",
+  "arch": "I",
+  "acc": "#e07b24",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "clappis",
+  "arch": "T",
+  "acc": "#00a5ff",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "camilot-recycling",
+  "arch": "X",
+  "acc": "#9bc7f5",
+  "colsrc": "m/s1.jpg",
+  "foto_proprie": 3,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "in-eco",
+  "arch": "X",
+  "acc": "#ce9a54",
+  "colsrc": "m/s1.jpg",
+  "foto_proprie": 3,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "spiga",
+  "arch": "I",
+  "acc": "#51b3c8",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "f-lli-varutti",
+  "arch": "T",
+  "acc": "#0baef4",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "spurgo-service",
+  "arch": "I",
+  "acc": "#1456a7",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "lorenzon-f-lli",
+  "arch": "I",
+  "acc": "#5a7f2b",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "idrospurghi-della-pietra",
+  "arch": "T",
+  "acc": "#3fc08e",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "gaiambiente",
+  "arch": "T",
+  "acc": "#c9d033",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 15,
+  "logo": true,
+  "sector": "consulenza"
+ },
+ {
+  "slug": "logica-fvg",
+  "arch": "T",
+  "acc": "#6699d6",
+  "colsrc": "default",
+  "foto_proprie": 8,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "pr-ecology",
+  "arch": "X",
+  "acc": "#c1905d",
+  "colsrc": "m/s2.jpg",
+  "foto_proprie": 4,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "ecologica-montereale",
+  "arch": "T",
+  "acc": "#ffc72c",
+  "colsrc": "sito",
+  "foto_proprie": 4,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "spherae",
+  "arch": "T",
+  "acc": "#e28331",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "snidero",
+  "arch": "X",
+  "acc": "#d68967",
+  "colsrc": "m/s7.jpg",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "3c-ecologia",
+  "arch": "T",
+  "acc": "#fb6f7c",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "moschetta-ecospurghi",
+  "arch": "T",
+  "acc": "#7299ca",
+  "colsrc": "m/s8.jpg",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "riciclo-group-riciclo-system",
+  "arch": "T",
+  "acc": "#4ea3de",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "pertot",
+  "arch": "T",
+  "acc": "#0bf459",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 0,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "metfer",
+  "arch": "X",
+  "acc": "#869dd2",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 11,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "danev",
+  "arch": "I",
+  "acc": "#598cc0",
+  "colsrc": "m/s25.jpg",
+  "foto_proprie": 16,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "eco-service-rovereto",
+  "arch": "X",
+  "acc": "#3fc08e",
+  "colsrc": "default",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "scr-servizi-chini-renato",
+  "arch": "I",
+  "acc": "#e07b24",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "chiocchetti",
+  "arch": "I",
+  "acc": "#107e7e",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "gruppo-fir",
+  "arch": "I",
+  "acc": "#134d94",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "avio-service",
+  "arch": "X",
+  "acc": "#a8c6e6",
+  "colsrc": "m/s25.jpg",
+  "foto_proprie": 14,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "sativa",
+  "arch": "T",
+  "acc": "#d9b449",
+  "colsrc": "m/s2.jpg",
+  "foto_proprie": 20,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "econord",
+  "arch": "X",
+  "acc": "#30cf68",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "f-lli-rigotti",
+  "arch": "X",
+  "acc": "#f5734f",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "ecotop",
+  "arch": "I",
+  "acc": "#bbce28",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "gruppo-bonora",
+  "arch": "I",
+  "acc": "#c8a12a",
+  "colsrc": "default",
+  "foto_proprie": 15,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "f-lli-merler",
+  "arch": "I",
+  "acc": "#51b131",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 5,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "gruppo-activa",
+  "arch": "I",
+  "acc": "#2e7c3c",
+  "colsrc": "m/s39.jpg",
+  "foto_proprie": 5,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "zandonella",
+  "arch": "I",
+  "acc": "#2f8f6a",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "zampoli",
+  "arch": "T",
+  "acc": "#d3aa2c",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "c-i-t-castellani-inerti-trasporti",
+  "arch": "I",
+  "acc": "#5a7f2b",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "tappeiner",
+  "arch": "I",
+  "acc": "#b94767",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "dolomit-recycling",
+  "arch": "T",
+  "acc": "#49b946",
+  "colsrc": "default",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "sudtirolfer",
+  "arch": "X",
+  "acc": "#49b946",
+  "colsrc": "default",
+  "foto_proprie": 4,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "kanaltec",
+  "arch": "T",
+  "acc": "#629eda",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 6,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "ecorott-tpa",
+  "arch": "I",
+  "acc": "#2a5f9e",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "erdbau",
+  "arch": "T",
+  "acc": "#d78528",
+  "colsrc": "m/s6.jpg",
+  "foto_proprie": 11,
+  "logo": false,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "fischer-fischer",
+  "arch": "X",
+  "acc": "#d5b284",
+  "colsrc": "m/3.jpg",
+  "foto_proprie": 4,
+  "logo": false,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "euro-alpe",
+  "arch": "I",
+  "acc": "#2f8f6a",
+  "colsrc": "default",
+  "foto_proprie": 15,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "alteisen-it-domanegg",
+  "arch": "T",
+  "acc": "#9697fb",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "bwr",
+  "arch": "T",
+  "acc": "#e47e61",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "pa-service",
+  "arch": "X",
+  "acc": "#72a0c9",
+  "colsrc": "m/s11.jpg",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "eggentaler-bauschutt-recycling",
+  "arch": "I",
+  "acc": "#c8a12a",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
+ },
+ {
+  "slug": "ekos",
+  "arch": "T",
+  "acc": "#13a8ec",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 13,
+  "logo": true,
+  "sector": "raccolta"
+ }
+]
