@@ -205,9 +205,13 @@ class Photos:
         if b: self.used.add(b[0]['src']); return b[0]['src'], True
         return stock('notte' if self.d['_arch'] == 'X' else 'territorio' if self.d['_arch'] == 'T' else self.cat, self.off), False
     def next(self, minw=700, cat=None):
-        for x in self.items:
-            if x['src'] not in self.used and x['w'] >= minw:
-                self.used.add(x['src']); return x['src']
+        for lim in (minw, 560):
+            for x in self.items:
+                if x['src'] not in self.used and x['w'] >= lim:
+                    self.used.add(x['src']); return x['src']
+        ok = [x for x in self.items if x['w'] >= 560]
+        if len(ok) >= 3:
+            self.k += 1; return ok[self.k % len(ok)]['src']
         self.k += 1; return stock(cat or self.cat, self.off + self.k)
     def fb(self, cat=None):
         self.k += 1; return stock(cat or self.cat, self.off + self.k + 3)
@@ -413,6 +417,13 @@ def fab(d):
 
 # ---------------------------------------------------------------- architetture
 SPEC = [
+ (r'tubaz|tubatur|guasti|perdit', 'Ricerca guasti e interventi su tubazioni e scarichi, anche interrati.'),
+ (r'bagni|wc chimic|servizi igienic', 'Noleggio e manutenzione di bagni chimici per cantieri ed eventi.'),
+ (r'oli usat|olio', 'Ritiro di oli usati e lubrificanti esausti, con avvio a rigenerazione.'),
+ (r'metall|ferros|rottam', 'Ritiro e recupero di metalli ferrosi e non ferrosi.'),
+ (r'carta|cartone', 'Raccolta e recupero di carta e cartone.'),
+ (r'legno', 'Recupero del legno da imballaggi, cantieri e manutenzioni.'),
+ (r'analisi|laborator|campionam', 'Analisi e caratterizzazione dei rifiuti in laboratorio.'),
  (r'video|telecamer', 'Ispezione delle condotte con telecamera: si vede il problema prima di scavare.'),
  (r'amianto|eternit', 'Rimozione di coperture e manufatti in amianto con piano di lavoro, confinamento e smaltimento autorizzato.'),
  (r'disostruz|sturat|sgorg', 'Disostruzione di scarichi e tubazioni con attrezzature ad alta pressione.'),
@@ -443,7 +454,8 @@ def services_list(d):
         sec = sector_of(s); desc = None
         for rx, dd in SPEC:
             if re.search(rx, s.lower()): desc = dd; break
-        out.append((s, desc or SERV_DESC.get(sec, SERV_DESC['raccolta']), sec))
+        sec1 = sector_of1(s) or d['sector']
+        out.append((s, desc or SERV_DESC.get(sec1, SERV_DESC['raccolta']), sec1))
     return out
 
 def cycle_for(d): return CYCLE.get(d['sector'], CYCLE_DEFAULT)
