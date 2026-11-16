@@ -103,7 +103,7 @@ function real(){
   var art=$('.hero__art');
   if(art&&iHero===0){
     var hfg=D.createElement('figure');hfg.className='hero__ph';
-    var dropHero=function(){if(hfg.parentNode)hfg.parentNode.removeChild(hfg);rm('.hero__sub');art.classList.remove('has-ph','has-sub');};
+    var dropHero=function(){if(hfg.parentNode)hfg.parentNode.removeChild(hfg);rm('.hero__sub');art.classList.remove('has-ph','has-sub');var hh=$('.hero');if(hh)hh.classList.remove('hero--divisa');};
     hfg.appendChild(extImg(PH[0].src,ttl(PH[0]),dropHero,function(im){if(im.naturalWidth<420||im.naturalHeight<360)dropHero();else hfg.classList.add('is-in');}));
     hfg.firstChild.loading='eager';
     var cp=D.createElement('figcaption');cp.textContent=(PH[0].titolo&&PH[0].titolo!=='Lo studio'?PH[0].titolo+' · ':'')+(S.citta||'');hfg.appendChild(cp);
