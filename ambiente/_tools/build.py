@@ -227,22 +227,28 @@ def img(src, alt, fb, cls='', eager=False, ar=None):
 
 # ---------------------------------------------------------------- testi
 def hero_title(d, arch):
-    s = d['sector']; c = d.get('comune') or ''; pv = d['provn']; a = d['anno']
-    pick = int(hashlib.md5((d['slug'] + arch).encode()).hexdigest(), 16)
+    s = d['sector']; c = E(d.get('comune') or ''); pv = E(d['provn'] or d.get('comune') or ''); a = d['anno']
+    pick = int(hashlib.md5((d['slug'] + 'h2').encode()).hexdigest(), 16)
+    cl = (d.get('claim') or '').strip().rstrip('.!')
+    if 10 <= len(cl) <= 46 and pick % 3 == 0 and not re.search(r'[|®™]', cl):
+        w = cl.split(); mid = max(1, len(w) // 2)
+        return [E(' '.join(w[:mid])), '<em>' + E(' '.join(w[mid:])) + '</em>.']
     T = {
-     'spurghi': [['Reti e fosse,', '<em>libere</em>', 'e in regola.'], ['Lo spurgo', 'fatto <em>come si deve</em>.'], ['Quando si intasa,', 'arriviamo <em>noi</em>.']],
-     'bonifica': [['Bonifiche', '<em>in sicurezza</em>,', 'documentate.'], ['L\'amianto,', 'tolto <em>a regola</em>', 'd\'arte.']],
-     'impianto': [['Quello che', 'scartate torna', '<em>materia</em>.'], ['Dal rifiuto', 'alla <em>risorsa</em>.']],
-     'cantiere': [['Demolire,', 'separare,', '<em>recuperare</em>.'], ['Cantieri puliti,', 'inerti <em>recuperati</em>.']],
+     'spurghi': [['Reti e fosse,', '<em>libere</em>', 'e in regola.'], ['Lo spurgo', 'fatto <em>come si deve</em>.'], ['Quando si intasa,', 'arriviamo <em>noi</em>.'],
+                 ['Fognature pulite,', '<em>senza sorprese</em>.'], ['Pulito sotto,', '<em>tranquilli</em> sopra.'], ['Pronto intervento,', 'documenti', '<em>in ordine</em>.']],
+     'bonifica': [['Bonifiche', '<em>in sicurezza</em>,', 'documentate.'], ['L\'amianto,', 'tolto <em>a regola</em>', 'd\'arte.'], ['Aree bonificate,', '<em>restituite</em>.']],
+     'impianto': [['Quello che', 'scartate torna', '<em>materia</em>.'], ['Dal rifiuto', 'alla <em>risorsa</em>.'], ['Ogni scarto ha', 'una <em>seconda vita</em>.'], ['Recuperare è', 'il nostro <em>mestiere</em>.']],
+     'cantiere': [['Demolire,', 'separare,', '<em>recuperare</em>.'], ['Cantieri puliti,', 'inerti <em>recuperati</em>.'], ['Demolire bene,', 'recuperare <em>tutto</em>.']],
      'container': [['Il cassone', 'giusto, <em>al momento</em>', 'giusto.'], ['Container', 'e trasporto', '<em>senza attese</em>.']],
-     'spazzamento': [['Strade pulite,', 'città <em>in ordine</em>.'], ['Il territorio', 'di ' + E(pv or c) + ',', '<em>in ordine</em>.']],
-     'raccolta': [['Servizi ambientali', 'per ' + E(pv or c), '<em>' + (f'dal {a}' if a else 'e dintorni') + '</em>.'], ['Rifiuti gestiti,', 'territorio', '<em>in ordine</em>.'], ['Raccolta e trasporto', '<em>senza pensieri</em>.']],
+     'spazzamento': [['Strade pulite,', 'città <em>in ordine</em>.']],
+     'raccolta': [['Servizi ambientali', 'per ' + pv, '<em>' + (f'dal {a}' if a else 'e dintorni') + '</em>.'], ['Rifiuti gestiti,', 'carte', '<em>in regola</em>.'],
+                  ['Raccolta e trasporto', '<em>senza pensieri</em>.'], ['Dal ritiro', 'all\'impianto,', '<em>tracciato</em>.']],
      'disinfestazione': [['Ambienti sani,', '<em>interventi</em>', 'programmati.']],
      'consulenza': [['Gli adempimenti', 'ambientali,', '<em>seguiti da noi</em>.']],
     }
-    opts = T.get(s, T['raccolta']); t = opts[pick % len(opts)]
-    if arch == 'X': t = [re.sub(r'<em>(.*?)</em>', r'<em>\1</em>', x) for x in t]
-    return t
+    opts = list(T.get(s, T['raccolta']))
+    if a and s in ('spurghi', 'raccolta', 'cantiere', 'impianto'): opts.append([f'{2026 - a} anni', 'di lavoro', f'a <em>{c or pv}</em>.'])
+    return opts[pick % len(opts)]
 
 def say_text(d):
     nm = E(d['nome']); parts = []
@@ -463,7 +469,7 @@ def cycle_for(d): return CYCLE.get(d['sector'], CYCLE_DEFAULT)
 def arch_T(d, P):
     hsrc, own = P.hero()
     title = hero_title(d, 'T'); st = stats(d)
-    eye = ' <i></i> '.join(E(x) for x in [d['servizi'][0] if d['servizi'] else 'Servizi ambientali', d.get('comune'), f"dal {d['anno']}" if d['anno'] else d['provn']] if x)
+    eye = ' <i></i> '.join(E(x) for x in dict.fromkeys([d['servizi'][0] if d['servizi'] else 'Servizi ambientali', d.get('comune'), f"dal {d['anno']}" if d['anno'] else d['provn']]) if x)
     stats_h = ''.join(f'<div class="stat"><b>{stat_html(ds, v)}</b><span>{E(l)}</span></div>' for ds, v, l in st[:3])
     sub = E(d.get('claim') or f"{d['nome']}: {', '.join(d['servizi'][:3]).lower()}.")
     hero = f'''<section class="heroT" id="top"><div class="heroT__fallback">{img(hsrc, d['nome'], stock('territorio', 1), eager=True)}</div><div class="heroT__veil"></div>
@@ -506,7 +512,7 @@ def arch_T(d, P):
 def arch_I(d, P):
     hsrc, own = P.hero()
     title = hero_title(d, 'I'); st = stats(d)
-    eye = ' <i></i> '.join(E(x) for x in [d.get('comune'), d['provn'], f"dal {d['anno']}" if d['anno'] else None] if x)
+    eye = ' <i></i> '.join(E(x) for x in dict.fromkeys([d.get('comune'), d['provn'], f"dal {d['anno']}" if d['anno'] else None]) if x)
     cards = ''.join(f'<div class="tcard"><b>{stat_html(ds, v)}</b><span>{E(l)}</span></div>' for ds, v, l in st[:3])
     sub = E(d.get('claim') or f"{', '.join(d['servizi'][:3])}.")
     hero = f'''<section class="heroI" id="top"><div class="wrap heroI__top"><div><p class="eye ln"><span>{eye}</span></p><h1 class="h-xl" style="margin-top:22px">{''.join(f'<span class="ln"><span>{x}</span></span>' for x in title)}</h1></div>
