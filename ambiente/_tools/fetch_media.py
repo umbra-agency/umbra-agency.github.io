@@ -40,7 +40,7 @@ def save_img(data, dest, logo=False):
 def job(line):
     url, rel = line
     dest = os.path.join(ROOT, rel)
-    if os.path.exists(dest) and report.get(rel, {}).get('ok'): return rel, report[rel]
+    if report.get(rel, {}).get('rej') or (os.path.exists(dest) and report.get(rel, {}).get('ok')): return rel, report[rel]
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     err = ''
     for _ in range(2):
