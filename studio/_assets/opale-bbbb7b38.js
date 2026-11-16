@@ -279,7 +279,8 @@ function intro(){
       if(S._bg){var bg=D.createElement('div');bg.className='intro__bg';bg.setAttribute('aria-hidden','true');var bi=new Image();bi.referrerPolicy='no-referrer';bi.alt='';bi.onload=function(){bg.classList.add('is-in');};bi.onerror=function(){if(bg.parentNode)bg.parentNode.removeChild(bg);};bi.src=(typeof OPT!=='undefined'&&OPT[S._bg])||S._bg;bg.appendChild(bi);el.insertBefore(bg,el.firstChild);}
     }
   }catch(e){}
-  var closed=false,t=setTimeout(close,RM?3200:8500);
+  var closed=false,t=setTimeout(close,RM?2400:3400);
+  ['wheel','touchmove'].forEach(function(ev){el.addEventListener(ev,close,{passive:true});});
   function close(){if(closed)return;closed=true;clearTimeout(t);el.classList.add('is-out');H.classList.remove('intro-on');
     try{sessionStorage.setItem('opale-intro','1');}catch(e){}
     D.removeEventListener('keydown',key);

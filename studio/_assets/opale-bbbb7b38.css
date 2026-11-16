@@ -631,7 +631,7 @@ html.js .intro.is-out{clip-path:circle(0% at 50% 40%);opacity:0;pointer-events:n
 .intro__by{margin-top:14px;display:flex;align-items:center;gap:12px;font:500 .66rem/1 var(--f-m);letter-spacing:.16em;text-transform:uppercase;color:#6F7278}
 .intro__by .um__logo{font-size:1.5rem;text-transform:none}
 .intro__bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.08)}
-.intro__bar i{display:block;height:100%;background:#EDEDED;transform-origin:0 50%;animation:fill 7s linear both}
+.intro__bar i{display:block;height:100%;background:#EDEDED;transform-origin:0 50%;animation:fill 3.4s linear both}
 @keyframes fill{from{transform:scaleX(0)}}
 
 .dock{position:fixed;left:18px;bottom:18px;z-index:90}
