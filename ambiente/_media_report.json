@@ -5,14 +5,22 @@
 "n": 0
 },
 "3c-ecologia/m/1.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda183830>",
-"ok": false,
-"url": "https://3c-srl.it/wp-content/uploads/2025/12/Foto-raccolta-rifiuti.png"
+"h": 600,
+"hash": "1000111111100011011100111110011101000010010110011000100101100000",
+"kb": 100,
+"lum": 116,
+"ok": true,
+"url": "https://3c-srl.it/wp-content/uploads/2025/12/Foto-raccolta-rifiuti.png",
+"w": 600
 },
 "3c-ecologia/m/logo.png": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda183f10>",
-"ok": false,
-"url": "https://3c-srl.it/wp-content/uploads/2025/11/logo_nuovo.png"
+"h": 281,
+"hash": "0011001100110011010101010001011100010111010101010011001100110011",
+"kb": 73,
+"lum": 112,
+"ok": true,
+"url": "https://3c-srl.it/wp-content/uploads/2025/11/logo_nuovo.png",
+"w": 591
 },
 "adria-servizi/_scrape": {
 "done": true,
@@ -208,6 +216,49 @@
 "ok": true,
 "url": "https://www.albaautospurghi.it/wp-content/uploads/Logo_ALBA_AUTOSPURGHI-04.png",
 "w": 3763
+},
+"alteisen-it-domanegg/_scrape": {
+"done": true,
+"err": "",
+"n": 4
+},
+"alteisen-it-domanegg/m/1.jpg": {
+"h": 2048,
+"hash": "1111010011000010110010101010101010010010101100101011000011110001",
+"kb": 501,
+"lum": 78,
+"ok": true,
+"url": "https://cdn.prod.website-files.com/668a5d75f9fc77f31f3fbc68/67bafb699ce5a689dcb4ce54_Manni_s-2.jpg",
+"w": 1782
+},
+"alteisen-it-domanegg/m/logo.png": {
+"h": 664,
+"hash": "0000000000000110110001110110000000111000010011100010001010001010",
+"kb": 91,
+"lum": 170,
+"ok": true,
+"url": "https://cdn.prod.website-files.com/668a5d75f9fc77f31f3fbc68/67aa282e9bef44be22eb1743_2x1%20Domanegg%20logo.png",
+"w": 2338
+},
+"alteisen-it-domanegg/m/s1.jpg": {
+"h": 796,
+"hash": "0001101101001101110011011000110101101111110011111100111000111101",
+"kb": 108,
+"lum": 149,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/668a5d75f9fc77f31f3fbc68/68035ac37bddb0ba2d5655d4_Inge2.png",
+"w": 1200
+},
+"alteisen-it-domanegg/m/s2.jpg": {
+"h": 768,
+"hash": "0111100100111000001110000011110000111000001110000111000010000101",
+"kb": 198,
+"lum": 118,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/668a5d75f9fc77f31f3fbc68/66edadc730e95c2d798d743b_31d62ca2-f301-4f28-9a68-cbf78ea9a1d9.JPG",
+"w": 1024
 },
 "alter-eco/_scrape": {
 "done": true,
@@ -512,6 +563,157 @@
 "scr": 1,
 "url": "https://bordinautospurgo.it/wp-content/uploads/2024/11/Cantieri-Stradali.jpg",
 "w": 1000
+},
+"avio-service/_scrape": {
+"done": true,
+"err": "",
+"n": 27
+},
+"avio-service/m/1.jpg": {
+"h": 1334,
+"hash": "0001101101001011010001110100011101000011000111110000110100001101",
+"kb": 539,
+"lum": 112,
+"ok": true,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/DSC06519-scaled.jpg",
+"w": 2000
+},
+"avio-service/m/2.jpg": {
+"h": 1334,
+"hash": "0010111100001111000111010100110101001111010011110110101100001011",
+"kb": 323,
+"lum": 84,
+"ok": true,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/Foto5-scaled.jpg",
+"w": 2000
+},
+"avio-service/m/3.jpg": {
+"h": 1200,
+"hash": "1011010010110000001100000010011011011100110011000101100011000110",
+"kb": 339,
+"lum": 120,
+"ok": true,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/WhatsApp-Image-2022-07-06-at-16.56.13.jpeg",
+"w": 1600
+},
+"avio-service/m/4.jpg": {
+"h": 800,
+"hash": "0000011100101111000011110101111101011111011000110101101100001011",
+"kb": 122,
+"lum": 129,
+"ok": true,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/lavaggio_pannelli_solari.jpg",
+"w": 1200
+},
+"avio-service/m/s13.jpg": {
+"h": 2372,
+"hash": "1000110000110000001001001001110000011000011010100011100000111000",
+"kb": 474,
+"lum": 138,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/11/BILICO..jpg",
+"w": 4032
+},
+"avio-service/m/s17.jpg": {
+"h": 1500,
+"hash": "1110110000110010111001100111011101110111011110110111101100101111",
+"kb": 519,
+"lum": 104,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/11/APRILE.jpeg",
+"w": 2000
+},
+"avio-service/m/s19.jpg": {
+"h": 946,
+"hash": "1100000100000100000000010100100111011101110011111000010001110000",
+"kb": 161,
+"lum": 133,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/11/BILICO.jpeg",
+"w": 2000
+},
+"avio-service/m/s20.jpg": {
+"h": 800,
+"hash": "0001111100010111000110110100101100000111011001110010001100001111",
+"kb": 211,
+"lum": 101,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/351A6797.jpg",
+"w": 1200
+},
+"avio-service/m/s21.jpg": {
+"h": 1500,
+"hash": "0100110001110001001001101010101000000111100010010000111000001010",
+"kb": 250,
+"lum": 142,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/TRASPORTO-RIFIUTI.jpeg",
+"w": 2000
+},
+"avio-service/m/s22.jpg": {
+"h": 5464,
+"hash": "0001101111000001000001110000000110010001100000111000010100000111",
+"kb": 500,
+"lum": 117,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/0I1A0661.jpg",
+"w": 8192
+},
+"avio-service/m/s25.jpg": {
+"h": 2276,
+"hash": "0000011100000011100000011101100111101000100110011001000101100011",
+"kb": 509,
+"lum": 124,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/IMG_9577.jpg",
+"w": 3018
+},
+"avio-service/m/s4.jpg": {
+"h": 1288,
+"hash": "1001110000010110001100110111000101111001010010101110001100110111",
+"kb": 141,
+"lum": 126,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/09/recycling.png",
+"w": 1200
+},
+"avio-service/m/s5.jpg": {
+"h": 1334,
+"hash": "0000111100000111000001110100010100100001000010111000111100001111",
+"kb": 260,
+"lum": 133,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/11/0I1A4650-HDR-scaled.jpg",
+"w": 2000
+},
+"avio-service/m/s6.jpg": {
+"h": 1334,
+"hash": "0000001100001011000111100001011100010111000101110001001000001110",
+"kb": 333,
+"lum": 104,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/11/0I1A4616-HDR-scaled.jpg",
+"w": 2000
+},
+"avio-service/m/s7.jpg": {
+"h": 1500,
+"hash": "0011000000110011001101100001001110011111100100100111101000111100",
+"kb": 383,
+"lum": 132,
+"ok": true,
+"scr": 1,
+"url": "https://avioservice.it/wp-content/uploads/2022/11/SCARRABILE.jpeg",
+"w": 2000
 },
 "bedendo-ambiente-cml-bedendo/_scrape": {
 "done": true,
@@ -1171,17 +1373,17 @@
 "n": 8
 },
 "brunello-evaristo/m/1.jpg": {
-"err": "piccola 280x213",
+"err": "HTTP Error 403: Forbidden",
 "ok": false,
 "url": "https://www.brunelloevaristo.it/servizi/bonifica_amianto.jpg"
 },
 "brunello-evaristo/m/2.jpg": {
-"err": "piccola 280x213",
+"err": "HTTP Error 403: Forbidden",
 "ok": false,
 "url": "https://www.brunelloevaristo.it/servizi/posa_coperture.jpg"
 },
 "brunello-evaristo/m/3.jpg": {
-"err": "piccola 280x213",
+"err": "HTTP Error 403: Forbidden",
 "ok": false,
 "url": "https://www.brunelloevaristo.it/servizi/microraccolta_privati.jpg"
 },
@@ -1213,6 +1415,117 @@
 "scr": 1,
 "url": "https://www.brunelloevaristo.it/wordpress/wp-content/uploads/2025/05/banner_servizi.jpg",
 "w": 1920
+},
+"bwr/_scrape": {
+"done": true,
+"err": "",
+"n": 14
+},
+"bwr/m/1.jpg": {
+"h": 1265,
+"hash": "1011000110010100101100110111000101110000001100100100011100011101",
+"kb": 232,
+"lum": 127,
+"ok": true,
+"url": "https://bwr.it/wp-content/uploads/2026/01/bf0509a769ab0b6165bb49e2e5bd8962d9d1ddbb.webp",
+"w": 2000
+},
+"bwr/m/2.jpg": {
+"h": 768,
+"hash": "0111010010010111111100111110001111100000110000001100001111110010",
+"kb": 139,
+"lum": 113,
+"ok": true,
+"url": "https://bwr.it/wp-content/uploads/2026/04/Containerfahrzeug-1024x768.webp",
+"w": 1024
+},
+"bwr/m/3.jpg": {
+"h": 1125,
+"hash": "1111111000111110000010111110011100010000000110000111000011110001",
+"kb": 384,
+"lum": 117,
+"ok": true,
+"url": "https://bwr.it/wp-content/uploads/2026/04/WhatsApp-Image-2026-04-22-at-10.44.59-1-1.webp",
+"w": 1500
+},
+"bwr/m/logo.png": {
+"h": 243,
+"hash": "0000000000000000001100001011010010110010111101000110100000100100",
+"kb": 100,
+"lum": 236,
+"ok": true,
+"url": "https://bwr.it/wp-content/uploads/2026/01/Gasser-Paul-GmbH-neu.jpg",
+"w": 749
+},
+"bwr/m/s1.jpg": {
+"h": 1707,
+"hash": "1011101101011001011111110110111111100101111001001000111000100110",
+"kb": 288,
+"lum": 101,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/2025/11/30f41c9f1f1c2fcc78a23ad819f1a1d8f1eff960.webp",
+"w": 2560
+},
+"bwr/m/s10.jpg": {
+"h": 2000,
+"hash": "0000000000100000101000100110000101010011110110001110000000110001",
+"kb": 208,
+"lum": 160,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/2025/11/2abf83b272db412dfdf91683b8fe588c3352f591.webp",
+"w": 1333
+},
+"bwr/m/s11.jpg": {
+"h": 531,
+"hash": "0110000001100000010011110001011100010111000011000110101011000011",
+"kb": 41,
+"lum": 28,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/2026/01/betonform.png",
+"w": 1275
+},
+"bwr/m/s13.jpg": {
+"h": 955,
+"hash": "0000000000000000000011000001010000010100000011000000000001000000",
+"kb": 27,
+"lum": 42,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/borlabs-cookie/1/brlbs-cb-vimeo-main.png",
+"w": 1810
+},
+"bwr/m/s14.jpg": {
+"h": 955,
+"hash": "0011100010110000010011010101011100010111000011100011111100111011",
+"kb": 195,
+"lum": 220,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/borlabs-cookie/1/brlbs-cb-google-maps-main.png",
+"w": 1810
+},
+"bwr/m/s3.jpg": {
+"h": 1200,
+"hash": "0011111100111110001100110000000001000000100010011100010011000001",
+"kb": 109,
+"lum": 73,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/2025/11/73a23631710498855bcb7919e13d45f61cfdd3e0.webp",
+"w": 800
+},
+"bwr/m/s4.jpg": {
+"h": 1200,
+"hash": "0001000000100000000000000000000100001001010010110001111100000011",
+"kb": 87,
+"lum": 146,
+"ok": true,
+"scr": 1,
+"url": "https://bwr.it/wp-content/uploads/2025/11/c43984cdd9e86e5416ee114b388f58de4e15e93c.webp",
+"w": 800
 },
 "c-e-r-centro-ecologico-recuperi/_scrape": {
 "done": true,
@@ -1601,6 +1914,140 @@
 "scr": 1,
 "url": "https://www.pozzinericapuzzo.it/wp-content/uploads/2025/06/capuzzo-disinfestazione-blatte.jpg",
 "w": 1280
+},
+"chiocchetti/_scrape": {
+"done": true,
+"err": "",
+"n": 18
+},
+"chiocchetti/m/logo.png": {
+"h": 120,
+"hash": "0110000001100000110100011001101110011011110100011110000001000000",
+"kb": 68,
+"lum": 121,
+"ok": true,
+"url": "https://lirp.cdn-website.com/d5446ba6/dms3rep/multi/opt/LOGO-400x120-1920w.jpg",
+"w": 400
+},
+"chiocchetti/m/s1.jpg": {
+"h": 900,
+"hash": "0001110000111000100110000111101011001010111100000011110000011110",
+"kb": 274,
+"lum": 127,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/IG---01.05.24-a911a1b2.jpeg",
+"w": 1600
+},
+"chiocchetti/m/s10.jpg": {
+"h": 1022,
+"hash": "1011001101101011011010100110010001100110011011101010110011001100",
+"kb": 336,
+"lum": 110,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/MOD-4dbd2b74-1920w-970e669c.jpg",
+"w": 1816
+},
+"chiocchetti/m/s11.jpg": {
+"h": 1440,
+"hash": "0001001100011101100111011001110101111100000011110001111100011111",
+"kb": 618,
+"lum": 114,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/IMG_20210422_084924.jpg",
+"w": 1920
+},
+"chiocchetti/m/s12.jpg": {
+"h": 1080,
+"hash": "0110011111000000110110001110100111011000100110101001100001110001",
+"kb": 368,
+"lum": 113,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/GG875PV-x-Avisio-c4c79e1a.jpg",
+"w": 1546
+},
+"chiocchetti/m/s13.jpg": {
+"h": 1080,
+"hash": "1011111011011110110011001110110111011111111011101111111111111111",
+"kb": 143,
+"lum": 96,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/Ragno-x-sito-servizi-2.jpg",
+"w": 1913
+},
+"chiocchetti/m/s17.jpg": {
+"h": 741,
+"hash": "1000111101000111011000001110001000100100011010010100001001010000",
+"kb": 107,
+"lum": 117,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/opt/Luigi-1920w-2880w.jpg",
+"w": 948
+},
+"chiocchetti/m/s18.jpg": {
+"h": 1078,
+"hash": "0100000010000000100000001000001111000110101111000001100111100010",
+"kb": 340,
+"lum": 125,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/opt/IMG-20230323-WA0015-2880w.jpg",
+"w": 1920
+},
+"chiocchetti/m/s2.jpg": {
+"h": 873,
+"hash": "0000010000110010110110011100100111101001011011001110111000010001",
+"kb": 90,
+"lum": 159,
+"ok": true,
+"scr": 1,
+"url": "https://irp-cdn.multiscreensite.com/d5446ba6/dms3rep/multi/home_Ciocchetti_008-1232x873.jpg?dms3rep=v2",
+"w": 1232
+},
+"chiocchetti/m/s5.jpg": {
+"h": 1440,
+"hash": "1100011111001110110011101100110011001110110011101001001001111110",
+"kb": 286,
+"lum": 113,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/IMG_20190621_113123-2a785919.jpg",
+"w": 1441
+},
+"chiocchetti/m/s6.jpg": {
+"h": 700,
+"hash": "0100110000010110101010101011101010110010110100101000111100001111",
+"kb": 47,
+"lum": 88,
+"ok": true,
+"scr": 1,
+"url": "https://irp-cdn.multiscreensite.com/d5446ba6/dms3rep/multi/1.1.png",
+"w": 875
+},
+"chiocchetti/m/s7.jpg": {
+"h": 2560,
+"hash": "1001101111110110111111100100110011010100110101110111111101110111",
+"kb": 777,
+"lum": 107,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/IMG_20210722_140810_resized_20210723_061505634.jpg",
+"w": 1920
+},
+"chiocchetti/m/s8.jpg": {
+"h": 1080,
+"hash": "0000101110011111111111111110111111101100001001100110001101100000",
+"kb": 501,
+"lum": 143,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/d5446ba6/dms3rep/multi/b3.jpg",
+"w": 1920
 },
 "clappis/_scrape": {
 "done": true,
@@ -2011,6 +2458,38 @@
 "url": "https://www.smaltimentorifiutiindustrialivenezia.it/wp-content/uploads/2023/11/zuani.jpg",
 "w": 2560
 },
+"dolomit-recycling/_scrape": {
+"done": true,
+"err": "",
+"n": 1
+},
+"dolomit-recycling/m/1.jpg": {
+"h": 216,
+"hash": "1101011101100111011001101110011010010101100111011110100001111100",
+"kb": 31,
+"lum": 82,
+"ok": true,
+"url": "https://www.dolomitrecycling.it/images/fuhrpark.jpg",
+"w": 598
+},
+"dolomit-recycling/m/2.jpg": {
+"h": 216,
+"hash": "1111011011000110110011110000111100001110000001100110111011111101",
+"kb": 32,
+"lum": 86,
+"ok": true,
+"url": "https://www.dolomitrecycling.it/images/lastermitkran.jpg",
+"w": 598
+},
+"dolomit-recycling/m/logo.png": {
+"h": 80,
+"hash": "1001000001101100010111100101101100110011001001110101001101010111",
+"kb": 20,
+"lum": 148,
+"ok": true,
+"url": "https://www.dolomitrecycling.it/images/dolomit_logo.gif",
+"w": 362
+},
 "eco-gest/_scrape": {
 "done": true,
 "err": "",
@@ -2135,6 +2614,38 @@
 "scr": 1,
 "url": "https://ecogest-amb.it/assets/uploads/chiavi.jpg",
 "w": 1600
+},
+"eco-service-rovereto/_scrape": {
+"done": true,
+"err": "",
+"n": 12
+},
+"eco-service-rovereto/m/1.jpg": {
+"h": 1174,
+"hash": "0111011111001101110111111110101011010000111100101110001011110000",
+"kb": 244,
+"lum": 131,
+"ok": true,
+"url": "https://ecoservicerovereto.it/mt-content/uploads/2020/04/eco-service-trasporto-rifiuti-rovereto-1.jpg",
+"w": 1920
+},
+"eco-service-rovereto/m/2.jpg": {
+"h": 664,
+"hash": "0010000100000001111110010011001100101000010011000100110001010110",
+"kb": 111,
+"lum": 126,
+"ok": true,
+"url": "https://ecoservicerovereto.it/mt-content/uploads/2020/04/eco-service-rovereto-gestione-rifiuti-trento.jpg",
+"w": 748
+},
+"eco-service-rovereto/m/logo.png": {
+"h": 150,
+"hash": "0000000011011000110110000111110001000111010100011000000000000000",
+"kb": 41,
+"lum": 61,
+"ok": true,
+"url": "https://ecoservicerovereto.it/mt-content/uploads/2025/03/logo-simoncelli-2025.png",
+"w": 600
 },
 "eco-service/_scrape": {
 "done": true,
@@ -2931,19 +3442,136 @@
 "n": 0
 },
 "ecomultiservice/m/1.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda139da0>",
-"ok": false,
-"url": "https://www.ecomultiservice.it/wp-content/uploads/2019/10/KJDFE1518-e1682787404801.jpg"
+"h": 540,
+"hash": "1111111001100110100000111000001101001001010010100001100101001101",
+"kb": 108,
+"lum": 135,
+"ok": true,
+"url": "https://www.ecomultiservice.it/wp-content/uploads/2019/10/KJDFE1518-e1682787404801.jpg",
+"w": 1024
 },
 "ecomultiservice/m/2.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda13a110>",
-"ok": false,
-"url": "https://www.ecomultiservice.it/wp-content/uploads/2021/05/IMG_0661-01-e1621089218248.jpg"
+"h": 540,
+"hash": "0010111100011011011100100101000111000001011000010111100101111110",
+"kb": 115,
+"lum": 106,
+"ok": true,
+"url": "https://www.ecomultiservice.it/wp-content/uploads/2021/05/IMG_0661-01-e1621089218248.jpg",
+"w": 1024
 },
 "ecomultiservice/m/logo.png": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda139b20>",
+"err": "piccola 109x70",
 "ok": false,
 "url": "https://www.ecomultiservice.it/wp-content/uploads/2023/04/Logo-mobile.png"
+},
+"econord/_scrape": {
+"done": true,
+"err": "",
+"n": 23
+},
+"econord/m/1.jpg": {
+"h": 683,
+"hash": "0001101100000111010001110110011110111100110111111100111101000011",
+"kb": 110,
+"lum": 129,
+"ok": true,
+"url": "https://www.econord.tn.it/wp-content/uploads/2020/12/Impianto-industria-4-0-Econord-18-1024x683-1.jpg",
+"w": 1024
+},
+"econord/m/2.jpg": {
+"h": 576,
+"hash": "0111010001011011010111100100011101100111001001010011000100110000",
+"kb": 123,
+"lum": 50,
+"ok": true,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/foto-cire-1024x576.jpg",
+"w": 1024
+},
+"econord/m/3.jpg": {
+"h": 768,
+"hash": "1111000011111000000000001100010010000000100000000000011100101110",
+"kb": 198,
+"lum": 127,
+"ok": true,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/PHOTO-2025-10-07-17-16-36-1024x768.jpeg",
+"w": 1024
+},
+"econord/m/4.jpg": {
+"h": 576,
+"hash": "1101011111011001110001101010011111000011110001111101110101011110",
+"kb": 115,
+"lum": 47,
+"ok": true,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/exported_BA2C1E07-F0F3-4799-9030-AEF12B147770-1024x576.jpeg",
+"w": 1024
+},
+"econord/m/5.jpg": {
+"h": 1024,
+"hash": "1111111111111011011111111001111110000001000110001111110011101110",
+"kb": 144,
+"lum": 144,
+"ok": true,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/arcob-1-768x1024.jpg",
+"w": 768
+},
+"econord/m/logo.png": {
+"h": 243,
+"hash": "0110000000110000100111001001100011001000111001001100000011000000",
+"kb": 8,
+"lum": 214,
+"ok": true,
+"url": "https://www.econord.tn.it/wp-content/uploads/2021/04/logo-econord.png",
+"w": 572
+},
+"econord/m/s14.jpg": {
+"h": 1228,
+"hash": "1001000110000101000011000011001010010110110111001101110101010100",
+"kb": 245,
+"lum": 215,
+"ok": true,
+"scr": 1,
+"url": "https://www.econord.tn.it/wp-content/uploads/2020/12/Schermata-2021-05-06-alle-22.43.15.png",
+"w": 2016
+},
+"econord/m/s17.jpg": {
+"h": 2160,
+"hash": "1011100111011100110111001101111001110110111101001110100011101000",
+"kb": 649,
+"lum": 68,
+"ok": true,
+"scr": 1,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/Foto-impianto-fisso-Lavis.jpg",
+"w": 3840
+},
+"econord/m/s21.jpg": {
+"h": 2160,
+"hash": "1100111101101110010011100101100001110011111001111001100100001111",
+"kb": 768,
+"lum": 132,
+"ok": true,
+"scr": 1,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/trit.jpg",
+"w": 3840
+},
+"econord/m/s8.jpg": {
+"h": 2160,
+"hash": "1101011111011001110001101010011111000011110001111101110101011110",
+"kb": 528,
+"lum": 47,
+"ok": true,
+"scr": 1,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/exported_BA2C1E07-F0F3-4799-9030-AEF12B147770.jpeg",
+"w": 3840
+},
+"econord/m/s9.jpg": {
+"h": 1152,
+"hash": "1101011111011001110001101010011111000011110001111101110001011110",
+"kb": 427,
+"lum": 47,
+"ok": true,
+"scr": 1,
+"url": "https://www.econord.tn.it/wp-content/uploads/2025/11/exported_BA2C1E07-F0F3-4799-9030-AEF12B147770-2048x1152.jpeg",
+"w": 2048
 },
 "ecoricicli-metalli/_scrape": {
 "done": true,
@@ -3086,6 +3714,11 @@
 "url": "https://www.ecoricicli.com/wp-content/uploads/2020/12/DSC_0119-2592x2592.jpg",
 "w": 2592
 },
+"ecorott-tpa/_scrape": {
+"done": true,
+"err": "",
+"n": 0
+},
 "ecospurghi/_scrape": {
 "done": true,
 "err": "",
@@ -3131,6 +3764,75 @@
 "scr": 1,
 "url": "https://www.ecospurghivicenza.it/wp-content/uploads/2024/03/camion3.jpg",
 "w": 888
+},
+"ecotop/_scrape": {
+"done": true,
+"err": "",
+"n": 6
+},
+"ecotop/m/1.jpg": {
+"h": 444,
+"hash": "1111000101111110111011110111000100000011100001101100010101001011",
+"kb": 75,
+"lum": 125,
+"ok": true,
+"url": "https://ecotop.it/wp-content/uploads/2021/11/nuovaaerea.jpg",
+"w": 670
+},
+"ecotop/m/2.jpg": {
+"h": 1365,
+"hash": "1100110001001100101100010111101100101001101100000110011001100111",
+"kb": 198,
+"lum": 195,
+"ok": true,
+"url": "https://ecotop.it/wp-content/uploads/2021/09/1-raccoltaerecupero.jpg",
+"w": 2048
+},
+"ecotop/m/3.jpg": {
+"h": 1365,
+"hash": "0010101100111011001101110011010101101111110010111100110011101101",
+"kb": 264,
+"lum": 193,
+"ok": true,
+"url": "https://ecotop.it/wp-content/uploads/2021/09/economiacircolare.jpg",
+"w": 2048
+},
+"ecotop/m/4.jpg": {
+"h": 1365,
+"hash": "0101011100010111100111011011011010110111110100100111001100111000",
+"kb": 341,
+"lum": 121,
+"ok": true,
+"url": "https://ecotop.it/wp-content/uploads/2021/09/1-ricercaesviluppo.jpg",
+"w": 2048
+},
+"ecotop/m/5.jpg": {
+"h": 444,
+"hash": "0001110000001100010011100110000100100111100111100011001010110011",
+"kb": 86,
+"lum": 120,
+"ok": true,
+"url": "https://ecotop.it/wp-content/uploads/2021/10/home1-1.jpg",
+"w": 670
+},
+"ecotop/m/logo.png": {
+"h": 101,
+"hash": "0100100010000101101001010011010000000100100010001100100001011000",
+"kb": 61,
+"lum": 193,
+"ok": true,
+"url": "https://ecotop.it/wp-content/uploads/2021/06/logo-ecotop.png",
+"w": 495
+},
+"ecotop/m/s6.jpg": {
+"h": 1365,
+"hash": "1100110011001100010011101100010111000110110011000111110001100001",
+"kb": 369,
+"lum": 132,
+"ok": true,
+"scr": 1,
+"url": "https://ecotop.it/wp-content/uploads/home-main-slider2.jpg",
+"w": 2048
 },
 "ekologica-services/_scrape": {
 "done": true,
@@ -3328,6 +4030,590 @@
 "url": "https://www.ekologica.biz/wp-content/uploads/2021/01/container-1.jpg",
 "w": 1920
 },
+"ekos/_scrape": {
+"done": true,
+"err": "",
+"n": 24
+},
+"ekos/m/logo.png": {
+"h": 463,
+"hash": "0011000001110100101001001110101011000101110001001100101001100101",
+"kb": 94,
+"lum": 40,
+"ok": true,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80/page/fileadmin/user_upload/kostner-logos/png/ekos-quer.png",
+"w": 1000
+},
+"ekos/m/s1.jpg": {
+"h": 1080,
+"hash": "1111001010110010100111101001111000110111101000111110000000100111",
+"kb": 68,
+"lum": 115,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/ekos-umweltdienste.jpg",
+"w": 912
+},
+"ekos/m/s10.jpg": {
+"h": 1080,
+"hash": "0010011000100010110000110010001100110001000110010000100110001001",
+"kb": 147,
+"lum": 128,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-fettabscheider.jpg",
+"w": 912
+},
+"ekos/m/s11.jpg": {
+"h": 1080,
+"hash": "1100001010110111001110010011100110010110100001010001010011011100",
+"kb": 218,
+"lum": 139,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-kanalreinigung.jpg",
+"w": 912
+},
+"ekos/m/s12.jpg": {
+"h": 1080,
+"hash": "1100100011100100011000110101100001001000001010010011100010011000",
+"kb": 144,
+"lum": 124,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-tankreinigung.jpg",
+"w": 912
+},
+"ekos/m/s13.jpg": {
+"h": 1280,
+"hash": "1111010000111100011111001110110001110110011001101111001010000111",
+"kb": 134,
+"lum": 117,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_1920x1300/page/fileadmin/user_upload/ekos_Enviro_Services/ekos-umweltdienst-kostner_group.jpg",
+"w": 1890
+},
+"ekos/m/s15.jpg": {
+"h": 700,
+"hash": "0010000001110101011011110100010110011001100100110010010111000110",
+"kb": 57,
+"lum": 136,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_904x700/page/fileadmin/user_upload/ekos_Enviro_Services/360_Grad-Oelabscheiderkompetenz.jpg",
+"w": 904
+},
+"ekos/m/s2.jpg": {
+"h": 1080,
+"hash": "0111010001000011010010101100011111000111110000110100001101001111",
+"kb": 114,
+"lum": 107,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC_ekos_abfallentsorgung.jpg",
+"w": 912
+},
+"ekos/m/s3.jpg": {
+"h": 1080,
+"hash": "1001111101100101001011111011000100110011001100010011100100110011",
+"kb": 118,
+"lum": 74,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-entsorgung.jpg",
+"w": 912
+},
+"ekos/m/s4.jpg": {
+"h": 1080,
+"hash": "0100001100100010000100010011000000001110010011001100110011000001",
+"kb": 139,
+"lum": 96,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-export-vermittlung-v3.JPG",
+"w": 912
+},
+"ekos/m/s5.jpg": {
+"h": 1080,
+"hash": "0000001110000101101001000111110001101110000011101000111001110010",
+"kb": 208,
+"lum": 134,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-abscheidetechnik.jpg",
+"w": 912
+},
+"ekos/m/s6.jpg": {
+"h": 1080,
+"hash": "0110011000000100000111110011001101001011110011110000111100000011",
+"kb": 242,
+"lum": 132,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-reinigung.jpg",
+"w": 912
+},
+"ekos/m/s7.jpg": {
+"h": 1080,
+"hash": "1100101101001111110111001010110010101110000001010001010111111111",
+"kb": 73,
+"lum": 172,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-lab-research-2.jpg",
+"w": 912
+},
+"ekos/m/s8.jpg": {
+"h": 1080,
+"hash": "1001001100010111000110111011011001111100001011111111110110110001",
+"kb": 97,
+"lum": 147,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-analyse-beratung.JPG",
+"w": 912
+},
+"ekos/m/s9.jpg": {
+"h": 1080,
+"hash": "0000111001110110010101100111011011011110010111100000111010000011",
+"kb": 147,
+"lum": 128,
+"ok": true,
+"scr": 1,
+"url": "https://ekos.kostner.net/_ipx/f_webp&q_80&s_912x1080/page/fileadmin/user_upload/ekos_Enviro_Services/men%25C3%25BC-ekos-%25C3%25B6labscheider.jpg",
+"w": 912
+},
+"erdbau/_scrape": {
+"done": true,
+"err": "",
+"n": 40
+},
+"erdbau/m/1.jpg": {
+"h": 480,
+"hash": "1101111100111111000000110010010001101100011000010111000011100010",
+"kb": 58,
+"lum": 149,
+"ok": true,
+"url": "https://www.erdbau.it/images/image_small/hinowa_ll33.17_2020-09-26_01_jochen_hoelzl.jpg?ts=1601278776",
+"w": 640
+},
+"erdbau/m/2.jpg": {
+"h": 480,
+"hash": "0010000000000000000000000001000001111011011010000000000100101001",
+"kb": 54,
+"lum": 134,
+"ok": true,
+"url": "https://www.erdbau.it/images/image_small/einsatz_wildbachverbauung_kubota_u-15_2020-10-01_jochen_hoelzl.jpg?ts=1601619381",
+"w": 640
+},
+"erdbau/m/3.jpg": {
+"h": 480,
+"hash": "1011110001100011100111100001101011001010010110100011001000111000",
+"kb": 71,
+"lum": 82,
+"ok": true,
+"url": "https://www.erdbau.it/images/image_small/verleih_bagger_2021-09-27_facebook.jpeg?ts=1633529941",
+"w": 640
+},
+"erdbau/m/4.jpg": {
+"h": 480,
+"hash": "0000111101011111001110100001110110001110001001110110011101000011",
+"kb": 65,
+"lum": 152,
+"ok": true,
+"url": "https://www.erdbau.it/images/image_small_auto/toell_1959_2020-10-20_albrecht_auer.jpg?ts=1603204966",
+"w": 692
+},
+"erdbau/m/logo.png": {
+"h": 322,
+"hash": "0000001100001011010000010101100101000001011100010010111100111100",
+"kb": 62,
+"lum": 84,
+"ok": true,
+"url": "https://www.erdbau.it/resources/img/logo-bewusst-suedtirol.png",
+"w": 400
+},
+"erdbau/m/s1.jpg": {
+"h": 480,
+"hash": "0000000000110000001100000011000010110110101100101011000000000000",
+"kb": 41,
+"lum": 236,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/resources/img/geobimm.jpg",
+"w": 1230
+},
+"erdbau/m/s2.jpg": {
+"h": 1080,
+"hash": "1110000011001000011000001111100011001100111100000011000010010000",
+"kb": 102,
+"lum": 237,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/7_12_2026_1.png?ts=1794836659",
+"w": 1920
+},
+"erdbau/m/s29.jpg": {
+"h": 576,
+"hash": "1001000111010011110100111111010110110100001101010110000101100001",
+"kb": 137,
+"lum": 80,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/og_share/unbenannt-3.jpg?ts=1554813594",
+"w": 1024
+},
+"erdbau/m/s3.jpg": {
+"h": 1080,
+"hash": "1100100001101000111010000110100011100000111100101000011010101110",
+"kb": 143,
+"lum": 233,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/rc_naturns_rc_naturno_geschlossen_18.12.202_ab_12_uhr_-_12.01.2024_chiuso_19122023_dalle_ore_12-_12012024_4.png?ts=1794836711",
+"w": 1920
+},
+"erdbau/m/s30.jpg": {
+"h": 3776,
+"hash": "0001100100110011111001100110011101101101000110010100110101001100",
+"kb": 845,
+"lum": 121,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_large_auto/planierarbeiten_georg_hoelzl_marling_2020-02-20_01_daniel_gurschler_1.jpg?ts=1601389450",
+"w": 4770
+},
+"erdbau/m/s4.jpg": {
+"h": 1080,
+"hash": "0101101101110001011100010111000101100010011000000110000000110001",
+"kb": 116,
+"lum": 143,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/schaufel.jpg?ts=1540192883",
+"w": 1920
+},
+"erdbau/m/s5.jpg": {
+"h": 1080,
+"hash": "0011111100110111011010111011001000011101001111011011100111011101",
+"kb": 441,
+"lum": 127,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/recycling_sinich_schottergrube_air_visual_2012-03-14_02.jpg?ts=1598521789",
+"w": 1920
+},
+"erdbau/m/s6.jpg": {
+"h": 1080,
+"hash": "1110100011100000111010000110100001101000010000001100000011000001",
+"kb": 292,
+"lum": 122,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/haus_im_felsen_reinhold_messner_2014-11-14_26_albrecht_auer.jpg?ts=1602061553",
+"w": 1920
+},
+"erdbau/m/s7.jpg": {
+"h": 1080,
+"hash": "0011000100000101100000100001001011111010011110000011010000100010",
+"kb": 364,
+"lum": 118,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/bruecke_neubau_gaulschlucht_lana_volvo_220_2019-05-20_02_andreas_liensberger.jpg?ts=1598883769",
+"w": 1920
+},
+"erdbau/m/s8.jpg": {
+"h": 1080,
+"hash": "0011001110011011100010011000110110010011100010011000101110110011",
+"kb": 350,
+"lum": 95,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/abbruch_brand_metzgerei_pfitscher_2020-05-16_07.jpg?ts=1598885240",
+"w": 1920
+},
+"erdbau/m/s9.jpg": {
+"h": 1080,
+"hash": "1011001110110011111101111011010110110101001010110110001101100011",
+"kb": 464,
+"lum": 78,
+"ok": true,
+"scr": 1,
+"url": "https://www.erdbau.it/images/image_fullscreen/haus_im_felsen_reinhold_messner_2014-11-14_24_albrecht_auer.jpg?ts=1598953026",
+"w": 1920
+},
+"euro-alpe/_scrape": {
+"done": true,
+"err": "",
+"n": 37
+},
+"euro-alpe/m/1.jpg": {
+"h": 550,
+"hash": "1000011111000111010010001101001010011000000011110000111100001111",
+"kb": 196,
+"lum": 124,
+"ok": true,
+"url": "https://www.euroalpe.it/i/images_fullscreen/2000x550/W85WbG3dK059d7BTAS3A.jpg",
+"w": 2000
+},
+"euro-alpe/m/2.jpg": {
+"h": 464,
+"hash": "1100000011000000111010001010110111001100110011001100100000001001",
+"kb": 57,
+"lum": 127,
+"ok": true,
+"url": "https://www.euroalpe.it/i/fleet/620x465/8Vd739K3T9ecU9NVRf2H.jpg.webp",
+"w": 620
+},
+"euro-alpe/m/3.jpg": {
+"h": 464,
+"hash": "0110010011001000110100101101101110000111110111001100000000000110",
+"kb": 60,
+"lum": 145,
+"ok": true,
+"url": "https://www.euroalpe.it/i/fleet/620x465/a8864944GB0EQc4VKfBB.jpg.webp",
+"w": 620
+},
+"euro-alpe/m/4.jpg": {
+"h": 464,
+"hash": "0001001111001000110010001100010011100010110011101100100011000101",
+"kb": 57,
+"lum": 139,
+"ok": true,
+"url": "https://www.euroalpe.it/i/fleet/620x465/2H75XQN0778H04RfSH84.jpg.webp",
+"w": 620
+},
+"euro-alpe/m/5.jpg": {
+"h": 464,
+"hash": "0001100100000101001100110111001111000111110010001100100001100110",
+"kb": 62,
+"lum": 136,
+"ok": true,
+"url": "https://www.euroalpe.it/i/fleet/620x465/C23FH8bYPTPQKDAB009f.jpg.webp",
+"w": 620
+},
+"euro-alpe/m/s15.jpg": {
+"h": 533,
+"hash": "1110101111001001101100011010000100100100111011001010010010100100",
+"kb": 75,
+"lum": 126,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/cms/800x0/0f8pbg9rsfcsqg5gxx4w.jpg.webp?v=20240827095119",
+"w": 800
+},
+"euro-alpe/m/s16.jpg": {
+"h": 533,
+"hash": "0101110011011100110010001100100011001000110100001101010011100001",
+"kb": 74,
+"lum": 91,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/cms/800x0/d20s5b959k0ekr66n394.jpg.webp?v=20240923163602",
+"w": 800
+},
+"euro-alpe/m/s17.jpg": {
+"h": 600,
+"hash": "1001110011010111110110001111111111101011111110001010010011001101",
+"kb": 103,
+"lum": 126,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/relation/800x600/b8XfM8KXHM7f9R7P6325.jpg?v=20240821144408",
+"w": 800
+},
+"euro-alpe/m/s18.jpg": {
+"h": 600,
+"hash": "1001100001001100011011100110110010011100111111011110110011000110",
+"kb": 116,
+"lum": 149,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/relation/800x600/038VG5R97aTYGedV493b.jpg?v=20240821150954",
+"w": 800
+},
+"euro-alpe/m/s19.jpg": {
+"h": 600,
+"hash": "0001111100110011011000000110001011110110011101100111110001111100",
+"kb": 92,
+"lum": 110,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/relation/800x600/cfN32GKP429f4M2bGYDB.jpg?v=20240725095848",
+"w": 800
+},
+"euro-alpe/m/s2.jpg": {
+"h": 800,
+"hash": "1001110011110100110111101101000011000011110110101101100100011001",
+"kb": 104,
+"lum": 107,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/navigation/i22_1_small.jpg.webp?v=20240821114333",
+"w": 800
+},
+"euro-alpe/m/s20.jpg": {
+"h": 400,
+"hash": "0011101100000011100010110000100000011010001011110100111100011011",
+"kb": 65,
+"lum": 132,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/topimage/800x400/9WNHS99X6P9555982XBX.jpg?v=20240719135259",
+"w": 800
+},
+"euro-alpe/m/s3.jpg": {
+"h": 800,
+"hash": "1001100000011000011110001001111011001111110011111101100000001100",
+"kb": 57,
+"lum": 96,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/navigation/i23_1_small.jpg.webp?v=20240821114618",
+"w": 800
+},
+"euro-alpe/m/s4.jpg": {
+"h": 800,
+"hash": "1100110111011001111100001111110001111100001111000101110011100110",
+"kb": 146,
+"lum": 75,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/navigation/i24_1_small.jpg.webp?v=20240821114521",
+"w": 800
+},
+"euro-alpe/m/s5.jpg": {
+"h": 800,
+"hash": "1000010001000100100011010001100001011001110110110011110000111010",
+"kb": 61,
+"lum": 75,
+"ok": true,
+"scr": 1,
+"url": "https://www.euroalpe.it/i/navigation/i25_1_small.jpg.webp?v=20240821114432",
+"w": 800
+},
+"f-lli-merler/_scrape": {
+"done": true,
+"err": "",
+"n": 16
+},
+"f-lli-merler/m/1.jpg": {
+"h": 284,
+"hash": "1110001101101011111000111110001001110000100101011010000110110011",
+"kb": 32,
+"lum": 101,
+"ok": true,
+"url": "https://merlerrottami.it/wp-content/uploads/2025/02/1-7-400x284-1.jpg",
+"w": 400
+},
+"f-lli-merler/m/2.jpg": {
+"h": 589,
+"hash": "0000111100011111010100110101000111010011110110110001111100000011",
+"kb": 66,
+"lum": 144,
+"ok": true,
+"url": "https://merlerrottami.it/wp-content/uploads/2025/02/2020-07-21-11_23_05-Raccolta-rifiuti-speciali-_-Cles-TN-_-Merler-F.lli_.png",
+"w": 788
+},
+"f-lli-merler/m/logo.png": {
+"h": 345,
+"hash": "1001010000110010001000100010011000100110001101011011010101000000",
+"kb": 36,
+"lum": 47,
+"ok": true,
+"url": "https://merlerrottami.it/wp-content/uploads/2025/02/logo-3.png",
+"w": 1600
+},
+"f-lli-merler/m/s11.jpg": {
+"h": 899,
+"hash": "0110100001101000111010001111000111100001110010101100110011011010",
+"kb": 269,
+"lum": 108,
+"ok": true,
+"scr": 1,
+"url": "https://merlerrottami.it/wp-content/uploads/2025/06/1-6-1.jpeg",
+"w": 1600
+},
+"f-lli-merler/m/s12.jpg": {
+"h": 1200,
+"hash": "1111100001110011001100001001110000001100111100001110000011001000",
+"kb": 267,
+"lum": 125,
+"ok": true,
+"scr": 1,
+"url": "https://merlerrottami.it/wp-content/uploads/2025/02/IMG-20210418-WA0009.jpg",
+"w": 1600
+},
+"f-lli-merler/m/s13.jpg": {
+"h": 1067,
+"hash": "0010000101100111110001111110010100100110100001100000111000011111",
+"kb": 299,
+"lum": 105,
+"ok": true,
+"scr": 1,
+"url": "https://merlerrottami.it/wp-content/uploads/2025/02/1-35.jpg",
+"w": 1600
+},
+"f-lli-rigotti/_scrape": {
+"done": true,
+"err": "",
+"n": 6
+},
+"f-lli-rigotti/m/1.jpg": {
+"h": 428,
+"hash": "0000101101101010011001110100111010001100001011100010110000100000",
+"kb": 63,
+"lum": 128,
+"ok": true,
+"url": "https://www.autodemolizionirigotti.it/wp-content/uploads/revslider/video-media/anim50_02_3.jpeg",
+"w": 1280
+},
+"f-lli-rigotti/m/2.jpg": {
+"err": "piccola 300x194",
+"ok": false,
+"url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2024/01/rino2.png"
+},
+"f-lli-rigotti/m/logo.png": {
+"h": 315,
+"hash": "1100000110001000110110101101011010110100110001101000011000001011",
+"kb": 44,
+"lum": 33,
+"ok": true,
+"url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2024/10/240828-LogoRigotti-1024x315.png",
+"w": 1024
+},
+"f-lli-rigotti/m/s3.jpg": {
+"h": 1707,
+"hash": "0111101101010110000101100011001101110001111001010100000101000000",
+"kb": 248,
+"lum": 64,
+"ok": true,
+"scr": 1,
+"url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2026/10/two-male-workers-inspecting-waste-at-a-recycling-c-2026-09-25-07-31-44-utc-1-scaled.jpg",
+"w": 2560
+},
+"f-lli-rigotti/m/s4.jpg": {
+"h": 1260,
+"hash": "0110101100111100111101001111001011100011111100011011000111100011",
+"kb": 312,
+"lum": 124,
+"ok": true,
+"scr": 1,
+"url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2026/09/rifiuti-pericolosi-e-non-pericolosi.png",
+"w": 2240
+},
+"f-lli-rigotti/m/s5.jpg": {
+"h": 1260,
+"hash": "0110010001100100010011000101010110100101011001100100011011010110",
+"kb": 289,
+"lum": 122,
+"ok": true,
+"scr": 1,
+"url": "https://www.autodemolizionirigotti.it/wp-content/uploads/2026/09/fir-digitale-1.png",
+"w": 2240
+},
 "f-lli-varutti/_scrape": {
 "done": true,
 "err": "",
@@ -3510,6 +4796,47 @@
 "scr": 1,
 "url": "https://www.fioresegroup.it/wp-content/uploads/2024/03/Fiorese-bernardino-1.jpg",
 "w": 1700
+},
+"fischer-fischer/_scrape": {
+"done": true,
+"err": "",
+"n": 10
+},
+"fischer-fischer/m/1.jpg": {
+"h": 1440,
+"hash": "0010100000111000001010100000101001011010010010010100100100001001",
+"kb": 354,
+"lum": 124,
+"ok": true,
+"url": "https://www.fischer-fischer.it/media/1070/pohl-meran-4.jpg?width=1920",
+"w": 1920
+},
+"fischer-fischer/m/2.jpg": {
+"h": 1440,
+"hash": "0001110011111100001110010011111100111100011101000011001110110000",
+"kb": 519,
+"lum": 124,
+"ok": true,
+"url": "https://www.fischer-fischer.it/media/1071/img_3800.jpg?width=1920",
+"w": 1920
+},
+"fischer-fischer/m/3.jpg": {
+"h": 1440,
+"hash": "1101110111011001001000010010000101100000110110011001111100001000",
+"kb": 688,
+"lum": 130,
+"ok": true,
+"url": "https://www.fischer-fischer.it/media/1075/img_3995.jpg?width=1920",
+"w": 1920
+},
+"fischer-fischer/m/4.jpg": {
+"h": 2560,
+"hash": "1111001101111100010111000100110001100100000000000011000001110000",
+"kb": 508,
+"lum": 94,
+"ok": true,
+"url": "https://www.fischer-fischer.it/media/1099/vo-ran-bergstation-aushub.jpg?width=1920",
+"w": 1920
 },
 "fratelli-stradiotto-spurghi/_scrape": {
 "done": true,
@@ -4129,6 +5456,417 @@
 "url": "https://www.giustosrl.it/lav-radici.jpg",
 "w": 900
 },
+"gruppo-activa/_scrape": {
+"done": true,
+"err": "",
+"n": 40
+},
+"gruppo-activa/m/1.jpg": {
+"err": "piccola 300x158",
+"ok": false,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/05/montagna-ok.png"
+},
+"gruppo-activa/m/2.jpg": {
+"err": "piccola 300x158",
+"ok": false,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2022/11/persone-al-centro.png"
+},
+"gruppo-activa/m/logo.png": {
+"h": 393,
+"hash": "1000011010110110100101101001101110011001001000010010000100000000",
+"kb": 51,
+"lum": 25,
+"ok": true,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2025/05/all-logo-04.png",
+"w": 2481
+},
+"gruppo-activa/m/s10.jpg": {
+"h": 630,
+"hash": "1000001110110001010000010100001001001110000111100001100000000100",
+"kb": 145,
+"lum": 115,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2022/09/impianti-sportivi.png",
+"w": 1200
+},
+"gruppo-activa/m/s11.jpg": {
+"h": 667,
+"hash": "0100010010001100101010000011010001010110100100011001100010010100",
+"kb": 69,
+"lum": 221,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/01/activa-servizi-nuovo-simplified-1.png",
+"w": 2121
+},
+"gruppo-activa/m/s13.jpg": {
+"h": 970,
+"hash": "0000000011001100110010001011100010110110100100101001100000011000",
+"kb": 60,
+"lum": 231,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/01/activa-ambiente.png",
+"w": 3000
+},
+"gruppo-activa/m/s15.jpg": {
+"h": 970,
+"hash": "0000000010000100100001000110100000111001100100001011110000000000",
+"kb": 71,
+"lum": 228,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/01/reactiva.png",
+"w": 3000
+},
+"gruppo-activa/m/s17.jpg": {
+"h": 550,
+"hash": "1000011100000110000001100000010100000101100001101000011010100110",
+"kb": 46,
+"lum": 92,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2024/02/Formato-articolo.png",
+"w": 831
+},
+"gruppo-activa/m/s18.jpg": {
+"h": 1100,
+"hash": "0100101000110110011100011101000001101000011010010001100000000100",
+"kb": 59,
+"lum": 214,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2024/01/Gender-Equality-2-2.png",
+"w": 1662
+},
+"gruppo-activa/m/s19.jpg": {
+"h": 860,
+"hash": "1101101011001010110110101101101010110010110110101101101011001010",
+"kb": 67,
+"lum": 172,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/12/activa-servizi-home.jpg",
+"w": 1290
+},
+"gruppo-activa/m/s34.jpg": {
+"h": 860,
+"hash": "0001111100001110001101110011001100111001000010010000110100011111",
+"kb": 96,
+"lum": 122,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/10/gestione-aziendali.jpg",
+"w": 1290
+},
+"gruppo-activa/m/s35.jpg": {
+"h": 645,
+"hash": "1100010011110000110100001001101010101000101011001001010011001010",
+"kb": 132,
+"lum": 171,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/10/paper-shredding-1536x768.png.jpg",
+"w": 1290
+},
+"gruppo-activa/m/s36.jpg": {
+"h": 512,
+"hash": "0000010101000110000010000011100100110001000100100110000011010000",
+"kb": 90,
+"lum": 135,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/10/electronic-waste-1024x512-1.png",
+"w": 1024
+},
+"gruppo-activa/m/s38.jpg": {
+"h": 500,
+"hash": "1010010010101100101011001010110010101110101010011110100001101100",
+"kb": 61,
+"lum": 176,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/02/pulizie-1.png",
+"w": 1000
+},
+"gruppo-activa/m/s39.jpg": {
+"h": 500,
+"hash": "1011010111100101110011111100100011000100111001110110011111110100",
+"kb": 68,
+"lum": 122,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/02/gestione-rifiuti.png",
+"w": 1000
+},
+"gruppo-activa/m/s40.jpg": {
+"h": 500,
+"hash": "0000001100101110000111101011001101110010110100100011101000110011",
+"kb": 72,
+"lum": 119,
+"ok": true,
+"scr": 1,
+"url": "https://www.gruppo-activa.it/wp-content/uploads/2023/02/bagni.png",
+"w": 1000
+},
+"gruppo-bonora/_scrape": {
+"done": true,
+"err": "",
+"n": 23
+},
+"gruppo-bonora/m/1.jpg": {
+"h": 1000,
+"hash": "0100111100001111010101101100001010001011101100110111001100011111",
+"kb": 282,
+"lum": 117,
+"ok": true,
+"url": "https://cdn.prod.website-files.com/66f3dc0bae8339b53f8c3574/67586f7bd92d8736e3260041_01-Home_Hero.avif",
+"w": 1500
+},
+"gruppo-bonora/m/logo.png": {
+"h": 720,
+"hash": "0010001100100001010011001101110000011001100000010001010010000110",
+"kb": 521,
+"lum": 106,
+"ok": true,
+"url": "https://cdn.prod.website-files.com/66f3dc0bae8339b53f8c3574%2F6759c265eeceeea0c24e7aee_Bonora_HomeVideo_NOLogo-poster-00001.jpg",
+"w": 1280
+},
+"gruppo-bonora/m/s1.jpg": {
+"h": 740,
+"hash": "1101000111010001100100101001001100010101001100010001100100011010",
+"kb": 283,
+"lum": 94,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e441668446459e2fd1d00_02-Servizi_01-Spurghi_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s10.jpg": {
+"h": 1000,
+"hash": "0110000110001001010011010001111011011000010110000110110001010110",
+"kb": 335,
+"lum": 106,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e441ece5a320272d05ef6_02-Servizi_01-Spurghi_Gallery01.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s11.jpg": {
+"h": 1000,
+"hash": "0011110100001010011100110111001101110011011111110111111101111111",
+"kb": 335,
+"lum": 117,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e44233e50252a758b7c86_02-Servizi_01-Spurghi_Gallery02.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s12.jpg": {
+"h": 1000,
+"hash": "0001100110011010000011100000111000001011011000100110111100001100",
+"kb": 346,
+"lum": 115,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e44274b4fe8d06fe7609b_02-Servizi_01-Spurghi_Gallery03.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s13.jpg": {
+"h": 1000,
+"hash": "1110010111110111111101111110011110110111010100010000001110111100",
+"kb": 342,
+"lum": 115,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e442b3fe4ebf9b9e1cd95_02-Servizi_01-Spurghi_Gallery04.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s15.jpg": {
+"h": 1000,
+"hash": "1111000111100011111000101100101011111000111100101110001011010010",
+"kb": 259,
+"lum": 103,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e444de41dd3e463734be3_02-Servizi_02-Risanamenti_Gallery01.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s2.jpg": {
+"h": 740,
+"hash": "0001100100011001000110011001111010000110110000001000000011000000",
+"kb": 257,
+"lum": 110,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e444607afbc63e4daed23_02-Servizi_02-Risanamenti_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s3.jpg": {
+"h": 740,
+"hash": "0011011101110011011010110110000100110001110101101100111011111110",
+"kb": 157,
+"lum": 120,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e446e2a231ffa0dbfa989_02-Servizi_03-Ispezioni_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s4.jpg": {
+"h": 740,
+"hash": "1011000010001001110010011100100111000011111000111110001111100011",
+"kb": 109,
+"lum": 108,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e448b9e675e64f54c6210_02-Servizi_04-RicercaPerdite_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s5.jpg": {
+"h": 740,
+"hash": "1100100111001101000110001111000000111100001111000110010011001001",
+"kb": 317,
+"lum": 104,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e44a6bbc92921105ac514_02-Servizi_05-Collaudi_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s6.jpg": {
+"h": 740,
+"hash": "0100101101001011000010101100101111101011010010110010101010110100",
+"kb": 201,
+"lum": 74,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e44c3b2dd6e75390f86ea_02-Servizi_06-Amianto_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s7.jpg": {
+"h": 740,
+"hash": "0101001001010010101100110011000101110000011100000111000001011110",
+"kb": 284,
+"lum": 120,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e44db23f3d11e240bba1b_02-Servizi_07-Cisterne_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s8.jpg": {
+"h": 740,
+"hash": "1100111111001110100101101001011010001100100111011101110111011100",
+"kb": 105,
+"lum": 144,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/6784d24038d1ed676f526812_02-Servizi_08-Fresatura_Hero.webp",
+"w": 1500
+},
+"gruppo-bonora/m/s9.jpg": {
+"h": 740,
+"hash": "0010110010101101000110110101100100011000010110001101100011011000",
+"kb": 165,
+"lum": 106,
+"ok": true,
+"scr": 1,
+"url": "https://cdn.prod.website-files.com/67471c99da32ac58841ddee0/677e451e7dbe54c3367961c7_02-Servizi_09-Noleggio_Hero.webp",
+"w": 1500
+},
+"gruppo-fir/_scrape": {
+"done": true,
+"err": "",
+"n": 26
+},
+"gruppo-fir/m/1.jpg": {
+"err": "piccola 51x51",
+"ok": false,
+"url": "https://www.fironline.it/images/Servizi/stoccaggio.png"
+},
+"gruppo-fir/m/2.jpg": {
+"err": "piccola 71x54",
+"ok": false,
+"url": "https://www.fironline.it/images/Servizi/Trasporti.png"
+},
+"gruppo-fir/m/logo.png": {
+"h": 1138,
+"hash": "0001100000111000001110110110001101000011010010110000110000011100",
+"kb": 29,
+"lum": 23,
+"ok": true,
+"url": "https://www.fironline.it/private_images/Master/logo03.png",
+"w": 2167
+},
+"gruppo-fir/m/s10.jpg": {
+"h": 2657,
+"hash": "0000100100001110001101000110001001100000101000011011001011111000",
+"kb": 200,
+"lum": 114,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/news/2024/screenshot-2026-09-08-alle-15-16-23-2.png",
+"w": 1876
+},
+"gruppo-fir/m/s11.jpg": {
+"h": 1699,
+"hash": "1101000111010001110100100010010110001101111001100100101101011011",
+"kb": 261,
+"lum": 57,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/azienda/screenshot-2025-11-07-alle-16-37-40.png",
+"w": 1199
+},
+"gruppo-fir/m/s12.jpg": {
+"h": 1116,
+"hash": "0001100101001011010110100001101001111010010110100011101001011100",
+"kb": 158,
+"lum": 88,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/news/2024/bilancioSostenibilita2024.png",
+"w": 789
+},
+"gruppo-fir/m/s13.jpg": {
+"h": 1080,
+"hash": "0100110010001100000000000010000110011000010101010101011110111001",
+"kb": 46,
+"lum": 98,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/news/progetto-senza-titolo-21.png",
+"w": 1080
+},
+"gruppo-fir/m/s14.jpg": {
+"h": 1080,
+"hash": "1100001111001111011111110111111111111010111110111111110111100010",
+"kb": 163,
+"lum": 153,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/news/progetto-senza-titolo-18.png",
+"w": 1080
+},
+"gruppo-fir/m/s17.jpg": {
+"h": 1000,
+"hash": "0000001110001001100011100010001111100001100000011100000101011000",
+"kb": 442,
+"lum": 119,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/azienda/azienda-smaltimento-rifiuti.jpg",
+"w": 2000
+},
+"gruppo-fir/m/s22.jpg": {
+"h": 1000,
+"hash": "0000010100000101000101110001011100010011001100010011001100111011",
+"kb": 256,
+"lum": 106,
+"ok": true,
+"scr": 1,
+"url": "https://www.fironline.it/images/azienda/il-gruppo/ditte-smaltimento-rifiuti-speciali.jpg",
+"w": 2000
+},
 "idrospurghi-della-pietra/_scrape": {
 "done": true,
 "err": "<urlopen error [Errno -2] Name or service not known>",
@@ -4592,6 +6330,93 @@
 "scr": 1,
 "url": "https://www.itsecologia.com/images/home/servizi/Videoispezioni.png",
 "w": 700
+},
+"kanaltec/_scrape": {
+"done": true,
+"err": "",
+"n": 10
+},
+"kanaltec/m/1.jpg": {
+"h": 730,
+"hash": "1100110001101001000110100010011000101010101110101100100101100000",
+"kb": 294,
+"lum": 128,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/slider1.jpg",
+"w": 1920
+},
+"kanaltec/m/2.jpg": {
+"h": 730,
+"hash": "0001111100001111000011110001111100111111001111110011111000011110",
+"kb": 165,
+"lum": 73,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/slider2.jpg",
+"w": 1920
+},
+"kanaltec/m/3.jpg": {
+"h": 730,
+"hash": "0110110000111100110011000110110011101100011011001110110011101100",
+"kb": 164,
+"lum": 128,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/slider3.jpg",
+"w": 1920
+},
+"kanaltec/m/4.jpg": {
+"h": 730,
+"hash": "1000111110100110101001101010010010101000101010001100110011001000",
+"kb": 119,
+"lum": 184,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/slider4.jpg",
+"w": 1920
+},
+"kanaltec/m/5.jpg": {
+"h": 730,
+"hash": "1001001010100011110100010110000010110000011010001111000001111000",
+"kb": 375,
+"lum": 115,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/slider5.jpg",
+"w": 1920
+},
+"kanaltec/m/6.jpg": {
+"h": 730,
+"hash": "0000001100101111001011010100100101001001010011110100011101000111",
+"kb": 361,
+"lum": 108,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/slider6.jpg",
+"w": 1920
+},
+"kanaltec/m/7.jpg": {
+"h": 373,
+"hash": "0000100100000101000001100100110100110111111000010011111100000110",
+"kb": 92,
+"lum": 102,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/fuhrpark.jpg",
+"w": 1024
+},
+"kanaltec/m/logo.png": {
+"h": 54,
+"hash": "0001110000001000000111000010110010001000111010001101110011010000",
+"kb": 14,
+"lum": 164,
+"ok": true,
+"url": "https://www.kanaltec.it/assets/images/logo.png",
+"w": 176
+},
+"kanaltec/m/s9.jpg": {
+"h": 683,
+"hash": "0001101000000000110011000000100100111011110101111110011101101111",
+"kb": 127,
+"lum": 95,
+"ok": true,
+"scr": 1,
+"url": "https://www.kanaltec.it/assets/images/kanaltec.jpg",
+"w": 1024
 },
 "logica-fvg/_scrape": {
 "done": true,
@@ -6397,6 +8222,137 @@
 "url": "https://olibonigroup.it/download/decv/117/Schermata-2020-09-08-alle-125224.webp?20200917165608&m=crop&w=720&h=410",
 "w": 720
 },
+"pa-service/_scrape": {
+"done": true,
+"err": "",
+"n": 13
+},
+"pa-service/m/1.jpg": {
+"h": 800,
+"hash": "1101100011010000111010111010110011101100011011000110110001011000",
+"kb": 53,
+"lum": 173,
+"ok": true,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/cementifici.jpeg",
+"w": 800
+},
+"pa-service/m/2.jpg": {
+"h": 800,
+"hash": "0100110011101100111110001100110010011100110111001101110010110100",
+"kb": 140,
+"lum": 107,
+"ok": true,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/termovalorizzatori.jpeg",
+"w": 800
+},
+"pa-service/m/3.jpg": {
+"h": 800,
+"hash": "0111111011111110000100010000001000001110000011100100010001000001",
+"kb": 146,
+"lum": 123,
+"ok": true,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/trattamento.jpeg",
+"w": 800
+},
+"pa-service/m/logo.png": {
+"h": 592,
+"hash": "0000000000100000001100000001100100011001001010010010000100000000",
+"kb": 37,
+"lum": 15,
+"ok": true,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2021/02/PA_Service.png",
+"w": 1018
+},
+"pa-service/m/s10.jpg": {
+"h": 941,
+"hash": "0011110101111111111100000111000101100010000110010001100100110001",
+"kb": 294,
+"lum": 106,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/06/gestione-rifiuti-min.jpg",
+"w": 1920
+},
+"pa-service/m/s11.jpg": {
+"h": 941,
+"hash": "0000101100001011010011110000111100001111100011110001111100011111",
+"kb": 134,
+"lum": 96,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/06/trattamento-rifiuti-min.jpg",
+"w": 1920
+},
+"pa-service/m/s12.jpg": {
+"h": 2160,
+"hash": "0001000101001011100010110101011100000011001101011100110011001111",
+"kb": 200,
+"lum": 134,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2023/04/mappa_UE_04.png",
+"w": 2161
+},
+"pa-service/m/s13.jpg": {
+"h": 3240,
+"hash": "0011110000111100001111000001100000111001001100001110100000111010",
+"kb": 148,
+"lum": 127,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2023/04/Tavola-disegno-1.png",
+"w": 5760
+},
+"pa-service/m/s5.jpg": {
+"h": 949,
+"hash": "0000000011111110110110101101110011001010111000001100000000000000",
+"kb": 41,
+"lum": 227,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/PASI-ES.png",
+"w": 1600
+},
+"pa-service/m/s6.jpg": {
+"h": 925,
+"hash": "0000000011111110110110101101110011001110101000001100000000000000",
+"kb": 41,
+"lum": 226,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/07/PASI-DK.png",
+"w": 1600
+},
+"pa-service/m/s7.jpg": {
+"h": 592,
+"hash": "0000000000100000001100000001100100011001001010010010001000000000",
+"kb": 32,
+"lum": 13,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2021/02/PA_Service.png",
+"w": 1018
+},
+"pa-service/m/s8.jpg": {
+"h": 1082,
+"hash": "0000010001001011010000110001001110010101100100010001100100001111",
+"kb": 200,
+"lum": 21,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/05/home-hero.png",
+"w": 1924
+},
+"pa-service/m/s9.jpg": {
+"h": 941,
+"hash": "0101000110001101010100101110101001101100101111110111011110111111",
+"kb": 189,
+"lum": 119,
+"ok": true,
+"scr": 1,
+"url": "https://www.paservicesrl.com/wp-content/uploads/2020/06/logistica-min.jpg",
+"w": 1920
+},
 "pertot/_scrape": {
 "done": true,
 "err": "",
@@ -7158,39 +9114,275 @@
 "n": 0
 },
 "sartori-fratelli/m/1.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda150310>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2014/12/012_rid.jpg"
+"h": 1278,
+"hash": "0001011000111111000110010110001101001111100100010010000101101011",
+"kb": 593,
+"lum": 135,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2014/12/012_rid.jpg",
+"w": 1920
 },
 "sartori-fratelli/m/2.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda150220>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/05/121.jpg"
+"h": 1278,
+"hash": "0010100100011001000010010100110011110100111110100110111100011111",
+"kb": 461,
+"lum": 141,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/05/121.jpg",
+"w": 1920
 },
 "sartori-fratelli/m/3.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda1505e0>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/05/018.jpg"
+"h": 1281,
+"hash": "0000100100010000000100111011101101010011010101100011111000011111",
+"kb": 570,
+"lum": 94,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/05/018.jpg",
+"w": 1920
 },
 "sartori-fratelli/m/4.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda151120>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/03/181.jpg"
+"h": 1278,
+"hash": "0010000100100001011000010010011100110001001110000001110000011100",
+"kb": 362,
+"lum": 139,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/03/181.jpg",
+"w": 1920
 },
 "sartori-fratelli/m/5.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdd8986ac0>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/03/326.jpg"
+"h": 1282,
+"hash": "0100010001111001011110011100010111010110011000110100101111001011",
+"kb": 251,
+"lum": 162,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2019/03/326.jpg",
+"w": 1920
 },
 "sartori-fratelli/m/6.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda151da0>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2014/11/001-copia.jpg"
+"h": 1014,
+"hash": "0001111101111001011010010010010100101101010110111101101111111011",
+"kb": 591,
+"lum": 130,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2014/11/001-copia.jpg",
+"w": 1920
 },
 "sartori-fratelli/m/logo.png": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda152cf0>",
-"ok": false,
-"url": "https://scavisartorifratelli.it/wp-content/uploads/2017/11/logo_sartori_web-01.png"
+"h": 250,
+"hash": "0100000001000000011000000110000100100001001000010100000001000000",
+"kb": 43,
+"lum": 8,
+"ok": true,
+"url": "https://scavisartorifratelli.it/wp-content/uploads/2017/11/logo_sartori_web-01.png",
+"w": 1125
+},
+"sativa/_scrape": {
+"done": true,
+"err": "",
+"n": 40
+},
+"sativa/m/1.jpg": {
+"h": 600,
+"hash": "1110000000001100000001000010011000110010111100101110010000000011",
+"kb": 48,
+"lum": 118,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2025/01/sativa-foto-2024-2.jpg",
+"w": 525
+},
+"sativa/m/2.jpg": {
+"h": 600,
+"hash": "0000110100001101000011110000111111011101100001001111000010111000",
+"kb": 46,
+"lum": 163,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2025/01/sativa-foto-2024.jpg",
+"w": 525
+},
+"sativa/m/3.jpg": {
+"h": 600,
+"hash": "1110100011110001111100011101100010110010100101100011011000000111",
+"kb": 40,
+"lum": 113,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-10.jpg",
+"w": 525
+},
+"sativa/m/4.jpg": {
+"h": 600,
+"hash": "1010000000010000110100111100101111001101100011111000001100000011",
+"kb": 49,
+"lum": 108,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-11.jpg",
+"w": 525
+},
+"sativa/m/5.jpg": {
+"h": 600,
+"hash": "0011000110100101110001011000101010011010101110101110110001100100",
+"kb": 81,
+"lum": 113,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-12.jpg",
+"w": 525
+},
+"sativa/m/6.jpg": {
+"h": 600,
+"hash": "0000000000000000001100111010110111101111011001111111100100111011",
+"kb": 59,
+"lum": 144,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-9.jpg",
+"w": 525
+},
+"sativa/m/logo.png": {
+"h": 61,
+"hash": "0000000010001010110110000101011001100110011101100111010010010001",
+"kb": 17,
+"lum": 199,
+"ok": true,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/logo_250px.png",
+"w": 250
+},
+"sativa/m/s1.jpg": {
+"h": 1100,
+"hash": "1011100000110010001100000001111010011011101110111010100001101000",
+"kb": 207,
+"lum": 107,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-2.jpg",
+"w": 1920
+},
+"sativa/m/s10.jpg": {
+"h": 650,
+"hash": "1100001111100011111100110001001100010011000100110000001100010011",
+"kb": 73,
+"lum": 42,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-13.jpg",
+"w": 1920
+},
+"sativa/m/s11.jpg": {
+"h": 600,
+"hash": "1100000010000000001100100011001000110110001101010000111000000111",
+"kb": 64,
+"lum": 128,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-1.png",
+"w": 800
+},
+"sativa/m/s12.jpg": {
+"h": 600,
+"hash": "1110001100010111000110100001100100111001000111001110010011101110",
+"kb": 102,
+"lum": 118,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-2.png",
+"w": 800
+},
+"sativa/m/s13.jpg": {
+"h": 600,
+"hash": "1100000011100000101111000000110100001100000011001000110011010000",
+"kb": 84,
+"lum": 123,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-3.png",
+"w": 800
+},
+"sativa/m/s14.jpg": {
+"h": 600,
+"hash": "1010011110000110000011100100111001001111110101100111111000111101",
+"kb": 101,
+"lum": 101,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-4.png",
+"w": 800
+},
+"sativa/m/s15.jpg": {
+"h": 600,
+"hash": "0001111100011111001100010111100101011110011101010111100001111010",
+"kb": 69,
+"lum": 149,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-5.png",
+"w": 800
+},
+"sativa/m/s16.jpg": {
+"h": 600,
+"hash": "0111011101110111000001110011010011000011011000010000000000000000",
+"kb": 65,
+"lum": 140,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-6.png",
+"w": 800
+},
+"sativa/m/s17.jpg": {
+"h": 600,
+"hash": "1001000010011000001011000010000011100001111000101010110000111100",
+"kb": 79,
+"lum": 87,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-7.png",
+"w": 800
+},
+"sativa/m/s18.jpg": {
+"h": 600,
+"hash": "0101000111110001111110000111100001001100010101100100111110001111",
+"kb": 84,
+"lum": 129,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-8.png",
+"w": 800
+},
+"sativa/m/s19.jpg": {
+"h": 600,
+"hash": "1111111111111111011011101010111001111110011111110111111111111111",
+"kb": 75,
+"lum": 112,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-9.png",
+"w": 800
+},
+"sativa/m/s2.jpg": {
+"h": 1100,
+"hash": "0111000001101001001011010000011100000111000001111100011111100100",
+"kb": 173,
+"lum": 121,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-4.jpg",
+"w": 1920
+},
+"sativa/m/s20.jpg": {
+"h": 600,
+"hash": "0001000100000001000010000001101100011001010011010100011000011100",
+"kb": 71,
+"lum": 116,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/trasporto-e-gestione-rifiuti-trento-saltiva-10.png",
+"w": 800
+},
+"sativa/m/s3.jpg": {
+"h": 1100,
+"hash": "0111111101011101111111011101111010110111111000111100100111001000",
+"kb": 238,
+"lum": 108,
+"ok": true,
+"scr": 1,
+"url": "https://www.sativatn.it/mt-content/uploads/2022/08/gestione-e-trasporto-rifiuti-trento-sativa-6.jpg",
+"w": 1920
 },
 "scarante-autoespurghi/_scrape": {
 "done": true,
@@ -7384,38 +9576,102 @@
 "url": "https://www.scaranteautoespurghi.it/wp-content/uploads/2026/02/spurgo-pozzi.jpg",
 "w": 1920
 },
+"scr-servizi-chini-renato/_scrape": {
+"done": true,
+"err": "",
+"n": 40
+},
+"scr-servizi-chini-renato/m/1.jpg": {
+"err": "piccola 631x194",
+"ok": false,
+"url": "https://irp.cdn-website.com/483bf4df/dms3rep/multi/opt/a514808c-947f-4890-999f-d70778b30b50-631x194.dm.edit_QoEBUm-1920w.jpg"
+},
+"scr-servizi-chini-renato/m/2.jpg": {
+"err": "piccola 246x101",
+"ok": false,
+"url": "https://irp.cdn-website.com/483bf4df/dms3rep/multi/opt/img1-369w.jpg"
+},
+"scr-servizi-chini-renato/m/3.jpg": {
+"err": "piccola 246x101",
+"ok": false,
+"url": "https://irp.cdn-website.com/483bf4df/dms3rep/multi/opt/p3-369w.jpg"
+},
+"scr-servizi-chini-renato/m/4.jpg": {
+"err": "piccola 246x101",
+"ok": false,
+"url": "https://irp.cdn-website.com/483bf4df/dms3rep/multi/opt/p4-375w.jpg"
+},
+"scr-servizi-chini-renato/m/logo.png": {
+"h": 326,
+"hash": "0110111111000000110001000000010010001100100011001110010000111001",
+"kb": 228,
+"lum": 150,
+"ok": true,
+"url": "https://irp.cdn-website.com//483bf4df/dms3rep/multi/opt/1-1920w.jpg",
+"w": 490
+},
+"scr-servizi-chini-renato/m/s14.jpg": {
+"h": 1120,
+"hash": "0011011100110011001101110000101100000011000000110000000100000010",
+"kb": 227,
+"lum": 198,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com//483bf4df/dms3rep/multi/opt/wrapper_sub-1920x1120-1920w.jpg",
+"w": 1920
+},
 "se-fi-ambiente/_scrape": {
 "done": true,
 "err": "",
 "n": 0
 },
 "se-fi-ambiente/m/1.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda1233d0>",
-"ok": false,
-"url": "https://sefiambiente.com/wp-content/uploads/2019/01/trasportoRifiutiIndustriali.jpg"
+"h": 250,
+"hash": "0100000010011100000011100001001100001011100111110101101000100000",
+"kb": 6,
+"lum": 172,
+"ok": true,
+"url": "https://sefiambiente.com/wp-content/uploads/2019/01/trasportoRifiutiIndustriali.jpg",
+"w": 387
 },
 "se-fi-ambiente/m/2.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda18a5c0>",
-"ok": false,
-"url": "https://sefiambiente.com/wp-content/uploads/2019/01/smaltimentoRifiutiLiquidi.jpg"
+"h": 250,
+"hash": "0010000000011110100001100001011100100110100101101001011001000000",
+"kb": 6,
+"lum": 141,
+"ok": true,
+"url": "https://sefiambiente.com/wp-content/uploads/2019/01/smaltimentoRifiutiLiquidi.jpg",
+"w": 387
 },
 "se-fi-ambiente/m/3.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda18a8e0>",
-"ok": false,
-"url": "https://sefiambiente.com/wp-content/uploads/2019/01/smaltimentoRifiutiSolidi.jpg"
+"h": 249,
+"hash": "0000000000011000000111000000100000001110001001100000101000001110",
+"kb": 5,
+"lum": 202,
+"ok": true,
+"url": "https://sefiambiente.com/wp-content/uploads/2019/01/smaltimentoRifiutiSolidi.jpg",
+"w": 387
 },
 "se-fi-ambiente/m/4.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda189cb0>",
-"ok": false,
-"url": "https://sefiambiente.com/wp-content/uploads/2019/01/oli-usati.jpg"
+"h": 249,
+"hash": "0001000001001110100110101001111000001110000011100001011000000100",
+"kb": 4,
+"lum": 201,
+"ok": true,
+"url": "https://sefiambiente.com/wp-content/uploads/2019/01/oli-usati.jpg",
+"w": 387
 },
 "se-fi-ambiente/m/5.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda189da0>",
-"ok": false,
-"url": "https://sefiambiente.com/wp-content/uploads/2019/01/batterie-esauste.jpg"
+"h": 249,
+"hash": "0000000000100010001100100001011100010111000101100000110000000000",
+"kb": 4,
+"lum": 221,
+"ok": true,
+"url": "https://sefiambiente.com/wp-content/uploads/2019/01/batterie-esauste.jpg",
+"w": 387
 },
 "se-fi-ambiente/m/logo.png": {
-"err": "cannot identify image file <_io.BytesIO object at 0x79bdda123790>",
+"err": "piccola 111x75",
 "ok": false,
 "url": "https://sefiambiente.com/wp-content/uploads/2019/01/logo-sefi.png"
 },
@@ -8115,6 +10371,119 @@
 "scr": 1,
 "url": "https://spurgopozzinerisquaranti.com/wp-content/uploads/2025/12/sempre-pronti.jpg",
 "w": 822
+},
+"sudtirolfer/_scrape": {
+"done": true,
+"err": "",
+"n": 12
+},
+"sudtirolfer/m/1.jpg": {
+"h": 550,
+"hash": "0011011000110101001111010001111100011111000111100001111000011101",
+"kb": 88,
+"lum": 122,
+"ok": true,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2018/04/Suedtirolfer2.jpg",
+"w": 2000
+},
+"sudtirolfer/m/2.jpg": {
+"h": 550,
+"hash": "1010111000101011001001110010011101100010001100110011001001110000",
+"kb": 172,
+"lum": 93,
+"ok": true,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2018/04/Suedtirolfer11.jpg",
+"w": 2000
+},
+"sudtirolfer/m/3.jpg": {
+"h": 550,
+"hash": "1000100110000101100001110101101110101011010010111101011111010111",
+"kb": 246,
+"lum": 109,
+"ok": true,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2018/04/Suedtirolfer10.jpg",
+"w": 2000
+},
+"sudtirolfer/m/4.jpg": {
+"h": 550,
+"hash": "0001100000011001000001010100010101100011001000110001001100011011",
+"kb": 143,
+"lum": 94,
+"ok": true,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2018/04/Suedtirolfer12.jpg",
+"w": 2000
+},
+"sudtirolfer/m/5.jpg": {
+"err": "piccola 358x239",
+"ok": false,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2022/07/DSC_3210-2.jpg"
+},
+"sudtirolfer/m/6.jpg": {
+"err": "piccola 358x239",
+"ok": false,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2022/08/1.jpg"
+},
+"sudtirolfer/m/7.jpg": {
+"err": "piccola 358x239",
+"ok": false,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2022/08/2.jpg"
+},
+"sudtirolfer/m/8.jpg": {
+"err": "piccola 358x239",
+"ok": false,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2022/08/3.jpg"
+},
+"sudtirolfer/m/logo.png": {
+"h": 163,
+"hash": "0101000110011101101101011100100101101100111001010001101000011010",
+"kb": 8,
+"lum": 98,
+"ok": true,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2026/11/logo_2026.png",
+"w": 1417
+},
+"sudtirolfer/m/s11.jpg": {
+"h": 887,
+"hash": "0010000000000000001000111000101011000110100011100000111100101111",
+"kb": 244,
+"lum": 104,
+"ok": true,
+"scr": 1,
+"url": "https://www.sudtirolfer.com/wp-content/uploads/2018/04/Suedtirolfer.jpg",
+"w": 1576
+},
+"tappeiner/_scrape": {
+"done": true,
+"err": "",
+"n": 26
+},
+"tappeiner/m/1.jpg": {
+"h": 600,
+"hash": "1001000000010010010101001101000101000000110000000000111101101111",
+"kb": 104,
+"lum": 123,
+"ok": true,
+"url": "https://www.tappeiner.bz/images/content/173846_21151_2_S_0_600_0_2290963/istock-000011422027large1.jpg",
+"w": 904
+},
+"tappeiner/m/2.jpg": {
+"err": "piccola 209x82",
+"ok": false,
+"url": "https://www.tappeiner.bz/images/content/173773_21160_2_N_209_0_0_2282717/recycling-klein.jpg"
+},
+"tappeiner/m/3.jpg": {
+"err": "'ascii' codec can't encode character '\\xe4' in position 56: ordinal not in range(128)",
+"ok": false,
+"url": "https://www.tappeiner.bz/images/content/173772_21160_2_N_209_0_0_2282730/geb\u00e4udereinigung-klein.jpg"
+},
+"tappeiner/m/logo.png": {
+"h": 87,
+"hash": "1110010110010111100100100110110011111100111111001111110011111100",
+"kb": 9,
+"lum": 218,
+"ok": true,
+"url": "https://www.tappeiner.bz/images/design/logo.png",
+"w": 410
 },
 "tecno-ecologic/_scrape": {
 "done": true,
