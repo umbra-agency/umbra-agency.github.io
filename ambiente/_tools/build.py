@@ -142,7 +142,9 @@ def norm(L):
     d['nome'] = (d.get('nome') or d.get('ragione_sociale') or '').strip()
     d['slug'] = d.get('slug') or slugify(d['nome'])
     d['servizi'] = [s.strip(' .') for s in (d.get('servizi') or []) if s and len(s.strip()) > 2][:8]
-    d['cert'] = [c for c in (d.get('certificazioni') or []) if c][:8]
+    cr = d.get('certificazioni') or []
+    if isinstance(cr, str): cr = [x.strip(' .') for x in re.split(r'\s*[;,]\s*|\s+e\s+(?=ISO|EMAS|Albo)', cr) if x.strip(' .')]
+    d['cert'] = [c for c in cr if c and len(c) > 2 and not re.fullmatch(r'(null|nessuna|n/?d|non dichiarat\w*)', c.strip(), re.I) and not re.search(r"non specificat|dettagli|pagine dedicat|^'|non in home", c, re.I)][:8]
     d['nk'] = [n for n in (d.get('numeri_chiave') or []) if n][:4]
     d['foto'] = [u for u in (d.get('foto_urls') or []) if isinstance(u, str) and u.startswith('http')][:8]
     d['sector'] = sector_of(' '.join(d['servizi']) + ' ' + (d.get('claim') or '') + ' ' + d['nome'], d['servizi'] + [d['nome']])
@@ -362,7 +364,7 @@ def contacts(d, arch):
     q = urllib.parse.quote((d.get('indirizzo') or '') + ' ' + (d.get('comune') or '') + ' ' + d['prov'])
     mp = f'<div class="map rv"><iframe title="Mappa della sede" loading="lazy" src="https://maps.google.com/maps?q={q}&z=14&output=embed"></iframe></div>' if ind else ''
     srv_opts = ''.join(f'<option>{E(s)}</option>' for s in d['servizi'][:8]) + '<option>Altro</option>'
-    h2 = {'T': 'Parliamo del <em>vostro</em> servizio.', 'I': 'Un preventivo, <em>senza giri</em>.', 'X': 'Chiamate. <em>Arriviamo.</em>'}[arch]
+    h2 = {'T': 'Parliamo del <em>vostro</em> servizio.', 'I': 'Un preventivo, <em>senza giri</em>.', 'X': 'Chiamate. <em>Arriviamo.</em>', 'M': 'Scriveteci, <em>vi richiamiamo</em>.'}[arch]
     return f'''<section class="sec" id="contatti" style="background:var(--bg2)"><div class="wrap ct">
 <div><p class="eye rv"><i></i>Contatti</p><h2 class="h-l rv" style="margin-top:22px">{h2}</h2>
 <p class="lead muted rv" style="margin-top:24px">Enti, aziende e privati: indicateci il servizio e la zona, vi rispondiamo con tempi e preventivo.</p>
@@ -597,8 +599,87 @@ FONTS = {
  'X': 'family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&family=Inter+Tight:wght@500;700',
 }
 
+CAPS = {'VR': ('Verona', 45.438, 10.992), 'VI': ('Vicenza', 45.548, 11.548), 'PD': ('Padova', 45.406, 11.877), 'TV': ('Treviso', 45.666, 12.243),
+        'VE': ('Venezia', 45.441, 12.316), 'RO': ('Rovigo', 45.071, 11.790), 'BL': ('Belluno', 46.142, 12.217), 'UD': ('Udine', 46.063, 13.235),
+        'PN': ('Pordenone', 45.956, 12.660), 'GO': ('Gorizia', 45.940, 13.621), 'TS': ('Trieste', 45.650, 13.777), 'TN': ('Trento', 46.067, 11.121),
+        'BZ': ('Bolzano', 46.498, 11.354), 'PC': ('Piacenza', 45.052, 9.693), 'PR': ('Parma', 44.801, 10.328), 'RE': ('Reggio Emilia', 44.698, 10.631),
+        'MO': ('Modena', 44.647, 10.925), 'BO': ('Bologna', 44.494, 11.343), 'FE': ('Ferrara', 44.838, 11.620), 'RA': ('Ravenna', 44.418, 12.204),
+        'FC': ('Forlì', 44.222, 12.041), 'RN': ('Rimini', 44.060, 12.566), 'MN': ('Mantova', 45.156, 10.791), 'BS': ('Brescia', 45.541, 10.211)}
+
+def radar(d):
+    import math
+    if d['prov'] not in CAPS: return ''
+    _, la0, lo0 = CAPS[d['prov']]
+    pts = []
+    for k, (n, la, lo) in CAPS.items():
+        if k == d['prov']: continue
+        dy = (la - la0) * 111.0; dx = (lo - lo0) * 111.0 * math.cos(math.radians(la0)); km = math.hypot(dx, dy)
+        if km <= 150: pts.append((km, n, dx, dy))
+    pts.sort(); pts = pts[:7]
+    if len(pts) < 3: return ''
+    R = 260 / 150
+    rings = ''.join(f'<circle class="radar__ring" cx="300" cy="300" r="{r * R:.0f}"/><text class="radar__lbl" x="{300 + 6}" y="{300 - r * R + 14:.0f}">{r} KM</text>' for r in (50, 100, 150))
+    cities = ''
+    for km, n, dx, dy in pts:
+        x = 300 + dx * R; y = 300 - dy * R; anchor = 'start' if dx >= 0 else 'end'; tx = x + (10 if dx >= 0 else -10)
+        cities += f'<g class="radar__city"><circle cx="{x:.0f}" cy="{y:.0f}" r="4"/><text x="{tx:.0f}" y="{y + 4:.0f}" text-anchor="{anchor}">{E(n)} <tspan class="km">{km:.0f} km</tspan></text></g>'
+    home = E(d.get('comune') or CAPS[d['prov']][0])
+    svg = f'''<svg viewBox="0 0 600 600" aria-hidden="true"><defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="var(--acc)" stop-opacity="0"/><stop offset="1" stop-color="var(--acc)" stop-opacity=".22"/></linearGradient></defs>
+{rings}<line x1="40" y1="300" x2="560" y2="300" stroke="var(--line)"/><line x1="300" y1="40" x2="300" y2="560" stroke="var(--line)"/>
+<path class="radar__sweep" d="M300 300 L560 300 A260 260 0 0 0 525 170 Z" fill="url(#sw)"/>{cities}
+<circle class="radar__pulse" cx="300" cy="300" r="20"/><circle class="radar__home" cx="300" cy="300" r="8"/><text x="300" y="332" text-anchor="middle" style="font:700 13px var(--f-body);fill:var(--fg)">{home}</text></svg>'''
+    lst = ''.join(f'<div><b>{E(n)}</b><span>{km:.0f} km in linea d\'aria</span></div>' for km, n, dx, dy in pts[:5])
+    return f'''<section class="sec" id="area" style="background:var(--bg3)"><div class="wrap radar"><div><p class="eye rv"><i></i>Dove siamo</p>
+<h2 class="h-l rv" style="margin:20px 0 26px">Da <em>{home}</em>, a portata di mezzo.</h2><p class="lead muted rv">Distanze dalla sede ai capoluoghi vicini, per capire in quanto tempo un mezzo può essere sul posto.</p>
+<div class="radar__list rv" style="margin-top:36px">{lst}</div></div><div class="radar__svg">{svg}</div></div></section>'''
+
+def arch_M(d, P):
+    hsrc, own = P.hero()
+    title = hero_title(d, 'M'); st = stats(d)
+    tiles = [hsrc] + [P.next(500) for _ in range(11)]
+    order = tiles[1:6] + [tiles[0]] + tiles[6:]  # la foto chiave al centro (indice 5)
+    tl = ''.join(f'<div class="t{" k" if i == 5 else ""}"><img src="{E(s)}" data-fb="{E(P.fb())}" alt="" {"fetchpriority=\"high\"" if i == 5 else "loading=\"lazy\""}></div>' for i, s in enumerate(order))
+    eye = ' <i></i> '.join(E(x) for x in dict.fromkeys([d.get('comune'), d['provn'], f"dal {d['anno']}" if d['anno'] else None]) if x)
+    sub = E(d.get('claim') or f"{', '.join(d['servizi'][:3])}.")
+    hero = f'''<section class="heroM" id="top"><div class="heroM__stick"><div class="heroM__scene"><div class="heroM__wall">{tl}</div></div><div class="heroM__veil"></div>
+<div class="heroM__c wrap"><p class="eye ln"><span>{eye}</span></p><h1 class="h-xl">{''.join(f'<span class="ln"><span>{x}</span></span>' for x in title)}</h1>
+<p class="rv">{sub}</p><div class="heroM__ctas rv"><a class="btn btn--p" href="#contatti">Richiedi un preventivo {IC['ar']}</a><a class="btn btn--g" href="#servizi">I servizi</a></div></div>
+<div class="heroM__hint"><i></i>Scorri</div><div class="heroM__cap">{E(d.get('comune') or '')}<b>{E(d['nome'])}</b></div></div></section>'''
+    rail = ''
+    if st:
+        rail = '<div class="railM"><div class="wrap railM__in" style="--n:%d">%s</div></div>' % (len(st), ''.join(f'<div class="railM__it rv"><b>{stat_html(ds, v)}</b><span>{E(l)}</span></div>' for ds, v, l in st))
+    # capitoli
+    chs = []
+    who = f"{E(d['nome'])} lavora da {E(d.get('comune') or d['provn'])}" + (f" dal {d['anno']}" if d['anno'] else '') + '.'
+    if d.get('gen') and isinstance(d['gen'], str) and len(d['gen']) < 140: who += ' ' + E(d['gen'][0].upper() + d['gen'][1:]).rstrip('.') + '.'
+    chs.append(("L'azienda", f"Una realtà <em>del territorio</em>.", who + f" Servizi per enti, aziende e privati: {E(', '.join(s.lower() for s in d['servizi'][:3]))}."))
+    mz = d.get('mezzi_flotta')
+    chs.append(('I mezzi', f"Mezzi <em>propri</em>, personale formato.", (E(str(mz)).rstrip('.') + '. ' if mz and len(str(mz)) < 120 else '') + "Ogni intervento parte dalla nostra sede con attrezzature nostre: niente subappalti da coordinare, un solo referente."))
+    cyc = cycle_for(d)
+    chs.append(('Il metodo', f"Dalla chiamata <em>al documento</em>.", ' '.join(f"{E(t)}: {E(p[0].lower() + p[1:])}" for t, p in cyc[:3])))
+    if d['cert']:
+        chs.append(('Le garanzie', f"Carte <em>in regola</em>.", f"{E(', '.join(cert_info(c)[0] for c in d['cert'][:5]))}. Certificazioni e iscrizioni dichiarate dall'azienda, consultabili su richiesta."))
+    cards = ''; steps = ''
+    for i, (lab, h, p) in enumerate(chs):
+        src = P.next(800); fb = P.fb()
+        cards += f'<figure class="chap__card" style="margin:0"><img src="{E(src)}" data-fb="{E(fb)}" alt="{E(lab)}" loading="lazy"><figcaption>{E(lab)}</figcaption></figure>'
+        steps += f'<div class="chap__step" data-i="{i}"><p class="n">{i + 1:02d} — {E(lab)}</p><h2 class="h-m">{h}</h2><p>{p}</p><div class="chap__img"><img src="{E(src)}" data-fb="{E(fb)}" alt="" loading="lazy"></div></div>'
+    chap = f'<section class="sec" id="azienda"><div class="wrap chap"><div>{steps}</div><div><div class="chap__deck">{cards}</div></div></div></section>'
+    # servizi
+    acc = ''
+    for i, (s, desc, sec) in enumerate(services_list(d)):
+        acc += f'''<div class="acc__it"><button class="acc__h" type="button"><span class="n">{i + 1:02d}</span><h3>{E(s)}</h3><span class="pl" aria-hidden="true"></span></button>
+<div class="acc__b"><div><div class="acc__in"><p>{E(desc)}</p>{img(P.next(700, STOCK_FOR.get(sec)), s, P.fb(STOCK_FOR.get(sec)))}</div></div></div></div>'''
+    serv = f'''<section class="sec" id="servizi" style="padding-top:0"><div class="wrap"><div class="sec-h"><div><p class="eye rv"><i></i>Servizi</p><h2 class="h-l rv" style="margin-top:20px">Cosa facciamo, <em>uno per uno</em>.</h2></div>
+<p class="lead muted rv">Aprite il servizio che vi interessa: descrizione e foto dal campo.</p></div><div class="acc">{acc}</div></div></section>'''
+    badges = ''
+    if d['cert']:
+        bb = ''.join(f'<div class="badge rv"><i>{IC["cert"]}</i><div><b>{E(cert_info(c)[0])}</b><span>{E(cert_info(c)[1])}</span></div></div>' for c in d['cert'])
+        badges = f'<section class="sec" id="certificazioni" style="padding-top:0"><div class="wrap"><h2 class="h-m rv" style="margin-bottom:40px">Certificazioni e <em>iscrizioni</em></h2><div class="badges">{bb}</div></div></section>'
+    return hero + rail + chap + serv + radar(d) + badges + join(d, P, 'M')
+
 def choose_arch(d, P):
-    if d.get('stile') in ('T', 'I', 'X'): return d['stile']
+    if d.get('stile') in ('T', 'I', 'X', 'M'): return d['stile']
     h = int(hashlib.md5(d['slug'].encode()).hexdigest(), 16)
     a = ['T', 'I', 'X'][h % 3]
     if d['anno'] and d['anno'] < 1985 and h % 2: a = 'I'
@@ -647,11 +728,12 @@ def build(L, rep):
         pal = ['#2f8f6a', '#1f6fa8', '#e07b24', '#3c8d3a', '#0f7c86', '#c8a12a', '#5a7f2b', '#2a5f9e']
         base = hrgb(pal[int(hashlib.md5(d['slug'].encode()).hexdigest(), 16) % len(pal)])
     acc, acct, on = tone_accent(base, dark)
-    nav_items = [('azienda', 'Azienda'), ('servizi', 'Servizi'), ('metodo', 'Metodo')]
+    nav_items = [('azienda', 'Azienda'), ('servizi', 'Servizi'), ('area', 'Dove siamo') if arch == 'M' and d['prov'] in CAPS else ('metodo', 'Metodo')]
+    if arch == 'M' and d['prov'] not in CAPS: nav_items.pop()
     if d['cert']: nav_items.append(('certificazioni', 'Certificazioni'))
     nav_items.append(('lavora', 'Lavora con noi'))
     d['_nav'] = nav_items
-    body = {'T': arch_T, 'I': arch_I, 'X': arch_X}[arch](d, P)
+    body = {'T': arch_T, 'I': arch_I, 'X': arch_X, 'M': arch_M}[arch](d, P)
     seed = int(hashlib.md5(d['slug'].encode()).hexdigest(), 16) % 90 + 3
     title = f"{d['nome']} · {', '.join(d['servizi'][:2]) or 'Servizi ambientali'} · {d.get('comune') or ''}"
     desc = d.get('claim') or f"{d['nome']}: {', '.join(d['servizi'][:4])}. {d.get('comune') or ''} ({d['prov']})."
@@ -660,7 +742,7 @@ def build(L, rep):
     page = f'''<!doctype html><html lang="it" class="a-{arch}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{E(title)}</title><meta name="description" content="{E(desc[:160])}"><meta name="robots" content="noindex,nofollow">
 <meta property="og:title" content="{E(d['nome'])} · anteprima del nuovo sito"><meta property="og:description" content="{E(desc[:160])}">
-<meta name="theme-color" content="{'#0b0f12' if arch == 'T' else '#0d0d0c' if arch == 'X' else '#f3f1ec'}">
+<meta name="theme-color" content="{'#0b0f12' if arch == 'T' else '#0d0d0c' if arch == 'X' else '#e8ebec' if arch == 'M' else '#f3f1ec'}">
 <link rel="stylesheet" href="../_assets/amb.css?v={V}">
 <style>:root{{--acc:{acc};--acc-text:{acct};--on-acc:{on}}}</style>
 <script>(function(){{var h=document.documentElement;h.classList.add('js');try{{if(matchMedia('(prefers-reduced-motion: reduce)').matches)h.classList.add('rm');if(/[?&]intro=0/.test(location.search)||sessionStorage.getItem('amb-intro')==='1')h.classList.add('no-intro')}}catch(e){{}}setTimeout(function(){{if(!h.classList.contains('ok'))h.classList.remove('js')}},4000)}})();window.AZ={{acc:"{acc}",seed:{seed}}};</script>
