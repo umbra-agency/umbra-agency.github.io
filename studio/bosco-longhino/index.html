@@ -1666,7 +1666,7 @@ async function dipingiEtichetta(v, C, stile = {}) {
   if (sigla) { x.font = `400 15.5px ${sans}, sans-serif`; spaziato(x, sigla, cx, 596 + righe.length * 44 + 4, 3.4); }
   if (v.annata) oro(c => { c.font = `500 86px ${serif}, Georgia, serif`; c.textAlign = 'center'; c.fillText(String(v.annata), cx, 850); });
   x.fillStyle = ink; x.font = `400 17px ${sans}, sans-serif`; spaziato(x, [C.famiglia_nome || C.nome, C.comune, 'dal ' + C.anno_fondazione].filter(Boolean).join(' · ').toUpperCase(), cx, 928, 4.2);
-  x.font = `400 15px ${sans}, sans-serif`; spaziato(x, `${v.grado.split(' ')[0]} VOL. · ${v.formato.replace(' l', ' L')}`, cx, 958, 4);
+  x.font = `400 15px ${sans}, sans-serif`; spaziato(x, [v.grado ? v.grado.split(' ')[0] + ' VOL.' : '', (v.formato || '').replace(' l', ' L')].filter(Boolean).join(' · '), cx, 958, 4);
   return { lab: a, foil: b };
 }
 
