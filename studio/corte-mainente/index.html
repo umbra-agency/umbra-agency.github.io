@@ -1960,7 +1960,7 @@ const FORME = {
 };
 const scuro = hex => { const n = parseInt(hex.slice(1), 16); return ((n >> 16) * 299 + ((n >> 8) & 255) * 587 + (n & 255) * 114) / 1000 < 128; };
 function bottiglia(v) {
-  if (v.foto_bottiglia) return `<img src="${/^https?:/.test(v.foto_bottiglia) ? esc(v.foto_bottiglia) : 'media/img/' + esc(v.foto_bottiglia)}" referrerpolicy="no-referrer" alt="Bottiglia di ${esc(v.nome)}" loading="lazy" decoding="async">`;
+  if (v.foto_bottiglia) return `<img src="${/^https?:/.test(v.foto_bottiglia) ? esc(v.foto_bottiglia) : 'media/img/' + esc(v.foto_bottiglia)}" referrerpolicy="no-referrer"${v.fondo_chiaro ? ' style="mix-blend-mode:multiply"' : ''} alt="Bottiglia di ${esc(v.nome)}" loading="lazy" decoding="async">`;
   const b = v.bottiglia || {}, F = FORME[b.forma] || FORME.bordolese, id = 'b-' + v.id, [ey, eh, x0, x1] = F.eti, ew = x1 - x0;
   const carta = b.etichetta || '#F6F1E4', ink = scuro(carta) ? '#EFE7D6' : '#1D1A16', oro = '#B8963A';
   const fs = Math.min(eh * .2, (ew - 14) / (v.nome.length * .47)), den = v.denominazione.toUpperCase(), dl = Math.min(ew - 14, den.length * 3.5);
@@ -2008,9 +2008,9 @@ function schedaVino(v) {
         <h3 class="vino__nome">${esc(v.nome)}${v.annata ? `<sup>${v.annata}</sup>` : ''}</h3>
         ${v.in_uscita ? `<p class="vino__uscita"><span class="demo-tag">${esc(v.in_uscita)}</span></p>` : ''}
         <dl class="assaggio"><div><dt>Vista</dt><dd>${esc(v.vista)}</dd></div><div><dt>Naso</dt><dd>${esc(v.naso)}</dd></div><div><dt>Bocca</dt><dd>${esc(v.bocca)}</dd></div></dl>
-        <div class="vino__meta"><span><b>Uve</b>${esc(v.uve)}</span><span><b>Affinamento</b>${esc(v.affinamento)}</span>${v.bottiglie ? `<span><b>Bottiglie</b>${nf(v.bottiglie)}</span>` : ''}<span><b>Grado</b>${esc(v.grado.split(' ·')[0])}</span></div>
-        <p class="vino__piatto">A tavola con <b>${esc(v.abbinamento.charAt(0).toLowerCase() + v.abbinamento.slice(1))}</b>.</p>
-        ${cap ? `<a class="vino__nato" href="#cap-${cap.anno}" data-capitolo="${cap.anno}" data-cur="leggi"><b>${cap.anno}</b><span><strong>Nato da: ${cap.titolo.replace(/\*/g, '')}.</strong> ${esc(v.perche || '')}</span></a>` : ''}
+        <div class="vino__meta">${v.uve ? `<span><b>Uve</b>${esc(v.uve)}</span>` : ''}${v.affinamento ? `<span><b>Affinamento</b>${esc(v.affinamento)}</span>` : (v.vinificazione ? `<span><b>Cantina</b>${esc(v.vinificazione)}</span>` : '')}${v.bottiglie ? `<span><b>Bottiglie</b>${nf(v.bottiglie)}</span>` : ''}${v.grado ? `<span><b>Grado</b>${esc(v.grado.split(' ·')[0])}</span>` : ''}</div>
+        ${v.abbinamento ? `<p class="vino__piatto">A tavola con <b>${esc(v.abbinamento.charAt(0).toLowerCase() + v.abbinamento.slice(1))}</b>.</p>` : ''}
+        ${cap ? `<a class="vino__nato" href="#cap-${cap.anno}" data-capitolo="${cap.anno}" data-cur="leggi"><b>${esc(cap.anno_breve || cap.anno)}</b><span><strong>Nato da: ${cap.titolo.replace(/\*/g, '')}.</strong> ${esc(v.perche || '')}</span></a>` : ''}
         <div class="vino__azioni"><button class="btn btn--ink" type="button" data-scheda="${v.id}" data-cur="apri">Scheda tecnica ${ICO.freccia}</button>${v.pdf ? `<a class="btn btn--line" href="${esc(v.pdf)}" download data-cur="scarica">PDF ${ICO.giu}</a>` : ''}</div>
       </div></article>`;
   }).join('') + `<nav class="vini__punti" aria-label="Vini">${V.map((v, i) => `<button type="button" data-i="${i}" aria-label="${esc(v.nome)}"><i></i></button>`).join('')}</nav>`;
@@ -2256,7 +2256,7 @@ const Prenotazioni = {
     sez.innerHTML = `<div class="trade__in"><div class="trade__testa"><div><p class="label">${x.occ}</p><h2 id="tradeT">${x.tit}</h2></div>
       <div class="lingua" role="group" aria-label="Lingua dell’area trade"><button type="button" data-l="it" aria-pressed="${it}">IT</button><button type="button" data-l="en" aria-pressed="${!it}">EN</button></div></div>
       <div class="trade__griglia"><div><div class="tabella-avvolgi" tabindex="0" role="region" aria-label="${x.th[0]}"><table class="tabella"><thead><tr>${x.th.map(h => `<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>
-      ${V.map(v => `<tr><td><b>${esc(v.nome)}</b><span>${esc(v.denominazione)}${v.annata ? ' · ' + v.annata : ''}</span></td><td data-th="${x.th[1]}">${esc(it ? v.uve : v.en?.uve || v.uve)}</td><td data-th="${x.th[2]}">${esc(it ? v.affinamento : v.en?.affinamento || v.affinamento)}</td><td class="n" data-th="${x.th[3]}">${v.bottiglie ? x.bott(v.bottiglie) + ' × ' : ''}${esc(v.formato)}</td><td class="n" data-th="${x.th[4]}">${esc(v.grado.split(' ·')[0])}</td><td>${v.pdf ? `<a href="${esc(v.pdf)}" download>${x.pdf} ${ICO.giu}</a>` : '—'}</td></tr>`).join('')}</tbody></table></div>
+      ${V.map(v => `<tr><td><b>${esc(v.nome)}</b><span>${esc(v.denominazione)}${v.annata ? ' · ' + v.annata : ''}</span></td><td data-th="${x.th[1]}">${esc(it ? v.uve : v.en?.uve || v.uve)}</td><td data-th="${x.th[2]}">${esc(it ? v.affinamento : v.en?.affinamento || v.affinamento)}</td><td class="n" data-th="${x.th[3]}">${v.bottiglie ? x.bott(v.bottiglie) + ' × ' : ''}${esc(v.formato)}</td><td class="n" data-th="${x.th[4]}">${esc((v.grado || '—').split(' ·')[0])}</td><td>${v.pdf ? `<a href="${esc(v.pdf)}" download>${x.pdf} ${ICO.giu}</a>` : '—'}</td></tr>`).join('')}</tbody></table></div>
       <dl class="trade__fatti">${[[x.min, t.minimo_ordine], [x.sped, t.spedizioni], [x.camp, t.campioni], [x.cerca, t.cerchiamo]].filter(r => r[1]).map(([a, b]) => `<div><dt>${a}</dt><dd>${esc(b[L] || b.it || b)}</dd></div>`).join('')}
       ${C.dove_ci_trovate?.paesi?.length ? `<div style="grid-column:1/-1"><dt>${x.exp} ${C.dove_ci_trovate.paesi.length}</dt><dd>${C.dove_ci_trovate.paesi.map(p => esc(it ? p : EN[p] || p)).join(' · ')}</dd></div>` : ''}
       ${C.premi?.length ? `<div style="grid-column:1/-1"><dt>${x.premi}</dt><dd>${C.premi.map(p => `${esc(p.vino)} — ${esc(p.punteggio)} (${esc(p.guida)}, ${p.anno})`).join('<br>')}</dd></div>` : ''}</dl></div>
@@ -2303,11 +2303,11 @@ window.apriCrediti = () => C.crediti_foto ? Modale.apri(`<div class="privacy"><h
 /* ════════ DATI STRUTTURATI (schema.org) ════════ */
 (function schema() {
   const u = C.sito || location.href, t = C.contatti?.titolare || {};
-  const grafo = [{ '@type': 'Winery', '@id': u + '#cantina', name: C.nome, legalName: C.ragione_sociale, vatID: C.p_iva, url: u, foundingDate: String(C.anno_fondazione), description: C.hero?.testo, slogan: C.payoff, image: u.replace(/\/$/, '') + '/media/og-image.jpg', telephone: t.telefono, email: t.email,
+  const grafo = [{ '@type': 'Winery', '@id': u + '#cantina', name: C.nome, legalName: C.ragione_sociale, vatID: C.p_iva, url: u, ...(C.anno_fondazione ? { foundingDate: String(C.anno_fondazione) } : {}), description: C.hero?.testo, slogan: C.payoff, image: u.replace(/\/$/, '') + '/media/og-image.jpg', telephone: t.telefono, email: t.email,
     address: { '@type': 'PostalAddress', streetAddress: C.indirizzo, postalCode: C.cap, addressLocality: C.comune, addressRegion: C.provincia, addressCountry: 'IT' }, geo: C.lat ? { '@type': 'GeoCoordinates', latitude: C.lat, longitude: C.lng } : undefined,
     founder: C.capitoli?.[0]?.persona?.split(',')[0], award: (C.premi || []).map(p => `${p.vino}: ${p.punteggio} — ${p.guida} ${p.anno}`),
     makesOffer: (C.esperienze || []).map(e => ({ '@type': 'Offer', name: e.nome, description: e.descrizione, ...(e.prezzo ? { price: e.prezzo, priceCurrency: 'EUR' } : {}), category: 'Visita e degustazione in cantina', availability: 'https://schema.org/InStock', url: u + '#prenota', eligibleQuantity: { '@type': 'QuantitativeValue', minValue: e.persone_min, maxValue: e.persone_max, unitText: 'persone' } })) },
-  ...(C.vini || []).map(v => ({ '@type': 'Product', name: `${v.nome} — ${v.denominazione} ${v.annata}`, category: 'Vino', description: [v.vista, v.naso, v.bocca].join(' '), brand: { '@type': 'Brand', name: C.nome }, manufacturer: { '@id': u + '#cantina' }, countryOfOrigin: 'IT', url: u + '#vino-' + v.id, additionalProperty: [['Uve', v.uve], ['Affinamento', v.affinamento], ['Gradazione', v.grado], ['Bottiglie prodotte', v.bottiglie]].map(([name, value]) => ({ '@type': 'PropertyValue', name, value })) }))];
+  ...(C.vini || []).map(v => ({ '@type': 'Product', name: `${v.nome} — ${v.denominazione}${v.annata ? ' ' + v.annata : ''}`, category: 'Vino', description: [v.vista, v.naso, v.bocca].filter(Boolean).join(' '), brand: { '@type': 'Brand', name: C.nome }, manufacturer: { '@id': u + '#cantina' }, countryOfOrigin: 'IT', url: u + '#vino-' + v.id, additionalProperty: [['Uve', v.uve], ['Affinamento', v.affinamento], ['Gradazione', v.grado], ['Bottiglie prodotte', v.bottiglie]].map(([name, value]) => ({ '@type': 'PropertyValue', name, value })) }))];
   const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': grafo }); document.head.appendChild(s);
 })();
 
