@@ -33,6 +33,7 @@ jobs:
           if [ -d nozze ]; then cp -R nozze _site/nozze; fi
           if [ -d fvg ]; then cp -R fvg _site/fvg; fi
           if [ -d taa ]; then cp -R taa _site/taa; fi
+          if [ -d veneto ]; then cp -R veneto _site/veneto; fi
           if [ -d studio ]; then cp -R studio _site/studio; fi
           if [ -d ambiente ]; then cp -R ambiente _site/ambiente; rm -rf _site/ambiente/_tools _site/ambiente/_media.tsv; fi
           if [ -d nozze ]; then for d in nozze/*/; do n=$(basename "$d"); [ -e "_site/$n" ] || cp -R "$d" "_site/$n"; done; fi
