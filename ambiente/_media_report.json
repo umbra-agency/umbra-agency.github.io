@@ -4953,6 +4953,129 @@
 "url": "https://www.compostellarottami.com/wp-content/uploads/2016/08/chisiamo_COMPOS.jpg",
 "w": 1920
 },
+"consorzio-trentino-servizi-ambientali-ctsa/_scrape": {
+"done": true,
+"err": "",
+"n": 35
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/1.jpg": {
+"h": 909,
+"hash": "1110111110111111111001011110010111100010111101101110101111101101",
+"kb": 121,
+"lum": 100,
+"ok": true,
+"url": "https://irp.cdn-website.com//5a8af239/dms3rep/multi/opt/9ridimensionata-1920w.jpg",
+"w": 910
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/logo.png": {
+"h": 791,
+"hash": "0111000001011000110010001100100010011100110111000101110000110001",
+"kb": 99,
+"lum": 25,
+"ok": true,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/LOGO+ctsa-278aea8e.GIF",
+"w": 1334
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s12.jpg": {
+"h": 576,
+"hash": "0111000101110001111100011111000111110001111100001110000011000111",
+"kb": 46,
+"lum": 135,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/H_4_009-1920w.jpg",
+"w": 768
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s14.jpg": {
+"h": 1877,
+"hash": "0110001100001111001111100000111001110000011101001111000011100110",
+"kb": 507,
+"lum": 134,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/IMG_20240722_105249-1920w.png",
+"w": 1920
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s16.jpg": {
+"h": 1000,
+"hash": "0000000000110000011100000101010001010100011100000001000000000000",
+"kb": 25,
+"lum": 241,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/info-4de217e9-1920w.jpg",
+"w": 1000
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s2.jpg": {
+"h": 722,
+"hash": "0011100100110110100010001100101010100100001001101110100010000000",
+"kb": 95,
+"lum": 95,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/CONSORZIO+ARTIGIANO+SERVIZI+AMBIENTALI-Via+Brennero-Trento-0031-1920w.jpg",
+"w": 960
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s27.jpg": {
+"h": 1286,
+"hash": "1101111110011111110111111001110100111100100111101000111111000011",
+"kb": 245,
+"lum": 168,
+"ok": true,
+"scr": 1,
+"url": "https://lirp.cdn-website.com/5a8af239/dms3rep/multi/opt/CONSORZIO+ARTIGIANO+SERVIZI+AMBIENTALI-Via+Brennero-Trento-0012-6f604e4c-1920w.jpg",
+"w": 1920
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s28.jpg": {
+"h": 1305,
+"hash": "0100100101110101011101111101011011100110110001101011010011100100",
+"kb": 284,
+"lum": 79,
+"ok": true,
+"scr": 1,
+"url": "https://lirp.cdn-website.com/5a8af239/dms3rep/multi/opt/Foto+ispezione_2-2880w.jpg",
+"w": 1920
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s32.jpg": {
+"h": 1278,
+"hash": "1000111110100110100011100100011100111001010110001101111000100011",
+"kb": 386,
+"lum": 105,
+"ok": true,
+"scr": 1,
+"url": "https://lirp.cdn-website.com/5a8af239/dms3rep/multi/opt/CONSORZIO+ARTIGIANO+SERVIZI+AMBIENTALI-Via+Brennero-Trento-0015-2880w.jpg",
+"w": 1920
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s35.jpg": {
+"h": 1080,
+"hash": "1100110011001100000111010001011100001111010101110111011101001101",
+"kb": 387,
+"lum": 138,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/bagni_3-2880w.jpg",
+"w": 1920
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s6.jpg": {
+"h": 3413,
+"hash": "0000011000110011011110001100001111010000011111001001101100011011",
+"kb": 442,
+"lum": 99,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/P_20200925_085538-1920w.jpg",
+"w": 1920
+},
+"consorzio-trentino-servizi-ambientali-ctsa/m/s8.jpg": {
+"h": 540,
+"hash": "0000000100001111011111110111111100001110101001110110001101100001",
+"kb": 86,
+"lum": 107,
+"ok": true,
+"scr": 1,
+"url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/CONSORZIO+ARTIGIANO+SERVIZI+AMBIENTALI-Via+Brennero-Trento-0067-1920w.jpg",
+"w": 960
+},
 "conte-spurghi/_scrape": {
 "done": true,
 "err": "",
@@ -7947,7 +8070,7 @@
 "w": 1024
 },
 "ecomultiservice/m/logo.png": {
-"err": "cannot identify image file <_io.BytesIO object at 0x732b44c39530>",
+"err": "piccola 109x70",
 "ok": false,
 "url": "https://www.ecomultiservice.it/wp-content/uploads/2023/04/Logo-mobile.png"
 },
@@ -13299,6 +13422,169 @@
 "url": "https://www.italfertrieste.com/wp-content/uploads/2022/04/bg_camion-1.jpg",
 "w": 1920
 },
+"italiaspirazioni/_scrape": {
+"done": true,
+"err": "",
+"n": 40
+},
+"italiaspirazioni/m/1.jpg": {
+"h": 333,
+"hash": "1000001001000010011000100110101001001011110010001111011001110010",
+"kb": 31,
+"lum": 121,
+"ok": true,
+"url": "https://www.italiaspirazioni.it/wp-content/themes/italiaspirazioni-wp/images/escavatore-risucchio.jpg",
+"w": 592
+},
+"italiaspirazioni/m/logo.png": {
+"h": 108,
+"hash": "1010011010110110101001111100101111001011100010101011011010010111",
+"kb": 17,
+"lum": 174,
+"ok": true,
+"url": "https://www.italiaspirazioni.it/wp-content/themes/italiaspirazioni-wp/images/logo.png",
+"w": 207
+},
+"italiaspirazioni/m/s1.jpg": {
+"h": 1512,
+"hash": "0010011100010011001100100110110001111100011111100111111011111110",
+"kb": 494,
+"lum": 130,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/IMG_6535-e1575382912500.jpg",
+"w": 2016
+},
+"italiaspirazioni/m/s10.jpg": {
+"h": 1080,
+"hash": "0011101100111011001011100111011011100011110010111100111101111101",
+"kb": 141,
+"lum": 74,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/6-1920x1080.jpg",
+"w": 1920
+},
+"italiaspirazioni/m/s12.jpg": {
+"h": 2448,
+"hash": "0000110111001101100011001100110011000110100000101000001001100100",
+"kb": 555,
+"lum": 79,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/10/IMG_0601.jpg",
+"w": 3264
+},
+"italiaspirazioni/m/s14.jpg": {
+"h": 1920,
+"hash": "0111111100001111000010110011000110000010000001110001111101111000",
+"kb": 422,
+"lum": 141,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/10/Immagine-403.jpg",
+"w": 2560
+},
+"italiaspirazioni/m/s16.jpg": {
+"h": 1704,
+"hash": "1001011011001001011000110110010110100100111101001001001011000111",
+"kb": 798,
+"lum": 157,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/10/DSCN0117.jpg",
+"w": 2272
+},
+"italiaspirazioni/m/s18.jpg": {
+"h": 2736,
+"hash": "0100000011000100110110001001100010000110000001110000010100000100",
+"kb": 392,
+"lum": 136,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/10/ASPIRAZIONE-DIGESTATO2.jpg",
+"w": 3648
+},
+"italiaspirazioni/m/s2.jpg": {
+"h": 1080,
+"hash": "0111001000101100011111000111100001111110011101110011111011101110",
+"kb": 331,
+"lum": 120,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/IMG_6535-e1575382912500-1920x1080.jpg",
+"w": 1920
+},
+"italiaspirazioni/m/s3.jpg": {
+"h": 1080,
+"hash": "1100101111011001110011010110110000011100000011100000011100000001",
+"kb": 140,
+"lum": 92,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/1.jpg",
+"w": 1728
+},
+"italiaspirazioni/m/s4.jpg": {
+"h": 800,
+"hash": "1000110000011010000111011100111101110110000011110010011100000000",
+"kb": 54,
+"lum": 95,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/1-700x800.jpg",
+"w": 700
+},
+"italiaspirazioni/m/s5.jpg": {
+"h": 1080,
+"hash": "0111010100011101000011010000110110101101100011011000011010000110",
+"kb": 82,
+"lum": 41,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/2.jpg",
+"w": 1728
+},
+"italiaspirazioni/m/s6.jpg": {
+"h": 800,
+"hash": "0001101000001010010000010000000101001110010000001110000001100000",
+"kb": 35,
+"lum": 43,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/2-700x800.jpg",
+"w": 700
+},
+"italiaspirazioni/m/s7.jpg": {
+"h": 1080,
+"hash": "0101000101000001011000010000001100010011100110000001100000000000",
+"kb": 67,
+"lum": 21,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/3.jpg",
+"w": 1728
+},
+"italiaspirazioni/m/s8.jpg": {
+"h": 800,
+"hash": "1000010010000000111000100100000000001000000011100000111000000000",
+"kb": 28,
+"lum": 15,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/3-700x800.jpg",
+"w": 700
+},
+"italiaspirazioni/m/s9.jpg": {
+"h": 858,
+"hash": "1011101100111110001111100011011001100111110011100100111000111101",
+"kb": 111,
+"lum": 73,
+"ok": true,
+"scr": 1,
+"url": "https://www.italiaspirazioni.it/wp-content/uploads/2019/12/6.jpg",
+"w": 1722
+},
 "italsia/_scrape": {
 "done": true,
 "err": "",
@@ -16609,6 +16895,11 @@
 "url": "https://www.montieco.it/wp-content/uploads/2025/08/CHI-SIAMO-MONTIECO-TEAM.jpg",
 "w": 1008
 },
+"moretto-giuseppe/_scrape": {
+"done": true,
+"err": "",
+"n": 0
+},
 "moschetta-ecospurghi/_scrape": {
 "done": true,
 "err": "",
@@ -17998,7 +18289,7 @@
 "n": 18
 },
 "osd-amianto/m/1.jpg": {
-"err": "cannot identify image file <_io.BytesIO object at 0x732b44f38630>",
+"err": "piccola 129x129",
 "ok": false,
 "url": "http://osdamianto.it/wp-content/uploads/2022/04/renovate4-ourworks-pic1.webp"
 },
@@ -22109,7 +22400,7 @@
 "w": 387
 },
 "se-fi-ambiente/m/logo.png": {
-"err": "cannot identify image file <_io.BytesIO object at 0x732b44c39c10>",
+"err": "piccola 111x75",
 "ok": false,
 "url": "https://sefiambiente.com/wp-content/uploads/2019/01/logo-sefi.png"
 },
