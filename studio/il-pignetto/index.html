@@ -1938,7 +1938,7 @@ function costruisciNav() {
     <header class="cento__testa"><div class="sigillo" role="img" aria-label="${esc(a.sigillo)}"><svg viewBox="0 0 200 200"><defs><path id="sgC" d="M100 100m-82 0a82 82 0 1 1 164 0a82 82 0 1 1-164 0"/></defs><g class="sigillo__giro"><text><textPath href="#sgC" textLength="505" lengthAdjust="spacing">${esc(a.sigillo)} ·</textPath></text></g><circle cx="100" cy="100" r="66" fill="none" stroke="currentColor" stroke-width=".7"/><circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width=".7"/><text class="n" x="100" y="120" text-anchor="middle">${a.numero}</text></svg></div>
       <h2 id="centoT">${em(a.titolo)}</h2><p>${esc(a.testo)}</p></header>
     <div class="cento__mezzo"><div><div class="righe" id="righe" aria-hidden="true">${Array.from({ length: n }, (_, i) => { const y = a.dal + i; return `<i class="${tappe.some(t => t.anno === y) ? 't ' : ''}${spente.has(y) ? 'spenta' : ''}"></i>`; }).join('')}</div><div class="righe__anni" aria-hidden="true">${quarti.map(q => `<span>${q}</span>`).join('')}</div></div></div>
-    <div class="cento__lettura"><p class="cento__anno inciso" id="centoAnno">${a.dal}</p><p class="eti cento__n" id="centoN">Vendemmia n. 1</p><p class="cento__tappa" id="centoTappa" aria-hidden="true"></p></div>
+    <div class="cento__lettura"><p class="cento__anno inciso" id="centoAnno">${a.dal}</p><p class="eti cento__n" id="centoN">${esc(a.riga || 'Vendemmia n.')} 1</p><p class="cento__tappa" id="centoTappa" aria-hidden="true"></p></div>
     <ol class="sr">${tappe.map(t => `<li>${t.anno}: ${esc(t.testo)}</li>`).join('')}</ol>
   </div></div>
   ${ed ? `<div class="edizione"><div><p class="eti rv"><b>${esc(a.periodo || a.dal + '–' + a.al)}</b> Per il centenario</p><h3 class="rivela">${esc(ed.titolo)}</h3><p class="t rv">${esc(ed.testo)}</p></div>
@@ -1948,7 +1948,7 @@ function costruisciNav() {
   S.misure.push(() => g = geo(pin));
   const mostra = k => {
     for (let i = 0; i < n; i++) { bars[i].classList.toggle('on', i <= k); bars[i].classList.toggle('qui', i === k); }
-    const y = a.dal + k; anno.textContent = y; num.textContent = spente.has(y) ? `Vendemmia n. ${k + 1} · riga spenta` : `Vendemmia n. ${k + 1}`;
+    const y = a.dal + k; anno.textContent = y; num.textContent = spente.has(y) ? `${a.riga || 'Vendemmia n.'} ${k + 1} · riga spenta` : `${a.riga || 'Vendemmia n.'} ${k + 1}`;
     const t = [...tappe].reverse().find(x => x.anno <= y);
     if (t !== tappaOra) { tappaOra = t; tp.textContent = t ? `${t.anno} — ${t.testo}` : ''; tp.classList.remove('is-cambio'); void tp.offsetWidth; tp.classList.add('is-cambio'); }
   };
@@ -2176,7 +2176,7 @@ function schedaVino(v) {
   const sez = $('#premi'), pr = C.premi || [], d = C.dove_ci_trovate, st = C.stampa || [];
   if (!pr.length && !d?.paesi?.length) return sez.remove();
   if (MEDIA['riconoscimenti-bg']) $('#premiSfondo').innerHTML = pic('riconoscimenti-bg', { alt: '' });
-  $('#placche').innerHTML = pr.map((p, i) => `<article class="placca rv" style="--rd:${i * .08}s"><p class="placca__anno">${p.anno}</p><p class="placca__vino">${esc(p.vino)}</p><p class="placca__p">${esc(p.punteggio)}</p><p class="placca__g">${esc(p.guida)}</p>${C.demo ? '<span class="demo-tag">esempio</span>' : ''}</article>`).join('');
+  $('#placche').innerHTML = pr.map((p, i) => `<article class="placca rv" style="--rd:${i * .08}s"><p class="placca__anno">${esc(p.anno ?? "")}</p><p class="placca__vino">${esc(p.vino)}</p><p class="placca__p">${esc(p.punteggio)}</p><p class="placca__g">${esc(p.guida)}</p>${C.demo ? '<span class="demo-tag">esempio</span>' : ''}</article>`).join('');
   if (!pr.length) $('#placche').remove();
   const cit = st[0] ? `<blockquote class="cit-stampa rv"><p>«${esc(st[0].citazione)}»</p><footer>${esc(st[0].autore)} · ${esc(st[0].testata)}, ${st[0].anno}${C.demo ? ' · <span class="demo-tag">esempio</span>' : ''}</footer></blockquote>` : '';
   const dv = $('#dove');
