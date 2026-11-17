@@ -32,7 +32,8 @@
 "hash": "0110001011001110100111101001011010110110100111101100111011100110",
 "kb": 33,
 "lum": 179,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.acquistometalli.com/wp-content/uploads/2020/12/riciclo-1.png",
 "w": 500
 },
@@ -1267,7 +1268,8 @@
 "hash": "0111000100110110001101100001111000010101000110110001101000101100",
 "kb": 200,
 "lum": 188,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/247d107e/dms3rep/multi/opt/GettyImages-1154943275-1920w.jpg",
 "w": 1920
@@ -1310,7 +1312,8 @@
 "hash": "1001000010000001100000011000000110000001100000111001001010011010",
 "kb": 161,
 "lum": 186,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/aec35f19/dms3rep/multi/opt/Fognature-AUTOSPURGHI-Santarcangelo-Di-Romagna-Rimini-003-1920w.jpg",
 "w": 1920
@@ -1404,7 +1407,8 @@
 "hash": "0000000000110000111010001110100011110000100101101001011000000000",
 "kb": 66,
 "lum": 240,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com/cd5ac5d1/dms3rep/multi/opt/Autospurghi+Venturi+Raffaele-bologna-014-1920w.jpg",
 "w": 960
 },
@@ -1490,7 +1494,8 @@
 "hash": "1100010111010100101111000011110000111111000011110001111100111111",
 "kb": 41,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/cd5ac5d1/dms3rep/multi/opt/Autospurghi+Venturi+Raffaele-bologna-073-1920w.jpg",
 "w": 960
@@ -1540,7 +1545,8 @@
 "hash": "0110000110100001110100110110011001100110101001100010010111001100",
 "kb": 134,
 "lum": 166,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/cd5ac5d1/dms3rep/multi/opt/Autospurghi+Venturi+Raffaele-bologna-075-8ecc3a54-1920w.jpg",
 "w": 960
@@ -2597,7 +2603,8 @@
 "hash": "0010100000110001000110010001100110011100001101100011101100111001",
 "kb": 62,
 "lum": 143,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.bgsjollygroup.it/wp-content/uploads/2026/05/edilizia-1.jpg",
 "w": 800
 },
@@ -2615,7 +2622,8 @@
 "hash": "0000001100101001001010010000100110001111000011010100100101101000",
 "kb": 193,
 "lum": 182,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.bgsjollygroup.it/wp-content/uploads/2026/05/two-young-man-architect-on-a-building-construction-2026-03-24-07-11-52-utc-scaled.jpg",
 "w": 2560
@@ -2635,7 +2643,8 @@
 "hash": "0111110111101111110011111100111110111100110000011010110100110111",
 "kb": 88,
 "lum": 123,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.bgsjollygroup.it/wp-content/uploads/2026/05/aree-cortilive.jpg",
 "w": 800
@@ -2655,7 +2664,8 @@
 "hash": "0011100110110000001001000010001000100010001110100001101000010110",
 "kb": 59,
 "lum": 153,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.bgsjollygroup.it/wp-content/uploads/2026/05/derattizzazione.jpg",
 "w": 800
@@ -2665,7 +2675,8 @@
 "hash": "1110100101010010110010111000100111000001111000011011111100001100",
 "kb": 65,
 "lum": 83,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.bgsjollygroup.it/wp-content/uploads/2026/05/derattizzazione-s.jpg",
 "w": 800
@@ -3444,7 +3455,8 @@
 "hash": "1111000011011100100011101001011010010001001100011000011111100000",
 "kb": 24,
 "lum": 200,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://static.wixstatic.com/media/3e10d0_2d1188147d6f4ff68dc1c1632947d80a~mv2.jpg",
 "w": 591
 },
@@ -4505,7 +4517,8 @@
 "hash": "1000011100000011000000110000011100001110000101010011010100001101",
 "kb": 96,
 "lum": 159,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/business-04.jpg",
 "w": 1280
@@ -4515,7 +4528,8 @@
 "hash": "0100001111000001110001011100011011000110110101101000011100001111",
 "kb": 247,
 "lum": 185,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/shutterstock_156022646-scaled.jpg",
 "w": 2560
@@ -4525,7 +4539,8 @@
 "hash": "0000110000011100000111100111111010011100000010100000100100000000",
 "kb": 38,
 "lum": 229,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/mouse-3194768_960_720.jpg",
 "w": 886
@@ -4535,7 +4550,8 @@
 "hash": "0000000000110000100101001000011000110000110101001100110000000000",
 "kb": 86,
 "lum": 237,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Insetti-infestanti.webp",
 "w": 1771
@@ -4545,7 +4561,8 @@
 "hash": "1010110110100101110111011000110110001101100101111100010011010100",
 "kb": 246,
 "lum": 107,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Disinfestazione-dai-tarli-scaled.jpg",
 "w": 2560
@@ -4555,7 +4572,8 @@
 "hash": "1100001111100011100001110111011011111110111111011110110000111100",
 "kb": 254,
 "lum": 127,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Vita-da-piccione-2-scaled.jpg",
 "w": 2560
@@ -4565,7 +4583,8 @@
 "hash": "1100001110001001000100000000100101000011011000110100100010011100",
 "kb": 62,
 "lum": 144,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Pulizia-Grondaie.jpg",
 "w": 1200
@@ -4575,7 +4594,8 @@
 "hash": "1011001110001011101010010000100100101001000010110011100100110001",
 "kb": 153,
 "lum": 116,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/COCCINELLA-2000-x-1200-px.webp",
 "w": 2000
@@ -4585,7 +4605,8 @@
 "hash": "0001110100011101001111011010100110111001101111000011001001101011",
 "kb": 286,
 "lum": 160,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Ambienti-salubri-scaled.jpg",
 "w": 2560
@@ -4595,7 +4616,8 @@
 "hash": "1001101111111011100011111001011100110111000111100010111010001111",
 "kb": 509,
 "lum": 117,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Sanificazione-scaled.jpg",
 "w": 2560
@@ -4605,7 +4627,8 @@
 "hash": "1110110011111001111110101111001011110010111000110110000100110001",
 "kb": 616,
 "lum": 118,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Strutture-ricettive-scaled.jpg",
 "w": 2560
@@ -4615,7 +4638,8 @@
 "hash": "0000100000011001000110010101000011001100000011111111001100110001",
 "kb": 819,
 "lum": 145,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/Sanificazione-giardino-residenziale-scaled.jpg",
 "w": 2560
@@ -4625,7 +4649,8 @@
 "hash": "0111000101100011011000110010011110100110111001001100110011100000",
 "kb": 129,
 "lum": 140,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://coccinellaservice.it/wp-content/uploads/2023/03/venture_02.png",
 "w": 1920
@@ -5001,7 +5026,8 @@
 "hash": "0000000000110000011100000101010001010100011100000001000000000000",
 "kb": 25,
 "lum": 241,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/5a8af239/dms3rep/multi/opt/info-4de217e9-1920w.jpg",
 "w": 1000
@@ -5021,7 +5047,8 @@
 "hash": "1101111110011111110111111001110100111100100111101000111111000011",
 "kb": 245,
 "lum": 168,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/5a8af239/dms3rep/multi/opt/CONSORZIO+ARTIGIANO+SERVIZI+AMBIENTALI-Via+Brennero-Trento-0012-6f604e4c-1920w.jpg",
 "w": 1920
@@ -6375,7 +6402,8 @@
 "hash": "1110110001100100011001001110011011110010101100000100100000001100",
 "kb": 173,
 "lum": 134,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.diacciprontospurgo.it/uploads/290923141003img-20230928-wa0007jpg.jpg",
 "w": 1200
@@ -6425,7 +6453,8 @@
 "hash": "0010111100111100111011000110011111001111110111001110110000111000",
 "kb": 195,
 "lum": 121,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.diacciprontospurgo.it/uploads/290923140958img-20230928-wa0009jpg.jpg",
 "w": 1200
@@ -8899,7 +8928,8 @@
 "hash": "1111101101010100111100011110000101110011101110011001110111011001",
 "kb": 77,
 "lum": 98,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=584,fit=crop/9dIlr8jX6OXh27dI/generated/generated-KOJhKDwsIHx1pICy.png",
 "w": 768
@@ -9261,7 +9291,8 @@
 "hash": "0010011000100101010001100000111100100111001001110010001111000000",
 "kb": 30,
 "lum": 74,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://espurgoags.it/wp-content/uploads/2021/04/Servizi_2.jpg",
 "w": 1000
@@ -9271,7 +9302,8 @@
 "hash": "1010011000110011001100010010010000100000000100010101001101000010",
 "kb": 179,
 "lum": 47,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://espurgoags.it/wp-content/uploads/2019/07/altri-servizi.jpg",
 "w": 1000
@@ -9291,7 +9323,8 @@
 "hash": "0000001101000111001001110000111110001111000011110000011100000001",
 "kb": 631,
 "lum": 170,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://espurgoags.it/wp-content/uploads/2019/07/prev.jpg",
 "w": 5000
@@ -9311,7 +9344,8 @@
 "hash": "1011000000011000001011010010000000101000001000000000000100010010",
 "kb": 224,
 "lum": 80,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://espurgoags.it/wp-content/uploads/2021/04/Preventivo.jpg",
 "w": 2000
@@ -11741,7 +11775,8 @@
 "hash": "0110000100110000101110001000110010011111000101111000011100000110",
 "kb": 107,
 "lum": 136,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.autospurghibolognacarmine.it/wp-content/uploads/2024/12/28-2.png",
 "w": 1344
@@ -11884,7 +11919,8 @@
 "hash": "0011011100110111000110010010011100100111111100101001011001100011",
 "kb": 167,
 "lum": 165,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ghirardicarta.it/wp-content/uploads/2017/02/foto-ghirardi.jpg",
 "w": 1200
@@ -11944,7 +11980,8 @@
 "hash": "0100000010100000100100001100100011100000110100101111111011000000",
 "kb": 22,
 "lum": 236,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ghirardicarta.it/wp-content/uploads/2016/01/servizio-online-ghirardi.jpg",
 "w": 1000
@@ -12836,7 +12873,8 @@
 "hash": "1110000001100000011010001010010010010100000011010010100100101001",
 "kb": 4,
 "lum": 75,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.gruppogalli-ecologia.it/wp-content/uploads/2020/10/cropped-gruppogalli-menu-bianco.png",
 "w": 400
 },
@@ -12845,7 +12883,8 @@
 "hash": "1101111111011111001111111101110001011011000110100110100110011011",
 "kb": 143,
 "lum": 172,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gruppogalli-ecologia.it/wp-content/uploads/2021/04/gruppo-ambiente.jpg",
 "w": 1500
@@ -13262,7 +13301,8 @@
 "hash": "0100000001001010010011100100111011011100111101101010011000000001",
 "kb": 151,
 "lum": 174,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://cavozza.com/images/chi-siamo.jpg",
 "w": 1000
@@ -13272,7 +13312,8 @@
 "hash": "0100000100000011001100010011000110110001111100001100000010001100",
 "kb": 260,
 "lum": 150,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://cavozza.com/area_admin/adv/file/xIFO2QhcDqD6.jpg",
 "w": 1200
@@ -13282,7 +13323,8 @@
 "hash": "0010001100100011111001111111000011111100111101101101000010001100",
 "kb": 256,
 "lum": 111,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://cavozza.com/area_admin/adv/file/CC9APaNPFYmK.jpg",
 "w": 1200
@@ -13292,7 +13334,8 @@
 "hash": "0000001100001111100011100011000111111000111110000000011011101110",
 "kb": 233,
 "lum": 182,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://cavozza.com/area_admin/adv/file/tvxefDuHnLqG.jpg",
 "w": 1200
@@ -13302,7 +13345,8 @@
 "hash": "0100111011001111100011111000001110000010100011110100011101001001",
 "kb": 108,
 "lum": 60,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://cavozza.com/uploads/adv/file/DzmWojj0ArRO.jpg",
 "w": 1080
@@ -13382,7 +13426,8 @@
 "hash": "0011001100110111001101100110011000101110001011010001010100010011",
 "kb": 68,
 "lum": 168,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://i3.ytimg.com/vi/unWMzWJX8Qs/maxresdefault.jpg",
 "w": 1280
@@ -13392,7 +13437,8 @@
 "hash": "0001011010010111011110110110001111000011110001110110011101100110",
 "kb": 77,
 "lum": 87,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://i3.ytimg.com/vi/g3K1lAqSCx4/maxresdefault.jpg",
 "w": 1280
@@ -13407,7 +13453,8 @@
 "hash": "0011111111111111000011110010111100001111001011110000000000000000",
 "kb": 100,
 "lum": 109,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.italfertrieste.com/wp-content/uploads/2022/04/bg_section.jpg",
 "w": 1920
@@ -15255,7 +15302,8 @@
 "hash": "0011100000111000001110000011100000110000011100000111000000010000",
 "kb": 45,
 "lum": 237,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "http://www.malagutiautospurghi.it/wp-content/uploads/2016/12/inve2.jpg",
 "w": 1800
@@ -16842,7 +16890,8 @@
 "hash": "1011000010110001111000001110110011100000101111001001100000011010",
 "kb": 38,
 "lum": 210,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.montieco.it/wp-content/uploads/2025/12/Impianto-progettato-con-tecnologie-a-tutela-dellambiente-e-della-sicurezza-1200-x-800-px-4.webp",
 "w": 800
 },
@@ -16870,7 +16919,8 @@
 "hash": "0000100001001000010010000100100000001000100010111101101001011110",
 "kb": 102,
 "lum": 115,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.montieco.it/wp-content/uploads/2026/10/montieco-legambiente-conou-42.jpg",
 "w": 1600
@@ -17715,7 +17765,8 @@
 "hash": "0011011101000111110001110110011110001111000101110001011000100110",
 "kb": 24,
 "lum": 184,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.eco-edil.it/source/lavori-fune-8.jpg",
 "w": 556
 },
@@ -17733,7 +17784,8 @@
 "hash": "0011001100111011001110110011100100111001001111010011001100110111",
 "kb": 22,
 "lum": 243,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.eco-edil.it/source/sfondo-index-bottom.jpg",
 "w": 2000
@@ -20006,7 +20058,8 @@
 "hash": "0000010000101100001011100010111000001100000000010110011000100110",
 "kb": 41,
 "lum": 11,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://querciambiente.it/wp-content/uploads/2021/04/ISO-9001-ISO-14001-ISO-45001-SA-8000_col_ver2-1024x682.png",
 "w": 1024
 },
@@ -20015,7 +20068,8 @@
 "hash": "0000000001001000001100110010001100101011001110111100010000000000",
 "kb": 3,
 "lum": 66,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://querciambiente.it/wp-content/plugins/gdpr-cookie-compliance/dist/images/gdpr-logo.png",
 "w": 350
 },
@@ -20034,7 +20088,8 @@
 "hash": "0110111010111110111011101100100010010010110100100011000000101100",
 "kb": 322,
 "lum": 134,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://querciambiente.it/wp-content/uploads/2023/07/11796884-00c9-46b5-b9b8-5719f88d4cbb-1.jpg",
 "w": 2040
@@ -20094,7 +20149,8 @@
 "hash": "1010101001010111010011100011111000011011011110111010110010110000",
 "kb": 125,
 "lum": 139,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://querciambiente.it/wp-content/uploads/2023/11/Manifesto_Locandina_Poster_A3_QUERCIAMBIENTE.jpg",
 "w": 800
@@ -20104,7 +20160,8 @@
 "hash": "1010101001010011010011100011111000011011011110111010010010110000",
 "kb": 104,
 "lum": 138,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://querciambiente.it/wp-content/uploads/2023/11/Manifesto_Locandina_Poster_A3_QUERCIAMBIENTE-730x1024.jpg",
 "w": 730
@@ -20114,7 +20171,8 @@
 "hash": "1010101001100010011011100001001100011011100110101000100010100000",
 "kb": 186,
 "lum": 140,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://querciambiente.it/wp-content/uploads/2025/06/bando.jpg",
 "w": 1033
@@ -20124,7 +20182,8 @@
 "hash": "1010101001101010011011100001001100011011100110101000100010100000",
 "kb": 111,
 "lum": 140,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://querciambiente.it/wp-content/uploads/2025/06/bando-733x1024.jpg",
 "w": 733
@@ -20837,7 +20896,8 @@
 "hash": "0100110101001001011010011100110011010101011100011011001111111000",
 "kb": 92,
 "lum": 98,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://static.wixstatic.com/media/6ba3af_dc23966776414df2b23d8fd0bf0fe17b~mv2.jpg",
 "w": 1080
 },
@@ -20865,7 +20925,8 @@
 "hash": "0000000100000001000000010000000100000001000000010000000100000001",
 "kb": 34,
 "lum": 252,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/media/sloppyframe.3214ce8e.png",
 "w": 1970
@@ -21385,7 +21446,8 @@
 "hash": "0011000100000001010001111010000000101000101001011010001111100001",
 "kb": 287,
 "lum": 119,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sandeisrl.it/wp-content/themes/yootheme/cache/1b/top_chi_siamo_sandei_srl-1b1b86dd.jpeg",
 "w": 2000
@@ -21465,7 +21527,8 @@
 "hash": "0010110100100111000000110000001100000011000001110001111100111011",
 "kb": 180,
 "lum": 134,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sandeisrl.it/wp-content/themes/yootheme/cache/f3/sandei_eco-sostenibilita-f3048eca.jpeg",
 "w": 1600
@@ -24286,7 +24349,8 @@
 "hash": "0000000000000011000001110000111100011111001111100111110001111000",
 "kb": 76,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//7f615def/dms3rep/multi/opt/blu-2880w.jpg",
 "w": 1920
@@ -24980,7 +25044,8 @@
 "hash": "0010100000101000011100100011001000010010110111000001110000011100",
 "kb": 75,
 "lum": 163,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2022/06/azienda_home-copia-1.jpg",
 "w": 887
 },
@@ -24989,7 +25054,8 @@
 "hash": "0101010110001011101010101010101010101010010101010101001100000011",
 "kb": 30,
 "lum": 39,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2021/11/Coop_italia_logo.svg.png",
 "w": 1920
 },
@@ -24998,7 +25064,8 @@
 "hash": "0000000000100100100100001001000111010010000000001000100010000000",
 "kb": 19,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/9001.jpg",
 "w": 800
@@ -25008,7 +25075,8 @@
 "hash": "0000000000100100100100001001000101010010000000001000100010000000",
 "kb": 20,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/14001.jpg",
 "w": 800
@@ -25018,7 +25086,8 @@
 "hash": "0000000000100100100100001001000111010010110000001000100010000000",
 "kb": 20,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/45001.jpg",
 "w": 800
@@ -25028,7 +25097,8 @@
 "hash": "0000000000100100100100001001000111010010100000001000100010000000",
 "kb": 20,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/39001.jpg",
 "w": 800
@@ -25038,7 +25108,8 @@
 "hash": "0000000000100100100100001001000111000000100000001001000010000000",
 "kb": 18,
 "lum": 228,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/soaos35.jpg",
 "w": 800
@@ -25048,7 +25119,8 @@
 "hash": "0000000000100100100100001001000111001000100010001000000010000000",
 "kb": 17,
 "lum": 229,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/Senza-titolo-3.jpg",
 "w": 800
@@ -25058,7 +25130,8 @@
 "hash": "0000000000100100100100001001000111011001101110011000000010000000",
 "kb": 24,
 "lum": 225,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/01/uniPDR-125-2022.png",
 "w": 800
@@ -25068,7 +25141,8 @@
 "hash": "0000000000000010110100001001000110000000100000001001000010000000",
 "kb": 20,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/01/Senza-titolo-3.png",
 "w": 800
@@ -25078,7 +25152,8 @@
 "hash": "0000000000000000101100000011000001010000100000001000000010000000",
 "kb": 10,
 "lum": 80,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2025/02/Bilancio-sociale.jpg",
 "w": 800
@@ -25098,7 +25173,8 @@
 "hash": "1100000110000100101101000011010000110000000000111000011010000110",
 "kb": 182,
 "lum": 98,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2021/11/marian.jpg",
 "w": 1024
@@ -25118,7 +25194,8 @@
 "hash": "0100010111000101011001100111000000111100111011000000011010010110",
 "kb": 110,
 "lum": 69,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2021/12/ECOMONDO-venturi.jpg",
 "w": 1200
@@ -25128,7 +25205,8 @@
 "hash": "0100010111000101011001100111000000111100110011000000011010010110",
 "kb": 111,
 "lum": 69,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://venturiautospurghi.it/wp-content/uploads/2021/12/ECOMONDO-venturi-1024x683.jpg",
 "w": 1024
@@ -26080,7 +26158,8 @@
 "hash": "0011010101111011111001100100011000100111000111100011101100011011",
 "kb": 83,
 "lum": 109,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://zottirottami.com/polopoly_fs/1.3306086.1468583019%21/httpImage/img.jpeg_gen/derivatives/header400_980/img.jpg",
 "w": 980
 },

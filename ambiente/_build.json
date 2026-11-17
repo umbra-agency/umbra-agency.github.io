@@ -1003,16 +1003,16 @@
   "arch": "I",
   "acc": "#1562ac",
   "colsrc": "m/logo.png",
-  "foto_proprie": 7,
+  "foto_proprie": 6,
   "logo": true,
   "sector": "impianto"
  },
  {
   "slug": "sandri-recuperi",
   "arch": "I",
-  "acc": "#5a7f2b",
-  "colsrc": "default",
-  "foto_proprie": 0,
+  "acc": "#598cc0",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 3,
   "logo": false,
   "sector": "impianto"
  },
@@ -1495,8 +1495,8 @@
  },
  {
   "slug": "dino-spurghi",
-  "arch": "M",
-  "acc": "#93c22c",
+  "arch": "T",
+  "acc": "#9ed02f",
   "colsrc": "m/logo.png",
   "foto_proprie": 8,
   "logo": true,
@@ -1540,7 +1540,7 @@
  },
  {
   "slug": "autospurgo-romagna",
-  "arch": "M",
+  "arch": "I",
   "acc": "#d41c24",
   "colsrc": "m/logo.png",
   "foto_proprie": 8,
@@ -1666,8 +1666,8 @@
  },
  {
   "slug": "modenese-rottami",
-  "arch": "M",
-  "acc": "#266493",
+  "arch": "X",
+  "acc": "#599fd4",
   "colsrc": "m/logo.png",
   "foto_proprie": 9,
   "logo": true,
@@ -1702,7 +1702,7 @@
  },
  {
   "slug": "la-recuperi",
-  "arch": "M",
+  "arch": "I",
   "acc": "#58d01d",
   "colsrc": "m/logo.png",
   "foto_proprie": 8,
@@ -1891,8 +1891,8 @@
  },
  {
   "slug": "mederle-recycling",
-  "arch": "M",
-  "acc": "#813f1d",
+  "arch": "X",
+  "acc": "#d98154",
   "colsrc": "m/logo.png",
   "foto_proprie": 9,
   "logo": true,
@@ -1903,7 +1903,7 @@
   "arch": "I",
   "acc": "#e07b24",
   "colsrc": "default",
-  "foto_proprie": 0,
+  "foto_proprie": 3,
   "logo": false,
   "sector": "spurghi"
  },
@@ -1927,8 +1927,8 @@
  },
  {
   "slug": "crv-centro-riciclaggio-valsugana",
-  "arch": "M",
-  "acc": "#5a7f2b",
+  "arch": "T",
+  "acc": "#87be40",
   "colsrc": "default",
   "foto_proprie": 8,
   "logo": false,
@@ -1960,5 +1960,338 @@
   "foto_proprie": 5,
   "logo": true,
   "sector": "spurghi"
+ },
+ {
+  "slug": "autospurghi-santarcangelo",
+  "arch": "X",
+  "acc": "#63a0d9",
+  "colsrc": "m/s14.jpg",
+  "foto_proprie": 6,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "autospurghi-poletti-franco",
+  "arch": "X",
+  "acc": "#8799f2",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "sogari-spurghi",
+  "arch": "I",
+  "acc": "#da3f41",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "pagliani-giglio-servizi-ecologici",
+  "arch": "I",
+  "acc": "#c21110",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "venturi-bruno-spurghi-e-servizi",
+  "arch": "I",
+  "acc": "#399037",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "nuova-jolly-spurghi",
+  "arch": "T",
+  "acc": "#e28331",
+  "colsrc": "default",
+  "foto_proprie": 1,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "diacci-pronto-spurgo",
+  "arch": "I",
+  "acc": "#2a5f9e",
+  "colsrc": "default",
+  "foto_proprie": 6,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "gruppo-galli-ecologia-romani-galli",
+  "arch": "T",
+  "acc": "#6699d6",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "s-e-f-servizi-ecologici-ferraresi",
+  "arch": "T",
+  "acc": "#ef7b7d",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 3,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "pozzi-neri-nando",
+  "arch": "M",
+  "acc": "#0054a7",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 14,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "espurgo-ags",
+  "arch": "M",
+  "acc": "#dc292c",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 10,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "malaguti-autospurghi",
+  "arch": "T",
+  "acc": "#6cc1de",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 2,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "driadi-e-bernabini-spurghi",
+  "arch": "X",
+  "acc": "#d1817b",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 5,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "emiliana-spurghi",
+  "arch": "T",
+  "acc": "#24a1f9",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "nuova-eco-edil",
+  "arch": "T",
+  "acc": "#fe6d6d",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "bonifica"
+ },
+ {
+  "slug": "montieco",
+  "arch": "I",
+  "acc": "#3ea96d",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 6,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "bgs-jolly-group",
+  "arch": "X",
+  "acc": "#799ecc",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 3,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "inerti-cavozza",
+  "arch": "T",
+  "acc": "#f2787f",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 8,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "sandeco-sandei",
+  "arch": "M",
+  "acc": "#0e5981",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 15,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "ghirardi",
+  "arch": "I",
+  "acc": "#019bdc",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 6,
+  "logo": true,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "coccinella-disinfestazioni",
+  "arch": "I",
+  "acc": "#d03f35",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "disinfestazione"
+ },
+ {
+  "slug": "disinfestazione-modenese-eco-mutina",
+  "arch": "X",
+  "acc": "#f97371",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "disinfestazione"
+ },
+ {
+  "slug": "gc-autospurghi-gervasio-carmine",
+  "arch": "I",
+  "acc": "#252869",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "venturi-autospurghi",
+  "arch": "I",
+  "acc": "#8c0304",
+  "colsrc": "m/s28.jpg",
+  "foto_proprie": 2,
+  "logo": false,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "autospurghi-venturi-raffaele",
+  "arch": "M",
+  "acc": "#c8a12a",
+  "colsrc": "default",
+  "foto_proprie": 11,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "italfer",
+  "arch": "X",
+  "acc": "#fba204",
+  "colsrc": "m/s2.jpg",
+  "foto_proprie": 1,
+  "logo": false,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "querciambiente",
+  "arch": "I",
+  "acc": "#4093d8",
+  "colsrc": "m/s40.jpg",
+  "foto_proprie": 6,
+  "logo": false,
+  "sector": "raccolta"
+ },
+ {
+  "slug": "p-r-a-pustertaler-recycling-anlage",
+  "arch": "M",
+  "acc": "#8cd148",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 14,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "ecoter",
+  "arch": "T",
+  "acc": "#c1935c",
+  "colsrc": "m/1.jpg",
+  "foto_proprie": 1,
+  "logo": false,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "c-r-c-centro-riciclaggio-campodenno",
+  "arch": "T",
+  "acc": "#679ae5",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "zotti-rottami",
+  "arch": "I",
+  "acc": "#7a3f25",
+  "colsrc": "m/s10.jpg",
+  "foto_proprie": 7,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "acquisto-metalli",
+  "arch": "T",
+  "acc": "#ffd500",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 1,
+  "logo": true,
+  "sector": "impianto"
+ },
+ {
+  "slug": "tomasella-spurghi",
+  "arch": "I",
+  "acc": "#24a7dc",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 5,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "moretto-giuseppe",
+  "arch": "I",
+  "acc": "#da532c",
+  "colsrc": "sito",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "cantiere"
+ },
+ {
+  "slug": "consorzio-trentino-servizi-ambientali-ctsa",
+  "arch": "I",
+  "acc": "#028d4e",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 9,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "italiaspirazioni",
+  "arch": "M",
+  "acc": "#da803a",
+  "colsrc": "m/logo.png",
+  "foto_proprie": 15,
+  "logo": true,
+  "sector": "spurghi"
+ },
+ {
+  "slug": "recycling-f-lli-picelli",
+  "arch": "I",
+  "acc": "#e07b24",
+  "colsrc": "default",
+  "foto_proprie": 0,
+  "logo": false,
+  "sector": "impianto"
  }
 ]
