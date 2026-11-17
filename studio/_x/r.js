@@ -1,0 +1,32 @@
+// strumento interno: raccoglie testi e foto da un sito, solo lettura
+export default async () => {
+const O=location.origin,vis=new Set(),pag=[],col={},imm=new Map(),pdf=new Set(),vid=new Set(),con=new Set();
+const ok=u=>{try{const x=new URL(u,location.href);return x.origin===O&&!/\.(jpe?g|png|gif|webp|pdf|zip|docx?)$/i.test(x.pathname)&&!/wp-(admin|login|json)|\/feed|\/tag\/|\/author\/|\/page\/\d|privacy|cookie|\/en\/|\/de\/|\/fr\/|carrello|cart|checkout|account/i.test(x.href)?x.origin+x.pathname:null}catch(e){return null}};
+const cnt=c=>{if(c&&!/rgba\(0, 0, 0, 0\)|transparent/.test(c))col[c]=(col[c]||0)+1};
+document.querySelectorAll('h1,h2,h3,a,button,header,footer,nav,.btn,[class*=button]').forEach(e=>{const s=getComputedStyle(e);cnt(s.color);cnt(s.backgroundColor)});
+const font=[...new Set([...document.querySelectorAll('h1,h2,h3,p')].slice(0,30).map(e=>getComputedStyle(e).fontFamily.split(',')[0]))].join(', ');
+const coda=[O+'/'].concat([...document.querySelectorAll('a[href]')].map(a=>ok(a.href)).filter(Boolean));
+const big=s=>{const c=s.split(',').map(x=>x.trim().split(/\s+/)).filter(x=>x[0]);c.sort((a,b)=>parseInt(b[1]||0)-parseInt(a[1]||0));return c[0]?.[0]};
+const norm=k=>k.replace(/(static\.wixstatic\.com\/media\/[^/]+)\/v1\/.*/,'$1').replace(/-\d+x\d+(?=\.\w+$)/,'').replace(/-scaled(?=\.\w+$)/,'');
+const add=(x,u,alt)=>{try{const k=norm(new URL(x,u).href);if(!imm.has(k))imm.set(k,{alt:(alt||'').slice(0,40),da:new URL(u).pathname})}catch(e){}};
+const leggi=async u=>{if(vis.has(u)||vis.size>=16)return;vis.add(u);let h;try{h=await fetch(u).then(r=>r.ok?r.text():'')}catch(e){return}if(!h)return;
+const d=new DOMParser().parseFromString(h,'text/html');
+d.querySelectorAll('a[href]').forEach(a=>{const x=a.getAttribute('href');if(!x)return;if(/\.pdf(\?|$)/i.test(x))pdf.add(new URL(x,u).href+' «'+a.textContent.trim().slice(0,30)+'»');if(/^(mailto|tel):|wa\.me|whatsapp/.test(x))con.add(x);if(/instagram|facebook/.test(x))con.add(x.split('?')[0]);let k;try{k=ok(new URL(x,u).href)}catch(e){}if(k&&!vis.has(k)&&!coda.includes(k)&&coda.length<70)coda.push(k)});
+d.querySelectorAll('iframe[src],video source[src],video[src]').forEach(v=>vid.add(v.getAttribute('src')));
+[...h.matchAll(/(?:vimeo\.com\/(?:video\/)?|youtube\.com\/(?:embed\/|watch\?v=)|youtu\.be\/)([\w-]{6,})/g)].forEach(m=>vid.add(m[0]));
+d.querySelectorAll('img').forEach(i=>{const x=big(i.getAttribute('srcset')||i.getAttribute('data-srcset')||i.getAttribute('data-lazy-srcset')||'')||i.getAttribute('data-src')||i.getAttribute('data-lazy-src')||i.getAttribute('src');if(x&&!x.startsWith('data:'))add(x,u,i.alt)});
+[...h.matchAll(/(?:https?:)?\/\/[^"' )\\]+?\.(?:jpe?g|png|webp)|url\(\s*['"]?([^'")]+\.(?:jpe?g|png|webp))/gi)].forEach(m=>add(m[1]||m[0],u,'[x]'));
+d.querySelectorAll('script,style,noscript,svg,form,select,header,footer,nav').forEach(e=>e.remove());
+const t=(d.querySelector('main,article,#content,.content')||d.body)?.textContent.replace(/\s*\n\s*/g,'\n').replace(/[ \t]+/g,' ').trim()||'';pag.push([new URL(u).pathname,d.title,t.slice(0,2600)])};
+for(let i=0;i<coda.length&&vis.size<16;i+=4)await Promise.all(coda.slice(i,i+4).map(leggi));
+const dim=u=>new Promise(r=>{const i=new Image();const t=setTimeout(()=>r([u,0,0]),7000);i.onload=()=>{clearTimeout(t);r([u,i.naturalWidth,i.naturalHeight])};i.onerror=()=>{clearTimeout(t);r([u,0,0])};i.src=u});
+const L=[...imm.keys()].filter(u=>!/logo|icon|favicon|flag|bandier|sprite|placeholder|cookie|payment|pagamenti/i.test(u)).slice(0,160),mis=[];
+for(let i=0;i<L.length;i+=12)mis.push(...await Promise.all(L.slice(i,i+12).map(dim)));
+const M=mis.filter(m=>m[1]>=700||(/\.png/i.test(m[0])&&m[2]>=500));M.sort((a,b)=>b[1]*b[2]-a[1]*a[2]);window.__M=M;
+const hex=c=>c.replace(/rgba?\((\d+), (\d+), (\d+)(, [\d.]+)?\)/,(m,r,g,b)=>'#'+[r,g,b].map(x=>(+x).toString(16).padStart(2,'0')).join(''));
+const righe=[`SITO ${O} · font: ${font}`,'COLORI: '+Object.entries(col).sort((a,b)=>b[1]-a[1]).slice(0,10).map(c=>hex(c[0])+'×'+c[1]).join(' '),'CONTATTI: '+[...con].join(' '),'VIDEO: '+[...vid].join(' '),'PDF: '+[...pdf].join(' | '),'FOTO:',...M.map((m,k)=>`${k} ${m[0].replace(O,'').replace('https://static.wixstatic.com/media/','W/')} ${m[1]}x${m[2]} ${imm.get(m[0])?.alt||''} ${imm.get(m[0])?.da||''}`),'',...pag.map(p=>`\n===== ${p[0]} · ${p[1]}\n${p[2]}`)];
+document.documentElement.innerHTML='<head><title>rapporto</title></head><body><article><pre id=r style="white-space:pre-wrap;font:12px monospace"></pre></article></body>';
+document.getElementById('r').textContent=righe.join('\n');
+window.__f=(da=0,n=40,c=8)=>{document.body.innerHTML='<div id=g style="display:grid;grid-template-columns:repeat('+c+',1fr);gap:2px;background:#222;font:bold 12px sans-serif;color:#ff0"></div>';window.__M.slice(da,da+n).forEach((m,k)=>document.getElementById('g').insertAdjacentHTML('beforeend',`<div style="position:relative;aspect-ratio:3/2;background:#000 url('${m[0]}') center/cover"><span style="position:absolute;left:2px;top:1px;background:#000">${da+k}</span></div>`));scrollTo(0,0)};
+return 'pagine '+pag.length+' · foto '+M.length;
+};
