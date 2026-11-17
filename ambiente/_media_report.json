@@ -379,7 +379,8 @@
 "hash": "0101000001010001000011100010101101101001100000100001010000000101",
 "kb": 147,
 "lum": 46,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.adriajet.it/assets/img/adriajet_parco_veicoli_1280x720.webp",
 "w": 2560
@@ -746,7 +747,8 @@
 "hash": "1101100011011100111111101101110010011100001110010111110001101111",
 "kb": 70,
 "lum": 194,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.autospurghibiselli.com/upload/immagini/img900/esperienza.jpg",
 "w": 900
@@ -785,7 +787,8 @@
 "hash": "0100111001010110001001100111011010011011101101110010111110001101",
 "kb": 75,
 "lum": 119,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/servizi-cittadini-bottazzi-autospurghi.webp",
 "w": 1024
 },
@@ -814,7 +817,8 @@
 "hash": "0101011001001100001111000111111101111111011011111111001100110110",
 "kb": 88,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/pubbliche-amministrazioni-documenti-utili-bottazzi-autospurghi.webp",
 "w": 1024
@@ -824,7 +828,8 @@
 "hash": "1111101011110010111110001111100111010010010100001011010010101001",
 "kb": 209,
 "lum": 145,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/ecologia-civile-industriale-bottazzi-autospurghi-2.webp",
 "w": 1920
@@ -864,7 +869,8 @@
 "hash": "0001001010010110100101101011001000100010100101100100111001100010",
 "kb": 130,
 "lum": 126,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/videoispezione-bottazzi-autospurghi-piacenza.webp",
 "w": 1024
@@ -894,7 +900,8 @@
 "hash": "1110001111100011001010111110101100100011001100111110110111011010",
 "kb": 197,
 "lum": 149,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/bottazzi-ecologia-civile-autospurghi-piacenza.webp",
 "w": 1024
@@ -904,7 +911,8 @@
 "hash": "1100010011100100111000111101001111010001011100010110001101100000",
 "kb": 477,
 "lum": 108,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/ecologia-civile-industriale-bottazzi-autospurghi.webp",
 "w": 1920
@@ -924,7 +932,8 @@
 "hash": "0001101101001001000011010000011101001110001001010010110101001101",
 "kb": 188,
 "lum": 49,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://bottazziautospurghi.it/wp-content/uploads/2024/04/bottazzi-autospurghi-piacenza-sedi.webp",
 "w": 1920
@@ -975,7 +984,8 @@
 "hash": "1101010011010100110101101101010011010100110111101110111010000110",
 "kb": 87,
 "lum": 162,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.autospurghidallolio.it/img_up/big/20200107184352-28.jpg",
 "w": 1100
@@ -1148,7 +1158,8 @@
 "hash": "1111111001011111000101001100000011100111110001110110011100011111",
 "kb": 380,
 "lum": 142,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/ba8e1887/dms3rep/multi/opt/PULLMAN+%282%29-1920w.jpg",
 "w": 1920
@@ -1299,7 +1310,8 @@
 "hash": "0011101101111011011101100011001000110000011110000011100000011000",
 "kb": 457,
 "lum": 146,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com/4643dc0b/dms3rep/multi/opt/1_div_DRAG-LOGO-SERVIZIO_20240319_090624-0935c1e6-1920w.jpg",
 "w": 1680
 },
@@ -1308,7 +1320,8 @@
 "hash": "1100110010000110010000010010000100000001000011010000110001101000",
 "kb": 81,
 "lum": 92,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/4643dc0b/dms3rep/multi/opt/5a299b7fa9a8e3.4096455615126762236949-1920w.png",
 "w": 1920
@@ -1318,7 +1331,8 @@
 "hash": "1110111111101111100011110001111100011111000111110011111111111111",
 "kb": 196,
 "lum": 32,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/4643dc0b/dms3rep/multi/opt/GettyImages-549466939-1920w.jpg",
 "w": 1920
@@ -1328,7 +1342,8 @@
 "hash": "1111001010010001100100011011000100110001001001010010000101101001",
 "kb": 186,
 "lum": 132,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/4643dc0b/dms3rep/multi/opt/GettyImages-626487418-1920w.jpg",
 "w": 1920
@@ -1368,7 +1383,8 @@
 "hash": "0111000001101000111011001100111010000110100010101100100001001000",
 "kb": 424,
 "lum": 194,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/4643dc0b/dms3rep/multi/opt/SMALTIMENTO+RIFIUTI+SPECIALI-1920w.jpg",
 "w": 1920
@@ -1378,7 +1394,8 @@
 "hash": "0010001001001101010101011100110011001100011100011111000001101000",
 "kb": 91,
 "lum": 183,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/4643dc0b/dms3rep/multi/opt/GettyImages-1477136433-1920w.jpg",
 "w": 1920
@@ -1393,7 +1410,8 @@
 "hash": "0000000010000100010000100111001001110001010111011001101000110110",
 "kb": 53,
 "lum": 146,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com/e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-006-1920w.png",
 "w": 1000
 },
@@ -1402,7 +1420,8 @@
 "hash": "0110100000010001000000111100010111110011000010110110000101100011",
 "kb": 176,
 "lum": 139,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com/e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-007-1920w.jpg",
 "w": 1588
 },
@@ -1420,7 +1439,8 @@
 "hash": "0000001101001111110001111101101111011011100101011111001001110110",
 "kb": 79,
 "lum": 181,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-025-1920w.jpg",
 "w": 1920
@@ -1430,7 +1450,8 @@
 "hash": "0010111000001111000111010111100101111000011100001000010101101100",
 "kb": 139,
 "lum": 116,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-002-1920w.jpg",
 "w": 1920
@@ -1440,7 +1461,8 @@
 "hash": "0000000000000000000000000000000000000000000100000100000000111000",
 "kb": 107,
 "lum": 175,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-003-1920w.jpg",
 "w": 1760
@@ -1450,7 +1472,8 @@
 "hash": "0011010001011000110110001101100011001010110000011100010111101111",
 "kb": 393,
 "lum": 140,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-004-1920w.jpg",
 "w": 1920
@@ -1460,7 +1483,8 @@
 "hash": "1110111011001110010101100011000101100001010011010111010100110101",
 "kb": 338,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//e1badba6/dms3rep/multi/opt/Spurgo-SPURGO-Parma-005-1920w.jpg",
 "w": 1920
@@ -1612,7 +1636,8 @@
 "hash": "1000100011000000000000101000001011000110100001001100110001001101",
 "kb": 129,
 "lum": 158,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.savigniautospurgo.it/images/Corporate/rentri-rifiuti-modena-bologna.jpg",
 "w": 1500
@@ -1637,7 +1662,8 @@
 "hash": "0000011100100111000011111001111110011001101001110010011101111001",
 "kb": 103,
 "lum": 82,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com/cb2baea2/dms3rep/multi/opt/IMG_20210219_120726-1104w.jpg",
 "w": 1100
 },
@@ -1675,7 +1701,8 @@
 "hash": "1101111011000110110011101100111011101100011111000001101100011001",
 "kb": 151,
 "lum": 138,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//cb2baea2/dms3rep/multi/opt/a3b17a0b-2061-4d7a-8214-8524af1b9b2c-2880w.jpg",
 "w": 1600
@@ -1860,7 +1887,8 @@
 "hash": "1100100111011001011010011111100100111011000111100001111111011111",
 "kb": 36,
 "lum": 210,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/f85465d9/dms3rep/multi/opt/BAROSI-FRANCO-Langhirano-Parma-008-1920w.jpg",
 "w": 960
@@ -1870,7 +1898,8 @@
 "hash": "0111110010110100001001000001110011001100000011100111110001111101",
 "kb": 68,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/f85465d9/dms3rep/multi/opt/BAROSI-FRANCO-Langhirano-Parma-009-1920w.jpg",
 "w": 960
@@ -1900,7 +1929,8 @@
 "hash": "0011011111101001011010011111001111101001111010011110000111110001",
 "kb": 91,
 "lum": 180,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/f85465d9/dms3rep/multi/opt/BAROSI-FRANCO-Langhirano-Parma-017-1920w.jpg?jxl&v=jxl",
 "w": 980
@@ -3325,7 +3355,8 @@
 "hash": "1001101011111011011110111001110100111111011011110110010111100111",
 "kb": 112,
 "lum": 97,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.cervirottami.it/wp-content/uploads/2024/01/Recupero-e-gestione-rottami-ferrosi-reggio-emilia-sassuolo.jpg",
 "w": 600
 },
@@ -3406,7 +3437,8 @@
 "hash": "1101100011101000111100001111000011110000111000001110000011000000",
 "kb": 24,
 "lum": 43,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//98fdf74e/dms3rep/multi/opt/image-1920w.jpg",
 "w": 1920
@@ -3456,7 +3488,8 @@
 "hash": "0001010010101101101010011010110100101001101010111000010110001000",
 "kb": 108,
 "lum": 137,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/98fdf74e/dms3rep/multi/opt/CESENA-SPURGHI-CESENA-013-2880w.jpg",
 "w": 960
@@ -3741,7 +3774,8 @@
 "hash": "1111110011111100111110001111110011010100100111001000100010000000",
 "kb": 130,
 "lum": 148,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/typo3temp/assets/images/clean-earth-eco_ed10487c9a_5d6fa347f6be722d113ac2ed338e702a.jpg",
 "w": 1200
@@ -3801,7 +3835,8 @@
 "hash": "1111110011111100111111001111110011010010000110100000110000000000",
 "kb": 332,
 "lum": 121,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/fileadmin/user_upload/Archivio/Emozionali/clean-earth-eco.jpg",
 "w": 1920
@@ -3811,7 +3846,8 @@
 "hash": "1100111111001111110011111010011111100111111011011100111101001111",
 "kb": 37,
 "lum": 201,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/fileadmin/_processed_/8/4/WelfareCare_prevenzione_del_tumore_al_seno_locandina_9f696e86bb.jpg",
 "w": 1226
@@ -3821,7 +3857,8 @@
 "hash": "1101110011011000100011101100111011011110110110101001001010101100",
 "kb": 74,
 "lum": 188,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/typo3temp/assets/images/WelfareCare_prevenzione_del_tumore_al_seno_banner_ef8402e572_b89d9329bd4f72b7ed10ae50c1e84add.jpg",
 "w": 1200
@@ -3831,7 +3868,8 @@
 "hash": "1101010111011001100111101100111111011111110110100001000000110101",
 "kb": 141,
 "lum": 185,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/fileadmin/user_upload/Archivio/Impegno_Sociale/WelfareCare_prevenzione_del_tumore_al_seno_banner.jpg",
 "w": 1920
@@ -3841,7 +3879,8 @@
 "hash": "0101000001110000111000001111110011111000111110000111100000110000",
 "kb": 323,
 "lum": 208,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/fileadmin/_processed_/3/6/green_puzzle_eab6cf1951.jpg",
 "w": 1920
@@ -3851,7 +3890,8 @@
 "hash": "1001101010010110101001001110011011101010100010101110001011000110",
 "kb": 75,
 "lum": 183,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/typo3temp/assets/images/addetti_al_riciclaggio_5252da1e39_ed68a20b3d1c0dfd78079ff6a264bf59.jpg",
 "w": 1200
@@ -3861,7 +3901,8 @@
 "hash": "1111110011111100111111001111110011111100110111000001110010011100",
 "kb": 232,
 "lum": 122,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/fileadmin/user_upload/Archivio/Emozionali/raccolta_trasporto_smaltimento_rifiuti_speciali_non_pericolosi_2.jpg",
 "w": 1920
@@ -3871,7 +3912,8 @@
 "hash": "0001101100010010011001100110001001001011010011011100001110000011",
 "kb": 189,
 "lum": 164,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.cleanearth.it/fileadmin/user_upload/Archivio/Servizi/addetti_al_riciclaggio.jpeg",
 "w": 1920
@@ -3895,7 +3937,8 @@
 "hash": "0110110000110000011100000110011011100000111000100110010000010100",
 "kb": 120,
 "lum": 190,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/60238896_lel-1920w.jpg",
 "w": 1313
@@ -3905,7 +3948,8 @@
 "hash": "0011100110111001101110011111011011011110110110111101111111111110",
 "kb": 207,
 "lum": 133,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/7280236e/dms3rep/multi/opt/CLEANER-SERVICE-Pordenone-003-1920w.jpg",
 "w": 1920
@@ -3915,7 +3959,8 @@
 "hash": "0000110100010010001100111111000111110001111100001000110000000000",
 "kb": 166,
 "lum": 207,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/CLEANER-SERVICE-Pordenone-008-1920w.jpg",
 "w": 1920
@@ -3925,7 +3970,8 @@
 "hash": "0001111100010111001100100111001000110011101010111001101100001111",
 "kb": 51,
 "lum": 192,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/CLEANER-SERVICE-Pordenone-014-1920w.jpg",
 "w": 960
@@ -3935,7 +3981,8 @@
 "hash": "0100111101001101110011011010111111011111101111001010110001000011",
 "kb": 214,
 "lum": 195,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/CLEANER-SERVICE-Pordenone-015-1920w.jpg",
 "w": 1920
@@ -3945,7 +3992,8 @@
 "hash": "1000000000000000010000001000000010000000100000011000000010000000",
 "kb": 183,
 "lum": 104,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/antitarlo_box_home-1920w.jpg",
 "w": 900
@@ -3955,7 +4003,8 @@
 "hash": "0010011000110010001100110011000000110000001110100001110100111001",
 "kb": 210,
 "lum": 187,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/CLEANER-SERVICE-Pordenone-025-1920w.jpg",
 "w": 1920
@@ -3965,7 +4014,8 @@
 "hash": "1010100111011001010111110010011001001100010111000101101100101110",
 "kb": 187,
 "lum": 189,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/7280236e/dms3rep/multi/opt/CLEANER-SERVICE-Pordenone-028-1920w.jpg",
 "w": 1920
@@ -4115,7 +4165,8 @@
 "hash": "0101111111001100111011001011010000110100001100001001100000111000",
 "kb": 113,
 "lum": 64,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.commercialerottamisrl.it/wp-content/uploads/2022/05/bg-tit-page.jpg",
 "w": 1920
@@ -4256,7 +4307,8 @@
 "hash": "0011011100101001000000010001011100111111011010010000101100111011",
 "kb": 219,
 "lum": 120,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.compostellarottami.com/wp-content/uploads/2017/07/compostella_rottami_cartigliano.jpg",
 "w": 1920
@@ -4350,7 +4402,8 @@
 "hash": "0111100001111000111111001111010111100101111000111110001001110110",
 "kb": 155,
 "lum": 177,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://contespurghi.it/wp-content/uploads/2023/12/spurgo-lavandini.jpg",
 "w": 1920
@@ -4370,7 +4423,8 @@
 "hash": "0111111101110111000111110011111100011111011001110101011110010100",
 "kb": 275,
 "lum": 142,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://contespurghi.it/wp-content/uploads/2021/07/FOGNATURE-ESPURGO-ECOALBA-ALBANELLA-020-2880w.webp",
 "w": 1920
@@ -4455,7 +4509,8 @@
 "hash": "0101110000001100000001100000110001001101111001100001111100000111",
 "kb": 287,
 "lum": 151,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://irp.cdn-website.com/957e141c/dms3rep/multi/opt/cosper_pulizia_pozzi_neri_gorizia_udine+%284%29-1920w.jpg",
 "w": 1920
 },
@@ -4473,7 +4528,8 @@
 "hash": "1001001100010011000101110000111100010111000101110000011100001111",
 "kb": 139,
 "lum": 64,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/957e141c/dms3rep/multi/opt/cosper_pulizia_pozzi_neri_gorizia_udine+%283%29-1920w.jpg",
 "w": 1920
@@ -4563,7 +4619,8 @@
 "hash": "0110111001101111110110100000110011100110110001100001101000011100",
 "kb": 107,
 "lum": 98,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/957e141c/dms3rep/multi/opt/cosper_pulizia_pozzi_neri_gorizia_udine+%285%29-2880w.jpg",
 "w": 1920
@@ -4603,7 +4660,8 @@
 "hash": "0000110100001001000110110000011100110011001100110110001111010000",
 "kb": 213,
 "lum": 118,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/md/pexels/dms3rep/multi/opt/drop-of-water-inject-water-drip-45229-1920w.jpeg",
 "w": 1920
@@ -4636,7 +4694,8 @@
 "hash": "0000110000110010011100010110100100110010001100100011000000001100",
 "kb": 23,
 "lum": 216,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.crmetal.it/wp-content/uploads/2026/02/esperienza-nel-settore-rottami.png",
 "w": 1024
@@ -4646,7 +4705,8 @@
 "hash": "0000000000000000000011000110000101100001000011000000000000000000",
 "kb": 15,
 "lum": 230,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.crmetal.it/wp-content/uploads/2026/02/Ritiro-organizzato.png",
 "w": 1024
@@ -4656,7 +4716,8 @@
 "hash": "0000000000000000010011000111000001110001011001000000000000000001",
 "kb": 19,
 "lum": 240,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.crmetal.it/wp-content/uploads/2026/02/Trasporto-autorizzato.png",
 "w": 1024
@@ -4666,7 +4727,8 @@
 "hash": "0000000000010000011010000111000101110001011000000000010000000000",
 "kb": 18,
 "lum": 241,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.crmetal.it/wp-content/uploads/2026/02/Valorizzazione-metalli.png",
 "w": 1024
@@ -4780,7 +4842,8 @@
 "hash": "0100011010000110010010110010101100101011001110110010000110011000",
 "kb": 176,
 "lum": 79,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.darerottami.com/wp-content/uploads/2025/03/prlx-green.jpg",
 "w": 1920
@@ -4820,7 +4883,8 @@
 "hash": "0100011010000110010010110010101100101111001110110010000110011100",
 "kb": 234,
 "lum": 31,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.darerottami.com/wp-content/uploads/2025/03/prlx-drk.jpg",
 "w": 1920
@@ -4840,7 +4904,8 @@
 "hash": "0010011100011101011111000111100000110011001100111000011110000001",
 "kb": 58,
 "lum": 177,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.darerottami.com/wp-content/uploads/2025/04/dare-recycling_5.jpg",
 "w": 1024
@@ -4905,7 +4970,8 @@
 "hash": "0100100000000011010010011010100110011101010011110111110101101101",
 "kb": 313,
 "lum": 161,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.dabringer.it/wp-content/uploads/2019/03/Dabringer-006.jpg",
 "w": 1920
 },
@@ -4914,7 +4980,8 @@
 "hash": "0011011111110111001000110010011001100110100011011100111101000101",
 "kb": 155,
 "lum": 172,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.dabringer.it/wp-content/uploads/2019/03/Dabringer-003.jpg",
 "w": 1920
 },
@@ -4923,7 +4990,8 @@
 "hash": "0000011000001100001110001111000011000000110001000010010011001110",
 "kb": 21,
 "lum": 209,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.dabringer.it/wp-content/uploads/2018/03/Schlachtabfaelle_I6I7624-brett.jpg",
 "w": 640
 },
@@ -4941,7 +5009,8 @@
 "hash": "0001001111010100101000000110100101101001011001000110000100101001",
 "kb": 373,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.dabringer.it/wp-content/uploads/2018/05/Dabringer_Familienunternehmer.jpg",
 "w": 2000
@@ -4956,7 +5025,8 @@
 "hash": "0011010100110110001001000011011000100100001001000011011000100100",
 "kb": 2,
 "lum": 242,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://dalbometalli.it/wp-content/uploads/2026/07/recupero-rifiuti-non-pericolosi.webp",
 "w": 400
 },
@@ -4985,7 +5055,8 @@
 "hash": "0000000100000001000100010000011100000110110000110010000000100011",
 "kb": 7,
 "lum": 220,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://dalbometalli.it/wp-content/uploads/2026/07/dal-bo-metalli-stoccaggio-rifiuti-industriali.webp",
 "w": 900
@@ -5377,7 +5448,8 @@
 "hash": "1100101011001010110001001000000011100001110001100101001100011001",
 "kb": 226,
 "lum": 103,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.demaimpresa.it/wp-content/uploads/2026/05/dema-srl-parco-fotovoltaico-grande-scala-drone-2.webp",
 "w": 1280
@@ -5387,7 +5459,8 @@
 "hash": "1100101011011010110001001000000011100001110001100101001100011001",
 "kb": 125,
 "lum": 103,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.demaimpresa.it/wp-content/uploads/2026/05/dema-srl-parco-fotovoltaico-grande-scala-drone-2-1024x576.webp",
 "w": 1024
@@ -5573,7 +5646,8 @@
 "hash": "0010101000000000000001010000010100000000101010100000000000000000",
 "kb": 121,
 "lum": 237,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "http://www.dinospurghi.it/wp-content/uploads/2019/01/bg1.jpg",
 "w": 1920
@@ -5633,7 +5707,8 @@
 "hash": "1100000011000000110000101100000011010001111000001100110011001110",
 "kb": 275,
 "lum": 141,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.dinospurghi.it/wp-content/uploads/2019/03/stop.jpg",
 "w": 2194
@@ -5717,7 +5792,8 @@
 "hash": "1001000110010001110000010100100101001001000010010001100100011001",
 "kb": 142,
 "lum": 171,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecocibele.com/wp-content/uploads/2022/02/disinfestazioni.jpg",
 "w": 2000
@@ -5727,7 +5803,8 @@
 "hash": "0000000000000011000000010000000001000000001000000100001000000010",
 "kb": 73,
 "lum": 170,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecocibele.com/wp-content/uploads/2022/03/bonifica-di-piscine-scandiano.jpg",
 "w": 700
@@ -5747,7 +5824,8 @@
 "hash": "0000011111001110110110001001110011000100010001000110000001101100",
 "kb": 243,
 "lum": 158,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecocibele.com/wp-content/uploads/2022/02/sanificazioni-covid-19.jpg",
 "w": 2000
@@ -6179,7 +6257,8 @@
 "hash": "1011000011110001101110011000100011110100011101000111101111110110",
 "kb": 81,
 "lum": 169,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.ecospurghiemilia.com/wp-content/uploads/2024/05/Screenshot_18.png",
 "w": 974
 },
@@ -6188,7 +6267,8 @@
 "hash": "0011000000110000111101001100011011001010110011001100111001001110",
 "kb": 33,
 "lum": 74,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.ecospurghiemilia.com/wp-content/uploads/2024/05/ECO-SPURGHI-EMILIA-REGGIO-EMILIA-001-249w.webp",
 "w": 250
 },
@@ -6389,7 +6469,8 @@
 "hash": "0111101001101100011000000101100110111001111010011100011111010001",
 "kb": 94,
 "lum": 228,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://ecojetpadova.it/mt-content/uploads/2021/01/veneto.jpg",
 "w": 800
 },
@@ -6407,7 +6488,8 @@
 "hash": "0000000000000000000000000000000001010001010000110010001100011001",
 "kb": 68,
 "lum": 233,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://ecojetpadova.it/mt-content/uploads/2020/11/mt-2141-bg01.jpg",
 "w": 1920
@@ -6954,7 +7036,8 @@
 "hash": "1000110010001100110011001000011010010110100101100000110101001001",
 "kb": 161,
 "lum": 98,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ecomanvenezia.it/wp-content/uploads/2025/08/pop-up-urgenze.jpg",
 "w": 1080
@@ -7343,7 +7426,8 @@
 "hash": "0000001000001010101110101011001000000010000000100000000000000000",
 "kb": 8,
 "lum": 236,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.ecoservicemetalli.it/images/logo-ecoservice.png",
 "w": 556
 },
@@ -8052,7 +8136,8 @@
 "hash": "0000000100000011000001110000111110000110000001111000110111001000",
 "kb": 38,
 "lum": 204,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.espurghibertoli.it/wp-content/uploads/2020/11/sfondo-espurghi-bertoli-1.jpg",
 "w": 1920
 },
@@ -8070,7 +8155,8 @@
 "hash": "0000011000000110000001100010011000111100000110010001101000001100",
 "kb": 22,
 "lum": 223,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.espurghibertoli.it/wp-content/uploads/2020/12/hero-pattern-bertoli-1-2.png",
 "w": 1030
@@ -8080,7 +8166,8 @@
 "hash": "0001110000011010000110000001100111010001110100101100110001100000",
 "kb": 29,
 "lum": 209,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.espurghibertoli.it/wp-content/uploads/2020/12/backdrop-team-preventivo-1.png",
 "w": 827
@@ -8311,7 +8398,8 @@
 "hash": "1101110010111100111011001110100001101010110110101001011010010100",
 "kb": 61,
 "lum": 94,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//5fe6fc85/dms3rep/multi/opt/EUROSPURGO-DI-PELLEGRINI-NICOLO-PARMA+%2831%29-1920w.jpg",
 "w": 960
@@ -8390,7 +8478,8 @@
 "hash": "0100110010001111101101111010111110101001101110111001001100010111",
 "kb": 6,
 "lum": 205,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.egsrl.eu/wp-content/uploads/logo-2-1.png",
 "w": 400
 },
@@ -8953,7 +9042,8 @@
 "hash": "1011000000110000011100000110110011111110100111001001011100110111",
 "kb": 98,
 "lum": 136,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "http://faenzaspurghi.com/wp-content/uploads/2023/01/da-25-anni-a-faenza.jpg",
 "w": 900
@@ -9008,7 +9098,8 @@
 "hash": "1000000010010001000100010000110110100111111011001101010011010100",
 "kb": 15,
 "lum": 104,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.ferratorottami.it/wp-content/uploads/2019/03/logo-ferrato-wht-color.png",
 "w": 500
 },
@@ -9067,7 +9158,8 @@
 "hash": "0111001101110001011101001110011010011100100000001000000100100000",
 "kb": 69,
 "lum": 102,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ferratorottami.it/wp-content/uploads/2019/03/prlx.jpg",
 "w": 1920
@@ -9097,7 +9189,8 @@
 "hash": "0111111101101111110011011101100111111011101100111011011011011101",
 "kb": 53,
 "lum": 96,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.ferratorottami.it/wp-content/uploads/2019/03/maggiori-informazioni-1.jpg",
 "w": 1024
@@ -9486,7 +9579,8 @@
 "hash": "1111110011110100111110001100110011001100011010000001100000000100",
 "kb": 226,
 "lum": 128,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/slider-1.jpeg",
 "w": 1829
@@ -9516,7 +9610,8 @@
 "hash": "1111000011000100101110001111000010110001100010001101110011110000",
 "kb": 433,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/AnyConv.com__IMG_4370-copy.jpg",
 "w": 2536
@@ -9526,7 +9621,8 @@
 "hash": "1000000010000110110001001101011000010011000100110011011010111111",
 "kb": 130,
 "lum": 118,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/cta.jpeg",
 "w": 2222
@@ -9556,7 +9652,8 @@
 "hash": "0000101111001111100110001011011010001100110011000001100010011010",
 "kb": 613,
 "lum": 111,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/slider-4.jpeg",
 "w": 1920
@@ -9566,7 +9663,8 @@
 "hash": "1110001110000111010110111011001111110111011111110111111001111110",
 "kb": 857,
 "lum": 113,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/slider-2.jpeg",
 "w": 1920
@@ -9586,7 +9684,8 @@
 "hash": "1111000011001100100011101010000011100000111011001100010011100000",
 "kb": 114,
 "lum": 135,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/azienda-home-1.png",
 "w": 1013
@@ -9596,7 +9695,8 @@
 "hash": "1110100011001000101010001110100010001001110010101100010011110000",
 "kb": 265,
 "lum": 146,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/preventivo-2-copy-2.png",
 "w": 1466
@@ -9616,7 +9716,8 @@
 "hash": "0111000000110011000000111000001100100011001100110100001101100001",
 "kb": 520,
 "lum": 133,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.fratellimassolin.com/wp-content/uploads/2021/10/aree-verdi.jpeg",
 "w": 2222
@@ -10026,7 +10127,8 @@
 "hash": "1010000100100001001100001010000001100000010001011110000110110001",
 "kb": 304,
 "lum": 141,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//4b97c701/dms3rep/multi/opt/spurgo-g-m-parma-007-1920w.jpg",
 "w": 1920
@@ -10036,7 +10138,8 @@
 "hash": "0011110000011111001101101010111010010100000110010100100101001111",
 "kb": 275,
 "lum": 172,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//4b97c701/dms3rep/multi/opt/spurgo-g-m-parma-009-1920w.jpg",
 "w": 1920
@@ -10056,7 +10159,8 @@
 "hash": "1000110000001110001100100111000001111000011100111110001111100101",
 "kb": 105,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//4b97c701/dms3rep/multi/opt/spurgo-g-m-parma-142-1920w.jpg",
 "w": 960
@@ -10076,7 +10180,8 @@
 "hash": "0101110001001100000011011100100101101000111001001010000011000001",
 "kb": 244,
 "lum": 133,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//4b97c701/dms3rep/multi/opt/spurgo-g-m-parma-012-1920w.jpg",
 "w": 1920
@@ -10728,7 +10833,8 @@
 "hash": "0011010000110010000110010001100101110001111110001100110011000010",
 "kb": 105,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.globalambiente.it/images/00019/giorgio_large.webp",
 "w": 1200
@@ -10738,7 +10844,8 @@
 "hash": "1111101111111011111100110011001100110011001111011000111110111011",
 "kb": 126,
 "lum": 157,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.globalambiente.it/images/00018/paolor_large.jpg",
 "w": 1000
@@ -10808,7 +10915,8 @@
 "hash": "0111111001101110011011100111111011101110110000101111101100011100",
 "kb": 36,
 "lum": 191,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.globalambiente.it/images/00002/sebachimg_large.webp",
 "w": 1200
@@ -10818,7 +10926,8 @@
 "hash": "0111000011110000110100101100110011001100111010001111000011101000",
 "kb": 63,
 "lum": 211,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.globalambiente.it/immagini/spal.jpg",
 "w": 1000
@@ -10848,7 +10957,8 @@
 "hash": "1011001111111001101100000011001100110011001011101010011010011110",
 "kb": 136,
 "lum": 146,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.globalambiente.it/images/00017/robertob._large.jpg",
 "w": 1000
@@ -10872,7 +10982,8 @@
 "hash": "1001100110011001110100010110001111100110111011001010110000110100",
 "kb": 210,
 "lum": 141,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gobbostefanosrl.it/wp-content/uploads/2022/10/collaborazione-GOBBO.jpg",
 "w": 2119
@@ -10892,7 +11003,8 @@
 "hash": "0000000000000010000100100001001101001011010011010000000000000000",
 "kb": 43,
 "lum": 51,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gobbostefanosrl.it/wp-content/uploads/2025/10/netx_generatione_eu.png",
 "w": 1024
@@ -10902,7 +11014,8 @@
 "hash": "0000011000000110000001100000000000000000000000000000000000000000",
 "kb": 47,
 "lum": 252,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.gobbostefanosrl.it/wp-content/uploads/2022/10/Progetto-senza-titolo-8.png",
 "w": 6000
@@ -11370,7 +11483,8 @@
 "hash": "0111101011110111111011001111110001111100010111101111110000000001",
 "kb": 337,
 "lum": 160,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/64725171/dms3rep/multi/opt/11779808_lel-1920w.jpg",
 "w": 1920
@@ -11390,7 +11504,8 @@
 "hash": "0001011100010111000101100001011100100011001000110010101110001111",
 "kb": 203,
 "lum": 108,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//64725171/dms3rep/multi/opt/37128344_lel-2880w.jpg",
 "w": 1920
@@ -11410,7 +11525,8 @@
 "hash": "0000011100000111000000110010000100000011010101100011001100100111",
 "kb": 169,
 "lum": 137,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//64725171/dms3rep/multi/opt/RIFIUTI-GUERRA-CAMPAGNOLA+EMILIA-011-2880w.jpg",
 "w": 1900
@@ -11512,7 +11628,8 @@
 "hash": "0000111000001101100110010001100000101011001110110000111000001110",
 "kb": 91,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.hitaliano.com/wp-content/uploads/2025/02/Stretta-di-mano-approvazione-servizio-intermediazione.webp",
 "w": 1200
@@ -11522,7 +11639,8 @@
 "hash": "0010001100100011011101110100110101101101111111111110101111100011",
 "kb": 171,
 "lum": 149,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.hitaliano.com/wp-content/uploads/2025/02/Ricerca-a-computer-di-servizi-ambientali.webp",
 "w": 1200
@@ -11546,7 +11664,8 @@
 "hash": "0001011100110011000011111100111010000111010000010101010000111000",
 "kb": 46,
 "lum": 139,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.idrospurghibologna.it/assets/public/images/img-box-mission.jpg",
 "w": 800
 },
@@ -11603,7 +11722,8 @@
 "hash": "0001101000011010000110110001001111111001001110110001111100000000",
 "kb": 53,
 "lum": 209,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.idrospurghibologna.it/assets/public/images/chi-siamo/img-chi-siamo-002.jpg",
 "w": 1000
@@ -11623,7 +11743,8 @@
 "hash": "0111010001101000111010001100001111010100111100001110000011100000",
 "kb": 206,
 "lum": 134,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.idrospurghibologna.it/assets/public/images/servizi/img-servizi-ricerca-perdite-page-header-bg.jpg",
 "w": 1920
@@ -11922,7 +12043,8 @@
 "hash": "1000111010010010100100101001001010010010100100101001001010010010",
 "kb": 21,
 "lum": 206,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.italspurgo.com/wp-content/uploads/2025/02/grafico_italspurgo.jpg",
 "w": 600
 },
@@ -11960,7 +12082,8 @@
 "hash": "0000100000011000011110000110000000000000000000100000001000000010",
 "kb": 26,
 "lum": 15,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.italspurgo.com/wp-content/uploads/2025/02/texture_1_form-1.png",
 "w": 1440
@@ -11980,7 +12103,8 @@
 "hash": "0111101001110011011110010111100111111001111111001111101011110100",
 "kb": 51,
 "lum": 87,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.italspurgo.com/wp-content/uploads/2025/02/banner-text-background_2.jpg",
 "w": 1440
@@ -11990,7 +12114,8 @@
 "hash": "0011001000110010011100100011001000110010001100111110100011001100",
 "kb": 136,
 "lum": 197,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.italspurgo.com/wp-content/uploads/2025/09/italspurgo_zambon.png",
 "w": 1707
@@ -12363,7 +12488,8 @@
 "hash": "1100000011000001110100001101100101111001011010010010000000110000",
 "kb": 46,
 "lum": 168,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.lameninspurghi.it/wp-content/uploads/2025/11/evi-politica-aziendale.jpg",
 "w": 1024
@@ -12477,7 +12603,8 @@
 "hash": "1000110101110011111100011110000011001000111010001110000011100000",
 "kb": 389,
 "lum": 163,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/92b28afa/dms3rep/multi/opt/GettyImages-1253676412-1920w.jpg",
 "w": 1920
@@ -12487,7 +12614,8 @@
 "hash": "0000000000000000010101000100100111101101110000000000000000000000",
 "kb": 39,
 "lum": 108,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/92b28afa/dms3rep/multi/opt/manzini-1920w.png",
 "w": 1920
@@ -12537,7 +12665,8 @@
 "hash": "0000110100001100000011110000111100011111001011101000011011001110",
 "kb": 189,
 "lum": 54,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//md/unsplash/dms3rep/multi/opt/photo-1462556791646-c201b8241a94-2880w.jpg",
 "w": 1920
@@ -12636,7 +12765,8 @@
 "hash": "1000111010010110101001100100011011001000000000100000000000000000",
 "kb": 9,
 "lum": 84,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://lamafer.com/wp-content/uploads/2025/11/logo-oberalp-ok.png",
 "w": 504
 },
@@ -12645,7 +12775,8 @@
 "hash": "0000000000000000010111001110011011100000001010000000000000000000",
 "kb": 65,
 "lum": 237,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lamafer.com/wp-content/uploads/2026/02/LAMAFER_srl.jpg",
 "w": 2500
@@ -12675,7 +12806,8 @@
 "hash": "1111110111111111111101111110011111100111000001111110011111001011",
 "kb": 108,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lamafer.com/wp-content/uploads/2025/11/lamafer-26-2.jpg",
 "w": 2000
@@ -12735,7 +12867,8 @@
 "hash": "1101110011100011111001011010001101001010100101010110100101100001",
 "kb": 49,
 "lum": 63,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lamafer.com/wp-content/uploads/2025/11/LAMAFER_CF_black.png",
 "w": 2135
@@ -12836,7 +12969,8 @@
 "hash": "0001011111000111111110100110110011101000100010110011000100110011",
 "kb": 365,
 "lum": 136,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/Come_smaltire_correttamente_i_rifiuti_agricoli_teli_da_pacciamatura_e_tubi_da_irrigazione.jpg#joomlaImage://local-images/Come_smaltire_correttamente_i_rifiuti_agricoli_teli_da_pacciamatura_e_tubi_da_irrigazione.jpg",
 "w": 1080
@@ -12846,7 +12980,8 @@
 "hash": "1010010011101100111011101000101111101100100001101000010010111000",
 "kb": 128,
 "lum": 230,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/RENTRI_DOMANDE_E_RISPOSTE_LEMIR_MODENA_BOLOGNA_2.jpg#joomlaImage://local-images/RENTRI_DOMANDE_E_RISPOSTE_LEMIR_MODENA_BOLOGNA_2.jpg?width=1080&height=1350",
 "w": 1080
@@ -12856,7 +12991,8 @@
 "hash": "0000000100001011110011001110011011010110000100110011001100110001",
 "kb": 184,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/DEMOLIZION_ELAVANDERIA_INDUSTRIALE_LEMIR_MODENA_BOLOGNA_FORLI_SOLI_2.jpg#joomlaImage://local-images/DEMOLIZION_ELAVANDERIA_INDUSTRIALE_LEMIR_MODENA_BOLOGNA_FORLI_SOLI_2.jpg?width=1080&height=1350",
 "w": 1080
@@ -12866,7 +13002,8 @@
 "hash": "0000001011000001110000001111001000011110101001000011000110110101",
 "kb": 190,
 "lum": 103,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/GUIANA_CATRAMATA_A_MODENA_E_BOLOGNA.jpg#joomlaImage://local-images/GUIANA_CATRAMATA_A_MODENA_E_BOLOGNA.jpg",
 "w": 1080
@@ -12876,7 +13013,8 @@
 "hash": "0011011001110000001110010000101110011000110011101100111011011100",
 "kb": 145,
 "lum": 185,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/rentri_lemir_consulenza_modena_bologna.jpg#joomlaImage://local-images/rentri_lemir_consulenza_modena_bologna.jpg",
 "w": 1080
@@ -12886,7 +13024,8 @@
 "hash": "1111000001101000000111101001101100001111100011100011010100110001",
 "kb": 256,
 "lum": 149,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/demolizione_serra_lemir_pinza_ferro_1.jpg#joomlaImage://local-images/demolizione_serra_lemir_pinza_ferro_1.jpg?width=1080&height=1350",
 "w": 1080
@@ -12896,7 +13035,8 @@
 "hash": "0001110101111110111011101011111110110011111100000011000110110001",
 "kb": 206,
 "lum": 126,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/DEMOLIZONE_AUTOBUS_LEMIR_MODENA_BOLOGNA_1.jpg#joomlaImage://local-images/DEMOLIZONE_AUTOBUS_LEMIR_MODENA_BOLOGNA_1.jpg?width=1080&height=1350",
 "w": 1080
@@ -12906,7 +13046,8 @@
 "hash": "0110001110011111001101111010111100110010001001110000111100100111",
 "kb": 347,
 "lum": 118,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/roulotte_e_camper_modena.jpg#joomlaImage://local-images/roulotte_e_camper_modena.jpg",
 "w": 1080
@@ -12916,7 +13057,8 @@
 "hash": "1111000011110001111100100110001000100001001001000000010001100110",
 "kb": 247,
 "lum": 108,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/autodemolitore_modena_vignola_valsamoggia.jpg#joomlaImage://local-images/autodemolitore_modena_vignola_valsamoggia.jpg",
 "w": 1080
@@ -12956,7 +13098,8 @@
 "hash": "1101100010110110101010100000101010010110100001101001011000010110",
 "kb": 87,
 "lum": 88,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lemirsrl.com/images/anni_insieme.png",
 "w": 1080
@@ -13215,7 +13358,8 @@
 "hash": "0000000000000000110000001100000011100000111001000000001000000000",
 "kb": 64,
 "lum": 239,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/c289d09a/dms3rep/multi/opt/disinfestazione-mas-terzo-di-aquileia-001-1920w.jpg",
 "w": 1440
@@ -13225,7 +13369,8 @@
 "hash": "0000000000000000000111000001110000011000111110001101100000000000",
 "kb": 99,
 "lum": 239,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/c289d09a/dms3rep/multi/opt/topolino-1920w.jpg",
 "w": 1920
@@ -13235,7 +13380,8 @@
 "hash": "1011100111110000111101001110000001000000111100100000110010001100",
 "kb": 71,
 "lum": 186,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com//c289d09a/dms3rep/multi/opt/disinfestazione-mas-terzo-di-aquileia-035-2880w.JPG",
 "w": 1440
@@ -13245,7 +13391,8 @@
 "hash": "0000000000000000110000001100000011100000111000001100010000000000",
 "kb": 99,
 "lum": 239,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/c289d09a/dms3rep/multi/opt/topolino-470b298a-2880w.jpg",
 "w": 1920
@@ -13255,7 +13402,8 @@
 "hash": "1110101111101010110010101110011011010010110100111001111100111110",
 "kb": 93,
 "lum": 182,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/c289d09a/dms3rep/multi/opt/disinfestazione-mas-terzo-di-aquileia-005-2880w.jpg",
 "w": 1440
@@ -13265,7 +13413,8 @@
 "hash": "0000000010110110101101101011000001000100101101101011001000000010",
 "kb": 126,
 "lum": 238,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/c289d09a/dms3rep/multi/opt/blatte-2880w.jpg",
 "w": 1920
@@ -13275,7 +13424,8 @@
 "hash": "0000000000010000000100000011000000100000011000000101000000000000",
 "kb": 45,
 "lum": 251,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/c289d09a/dms3rep/multi/opt/GettyImages-1089754850-2880w.jpg",
 "w": 1920
@@ -13285,7 +13435,8 @@
 "hash": "1001001110010011101101000111010001110100110010001100001111100011",
 "kb": 263,
 "lum": 135,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/c289d09a/dms3rep/multi/opt/piccioni-2880w.jpg",
 "w": 1800
@@ -13310,7 +13461,8 @@
 "hash": "0111010101100101011001111110101111111011010010100011001100110010",
 "kb": 73,
 "lum": 33,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.mairottami.it/wp-content/uploads/2025/11/Mai-Rottami-.png",
 "w": 1260
@@ -13584,7 +13736,8 @@
 "hash": "0001011110000111100111110010011101100111011001110110011101001111",
 "kb": 46,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.marchesini-srl.it/images/2026/07/13/foto-bianco.jpg",
 "w": 700
@@ -13614,7 +13767,8 @@
 "hash": "0001101100011011000111110101101101011111010111111101111110011111",
 "kb": 139,
 "lum": 129,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.marchesini-srl.it/images/2026/07/13/marchesini-carta.jpg",
 "w": 1774
@@ -13890,7 +14044,8 @@
 "hash": "0010001000101010001011110011010010110001001100110011101100110101",
 "kb": 639,
 "lum": 97,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.mederle.it/wp-content/uploads/mederle-material7-1500x1000.jpg",
 "w": 1500
 },
@@ -13899,7 +14054,8 @@
 "hash": "0110010001101101010010000110100001001001011001100110011000010000",
 "kb": 494,
 "lum": 125,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.mederle.it/wp-content/uploads/mederle-material1-1500x1000.jpg",
 "w": 1500
 },
@@ -13946,7 +14102,8 @@
 "hash": "0010010000100001001000100010001101100110011011110110111101010101",
 "kb": 631,
 "lum": 65,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.mederle.it/wp-content/uploads/mederle-material3.jpg",
 "w": 1500
@@ -13976,7 +14133,8 @@
 "hash": "0010110100110110001101100011011000101111001011010010110100111010",
 "kb": 584,
 "lum": 70,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.mederle.it/wp-content/uploads/mederle-material9.jpg",
 "w": 1500
@@ -14080,7 +14238,8 @@
 "hash": "0111000000110000110110000111000011110000101001001110100011111000",
 "kb": 132,
 "lum": 84,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.metalmarca.it/wp-content/uploads/2015/04/metalmarca-raccolta-ferro-slide.jpg",
 "w": 2000
@@ -14090,7 +14249,8 @@
 "hash": "0000011100100111011000111100100101001001010000010101000101011101",
 "kb": 390,
 "lum": 162,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.metalmarca.it/wp-content/themes/alaska/assets/images/bg-banner.jpg",
 "w": 1920
@@ -14557,7 +14717,8 @@
 "hash": "0110100111001100101101101101010011001100011100000011000000110000",
 "kb": 13,
 "lum": 229,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.modenaspurgo.it/storage/app/media/webp/mezzi.webp",
 "w": 500
 },
@@ -14566,7 +14727,8 @@
 "hash": "0000111000111011001010010010100100110011000011100000110000001100",
 "kb": 15,
 "lum": 42,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.modenaspurgo.it/storage/app/media/sanificati.jpg",
 "w": 500
 },
@@ -14575,7 +14737,8 @@
 "hash": "0110100011010100100101101001011011001100011100000011000000110000",
 "kb": 12,
 "lum": 223,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.modenaspurgo.it/storage/app/media/smaltimento_home.jpg",
 "w": 500
 },
@@ -14711,7 +14874,8 @@
 "hash": "0001111100010111100110110011111000111100100111001100011000101011",
 "kb": 366,
 "lum": 156,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.montellospurghi.com/wp-content/uploads/2021/04/sld-2.jpg",
 "w": 1920
@@ -14811,7 +14975,8 @@
 "hash": "0000011000000010000001100100011000000100100010001010100000101000",
 "kb": 51,
 "lum": 127,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.montellospurghi.com/wp-content/uploads/2021/04/prlx-green.jpg",
 "w": 1920
@@ -14831,7 +14996,8 @@
 "hash": "0010001100011011011100111111001101010011000110100111100001110000",
 "kb": 81,
 "lum": 93,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.montellospurghi.com/wp-content/uploads/2021/04/spurgopozzi-2.jpg",
 "w": 1024
@@ -15270,7 +15436,8 @@
 "hash": "1000000010100000101000001011000010110000101100101001001010000000",
 "kb": 60,
 "lum": 231,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://namdisinfestazioni.com/wp-content/uploads/2019/09/Screenshot-2024-03-19-at-10.29.48.png",
 "w": 1780
@@ -15280,7 +15447,8 @@
 "hash": "1100011011011010011100000011000001110000111100001111000001110000",
 "kb": 89,
 "lum": 211,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://namdisinfestazioni.com/wp-content/uploads/2019/09/disinfestazione-tarli-legno-e1711706648367.webp",
 "w": 1024
@@ -15290,7 +15458,8 @@
 "hash": "0000000100000010000000100001110001111000111000001100100011011000",
 "kb": 125,
 "lum": 232,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://namdisinfestazioni.com/wp-content/uploads/2019/09/scarafaggi.jpg",
 "w": 2111
@@ -15300,7 +15469,8 @@
 "hash": "0000000100000011000000100001110001111000111000001100100011011000",
 "kb": 62,
 "lum": 232,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://namdisinfestazioni.com/wp-content/uploads/2019/09/scarafaggi-1024x964.jpg",
 "w": 1024
@@ -15310,7 +15480,8 @@
 "hash": "0010100010011001110110001100100110101000100110111001001111000000",
 "kb": 72,
 "lum": 235,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://namdisinfestazioni.com/wp-content/uploads/2019/09/disinfestazione-formiche-trieste.jpg",
 "w": 1024
@@ -15863,7 +16034,8 @@
 "hash": "1110011011100110110001101100001000101101101000111110001100101111",
 "kb": 45,
 "lum": 160,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-images/resized/fademss/img62c5311c0c748.png",
 "w": 944
@@ -15873,7 +16045,8 @@
 "hash": "0000111100001011011001101011001010111010110001100100001100000111",
 "kb": 92,
 "lum": 58,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-templates/o2saving/assets/images/frecce_o2_transparent.png",
 "w": 800
@@ -15913,7 +16086,8 @@
 "hash": "1111000111011001100010011100001110110100101100011111100100111111",
 "kb": 205,
 "lum": 113,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-images/resized/fademss/img62c5305335fcc.png",
 "w": 945
@@ -15923,7 +16097,8 @@
 "hash": "0110001000110010100101101100011001101000011000100111011111011110",
 "kb": 196,
 "lum": 89,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-images/resized/fademss/img62c5305479a59.jpg",
 "w": 950
@@ -15933,7 +16108,8 @@
 "hash": "0110000011000000110000001100000011000000011000000110100000001011",
 "kb": 24,
 "lum": 8,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-images/resized/fademss/img62c5305432ef8.png",
 "w": 945
@@ -15943,7 +16119,8 @@
 "hash": "0000111100001011011001101011001010111010110001000100000000000100",
 "kb": 95,
 "lum": 77,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-templates/o2saving/assets/images/frecce_o2.png",
 "w": 800
@@ -15953,7 +16130,8 @@
 "hash": "1111000010111000101101011011011010110110110101101111001000111110",
 "kb": 86,
 "lum": 137,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-images/resized/fademss/img62c530d0d6b22.png",
 "w": 945
@@ -15973,7 +16151,8 @@
 "hash": "0000000101000001000000000000000000000000000000000000000000000000",
 "kb": 350,
 "lum": 169,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.o2saving.com/w-images/resized/fademss/img62c530d29c7f1.png",
 "w": 944
@@ -16243,7 +16422,8 @@
 "hash": "1101100010000000101010001010100110010111101101111001010101101001",
 "kb": 157,
 "lum": 191,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://osdamianto.it/wp-content/uploads/2022/07/0engineers-in-helmets-standing-by-the-factory.jpg",
 "w": 1367
@@ -16253,7 +16433,8 @@
 "hash": "1100100010000000101010000010100110010111101101110001010101101001",
 "kb": 85,
 "lum": 191,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://osdamianto.it/wp-content/uploads/2022/07/0engineers-in-helmets-standing-by-the-factory-1024x614.jpg",
 "w": 1024
@@ -16856,7 +17037,8 @@
 "hash": "0010110110001100100111001011010000110000000110010101110100111001",
 "kb": 145,
 "lum": 82,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.pivasilverio.it/wp-content/uploads/2017/08/png.png",
 "w": 1082
@@ -17751,7 +17933,8 @@
 "hash": "0010011100010011001011110000111100011111001101100000101101001110",
 "kb": 215,
 "lum": 84,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.resmauti.it/wp-content/uploads/2022/02/COMMERCIO-METALLI.png",
 "w": 1024
@@ -17761,7 +17944,8 @@
 "hash": "1011101111111111101100111011001110010011000100111101001111110011",
 "kb": 119,
 "lum": 85,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.resmauti.it/wp-content/uploads/2022/02/cassoni-1.jpg",
 "w": 1024
@@ -17771,7 +17955,8 @@
 "hash": "1010110110100101000100100011111100101111110011100100110000111000",
 "kb": 163,
 "lum": 123,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.resmauti.it/wp-content/uploads/2022/02/INERTI.png",
 "w": 1024
@@ -17781,7 +17966,8 @@
 "hash": "0001100000011000000100110001111101010001011011111010011100001011",
 "kb": 169,
 "lum": 132,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.resmauti.it/wp-content/uploads/2022/02/DEMOLIZIONI.png",
 "w": 1024
@@ -17987,7 +18173,8 @@
 "hash": "0000100001001000111000110111001110100001011100100011001010010010",
 "kb": 209,
 "lum": 56,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/bg-slider.jpg",
 "w": 1920
@@ -18017,7 +18204,8 @@
 "hash": "0000001100100111001110110101001111000100101000000010110000001000",
 "kb": 74,
 "lum": 216,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/1.png",
 "w": 1920
@@ -18027,7 +18215,8 @@
 "hash": "0000000000000000000000000111001010110000000011010000110100000000",
 "kb": 50,
 "lum": 224,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/2.png",
 "w": 1585
@@ -18037,7 +18226,8 @@
 "hash": "1110110010010100110011001101101111111010110000101110011000110000",
 "kb": 63,
 "lum": 201,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/3.png",
 "w": 728
@@ -18047,7 +18237,8 @@
 "hash": "1100000011010100100111011011111010111100101110001011000000100000",
 "kb": 99,
 "lum": 227,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/scacchi.jpg",
 "w": 1292
@@ -18057,7 +18248,8 @@
 "hash": "0111000011001100100001101000110011001100110011001100110001001101",
 "kb": 60,
 "lum": 181,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/medaglia.png",
 "w": 1092
@@ -18067,7 +18259,8 @@
 "hash": "0000000100000100000001000000011000000110000000100000010000000101",
 "kb": 106,
 "lum": 57,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/bg-km.jpg",
 "w": 2156
@@ -18077,7 +18270,8 @@
 "hash": "0000000000000000000000000000000000000000000000000000000000000000",
 "kb": 4,
 "lum": 255,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/phone.png",
 "w": 1680
@@ -18087,7 +18281,8 @@
 "hash": "1101101011011100111011001110110011010100100110001110000011000000",
 "kb": 97,
 "lum": 147,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/strettaDiMani.jpg",
 "w": 1292
@@ -18097,7 +18292,8 @@
 "hash": "0011010000111010101101001111011110001110001011101010011010100110",
 "kb": 78,
 "lum": 148,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://rebagliorottami.it/wp-content/uploads/2018/11/regali.jpg",
 "w": 1476
@@ -18265,7 +18461,8 @@
 "hash": "0000011001110001011100011110100011001100111010001100110000110011",
 "kb": 25,
 "lum": 179,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://snua.it/wp-content/uploads/2025/12/image-31.jpg",
 "w": 1024
@@ -18275,7 +18472,8 @@
 "hash": "0000001101001100101011001110110011101100110011001101010000000011",
 "kb": 19,
 "lum": 176,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://snua.it/wp-content/uploads/2025/12/image-32.jpg",
 "w": 1024
@@ -18285,7 +18483,8 @@
 "hash": "0001101111100100110110001110100010101000101010001001100000100111",
 "kb": 59,
 "lum": 203,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://snua.it/wp-content/uploads/2025/12/image-33.jpg",
 "w": 1024
@@ -18295,7 +18494,8 @@
 "hash": "1110010111100110110101101001101010011010100101101001011011011000",
 "kb": 257,
 "lum": 60,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://snua.it/wp-content/uploads/2025/12/image-34.jpg",
 "w": 1080
@@ -18409,7 +18609,8 @@
 "hash": "0000011000010100100101001011010010010100111010000110110011100101",
 "kb": 131,
 "lum": 211,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/e3b8c94e/dms3rep/multi/opt/GettyImages-650734958-0c4650ca-227fa881-22775e77-1920w.jpg",
 "w": 1920
@@ -18419,7 +18620,8 @@
 "hash": "0001000100110101110100101101001001010000000111010010101100110000",
 "kb": 188,
 "lum": 195,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://lirp.cdn-website.com/7eec3ae8/dms3rep/multi/opt/NUOVO+SFONDO-1920w.png",
 "w": 1717
@@ -18644,7 +18846,8 @@
 "hash": "1111000111101001111010011110100111101001111100010111000100110001",
 "kb": 58,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.spurgopozzineripadova.it/wp-content/uploads/2024/05/termografia.jpeg",
 "w": 1024
@@ -19545,7 +19748,8 @@
 "hash": "1111000011110000111110001111101000110010001100110011001110010011",
 "kb": 77,
 "lum": 52,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sealdisinfestazioni.it/wp-content/uploads/2017/11/bandisgg4.jpg",
 "w": 2000
@@ -19555,7 +19759,8 @@
 "hash": "0110011101100101011011000111100001101000011101101101011001010100",
 "kb": 126,
 "lum": 186,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sealdisinfestazioni.it/wp-content/uploads/2020/04/sealdisinfestazioni.png",
 "w": 2000
@@ -19565,7 +19770,8 @@
 "hash": "1001100110011001100100011001010110010101100110011001100110011001",
 "kb": 95,
 "lum": 109,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sealdisinfestazioni.it/wp-content/uploads/2017/11/bandis2.jpg",
 "w": 2000
@@ -19839,7 +20045,8 @@
 "hash": "0010000000101000000100010000011001100000010000000000000000000000",
 "kb": 125,
 "lum": 154,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sirocchisrl.com/wp-content/uploads/elementor/thumbs/sirocchi-smaltimento-rifiuti-cartone-rgv34oz08aoix3396gxmep8ed6y4b089u71uhpyb0y.jpg",
 "w": 800
@@ -19849,7 +20056,8 @@
 "hash": "0000000000101001000100010000001111000000001000000000000000000000",
 "kb": 129,
 "lum": 153,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.sirocchisrl.com/wp-content/uploads/elementor/thumbs/sirocchi-smaltimento-rifiuti-cartone-rgv34oz08aoix3396gxmep8ed6y4b089u71uhpyc5s.jpg",
 "w": 800
@@ -20352,7 +20560,8 @@
 "hash": "0010011100101101000011010101010101010111000110110001110100000111",
 "kb": 179,
 "lum": 117,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/57d7cdfd/dms3rep/multi/opt/Pozzi-SPURGO-Rimini-006-1920w.jpg",
 "w": 1920
@@ -20402,7 +20611,8 @@
 "hash": "1111111011001010101110101110111110111100110111001111011011000110",
 "kb": 550,
 "lum": 129,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/57d7cdfd/dms3rep/multi/opt/Pozzi-SPURGO-Rimini-003-011264ba-2880w.jpg",
 "w": 1920
@@ -20412,7 +20622,8 @@
 "hash": "0001000110011001100110110100111011001100111001001100101000001110",
 "kb": 243,
 "lum": 209,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/57d7cdfd/dms3rep/multi/opt/Pozzi-SPURGO-Rimini-021-1920w.jpg",
 "w": 1920
@@ -20422,7 +20633,8 @@
 "hash": "1011001110111010101111001010010011100111011000110110010001111100",
 "kb": 122,
 "lum": 118,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/57d7cdfd/dms3rep/multi/opt/Pozzi-SPURGO-Rimini-039-1920w.jpg",
 "w": 1920
@@ -20432,7 +20644,8 @@
 "hash": "0000111010001111011110110110101111110010110111100101111001101111",
 "kb": 203,
 "lum": 194,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://irp.cdn-website.com/57d7cdfd/dms3rep/multi/opt/Pozzi-SPURGO-Rimini-011-1920w.jpg",
 "w": 1920
@@ -21104,7 +21317,8 @@
 "hash": "0000110000001100000110110001001100011011000110100000110000101100",
 "kb": 25,
 "lum": 22,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.tedeschiautospurghi.com/wp-content/uploads/2016/07/tedeschi-servizi-clienti.png",
 "w": 700
@@ -21386,7 +21600,8 @@
 "hash": "1101001001011010001010100000110000000100100010010100000001000100",
 "kb": 136,
 "lum": 132,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.traveltrasporti.it/wp-content/uploads/2023/02/trasporti-travel.jpg",
 "w": 1920
@@ -21396,7 +21611,8 @@
 "hash": "0000000000000000000000001000011000000110000001100000011010000110",
 "kb": 137,
 "lum": 233,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.traveltrasporti.it/wp-content/uploads/2023/02/SFONDO-BLOCCHI.jpg",
 "w": 1920
@@ -21406,7 +21622,8 @@
 "hash": "0110000101100011001000110110001100101010001010010010010100100101",
 "kb": 86,
 "lum": 25,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.traveltrasporti.it/wp-content/uploads/2023/02/construction-17-yb-8.png",
 "w": 2560
@@ -21838,7 +22055,8 @@
 "hash": "0000001100100011100011110111101000110011001101110000101111010111",
 "kb": 245,
 "lum": 80,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.venetaspurghi.net/wp-content/uploads/2020/10/prlx-green.jpg",
 "w": 1920
@@ -21858,7 +22076,8 @@
 "hash": "0011100101110001011001101110011011111010011100010111100100100101",
 "kb": 382,
 "lum": 50,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.venetaspurghi.net/wp-content/uploads/2020/10/prlx-blu.jpg",
 "w": 1920
@@ -22463,7 +22682,8 @@
 "hash": "1110000011011010100110110101111101011110000111001111000010011100",
 "kb": 81,
 "lum": 95,
-"ok": true,
+"ok": false,
+"rej": 1,
 "url": "https://www.zagoluigispurghi.it/wp-content/uploads/2019/07/foto-storica_900.jpg",
 "w": 900
 },
@@ -22490,7 +22710,8 @@
 "hash": "0010001100011010011100110010001101010010000110100001100001110000",
 "kb": 54,
 "lum": 230,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.zagoluigispurghi.it/wp-content/uploads/2019/06/prlx.jpg",
 "w": 1920
@@ -22550,7 +22771,8 @@
 "hash": "0000011100100001000000010100000100000000110000100011101100010111",
 "kb": 120,
 "lum": 111,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.zagoluigispurghi.it/wp-content/uploads/2019/07/prlx-preventivo.jpg",
 "w": 1920
@@ -22560,7 +22782,8 @@
 "hash": "1101110111101100111111101111001011110000111110000111000111110110",
 "kb": 101,
 "lum": 179,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.zagoluigispurghi.it/wp-content/uploads/2019/07/world.jpg",
 "w": 900
@@ -22709,7 +22932,8 @@
 "hash": "1000010011100110001000111100101011001100001011001101111010000010",
 "kb": 54,
 "lum": 133,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.zametal.it/wp-content/themes/industroz/assets/images/bg-map2.png",
 "w": 913
@@ -22719,7 +22943,8 @@
 "hash": "0000000000000001100000111000010110001110101101101011011001110010",
 "kb": 82,
 "lum": 236,
-"ok": true,
+"ok": false,
+"rej": 1,
 "scr": 1,
 "url": "https://www.zametal.it/wp-content/uploads/2020/07/bg-7.jpg",
 "w": 1900
