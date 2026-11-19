@@ -31,6 +31,7 @@ jobs:
           if [ -d ncc ]; then cp -R ncc _site/ncc; fi
           if [ -d h ]; then cp -R h _site/h; fi
           if [ -d nozze ]; then cp -R nozze _site/nozze; fi
+          if [ -d outbound ]; then cp -R outbound _site/outbound; fi
           if [ -d fvg ]; then cp -R fvg _site/fvg; fi
           if [ -d taa ]; then cp -R taa _site/taa; fi
           if [ -d veneto ]; then cp -R veneto _site/veneto; fi
