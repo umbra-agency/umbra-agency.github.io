@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="it" data-v="diario">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Malga Rembalda · Guida della Casa</title>
+<meta name="description" content="La guida invernale per gli ospiti di Malga Rembalda, Erbezzo.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Caveat:wght@500&family=Jost:wght@300;400;500&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#efe8db;--paper2:#e6ddcc;--ink:#1f211b;--ink2:#5c5d50;--ink3:#8b8a7a;--line:rgba(31,33,27,.16);--moss:#3f5f45;--rust:#a4532f;--sky:#2f4b63;
+  --ser:'Fraunces',Georgia,serif;--hand:'Caveat','Segoe Print',cursive;--sans:'Jost','Avenir Next',Arial,sans-serif;--pad:clamp(20px,5vw,72px)}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-weight:300;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .25  0 0 0 0 .18  0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit}
+em,.hl{font-style:italic;color:var(--moss)}
+.tbc{border-bottom:1.5px dotted var(--rust)}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.hd{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:16px var(--pad);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.hd.sol{background:rgba(239,232,219,.92);backdrop-filter:blur(12px);border-color:var(--line)}
+.hd b{font-family:var(--ser);font-weight:500;font-size:19px}
+.hd nav{display:flex;gap:22px;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.hd nav a{text-decoration:none;opacity:.7}.hd nav a:hover{opacity:1}
+.lang button{font-size:12px;letter-spacing:.14em;opacity:.45;padding:4px}.lang button[aria-pressed=true]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+main{position:relative;z-index:3}
+/* copertina */
+.cover{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:4vw;align-items:center;padding:110px var(--pad) 70px;max-width:1500px;margin:0 auto;position:relative}
+.stamp{display:inline-flex;gap:14px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+.cover h1{font-family:var(--ser);font-weight:300;font-size:clamp(56px,8.2vw,142px);line-height:.9;letter-spacing:-.03em;margin:26px 0 22px;font-variation-settings:"opsz" 144}
+.cover .sub{font-family:var(--hand);font-size:clamp(28px,2.6vw,40px);color:var(--rust);line-height:1.1;transform:rotate(-2deg);display:inline-block}
+.facts{display:flex;gap:34px;margin-top:38px;border-top:1px solid var(--line);padding-top:18px;max-width:520px}
+.facts>div>span{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.facts b{font-family:var(--ser);font-weight:300;font-size:30px}
+.prints{position:relative;height:min(78vh,700px)}
+.pr{position:absolute;background:#fbf8f2;padding:12px 12px 46px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 24px 50px -24px rgba(40,30,15,.45);transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity 1s}
+.pr img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.02)}
+.pr figcaption{position:absolute;left:14px;right:14px;bottom:10px;font-family:var(--hand);font-size:22px;color:var(--ink2)}
+.pr::before{content:"";position:absolute;top:-14px;left:50%;width:90px;height:28px;margin-left:-45px;background:rgba(230,215,180,.75);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.p1{width:74%;height:72%;right:2%;top:2%;transform:rotate(3deg)}
+.p2{width:52%;height:46%;left:0;bottom:2%;transform:rotate(-5deg)}
+.p3{width:34%;height:30%;right:6%;bottom:0;transform:rotate(6deg)}
+.js .cover .pr{opacity:0;transform:translateY(40px) rotate(0)}
+.js .cover.on .pr{opacity:1}
+.js .cover.on .p1{transform:rotate(3deg)}.js .cover.on .p2{transform:rotate(-5deg);transition-delay:.25s}.js .cover.on .p3{transform:rotate(6deg);transition-delay:.45s}
+.noph .prints{display:none}.noph .cover{grid-template-columns:1fr}
+.ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:140px;pointer-events:none}
+.ridge path{fill:none;stroke:var(--ink);stroke-width:1.2;stroke-dasharray:3000;stroke-dashoffset:3000;animation:draw 4s 0.4s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+/* lettera */
+.letter{max-width:900px;margin:0 auto;padding:12vh var(--pad) 10vh}
+.letter p.big{font-family:var(--ser);font-weight:300;font-size:clamp(26px,3vw,42px);line-height:1.25}
+.letter .sig{font-family:var(--hand);font-size:34px;color:var(--rust);margin-top:24px}
+/* giornata orizzontale */
+.day{position:relative}
+.day .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.day .lab{position:absolute;top:96px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:baseline;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2)}
+.day .lab h2{font-family:var(--ser);font-weight:300;font-size:clamp(30px,3.2vw,48px);letter-spacing:-.01em;text-transform:none}
+.track{display:flex;gap:6vw;padding:0 var(--pad);will-change:transform}
+.panel{flex:none;width:min(78vw,1080px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:4vw;align-items:center}
+.panel .hr{font-family:var(--ser);font-weight:300;font-size:clamp(70px,9vw,150px);line-height:.85;color:var(--moss);letter-spacing:-.04em}
+.panel h3{font-family:var(--ser);font-weight:400;font-size:clamp(28px,2.6vw,40px);margin:14px 0 10px;line-height:1.1}
+.panel p{color:var(--ink2);max-width:420px}
+.panel .pic{position:relative;aspect-ratio:4/3;background:#fbf8f2;padding:12px;box-shadow:0 24px 50px -26px rgba(40,30,15,.45);transform:rotate(var(--rot,1.5deg))}
+.panel .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.panel .pic.ill{display:grid;place-items:center;background:var(--paper2)}
+.panel .pic.ill svg{width:44%;height:auto;color:var(--moss)}
+.prog{position:absolute;left:var(--pad);right:var(--pad);bottom:44px;height:1px;background:var(--line)}
+.prog i{position:absolute;left:0;top:-1px;height:3px;background:var(--moss);width:0}
+/* quaderno */
+.book{max-width:1260px;margin:0 auto;padding:14vh var(--pad) 6vh}
+.book>h2,.wall>h2{font-family:var(--ser);font-weight:300;font-size:clamp(40px,5vw,78px);letter-spacing:-.02em;line-height:1;margin-bottom:12px}
+.book>p.k,.wall>p.k{font-family:var(--hand);font-size:30px;color:var(--rust);margin-bottom:6vh}
+.pages{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.pg{position:relative;background:#f8f3ea;padding:42px 38px 34px 64px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 20px 40px -30px rgba(40,30,15,.5);
+  background-image:linear-gradient(90deg,transparent 46px,rgba(164,83,47,.35) 46px,rgba(164,83,47,.35) 47px,transparent 47px),repeating-linear-gradient(transparent 0 33px,rgba(47,75,99,.13) 33px 34px);background-position:0 0,0 30px}
+.pg .tab{position:absolute;top:-12px;right:28px;background:var(--moss);color:#f3efe6;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px}
+.pg h3{font-family:var(--ser);font-weight:400;font-size:30px;line-height:1.1;margin-bottom:14px}
+.pg ul{list-style:none}
+.pg li{padding:6px 0 6px;line-height:1.55;font-size:16px}
+.pg li b{font-weight:500;display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.pg .note{font-family:var(--hand);font-size:24px;color:var(--rust);margin-top:10px;line-height:1.2}
+.pg.wide{grid-column:1/-1}
+.wx{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+.wx .tmp{font-family:var(--ser);font-weight:300;font-size:120px;line-height:.8;color:var(--sky)}
+.wx .d{font-family:var(--hand);font-size:34px;color:var(--sky)}
+.wx table{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px}
+.wx td{padding:6px 0;border-bottom:1px solid rgba(47,75,99,.15)}
+.wx td:last-child{text-align:right;color:var(--ink2)}
+.wxsrc{font-size:12.5px;color:var(--ink3);margin-top:12px}
+.copy{font-size:11px;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--line);padding:4px 10px;margin-left:10px;border-radius:999px}
+/* parete foto */
+.wall{max-width:1400px;margin:0 auto;padding:12vh var(--pad) 8vh}
+.pins{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:2vw;align-items:start}
+.pins .pr{position:relative;inset:auto}
+.pins .pr img{aspect-ratio:var(--ar,4/3);height:auto}
+.w1{grid-column:1/span 5;rotate:-2deg}.w2{grid-column:7/span 4;rotate:3deg;margin-top:8vh}.w3{grid-column:2/span 4;rotate:2deg;margin-top:4vh}
+.w4{grid-column:7/span 5;rotate:-3deg}.w5{grid-column:3/span 4;rotate:-1deg;margin-top:2vh}.w6{grid-column:8/span 4;rotate:4deg;margin-top:6vh}
+/* partenza */
+.bye{max-width:900px;margin:0 auto;padding:12vh var(--pad) 18vh}
+.bye h2{font-family:var(--ser);font-weight:300;font-size:clamp(40px,5vw,78px);line-height:1;margin-bottom:30px}
+.ck{list-style:none}
+.ck label{display:flex;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:19px;cursor:pointer;font-family:var(--ser);font-weight:300}
+.ck input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:1.5px solid var(--ink);border-radius:4px 7px 5px 6px;flex:none;position:relative}
+.ck input:checked::after{content:"✓";position:absolute;left:3px;top:-12px;font-family:var(--hand);font-size:34px;color:var(--rust)}
+.ck input:checked+span{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--rust)}
+.foot{border-top:1px solid var(--line);padding:30px var(--pad) 120px;font-size:13px;color:var(--ink3);text-align:center}
+.foot b{font-family:var(--ser);font-weight:400;font-size:24px;color:var(--ink);display:block;margin-bottom:6px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+  .hd nav{display:none}
+  .cover{grid-template-columns:1fr;padding-top:96px;gap:30px}
+  .prints{height:62vh;order:-1}
+  .pages{grid-template-columns:1fr}
+  .pg{padding:36px 22px 28px 52px;background-image:linear-gradient(90deg,transparent 36px,rgba(164,83,47,.35) 36px,rgba(164,83,47,.35) 37px,transparent 37px),repeating-linear-gradient(transparent 0 33px,rgba(47,75,99,.13) 33px 34px)}
+  .day .pin{position:relative;height:auto;padding:80px 0 40px}
+  .day .lab{position:static;margin:0 var(--pad) 30px;flex-direction:column;gap:6px}
+  .track{flex-direction:column;gap:56px;transform:none !important}
+  .panel{width:auto;grid-template-columns:1fr;gap:18px}
+  .prog{display:none}
+  .pins{grid-template-columns:1fr 1fr;gap:18px}
+  .pins .pr{grid-column:auto !important;margin-top:0 !important}
+  .wx{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.ridge path{animation:none;stroke-dashoffset:0}}
+</style>
+<script>document.documentElement.classList.add('js');window.CFG={"slug": "malga-rembalda", "nome": "Malga Rembalda", "host": null, "comune": "Erbezzo", "prov": "VR", "lat": 45.6381, "lon": 11.0003, "alt": 1118, "zona": "lessinia", "v": "diario", "foto": []};window.DEMOS=[{slug:CFG.slug,nome:CFG.nome,host_nome:CFG.host||null,localita:CFG.comune,comune:CFG.comune}];</script>
+</head>
+<body class="noph">
+<canvas id="snow" aria-hidden="true"></canvas>
+<header class="hd" id="hd"><b>Malga Rembalda</b><nav><a href="#giornata" data-en="The day">La giornata</a><a href="#quaderno" data-en="Notebook">Quaderno</a><a href="#partenza" data-en="Check-out">Partenza</a></nav><div class="lang"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div></header>
+<main>
+<section class="cover" id="cover">
+  <div>
+    <span class="stamp"><span data-en="Winter">Inverno</span><span>Erbezzo</span><span>1.118 m</span></span>
+    <h1>Malga Rembalda</h1>
+    <span class="sub" data-en="the house diary">il diario della casa</span>
+    <div class="facts"><div><span>Check-in</span><b><span class="tbc" data-en="15:00">15:00</span></b></div><div><span>Check-out</span><b><span class="tbc" data-en="10:00">10:00</span></b></div><div><span data-en="Area">Zona</span><b style="font-size:20px">Lessinia</b></div></div>
+  </div>
+  <div class="prints"></div>
+  <svg class="ridge" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120 L120 96 L190 108 L300 54 L360 80 L460 30 L540 74 L640 50 L720 92 L830 40 L900 70 L1010 22 L1090 66 L1190 58 L1280 96 L1440 84"/></svg>
+</section>
+
+<section class="letter rv">
+  <p class="big" data-en="Welcome. This is a working farm: the mornings start early, the evenings are quiet. Here is everything you need, hour by hour.">Benvenuti. Questa è un'azienda agricola vera: le mattine iniziano presto, le sere sono silenziose. Qui trovate tutto quello che serve, ora per ora.</p>
+  <p class="sig" data-en="Your host">Il vostro host</p>
+</section>
+
+<section class="day" id="giornata" style="height:540vh">
+  <div class="pin">
+    <div class="lab"><h2 data-en="A winter day <em>on the farm</em>">Una giornata d'inverno <em>in agriturismo</em></h2><span data-en="scroll →">scorrete →</span></div>
+    <div class="track" id="track"><article class="panel"><div><div class="hr">07:30</div><h3 data-en="Breakfast">La colazione</h3><p data-en="Milk from our barn, butter, cheese and our cakes. Tell us about any allergies.">Latte della stalla, burro, formaggi e torte fatte da noi. Ditecelo se avete intolleranze.</p></div><div class="pic ill" style="--rot:1.5deg"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 26h34v12a14 14 0 0 1-14 14h-6a14 14 0 0 1-14-14zM46 30h4a6 6 0 0 1 0 12h-5M22 10c0 4 4 4 4 8M30 8c0 4 4 4 4 8"/></svg></div></article><article class="panel"><div><div class="hr">09:30</div><h3 data-en="In the barn">Nella stalla</h3><p data-en="Join us to give out the hay. Look at the animals, but please don&#x27;t feed them.">Chi vuole viene con noi a dare il fieno. Gli animali si guardano, non si nutrono.</p></div><div class="pic ill" style="--rot:-2deg"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 30c0-8 8-12 18-12s18 4 18 12v10c0 6-6 10-18 10S14 46 14 40zM14 26l-6-6M50 26l6-6M24 40h0M40 40h0M26 46c4 2 8 2 12 0"/></svg></div></article><article class="panel"><div><div class="hr">11:00</div><h3 data-en="On the snow">Sulla neve</h3><p data-en="Slopes at San Giorgio and cross-country: Lessinia. The ski room is in the hayloft.">Piste di San Giorgio e fondo: Lessinia. Il deposito sci è nel fienile.</p></div><div class="pic ill" style="--rot:1deg"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 50l52-18M40 10a4 4 0 1 0 .1 0M24 28l10-8 8 8 8-2M30 40l4-10"/></svg></div></article><article class="panel"><div><div class="hr">17:00</div><h3 data-en="Sunset on the pastures">Tramonto sui pascoli</h3><p data-en="The sun drops behind the woods and the snow turns blue.">Il sole scende dietro il bosco e la neve diventa azzurra.</p></div><div class="pic ill" style="--rot:-1.5deg"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 46l14-16 10 10 12-18 20 24M22 18a8 8 0 1 0 .1 0"/></svg></div></article><article class="panel"><div><div class="hr">19:30</div><h3 data-en="Dinner">La cena</h3><p data-en="Book by 4 pm. Traditional dishes, made with what we produce.">Su prenotazione entro le 16. Piatti della tradizione, con quello che produciamo.</p></div><div class="pic ill" style="--rot:2deg"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 28h44v10a14 14 0 0 1-14 14H24a14 14 0 0 1-14-14zM6 28h52M24 18c0-3 3-3 3-6M36 18c0-3 3-3 3-6"/></svg></div></article><article class="panel"><div><div class="hr">22:00</div><h3 data-en="Quiet">Il silenzio</h3><p data-en="From 10 pm the house rests, and so do the animals. Outside, on clear nights, you see every star.">Dalle 22 la casa riposa, e anche gli animali. Fuori, se è sereno, si vedono tutte le stelle.</p></div><div class="pic ill" style="--rot:-1deg"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M40 10a20 20 0 1 0 14 30A16 16 0 0 1 40 10zM14 14h0M50 54h0M10 40h0"/></svg></div></article></div>
+    <div class="prog"><i id="prog"></i></div>
+  </div>
+</section>
+
+<section class="book" id="quaderno">
+  <h2 data-en="The <em>notebook</em>">Il <em>quaderno</em></h2>
+  <p class="k" data-en="the useful things, written down">le cose utili, scritte a mano</p>
+  <div class="pages">
+    <div class="pg rv"><span class="tab" data-en="Arrival">Arrivo</span><h3 data-en="Getting here">Come arrivare</h3><ul>
+      <li><b data-en="Address">Indirizzo</b>MALGA REMBALDA snc, Erbezzo (VR) <a class="copy" href="https://www.google.com/maps/dir/?api=1&destination=45.6381,11.0003" target="_blank" rel="noopener" data-en="map">mappa</a></li>
+      <li><b data-en="In winter">D'inverno</b><span data-en="Winter tyres or chains are required from 15 November to 15 April.">Gomme invernali o catene obbligatorie dal 15 novembre al 15 aprile.</span></li>
+      <li><b data-en="Last stretch">Ultimo tratto</b><span class="tbc" data-en="Packed dirt road: go slowly, park in front of the barn.">Strada sterrata battuta: andate piano, parcheggio davanti alla stalla.</span></li>
+      <li><b>Check-in</b><span data-en="Before the keys we check one ID per guest, children included: it's the law.">Prima delle chiavi controlliamo un documento per ogni ospite, bambini compresi: è la legge.</span></li></ul></div>
+    <div class="pg rv"><span class="tab" data-en="House">Casa</span><h3 data-en="Inside">Dentro casa</h3><ul>
+      <li><b>Wi-Fi</b><span class="tbc" data-en="MalgaRembalda_Ospiti">MalgaRembalda_Ospiti</span> · <span class="tbc" data-en="neve2027">neve2027</span> <button class="copy" type="button" data-c="neve2027" data-en="copy">copia</button></li>
+      <li><b data-en="Rooms">Camere</b><span class="tbc" data-en="The host lists rooms and beds.">L'host elenca camere e letti.</span></li>
+      <li><b data-en="Stove">Stufa</b><span class="tbc" data-en="We light the wood stove in the morning. Firewood is under the shelter.">La stufa a legna la accendiamo noi la mattina. La legna è sotto la tettoia.</span></li>
+      <li><b data-en="Boots and skis">Scarponi e sci</b><span class="tbc" data-en="In the hayloft, with the boot dryer.">Nel fienile, con lo scaldascarponi.</span></li></ul></div>
+    <div class="pg rv"><span class="tab" data-en="Our land">La terra</span><h3 data-en="What we make">Quello che produciamo</h3><ul>
+      <li><b data-en="On the table">In tavola</b><span class="tbc" data-en="Milk, cheese, cured meats, vegetables.">Latte, formaggi, salumi, verdure dell'orto.</span></li>
+      <li><b data-en="Farm shop">Spaccio</b><span class="tbc" data-en="Cheese and jams to take home.">Formaggi e confetture da portare a casa.</span></li>
+      <li><b data-en="Animals">Animali</b><span data-en="Visits with us in the morning. Keep gates closed.">Visite con noi la mattina. Chiudete sempre i cancelli.</span></li></ul>
+      <p class="note" data-en="ask us for the cheese of the day!">chiedeteci il formaggio del giorno!</p></div>
+    <div class="pg rv"><span class="tab" data-en="Rules">Regole</span><h3 data-en="A few rules">Poche regole</h3><ul>
+      <li><b data-en="Quiet">Silenzio</b><span data-en="From 22:00 to 7:00: animals and people sleep.">Dalle 22:00 alle 7:00: dormono animali e persone.</span></li>
+      <li><b data-en="Dogs">Cani</b><span class="tbc" data-en="On a lead, never near the barn.">Ammessi al guinzaglio, mai vicino alla stalla.</span></li>
+      <li><b data-en="Tourist tax">Imposta di soggiorno</b><span data-en="The Municipality of Erbezzo may charge a tax per person per night.">Il Comune di Erbezzo può applicare un'imposta per persona e per notte.</span></li></ul></div>
+    <div class="pg wide rv" id="neve"><span class="tab" data-en="Weather">Il tempo</span>
+      <div class="wx"><div><div class="tmp" id="w-t">—</div><div class="d" id="w-d"></div></div>
+        <div><h3 data-en="Snow and weather, today">Neve e meteo, oggi</h3><table><tbody>
+          <tr><td data-en="Snow on the ground">Neve al suolo</td><td id="w-s">—</td></tr><tr><td data-en="Wind">Vento</td><td id="w-w">—</td></tr><tr><td data-en="Feels like">Percepita</td><td id="w-a">—</td></tr></tbody></table>
+          <table><tbody id="w-f"></tbody></table><p class="wxsrc" id="wxsrc" hidden data-en="In the preview live weather is unavailable: these values are an example. Online the section shows real data.">Nell'anteprima il meteo dal vivo non è raggiungibile: questi valori sono un esempio. Online la sezione mostra i dati reali.</p></div></div></div>
+    <div class="pg rv"><span class="tab" data-en="Slopes">Piste</span><h3 data-en="Where to ski">Dove sciare</h3><ul>
+      <li><b data-en="Downhill">Discesa</b>San Giorgio</li>
+      <li><b data-en="Cross-country">Fondo</b>Lessinia</li></ul></div>
+    <div class="pg rv"><span class="tab" data-en="Help">Aiuto</span><h3 data-en="In case of need">In caso di bisogno</h3><ul>
+      <li><b data-en="Emergency, mountain rescue">Emergenze, soccorso alpino</b><a href="tel:112" style="font-family:var(--ser);font-size:34px;text-decoration:none">112</a></li>
+      <li><b data-en="Us">Noi</b><span class="tbc" data-en="We&#x27;re in the barn or kitchen: call us any time.">Siamo in stalla o in cucina: chiamateci a qualsiasi ora.</span></li>
+      <li><b data-en="Pharmacy and doctor">Farmacia e guardia medica</b><span class="tbc" data-en="in the village">in paese</span></li></ul></div>
+  </div>
+</section>
+
+<section class="bye" id="partenza">
+  <h2 data-en="Before <em>leaving</em>">Prima di <em>ripartire</em></h2>
+  <ul class="ck">
+    <li><label><input type="checkbox" data-ck="1"><span data-en="Rooms free by 10:00">Camere libere entro le 10:00</span></label></li>
+    <li><label><input type="checkbox" data-ck="2"><span data-en="Rubbish sorted">Rifiuti divisi</span></label></li>
+    <li><label><input type="checkbox" data-ck="3"><span data-en="Keys on the kitchen table">Chiavi sul tavolo in cucina</span></label></li>
+    <li><label><input type="checkbox" data-ck="4"><span data-en="A cheese for the road from the shop">Un formaggio per il viaggio dallo spaccio</span></label></li>
+  </ul>
+</section>
+<footer class="foot"><b>Malga Rembalda</b>MALGA REMBALDA snc, Erbezzo (VR) · CIN IT023033B5UN7K5J6Y<br><span data-en="Demo prepared for Malga Rembalda. Dotted details are examples the host confirms.">Demo preparata per Malga Rembalda. I dati sottolineati a puntini sono esempi che l'host conferma.</span></footer>
+</main>
+<script>
+(function(){
+var D=document,de=D.documentElement,C=window.CFG||{},$=function(s,r){return(r||D).querySelector(s)},$$=function(s,r){return[].slice.call((r||D).querySelectorAll(s))};
+window.$=$;window.$$=$$;
+/* lingua */
+var EN=false;function setLang(en){EN=en;de.lang=en?'en':'it';$$('[data-en]').forEach(function(el){if(!el.hasAttribute('data-it'))el.setAttribute('data-it',el.innerHTML);el.innerHTML=en?el.getAttribute('data-en'):el.getAttribute('data-it')});
+  $$('[data-l]').forEach(function(b){b.setAttribute('aria-pressed',String((b.getAttribute('data-l')==='en')===en))});try{localStorage.setItem('hir-lang',en?'en':'it')}catch(e){}if(window.WX)renderWx()}
+$$('[data-l]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-l')==='en')})});
+var pref=null;try{pref=localStorage.getItem('hir-lang')}catch(e){}if(pref==='en'||(!pref&&!/^it/i.test(navigator.language||'it')))setLang(true);
+window.isEN=function(){return EN};
+/* copia */
+$$('[data-c]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-c'),o=b.innerHTML;(navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).catch(function(){}).then(function(){b.innerHTML=EN?'Copied':'Copiato';setTimeout(function(){b.innerHTML=o},1400)})})});
+/* comparsa */
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});$$('.rv').forEach(function(el){io.observe(el)})}else $$('.rv').forEach(function(el){el.classList.add('in')});
+/* checklist */
+$$('input[data-ck]').forEach(function(c){var k='hir-'+C.slug+'-'+c.getAttribute('data-ck');try{c.checked=localStorage.getItem(k)==='1'}catch(e){}c.addEventListener('change',function(){try{localStorage.setItem(k,c.checked?'1':'0')}catch(e){}})});
+/* meteo */
+var PREVIEW=!/github\.io$/.test(location.hostname);
+var WMO={0:['Sereno','Clear'],1:['Poco nuvoloso','Mostly clear'],2:['Nuvoloso a tratti','Partly cloudy'],3:['Coperto','Overcast'],45:['Nebbia','Fog'],48:['Nebbia','Fog'],51:['Pioviggine','Drizzle'],53:['Pioviggine','Drizzle'],55:['Pioviggine','Drizzle'],61:['Pioggia','Rain'],63:['Pioggia','Rain'],65:['Pioggia forte','Heavy rain'],71:['Neve debole','Light snow'],73:['Nevica','Snow'],75:['Neve forte','Heavy snow'],77:['Nevischio','Snow grains'],80:['Rovesci','Showers'],81:['Rovesci','Showers'],82:['Rovesci','Showers'],85:['Rovesci di neve','Snow showers'],86:['Rovesci di neve','Snow showers'],95:['Temporale','Thunderstorm']};
+function wd(c){return(WMO[c]||['—','—'])[EN?1:0]}
+function sample(){var a=C.alt||1200,b=Math.round(2-(a-800)/170);return{t:b-1,app:b-6,code:73,snow:Math.round(30+(a-800)/18),wind:11,frz:600,days:[{c:71,mi:b-6,ma:b+2,sn:14},{c:2,mi:b-5,ma:b+3,sn:0},{c:0,mi:b-4,ma:b+4,sn:0}],sample:true}}
+window.WX=null;window.wdesc=wd;
+function renderWx(){if(window.onWx&&window.WX)window.onWx(window.WX,EN)}
+window.renderWx=renderWx;
+function getWx(){if(PREVIEW){window.WX=sample();renderWx();return}
+  fetch('https://api.open-meteo.com/v1/forecast?latitude='+C.lat+'&longitude='+C.lon+'&elevation='+C.alt+'&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,snow_depth,freezing_level_height&daily=weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum&forecast_days=4&timezone=Europe%2FRome')
+  .then(function(r){return r.json()}).then(function(j){var c=j.current,d=j.daily,days=[];for(var i=1;i<4;i++)days.push({c:d.weather_code[i],mi:Math.round(d.temperature_2m_min[i]),ma:Math.round(d.temperature_2m_max[i]),sn:Math.round(d.snowfall_sum[i])});
+    window.WX={t:Math.round(c.temperature_2m),app:Math.round(c.apparent_temperature),code:c.weather_code,snow:Math.round((c.snow_depth||0)*100),wind:Math.round(c.wind_speed_10m),frz:Math.round(c.freezing_level_height||0),days:days};renderWx()})
+  .catch(function(){window.WX=sample();renderWx()})}
+window.dayName=function(i){var d=new Date();d.setDate(d.getDate()+i);return d.toLocaleDateString(EN?'en-GB':'it-IT',{weekday:'long',day:'numeric'})};
+getWx();
+})();
+</script>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,hd=$('#hd'),day=$('#giornata'),tr=$('#track'),pg=$('#prog'),cv=$('#snow'),ctx=cv.getContext('2d');
+setTimeout(function(){$('#cover').classList.add('on')},150);
+$$('img').forEach(function(im){im.addEventListener('error',function(){var f=im.closest('.pr,.pic');if(f){if(f.classList.contains('pic')){f.classList.add('ill');im.remove()}else f.remove()}})});
+function scr(){hd.classList.toggle('sol',scrollY>40);
+  if(innerWidth>860&&day){var r=day.getBoundingClientRect(),h=r.height-innerHeight,p=Math.min(1,Math.max(0,-r.top/h)),max=tr.scrollWidth-innerWidth;tr.style.transform='translate3d('+(-p*max)+'px,0,0)';pg.style.width=(p*100)+'%'}}
+addEventListener('scroll',scr,{passive:true});addEventListener('resize',scr);scr();
+/* neve leggera sulla carta */
+var W,H,F=[],DPR=Math.min(2,devicePixelRatio||1);function sz(){W=cv.width=innerWidth*DPR;H=cv.height=innerHeight*DPR}sz();addEventListener('resize',sz);
+for(var i=0;i<(innerWidth<700?40:90);i++)F.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.8,s:.2+Math.random()*.5,d:Math.random()*6});
+function loop(t){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(120,130,140,.38)';F.forEach(function(f){if(!RM){f.y+=f.s/700;f.x+=Math.sin(t/1600+f.d)/4000;if(f.y>1.02){f.y=-.02;f.x=Math.random()}}ctx.beginPath();ctx.arc(f.x*W,f.y*H,f.r*DPR,0,7);ctx.fill()});if(!RM)requestAnimationFrame(loop)}requestAnimationFrame(loop);
+window.onWx=function(w,EN){$('#w-t').textContent=w.t+'°';$('#w-d').textContent=wdesc(w.code).toLowerCase();$('#w-s').textContent=w.snow+' cm';$('#w-w').textContent=w.wind+' km/h';$('#w-a').textContent=w.app+'°';
+  $('#w-f').innerHTML=w.days.map(function(d,i){return '<tr><td style="text-transform:capitalize">'+dayName(i+1)+'</td><td>'+wdesc(d.c)+' · '+d.mi+'° / '+d.ma+'°'+(d.sn?' · +'+d.sn+' cm':'')+'</td></tr>'}).join('');var s=$('#wxsrc');if(s)s.hidden=!w.sample};
+if(window.WX)onWx(WX,isEN());
+})();
+</script>
+<!-- ===== UMBRA · cornice commerciale (non tocca la guida) ===== -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+#um,#um *{box-sizing:border-box}
+#um{--k:#050506;--k2:#0f0f12;--k3:#17171b;--w:#f2f1ee;--w2:#b3b2ae;--w3:#7a7976;--ch:#d8d8dc;--ch2:#8d8e95;--ln:rgba(216,216,220,.14);
+  --se:'Instrument Serif',Georgia,serif;--sa:'Archivo','Helvetica Neue',Arial,sans-serif;--mo:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  font-family:var(--sa);font-size:15px;line-height:1.5;color:var(--w)}
+#um .um-chr{background:linear-gradient(100deg,#f4f4f6,#9c9da4 40%,#fff 60%,#8e8f96);-webkit-background-clip:text;background-clip:text;color:transparent}
+#um button{font:inherit;color:inherit}
+#um a{color:inherit}
+
+/* ---- teaser (dopo 5 s) ---- */
+#um .um-tz{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9997;width:min(360px,calc(100vw - 32px));background:var(--k);border:1px solid rgba(216,216,220,.3);border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.5);padding:16px 18px;opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
+#um .um-tz.um-on{opacity:1;visibility:visible;transform:none;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1)}
+#um .um-tz .um-hd{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#um .um-tz .um-br{font:italic 18px/1 var(--se)}
+#um .um-tz .um-br small{font:11px var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ch2);margin-left:8px}
+#um .um-x{background:none;border:0;color:var(--w2);font-size:22px;line-height:1;cursor:pointer;padding:2px 4px}
+#um .um-x:hover{color:var(--w)}
+#um .um-tz h5{margin:10px 0 4px;font:400 22px/1.12 var(--se)}
+#um .um-tz h5 em{font-style:italic;color:var(--ch)}
+#um .um-tz p{margin:0 0 14px;color:var(--w2);font-size:13.5px}
+#um .um-tz .um-row{display:flex;gap:8px}
+#um .um-tz .um-row .um-b{flex:1}
+
+/* bottoni */
+#um .um-b{display:flex;justify-content:center;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1px solid var(--ch);background:transparent;text-decoration:none;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
+#um .um-b:hover{background:var(--ch);color:#0a0a0c}
+#um .um-b.um-s{background:linear-gradient(135deg,#f3f3f5,#b9bac0);color:#0a0a0c;border-color:transparent}
+#um .um-b.um-s:hover{background:#fff}
+
+/* pillola per riaprire */
+#um .um-pill{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9996;display:flex;align-items:center;gap:14px;background:var(--k);color:var(--w);border:1px solid rgba(216,216,220,.4);border-radius:14px;padding:12px 14px 12px 16px;cursor:pointer;box-shadow:0 16px 44px rgba(0,0,0,.45);text-align:left;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .4s,transform .4s,border-color .2s}
+#um .um-pill.um-on{opacity:1;visibility:visible;transform:none}
+#um .um-pill:hover{border-color:var(--ch)}
+#um .um-pill .um-pt{display:flex;flex-direction:column;gap:2px;line-height:1.2}
+#um .um-pill .um-pt small{font:10px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:var(--ch2)}
+#um .um-pill .um-pt b{font-weight:500;font-size:15px}
+#um .um-pill .um-go{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#f3f3f5,#b9bac0);color:#0a0a0c;font-size:18px;font-weight:600}
+
+/* ---- pannello a mezzo schermo ---- */
+#um .um-bd{position:fixed;inset:0;z-index:9998;background:rgba(5,5,6,.35);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
+#um .um-bd.um-on{opacity:1;visibility:visible;transition:opacity .45s}
+#um .um-dr{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:min(560px,50vw);background:var(--k);border-left:1px solid rgba(216,216,220,.22);box-shadow:-30px 0 80px rgba(0,0,0,.45);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.7,.2,1);padding-top:env(safe-area-inset-top,0px)}
+#um.um-lb .um-pill,#um.um-lb .um-tz{opacity:0!important;visibility:hidden!important;pointer-events:none}#um .um-dr{visibility:hidden}#um .um-dr.um-on{transform:none;visibility:visible}
+#um .um-dr .um-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;border-bottom:1px solid var(--ln);flex:none}
+#um .um-dr .um-top .um-br{font:italic 22px/1 var(--se)}
+#um .um-dr .um-top .um-br small{font:11px var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ch2);margin-left:10px;-webkit-text-fill-color:var(--ch2)}
+#um .um-dr .um-sc{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:28px 28px calc(28px + env(safe-area-inset-bottom,0px));flex:1}
+#um .um-ey{font:11px var(--mo);letter-spacing:.18em;text-transform:uppercase;color:var(--ch2);margin:0 0 10px}
+#um h3{font:400 clamp(30px,3.2vw,40px)/1.04 var(--se);margin:0 0 12px;letter-spacing:-.01em}
+#um h3 em{font-style:italic}
+#um h4{font:400 26px/1.1 var(--se);margin:0}
+#um .um-lead{color:var(--w2);margin:0 0 26px;max-width:46ch}
+#um .um-sec{margin-top:40px}
+
+/* offerte */
+#um .um-of{display:grid;gap:12px}
+#um .um-o{border:1px solid var(--ln);border-radius:14px;padding:20px;background:var(--k2);display:flex;flex-direction:column;gap:12px}
+#um .um-o.um-best{border-color:rgba(216,216,220,.45);background:linear-gradient(180deg,#141418,#0c0c0f)}
+#um .um-o .um-oh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+#um .um-o .um-tag{display:inline-block;font:10px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:#0a0a0c;background:var(--ch);padding:4px 8px;border-radius:999px;margin-bottom:8px}
+#um .um-o .um-pr{font:400 44px/1 var(--se);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+#um .um-o .um-pr small{font:11px var(--mo);letter-spacing:.1em;color:var(--w3);display:block;text-align:right;margin-top:4px}
+#um .um-o .um-what{margin:0;color:var(--w2);font-size:14px}
+#um .um-inc{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+#um .um-inc li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--w2)}
+#um .um-inc li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--ch);margin-top:8px}
+#um .um-inc li span{min-width:0}
+#um .um-inc li b{color:var(--w);font-weight:500}
+#um .um-o .um-b{width:100%}
+#um .um-note{display:none;font:11px var(--mo);color:var(--ch2);text-align:center;letter-spacing:.04em}
+
+/* come funziona */
+#um .um-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+#um .um-steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--ln)}
+#um .um-steps li:last-child{border-bottom:1px solid var(--ln)}
+#um .um-steps .um-n{font:400 30px/1 var(--se);color:var(--ch)}
+#um .um-steps .um-t{min-width:0}
+#um .um-steps b{display:block;font-weight:500;margin-bottom:3px}
+#um .um-steps span.um-d{color:var(--w2);font-size:14px}
+#um .um-steps .um-when{display:inline-block;margin-top:6px;font:11px var(--mo);letter-spacing:.1em;text-transform:uppercase;color:var(--ch2)}
+
+/* garanzie */
+#um .um-gg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#um .um-g{border:1px solid var(--ln);border-radius:12px;padding:14px;min-width:0}
+#um .um-g b{display:block;font-weight:500;font-size:14px;margin-bottom:4px}
+#um .um-g span{color:var(--w2);font-size:13px}
+
+/* faq */
+#um details{border-top:1px solid var(--ln)}
+#um details:last-of-type{border-bottom:1px solid var(--ln)}
+#um summary{list-style:none;cursor:pointer;padding:15px 0;display:flex;justify-content:space-between;gap:16px;font-size:15px}
+#um summary::-webkit-details-marker{display:none}
+#um summary::after{content:"+";font:18px var(--mo);color:var(--ch2);transition:transform .25s;flex:none}
+#um details[open] summary::after{transform:rotate(45deg)}
+#um details p{margin:0 0 16px;color:var(--w2);font-size:14px}
+
+#um .um-foot{margin-top:32px;font:11px var(--mo);letter-spacing:.06em;color:var(--w3);line-height:1.7}
+
+@media (max-width:900px){#um .um-dr{width:min(560px,70vw)}}
+@media (max-width:620px){
+  #um .um-dr{top:auto;left:0;width:100%;height:88vh;height:88dvh;border-left:0;border-top:1px solid rgba(216,216,220,.25);border-radius:18px 18px 0 0;transform:translateY(100%);padding-top:0}
+  #um .um-dr .um-top{padding:16px max(18px,env(safe-area-inset-right,0px)) 14px max(18px,env(safe-area-inset-left,0px))}
+  #um .um-dr .um-sc{padding:22px max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+  #um .um-pill{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));justify-content:space-between}
+  #um .um-tz{left:0;right:0;bottom:0;width:100%;border-radius:16px 16px 0 0;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  #um .um-gg{grid-template-columns:1fr}
+  #um .um-o .um-pr{font-size:38px}
+}
+
+/* ---- intro ---- */
+#um .um-in{position:fixed;inset:0;z-index:10000;background:#050506;display:grid;place-items:center;overflow:hidden;cursor:pointer;transition:opacity .9s ease,visibility 0s .9s}
+#um .um-in.um-out{opacity:0;visibility:hidden;pointer-events:none}
+#um .um-in .um-ring{position:absolute;left:50%;top:50%;width:2px;height:2px;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 1px rgba(216,216,220,.55),0 0 80px 8px rgba(216,216,220,.08);animation:umr 2.6s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes umr{0%{width:2px;height:2px;opacity:0}12%{opacity:1}100%{width:min(78vmin,640px);height:min(78vmin,640px);opacity:.9}}
+#um .um-in .um-tx{position:relative;text-align:center;padding:0 max(20px,env(safe-area-inset-left,0px));max-width:900px}
+#um .um-in .um-tx>*{opacity:0;transform:translateY(12px);animation:umf .9s ease forwards}
+@keyframes umf{to{opacity:1;transform:none}}
+#um .um-in .um-a{font:italic 22px/1 var(--se);margin-bottom:30px;animation-delay:.2s}
+#um .um-in .um-b2{font:12px var(--mo);letter-spacing:.22em;text-transform:uppercase;color:var(--ch2);margin-bottom:14px;animation-delay:.9s}
+#um .um-in .um-c{font:italic 400 clamp(46px,10vw,120px)/.98 var(--se);letter-spacing:-.02em;animation-delay:1.2s;text-wrap:balance}
+#um .um-in .um-d{margin-top:20px;font-size:14px;color:var(--w2);letter-spacing:.04em;animation-delay:1.8s}
+#um .um-in .um-sk{position:absolute;right:max(18px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));font:11px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:var(--ch2);border:1px solid var(--ln);border-radius:999px;padding:9px 14px;background:none;cursor:pointer}
+@media (prefers-reduced-motion:reduce){#um .um-in{display:none}}
+@media (prefers-reduced-motion:reduce){#um .um-tz,#um .um-dr,#um .um-bd,#um .um-pill{transition:none}}
+</style>
+
+<div id="um">
+  <div class="um-in" id="um-in" role="presentation">
+    <div class="um-ring" aria-hidden="true"></div>
+    <div class="um-tx">
+      <div class="um-a um-chr">Umbra</div>
+      <div class="um-b2" data-f="prep">Preparato per voi</div>
+      <div class="um-c um-chr" data-f="nome"></div>
+      <div class="um-d" data-f="dove"></div>
+    </div>
+    <button class="um-sk" type="button" id="um-sk">Apri la guida →</button>
+  </div>
+  <!-- teaser -->
+  <aside class="um-tz" id="um-tz" aria-label="Attiva questa guida">
+    <div class="um-hd"><div class="um-br um-chr">Umbra<small data-f="per">Anteprima riservata</small></div><button class="um-x" id="um-tzx" type="button" aria-label="Chiudi">×</button></div>
+    <h5>Questa è una <em>demo</em> fatta per <span data-f="nome"></span>.</h5>
+    <p>Se vi piace, la completiamo con le vostre foto e i vostri dati e la potete dare agli ospiti. Da 97 €, pagamento unico.</p>
+    <div class="um-row">
+      <button class="um-b um-s" type="button" id="um-open">Vedi cosa include</button>
+    </div>
+  </aside>
+
+  <button class="um-pill" id="um-pill" type="button" aria-label="Vedi prezzi e come attivare questa guida"><span class="um-pt"><small>Umbra · questa è una demo</small><b>Vuoi questa guida? Da 97 €</b></span><span class="um-go" aria-hidden="true">→</span></button>
+
+  <!-- pannello -->
+  <div class="um-bd" id="um-bd"></div>
+  <section class="um-dr" id="um-dr" role="dialog" aria-modal="false" aria-labelledby="um-h">
+    <div class="um-top">
+      <div class="um-br um-chr">Umbra<small data-f="nome"></small></div>
+      <button class="um-x" id="um-drx" type="button" aria-label="Chiudi il pannello">×</button>
+    </div>
+    <div class="um-sc">
+      <p class="um-ey" data-f="riservata">Anteprima riservata</p>
+      <h3 id="um-h">La guida che state guardando può essere <em class="um-chr">vostra</em>.</h3>
+      <p class="um-lead">È la pagina che gli ospiti aprono dal telefono prima e durante il soggiorno: benvenuto, camere, Wi-Fi, orari, regole, come arrivare, CIN. Risponde lei alle domande che oggi vi fanno su WhatsApp.</p>
+      <p class="um-lead" style="margin-top:-14px;font-size:14px;border-left:2px solid var(--ch2);padding-left:12px">Quella che vedete è una <b style="color:var(--w);font-weight:500">demo</b>: l'abbiamo costruita con le foto e le informazioni pubbliche del vostro annuncio. Alcuni dati (Wi-Fi, orari, regole) sono di esempio e li sostituiamo con i vostri.</p>
+
+      <!-- OFFERTE -->
+      <div class="um-of">
+        <article class="um-o">
+          <div class="um-oh">
+            <div><h4>Guida della Casa</h4></div>
+            <div class="um-pr">97 €<small>una volta</small></div>
+          </div>
+          <p class="um-what">Questa guida, completata con i vostri dati e consegnata.</p>
+          <ul class="um-inc">
+            <li><span><b>La vostra guida finita</b>: le vostre foto originali, Wi-Fi, orari di check-in e check-out, colazione, regole, numeri utili.</span></li>
+            <li><span><b>In italiano e in inglese</b>: l'ospite sceglie la lingua con un tocco.</span></li>
+            <li><span><b>Un link e un QR code</b>: il link lo mandate su WhatsApp, Airbnb o Booking; il QR lo stampate e lo mettete in camera.</span></li>
+            <li><span><b>1 revisione inclusa</b>: vedete la guida finita e ci dite cosa cambiare, noi la correggiamo.</span></li>
+          </ul>
+          <a class="um-b" data-um="guida" href="#um-guida">Attiva la guida · 97 €</a>
+          <div class="um-note"></div>
+        </article>
+
+        <article class="um-o um-best">
+          <div class="um-oh">
+            <div><span class="um-tag">Consigliato</span><h4>Guida + Kit Host in Regola</h4></div>
+            <div class="um-pr">147 €<small>una volta</small></div>
+          </div>
+          <p class="um-what">La guida, più gli strumenti per tenere in ordine conti e adempimenti dell'anno.</p>
+          <ul class="um-inc">
+            <li><span><b>Tutta la Guida della Casa</b> qui sopra, con <b>3 revisioni</b> invece di una.</span></li>
+            <li><span><b>Registro in Excel</b>: inserite ogni prenotazione e il file calcola da solo l'imposta di soggiorno da versare, le presenze da comunicare all'ISTAT ogni mese e la stima della cedolare secca.</span></li>
+            <li><span><b>16 messaggi pronti per gli ospiti</b>, in italiano e inglese: conferma, richiesta documenti, istruzioni di arrivo, check-out, richiesta recensione. Si copiano e incollano.</span></li>
+            <li><span><b>Calendario delle scadenze 2027</b> da aggiungere al telefono: Alloggiati Web, ISTAT, imposta di soggiorno, dichiarazione. Vi avvisa prima di ogni scadenza.</span></li>
+          </ul>
+          <a class="um-b um-s" data-um="kit" href="#um-kit">Attiva guida + kit · 147 €</a>
+          <div class="um-note"></div>
+        </article>
+      </div>
+
+      <!-- COME FUNZIONA -->
+      <div class="um-sec">
+        <p class="um-ey">Come funziona</p>
+        <h4 style="margin-bottom:14px">Dal pagamento alla guida in mano agli ospiti</h4>
+        <ol class="um-steps">
+          <li><span class="um-n">1</span><div class="um-t"><b>Scegliete e pagate</b><span class="um-d">Carta di credito o debito, pagamento sicuro con Stripe. Ricevuta via email.</span><span class="um-when">1 minuto</span></div></li>
+          <li><span class="um-n">2</span><div class="um-t"><b>Compilate un breve modulo</b><span class="um-d">Vi arriva un'email con 6 domande: password Wi-Fi, orari, regole della casa, un numero per le emergenze, e dove caricare le vostre foto migliori.</span><span class="um-when">10 minuti</span></div></li>
+          <li><span class="um-n">3</span><div class="um-t"><b>Noi completiamo la guida</b><span class="um-d">Sostituiamo le foto dell'annuncio con le vostre, inseriamo i vostri dati e ve la mandiamo da controllare.</span><span class="um-when">Entro 3 giorni lavorativi</span></div></li>
+          <li><span class="um-n">↺</span><div class="um-t"><b>Ci dite cosa cambiare</b><span class="um-d">Rispondete all'email con le correzioni (un testo, una foto, un orario) e noi le applichiamo. 1 revisione con la Guida, 3 con Guida + Kit.</span><span class="um-when">Entro 2 giorni lavorativi per revisione</span></div></li>
+          <li><span class="um-n">4</span><div class="um-t"><b>La date agli ospiti</b><span class="um-d">Ricevete il link definitivo e il QR da stampare. Lo inserite nel messaggio di conferma prenotazione e il gioco è fatto. Se scegliete il kit, Registro, messaggi e calendario arrivano subito via email.</span><span class="um-when">Per sempre, senza canone</span></div></li>
+        </ol>
+      </div>
+
+      <!-- GARANZIE -->
+      <div class="um-sec">
+        <p class="um-ey">Le nostre garanzie</p>
+        <div class="um-gg">
+          <div class="um-g"><b>Rimborso entro 30 giorni</b><span>Se non fa per voi, una email e vi restituiamo tutto.</span></div>
+          <div class="um-g"><b>Revisioni incluse</b><span>1 con la Guida, 3 con Guida + Kit. Le correzioni le facciamo noi.</span></div>
+          <div class="um-g"><b>Nessun abbonamento</b><span>Si paga una volta. La guida resta online.</span></div>
+          <div class="um-g"><b>Nessuna app</b><span>Né per voi né per gli ospiti: è un link.</span></div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="um-sec">
+        <p class="um-ey">Domande</p>
+        <details><summary>Ho già le informazioni su Airbnb e Booking. A cosa mi serve?</summary><p>Le piattaforme mostrano l'annuncio, non la casa. Il Wi-Fi, come si apre il cancello, a che ora si fa colazione, dove parcheggiare, cosa vedere in zona: oggi glielo spiegate voi, ospite per ospite, su WhatsApp. Con la guida mandate un solo link, valido per tutti gli ospiti e tutte le piattaforme, anche per chi prenota diretto.</p></details>
+        <details><summary>Gli ospiti la usano davvero?</summary><p>Sì, perché arriva quando serve: la mandate insieme alla conferma e la riaprono il giorno dell'arrivo, quando cercano indirizzo e orari. Il QR in camera copre chi non legge i messaggi. Meno domande ripetute per voi, recensioni più facili per loro.</p></details>
+        <details><summary>Quanto tempo mi porta via?</summary><p>Circa 10 minuti per il modulo e qualche minuto per controllare la guida finita. Il resto lo facciamo noi.</p></details>
+        <details><summary>Cosa conta come revisione?</summary><p>Un'unica email con tutte le correzioni che volete (testi, foto, orari, regole). La Guida ne include 1, Guida + Kit ne include 3. Se dopo cambia qualcosa, come la password del Wi-Fi, ci scrivete e lo aggiorniamo.</p></details>
+        <details><summary>La guida resta online? Pago qualcosa ogni anno?</summary><p>Resta online e non ha costi ricorrenti. Il link non cambia, quindi il QR stampato continua a funzionare.</p></details>
+        <details><summary>Il Kit sostituisce il commercialista?</summary><p>No. Vi aiuta a tenere in ordine prenotazioni, imposta di soggiorno e scadenze durante l'anno, così al commercialista arrivate con i numeri già pronti. Il Registro è un file Excel (va anche con Google Fogli e Numbers) e non invia nulla al posto vostro.</p></details>
+      </div>
+
+      <p class="um-foot">Umbra Agency · P.IVA 01694380294 · umbragency.it · <a href="../condizioni/" target="_blank" rel="noopener">Condizioni e privacy</a><br>Foto dall'annuncio pubblico della struttura, usate solo per questa anteprima.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  // Stripe Payment Link: incollare qui quando pronti.
+  var STRIPE={guida:'https://buy.stripe.com/3cI8wOgts6d65ge09Q57W09',kit:'https://buy.stripe.com/3cI4gydhgfNG3867Ci57W0a'}, WA='393514618847';
+  var $=function(id){return document.getElementById(id)};
+  // dati della demo aperta
+  var um=document.getElementById('um');
+  function cur(){var D=window.DEMOS||[];if(D.length===1)return D[0];var h=decodeURIComponent((location.hash||'').slice(1));for(var i=0;i<D.length;i++)if(D[i].slug===h)return D[i];return null}
+  function fill(){var d=cur();um.hidden=!d;if(!d)return;var host=d.host_nome,nome=d.nome;
+    document.querySelectorAll('#um [data-f="nome"]').forEach(function(e){e.textContent=nome});
+    document.querySelectorAll('#um [data-f="per"]').forEach(function(e){e.textContent=host?'Anteprima per '+host:'Anteprima riservata'});
+    document.querySelectorAll('#um [data-f="prep"]').forEach(function(e){e.textContent=host?'Preparato per '+host:'Preparato per voi'});
+    document.querySelectorAll('#um [data-f="dove"]').forEach(function(e){e.textContent=['Guida della Casa',d.localita||d.comune].filter(Boolean).join(' · ')});
+    document.querySelectorAll('#um [data-f="riservata"]').forEach(function(e){e.textContent=host?'Anteprima riservata a '+host+' · '+nome:'Anteprima riservata · '+nome});}
+  fill();addEventListener('hashchange',fill);
+  var tz=$('um-tz'),pill=$('um-pill'),dr=$('um-dr'),bd=$('um-bd'),dismissed=false;
+  try{dismissed=sessionStorage.getItem('um-x')==='1'}catch(e){}
+  function showTz(){tz.classList.add('um-on');pill.classList.remove('um-on')}
+  function hideTz(){tz.classList.remove('um-on')}
+  function openDr(){hideTz();pill.classList.remove('um-on');dr.classList.add('um-on');bd.classList.add('um-on');setTimeout(function(){$('um-drx').focus()},300)}
+  function closeDr(){dr.classList.remove('um-on');bd.classList.remove('um-on');pill.classList.add('um-on')}
+  var intro=$('um-in'),seen=false;try{seen=sessionStorage.getItem('um-in')==='1'}catch(e){}
+  function endIntro(){if(intro.classList.contains('um-out'))return;intro.classList.add('um-out');try{sessionStorage.setItem('um-in','1')}catch(e){}
+    setTimeout(function(){ if(dismissed) pill.classList.add('um-on'); else showTz(); },5000);}
+  if(seen||!cur()||matchMedia('(prefers-reduced-motion: reduce)').matches){intro.classList.add('um-out');intro.style.display='none';setTimeout(function(){ if(dismissed) pill.classList.add('um-on'); else showTz(); },5000);}
+  else{intro.addEventListener('click',endIntro);setTimeout(endIntro,4200);}
+  $('um-tzx').addEventListener('click',function(){hideTz();pill.classList.add('um-on');try{sessionStorage.setItem('um-x','1')}catch(e){}});
+  $('um-open').addEventListener('click',openDr);
+  pill.addEventListener('click',openDr);
+  $('um-drx').addEventListener('click',closeDr);
+  bd.addEventListener('click',closeDr);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dr.classList.contains('um-on'))closeDr()});
+  document.querySelectorAll('#um [data-um]').forEach(function(a){
+    var k=a.getAttribute('data-um');
+    if(STRIPE[k]){var ref=(location.pathname.split('/').filter(Boolean).pop()||'').replace(/[^A-Za-z0-9_-]/g,'');a.href=STRIPE[k]+(ref?'?client_reference_id='+ref:'');a.target='_blank';a.rel='noopener';return}
+    var d=cur()||{},lab=k==='kit'?'Guida + Kit Host in Regola (147 €)':'Guida della Casa (97 €)';
+    a.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Ciao Umbra, vorrei attivare '+lab+' per '+(d.nome||'la mia struttura')+(d.comune?' ('+d.comune+')':'')+'. Come procedo?');
+    a.target='_blank';a.rel='noopener';
+  });
+  // nasconde card e pulsante quando la guida apre una galleria a tutto schermo
+  var lbq=false;function lbChk(){lbq=false;var open=[].some.call(document.querySelectorAll('[aria-modal="true"]'),function(e){return !um.contains(e)&&e.getAttribute('aria-hidden')!=='true'&&!e.closest('[aria-hidden="true"],[hidden]')&&e.getClientRects().length>0})||(document.body.style.overflow==='hidden'&&!dr.classList.contains('um-on'));um.classList.toggle('um-lb',open)}
+  new MutationObserver(function(){if(!lbq){lbq=true;requestAnimationFrame(lbChk)}}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['style','hidden','open','aria-hidden']});
+})();
+</script>
+
+
+</body></html>

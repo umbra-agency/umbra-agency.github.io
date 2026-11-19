@@ -1,0 +1,1210 @@
+<!doctype html>
+<html lang="it" data-v="lume">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B&amp;B Parodi · Guida della Casa</title>
+<meta name="description" content="La guida invernale per gli ospiti di B&amp;B Parodi, Auronzo di Cadore: neve in diretta, strada, casa, piste ed emergenze.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="B&amp;B Parodi · Guida della Casa">
+<meta property="og:description" content="La guida invernale per gli ospiti di B&amp;B Parodi, Auronzo di Cadore: neve in diretta, strada, casa, piste ed emergenze.">
+<meta property="og:url" content="https://umbra-agency.github.io/h/bb-parodi/">
+<meta name="theme-color" content="#05080f">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: un cristallo di neve 3D fisso sullo sfondo, unico per struttura. Scene a tutto schermo si alternano a fogli scuri con gli angoli smussati. */
+:root{
+  --night:#05080f;--sheet:#0a1019;--sheet2:#0e1622;--ice:#eaf2f7;--mist:#8ea2b4;--line:rgba(180,210,232,.16);
+  --cy:#9fd8ee;--warm:#f0b98a;
+  --paper:#eef3f6;--ink:#0b1320;--ink2:#51606f;--pline:rgba(11,19,32,.14);--deep:#1f6f8d;
+  --disp:'Italiana','Cormorant Garamond','Didot','Bodoni MT',Georgia,serif;
+  --sans:'Jost','Avenir Next','Century Gothic','Helvetica Neue',Arial,sans-serif;
+  --max:1180px;--pad:clamp(22px,5vw,64px);--ch:30px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+body{font-family:var(--sans);font-weight:300;color:var(--ice);background:var(--night);line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:1px solid var(--cy);outline-offset:4px}
+.tn{font-variant-numeric:tabular-nums lining-nums}
+.tbc{border-bottom:1px dashed var(--cy);padding-bottom:1px}
+.lt .tbc{border-color:var(--deep)}
+.q{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--cy);white-space:nowrap;font-weight:500}
+.hl{font-style:normal;color:var(--cy)}
+.lt .hl{color:var(--deep)}
+
+/* scena */
+#gl{position:fixed;inset:0;width:100%;height:100vh;height:100lvh;z-index:2;display:block;opacity:0;transition:opacity 1.6s ease;pointer-events:none}
+.glows{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--night)}
+.gl{position:absolute;left:0;top:0;width:150vmax;height:150vmax;margin:-75vmax 0 0 -75vmax;border-radius:50%;transform:translate3d(70vw,46vh,0);will-change:transform,opacity;mix-blend-mode:screen}
+.gl-c{background:radial-gradient(closest-side,#0f2d4a,#06101f 40%,#000 72%)}
+.gl-w{background:radial-gradient(closest-side,#5b2e0a,#1c0c02 40%,#000 70%);opacity:0}
+.gl-m{background:radial-gradient(closest-side,#1a4671,#07162a 40%,#000 72%);opacity:0}
+#gl.on{opacity:1}
+.fb{position:fixed;inset:0;z-index:0;display:grid;place-items:center end;padding-right:8vw;color:rgba(159,216,238,.5)}
+.fb .mark{width:min(64vh,70vw);height:min(64vh,70vw);display:none}
+.nogl .fb .mark{display:block}
+.nogl.hasph .fb .mark,.nogl .hint{display:none}
+.mark svg{width:100%;height:100%;display:block}
+
+/* testata */
+.hd{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;gap:22px;padding:18px var(--pad);color:var(--ice);transition:background .5s,color .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
+.hd.solid{background:rgba(7,11,18,.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding-top:12px;padding-bottom:12px;border-color:var(--line)}
+.hd.solid.lth{background:rgba(238,243,246,.9);color:var(--ink);border-color:var(--pline)}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;margin-right:auto}
+.brand .mark{width:30px;height:30px;color:var(--cy);flex:none}
+.lth .brand .mark{color:var(--deep)}
+.brand b{font-family:var(--disp);font-weight:400;font-size:21px;letter-spacing:.03em;line-height:1.1;display:block}
+.brand span{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.7;display:block;font-weight:400}
+.hd nav{display:flex;gap:28px}
+.hd nav a{font-size:10.5px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;padding:6px 0;opacity:.7;transition:opacity .3s,color .3s}
+.hd nav a:hover,.hd nav a.on{opacity:1;color:var(--cy)}
+.lth nav a:hover,.lth nav a.on{color:var(--deep)}
+.lang{display:flex;gap:2px;font-size:10.5px;letter-spacing:.2em;font-weight:400}
+.lang button{padding:6px 7px;opacity:.5}
+.lang button[aria-pressed=true]{opacity:1;color:var(--cy)}
+.lth .lang button[aria-pressed=true]{color:var(--deep)}
+@media(max-width:900px){.hd nav{display:none}}
+
+/* scene */
+.stage{position:relative;height:150vh;height:150svh;touch-action:pan-y;cursor:grab}
+.stage:active{cursor:grabbing}
+.stage.hero,.stage.gal{height:auto}
+.stage.gal{cursor:default}
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:112px var(--pad) 96px}
+.h-in{width:100%;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:end}
+.hero .h-tx{position:relative;z-index:3;grid-column:1 / span 5;grid-row:1;padding:0;max-width:none;margin:0;left:auto;right:auto;bottom:auto}
+.h-ph{grid-column:6 / -1;grid-row:1;max-height:72vh}
+html:not(.hasph) .h-ph{display:none}
+html:not(.hasph) .hero .h-tx{grid-column:1 / span 8}
+.ph{position:relative;z-index:1;overflow:hidden;border-radius:3px;aspect-ratio:var(--ar,3 / 2);max-height:88vh;background:#0c121c;clip-path:inset(0 0 100% 0);transition:clip-path 1.5s cubic-bezier(.2,.7,.1,1);margin:0}
+.ph.in.ld{clip-path:inset(0 0 0 0)}
+.phm{position:absolute;inset:-6% 0;will-change:transform}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transform:scale(1.14);transition:transform 2.4s cubic-bezier(.2,.7,.1,1)}
+.ph.in.ld img{transform:none}
+.gal{padding:clamp(90px,14vh,170px) var(--pad) clamp(110px,18vh,220px)}
+.g-in{max-width:var(--max);margin:0 auto}
+.g-h{position:relative;z-index:3;max-width:620px;margin-bottom:clamp(50px,9vh,110px)}
+.g-h h2{font-family:var(--disp);font-weight:400;font-size:clamp(42px,6vw,92px);line-height:.96;text-wrap:balance}
+.g-h .sub{margin-top:22px;font-size:17px;color:#c9d6e0}
+.wig{display:none}.hasgal .wig{display:inline}.hasgal .nog{display:none}
+html:not(.hasgal) .gal{min-height:100vh;min-height:100svh;display:flex;align-items:flex-end}
+html:not(.hasgal) .g-in{width:100%}
+html:not(.hasgal) .g-h{margin-bottom:0}
+.g-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:clamp(70px,13vh,170px);align-items:start}
+.gi{will-change:transform}
+.gc{position:relative;z-index:3;display:flex;align-items:baseline;gap:10px;margin-top:14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+.gc span:first-child{font-family:var(--disp);font-size:19px;letter-spacing:.08em;color:var(--cy)}
+.g1{grid-column:1 / span 7}.g2{grid-column:9 / span 4;margin-top:34vh}
+.g3{grid-column:5 / span 8}
+.g4{grid-column:1 / span 5;margin-top:10vh}.g5{grid-column:7 / span 6}
+.g6{grid-column:3 / span 8}
+@media(max-width:760px){
+  .hero{padding:96px var(--pad) 110px;align-items:flex-start}
+  .h-in{display:flex;flex-direction:column;align-items:stretch;gap:30px}
+  .h-ph{order:-1;margin:0}
+  .g-grid{display:flex;flex-direction:column;gap:56px}
+  .gi{width:100%}.g2,.g4,.g6{width:82%;margin-top:0}.g2,.g6{align-self:flex-end}
+}
+.cap{position:sticky;top:0;z-index:3;height:100vh;height:100svh;min-height:600px;overflow:hidden}
+.cap::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,8,15,.72) 0%,rgba(5,8,15,.3) 38%,rgba(5,8,15,0) 62%),linear-gradient(to top,rgba(5,8,15,.5),rgba(5,8,15,0) 34%);pointer-events:none}
+.capin{position:absolute;left:0;right:0;bottom:0;max-width:calc(var(--max) + 2*var(--pad));margin:0 auto;padding:0 var(--pad) clamp(76px,12vh,132px);will-change:transform,opacity;user-select:none;-webkit-user-select:none}
+.capin>*{max-width:600px}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:10.5px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;margin-bottom:20px;color:var(--cy)}
+.eyebrow .rn{font-family:var(--disp);font-size:19px;letter-spacing:.08em}
+.eyebrow::after{content:"";width:60px;height:1px;background:currentColor;opacity:.6}
+.cap h1,.cap h2,.hero h1{font-family:var(--disp);font-weight:400;line-height:.96;letter-spacing:.005em;text-wrap:balance}
+.hero h1{font-size:clamp(46px,5.9vw,94px);max-width:none;overflow-wrap:break-word}
+html:not(.hasph) .hero h1{font-size:clamp(54px,8.8vw,140px)}
+.cap h2{font-size:clamp(42px,6vw,92px);max-width:620px}
+.cap .sub{margin-top:22px;max-width:430px;font-size:17px;color:#c9d6e0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:10.5px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;margin-bottom:22px;color:#c9d6e0}
+.keys{display:flex;flex-wrap:wrap;margin-top:32px;border-top:1px solid var(--line);max-width:560px}
+.keys div{padding:15px 34px 0 0;display:flex;flex-direction:column;gap:3px}
+.keys dt,.spec dt{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.keys dd{font-family:var(--disp);font-size:28px;line-height:1.1}
+.spec{display:grid;grid-template-columns:repeat(2,auto);gap:0;margin-top:30px;border-top:1px solid var(--line);max-width:520px}
+.spec div{padding:14px 26px 14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:3px}
+.spec dd{font-family:var(--disp);font-size:24px;line-height:1.15}
+.hint{position:absolute;z-index:3;right:var(--pad);bottom:clamp(76px,12vh,132px);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:12px;pointer-events:none}
+.hint::before{content:"";width:34px;height:1px;background:currentColor}
+.cue{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--mist)}
+.cue i{width:1px;height:36px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+.cue i::after{content:"";position:absolute;inset:0;background:var(--cy);animation:cue 2.4s cubic-bezier(.6,0,.2,1) infinite}
+@keyframes cue{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+@media(max-width:760px){.cap h2,.g-h h2{font-size:40px}.hero h1{font-size:clamp(44px,13vw,64px)}.cap::before{background:linear-gradient(to top,rgba(5,8,15,.86) 0%,rgba(5,8,15,.5) 34%,rgba(5,8,15,0) 58%)}.hint,.cue{display:none}.keys div{padding-right:22px}.keys dd{font-size:23px}.spec dd{font-size:20px}.cap .sub{font-size:16px}}
+
+.flk{align-items:center}
+/* ===== varianti per tipo ===== */
+html[data-v=lume]{--night:#0b0907;--sheet:#110e0b;--sheet2:#16120e;--ice:#f4ede5;--mist:#a8998a;--line:rgba(232,196,150,.17);--cy:#e8c290;--paper:#f3ede4;--ink:#1d1712;--ink2:#6a5d50;--pline:rgba(29,23,18,.14);--deep:#8a5a2b;
+  --disp:'Cormorant Garamond','Italiana',Georgia,serif}
+html[data-v=lume] .gl-c{background:radial-gradient(closest-side,#3a2614,#140b05 42%,#000 72%)}
+html[data-v=lume] .hero h1,html[data-v=lume] .sheet h2,html[data-v=lume] .g-h h2,html[data-v=lume] .cap h2{font-weight:500;letter-spacing:-.005em}
+html[data-v=lume] .hl{font-style:italic}
+html[data-v=malga]{--night:#080d0a;--sheet:#0c120e;--sheet2:#101812;--ice:#eef1ea;--mist:#93a294;--line:rgba(190,214,180,.16);--cy:#b9d6a6;--paper:#efe9dd;--ink:#1c2119;--ink2:#5e6253;--pline:rgba(28,33,25,.15);--deep:#3d6a4a;
+  --disp:'Fraunces','Cormorant Garamond',Georgia,serif}
+html[data-v=malga] .gl-c{background:radial-gradient(closest-side,#18311f,#07130b 42%,#000 72%)}
+html[data-v=malga] .hero h1,html[data-v=malga] .sheet h2,html[data-v=malga] .g-h h2,html[data-v=malga] .cap h2{font-weight:300;letter-spacing:-.02em;font-variation-settings:"opsz" 120}
+html[data-v=malga] .hl{font-style:italic}
+html[data-v=quota]{--disp:'Jost','Avenir Next',Arial,sans-serif}
+html[data-v=quota] .hero h1,html[data-v=quota] .sheet h2,html[data-v=quota] .g-h h2,html[data-v=quota] .cap h2,html[data-v=quota] .lead{text-transform:uppercase;font-weight:300;letter-spacing:.04em;line-height:1.04}
+html[data-v=quota] .hero h1{font-size:clamp(32px,3.5vw,56px);overflow-wrap:normal;word-break:normal;hyphens:manual}
+html[data-v=quota] .sheet h2{font-size:clamp(30px,3.4vw,52px)}
+html[data-v=quota] .g-h h2,html[data-v=quota] .cap h2{font-size:clamp(34px,4.4vw,66px)}
+html[data-v=quota] .lead{font-size:clamp(20px,2.2vw,30px);line-height:1.35;letter-spacing:.02em;text-transform:none}
+html[data-v=quota] .ph{border-radius:0}
+@media(min-width:761px){
+  html[data-v=malga] .hero{align-items:flex-end;padding-top:96px}
+  html[data-v=malga] .h-ph{grid-column:1 / -1;grid-row:1;aspect-ratio:21 / 9;max-height:60vh;margin:0 0 44px;width:100%}
+  html[data-v=malga] .hero .h-tx{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:48px;align-items:end}
+  html[data-v=malga] .hero .h-tx .meta{grid-column:1 / -1}
+  html[data-v=malga] .hero .keys{margin-top:0;border-top:0;border-left:1px solid var(--line);padding-left:28px}
+  html[data-v=malga] .g-grid{grid-template-columns:1fr 1fr;column-gap:7vw}
+  html[data-v=malga] .gi{grid-column:auto !important;margin-top:0 !important}
+  html[data-v=malga] .gi:nth-child(even){transform:translateY(18vh)}
+  html[data-v=malga] .g-grid{padding-bottom:18vh}
+  html[data-v=quota] .h-ph{grid-column:1 / span 7;grid-row:1;max-height:76vh}
+  html[data-v=quota] .hero .h-tx{grid-column:9 / -1;grid-row:1;align-self:end}
+  html[data-v=quota] .g-grid{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:18px;row-gap:56px}
+  html[data-v=quota] .gi{grid-column:auto !important;margin-top:0 !important}
+  html[data-v=quota] .gi.g1{grid-column:1 / span 2 !important}
+  html[data-v=quota] .gi .ph{aspect-ratio:4 / 3 !important}
+  html[data-v=quota] .gi.g1 .ph{aspect-ratio:16 / 9 !important}
+  html[data-v=quota] .gi .ph,html[data-v=quota] .gi.g1 .ph{max-height:none}
+}
+html[data-v=malga] .hint{display:none}
+@media(min-width:761px){html[data-v=quota]:not(.hasph) .hero .h-tx{grid-column:1 / span 7}html[data-v=quota]:not(.hasph) .hero h1{font-size:clamp(40px,5vw,80px)}}
+@media(max-width:760px){html:not(.hasph) .hero{align-items:flex-end}}
+html[data-v=malga] .hd.solid.lth{background:rgba(239,233,221,.93)}
+html[data-v=lume] .hd.solid.lth{background:rgba(243,237,228,.93)}
+html[data-v=lume] .hd.solid{background:rgba(14,11,8,.86)}
+html[data-v=malga] .hd.solid{background:rgba(9,14,11,.86)}
+
+.mark.big{display:block;width:min(100%,380px);aspect-ratio:1;color:var(--cy);margin:0 auto}
+.draw path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.3,.6,.2,1)}
+.draw.in path{stroke-dashoffset:0}
+.flk .spec{max-width:none}
+
+/* fogli */
+.sheet{position:relative;z-index:4;background:var(--sheet)}
+.sheet.rt{clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% 100%,0 100%,0 var(--ch))}
+.sheet.rb{clip-path:polygon(0 0,100% 0,100% calc(100% - var(--ch)),calc(100% - var(--ch)) 100%,var(--ch) 100%,0 calc(100% - var(--ch)))}
+.sheet.rt.rb{clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% calc(100% - var(--ch)),calc(100% - var(--ch)) 100%,var(--ch) 100%,0 calc(100% - var(--ch)),0 var(--ch))}
+.sheet.s2{background:var(--sheet2)}
+.sheet.lt{background:var(--paper);color:var(--ink);--line:var(--pline);--mist:var(--ink2);--cy:var(--deep)}
+.blk{max-width:calc(var(--max) + 2*var(--pad));margin:0 auto;padding:clamp(80px,10vw,150px) var(--pad)}
+.blk+.blk{padding-top:0}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,96px);align-items:start}
+.split>header{position:sticky;top:96px}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split>header{position:static}}
+.kick{display:flex;align-items:center;gap:12px;font-size:10.5px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--cy);margin-bottom:22px}
+.kick .no{font-family:var(--disp);font-size:17px;letter-spacing:.06em;color:var(--mist)}
+.kick .mark{width:18px;height:18px}
+.sheet h2{font-family:var(--disp);font-weight:400;font-size:clamp(38px,4.8vw,70px);line-height:1.02;text-wrap:balance}
+.intro{margin-top:20px;font-size:17.5px;color:var(--mist);max-width:46ch}
+h3{font-family:var(--disp);font-weight:400;font-size:27px;line-height:1.15;letter-spacing:.01em}
+.rows{list-style:none;border-top:1px solid var(--line)}
+.rows>li{border-bottom:1px solid var(--line);padding:22px 0}
+.rv{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.sec-h{max-width:720px;margin-bottom:clamp(36px,5vw,64px)}
+
+/* benvenuto */
+.lead{font-family:var(--disp);font-size:clamp(27px,3.3vw,44px);line-height:1.2;text-wrap:pretty}
+.sig{margin-top:28px;display:flex;align-items:center;gap:14px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.sig::before{content:"";width:38px;height:1px;background:var(--cy)}
+.dl{border-top:1px solid var(--line)}
+.dl div{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.dl dt{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.dl dd{font-family:var(--disp);font-size:23px;text-align:right}
+.dl dd.sm{font-family:var(--sans);font-size:13px;letter-spacing:.08em}
+.demo{margin-top:22px;font-size:13.5px;color:var(--mist);line-height:1.55}
+
+/* neve ora (foglio chiaro) */
+.now{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,96px);align-items:end}
+@media(max-width:900px){.now{grid-template-columns:1fr}}
+.temp{font-family:var(--disp);font-size:clamp(130px,20vw,280px);line-height:.8;display:flex;align-items:flex-start;letter-spacing:-.02em}
+.temp small{font-size:.17em;margin:.22em 0 0 .14em;color:var(--ink2);letter-spacing:.04em}
+.wx{margin-top:24px;font-family:var(--disp);font-size:30px}
+.habit{margin-top:12px;font-size:15px;color:var(--ink2);max-width:34ch;display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start}
+.habit .mark{width:22px;height:22px;color:var(--deep);margin-top:2px}
+.live{display:inline-flex;align-items:center;gap:10px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2fa878;animation:pl 2.4s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(47,168,120,.45)}70%,100%{box-shadow:0 0 0 9px rgba(47,168,120,0)}}
+.smp .live i{background:var(--deep);animation:none}
+.stat{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
+.stat div{padding:20px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.stat div:nth-child(odd){padding-right:20px;border-right:1px solid var(--line)}
+.stat div:nth-child(even){padding-left:20px}
+.stat dt{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.stat dd{font-family:var(--disp);font-size:42px;line-height:1}
+.stat dd small{font-family:var(--sans);font-size:12px;letter-spacing:.1em;color:var(--mist);margin-left:6px}
+.days{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(36px,5vw,64px);border-top:1px solid var(--line)}
+.day{padding:22px 20px 0 0;display:flex;flex-direction:column;gap:6px}
+.day+.day{padding-left:20px;border-left:1px solid var(--line)}
+.day b{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.day .c{font-family:var(--disp);font-size:25px;line-height:1.15}
+.day .t{font-size:14px;color:var(--mist)}
+.day .s{font-size:12px;letter-spacing:.08em;color:var(--cy);font-weight:400}
+.nowx .temp,.nowx .stat,.nowx .days,.nowx .habit{display:none}
+.src{margin-top:28px;font-size:12px;letter-spacing:.03em;color:var(--mist)}
+
+/* liste */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none}
+@media(max-width:620px){.cards{grid-template-columns:1fr}}
+.chk label{display:flex;flex-direction:column;gap:14px;height:100%;border:1px solid var(--line);padding:24px;cursor:pointer;transition:border-color .4s,background .4s;position:relative}
+.chk input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:1px solid var(--mist);transform:rotate(45deg);display:grid;place-content:center;transition:.35s;margin:4px 0 6px 4px}
+.chk input::after{content:"";width:8px;height:8px;background:var(--night);transform:scale(0);transition:.35s}
+.chk input:checked{background:var(--cy);border-color:var(--cy)}
+.chk input:checked::after{transform:scale(1)}
+.chk label:has(input:checked){border-color:var(--cy);background:rgba(159,216,238,.05)}
+.chk b,.it b{display:block;font-family:var(--disp);font-weight:400;font-size:24px;line-height:1.2;letter-spacing:.01em}
+.chk small,.it>span{display:block;margin-top:6px;font-size:15px;color:var(--mist)}
+.ready{margin-top:20px;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.ready b{color:var(--cy);font-weight:400}
+.num>li{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:baseline}
+.num .n{font-family:var(--disp);font-size:22px;color:var(--cy);letter-spacing:.06em}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tri>div{border:1px solid var(--line);padding:28px 26px 30px}
+.tri .n{font-family:var(--disp);font-size:44px;line-height:1;color:var(--cy);display:block;margin-bottom:22px}
+.tri p{margin-top:10px;font-size:15px;color:var(--mist)}
+@media(max-width:760px){.tri{grid-template-columns:1fr}}
+
+/* casa */
+.figure{display:flex;align-items:flex-end;gap:22px;padding-bottom:30px}
+.figure .n{font-family:var(--disp);font-size:clamp(120px,16vw,210px);line-height:.72}
+.figure .l{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);line-height:2;padding-bottom:4px;font-weight:400}
+.wf{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.wf dt{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--mist);margin-bottom:4px;font-weight:400}
+.wf dd{font-family:var(--disp);font-size:31px;word-break:break-all;line-height:1.1;letter-spacing:.02em}
+.copy{border:1px solid var(--line);padding:11px 22px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:400;transition:.3s;flex:none}
+.copy:hover,.copy.ok{border-color:var(--cy);color:var(--cy)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;list-style:none}
+.rules li{border:1px solid var(--line);padding:26px 24px 28px;display:flex;flex-direction:column;gap:18px}
+.rules svg{width:30px;height:30px;stroke:var(--cy);fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){.rules{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.rules{grid-template-columns:1fr}}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,96px);align-items:end}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+.fld{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.fld:first-child{border-top:1px solid var(--line)}
+.fld label{font-family:var(--disp);font-size:25px;letter-spacing:.01em}
+.fld label small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--mist);letter-spacing:.04em}
+.stp{display:flex;align-items:center;gap:8px}
+.stp button{width:40px;height:40px;border:1px solid var(--line);font-size:18px;font-weight:300;transition:.3s}
+.stp button:hover{border-color:var(--cy);color:var(--cy)}
+.stp output{min-width:44px;text-align:center;font-family:var(--disp);font-size:30px}
+.tot small{display:block;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--mist);font-weight:400}
+.tot .n{font-family:var(--disp);font-size:clamp(72px,10vw,132px);line-height:.95;margin:8px 0}
+
+/* montagna */
+.area{font-family:var(--disp);font-size:clamp(30px,3.4vw,46px);line-height:1.1}
+.pist{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pist span{border:1px solid var(--line);padding:8px 16px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
+.tlh{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));list-style:none;border-top:1px solid var(--line)}
+.tlh li{padding:26px 18px 0 0;position:relative}
+.tlh li::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--cy);transform:rotate(45deg)}
+.tlh .h{font-family:var(--disp);font-size:34px;color:var(--cy);display:block;line-height:1;margin-bottom:14px}
+.tlh b{font-size:20px}
+.tlh .it>span{font-size:14px}
+@media(max-width:1000px){.tlh{grid-template-columns:repeat(3,1fr);row-gap:34px}.tlh li:nth-child(n+4){border-top:1px solid var(--line)}}
+@media(max-width:560px){.tlh{grid-template-columns:1fr 1fr}.tlh li:nth-child(n+3){border-top:1px solid var(--line)}}
+.sos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sos>*{border:1px solid var(--line);padding:26px 24px 28px;text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:border-color .4s}
+.sos a:hover{border-color:var(--cy)}
+.sos .n{font-family:var(--disp);font-size:clamp(54px,6vw,84px);line-height:.9;color:var(--cy);margin-bottom:10px}
+.sos b{font-family:var(--disp);font-weight:400;font-size:23px;line-height:1.15}
+.sos span{font-size:14.5px;color:var(--mist)}
+@media(max-width:900px){.sos{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sos{grid-template-columns:1fr}}
+
+/* piede */
+.ft{position:relative;z-index:4;background:var(--night);color:var(--mist);padding:clamp(70px,9vw,120px) var(--pad) 130px;border-top:1px solid var(--line);overflow:hidden}
+.ft .in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,96px);font-size:13.5px;position:relative}
+.ft .nm{font-family:var(--disp);font-size:clamp(36px,4.4vw,62px);color:var(--ice);line-height:1}
+.ft .seal{display:flex;align-items:center;gap:14px;margin-top:22px;font-size:10px;letter-spacing:.26em;text-transform:uppercase}
+.ft .seal .mark{width:44px;height:44px;color:var(--cy)}
+.ft p+p{margin-top:8px}
+@media(max-width:760px){.ft .in{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<script>document.documentElement.classList.add('js');window.CFG={"slug": "bb-parodi", "nome": "B&B Parodi", "host": "Gianluca", "comune": "Auronzo di Cadore", "prov": "BL", "lat": 46.559, "lon": 12.44, "alt": 866, "zona": "dolomiti", "v": "lume"};window.DEMOS=[{slug:CFG.slug,nome:CFG.nome,host_nome:CFG.host||null,localita:CFG.comune,comune:CFG.comune}];</script>
+</head>
+<body>
+<div class="fb" aria-hidden="true"><span class="mark"></span></div>
+<div class="glows" aria-hidden="true"><i class="gl gl-c"></i><i class="gl gl-w"></i><i class="gl gl-m"></i></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<header class="hd" id="hd">
+  <a class="brand" href="#top"><span class="mark"></span><div><b>B&amp;B Parodi</b><span data-en="House guide · Winter">Guida della Casa · Inverno</span></div></a>
+  <nav aria-label="Capitoli" id="nav">
+    <a href="#neve" data-en="Snow">Neve</a><a href="#arrivo" data-en="Arrival">Arrivo</a><a href="#casa" data-en="House">Casa</a><a href="#montagna" data-en="Mountain">Montagna</a><a href="#partenza" data-en="Departure">Partenza</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Lingua / Language"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+</header>
+
+<section class="stage hero" id="top" aria-label="B&amp;B Parodi">
+  <div class="h-in">
+    <div class="h-tx capin">
+      <p class="meta tn"><span>Auronzo di Cadore · BL</span><span>866 m</span><span>Auronzo e Misurina</span></p>
+      <h1>B&amp;B Parodi</h1>
+      <dl class="keys">
+        <div><dt>Check-in</dt><dd class="tn"><span class="tbc">15:00</span></dd></div>
+        <div><dt>Check-out</dt><dd class="tn"><span class="tbc">10:00</span></dd></div>
+        <div id="k-now" hidden><dt data-en="Now outside">Fuori adesso</dt><dd class="tn" id="k-t"></dd></div>
+      </dl>
+    </div>
+    <figure class="ph h-ph" id="hph"></figure>
+  </div>
+  <span class="hint" id="hint" data-en="Drag the snowflake to turn it">Trascinate il fiocco per ruotarlo</span>
+</section>
+
+<section class="sheet rt" aria-label="Benvenuto">
+  <div class="blk split">
+    <div class="rv">
+      <p class="kick"><span class="mark"></span><span data-en="Welcome">Benvenuti</span></p>
+      <p class="lead" data-en="Welcome to &lt;em&gt;B&amp;amp;B Parodi&lt;/em&gt;, in Auronzo di Cadore. In winter you ski the Auronzo e Misurina area. In the evening, under a clear sky, the Dolomites turn pink.">Benvenuti a <em>B&amp;B Parodi</em>, a Auronzo di Cadore. D'inverno si scia sul comprensorio Auronzo e Misurina. La sera, con il cielo limpido, le Dolomiti diventano rosa.</p>
+      <p class="sig" data-en="Gianluca, your host">Gianluca, il vostro host</p>
+    </div>
+    <div class="rv">
+      <dl class="dl">
+        <div><dt data-en="Property">Struttura</dt><dd>B&amp;B</dd></div>
+        <div><dt data-en="Altitude">Quota</dt><dd class="tn">866 m</dd></div>
+        <div><dt data-en="Ski area">Comprensorio</dt><dd>Auronzo e Misurina</dd></div>
+        <div><dt data-en="National ID code">Codice CIN</dt><dd class="sm tn">IT025005C1XZ5ZNUGT</dd></div>
+      </dl>
+      <p class="demo" data-en="Demo prepared for B&amp;B Parodi. Details with a &lt;span class=&quot;tbc&quot;&gt;dashed underline&lt;/span&gt; are examples the host confirms.">Demo preparata per B&amp;B Parodi. I dati con la <span class="tbc">sottolineatura tratteggiata</span> sono esempi che l'host conferma.</p>
+    </div>
+  </div>
+  <div class="blk split flk">
+    <div class="rv draw"><span class="mark big"></span></div>
+    <div class="rv">
+      <p class="kick"><span data-en="Your snowflake">Il vostro fiocco</span></p>
+      <h2 data-en="One of a kind, &lt;i class=&quot;hl&quot;&gt;like the house&lt;/i&gt;">Unico, <i class="hl">come la casa</i></h2>
+      <p class="intro" data-en="This crystal grows from the name «B&amp;B Parodi». Every guide has its own, and no two are alike.">Questo cristallo nasce dal nome «B&amp;B Parodi». Ogni guida ha il suo, e non ce ne sono due uguali.</p>
+      <dl class="spec">
+        <div><dt data-en="Snowflake no.">Fiocco n.</dt><dd class="tn" id="sp-n"></dd></div>
+        <div><dt data-en="Shape">Forma</dt><dd id="sp-f"></dd></div>
+        <div><dt data-en="Arms · branches per arm">Bracci · rami per braccio</dt><dd class="tn">6 · <span id="sp-b"></span></dd></div>
+        <div><dt data-en="Orders of branching">Ordini di ramificazione</dt><dd class="tn" id="sp-o"></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sheet lt rb" id="neve" aria-labelledby="h-neve">
+  <div class="blk">
+    <header class="sec-h rv">
+      <p class="kick"><span class="live"><i></i><span id="live-l" data-en="Live">In diretta</span></span></p>
+      <h2 id="h-neve" data-en="The snow, &lt;i class=&quot;hl&quot;&gt;now&lt;/i&gt;">La neve, <i class="hl">adesso</i></h2>
+      <p class="intro" data-en="Weather and snow in Auronzo di Cadore at 866 m. It updates each time a guest opens the guide.">Meteo e neve a Auronzo di Cadore, a 866 metri. Si aggiorna ogni volta che l'ospite apre la guida.</p>
+    </header>
+    <div class="now">
+      <div class="rv">
+        <div class="temp tn"><span id="w-t">–</span><small>°C</small></div>
+        <p class="wx" id="w-wx" data-en="Loading the forecast">Carico le previsioni</p>
+        <p class="habit"><span class="mark"></span><span><span id="w-habit"></span> <span class="q" data-en="indicative">indicativo</span></span></p>
+      </div>
+      <dl class="stat rv">
+        <div><dt data-en="Snow on the ground">Neve al suolo</dt><dd class="tn"><span id="w-depth">–</span><small>cm</small></dd></div>
+        <div><dt data-en="Freezing level">Zero termico</dt><dd class="tn"><span id="w-fl">–</span><small>m</small></dd></div>
+        <div><dt data-en="Feels like">Percepita</dt><dd class="tn"><span id="w-feel">–</span><small>°C</small></dd></div>
+        <div><dt data-en="Wind">Vento</dt><dd class="tn"><span id="w-wind">–</span><small>km/h</small></dd></div>
+      </dl>
+    </div>
+    <div class="days rv" id="w-days"></div>
+    <p class="src"><span data-en="Weather data">Dati meteo</span>: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0). <span data-en="Model forecast, not an official bulletin.">Previsione da modello, non è un bollettino ufficiale.</span> <span id="wx-note"></span></p>
+  </div>
+</section>
+
+<section class="stage" id="arrivo" aria-labelledby="c-arrivo">
+  <div class="cap"><div class="capin">
+    <p class="eyebrow"><span class="rn">I</span><span data-en="Arrival">L'arrivo</span></p>
+    <h2 id="c-arrivo" data-en="Up here the road &lt;i class=&quot;hl&quot;&gt;matters&lt;/i&gt;">Quassù la strada <i class="hl">conta</i></h2>
+    <p class="sub" data-en="The last kilometres, with snow in the headlights.">Gli ultimi chilometri, con la neve nei fari.</p>
+  </div></div>
+</section>
+
+<section class="sheet rt rb">
+  <div class="blk">
+    <header class="sec-h rv">
+      <p class="kick"><span class="no">01</span><span data-en="Before you leave">Prima di partire</span></p>
+      <h2 data-en="The car, &lt;i class=&quot;hl&quot;&gt;ready&lt;/i&gt;">L'auto, <i class="hl">pronta</i></h2>
+      <p class="intro" data-en="On many mountain roads, from 15 November to 15 April you need winter tyres or snow chains on board.">Su molte strade di montagna, dal 15 novembre al 15 aprile servono gomme invernali o catene a bordo.</p>
+    </header>
+    <ul class="cards chk rv" id="chk">
+      <li><label><input type="checkbox" id="ck1"><span><b data-en="Winter tyres or chains on board">Gomme invernali o catene a bordo</b><small data-en="Fit the chains once at home. On a hairpin bend it is harder.">Montate le catene una volta a casa. Sul tornante è più difficile.</small></span></label></li>
+      <li><label><input type="checkbox" id="ck2"><span><b data-en="Full tank, antifreeze screen wash">Pieno e liquido lavavetri antigelo</b><small data-en="In the valleys petrol stations close early.">Nelle valli i distributori chiudono presto.</small></span></label></li>
+      <li><label><input type="checkbox" id="ck3"><span><b data-en="Snow brush and scraper">Spazzola e raschietto</b><small data-en="In the morning the car may be under 20 cm of snow.">Al mattino l'auto può essere sotto 20 cm di neve.</small></span></label></li>
+      <li><label><input type="checkbox" id="ck4"><span><b data-en="Arrival time sent to the host">Orario di arrivo comunicato</b><small data-en="We clear the drive and turn the heating on.">Liberiamo il vialetto e accendiamo il riscaldamento.</small></span></label></li>
+    </ul>
+    <p class="ready" id="ready" aria-live="polite"></p>
+  </div>
+  <div class="blk split">
+    <header class="rv">
+      <p class="kick"><span class="no">02</span><span data-en="The last stretch">L'ultimo tratto</span></p>
+      <h2 data-en="To the &lt;i class=&quot;hl&quot;&gt;door&lt;/i&gt;">Fino alla <i class="hl">porta</i></h2>
+    </header>
+    <ul class="rows num rv">
+      <li><span class="n">I</span><div class="it"><b data-en="Address">Indirizzo</b><span>Via Padova - Loc. Villapiccola 7, Auronzo di Cadore (BL)</span></div></li>
+      <li><span class="n">II</span><div class="it"><b data-en="The road">La strada</b><span><span class="tbc" data-en="The host describes the junction, whether the road is cleared early and where to stop to fit chains.">L'host descrive il bivio, se la strada viene pulita presto e dove fermarsi per montare le catene.</span></span></div></li>
+      <li><span class="n">III</span><div class="it"><b data-en="Parking with snow">Parcheggio con la neve</b><span><span class="tbc" data-en="Where to leave the car so the snow plough can pass.">Dove lasciare l'auto per far passare lo spazzaneve.</span></span></div></li>
+      <li><span class="n">IV</span><div class="it"><b data-en="After dark">Con il buio</b><span><span class="tbc" data-en="Outside light, key box or meeting point.">Luce esterna, cassetta delle chiavi o punto d'incontro.</span></span></div></li>
+    </ul>
+  </div>
+  <div class="blk">
+    <header class="sec-h rv">
+      <p class="kick"><span class="no">03</span><span>Check-in</span></p>
+      <h2 data-en="Before the keys, &lt;i class=&quot;hl&quot;&gt;two minutes&lt;/i&gt;">Prima delle chiavi, <i class="hl">due minuti</i></h2>
+      <p class="intro" data-en="Identifying every guest is required by law.">Il riconoscimento di ogni ospite è obbligatorio per legge.</p>
+    </header>
+    <div class="tri rv">
+      <div><span class="n">1</span><h3 data-en="Documents">Documenti</h3><p data-en="Before arrival, send an ID for every guest, children included.">Prima dell'arrivo mandate un documento d'identità per ogni ospite, bambini compresi.</p></div>
+      <div><span class="n">2</span><h3 data-en="In person">Di persona</h3><p data-en="The host checks them with you on arrival, or on a short video call if you arrive late.">L'host li confronta con voi all'arrivo, o con una breve videochiamata se arrivate tardi.</p></div>
+      <div><span class="n">3</span><h3 data-en="Keys">Chiavi</h3><p data-en="Only then do you receive keys or access codes.">Solo dopo ricevete chiavi o codici d'accesso.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage gal" id="casa" aria-labelledby="c-casa">
+  <div class="g-in">
+    <header class="g-h">
+      <p class="eyebrow"><span class="rn">II</span><span data-en="The house">La casa</span></p>
+      <h2 id="c-casa" data-en="Warm inside, &lt;i class=&quot;hl&quot;&gt;white&lt;/i&gt; outside">Caldo dentro, <i class="hl">bianco</i> fuori</h2>
+      <p class="sub"><span class="nog" data-en="Seen from the window, with the fire lit.">Visto dalla finestra, con il fuoco acceso.</span><span class="wig" data-en="The rooms, as you will find them.">Le camere, come le troverete.</span></p>
+    </header>
+    <div class="g-grid" id="gal"></div>
+  </div>
+</section>
+
+<section class="sheet rt">
+  <div class="blk split">
+    <header class="rv">
+      <p class="kick"><span class="no">04</span><span data-en="The rooms">Gli ambienti</span></p>
+      <h2 data-en="Where you &lt;i class=&quot;hl&quot;&gt;stay&lt;/i&gt;">Dove <i class="hl">state</i></h2>
+    </header>
+    <div class="rv">
+      <div class="figure"><span class="n tn">2</span><span class="l" data-en="rooms&lt;br&gt;4 beds">camere<br>4 posti letto</span></div>
+      <ul class="rows">
+        <li class="it"><b data-en="Rooms and beds">Camere e letti</b><span><span class="tbc" data-en="The host lists rooms, beds and bathrooms.">L'host elenca camere, letti e bagni.</span></span></li>
+        <li class="it"><b data-en="Heating">Riscaldamento</b><span><span class="tbc" data-en="Stove, fireplace or underfloor: how to set it.">Stufa, camino o a pavimento: come si regola.</span></span></li>
+        <li class="it"><b data-en="Ski and boot room">Deposito sci e scarponi</b><span><span class="tbc" data-en="Where it is and whether there is a boot dryer.">Dove si trova e se c'è lo scaldascarponi.</span></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="blk split tyb">
+    <header class="rv">
+      <p class="kick"><span class="mark"></span><span data-en="Breakfast">La colazione</span></p>
+      <h2 data-en="Mornings, &lt;i class=&quot;hl&quot;&gt;slowly&lt;/i&gt;">Il mattino, <i class="hl">con calma</i></h2>
+    </header>
+    <div class="rv"><ul class="rows"><li class="it"><b data-en="Hours">Orario</b><span><span class="tbc" data-en="From 7:30 to 10:00, in the breakfast room.">Dalle 7:30 alle 10:00, nella sala comune.</span></span></li><li class="it"><b data-en="On the table">In tavola</b><span><span class="tbc" data-en="Home-made cakes, bread, butter and jams, local cheese.">Torte fatte in casa, pane, burro e marmellate, formaggi della zona.</span></span></li><li class="it"><b data-en="Allergies">Intolleranze</b><span><span class="tbc" data-en="Tell us the night before: we prepare gluten-free or lactose-free.">Ditecelo la sera prima: prepariamo senza glutine o senza lattosio.</span></span></li><li class="it"><b data-en="Before the slopes">Prima delle piste</b><span><span class="tbc" data-en="Leaving early? A thermos of hot tea on request.">Per chi parte presto: thermos di tè caldo su richiesta.</span></span></li></ul></div>
+  </div>
+  <div class="blk split">
+    <header class="rv">
+      <p class="kick"><span class="no">05</span><span>Wi-Fi</span></p>
+      <h2 data-en="Connected">Connessi</h2>
+    </header>
+    <div class="rv">
+      <dl class="rows">
+        <li class="wf" style="list-style:none"><div><dt data-en="Network">Rete</dt><dd><span class="tbc">Parodi_Ospiti</span></dd></div><button class="copy" type="button" data-c="Parodi_Ospiti" data-en="Copy">Copia</button></li>
+        <li class="wf" style="list-style:none"><div><dt>Password</dt><dd><span class="tbc">neve2027</span></dd></div><button class="copy" type="button" data-c="neve2027" data-en="Copy">Copia</button></li>
+      </dl>
+      <p class="src" data-en="Example network and password. The host replaces them with the real ones.">Rete e password di esempio. L'host le sostituisce con quelle vere.</p>
+    </div>
+  </div>
+</section>
+<section class="sheet s2 rb">
+  <div class="blk">
+    <header class="sec-h rv">
+      <p class="kick"><span class="no">06</span><span data-en="House rules">Regole della casa</span></p>
+      <h2 data-en="Few, &lt;i class=&quot;hl&quot;&gt;mountain&lt;/i&gt; ones">Poche, <i class="hl">di montagna</i></h2>
+      <p class="intro"><span data-en="An example the host adapts to the house.">Un esempio che l'host adatta alla casa.</span> <span class="q" data-en="to be confirmed">da confermare</span></p>
+    </header>
+    <ul class="rules rv">
+      <li><svg viewBox="0 0 32 32"><path d="M10 4v22M22 4v22M7 23c2 3 4 3 6 0M19 23c2 3 4 3 6 0"/></svg><div class="it"><b data-en="Boots stay in the ski room">Scarponi nel deposito</b><span data-en="Wet boots and skis do not go into the rooms.">Scarponi e sci bagnati non entrano in camera.</span></div></li>
+      <li><svg viewBox="0 0 32 32"><path d="M16 4c3 5 7 7 7 13a7 7 0 0 1-14 0c0-3 2-5 3-7 1 3 3 3 4 2-1-3-1-5 0-8z"/></svg><div class="it"><b data-en="Stove and fireplace">Stufa e camino</b><span><span class="tbc" data-en="How to light it, where the wood is.">Come si accende, dov'è la legna.</span></span></div></li>
+      <li><svg viewBox="0 0 32 32"><path d="M24 20.5A10 10 0 0 1 11.5 8a10 10 0 1 0 12.5 12.5z"/></svg><div class="it"><b><span data-en="Quiet from">Silenzio dalle</span> <span class="tbc tn">22:00</span> <span data-en="to">alle</span> <span class="tbc tn">8:00</span></b><span data-en="Up here the night is silent.">Quassù la notte è silenziosa.</span></div></li>
+      <li><svg viewBox="0 0 32 32"><rect x="4" y="17" width="20" height="5" rx="1"/><path d="M27 17v5M24 9c0 3 3 3 3 6M5 5l22 22"/></svg><div class="it"><b data-en="No smoking indoors">Non si fuma in casa</b><span data-en="In every indoor room.">In tutti gli ambienti interni.</span></div></li>
+      <li><svg viewBox="0 0 32 32"><path d="M5 26h22M8 26V13l8-7 8 7v13M13 26v-7h6v7"/></svg><div class="it"><b data-en="If it snows at night">Se nevica di notte</b><span><span class="tbc" data-en="Who clears the drive, where the shovel is.">Chi pulisce il vialetto, dov'è la pala.</span></span></div></li>
+      <li><svg viewBox="0 0 32 32"><circle cx="12" cy="11" r="4"/><path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="22.5" cy="12" r="3"/><path d="M21 18.2c3.9-.6 7 2.6 7 6.8"/></svg><div class="it"><b data-en="Registered guests only">Solo ospiti registrati</b><span data-en="Only people registered on arrival sleep in the house.">Dorme in casa solo chi è registrato all'arrivo.</span></div></li>
+    </ul>
+  </div>
+  <div class="blk" id="imposta">
+    <header class="sec-h rv">
+      <p class="kick"><span class="no">07</span><span data-en="Tourist tax">Imposta di soggiorno</span></p>
+      <h2 data-en="Already &lt;i class=&quot;hl&quot;&gt;worked out&lt;/i&gt;">Già <i class="hl">calcolata</i></h2>
+      <p class="intro" data-en="The Municipality of Auronzo di Cadore may charge a tax per person per night, paid at the property.">Il Comune di Auronzo di Cadore può applicare un'imposta per persona e per notte, da pagare in struttura.</p>
+    </header>
+    <div class="calc rv">
+      <div>
+        <div class="fld"><label for="c-n" data-en="Nights">Notti</label><div class="stp"><button type="button" data-st="n" data-d="-1" aria-label="−">−</button><output id="c-n" class="tn">3</output><button type="button" data-st="n" data-d="1" aria-label="+">+</button></div></div>
+        <div class="fld"><label for="c-g"><span data-en="Guests">Ospiti</span><small data-en="subject to the tax">soggetti all'imposta</small></label><div class="stp"><button type="button" data-st="g" data-d="-1" aria-label="−">−</button><output id="c-g" class="tn">2</output><button type="button" data-st="g" data-d="1" aria-label="+">+</button></div></div>
+        <p class="src"><span data-en="Example rate">Tariffa di esempio</span> <span class="tbc tn">1,50 €</span>. <span data-en="The host confirms rate, exemptions and maximum nights.">L'host conferma tariffa, esenzioni e notti massime.</span></p>
+      </div>
+      <div class="tot"><small data-en="To pay at the property">Da pagare in struttura</small><div class="n tn" id="c-t">9,00 €</div><small class="tn" id="c-x"></small></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" id="montagna" aria-labelledby="c-montagna">
+  <div class="cap"><div class="capin">
+    <p class="eyebrow"><span class="rn">III</span><span data-en="The mountain">La montagna</span></p>
+    <h2 id="c-montagna" data-en="From the door &lt;i class=&quot;hl&quot;&gt;to the slopes&lt;/i&gt;">Dalla porta <i class="hl">alle piste</i></h2>
+    <p class="sub">Auronzo e Misurina</p>
+  </div></div>
+</section>
+
+<section class="sheet rt">
+  <div class="blk split">
+    <header class="rv">
+      <p class="kick"><span class="no">08</span><span data-en="Skiing">Sci</span></p>
+      <h2 data-en="The &lt;i class=&quot;hl&quot;&gt;slopes&lt;/i&gt; nearby">Le <i class="hl">piste</i> vicine</h2>
+      <p class="intro"><span data-en="The ski areas closest to Auronzo di Cadore.">I comprensori più vicini a Auronzo di Cadore.</span> <span class="q" data-en="to be confirmed">da confermare</span></p>
+    </header>
+    <div class="rv">
+      <p class="area">Auronzo e Misurina</p>
+      <div class="pist"><span>Monte Agudo</span><span>Misurina</span></div>
+      <ul class="rows" style="margin-top:34px">
+        <li class="it"><b data-en="Cross-country">Sci di fondo</b><span>Misurina e Val d'Ansiei</span></li>
+        <li class="it"><b data-en="Ski bus">Skibus</b><span><span class="tbc" data-en="Nearest stop and timetable.">Fermata più vicina e orari.</span></span></li>
+        <li class="it"><b data-en="Rental and ski school">Noleggio e scuola sci</b><span><span class="tbc" data-en="Who we recommend, and any discount for guests.">Chi consigliamo e l'eventuale sconto per gli ospiti.</span></span></li>
+        <li class="it"><b>Skipass</b><span><span class="tbc" data-en="Where to buy it and how far the lifts are.">Dove si compra e quanto distano gli impianti.</span></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="blk">
+    <header class="sec-h rv">
+      <p class="kick"><span class="no">09</span><span data-en="A day on the snow">Una giornata sulla neve</span></p>
+      <h2 data-en="From breakfast &lt;i class=&quot;hl&quot;&gt;to the last run&lt;/i&gt;">Dalla colazione <i class="hl">all'ultima discesa</i></h2>
+    </header>
+    <ul class="tlh rv">
+      <li><span class="h tn">8:00</span><div class="it"><b data-en="Breakfast">Colazione</b><span><span class="tbc" data-en="What we serve, or the bakery we recommend.">Cosa serviamo, o il panificio che consigliamo.</span></span></div></li>
+      <li><span class="h tn">8:45</span><div class="it"><b data-en="First lifts">Primi impianti</b><span data-en="Freshly groomed slopes and no queues.">Piste appena battute e niente code.</span></div></li>
+      <li><span class="h tn">12:30</span><div class="it"><b data-en="Lunch at the hut">Pranzo in rifugio</b><span><span class="tbc" data-en="The host's favourite hut and the dish to order.">Il rifugio preferito dell'host e il piatto da ordinare.</span></span></div></li>
+      <li><span class="h tn">15:30</span><div class="it"><b data-en="Last run">Ultima discesa</b><span data-en="Lifts close around 16:30. Come back with daylight.">Gli impianti chiudono verso le 16:30. Rientrate con la luce.</span></div></li>
+      <li><span class="h tn">17:00</span><div class="it"><b data-en="Alpenglow">Enrosadira</b><span data-en="Step outside and look at the peaks. For a few minutes the rock turns pink.">Uscite a guardare le cime. Per pochi minuti la roccia diventa rosa.</span></div></li>
+      <li><span class="h tn">20:00</span><div class="it"><b data-en="Dinner">Cena</b><span><span class="tbc" data-en="Two or three places nearby, with the dishes of the valley.">Due o tre posti vicini, con i piatti della valle.</span></span></div></li>
+    </ul>
+  </div>
+</section>
+<section class="sheet s2 rb" id="sos">
+  <div class="blk">
+    <header class="sec-h rv">
+      <p class="kick"><span class="no">10</span><span data-en="Emergency">Emergenze</span></p>
+      <h2 data-en="In the mountains, &lt;i class=&quot;hl&quot;&gt;better to know&lt;/i&gt;">In montagna, <i class="hl">meglio saperlo</i></h2>
+    </header>
+    <div class="sos rv">
+      <a href="tel:112"><span class="n tn">112</span><b data-en="Emergency number">Numero di emergenza</b><span data-en="Medical, fire brigade, police.">Soccorso sanitario, vigili del fuoco, forze dell'ordine.</span></a>
+      <a href="tel:118"><span class="n tn">118</span><b data-en="Rescue on the slopes">Soccorso in pista</b><span data-en="Say where you are and the name of the slope.">Dite dove siete e il nome della pista.</span></a>
+      <a href="https://www.aineva.it/" target="_blank" rel="noopener"><span class="n">A</span><b data-en="Avalanche bulletin">Bollettino valanghe</b><span data-en="AINEVA. Read it before any off-piste outing.">AINEVA. Da leggere prima di ogni fuoripista.</span></a>
+      <div><span class="n">H</span><b data-en="The host">L'host</b><span><span data-en="Mobile number for anything about the house.">Cellulare per tutto ciò che riguarda la casa.</span> <span class="q" data-en="to be confirmed">da confermare</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage" id="partenza" aria-labelledby="c-partenza">
+  <div class="cap"><div class="capin">
+    <p class="eyebrow"><span class="rn">IV</span><span data-en="Departure">La partenza</span></p>
+    <h2 id="c-partenza" data-en="Before going &lt;i class=&quot;hl&quot;&gt;down to the valley&lt;/i&gt;">Prima di scendere <i class="hl">a valle</i></h2>
+    <p class="sub" data-en="The snowflake melts. The next guest's will grow again.">Il fiocco si scioglie. Per il prossimo ospite tornerà a crescere.</p>
+  </div></div>
+</section>
+
+<section class="sheet rt">
+  <div class="blk split">
+    <header class="rv">
+      <p class="kick"><span class="no">11</span><span>Check-out</span></p>
+      <h2><span data-en="By">Entro le</span> <i class="hl tn"><span class="tbc">10:00</span></i></h2>
+    </header>
+    <ul class="rows num rv">
+      <li><span class="n">I</span><div class="it"><b data-en="Keys back in place">Chiavi al loro posto</b><span data-en="Leave them where you found them.">Lasciatele dove le avete trovate.</span></div></li>
+      <li><span class="n">II</span><div class="it"><b data-en="Heating on low, not off">Riscaldamento al minimo, non spento</b><span data-en="At this altitude pipes can freeze.">A questa quota le tubature possono gelare.</span></div></li>
+      <li><span class="n">III</span><div class="it"><b data-en="Windows closed, stove out">Finestre chiuse, stufa spenta</b><span data-en="Ashes cold before they go in the bin.">La cenere fredda, prima di buttarla.</span></div></li>
+      <li><span class="n">IV</span><div class="it"><b data-en="Ski room empty">Deposito sci vuoto</b><span data-en="Skis, poles, gloves. Count them twice.">Sci, bastoncini, guanti. Contateli due volte.</span></div></li>
+      <li><span class="n">V</span><div class="it"><b data-en="A review, if you liked it">Una recensione, se vi è piaciuto</b><span data-en="It helps a small house more than you think.">Aiuta una piccola struttura più di quanto pensiate.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="in">
+    <div>
+      <p class="nm">B&amp;B Parodi</p>
+      <p class="seal"><span class="mark"></span><span><span data-en="Snowflake no.">Fiocco n.</span> <span class="tn" id="ft-n"></span></span></p>
+    </div>
+    <div>
+      <p>Via Padova - Loc. Villapiccola 7, Auronzo di Cadore (BL) · CIN IT025005C1XZ5ZNUGT</p>
+      <p data-en="Demo prepared for B&amp;B Parodi. Underlined details are examples the host confirms.">Demo preparata per B&amp;B Parodi. I dati sottolineati sono esempi che l'host conferma.</p>
+      <p data-en="Public data from the Veneto Region register of accommodation (open data, CC BY 4.0). Weather: Open-Meteo. Photos from the property's public listing, used for this preview only.">Dati pubblici dall'elenco delle strutture ricettive della Regione del Veneto (open data, CC BY 4.0). Meteo: Open-Meteo. Foto dalla scheda pubblica della struttura, usate solo per questa anteprima.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+var C=window.CFG,D=document,de=D.documentElement,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s){return D.querySelector(s)},$$=function(s){return [].slice.call(D.querySelectorAll(s))};
+var VV=C.v||'lume',MOB=Math.min(innerWidth,innerHeight)<700,DOL=C.zona==='dolomiti';
+var LANG='it',T_=function(it,en){return LANG==='en'?en:it},LOC=function(){return LANG==='en'?'en-GB':'it-IT'};
+function fmt(n,d){return(n==null||isNaN(n))?'–':Number(n).toLocaleString(LOC(),{maximumFractionDigits:d||0}).replace('-','−')}
+function cl(x){return x<0?0:x>1?1:x}
+function ss(a,b,x){var t=cl((x-a)/(b-a));return t*t*(3-2*t)}
+function lerp(a,b,t){return a+(b-a)*t}
+
+/* =====================================================================
+   IL FIOCCO: generato dal nome-corto. Stessa struttura, stesso cristallo.
+   ===================================================================== */
+var seed=2166136261;for(var q=0;q<C.slug.length;q++){seed^=C.slug.charCodeAt(q);seed=Math.imul(seed,16777619)}seed>>>=0;
+var sd=seed;function rnd(){sd|=0;sd=sd+0x6D2B79F5|0;var t=Math.imul(sd^sd>>>15,1|sd);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
+function genFlake(){
+  var bars=[],hexes=[],i,k;
+  var type=Math.floor(rnd()*4),nB=3+Math.floor(rnd()*3),w0=.05+rnd()*.02,Lmax=.34+rnd()*.14,tip=Math.floor(rnd()*3),r0=.12+rnd()*.07,sect=rnd()<.42,nodes=rnd()<.55;
+  if(VV==='malga'){sect=true;type=type%2?3:1;w0*=1.12;r0+=.02}else if(VV==='quota'){nodes=false;w0*=.8;Lmax*=.86;tip=2;type=type===3?2:type}else{type=type===3?0:type;nodes=true}
+  bars.push({a:[0,0],b:[tip===1?.94:1,0],w0:w0,w1:w0*.4,h:.07,o:0});
+  var ts=[];for(i=0;i<nB;i++)ts.push(.27+(i+.5+(rnd()-.5)*.45)*(.64/nB));
+  var maxSub=0;
+  ts.forEach(function(t,i){
+    var u=(t-.27)/.64,env=type===0?Math.sin(u*Math.PI)*.85+.28:type===1?1.05-u*.78:type===2?(u<.66?.36+u*.97:1-(u-.66)*2.5):(i%2?.5:1)*(1-.28*u);
+    var L=Math.min(t*.8,Lmax*Math.max(.24,env)),bw=w0*.7*(.72+.28*L/Lmax);
+    var gapN=(i<nB-1?ts[i+1]-t:.3)*.78,gapP=(i>0?t-ts[i-1]:t-r0)*.7;
+    var subs=[];if(L>.16){var ns=L>.29?2:1;for(k=0;k<ns;k++)subs.push([.36+k*.3+rnd()*.08,.34+rnd()*.14])}
+    if(subs.length>maxSub)maxSub=subs.length;
+    [1,-1].forEach(function(s){
+      var cx=.5,sy=.8660254*s,ex=t+cx*L,ey=sy*L;
+      bars.push({a:[t,0],b:[ex,ey],w0:bw,w1:bw*.4,h:.052,o:1});
+      subs.forEach(function(sb){var f=sb[0],px=t+cx*L*f,py=sy*L*f,l1=Math.min(gapN,L*sb[1]*(1-f*.45)),l2=Math.min(gapP,l1*.62);
+        bars.push({a:[px,py],b:[px+l1,py],w0:bw*.62,w1:bw*.25,h:.036,o:2});
+        bars.push({a:[px,py],b:[px-.5*l2,py+sy*l2],w0:bw*.55,w1:bw*.22,h:.032,o:2})});
+    });
+    if(nodes)hexes.push({c:[t,0],r:bw*1.75,h:.078,o:1});
+  });
+  if(tip===1)hexes.push({c:[1,0],r:.062+rnd()*.03,h:.06,o:0});
+  if(tip===2)[1,-1].forEach(function(s){bars.push({a:[.9,0],b:[.9+.5*.1,.866*s*.1],w0:w0*.5,w1:w0*.2,h:.04,o:1})});
+  if(sect)bars.push({a:[r0*.4,0],b:[.2+rnd()*.1,0],w0:.105,w1:.03,h:.05,o:3});
+  return{bars:bars,hexes:hexes,r0:r0,type:type,nB:nB,orders:maxSub?3:2,sect:sect,tip:tip};
+}
+var FL=genFlake();
+function rot2(p,a){var c=Math.cos(a),s=Math.sin(a);return[p[0]*c-p[1]*s,p[0]*s+p[1]*c]}
+/* stemma in SVG, dallo stesso cristallo */
+function emblem(){var p='',k,a;for(k=0;k<6;k++){a=k*Math.PI/3;FL.bars.forEach(function(b){if(b.o===3)return;var A=rot2(b.a,a),B=rot2(b.b,a);p+='<path pathLength="1" d="M'+A[0].toFixed(3)+' '+A[1].toFixed(3)+'L'+B[0].toFixed(3)+' '+B[1].toFixed(3)+'" stroke-width="'+(b.o===0?.085:b.o===1?.062:.044)+'"/>'})}
+  var hx='';for(k=0;k<6;k++){var v=rot2([FL.r0,0],k*Math.PI/3);hx+=(k?'L':'M')+v[0].toFixed(3)+' '+v[1].toFixed(3)}
+  return '<svg viewBox="-1.12 -1.12 2.24 2.24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">'+p+'<path pathLength="1" d="'+hx+'Z" stroke-width=".06"/></g></svg>'}
+var EMB=emblem();$$('.mark').forEach(function(e){e.innerHTML=EMB});
+$$('.draw path').forEach(function(p,i){var d=p.getAttribute('d'),m=/M(-?[\d.]+) (-?[\d.]+)/.exec(d),r=m?Math.hypot(+m[1],+m[2]):0;p.style.transitionDelay=(r*1.5).toFixed(2)+'s'});
+try{var ic=D.createElement('link');ic.rel='icon';ic.href='data:image/svg+xml,'+encodeURIComponent(EMB.replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" style="color:#9fd8ee;background:#070b12" '));D.head.appendChild(ic)}catch(e){}
+var FORM=[['Dendrite stellare','Stellar dendrite'],['Stella a felce','Fern-like star'],['Stella a corona','Crowned star'],['Dendrite alternata','Alternating dendrite']];
+function specs(){var sn=seed.toLocaleString('it-IT').replace(/\./g,' ');$('#sp-n').textContent=sn;$('#ft-n').textContent=sn;$('#sp-b').textContent=FL.nB*2;$('#sp-o').textContent=FL.orders;$('#sp-f').textContent=T_(FORM[FL.type][0],FORM[FL.type][1])+(FL.sect?T_(' con piastre',' with plates'):'')}
+
+/* ---------- lingua ---------- */
+function setLang(l){LANG=l;de.lang=l;$$('[data-en]').forEach(function(e){if(e.dataset.it==null)e.dataset.it=e.innerHTML;e.innerHTML=l==='en'?e.dataset.en:e.dataset.it});$$('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});try{localStorage.setItem('fiocco-l',l)}catch(e){}renderWx();upReady();calc();specs()}
+$$('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+
+/* ---------- testata, rivelazioni ---------- */
+var hd=$('#hd'),stages=$$('.stage');
+function hdState(){var over=false,lt=false,i,r;for(i=0;i<stages.length;i++){r=stages[i].getBoundingClientRect();if(r.top<56&&r.bottom>56){over=!((i===0&&heroOk&&r.top<-40)||(stages[i].id==='casa'&&gis.length>0));break}}if(!over){var ls=$$('.sheet.lt');for(i=0;i<ls.length;i++){r=ls[i].getBoundingClientRect();if(r.top<56&&r.bottom>56){lt=true;break}}}hd.classList.toggle('solid',!over);hd.classList.toggle('lth',lt)}
+var secs=$$('#nav a').map(function(a){return [a,D.getElementById(a.getAttribute('href').slice(1))]});
+if('IntersectionObserver' in window){
+  var nio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)secs.forEach(function(p){p[0].classList.toggle('on',p[1]===e.target)})})},{rootMargin:'-45% 0px -50% 0px'});secs.forEach(function(p){p[1]&&nio.observe(p[1])});
+  var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}})},{rootMargin:'0px 0px -7% 0px'});$$('.rv').forEach(function(e){rio.observe(e)});
+}else $$('.rv').forEach(function(e){e.classList.add('in')});
+setTimeout(function(){$$('.rv').forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in')})},2200);
+
+/* ---------- meteo ---------- */
+var WX=null,snowAmt=.45,PREVIEW=!/github\.io$/.test(location.hostname);
+var CODES={0:['Sereno','Clear sky'],1:['Poco nuvoloso','Mostly clear'],2:['Nuvoloso a tratti','Partly cloudy'],3:['Coperto','Overcast'],45:['Nebbia','Fog'],48:['Nebbia con brina','Rime fog'],51:['Pioviggine','Drizzle'],53:['Pioviggine','Drizzle'],55:['Pioviggine intensa','Heavy drizzle'],56:['Pioviggine gelata','Freezing drizzle'],57:['Pioviggine gelata','Freezing drizzle'],61:['Pioggia debole','Light rain'],63:['Pioggia','Rain'],65:['Pioggia forte','Heavy rain'],66:['Pioggia gelata','Freezing rain'],67:['Pioggia gelata','Freezing rain'],71:['Neve debole','Light snow'],73:['Nevica','Snowing'],75:['Nevicata forte','Heavy snow'],77:['Granelli di neve','Snow grains'],80:['Rovesci','Showers'],81:['Rovesci','Showers'],82:['Rovesci forti','Heavy showers'],85:['Rovesci di neve','Snow showers'],86:['Forti rovesci di neve','Heavy snow showers'],95:['Temporale','Thunderstorm'],96:['Temporale con grandine','Thunderstorm with hail'],99:['Temporale con grandine','Thunderstorm with hail']};
+function cd(c){var x=CODES[c]||['–','–'];return T_(x[0],x[1])}
+/* forma dei cristalli secondo la temperatura (diagramma di Nakaya, indicativo) */
+function habit(t){if(t>0)return T_('Sopra lo zero la neve si bagna e i cristalli si arrotondano.','Above freezing the snow gets wet and crystals round off.');if(t>-4)return T_('Tra 0 e −4 °C crescono soprattutto piastrine sottili.','Between 0 and −4 °C mostly thin plates grow.');if(t>-10)return T_('Tra −4 e −10 °C crescono aghi e colonne.','Between −4 and −10 °C needles and columns grow.');if(t>-22)return T_('Tra −10 e −22 °C crescono le stelle a sei rami, come il vostro fiocco.','Between −10 and −22 °C six-armed stars grow, like your snowflake.');return T_('Sotto i −22 °C crescono colonne e piastre spesse.','Below −22 °C columns and thick plates grow.')}
+function renderWx(){if(!WX)return;var cur=WX.current,h=WX.hourly,now=Date.now(),idx=0,i;
+  for(i=0;i<h.time.length;i++){if(new Date(h.time[i]).getTime()<=now)idx=i}
+  $('#w-t').textContent=fmt(cur.temperature_2m);$('#w-wx').textContent=cd(cur.weather_code);
+  $('#w-feel').textContent=fmt(cur.apparent_temperature);$('#w-wind').textContent=fmt(cur.wind_speed_10m);
+  var dep=h.snow_depth[idx];$('#w-depth').textContent=fmt(dep==null?null:dep*100);
+  var fl=h.freezing_level_height[idx];$('#w-fl').textContent=fmt(fl);
+  $('#w-habit').textContent=habit(cur.temperature_2m);
+  var dd=WX.daily,html='';for(i=1;i<4&&i<dd.time.length;i++){var dt=new Date(dd.time[i]+'T12:00');html+='<div class="day"><b>'+dt.toLocaleDateString(LOC(),{weekday:MOB?'short':'long',day:'numeric'})+'</b><span class="c">'+cd(dd.weather_code[i])+'</span><span class="t tn">'+fmt(dd.temperature_2m_min[i])+'° / '+fmt(dd.temperature_2m_max[i])+'°</span><span class="s tn">'+(dd.snowfall_sum[i]>0?T_('Neve fresca ','Fresh snow ')+fmt(dd.snowfall_sum[i],1)+' cm':T_('Nessuna nevicata','No snowfall'))+'</span></div>'}
+  $('#w-days').innerHTML=html;
+  $('#k-now').hidden=!!WX.sample;$('#k-t').textContent=fmt(cur.temperature_2m)+'°';
+  if(WX.sample){$('#live-l').textContent=T_('Valori di esempio','Example values');$('#neve').classList.add('smp');$('#wx-note').textContent=T_('Nell\'anteprima il meteo dal vivo non è raggiungibile: questi valori sono un esempio. Online la sezione mostra i dati reali.','Live weather cannot be reached in this preview: these values are an example. Online the section shows real data.')}
+}
+function sampleWx(){var d=Date.now(),ds=function(k){return new Date(d+k*86400000).toISOString().slice(0,10)};return{sample:true,current:{temperature_2m:-12,apparent_temperature:-17,weather_code:73,wind_speed_10m:11,snowfall:.6},hourly:{time:[new Date(d-60000).toISOString()],snow_depth:[DOL?.84:.46],freezing_level_height:[Math.max(200,Math.round((C.alt-900)/10)*10)]},daily:{time:[ds(0),ds(1),ds(2),ds(3)],weather_code:[73,71,2,0],temperature_2m_max:[-6,-5,-2,0],temperature_2m_min:[-14,-13,-11,-9],snowfall_sum:[9,14,0,0]}}}
+function getWx(){var u='https://api.open-meteo.com/v1/forecast?latitude='+C.lat+'&longitude='+C.lon+'&elevation='+C.alt+'&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,snowfall&hourly=snow_depth,freezing_level_height&daily=weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Europe%2FRome&forecast_days=4';
+  fetch(u).then(function(r){return r.json()}).then(function(j){if(!j.current)throw 0;WX=j;var code=j.current.weather_code;snowAmt=(j.current.snowfall>0||[71,73,75,77,85,86].indexOf(code)>=0)?1:(code>=3?.5:.28);renderWx();try{sessionStorage.setItem('wx-'+C.slug,JSON.stringify([Date.now(),j]))}catch(e){}})
+  .catch(function(){if(PREVIEW){WX=sampleWx();snowAmt=1;renderWx()}else{$('#neve').classList.add('nowx');$('#w-wx').textContent=T_('Previsioni non disponibili in questo momento.','Forecast not available right now.')}})}
+try{var cch=JSON.parse(sessionStorage.getItem('wx-'+C.slug)||'null');if(cch&&Date.now()-cch[0]<900000)WX=cch[1]}catch(e){}
+
+/* ---------- lista auto, copia, imposta ---------- */
+var boxes=$$('#chk input');
+function upReady(){var n=boxes.filter(function(b){return b.checked}).length;$('#ready').innerHTML=n===boxes.length?'<b>'+T_('Pronti per salire','Ready to drive up')+'</b>':n+' / '+boxes.length;try{localStorage.setItem('chk-'+C.slug,JSON.stringify(boxes.map(function(b){return b.checked})))}catch(e){}}
+try{var sv=JSON.parse(localStorage.getItem('chk-'+C.slug)||'[]');boxes.forEach(function(b,i){b.checked=!!sv[i]})}catch(e){}
+boxes.forEach(function(b){b.addEventListener('change',upReady)});
+$$('.copy').forEach(function(b){b.addEventListener('click',function(){var v=b.dataset.c,done=function(){b.classList.add('ok');var o=b.innerHTML;b.innerHTML=T_('Copiato','Copied');setTimeout(function(){b.classList.remove('ok');b.innerHTML=o},1600)};try{navigator.clipboard.writeText(v).then(done,done)}catch(e){done()}})});
+var st={n:3,g:2},RATE=1.5;
+function calc(){$('#c-n').textContent=st.n;$('#c-g').textContent=st.g;$('#c-t').textContent=(st.n*st.g*RATE).toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';$('#c-x').textContent=st.n+' × '+st.g+' × '+RATE.toLocaleString('it-IT',{minimumFractionDigits:2})+' €'}
+$$('[data-st]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.st;st[k]=Math.max(1,Math.min(k==='n'?30:20,st[k]+(+b.dataset.d)));calc()})});
+
+/* =====================================================================
+   FOTO DELLA CASA: cornici a grandezza naturale, la neve passa davanti
+   ===================================================================== */
+var FOTO=(C.foto||[]).slice(0,7),hph=$('#hph'),ghd=$('.g-h'),gis=[],heroOk=false;
+function mkImg(fig,src,eager,bad){var m=D.createElement('div');m.className='phm';var im=new Image();im.alt=C.nome;im.decoding='async';im.referrerPolicy='no-referrer';if(eager)im.setAttribute('fetchpriority','high');
+  im.onload=function(){if(im.naturalWidth)fig.style.setProperty('--ar',im.naturalWidth+' / '+im.naturalHeight);fig.classList.add('ld')};im.onerror=bad;im.src=src;m.appendChild(im);fig.appendChild(m)}
+function relabel(){gis=gis.filter(function(g){return g.ok});gis.forEach(function(g,i){g.el.className='gi g'+(i+1);g.num.textContent=('0'+(i+2)).slice(-2);g.tot.textContent='/ '+('0'+(gis.length+1)).slice(-2)});de.classList.toggle('hasgal',gis.length>0);de.classList.toggle('hasph',heroOk)}
+if(FOTO.length){heroOk=true;mkImg(hph,FOTO[0],true,function(){heroOk=false;relabel()});
+  FOTO.slice(1).forEach(function(src){var w=D.createElement('div'),f=D.createElement('figure'),c=D.createElement('p'),n=D.createElement('span'),l=D.createElement('span'),g={el:w,fig:f,num:n,tot:l,ok:true,y:0};f.className='ph';c.className='gc tn';c.appendChild(n);c.appendChild(l);w.appendChild(f);w.appendChild(c);
+    mkImg(f,src,false,function(){g.ok=false;if(w.parentNode)w.parentNode.removeChild(w);relabel()});$('#gal').appendChild(w);gis.push(g)})}
+relabel();
+var SP=VV==='quota'?[0,0,0,0,0,0]:VV==='malga'?[.05,-.05,.05,-.05,.05,-.05]:[.07,-.11,.05,-.09,.1,.04];
+if('IntersectionObserver' in window){var pio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');pio.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});gis.forEach(function(g){pio.observe(g.fig)})}else gis.forEach(function(g){g.fig.classList.add('in')});
+setTimeout(function(){hph.classList.add('in')},500);
+/* parallasse: l'immagine scorre dentro la cornice, le cornici a velocità diverse */
+function updPar(){var vh=innerHeight,i,r,p,g;
+  if(heroOk){r=hph.getBoundingClientRect();if(r.bottom>-80&&r.top<vh+80){p=(r.top+r.height/2-vh/2)/(vh/2+r.height/2);hph.firstChild.style.transform='translate3d(0,'+(p*-5.5).toFixed(2)+'%,0)'}}
+  for(i=0;i<gis.length;i++){g=gis[i];r=g.el.getBoundingClientRect();var top=r.top-g.y;if(top>vh*1.6||top+r.height<-vh*.6)continue;var d=top+r.height/2-vh/2;g.y=MOB||RM?0:d*SP[i%SP.length];g.el.style.transform='translate3d(0,'+g.y.toFixed(1)+'px,0)';p=d/(vh/2+r.height/2);if(g.fig.firstChild)g.fig.firstChild.style.transform='translate3d(0,'+(cl((p+1)/2)*-11+5.5).toFixed(2)+'%,0)'}}
+
+/* =====================================================================
+   SCENA
+   ===================================================================== */
+var cv=$('#gl');
+function init3D(){
+  var T=window.THREE;if(!T)return null;
+  var R;try{R=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true,powerPreference:'high-performance'})}catch(e){return null}
+  if(!R||!R.getContext())return null;
+  R.setPixelRatio(Math.min(MOB?2:1.75,devicePixelRatio||1));R.setClearColor(0x000000,0);
+  var scene=new T.Scene(),cam=new T.PerspectiveCamera(35,1,.1,120);cam.position.set(0,0,6);
+  var V3=T.Vector3,Col=T.Color;
+
+  /* --- geometria del cristallo: barre a spiovente e piastre esagonali, facce piane --- */
+  function buildGeo(maxO,thick){
+    var pos=[],nor=[],aR=[],aE=[];
+    function tri(a,b,c,ea,eb,ec){var ux=b[0]-a[0],uy=b[1]-a[1],uz=b[2]-a[2],vx=c[0]-a[0],vy=c[1]-a[1],vz=c[2]-a[2],nx=uy*vz-uz*vy,ny=uz*vx-ux*vz,nz=ux*vy-uy*vx,l=Math.sqrt(nx*nx+ny*ny+nz*nz)||1,P=[a,b,c],E=[ea,eb,ec],i;nx/=l;ny/=l;nz/=l;for(i=0;i<3;i++){pos.push(P[i][0],P[i][1],P[i][2]);nor.push(nx,ny,nz);aR.push(Math.sqrt(P[i][0]*P[i][0]+P[i][1]*P[i][1]));aE.push(E[i])}}
+    function wall(p1,z1,p2,z2){tri([p1[0],p1[1],z1],[p2[0],p2[1],z2],[p2[0],p2[1],-z2],1,1,1);tri([p1[0],p1[1],z1],[p2[0],p2[1],-z2],[p1[0],p1[1],-z1],1,1,1)}
+    function bar(A,B,w0,w1,h){h*=thick;var dx=B[0]-A[0],dy=B[1]-A[1],l=Math.hypot(dx,dy)||1;dx/=l;dy/=l;var nx=-dy,ny=dx,he=h*.2,AL=[A[0]+nx*w0,A[1]+ny*w0],AR=[A[0]-nx*w0,A[1]-ny*w0],BL=[B[0]+nx*w1,B[1]+ny*w1],BR=[B[0]-nx*w1,B[1]-ny*w1],P=[B[0]+dx*w1*2.6,B[1]+dy*w1*2.6],zt=he*.35;
+      [1,-1].forEach(function(s){var At=[A[0],A[1],h*s],Bt=[B[0],B[1],h*.7*s],al=[AL[0],AL[1],he*s],ar=[AR[0],AR[1],he*s],bl=[BL[0],BL[1],he*s],br=[BR[0],BR[1],he*s],p=[P[0],P[1],zt*s];
+        tri(At,Bt,bl,0,0,1);tri(At,bl,al,0,1,1);tri(At,br,Bt,0,1,0);tri(At,ar,br,0,1,1);tri(Bt,p,bl,0,1,1);tri(Bt,br,p,0,1,1)});
+      wall(AL,he,BL,he);wall(BL,he,P,zt);wall(P,zt,BR,he);wall(BR,he,AR,he)}
+    function hexa(c,r,h,a0){h*=thick;var he=h*.2,v=[],k;for(k=0;k<6;k++){var a=a0+k*Math.PI/3;v.push([c[0]+Math.cos(a)*r,c[1]+Math.sin(a)*r])}
+      for(k=0;k<6;k++){var p=v[k],n=v[(k+1)%6];[1,-1].forEach(function(s){tri([c[0],c[1],h*s],[p[0],p[1],he*s],[n[0],n[1],he*s],0,1,1)});wall(p,he,n,he)}}
+    for(var k=0;k<6;k++){var a=k*Math.PI/3;
+      FL.bars.forEach(function(b){if(b.o>maxO&&b.o!==3)return;if(b.o===3&&maxO<3)return;bar(rot2(b.a,a),rot2(b.b,a),b.w0,b.w1,b.h)});
+      FL.hexes.forEach(function(h){if(h.o>maxO)return;hexa(rot2(h.c,a),h.r,h.h,a)})}
+    hexa([0,0],FL.r0,.098,0);if(maxO>1)hexa([0,0],FL.r0*.52,.125,Math.PI/6);
+    var g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setAttribute('normal',new T.Float32BufferAttribute(nor,3));g.setAttribute('aR',new T.Float32BufferAttribute(aR,1));g.setAttribute('aE',new T.Float32BufferAttribute(aE,1));return g}
+
+  /* --- materiale ghiaccio: riflessi e rifrazione su un ambiente procedurale, con dispersione --- */
+  var shared={uCam:{value:cam.position},uT:{value:0},uWarm:{value:0},uEr:{value:0}};
+  var VS='attribute float aR;attribute float aE;varying vec3 vN;varying vec3 vW;varying vec3 vO;varying float vR;varying float vE;void main(){vec4 p=vec4(position,1.);vec3 n=normal;\n#ifdef USE_INSTANCING\np=instanceMatrix*p;n=mat3(instanceMatrix)*n;\n#endif\nvec4 w=modelMatrix*p;vW=w.xyz;vN=normalize(mat3(modelMatrix)*n);vO=position;vR=aR;vE=aE;gl_Position=projectionMatrix*viewMatrix*w;}';
+  var FS='uniform vec3 uCam;uniform float uGrow;uniform float uT;uniform float uWarm;uniform float uA;uniform float uEr;varying vec3 vN;varying vec3 vW;varying vec3 vO;varying float vR;varying float vE;'+
+    'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),f.x),f.y);}'+
+    'vec3 env(vec3 d){float c=cos(uEr),s=sin(uEr);d=vec3(d.x*c-d.z*s,d.y,d.x*s+d.z*c);float y=d.y*.5+.5;vec3 col=mix(vec3(.006,.016,.042),vec3(.07,.18,.34),y*y);'+
+    'col+=vec3(1.)*3.2*smoothstep(.86,.98,dot(d,normalize(vec3(.35,.8,.5))));'+
+    'col+=vec3(.5,.8,1.)*1.15*smoothstep(.5,.95,dot(d,normalize(vec3(-.85,.15,.5))));'+
+    'col+=vec3(.72,.9,1.)*1.7*smoothstep(.93,.99,dot(d,normalize(vec3(.1,-.55,-.83))));'+
+    'col+=mix(vec3(.45,.58,1.)*.6,vec3(1.,.48,.16)*2.1,uWarm)*smoothstep(mix(.7,.8,uWarm),.96,dot(d,normalize(vec3(.8,-.25,.55))));'+
+    'col+=vec3(1.,.58,.26)*.2*uWarm*smoothstep(-.1,.9,dot(d,normalize(vec3(.6,-.6,.4))));'+
+    'col+=vec3(.85,.94,1.)*.55*pow(abs(sin(d.x*7.+d.y*11.+d.z*5.)),44.);return col;}'+
+    'void main(){float fr=uGrow*1.09-vR+(noise(vO.xy*18.)-.5)*.04;if(fr<0.)discard;vec3 V=normalize(uCam-vW);vec3 N=normalize(vN);if(dot(N,V)<0.)N=-N;float nv=dot(N,V);float F=.05+.95*pow(1.-nv,3.4);vec3 I=-V;'+
+    'vec3 rf=env(reflect(I,N));vec3 tr=vec3(env(refract(I,N,.69)).r,env(refract(I,N,.74)).g,env(refract(I,N,.79)).b);'+
+    'tr*=.94+.06*sin(vE*22.+1.2);vec3 col=mix(tr*vec3(.80,.92,1.),rf,F);float edge=smoothstep(.9,1.,vE)*.8+smoothstep(.07,0.,vE)*.55;col+=mix(vec3(.62,.86,1.),vec3(1.,.82,.62),uWarm*.7)*(pow(vE,2.4)*.1+edge*.2);'+
+    'col+=vec3(.7,.95,1.)*smoothstep(.05,0.,fr)*1.05*step(uGrow,.995);col+=vec3(.03,.07,.12);col=1.-exp(-col*1.5);'+
+    'float a=clamp(.28+F*.7+dot(col,vec3(.34))*.85,0.,1.)*uA;gl_FragColor=vec4(col,a);}';
+  function iceMat(){var u={uCam:shared.uCam,uT:shared.uT,uWarm:shared.uWarm,uEr:shared.uEr,uGrow:{value:1},uA:{value:1}};return new T.ShaderMaterial({uniforms:u,vertexShader:VS,fragmentShader:FS,transparent:true,depthWrite:false,side:T.DoubleSide})}
+  var mat=iceMat(),flake=new T.Mesh(buildGeo(3,1),mat);flake.renderOrder=4;flake.frustumCulled=false;
+  var pivot=new T.Group();pivot.add(flake);scene.add(pivot);
+
+  var glC=$('.gl-c'),glW=$('.gl-w'),glM=$('.gl-m');
+
+  /* --- neve: punti morbidi e, quando si corre, scie sottili --- */
+  var NP=MOB?1500:3000,BX=[26,22,48],base=new Float32Array(NP*3),as=new Float32Array(NP),i;
+  for(i=0;i<NP;i++){base[i*3]=Math.random()*BX[0];base[i*3+1]=Math.random()*BX[1];base[i*3+2]=Math.random()*BX[2];as[i]=Math.random()}
+  var snU={uOff:{value:new V3()},uBox:{value:new V3(BX[0],BX[1],BX[2])},uA:{value:.5},uH:{value:800},uPx:{value:R.getPixelRatio()},uDir:{value:new V3(0,-1,0)},uLen:{value:0},uCol:{value:new Col(0xdcefff)}};
+  var SNV='uniform vec3 uOff;uniform vec3 uBox;uniform float uH;uniform float uPx;uniform vec3 uDir;uniform float uLen;attribute float aS;attribute float aEnd;varying float vA;void main(){vec3 p=position+uOff*(.55+aS*.9);p.x+=sin(uOff.y*.35+aS*40.)*.5;p=mod(p,uBox)-uBox*vec3(.5,.5,.82);p-=uDir*uLen*aEnd*(.5+aS);vec4 mv=viewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;float dist=-mv.z;gl_PointSize=(.035+aS*.06)*uH/max(dist,.5)*uPx*.5;vA=smoothstep(.3,2.5,dist)*smoothstep(42.,26.,dist)*(.4+aS*.6)*(1.-aEnd*.85);}';
+  var pg=new T.BufferGeometry();pg.setAttribute('position',new T.BufferAttribute(base,3));pg.setAttribute('aS',new T.BufferAttribute(as,1));pg.setAttribute('aEnd',new T.BufferAttribute(new Float32Array(NP),1));
+  var pts=new T.Points(pg,new T.ShaderMaterial({uniforms:snU,transparent:true,depthWrite:false,vertexShader:SNV,fragmentShader:'uniform vec3 uCol;uniform float uA;varying float vA;void main(){float d=length(gl_PointCoord-.5);float a=smoothstep(.5,.06,d)*vA*uA;if(a<.004)discard;gl_FragColor=vec4(uCol,a);}'}));
+  pts.frustumCulled=false;pts.renderOrder=2;scene.add(pts);
+  var NL=MOB?700:1500,lb=new Float32Array(NL*6),ls=new Float32Array(NL*2),le=new Float32Array(NL*2);
+  for(i=0;i<NL;i++){var x=Math.random()*BX[0],y=Math.random()*BX[1],z=Math.random()*BX[2],s=Math.random();lb.set([x,y,z,x,y,z],i*6);ls[i*2]=ls[i*2+1]=s;le[i*2]=0;le[i*2+1]=1}
+  var lgm=new T.BufferGeometry();lgm.setAttribute('position',new T.BufferAttribute(lb,3));lgm.setAttribute('aS',new T.BufferAttribute(ls,1));lgm.setAttribute('aEnd',new T.BufferAttribute(le,1));
+  var lnU={uOff:snU.uOff,uBox:snU.uBox,uH:snU.uH,uPx:snU.uPx,uDir:snU.uDir,uLen:snU.uLen,uA:{value:0},uCol:snU.uCol};
+  var lines=new T.LineSegments(lgm,new T.ShaderMaterial({uniforms:lnU,transparent:true,depthWrite:false,vertexShader:SNV,fragmentShader:'uniform vec3 uCol;uniform float uA;varying float vA;void main(){gl_FragColor=vec4(uCol,vA*uA);}'}));
+  lines.frustumCulled=false;lines.renderOrder=3;scene.add(lines);
+
+  /* --- fiocchi piccoli che cadono (lo stesso cristallo, semplificato) --- */
+  var NM=MOB?46:120,mm=iceMat(),minis=new T.InstancedMesh(buildGeo(1,1.25),mm,NM),md=[],dm=new T.Object3D();
+  for(i=0;i<NM;i++)md.push({x:(Math.random()-.5)*15,y:(Math.random()-.5)*11,z:-9+Math.random()*11,v:.22+Math.random()*.4,s:.1+Math.random()*.22,ax:Math.random()*6.28,ay:Math.random()*6.28,wx:(Math.random()-.5)*1.2,wy:(Math.random()-.5)*1.2,dr:(Math.random()-.5)*.25});
+  minis.renderOrder=3;minis.frustumCulled=false;minis.visible=false;scene.add(minis);
+
+  /* --- copione: una posa di partenza e una di arrivo per ogni scena --- */
+  var W=0,Hh=0,LS=true;
+  function size(force){var w2=cv.clientWidth,h2=cv.clientHeight;if(!force&&w2===W&&Math.abs(h2-Hh)<130)return;W=w2;Hh=h2;R.setSize(W,Hh,false);cam.aspect=W/Hh;LS=W/Hh>1.05;cam.updateProjectionMatrix();snU.uH.value=Hh/Math.tan(cam.fov*Math.PI/360)}
+  size(true);addEventListener('resize',function(){size(false)});
+  /* stato: px,py,pz, rx,ry,rz, sc, grow, warm, rush, minis, fall */
+  var HA=VV==='quota'?[1,.1,.1,.17,.66,.38]:VV==='malga'?[.96,.88,.1,.17,.62,.38]:[.0,.1,.1,.17,.7,.38],GA=[.8,.84,.5,.06,.8,.34];
+  function w2(ax,ay){var hh=Math.tan(cam.fov*Math.PI/360)*6;return[(ax/W*2-1)*hh*cam.aspect,-(ay/Hh*2-1)*hh]}
+  function pose(i,t){
+    var e=t*t*(3-2*t),k;
+    if(i===0&&heroOk){var r=hph.getBoundingClientRect(),p=w2(LS?r.left+r.width*HA[0]:r.right-r.width*HA[2],LS?r.top+r.height*HA[1]:r.bottom-r.height*HA[3]);
+      return[p[0],p[1],0, lerp(-.42,-.12,e),lerp(.38,.1,e),lerp(-.3,.5,e), LS?HA[4]:HA[5], lerp(.8,1,ss(0,.45,t)),0,0,0,1]}
+    if(i===2&&gis.length){var r2=ghd.getBoundingClientRect(),q=w2(W*(LS?GA[0]:GA[1]),r2.top+r2.height*(LS?GA[2]:GA[3]));
+      return[q[0],q[1],0, lerp(-.5,-.15,t),lerp(.55,.15,t),t*3.2, LS?GA[4]:GA[5],1,1,0,0,.6]}
+    if(i===0)return[LS?lerp(1.4,1.52,e):lerp(.16,.12,e),LS?lerp(.14,.02,e):lerp(.98,1.0,e),0, lerp(-.52,-.16,e),lerp(.42,.1,e),lerp(-.4,.7,e), LS?lerp(1.34,1.3,e):lerp(.82,.78,e), lerp(.8,1,ss(0,.5,t)),0,0,0,1];
+    if(i===1)return[LS?lerp(.2,1.25,e):lerp(0,.1,e),lerp(.5,.25,e),lerp(-17,-1.5,e), lerp(-.5,-.22,e),lerp(.5,.1,e),t*2.4, 1,1,0,Math.pow(Math.sin(Math.PI*cl(t*1.08)),.7),0,1];
+    if(i===2)return[LS?lerp(2.1,1.3,e):lerp(1.2,.35,e),lerp(-.45,.25,e),1.6, lerp(-.7,-.42,e),lerp(.6,.2,e),lerp(.2,.85,e), LS?1.6:1.25,1,1,0,0,.5];
+    if(i===3)return[LS?lerp(1.35,1.15,e):.15,lerp(1.0,-.15,e),lerp(-1,.4,e), lerp(-1.35,1.0,t),lerp(.7,-.4,t),t*1.6, LS?.92:.74,1,0,0,1,2.2];
+    return[LS?lerp(1.3,1.2,e):.2,LS?lerp(.15,-.1,e):lerp(.8,.6,e),0, lerp(-.25,-.7,e),lerp(.15,.5,e),lerp(.3,1.3,e), LS?lerp(1.4,1.15,e):1, 1-ss(.18,.92,t),0,0,0,.6];
+  }
+  var cur=null,curStage=-1,off=new V3(),drag={on:false,x:0,y:0,vx:0,vy:0,rx:0,ry:0};
+  var caps=stages.map(function(s){return s.querySelector('.capin')}),hint=$('#hint');
+  function pick(){var vh=innerHeight,best=-1,bv=0,bt=0;for(var i=0;i<stages.length;i++){var r=stages[i].getBoundingClientRect(),vis=Math.min(r.bottom,vh)-Math.max(r.top,0);if(vis>bv){bv=vis;best=i;bt=i===0?cl(-r.top/r.height):cl((vh-r.top)/(vh+r.height))}}return{i:best,t:bt,vis:bv}}
+  var last=performance.now(),tAcc=0,shown=false,perfN=0,perfT=0,proj=new V3(),snowA=snowAmt,needs=true,intro=RM?1:0;
+  addEventListener('scroll',function(){needs=true},{passive:true});
+  function frame(now){
+    requestAnimationFrame(frame);
+    var dt=Math.min(.05,(now-last)/1000);last=now;
+    var s=pick();if(s.i<0||s.vis<2)return;
+    if(RM&&!needs&&shown)return;if(intro<1)needs=true;
+    tAcc+=dt;
+    var tg=pose(s.i,s.t),k=1-Math.exp(-dt*4.5),anch=(s.i===0&&heroOk)||(s.i===2&&gis.length>0),kp=anch?1-Math.exp(-dt*18):k,j;
+    if(s.i!==curStage||!cur||RM){cur=tg.slice();curStage=s.i}else for(j=0;j<tg.length;j++)cur[j]+=(tg[j]-cur[j])*(j<2?kp:k);
+    /* trascinamento con inerzia, poi torna alla posa */
+    if(!drag.on){drag.ry+=drag.vx;drag.rx+=drag.vy;drag.vx*=.94;drag.vy*=.94;drag.ry*=.985;drag.rx*=.97}
+    pivot.position.set(cur[0],cur[1],cur[2]);pivot.scale.setScalar(cur[6]);
+    pivot.rotation.set(cur[3]+drag.rx,cur[4]+drag.ry,0);flake.rotation.z=cur[5]+tAcc*.045;
+    updPar();
+    if(intro<1)intro=Math.min(1,intro+dt/3.4);var gI=1-Math.pow(1-intro,3),gw=cur[7]*gI;mat.uniforms.uGrow.value=gw;mat.uniforms.uA.value=cl(gw*6);flake.visible=gw>.012;
+    shared.uT.value=tAcc;shared.uWarm.value=Math.max(cur[8],VV==='lume'?.5:0);shared.uEr.value=tAcc*.11+s.t*1.4;
+    /* neve */
+    snowA+=(snowAmt-snowA)*k;var rush=cur[9],fall=cur[11];
+    off.x+=dt*.22*fall*(1-rush);off.y-=dt*(.75*fall)*(1-rush*.85);off.z+=dt*rush*26;
+    snU.uOff.value.copy(off);snU.uDir.value.set(.05*(1-rush),-(1-rush)*.4,rush).normalize();snU.uLen.value=rush*2.6;
+    snU.uA.value=(.3+snowA*.5)*(1-rush*.35)*(s.i===2&&gis.length?.55:1);lnU.uA.value=rush*.55;lines.visible=rush>.02;
+    snU.uCol.value.setRGB(lerp(.86,1,cur[8]),lerp(.94,.86,cur[8]),lerp(1,.74,cur[8]));
+    /* fiocchi piccoli */
+    var mn=cur[10];minis.visible=mn>.02;if(minis.visible){mm.uniforms.uA.value=mn*.9;mm.uniforms.uGrow.value=2;for(j=0;j<NM;j++){var m=md[j];m.y-=dt*m.v*1.5;m.x+=dt*m.dr;if(m.y<-6){m.y=6;m.x=(Math.random()-.5)*15}m.ax+=dt*m.wx;m.ay+=dt*m.wy;dm.position.set(m.x,m.y,m.z);dm.rotation.set(m.ax,m.ay,0);dm.scale.setScalar(m.s);dm.updateMatrix();minis.setMatrixAt(j,dm.matrix)}minis.instanceMatrix.needsUpdate=true}
+    /* alone dietro il cristallo */
+    proj.set(cur[0],cur[1],cur[2]).project(cam);var gt='translate3d('+((proj.x+1)/2*W).toFixed(1)+'px,'+(Hh*(.18+.64*cl((1-proj.y)/2))).toFixed(1)+'px,0)';
+    glC.style.transform=glW.style.transform=glM.style.transform=gt;glW.style.opacity=cur[8].toFixed(3);glM.style.opacity=mn.toFixed(3);glC.style.opacity=cl(1-Math.max(cur[8],mn)*.85-rush*.45).toFixed(3);
+    /* didascalie */
+    var cs=caps[s.i];
+    if(s.i===0){if(hint)hint.style.opacity=(1-ss(.04,.2,s.t)).toFixed(2)}
+    else if(cs){var o=cl(Math.min(s.t/.2,(1-s.t)/.16));cs.style.opacity=o.toFixed(3);cs.style.transform='translate3d(0,'+((.5-s.t)*60).toFixed(1)+'px,0)'}
+    R.render(scene,cam);
+    if(!shown){shown=true;cv.classList.add('on')}
+    if(perfN<50){perfN++;perfT+=dt;if(perfN===50&&perfT/50>.04&&R.getPixelRatio()>1){R.setPixelRatio(1);snU.uPx.value=1;size(true)}}
+    needs=false;
+  }
+  /* trascinare per ruotare */
+  stages.forEach(function(el){
+    el.addEventListener('pointerdown',function(e){if(e.target.closest('button,a,input'))return;drag.on=true;drag.x=e.clientX;drag.y=e.clientY;drag.vx=drag.vy=0});
+  });
+  addEventListener('pointermove',function(e){if(!drag.on)return;var dx=(e.clientX-drag.x)/innerWidth,dy=(e.clientY-drag.y)/innerHeight;drag.x=e.clientX;drag.y=e.clientY;drag.vx=dx*4.2;drag.vy=e.pointerType==='touch'?0:dy*2.4;drag.ry+=drag.vx;drag.rx+=drag.vy;needs=true},{passive:true});
+  ['pointerup','pointercancel','blur'].forEach(function(n){addEventListener(n,function(){drag.on=false})});
+  requestAnimationFrame(frame);
+  return{R:R};
+}
+
+/* ---------- avvio ---------- */
+addEventListener('scroll',hdState,{passive:true});hdState();
+specs();upReady();calc();renderWx();getWx();
+try{var l0=localStorage.getItem('fiocco-l')||((navigator.language||'it').slice(0,2)==='it'?'it':'en');if(l0==='en')setLang('en')}catch(e){}
+function start(){var GL=null;try{GL=init3D()}catch(e){GL=null;if(window.console)console.warn('3D non disponibile',e)}if(!GL){(function loop(){requestAnimationFrame(loop);updPar()})();de.classList.add('nogl');$$('.stage').forEach(function(st){var c=st.querySelector('.capin');if(c)c.style.opacity=1})}de.classList.add('ok')}
+if(D.readyState==='complete')setTimeout(start,30);else addEventListener('load',function(){setTimeout(start,30)});
+})();
+
+</script>
+<!-- ===== UMBRA · cornice commerciale (non tocca la guida) ===== -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+#um,#um *{box-sizing:border-box}
+#um{--k:#050506;--k2:#0f0f12;--k3:#17171b;--w:#f2f1ee;--w2:#b3b2ae;--w3:#7a7976;--ch:#d8d8dc;--ch2:#8d8e95;--ln:rgba(216,216,220,.14);
+  --se:'Instrument Serif',Georgia,serif;--sa:'Archivo','Helvetica Neue',Arial,sans-serif;--mo:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  font-family:var(--sa);font-size:15px;line-height:1.5;color:var(--w)}
+#um .um-chr{background:linear-gradient(100deg,#f4f4f6,#9c9da4 40%,#fff 60%,#8e8f96);-webkit-background-clip:text;background-clip:text;color:transparent}
+#um button{font:inherit;color:inherit}
+#um a{color:inherit}
+
+/* ---- teaser (dopo 5 s) ---- */
+#um .um-tz{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9997;width:min(360px,calc(100vw - 32px));background:var(--k);border:1px solid rgba(216,216,220,.3);border-radius:16px;box-shadow:0 24px 70px rgba(0,0,0,.5);padding:16px 18px;opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
+#um .um-tz.um-on{opacity:1;visibility:visible;transform:none;transition:opacity .5s,transform .5s cubic-bezier(.2,.7,.2,1)}
+#um .um-tz .um-hd{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#um .um-tz .um-br{font:italic 18px/1 var(--se)}
+#um .um-tz .um-br small{font:11px var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ch2);margin-left:8px}
+#um .um-x{background:none;border:0;color:var(--w2);font-size:22px;line-height:1;cursor:pointer;padding:2px 4px}
+#um .um-x:hover{color:var(--w)}
+#um .um-tz h5{margin:10px 0 4px;font:400 22px/1.12 var(--se)}
+#um .um-tz h5 em{font-style:italic;color:var(--ch)}
+#um .um-tz p{margin:0 0 14px;color:var(--w2);font-size:13.5px}
+#um .um-tz .um-row{display:flex;gap:8px}
+#um .um-tz .um-row .um-b{flex:1}
+
+/* bottoni */
+#um .um-b{display:flex;justify-content:center;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1px solid var(--ch);background:transparent;text-decoration:none;font-weight:500;font-size:14px;cursor:pointer;transition:background .2s,color .2s;white-space:nowrap}
+#um .um-b:hover{background:var(--ch);color:#0a0a0c}
+#um .um-b.um-s{background:linear-gradient(135deg,#f3f3f5,#b9bac0);color:#0a0a0c;border-color:transparent}
+#um .um-b.um-s:hover{background:#fff}
+
+/* pillola per riaprire */
+#um .um-pill{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9996;display:flex;align-items:center;gap:14px;background:var(--k);color:var(--w);border:1px solid rgba(216,216,220,.4);border-radius:14px;padding:12px 14px 12px 16px;cursor:pointer;box-shadow:0 16px 44px rgba(0,0,0,.45);text-align:left;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .4s,transform .4s,border-color .2s}
+#um .um-pill.um-on{opacity:1;visibility:visible;transform:none}
+#um .um-pill:hover{border-color:var(--ch)}
+#um .um-pill .um-pt{display:flex;flex-direction:column;gap:2px;line-height:1.2}
+#um .um-pill .um-pt small{font:10px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:var(--ch2)}
+#um .um-pill .um-pt b{font-weight:500;font-size:15px}
+#um .um-pill .um-go{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#f3f3f5,#b9bac0);color:#0a0a0c;font-size:18px;font-weight:600}
+
+/* ---- pannello a mezzo schermo ---- */
+#um .um-bd{position:fixed;inset:0;z-index:9998;background:rgba(5,5,6,.35);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
+#um .um-bd.um-on{opacity:1;visibility:visible;transition:opacity .45s}
+#um .um-dr{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:min(560px,50vw);background:var(--k);border-left:1px solid rgba(216,216,220,.22);box-shadow:-30px 0 80px rgba(0,0,0,.45);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.7,.2,1);padding-top:env(safe-area-inset-top,0px)}
+#um.um-lb .um-pill,#um.um-lb .um-tz{opacity:0!important;visibility:hidden!important;pointer-events:none}#um .um-dr{visibility:hidden}#um .um-dr.um-on{transform:none;visibility:visible}
+#um .um-dr .um-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;border-bottom:1px solid var(--ln);flex:none}
+#um .um-dr .um-top .um-br{font:italic 22px/1 var(--se)}
+#um .um-dr .um-top .um-br small{font:11px var(--mo);letter-spacing:.14em;text-transform:uppercase;color:var(--ch2);margin-left:10px;-webkit-text-fill-color:var(--ch2)}
+#um .um-dr .um-sc{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:28px 28px calc(28px + env(safe-area-inset-bottom,0px));flex:1}
+#um .um-ey{font:11px var(--mo);letter-spacing:.18em;text-transform:uppercase;color:var(--ch2);margin:0 0 10px}
+#um h3{font:400 clamp(30px,3.2vw,40px)/1.04 var(--se);margin:0 0 12px;letter-spacing:-.01em}
+#um h3 em{font-style:italic}
+#um h4{font:400 26px/1.1 var(--se);margin:0}
+#um .um-lead{color:var(--w2);margin:0 0 26px;max-width:46ch}
+#um .um-sec{margin-top:40px}
+
+/* offerte */
+#um .um-of{display:grid;gap:12px}
+#um .um-o{border:1px solid var(--ln);border-radius:14px;padding:20px;background:var(--k2);display:flex;flex-direction:column;gap:12px}
+#um .um-o.um-best{border-color:rgba(216,216,220,.45);background:linear-gradient(180deg,#141418,#0c0c0f)}
+#um .um-o .um-oh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+#um .um-o .um-tag{display:inline-block;font:10px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:#0a0a0c;background:var(--ch);padding:4px 8px;border-radius:999px;margin-bottom:8px}
+#um .um-o .um-pr{font:400 44px/1 var(--se);letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+#um .um-o .um-pr small{font:11px var(--mo);letter-spacing:.1em;color:var(--w3);display:block;text-align:right;margin-top:4px}
+#um .um-o .um-what{margin:0;color:var(--w2);font-size:14px}
+#um .um-inc{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+#um .um-inc li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--w2)}
+#um .um-inc li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--ch);margin-top:8px}
+#um .um-inc li span{min-width:0}
+#um .um-inc li b{color:var(--w);font-weight:500}
+#um .um-o .um-b{width:100%}
+#um .um-note{display:none;font:11px var(--mo);color:var(--ch2);text-align:center;letter-spacing:.04em}
+
+/* come funziona */
+#um .um-steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+#um .um-steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--ln)}
+#um .um-steps li:last-child{border-bottom:1px solid var(--ln)}
+#um .um-steps .um-n{font:400 30px/1 var(--se);color:var(--ch)}
+#um .um-steps .um-t{min-width:0}
+#um .um-steps b{display:block;font-weight:500;margin-bottom:3px}
+#um .um-steps span.um-d{color:var(--w2);font-size:14px}
+#um .um-steps .um-when{display:inline-block;margin-top:6px;font:11px var(--mo);letter-spacing:.1em;text-transform:uppercase;color:var(--ch2)}
+
+/* garanzie */
+#um .um-gg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#um .um-g{border:1px solid var(--ln);border-radius:12px;padding:14px;min-width:0}
+#um .um-g b{display:block;font-weight:500;font-size:14px;margin-bottom:4px}
+#um .um-g span{color:var(--w2);font-size:13px}
+
+/* faq */
+#um details{border-top:1px solid var(--ln)}
+#um details:last-of-type{border-bottom:1px solid var(--ln)}
+#um summary{list-style:none;cursor:pointer;padding:15px 0;display:flex;justify-content:space-between;gap:16px;font-size:15px}
+#um summary::-webkit-details-marker{display:none}
+#um summary::after{content:"+";font:18px var(--mo);color:var(--ch2);transition:transform .25s;flex:none}
+#um details[open] summary::after{transform:rotate(45deg)}
+#um details p{margin:0 0 16px;color:var(--w2);font-size:14px}
+
+#um .um-foot{margin-top:32px;font:11px var(--mo);letter-spacing:.06em;color:var(--w3);line-height:1.7}
+
+@media (max-width:900px){#um .um-dr{width:min(560px,70vw)}}
+@media (max-width:620px){
+  #um .um-dr{top:auto;left:0;width:100%;height:88vh;height:88dvh;border-left:0;border-top:1px solid rgba(216,216,220,.25);border-radius:18px 18px 0 0;transform:translateY(100%);padding-top:0}
+  #um .um-dr .um-top{padding:16px max(18px,env(safe-area-inset-right,0px)) 14px max(18px,env(safe-area-inset-left,0px))}
+  #um .um-dr .um-sc{padding:22px max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+  #um .um-pill{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));justify-content:space-between}
+  #um .um-tz{left:0;right:0;bottom:0;width:100%;border-radius:16px 16px 0 0;padding:16px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  #um .um-gg{grid-template-columns:1fr}
+  #um .um-o .um-pr{font-size:38px}
+}
+
+/* ---- intro ---- */
+#um .um-in{position:fixed;inset:0;z-index:10000;background:#050506;display:grid;place-items:center;overflow:hidden;cursor:pointer;transition:opacity .9s ease,visibility 0s .9s}
+#um .um-in.um-out{opacity:0;visibility:hidden;pointer-events:none}
+#um .um-in .um-ring{position:absolute;left:50%;top:50%;width:2px;height:2px;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 1px rgba(216,216,220,.55),0 0 80px 8px rgba(216,216,220,.08);animation:umr 2.6s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes umr{0%{width:2px;height:2px;opacity:0}12%{opacity:1}100%{width:min(78vmin,640px);height:min(78vmin,640px);opacity:.9}}
+#um .um-in .um-tx{position:relative;text-align:center;padding:0 max(20px,env(safe-area-inset-left,0px));max-width:900px}
+#um .um-in .um-tx>*{opacity:0;transform:translateY(12px);animation:umf .9s ease forwards}
+@keyframes umf{to{opacity:1;transform:none}}
+#um .um-in .um-a{font:italic 22px/1 var(--se);margin-bottom:30px;animation-delay:.2s}
+#um .um-in .um-b2{font:12px var(--mo);letter-spacing:.22em;text-transform:uppercase;color:var(--ch2);margin-bottom:14px;animation-delay:.9s}
+#um .um-in .um-c{font:italic 400 clamp(46px,10vw,120px)/.98 var(--se);letter-spacing:-.02em;animation-delay:1.2s;text-wrap:balance}
+#um .um-in .um-d{margin-top:20px;font-size:14px;color:var(--w2);letter-spacing:.04em;animation-delay:1.8s}
+#um .um-in .um-sk{position:absolute;right:max(18px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));font:11px var(--mo);letter-spacing:.16em;text-transform:uppercase;color:var(--ch2);border:1px solid var(--ln);border-radius:999px;padding:9px 14px;background:none;cursor:pointer}
+@media (prefers-reduced-motion:reduce){#um .um-in{display:none}}
+@media (prefers-reduced-motion:reduce){#um .um-tz,#um .um-dr,#um .um-bd,#um .um-pill{transition:none}}
+</style>
+
+<div id="um">
+  <div class="um-in" id="um-in" role="presentation">
+    <div class="um-ring" aria-hidden="true"></div>
+    <div class="um-tx">
+      <div class="um-a um-chr">Umbra</div>
+      <div class="um-b2" data-f="prep">Preparato per voi</div>
+      <div class="um-c um-chr" data-f="nome"></div>
+      <div class="um-d" data-f="dove"></div>
+    </div>
+    <button class="um-sk" type="button" id="um-sk">Apri la guida →</button>
+  </div>
+  <!-- teaser -->
+  <aside class="um-tz" id="um-tz" aria-label="Attiva questa guida">
+    <div class="um-hd"><div class="um-br um-chr">Umbra<small data-f="per">Anteprima riservata</small></div><button class="um-x" id="um-tzx" type="button" aria-label="Chiudi">×</button></div>
+    <h5>Questa è una <em>demo</em> fatta per <span data-f="nome"></span>.</h5>
+    <p>Se vi piace, la completiamo con le vostre foto e i vostri dati e la potete dare agli ospiti. Da 97 €, pagamento unico.</p>
+    <div class="um-row">
+      <button class="um-b um-s" type="button" id="um-open">Vedi cosa include</button>
+    </div>
+  </aside>
+
+  <button class="um-pill" id="um-pill" type="button" aria-label="Vedi prezzi e come attivare questa guida"><span class="um-pt"><small>Umbra · questa è una demo</small><b>Vuoi questa guida? Da 97 €</b></span><span class="um-go" aria-hidden="true">→</span></button>
+
+  <!-- pannello -->
+  <div class="um-bd" id="um-bd"></div>
+  <section class="um-dr" id="um-dr" role="dialog" aria-modal="false" aria-labelledby="um-h">
+    <div class="um-top">
+      <div class="um-br um-chr">Umbra<small data-f="nome"></small></div>
+      <button class="um-x" id="um-drx" type="button" aria-label="Chiudi il pannello">×</button>
+    </div>
+    <div class="um-sc">
+      <p class="um-ey" data-f="riservata">Anteprima riservata</p>
+      <h3 id="um-h">La guida che state guardando può essere <em class="um-chr">vostra</em>.</h3>
+      <p class="um-lead">È la pagina che gli ospiti aprono dal telefono prima e durante il soggiorno: benvenuto, camere, Wi-Fi, orari, regole, come arrivare, CIN. Risponde lei alle domande che oggi vi fanno su WhatsApp.</p>
+      <p class="um-lead" style="margin-top:-14px;font-size:14px;border-left:2px solid var(--ch2);padding-left:12px">Quella che vedete è una <b style="color:var(--w);font-weight:500">demo</b>: l'abbiamo costruita con le foto e le informazioni pubbliche del vostro annuncio. Alcuni dati (Wi-Fi, orari, regole) sono di esempio e li sostituiamo con i vostri.</p>
+
+      <!-- OFFERTE -->
+      <div class="um-of">
+        <article class="um-o">
+          <div class="um-oh">
+            <div><h4>Guida della Casa</h4></div>
+            <div class="um-pr">97 €<small>una volta</small></div>
+          </div>
+          <p class="um-what">Questa guida, completata con i vostri dati e consegnata.</p>
+          <ul class="um-inc">
+            <li><span><b>La vostra guida finita</b>: le vostre foto originali, Wi-Fi, orari di check-in e check-out, colazione, regole, numeri utili.</span></li>
+            <li><span><b>In italiano e in inglese</b>: l'ospite sceglie la lingua con un tocco.</span></li>
+            <li><span><b>Un link e un QR code</b>: il link lo mandate su WhatsApp, Airbnb o Booking; il QR lo stampate e lo mettete in camera.</span></li>
+            <li><span><b>1 revisione inclusa</b>: vedete la guida finita e ci dite cosa cambiare, noi la correggiamo.</span></li>
+          </ul>
+          <a class="um-b" data-um="guida" href="#um-guida">Attiva la guida · 97 €</a>
+          <div class="um-note"></div>
+        </article>
+
+        <article class="um-o um-best">
+          <div class="um-oh">
+            <div><span class="um-tag">Consigliato</span><h4>Guida + Kit Host in Regola</h4></div>
+            <div class="um-pr">147 €<small>una volta</small></div>
+          </div>
+          <p class="um-what">La guida, più gli strumenti per tenere in ordine conti e adempimenti dell'anno.</p>
+          <ul class="um-inc">
+            <li><span><b>Tutta la Guida della Casa</b> qui sopra, con <b>3 revisioni</b> invece di una.</span></li>
+            <li><span><b>Registro in Excel</b>: inserite ogni prenotazione e il file calcola da solo l'imposta di soggiorno da versare, le presenze da comunicare all'ISTAT ogni mese e la stima della cedolare secca.</span></li>
+            <li><span><b>16 messaggi pronti per gli ospiti</b>, in italiano e inglese: conferma, richiesta documenti, istruzioni di arrivo, check-out, richiesta recensione. Si copiano e incollano.</span></li>
+            <li><span><b>Calendario delle scadenze 2027</b> da aggiungere al telefono: Alloggiati Web, ISTAT, imposta di soggiorno, dichiarazione. Vi avvisa prima di ogni scadenza.</span></li>
+          </ul>
+          <a class="um-b um-s" data-um="kit" href="#um-kit">Attiva guida + kit · 147 €</a>
+          <div class="um-note"></div>
+        </article>
+      </div>
+
+      <!-- COME FUNZIONA -->
+      <div class="um-sec">
+        <p class="um-ey">Come funziona</p>
+        <h4 style="margin-bottom:14px">Dal pagamento alla guida in mano agli ospiti</h4>
+        <ol class="um-steps">
+          <li><span class="um-n">1</span><div class="um-t"><b>Scegliete e pagate</b><span class="um-d">Carta di credito o debito, pagamento sicuro con Stripe. Ricevuta via email.</span><span class="um-when">1 minuto</span></div></li>
+          <li><span class="um-n">2</span><div class="um-t"><b>Compilate un breve modulo</b><span class="um-d">Vi arriva un'email con 6 domande: password Wi-Fi, orari, regole della casa, un numero per le emergenze, e dove caricare le vostre foto migliori.</span><span class="um-when">10 minuti</span></div></li>
+          <li><span class="um-n">3</span><div class="um-t"><b>Noi completiamo la guida</b><span class="um-d">Sostituiamo le foto dell'annuncio con le vostre, inseriamo i vostri dati e ve la mandiamo da controllare.</span><span class="um-when">Entro 3 giorni lavorativi</span></div></li>
+          <li><span class="um-n">↺</span><div class="um-t"><b>Ci dite cosa cambiare</b><span class="um-d">Rispondete all'email con le correzioni (un testo, una foto, un orario) e noi le applichiamo. 1 revisione con la Guida, 3 con Guida + Kit.</span><span class="um-when">Entro 2 giorni lavorativi per revisione</span></div></li>
+          <li><span class="um-n">4</span><div class="um-t"><b>La date agli ospiti</b><span class="um-d">Ricevete il link definitivo e il QR da stampare. Lo inserite nel messaggio di conferma prenotazione e il gioco è fatto. Se scegliete il kit, Registro, messaggi e calendario arrivano subito via email.</span><span class="um-when">Per sempre, senza canone</span></div></li>
+        </ol>
+      </div>
+
+      <!-- GARANZIE -->
+      <div class="um-sec">
+        <p class="um-ey">Le nostre garanzie</p>
+        <div class="um-gg">
+          <div class="um-g"><b>Rimborso entro 30 giorni</b><span>Se non fa per voi, una email e vi restituiamo tutto.</span></div>
+          <div class="um-g"><b>Revisioni incluse</b><span>1 con la Guida, 3 con Guida + Kit. Le correzioni le facciamo noi.</span></div>
+          <div class="um-g"><b>Nessun abbonamento</b><span>Si paga una volta. La guida resta online.</span></div>
+          <div class="um-g"><b>Nessuna app</b><span>Né per voi né per gli ospiti: è un link.</span></div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="um-sec">
+        <p class="um-ey">Domande</p>
+        <details><summary>Ho già le informazioni su Airbnb e Booking. A cosa mi serve?</summary><p>Le piattaforme mostrano l'annuncio, non la casa. Il Wi-Fi, come si apre il cancello, a che ora si fa colazione, dove parcheggiare, cosa vedere in zona: oggi glielo spiegate voi, ospite per ospite, su WhatsApp. Con la guida mandate un solo link, valido per tutti gli ospiti e tutte le piattaforme, anche per chi prenota diretto.</p></details>
+        <details><summary>Gli ospiti la usano davvero?</summary><p>Sì, perché arriva quando serve: la mandate insieme alla conferma e la riaprono il giorno dell'arrivo, quando cercano indirizzo e orari. Il QR in camera copre chi non legge i messaggi. Meno domande ripetute per voi, recensioni più facili per loro.</p></details>
+        <details><summary>Quanto tempo mi porta via?</summary><p>Circa 10 minuti per il modulo e qualche minuto per controllare la guida finita. Il resto lo facciamo noi.</p></details>
+        <details><summary>Cosa conta come revisione?</summary><p>Un'unica email con tutte le correzioni che volete (testi, foto, orari, regole). La Guida ne include 1, Guida + Kit ne include 3. Se dopo cambia qualcosa, come la password del Wi-Fi, ci scrivete e lo aggiorniamo.</p></details>
+        <details><summary>La guida resta online? Pago qualcosa ogni anno?</summary><p>Resta online e non ha costi ricorrenti. Il link non cambia, quindi il QR stampato continua a funzionare.</p></details>
+        <details><summary>Il Kit sostituisce il commercialista?</summary><p>No. Vi aiuta a tenere in ordine prenotazioni, imposta di soggiorno e scadenze durante l'anno, così al commercialista arrivate con i numeri già pronti. Il Registro è un file Excel (va anche con Google Fogli e Numbers) e non invia nulla al posto vostro.</p></details>
+      </div>
+
+      <p class="um-foot">Umbra Agency · P.IVA 01694380294 · umbragency.it · <a href="../condizioni/" target="_blank" rel="noopener">Condizioni e privacy</a><br>Foto dall'annuncio pubblico della struttura, usate solo per questa anteprima.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  // Stripe Payment Link: incollare qui quando pronti.
+  var STRIPE={guida:'https://buy.stripe.com/3cI8wOgts6d65ge09Q57W09',kit:'https://buy.stripe.com/3cI4gydhgfNG3867Ci57W0a'}, WA='393514618847';
+  var $=function(id){return document.getElementById(id)};
+  // dati della demo aperta
+  var um=document.getElementById('um');
+  function cur(){var D=window.DEMOS||[];if(D.length===1)return D[0];var h=decodeURIComponent((location.hash||'').slice(1));for(var i=0;i<D.length;i++)if(D[i].slug===h)return D[i];return null}
+  function fill(){var d=cur();um.hidden=!d;if(!d)return;var host=d.host_nome,nome=d.nome;
+    document.querySelectorAll('#um [data-f="nome"]').forEach(function(e){e.textContent=nome});
+    document.querySelectorAll('#um [data-f="per"]').forEach(function(e){e.textContent=host?'Anteprima per '+host:'Anteprima riservata'});
+    document.querySelectorAll('#um [data-f="prep"]').forEach(function(e){e.textContent=host?'Preparato per '+host:'Preparato per voi'});
+    document.querySelectorAll('#um [data-f="dove"]').forEach(function(e){e.textContent=['Guida della Casa',d.localita||d.comune].filter(Boolean).join(' · ')});
+    document.querySelectorAll('#um [data-f="riservata"]').forEach(function(e){e.textContent=host?'Anteprima riservata a '+host+' · '+nome:'Anteprima riservata · '+nome});}
+  fill();addEventListener('hashchange',fill);
+  var tz=$('um-tz'),pill=$('um-pill'),dr=$('um-dr'),bd=$('um-bd'),dismissed=false;
+  try{dismissed=sessionStorage.getItem('um-x')==='1'}catch(e){}
+  function showTz(){tz.classList.add('um-on');pill.classList.remove('um-on')}
+  function hideTz(){tz.classList.remove('um-on')}
+  function openDr(){hideTz();pill.classList.remove('um-on');dr.classList.add('um-on');bd.classList.add('um-on');setTimeout(function(){$('um-drx').focus()},300)}
+  function closeDr(){dr.classList.remove('um-on');bd.classList.remove('um-on');pill.classList.add('um-on')}
+  var intro=$('um-in'),seen=false;try{seen=sessionStorage.getItem('um-in')==='1'}catch(e){}
+  function endIntro(){if(intro.classList.contains('um-out'))return;intro.classList.add('um-out');try{sessionStorage.setItem('um-in','1')}catch(e){}
+    setTimeout(function(){ if(dismissed) pill.classList.add('um-on'); else showTz(); },5000);}
+  if(seen||!cur()||matchMedia('(prefers-reduced-motion: reduce)').matches){intro.classList.add('um-out');intro.style.display='none';setTimeout(function(){ if(dismissed) pill.classList.add('um-on'); else showTz(); },5000);}
+  else{intro.addEventListener('click',endIntro);setTimeout(endIntro,4200);}
+  $('um-tzx').addEventListener('click',function(){hideTz();pill.classList.add('um-on');try{sessionStorage.setItem('um-x','1')}catch(e){}});
+  $('um-open').addEventListener('click',openDr);
+  pill.addEventListener('click',openDr);
+  $('um-drx').addEventListener('click',closeDr);
+  bd.addEventListener('click',closeDr);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&dr.classList.contains('um-on'))closeDr()});
+  document.querySelectorAll('#um [data-um]').forEach(function(a){
+    var k=a.getAttribute('data-um');
+    if(STRIPE[k]){var ref=(location.pathname.split('/').filter(Boolean).pop()||'').replace(/[^A-Za-z0-9_-]/g,'');a.href=STRIPE[k]+(ref?'?client_reference_id='+ref:'');a.target='_blank';a.rel='noopener';return}
+    var d=cur()||{},lab=k==='kit'?'Guida + Kit Host in Regola (147 €)':'Guida della Casa (97 €)';
+    a.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Ciao Umbra, vorrei attivare '+lab+' per '+(d.nome||'la mia struttura')+(d.comune?' ('+d.comune+')':'')+'. Come procedo?');
+    a.target='_blank';a.rel='noopener';
+  });
+  // nasconde card e pulsante quando la guida apre una galleria a tutto schermo
+  var lbq=false;function lbChk(){lbq=false;var open=[].some.call(document.querySelectorAll('[aria-modal="true"]'),function(e){return !um.contains(e)&&e.getAttribute('aria-hidden')!=='true'&&!e.closest('[aria-hidden="true"],[hidden]')&&e.getClientRects().length>0})||(document.body.style.overflow==='hidden'&&!dr.classList.contains('um-on'));um.classList.toggle('um-lb',open)}
+  new MutationObserver(function(){if(!lbq){lbq=true;requestAnimationFrame(lbChk)}}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['style','hidden','open','aria-hidden']});
+})();
+</script>
+
+
+</body>
+</html>
