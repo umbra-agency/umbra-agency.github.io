@@ -355,7 +355,6 @@ Se vi va faccio un sopralluogo gratuito sulle zone umide e vi mando un preventiv
 @keyframes uShine{0%,100%{background-position:12% 0}50%{background-position:88% 0}}
 #uPortal .u-sub{color:#A5A2B0;font-size:1.05rem;margin-top:16px}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
   var NAME=(window.UMBRA_INTRO&&window.UMBRA_INTRO.name)||"";
@@ -370,11 +369,19 @@ Se vi va faccio un sopralluogo gratuito sulle zone umide e vi mando un preventiv
   function showWelcome(){ui.style.display='none';welcome.classList.add('u-on');setTimeout(finish,2400)}
   portal.addEventListener('click',finish);
   var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(typeof THREE==='undefined'||reduced){
-    var p=0,iv=setInterval(function(){p+=4;if(p>=100){p=100;clearInterval(iv);showWelcome()}
-      fill.style.width=p+'%';pct.textContent=p+'%'},60);
-    return;
-  }
+  var started=false;
+  function simple(){var p=0,iv=setInterval(function(){p+=4;if(p>=100){p=100;clearInterval(iv);showWelcome()}
+      fill.style.width=p+'%';pct.textContent=p+'%'},60)}
+  function fallback(){if(started)return;started=true;simple()}
+  function start3d(){if(started)return;started=true;
+    try{run3d()}catch(err){var c=portal.querySelector('canvas');if(c)c.parentNode.removeChild(c);simple()}}
+  /* se dopo 9 secondi l'intro non e' arrivata al benvenuto, si chiude da sola */
+  setTimeout(function(){if(!done&&!welcome.classList.contains('u-on'))showWelcome()},9000);
+  if(reduced){fallback();return}
+  var lib=document.createElement('script');lib.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  lib.onload=start3d;lib.onerror=fallback;document.head.appendChild(lib);
+  setTimeout(fallback,2500);
+  function run3d(){
   var scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x050508,.045);
   var camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,100);camera.position.set(0,0,8.5);
   var renderer=new THREE.WebGLRenderer({antialias:true});renderer.setSize(innerWidth,innerHeight);
@@ -412,6 +419,7 @@ Se vi va faccio un sopralluogo gratuito sulle zone umide e vi mando un preventiv
     renderer.render(scene,camera);requestAnimationFrame(frame);
   })();
   addEventListener('resize',function(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+  }
 })();
 </script>
 <!-- ===== FINE UMBRA INTRO 3D ===== -->
