@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altaquota · Escursioni guidate in Dolomiti e sul Garda</title>
+<meta name="description" content="Concept Umbra per un organizzatore di escursioni: riquadro Prossime partenze in italiano e inglese, filtri, posti rimasti e profilo altimetrico.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@300;400;500;600&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/umbra.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* Layout: carta topografica. Curve di livello animate, verde bosco, arancio segnavia e bianco neve. */
+  --snow:#F3F4F0; --snow-2:#E6E8E1; --forest:#14261E; --forest-2:#1E3529; --moss:#6F8F5A; --trail:#E4572E; --ink:#121A15; --mute:#6E776F; --line:#D4D8CF;
+  --display:"Syne","Arial Black",sans-serif; --body:"Manrope","Helvetica Neue",Arial,sans-serif; --mono:"Martian Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--snow);color:var(--ink);font:400 16.5px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit}
+:focus-visible{outline:2px solid var(--trail);outline-offset:3px}
+.w{width:min(1300px,100% - 48px);margin-inline:auto}
+.mono{font:400 11px/1.4 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:clamp(40px,5.6vw,86px)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;background:var(--trail);color:#fff;text-decoration:none;font:600 15px var(--body);border:0;border-radius:6px;cursor:pointer;transition:transform .25s,background .25s}
+.btn:hover{transform:translateY(-2px);background:#cf4823}
+.btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+.btn--ghost:hover{background:#fff;color:var(--ink)}
+
+.nav{position:fixed;inset:0 0 auto;z-index:40;color:#fff;transition:background .4s}
+.nav.solid{background:rgba(20,38,30,.92);backdrop-filter:blur(10px)}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:74px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px var(--display);text-decoration:none}
+.logo svg{width:28px;height:28px}
+.nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.85}.nav ul a:hover{opacity:1}
+.lang{display:flex;gap:2px;background:rgba(255,255,255,.12);border-radius:6px;padding:3px}
+.lang button{border:0;background:none;color:#fff;font:400 11px var(--mono);padding:7px 10px;border-radius:4px;cursor:pointer}
+.lang button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.right{display:flex;align-items:center;gap:12px}
+@media(max-width:920px){.nav ul{display:none}.right .btn{display:none}}
+
+/* hero topografico */
+.hero{position:relative;min-height:100vh;background:var(--forest);color:#fff;display:flex;align-items:flex-end;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,38,30,.2),rgba(20,38,30,.9))}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .w{position:relative;padding:0 0 250px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(60px,9.4vw,156px)}
+.hero h1 span{color:var(--trail)}
+.hero p{color:#D7DED7;font-size:18px;max-width:40ch}
+.hero .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.coords{position:absolute;right:24px;top:96px;font:400 11px var(--mono);color:rgba(255,255,255,.6);text-align:right;line-height:1.8}
+@media(max-width:920px){.hero .w{grid-template-columns:1fr;padding-bottom:220px}.coords{display:none}}
+
+/* prossime partenze */
+.dep{background:var(--snow);padding:100px 0 120px;position:relative}
+.dep__box{background:#fff;border-radius:18px;box-shadow:0 40px 80px -50px rgba(18,26,21,.45);border:1px solid var(--line);overflow:hidden;margin-top:-180px;position:relative;z-index:5}
+.dep__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;border-bottom:1px solid var(--line)}
+.dep__head h2{font-size:clamp(28px,3vw,42px)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters select{font:500 14px var(--body);border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--snow)}
+.list{display:grid}
+.row{display:grid;grid-template-columns:86px minmax(0,1.6fr) 140px 120px 170px 130px;gap:18px;align-items:center;padding:18px 26px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .25s}
+.row:hover{background:#F8F9F6}
+.row[aria-expanded=true]{background:#F3F5F0}
+.date{text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px 4px}
+.date b{display:block;font:800 30px/1 var(--display)}
+.date span{font:400 10.5px var(--mono);text-transform:uppercase;color:var(--trail)}
+.row h3{font:600 18px/1.25 var(--body);letter-spacing:0}
+.row small{display:block;color:var(--mute);font-size:13.5px;margin-top:2px}
+.lvl{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500}
+.lvl i{display:inline-flex;gap:2px}.lvl i em{width:6px;height:14px;border-radius:2px;background:var(--line);display:block}
+.lvl i em.on{background:var(--ink)}
+.meta{font:400 12px var(--mono);color:#3E463F;line-height:1.7}
+.seats{font-size:13px}
+.seats .bar{height:6px;background:var(--snow-2);border-radius:3px;overflow:hidden;margin-top:6px}
+.seats .bar i{display:block;height:100%;background:var(--moss)}
+.seats.low .bar i{background:var(--trail)}
+.seats.low b{color:var(--trail)}
+.row .btn{padding:11px 16px;font-size:14px;justify-content:center}
+.detail{display:none;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:26px;padding:6px 26px 26px 130px;border-bottom:1px solid var(--line);background:#F3F5F0}
+.detail.on{display:grid}
+.prof{background:#fff;border-radius:12px;padding:16px;border:1px solid var(--line)}
+.prof svg{width:100%;height:auto;display:block}
+.prof .area{fill:rgba(111,143,90,.18)}
+.prof .ln{fill:none;stroke:var(--forest);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)}
+.detail.on .prof .ln{stroke-dashoffset:0}
+.prof text{font:400 9px var(--mono);fill:var(--mute)}
+.detail ul{list-style:none;padding:0;display:grid;gap:8px;font-size:15px}
+.detail li{display:grid;grid-template-columns:120px 1fr;gap:10px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.detail li span{font:400 11px var(--mono);text-transform:uppercase;color:var(--mute);padding-top:3px}
+.empty{padding:40px 26px;color:var(--mute)}
+.dep__foot{padding:16px 26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--mute)}
+@media(max-width:1100px){.row{grid-template-columns:70px minmax(0,1fr) 120px;row-gap:10px}.row .meta,.row .lvl{display:none}.row .btn{grid-column:3}.row .seats{grid-column:2}.detail{grid-template-columns:1fr;padding:6px 20px 22px}}
+@media(max-width:560px){.row{grid-template-columns:62px minmax(0,1fr)}.row .btn{grid-column:1/-1}.row .seats{grid-column:2}}
+
+/* esperienze */
+.exp{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px}
+.ex{position:relative;border-radius:16px;overflow:hidden;min-height:520px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:26px}
+.ex img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.ex::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 35%,rgba(12,22,17,.85))}
+.ex:hover img{transform:scale(1.06)}
+.ex h3{font-size:36px}
+.ex p{font-size:15px;color:#DDE3DD;margin-top:8px}
+.ex .mono{color:#F2B29E;margin-bottom:10px}
+@media(max-width:920px){.exp{grid-template-columns:1fr}.ex{min-height:380px}}
+
+/* guide e sicurezza */
+.safe{background:var(--forest);color:#fff}
+.safe__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:center}
+.safe figure{border-radius:16px;overflow:hidden;aspect-ratio:4/5}
+.safe figure img{width:100%;height:100%;object-fit:cover}
+.checks{list-style:none;padding:0;margin-top:30px;display:grid;gap:0}
+.checks li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:18px 0;border-top:1px solid #2E4A3B}
+.checks li b{font:400 12px var(--mono);color:var(--trail);padding-top:4px}
+.checks h3{font:600 19px var(--body);letter-spacing:0;margin-bottom:4px}
+.checks p{font-size:15px;color:#B9C6BC}
+@media(max-width:920px){.safe__g{grid-template-columns:1fr;gap:40px}}
+
+.contact{position:relative;color:#fff;padding:150px 0;overflow:hidden}
+.contact>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.contact::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(14,26,20,.7)}
+.contact h2{max-width:14ch}
+.contact .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pitch{background:var(--snow-2)}
+.pitch__g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.pitch__g div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.pitch__g b{display:block;font:800 20px/1.1 var(--display);margin-bottom:8px}
+.pitch__g p{font-size:15px;color:#4A524B}
+@media(max-width:920px){.pitch__g{grid-template-columns:1fr}}
+footer{background:var(--forest);color:#8EA096;font:400 11px var(--mono);padding:24px 0 40px}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+section{padding:120px 0}
+@media(max-width:920px){section{padding:80px 0}}
+</style>
+</head>
+<body data-umbra="un concept per la vostra richiesta" data-note="«Altaquota» è un nome di fantasia. Il riquadro «Prossime partenze» è il pezzo da inserire nel vostro sito, in italiano e in inglese.">
+
+<header class="nav" id="nav"><div class="w">
+  <a class="logo" href="#top"><svg viewBox="0 0 28 28" fill="none" stroke="#E4572E" stroke-width="2"><path d="M2 24L10 10l5 8 3-5 8 11z"/></svg>Altaquota</a>
+  <ul><li><a href="#partenze" data-i="nav1"></a></li><li><a href="#esperienze" data-i="nav2"></a></li><li><a href="#guide" data-i="nav3"></a></li><li><a href="#contatti" data-i="nav4"></a></li></ul>
+  <div class="right"><div class="lang" id="lang"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div><a class="btn" href="#partenze" data-i="cta"></a></div>
+</div></header>
+
+<main id="top">
+<div class="hero">
+  <img src="img/hero.jpg" alt="" fetchpriority="high">
+  <canvas id="topo" aria-hidden="true"></canvas>
+  <div class="coords">46°32′N 11°52′E<br>2.239 m s.l.m.<br><span data-i="season"></span></div>
+  <div class="w">
+    <h1 class="rv" data-i="h1"></h1>
+    <div class="rv" data-d="2"><p data-i="sub"></p><div class="ctas"><a class="btn" href="#partenze" data-i="see"></a><a class="btn btn--ghost" href="#esperienze" data-i="how"></a></div></div>
+  </div>
+</div>
+
+<section class="dep" id="partenze"><div class="w">
+  <div class="dep__box">
+    <div class="dep__head">
+      <div><span class="mono" data-i="depk"></span><h2 data-i="deph"></h2></div>
+      <div class="filters"><label class="mono" for="fm" style="position:absolute;left:-9999px">Mese</label><select id="fm"></select><label for="fl" style="position:absolute;left:-9999px">Livello</label><select id="fl"></select></div>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="dep__foot"><span data-i="foot1"></span><span data-i="foot2"></span></div>
+  </div>
+</div></section>
+
+<section id="esperienze" style="padding-top:0"><div class="w">
+  <span class="mono rv" data-i="expk"></span>
+  <h2 class="rv" data-d="1" style="margin:14px 0 46px;max-width:14ch" data-i="exph"></h2>
+  <div class="exp">
+    <article class="ex rv"><img src="img/alba.jpg" alt="" loading="lazy"><span class="mono" data-i="e1k"></span><h3 data-i="e1h"></h3><p data-i="e1p"></p></article>
+    <article class="ex rv" data-d="1"><img src="img/garda.jpg" alt="" loading="lazy"><span class="mono" data-i="e2k"></span><h3 data-i="e2h"></h3><p data-i="e2p"></p></article>
+    <article class="ex rv" data-d="2"><img src="img/gruppo.jpg" alt="" loading="lazy"><span class="mono" data-i="e3k"></span><h3 data-i="e3h"></h3><p data-i="e3p"></p></article>
+  </div>
+</div></section>
+
+<section class="safe" id="guide"><div class="w safe__g">
+  <figure class="rv-clip"><img src="img/cresta.jpg" alt="" loading="lazy"></figure>
+  <div>
+    <span class="mono" style="color:#9FB3A6" data-i="safk"></span>
+    <h2 style="margin-top:14px" data-i="safh"></h2>
+    <ul class="checks">
+      <li class="rv"><b>01</b><div><h3 data-i="s1h"></h3><p data-i="s1p"></p></div></li>
+      <li class="rv"><b>02</b><div><h3 data-i="s2h"></h3><p data-i="s2p"></p></div></li>
+      <li class="rv"><b>03</b><div><h3 data-i="s3h"></h3><p data-i="s3p"></p></div></li>
+      <li class="rv"><b>04</b><div><h3 data-i="s4h"></h3><p data-i="s4p"></p></div></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="contact" id="contatti"><img src="img/panorama.jpg" alt="" loading="lazy"><div class="w">
+  <span class="mono" style="color:#C9D3CB" data-i="ctk"></span>
+  <h2 style="margin-top:14px" data-i="cth"></h2>
+  <div class="ctas"><a class="btn" href="#partenze" data-i="ct1"></a><a class="btn btn--ghost" href="https://wa.me/390000000000" data-i="ct2"></a></div>
+</div></section>
+
+<section class="pitch"><div class="w">
+  <span class="mono">Il lavoro che avete chiesto</span>
+  <h2 style="margin-top:14px;max-width:18ch">Il riquadro «Prossime partenze», in tutte e due le lingue.</h2>
+  <div class="pitch__g">
+    <div><b>Al posto della sezione attuale</b><p>Lo inseriamo in homepage sulla versione italiana e su quella inglese, senza toccare il resto del sito WordPress.</p></div>
+    <div><b>Si aggiorna da solo</b><p>Le partenze passate spariscono, i posti si scalano a ogni prenotazione, l'«ultimi posti» compare da sé.</p></div>
+    <div><b>Una sola scheda, due lingue</b><p>Inserite l'escursione una volta: titolo e note in italiano e inglese, date e posti in comune.</p></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="w"><span>Altaquota · nome di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
+
+<script src="../lib/umbra.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>60)},{passive:true});
+  var T={
+   it:{nav1:'Prossime partenze',nav2:'Esperienze',nav3:'Le guide',nav4:'Contatti',cta:'Prenota',season:'stagione invernale',
+     h1:'Cammina <span>dove</span> finisce la strada.',sub:'Escursioni guidate in Dolomiti e sul Garda, in piccoli gruppi, con guide del posto. D\'inverno con le ciaspole.',see:'Vedi le partenze',how:'Come funziona',
+     depk:'Aggiornato ogni giorno',deph:'Prossime partenze',allm:'Tutti i mesi',alll:'Tutti i livelli',L:['Facile','Media','Impegnativa'],
+     foot1:'Minimo 4 partecipanti. Se il meteo non lo permette, la data si sposta o vi rimborsiamo.',foot2:'Attrezzatura a noleggio su richiesta',
+     seats:'posti liberi',last:'Ultimi posti',full:'Al completo',book:'Prenota',wait:'Lista d\'attesa',km:'km',up:'D+',dur:'ore',
+     meet:'Ritrovo',gear:'Da portare',guide:'Guida',none:'Nessuna partenza con questi filtri.',prof:'Profilo altimetrico',
+     expk:'Esperienze',exph:'Tre modi di andare in montagna.',e1k:'Alba · facile',e1h:'Ciaspolata all\'alba',e1p:'Si parte col buio, si arriva in cresta quando le Dolomiti si accendono di rosa.',
+     e2k:'Lago · facile',e2h:'Sentieri sul Garda',e2p:'Mulattiere tra ulivi e limonaie, con il lago sempre sotto gli occhi.',
+     e3k:'Gruppo · media',e3h:'Uscite per aziende',e3p:'Una giornata insieme fuori dall\'ufficio, con pranzo in rifugio.',
+     safk:'Le guide',safh:'Professionisti del posto, non accompagnatori improvvisati.',
+     s1h:'Guide qualificate',s1p:'Accompagnatori di media montagna e guide alpine, con l\'abilitazione richiesta per ogni uscita.',
+     s2h:'Gruppi piccoli',s2p:'Al massimo 12 persone: la guida vi conosce per nome.',
+     s3h:'Meteo e valanghe',s3p:'Ogni partenza si conferma il giorno prima, guardando il bollettino.',
+     s4h:'Attrezzatura',s4p:'Ciaspole, bastoncini e kit di sicurezza a noleggio, su richiesta.',
+     ctk:'Contatti',cth:'Non sapete quale scegliere? Chiedete a una guida.',ct1:'Vedi le partenze',ct2:'Scrivici su WhatsApp',
+     months:['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'],Months:['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre']},
+   en:{nav1:'Upcoming departures',nav2:'Experiences',nav3:'Our guides',nav4:'Contact',cta:'Book',season:'winter season',
+     h1:'Walk <span>where</span> the road ends.',sub:'Guided hikes in the Dolomites and on Lake Garda, in small groups, with local guides. On snowshoes in winter.',see:'See departures',how:'How it works',
+     depk:'Updated daily',deph:'Upcoming departures',allm:'All months',alll:'All levels',L:['Easy','Moderate','Challenging'],
+     foot1:'Minimum 4 participants. If the weather says no, we move the date or refund you.',foot2:'Gear rental on request',
+     seats:'seats left',last:'Last seats',full:'Fully booked',book:'Book',wait:'Waiting list',km:'km',up:'Ascent',dur:'h',
+     meet:'Meeting point',gear:'Bring',guide:'Guide',none:'No departures match these filters.',prof:'Elevation profile',
+     expk:'Experiences',exph:'Three ways into the mountains.',e1k:'Sunrise · easy',e1h:'Snowshoes at sunrise',e1p:'We leave in the dark and reach the ridge as the Dolomites turn pink.',
+     e2k:'Lake · easy',e2h:'Lake Garda trails',e2p:'Mule tracks through olive groves and lemon houses, the lake always below you.',
+     e3k:'Groups · moderate',e3h:'Company days out',e3p:'A day together away from the office, with lunch at a mountain hut.',
+     safk:'Our guides',safh:'Local professionals, not improvised leaders.',
+     s1h:'Qualified guides',s1p:'Licensed mountain leaders and alpine guides, as each outing requires.',
+     s2h:'Small groups',s2p:'Twelve people at most: your guide knows your name.',
+     s3h:'Weather and avalanches',s3p:'Every departure is confirmed the day before, after checking the bulletin.',
+     s4h:'Gear',s4p:'Snowshoes, poles and safety kit available to rent on request.',
+     ctk:'Contact',cth:'Not sure which one? Ask a guide.',ct1:'See departures',ct2:'Message us on WhatsApp',
+     months:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],Months:['January','February','March','April','May','June','July','August','September','October','November','December']}
+  };
+  /* partenze di esempio */
+  var D=[
+   {d:'2026-12-06',it:'Ciaspolata all\'alba sul Passo Giau',en:'Sunrise snowshoe at Passo Giau',area:'Dolomiti',lvl:1,km:7.5,up:420,h:4,tot:12,left:3,meet:{it:'Passo Giau, ore 5:30',en:'Passo Giau, 5:30 am'},gear:{it:'Frontale, scarponi invernali, thermos',en:'Headlamp, winter boots, thermos'},g:'Marta',p:[2236,2290,2350,2410,2480,2550,2600,2570,2500,2420,2330,2236]},
+   {d:'2026-12-13',it:'Notturna con le ciaspole ai rifugi',en:'Night snowshoe to the huts',area:'Dolomiti',lvl:2,km:9,up:560,h:5,tot:12,left:7,meet:{it:'Cortina, parcheggio funivia, ore 16:00',en:'Cortina, cable car car park, 4 pm'},gear:{it:'Frontale, guanti, strati caldi',en:'Headlamp, gloves, warm layers'},g:'Luca',p:[1720,1780,1860,1950,2040,2140,2250,2280,2200,2050,1880,1720]},
+   {d:'2026-12-20',it:'Sentiero delle limonaie',en:'Lemon house trail',area:'Garda',lvl:1,km:8,up:310,h:3.5,tot:14,left:9,meet:{it:'Limone sul Garda, porto, ore 9:30',en:'Limone sul Garda, harbour, 9:30 am'},gear:{it:'Scarpe da trekking, acqua',en:'Hiking shoes, water'},g:'Elena',p:[70,110,170,240,300,350,380,340,260,180,110,70]},
+   {d:'2027-01-04',it:'Anello delle Cinque Torri',en:'Cinque Torri loop',area:'Dolomiti',lvl:2,km:10,up:650,h:5.5,tot:12,left:0,meet:{it:'Seggiovia Cinque Torri, ore 8:30',en:'Cinque Torri chairlift, 8:30 am'},gear:{it:'Ciaspole incluse',en:'Snowshoes included'},g:'Marta',p:[1890,1960,2050,2150,2250,2330,2360,2300,2200,2080,1960,1890]},
+   {d:'2027-01-17',it:'Monte Baldo d\'inverno',en:'Monte Baldo in winter',area:'Garda',lvl:3,km:12,up:900,h:6.5,tot:10,left:4,meet:{it:'Malcesine, funivia, ore 8:00',en:'Malcesine, cable car, 8 am'},gear:{it:'Ramponcini, ghette',en:'Microspikes, gaiters'},g:'Luca',p:[1760,1850,1960,2050,2120,2180,2218,2160,2060,1940,1840,1760]},
+   {d:'2027-02-07',it:'Alba alle Tre Cime',en:'Sunrise at Tre Cime',area:'Dolomiti',lvl:3,km:13,up:780,h:7,tot:10,left:6,meet:{it:'Misurina, ore 4:45',en:'Misurina, 4:45 am'},gear:{it:'Frontale, ciaspole, kit ARTVA',en:'Headlamp, snowshoes, avalanche kit'},g:'Elena',p:[1756,1850,1980,2100,2220,2320,2400,2440,2350,2200,1980,1756]}
+  ];
+  var L='it',de=document.documentElement;
+  function t(k){return T[L][k]}
+  function fill(){document.querySelectorAll('[data-i]').forEach(function(el){var v=T[L][el.dataset.i];if(v!=null)el.innerHTML=v});
+    var fm=document.getElementById('fm'),fl=document.getElementById('fl'),vm=fm.value,vl=fl.value;
+    var ms=[...new Set(D.map(function(x){return x.d.slice(0,7)}))];
+    fm.innerHTML='<option value="">'+t('allm')+'</option>'+ms.map(function(m){return '<option value="'+m+'">'+t('Months')[+m.slice(5)-1]+' '+m.slice(0,4)+'</option>'}).join('');
+    fl.innerHTML='<option value="">'+t('alll')+'</option>'+t('L').map(function(n,i){return '<option value="'+(i+1)+'">'+n+'</option>'}).join('');fm.value=vm;fl.value=vl;render()}
+  function profile(p){var W=420,H=120,mn=Math.min.apply(0,p),mx=Math.max.apply(0,p),pts=p.map(function(v,i){return [10+i*(W-20)/(p.length-1),H-14-(v-mn)/(mx-mn||1)*(H-34)]});
+    var d='M'+pts.map(function(q){return q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' L');
+    return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+t('prof')+'"><path class="area" d="'+d+' L'+(W-10)+' '+(H-14)+' L10 '+(H-14)+'Z"/><path class="ln" pathLength="1" d="'+d+'"/><text x="10" y="'+(H-2)+'">'+mn+' m</text><text x="'+(W-10)+'" y="12" text-anchor="end">max '+mx+' m</text></svg>'}
+  function render(){var fm=document.getElementById('fm').value,fl=document.getElementById('fl').value,list=document.getElementById('list');list.innerHTML='';
+    var rows=D.filter(function(x){return (!fm||x.d.slice(0,7)===fm)&&(!fl||x.lvl==fl)});
+    if(!rows.length){list.innerHTML='<p class="empty">'+t('none')+'</p>';return}
+    rows.forEach(function(x,i){var dt=new Date(x.d+'T12:00:00'),low=x.left>0&&x.left<=3,full=!x.left;
+      var r=document.createElement('div');r.className='row';r.tabIndex=0;r.setAttribute('role','button');r.setAttribute('aria-expanded','false');
+      r.innerHTML='<div class="date"><b>'+dt.getDate()+'</b><span>'+t('months')[dt.getMonth()]+'</span></div>'+
+        '<div><h3>'+x[L]+'</h3><small>'+x.area+' · '+t('guide')+' '+x.g+'</small></div>'+
+        '<span class="lvl"><i>'+[1,2,3].map(function(n){return '<em class="'+(n<=x.lvl?'on':'')+'"></em>'}).join('')+'</i>'+t('L')[x.lvl-1]+'</span>'+
+        '<span class="meta">'+x.km+' '+t('km')+'<br>'+t('up')+' '+x.up+' m<br>'+x.h+' '+t('dur')+'</span>'+
+        '<span class="seats'+(low||full?' low':'')+'"><b>'+(full?t('full'):low?t('last')+' · '+x.left:x.left+' '+t('seats'))+'</b><span class="bar"><i style="width:'+((x.tot-x.left)/x.tot*100)+'%"></i></span></span>'+
+        '<a class="btn" href="#contatti">'+(full?t('wait'):t('book'))+'</a>';
+      var det=document.createElement('div');det.className='detail';
+      det.innerHTML='<div class="prof"><span class="mono">'+t('prof')+'</span>'+profile(x.p)+'</div><ul><li><span>'+t('meet')+'</span>'+x.meet[L]+'</li><li><span>'+t('gear')+'</span>'+x.gear[L]+'</li><li><span>'+t('guide')+'</span>'+x.g+'</li></ul>';
+      function tog(e){if(e&&e.target.closest('a'))return;var on=r.getAttribute('aria-expanded')!=='true';list.querySelectorAll('.row').forEach(function(o){o.setAttribute('aria-expanded','false')});list.querySelectorAll('.detail').forEach(function(o){o.classList.remove('on')});
+        if(on){r.setAttribute('aria-expanded','true');requestAnimationFrame(function(){det.classList.add('on')})}}
+      r.addEventListener('click',tog);r.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}});
+      list.appendChild(r);list.appendChild(det);if(i===0){r.setAttribute('aria-expanded','true');setTimeout(function(){det.classList.add('on')},400)}})}
+  document.getElementById('fm').addEventListener('change',render);document.getElementById('fl').addEventListener('change',render);
+  var lang=document.getElementById('lang');lang.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;L=b.dataset.l;de.lang=L;lang.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});fill()});
+  fill();
+
+  /* curve di livello animate */
+  var cv=document.getElementById('topo'),cx=cv.getContext('2d'),W,H,dpr=Math.min(devicePixelRatio,2);
+  var peaks=[[.72,.38,1],[.86,.62,.7],[.55,.7,.55],[.3,.32,.45]];
+  function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+  addEventListener('resize',size);size();
+  function draw(t){cx.clearRect(0,0,W,H);
+    peaks.forEach(function(pk,pi){var px=pk[0]*W,py=pk[1]*H,s=pk[2]*Math.min(W,H)*.55;
+      for(var k=1;k<=12;k++){var r=s*k/12;cx.beginPath();
+        for(var a=0;a<=64;a++){var th=a/64*Math.PI*2,n=Math.sin(th*3+pi+t*.00025)*.08+Math.sin(th*5-k*.4+t*.00018)*.05+Math.cos(th*2+k*.3)*.06,rr=r*(1+n);
+          var x=px+Math.cos(th)*rr*1.25,y=py+Math.sin(th)*rr*.82;a?cx.lineTo(x,y):cx.moveTo(x,y)}
+        cx.closePath();cx.strokeStyle=k===6&&pi===0?'rgba(228,87,46,.75)':'rgba(220,235,224,'+(.12+.2*(1-k/12))+')';cx.lineWidth=k===6&&pi===0?1.6:1;cx.stroke()}});
+    if(!reduce)requestAnimationFrame(draw)}
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>

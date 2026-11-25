@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tea Sommelier Italia · Scuola Jaku, Lucca e online</title>
+<meta name="description" content="Corsi da Tea Sommelier in quattro livelli, cerimonia del tè giapponese e Tea Club Italia con video in abbonamento. Scuola Jaku di Letizia Del Magro, Lucca e online.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/umbra.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* Layout: lacca scura e carta washi che si alternano come le fasi di una cerimonia; un solo verde, quello del matcha. */
+  --lacquer:#0F120E; --lacquer-2:#181D16; --washi:#EFE9DD; --washi-2:#E4DCCB; --ink:#1A1D17; --mute:#857F72; --matcha:#9DBB57; --matcha-d:#5E7A2C; --seal:#B2362A;
+  --display:"Shippori Mincho","Hiragino Mincho ProN",Georgia,serif; --body:"Zen Kaku Gothic New","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--lacquer);color:var(--washi);font:300 17px/1.75 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--matcha);outline-offset:3px}
+.w{width:min(1260px,100% - 48px);margin-inline:auto}
+.k{font:500 11.5px/1.4 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--matcha)}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.08;letter-spacing:.01em;text-wrap:balance}
+h2{font-size:clamp(38px,5vw,72px)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;background:var(--matcha);color:var(--lacquer);text-decoration:none;font:500 14.5px var(--body);letter-spacing:.06em;border:1px solid var(--matcha);cursor:pointer;transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--matcha)}
+.btn--line{background:transparent;color:var(--washi);border-color:rgba(239,233,221,.4)}
+.btn--line:hover{border-color:var(--matcha);color:var(--matcha)}
+.seal{display:inline-grid;place-items:center;width:46px;height:46px;background:var(--seal);color:#f6e6dd;font:600 13px/1 var(--display);border-radius:4px;transform:rotate(-4deg)}
+
+.nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s}
+.nav.solid{background:rgba(15,18,14,.86);backdrop-filter:blur(12px)}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:78px;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand b{font:500 19px/1.1 var(--display)}
+.brand small{display:block;font:400 10.5px var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.nav ul{display:flex;gap:30px;list-style:none;padding:0;font-size:14px;letter-spacing:.04em}
+.nav ul a{text-decoration:none;opacity:.78}.nav ul a:hover{opacity:1;color:var(--matcha)}
+@media(max-width:960px){.nav ul{display:none}}
+
+/* hero con ciotola 3D */
+.hero{position:relative;min-height:100vh;display:grid;align-items:center;overflow:hidden}
+.hero__bg{position:absolute;inset:0;background:radial-gradient(60% 60% at 70% 50%,#26301d 0%,var(--lacquer) 70%)}
+.hero__grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:center;gap:20px;padding-top:80px}
+.hero h1{font-size:clamp(56px,8vw,128px);line-height:.98;margin:26px 0}
+.hero h1 span{display:block;color:var(--matcha)}
+.hero p{max-width:42ch;color:#CFC8B8;font-size:18px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.bowl{position:relative;height:min(760px,86vh)}
+.bowl canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.bowl__fallback{position:absolute;inset:10% 8%;border-radius:50%;overflow:hidden;opacity:.85}
+.bowl__fallback img{width:100%;height:100%;object-fit:cover}
+.bowl.gl .bowl__fallback{display:none}
+.vert{position:absolute;right:28px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font:500 15px var(--display);letter-spacing:.6em;color:rgba(239,233,221,.35)}
+@media(max-width:960px){.hero__grid{grid-template-columns:1fr;padding-top:96px}.bowl{height:420px;order:-1;margin-bottom:-30px}.vert{display:none}}
+
+.marq{border-block:1px solid #263022;overflow:hidden;white-space:nowrap;padding:18px 0;font:500 22px var(--display);color:#6F7B5E}
+.marq div{display:inline-block;animation:mq 46s linear infinite}
+.marq span{margin:0 26px}
+.marq span:nth-child(3n){color:var(--matcha)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:140px 0;position:relative}
+@media(max-width:960px){section{padding:90px 0}}
+
+/* tea club */
+.club{background:var(--washi);color:var(--ink)}
+.club .k{color:var(--matcha-d)}
+.club__top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:60px;align-items:end}
+.club__top p{color:#4D4E45}
+.count{display:flex;gap:10px;margin-top:30px}
+.count div{background:var(--lacquer);color:var(--washi);flex:1;min-width:0;max-width:96px;padding:14px 12px 10px;text-align:center}
+.count b{display:block;font:500 40px/1 var(--display);font-variant-numeric:tabular-nums}
+.count small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.lib{margin-top:70px;background:var(--lacquer);color:var(--washi);border-radius:6px;overflow:hidden;box-shadow:0 50px 80px -40px rgba(15,18,14,.6)}
+.lib__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px;border-bottom:1px solid #263022;font-size:13.5px}
+.lib__bar .dots{display:flex;gap:7px}.lib__bar .dots i{width:10px;height:10px;border-radius:50%;background:#2c3528}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:18px 22px 0}
+.tabs button{background:none;border:1px solid #2F3A2B;color:#BDB6A6;padding:8px 14px;font:400 13px var(--body);cursor:pointer;letter-spacing:.04em}
+.tabs button[aria-pressed=true]{background:var(--matcha);border-color:var(--matcha);color:var(--lacquer)}
+.vids{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding:20px 22px 26px}
+.vid{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:16/10;background:#222;cursor:pointer}
+.vid img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.62);transition:transform .8s,filter .5s}
+.vid:hover img{transform:scale(1.06);filter:saturate(1) brightness(.8)}
+.vid figcaption{position:absolute;left:12px;right:12px;bottom:10px;font-size:13.5px;line-height:1.35}
+.vid figcaption small{display:block;color:#C9C2B2;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+.vid .lock{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(15,18,14,.75);display:grid;place-items:center}
+.vid .lock svg{width:14px;height:14px}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s}
+.vid:hover .play{opacity:1}
+.vid .play i{width:54px;height:54px;border-radius:50%;background:var(--matcha);display:grid;place-items:center}
+.vid .play i::after{content:"";border-left:13px solid var(--lacquer);border-block:8px solid transparent;margin-left:4px}
+.lib__msg{padding:0 22px 22px;font-size:13.5px;color:#9E978A}
+.perks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:50px;border-top:1px solid #CFC6B3}
+.perks div{padding:24px 20px 0 0}
+.perks div+div{padding-left:20px;border-left:1px solid #CFC6B3}
+.perks h3{font-size:22px;margin-bottom:6px}
+.perks p{font-size:15px;color:#55564C}
+@media(max-width:960px){.club__top{grid-template-columns:1fr;gap:20px}.vids{grid-template-columns:repeat(2,minmax(0,1fr))}.perks{grid-template-columns:1fr 1fr}.perks div{border-left:0!important;padding-left:0!important;padding-bottom:20px}}
+
+/* corsi: livelli come gradini */
+.levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:end;margin-top:60px}
+.lv{background:var(--lacquer-2);border:1px solid #263022;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:background .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.lv:hover{background:#20281c;transform:translateY(-8px)}
+.lv:nth-child(1){min-height:300px}.lv:nth-child(2){min-height:350px}.lv:nth-child(3){min-height:400px}.lv:nth-child(4){min-height:450px}
+.lv b{font:500 72px/1 var(--display);color:var(--matcha)}
+.lv h3{font-size:25px}
+.lv p{font-size:15px;color:#B7B0A1}
+.lv ul{list-style:none;padding:0;margin-top:auto;font-size:13.5px;color:#C9C2B2;border-top:1px solid #2F3A2B;padding-top:12px}
+.lv li::before{content:"· ";color:var(--matcha)}
+.dates{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:50px;margin-top:80px;align-items:start}
+.date{display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:center;padding:26px 0;border-top:1px solid #2F3A2B}
+.date:last-child{border-bottom:1px solid #2F3A2B}
+.date .d{font:500 50px/1 var(--display);color:var(--matcha)}
+.date .d small{display:block;font:400 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:#BDB6A6;margin-top:6px}
+.date h3{font-size:24px}
+.date p{font-size:14.5px;color:#B7B0A1}
+.incl{background:var(--lacquer-2);padding:30px;border-left:2px solid var(--matcha)}
+.incl p{font-size:15.5px;color:#CFC8B8;margin-top:10px}
+@media(max-width:960px){.levels{grid-template-columns:repeat(2,minmax(0,1fr))}.lv{min-height:0!important}.dates{grid-template-columns:1fr}.date{grid-template-columns:80px 1fr}.date .btn{grid-column:2}}
+@media(max-width:560px){.levels{grid-template-columns:1fr}}
+
+/* cerimonia: pannelli fissati */
+.cer{background:var(--washi);color:var(--ink)}
+.cer .k{color:var(--matcha-d)}
+.cer__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px}
+.cer__pics{position:sticky;top:90px;height:calc(100vh - 140px);min-height:520px}
+.cer__pics figure{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity 1s,transform 1.4s;transform:scale(1.04)}
+.cer__pics figure.on{opacity:1;transform:none}
+.cer__pics img{width:100%;height:100%;object-fit:cover}
+.step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid #D2C8B4}
+.step .n{font:500 14px var(--display);color:var(--seal);letter-spacing:.3em}
+.step h3{font-size:clamp(32px,3.4vw,48px);margin:12px 0}
+.step p{color:#4D4E45}
+.quote{font:500 clamp(26px,2.6vw,36px)/1.35 var(--display);margin-top:20px;padding-left:22px;border-left:2px solid var(--seal)}
+@media(max-width:960px){.cer__grid{grid-template-columns:1fr}.cer__pics{position:relative;top:0;height:380px;min-height:0}.step{min-height:0;padding:40px 0}}
+
+/* maestra e libro */
+.master{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
+.master figure{aspect-ratio:4/5;overflow:hidden;position:relative}
+.master figure img{width:100%;height:100%;object-fit:cover}
+.master figcaption{position:absolute;left:14px;bottom:14px;background:rgba(15,18,14,.75);padding:8px 12px;font-size:12.5px}
+.bookx{display:flex;gap:28px;align-items:center;margin-top:44px;padding-top:30px;border-top:1px solid #2F3A2B}
+.bk{flex:0 0 112px;aspect-ratio:2/3;background:linear-gradient(135deg,#6E8B37,#3F5520);padding:12px;color:#F3EEDF;font:500 13px/1.2 var(--display);box-shadow:14px 18px 30px -12px #000,inset 5px 0 0 rgba(0,0,0,.2);transform:perspective(600px) rotateY(-16deg);transition:transform .6s}
+.bk:hover{transform:perspective(600px) rotateY(0)}
+@media(max-width:960px){.master{grid-template-columns:1fr;gap:40px}}
+
+/* contatti */
+.contact{background:var(--washi);color:var(--ink)}
+.contact .k{color:var(--matcha-d)}
+.contact__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px}
+.ln{list-style:none;padding:0;margin-top:30px}
+.ln li{display:grid;grid-template-columns:120px 1fr;padding:16px 0;border-top:1px solid #D2C8B4;font-size:16px}
+.ln li span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);padding-top:3px}
+.ln a{text-decoration:none;border-bottom:1px solid #BDB29D}
+form{display:grid;gap:16px;align-content:start}
+label{display:grid;gap:6px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+input,select,textarea{font:300 17px var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid #BDB29D;padding:10px 0;border-radius:0;width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact .btn{background:var(--lacquer);color:var(--washi);border-color:var(--lacquer);justify-self:start}
+.contact .btn:hover{background:var(--matcha-d);border-color:var(--matcha-d)}
+.ok{font-size:15px;border:1px solid var(--matcha-d);color:var(--matcha-d);padding:12px}
+.ok[hidden]{display:none}
+@media(max-width:960px){.contact__g{grid-template-columns:1fr;gap:40px}.two{grid-template-columns:1fr}}
+
+.pitch{border-top:1px solid #263022}
+.pitch h2 span{color:var(--matcha)}
+.pitch__g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;border-top:1px solid #2F3A2B}
+.pitch__g div{padding:28px 26px 28px 0;border-bottom:1px solid #2F3A2B}
+.pitch__g div:not(:nth-child(3n+1)){padding-left:26px;border-left:1px solid #2F3A2B}
+.pitch__g b{display:block;font:500 22px/1.25 var(--display);margin-bottom:8px}
+.pitch__g p{font-size:15px;color:#B7B0A1}
+@media(max-width:960px){.pitch__g{grid-template-columns:1fr}.pitch__g div{padding-left:0!important;border-left:0!important}}
+footer{padding:34px 0 46px;color:#7F796C;font-size:13px;border-top:1px solid #263022}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:50;width:56px;height:56px;border-radius:50%;background:#1F8F55;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+.wa svg{width:27px;height:27px}
+</style>
+</head>
+<body data-umbra="un'anteprima per Letizia Del Magro" data-note="Corsi, date, indirizzo, contatti e libro vengono dal tuo sito. Le foto e i titoli dei video sono esempi da sostituire con i tuoi.">
+
+<header class="nav" id="nav"><div class="w">
+  <a class="brand" href="#top"><span class="seal">寂</span><span><b>Tea Sommelier Italia</b><small>Scuola Jaku · Lucca</small></span></a>
+  <ul><li><a href="#club">Tea Club</a></li><li><a href="#corsi">Corsi</a></li><li><a href="#cerimonia">Cerimonia del tè</a></li><li><a href="#maestra">La scuola</a></li><li><a href="#contatti">Contatti</a></li></ul>
+  <a class="btn" href="#club">Tea Club</a>
+</div></header>
+
+<main id="top">
+<div class="hero">
+  <div class="hero__bg"></div>
+  <div class="w hero__grid">
+    <div>
+      <span class="k rv">Formazione, cultura e strumenti per la tua arte del tè</span>
+      <h1 class="rv" data-d="1">La Via <span>del Tè.</span></h1>
+      <p class="rv" data-d="2">Corsi da Tea Sommelier in quattro livelli, lezioni di cerimonia del tè giapponese e, dal 1° dicembre, il Tea Club: le lezioni in video, ogni mese, da casa tua.</p>
+      <div class="ctas rv" data-d="3"><a class="btn" href="#club">Scopri il Tea Club</a><a class="btn btn--line" href="#corsi">Prossimi corsi</a></div>
+    </div>
+    <div class="bowl" id="bowl" aria-hidden="true"><div class="bowl__fallback"><img src="img/hero.jpg" alt="" fetchpriority="high"></div></div>
+  </div>
+  <span class="vert">茶道 · 一期一会</span>
+</div>
+
+<div class="marq" aria-hidden="true"><div><span>Matcha</span><span>Sencha</span><span>Gyokuro</span><span>Oolong</span><span>Pu'er</span><span>Darjeeling</span><span>Bancha</span><span>Hojicha</span><span>Tè bianco</span><span>Genmaicha</span><span>Matcha</span><span>Sencha</span><span>Gyokuro</span><span>Oolong</span><span>Pu'er</span><span>Darjeeling</span><span>Bancha</span><span>Hojicha</span><span>Tè bianco</span><span>Genmaicha</span></div></div>
+
+<section class="club" id="club"><div class="w">
+  <div class="club__top">
+    <div>
+      <span class="k rv">Tea Club Italia · dal 1° dicembre</span>
+      <h2 class="rv" data-d="1" style="margin-top:16px">La scuola, <br>anche a casa tua.</h2>
+    </div>
+    <div class="rv" data-d="2">
+      <p>Un abbonamento mensile con le lezioni in video: cerimonia, degustazione, tè del mondo. Guardi quando vuoi, dal telefono o dal computer, e ogni mese si aggiunge qualcosa di nuovo.</p>
+      <div class="count" id="count" aria-label="Tempo all'apertura del Tea Club"><div><b id="cd">00</b><small>giorni</small></div><div><b id="ch">00</b><small>ore</small></div><div><b id="cm">00</b><small>minuti</small></div><div><b id="cs">00</b><small>secondi</small></div></div>
+    </div>
+  </div>
+
+  <div class="lib rv">
+    <div class="lib__bar"><span class="dots"><i></i><i></i><i></i></span><span>Area soci · Biblioteca video</span><span style="color:var(--matcha)">Accedi</span></div>
+    <div class="tabs" id="tabs">
+      <button type="button" data-c="all" aria-pressed="true">Tutti</button><button type="button" data-c="cer" aria-pressed="false">Cerimonia giapponese</button><button type="button" data-c="deg" aria-pressed="false">Degustazione</button><button type="button" data-c="cin" aria-pressed="false">Tè cinese</button><button type="button" data-c="mon" aria-pressed="false">Tè del mondo</button>
+    </div>
+    <div class="vids" id="vids">
+      <figure class="vid" data-c="cer"><img src="img/frusta.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Cerimonia · 18 min</small>Usucha: il tè leggero, passo per passo</figcaption></figure>
+      <figure class="vid" data-c="deg"><img src="img/foglie.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Degustazione · 24 min</small>Leggere la foglia secca e la foglia infusa</figcaption></figure>
+      <figure class="vid" data-c="cin"><img src="img/gongfu.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Tè cinese · 21 min</small>Gong fu cha con il gaiwan</figcaption></figure>
+      <figure class="vid" data-c="mon"><img src="img/piantagione.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Tè del mondo · 16 min</small>Dalla pianta alla tazza: le lavorazioni</figcaption></figure>
+      <figure class="vid" data-c="cer"><img src="img/tokonoma.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Cerimonia · 12 min</small>Il tokonoma: rotolo e fiori di stagione</figcaption></figure>
+      <figure class="vid" data-c="deg"><img src="img/bianco.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Degustazione · 19 min</small>Matcha: come riconoscere la qualità</figcaption></figure>
+      <figure class="vid" data-c="cin"><img src="img/tavolo.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Tè cinese · 27 min</small>Oolong: infusioni successive a confronto</figcaption></figure>
+      <figure class="vid" data-c="mon"><img src="img/matcha.jpg" alt="" loading="lazy"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="#EFE9DD" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span class="play"><i></i></span><figcaption><small>Tè del mondo · 14 min</small>Gli strumenti: chasen, chashaku, chawan</figcaption></figure>
+    </div>
+    <p class="lib__msg" id="libmsg">I video si aprono solo ai soci, sono in streaming e non si scaricano. Titoli di esempio.</p>
+  </div>
+
+  <div class="perks">
+    <div class="rv"><h3>Ogni mese</h3><p>Nuove lezioni in video, in ordine di livello.</p></div>
+    <div class="rv" data-d="1"><h3>Ovunque</h3><p>Dal telefono, dal tablet o dal computer.</p></div>
+    <div class="rv" data-d="2"><h3>Rinnovo automatico</h3><p>Con carta, senza bonifici. Disdici quando vuoi.</p></div>
+    <div class="rv" data-d="3"><h3>Per i corsisti</h3><p>Un ripasso tra un livello e l'altro.</p></div>
+  </div>
+</div></section>
+
+<section id="corsi"><div class="w">
+  <span class="k rv">Corsi da Tea Sommelier</span>
+  <h2 class="rv" data-d="1" style="margin-top:16px;max-width:16ch">Quattro livelli, un gradino alla volta.</h2>
+  <p class="rv" data-d="2" style="margin-top:22px;color:#B7B0A1">Il programma va dalla classificazione del tè fino ai metodi di preparazione avanzati. In presenza a Lucca, online, oppure in modalità privata negli orari che scegli tu.</p>
+  <div class="levels">
+    <article class="lv rv"><b>1</b><h3>Origini e classificazione</h3><p>La storia della bevanda e le grandi famiglie del tè.</p><ul><li>Accenni storici</li><li>Le categorie</li></ul></article>
+    <article class="lv rv" data-d="1"><b>2</b><h3>Lavorazione e infusione</h3><p>Come la foglia diventa tè, e come si estrae al meglio.</p><ul><li>Tecniche di lavorazione</li><li>Acqua, tempi, temperature</li></ul></article>
+    <article class="lv rv" data-d="2"><b>3</b><h3>Geografia e tradizioni</h3><p>I paesi produttori e i loro modi di bere il tè.</p><ul><li>Cina, Giappone, India</li><li>Riti e usanze</li></ul></article>
+    <article class="lv rv" data-d="3"><b>4</b><h3>Materiali e servizio</h3><p>Strumenti, preparazioni avanzate e servizio professionale.</p><ul><li>Teiere e accessori</li><li>Degustazione professionale</li></ul></article>
+  </div>
+
+  <div class="dates">
+    <div>
+      <span class="k rv">Prossime date</span>
+      <div class="date rv"><span class="d">29<small>novembre</small></span><div><h3>Primo livello · Lucca</h3><p>In presenza o online · ore 8–13 e 14–21</p></div><a class="btn" href="#contatti">Iscriviti</a></div>
+      <div class="date rv"><span class="d">∞<small>quando vuoi</small></span><div><h3>Modalità privata</h3><p>Lezioni individuali negli orari che scegli tu</p></div><a class="btn btn--line" href="#contatti">Chiedi</a></div>
+    </div>
+    <div class="incl rv" data-d="1"><span class="k">Nel prezzo del percorso</span><p>Tutti i tè e l'oggettistica per prepararli sono compresi. Ti servono solo un bollitore elettrico, una tazza e un filtro.</p></div>
+  </div>
+</div></section>
+
+<section class="cer" id="cerimonia"><div class="w cer__grid">
+  <div class="cer__pics" id="pics">
+    <figure class="on"><img src="img/stanza.jpg" alt="Una stanza da tè con tatami e luce naturale" loading="lazy"></figure>
+    <figure><img src="img/ciotola.jpg" alt="Mani che porgono una ciotola di matcha" loading="lazy"></figure>
+    <figure><img src="img/frusta.jpg" alt="La frusta di bambù nella schiuma del matcha" loading="lazy"></figure>
+    <figure><img src="img/casa.jpg" alt="La casa del tè vista dall'interno" loading="lazy"></figure>
+  </div>
+  <div>
+    <div class="step" data-i="0" style="border-top:0"><span class="n">茶 · Cerimonia del tè</span><h3>Un modo di servire il tè ritualizzato e artistico.</h3><p>Gesti essenziali, accompagnati dal borbottare dell'acqua. Il resto è tutto da scoprire: il verde del matcha, la bellezza rustica degli utensili, il gusto dei dolci, il profumo del tè.</p></div>
+    <div class="step" data-i="1"><span class="n">一 · Esperienze</span><h3>Le esperienze sono ripartite.</h3><p>Una cerimonia privata, solo per voi, nella stanza del tè della scuola a Lucca. I buoni già acquistati si possono usare entro il 31 dicembre 2026.</p><a class="btn" href="#contatti" style="margin-top:20px;align-self:flex-start;background:var(--lacquer);color:var(--washi);border-color:var(--lacquer)">Prenota un'esperienza</a></div>
+    <div class="step" data-i="2"><span class="n">二 · Lezioni</span><h3>Imparare la cerimonia, una stagione dopo l'altra.</h3><p>Lezioni di cerimonia del tè giapponese con un'insegnante della scuola Omotesenke: la calma, l'ascolto di sé, la cura di ogni gesto.</p></div>
+    <div class="step" data-i="3"><span class="n">期 · Ichigo ichie</span><p class="quote">«Ogni incontro è unico e non si ripeterà.»</p><p style="margin-top:18px">È il principio che guida ogni cerimonia. E il motivo per cui ogni lezione, anche online, è preparata per chi la segue.</p></div>
+  </div>
+</div></section>
+
+<section id="maestra"><div class="w master">
+  <figure class="rv-clip"><img src="img/hero.jpg" alt="Mani che reggono una ciotola di matcha" loading="lazy"><figcaption>Qui va il ritratto di Letizia.</figcaption></figure>
+  <div>
+    <span class="k rv">La scuola</span>
+    <h2 class="rv" data-d="1" style="margin-top:16px">Letizia Del Magro</h2>
+    <p class="rv" data-d="2" style="margin-top:22px;color:#CFC8B8">Insegnante di cerimonia del tè della scuola Omotesenke e tea sommelier. Studia il mondo del tè da molti anni. La sua Scuola Jaku nasce a Lucca come luogo per imparare la cerimonia del tè e poi aggiunge i corsi da tea sommelier, in presenza e online, nella convinzione che la Via del Tè possa rendere migliore la vita di chi la pratica.</p>
+    <div class="bookx rv" data-d="3"><div class="bk">Corso per Sommelier del tè</div><div><span class="k">Il libro</span><h3 style="font-size:26px;margin:8px 0">Corso per Sommelier del tè</h3><p style="font-size:15px;color:#B7B0A1">L'arte della degustazione professionale. A cura di Silvia Battistini. Dalla storia della bevanda alle tecniche di lavorazione e infusione, fino ai materiali e al servizio.</p></div></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contatti"><div class="w contact__g">
+  <div>
+    <span class="k">Contatti</span>
+    <h2 style="margin-top:16px">Vieni a trovarci, su appuntamento.</h2>
+    <ul class="ln">
+      <li><span>Scuola</span>Via Benedetto Cairoli 33, 55100 Lucca</li>
+      <li><span>Telefono</span><a href="tel:+393473727093">+39 347 372 7093</a></li>
+      <li><span>WhatsApp</span><a href="https://wa.me/393473727093?text=Buongiorno%2C%20vorrei%20informazioni%20sui%20corsi%20di%20tea%20sommelier.">Scrivici</a></li>
+      <li><span>Email</span><a href="mailto:teasommelieritalia@gmail.com">teasommelieritalia@gmail.com</a></li>
+    </ul>
+  </div>
+  <form id="form" novalidate>
+    <div class="two"><label for="f-n">Nome<input id="f-n" autocomplete="name"></label><label for="f-e">Email<input id="f-e" type="email" autocomplete="email"></label></div>
+    <label for="f-w">Mi interessa<select id="f-w"><option>Tea Club Italia</option><option>Corso di primo livello, 29 novembre</option><option>Modalità privata</option><option>Esperienza di cerimonia del tè</option><option>Lezioni di cerimonia</option></select></label>
+    <div class="two"><label for="f-m">Come<select id="f-m"><option>In presenza a Lucca</option><option>Online</option></select></label><label for="f-p">Pagamento<select id="f-p"><option>Carta</option><option>Bonifico</option></select></label></div>
+    <button class="btn" type="submit">Invia la richiesta</button>
+    <p class="ok" id="ok" role="status" hidden></p>
+  </form>
+</div></section>
+
+<section class="pitch"><div class="w">
+  <span class="k">Per Letizia · dal 1° dicembre</span>
+  <h2 style="margin-top:16px;max-width:20ch">Un tecnico che <span>non sparisce.</span></h2>
+  <div class="pitch__g">
+    <div><b>Area soci che funziona da sola</b><p>Abbonamento mensile con rinnovo automatico su WordPress e WooCommerce, accesso ai video solo per chi paga, disdetta in un clic.</p></div>
+    <div><b>Video protetti</b><p>In streaming, senza link da copiare o file da scaricare. Leggeri anche dal telefono.</p></div>
+    <div><b>Pagamento con carta</b><p>Oggi le iscrizioni passano dal bonifico. Con la carta chi decide la sera si iscrive subito.</p></div>
+    <div><b>Assistenza continua</b><p>Un referente fisso, tempi di risposta scritti, aggiornamenti e backup ogni giorno.</p></div>
+    <div><b>Corsi e date sempre in ordine</b><p>Aggiungi una data dal telefono e compare nel calendario e nel modulo d'iscrizione.</p></div>
+    <div><b>Si parte dal tuo sito</b><p>Teniamo contenuti, iscritti e prodotti che hai già: nessuno perde l'accesso.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w"><span>Tea Sommelier Italia · Scuola di Cerimonia del Tè Jaku · Via Benedetto Cairoli 33, Lucca</span><span>Anteprima di Umbra Agency · umbragency.it</span></div></footer>
+<a class="wa" href="https://wa.me/393473727093?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20Tea%20Club." aria-label="Scrivi su WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<script src="../lib/three.min.js"></script>
+<script src="../lib/umbra.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>40)},{passive:true});
+
+  /* conto alla rovescia al 1° dicembre 2026, ore 00:00 di Roma */
+  var T=Date.UTC(2026,10,30,23,0,0);
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){var d=Math.max(0,T-Date.now()),s=Math.floor(d/1000);
+    document.getElementById('cd').textContent=pad(Math.floor(s/86400));document.getElementById('ch').textContent=pad(Math.floor(s%86400/3600));
+    document.getElementById('cm').textContent=pad(Math.floor(s%3600/60));document.getElementById('cs').textContent=pad(s%60)}
+  tick();setInterval(tick,1000);
+
+  /* biblioteca: filtri e video bloccati */
+  var tabs=document.getElementById('tabs'),vids=[].slice.call(document.querySelectorAll('.vid')),msg=document.getElementById('libmsg');
+  tabs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;tabs.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    vids.forEach(function(v){v.style.display=(b.dataset.c==='all'||v.dataset.c===b.dataset.c)?'':'none'})});
+  vids.forEach(function(v){v.tabIndex=0;v.addEventListener('click',function(){msg.textContent='«'+v.querySelector('figcaption').lastChild.textContent.trim()+'» si apre con l\'abbonamento al Tea Club, dal 1° dicembre.';msg.style.color='var(--matcha)'})});
+
+  /* cerimonia: le foto cambiano con i passi */
+  var figs=document.querySelectorAll('#pics figure');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=+e.target.dataset.i;figs.forEach(function(f,j){f.classList.toggle('on',i===j)})}})},{rootMargin:'-45% 0px -45% 0px'});
+  document.querySelectorAll('.step').forEach(function(s){io.observe(s)});
+
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;ok.textContent='Anteprima: nel sito vero la richiesta arriva alla scuola e, con la carta, l\'iscrizione si chiude subito. Nessun dato è stato inviato.'});
+
+  /* ciotola 3D con matcha e vapore */
+  var host=document.getElementById('bowl');
+  if(!window.THREE||reduce)return;
+  try{
+    var R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));
+    R.outputEncoding=THREE.sRGBEncoding;host.appendChild(R.domElement);host.classList.add('gl');
+    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(32,1,.1,100);C.position.set(0,2.6,7.4);C.lookAt(0,.2,0);
+    S.add(new THREE.HemisphereLight(0xf2ead8,0x0f120e,.75));
+    var key=new THREE.DirectionalLight(0xfff1dc,1.2);key.position.set(-3,5,4);S.add(key);
+    var rim=new THREE.DirectionalLight(0x9dbb57,.55);rim.position.set(4,1,-4);S.add(rim);
+    /* profilo della ciotola (raku) */
+    var prof=[],o;for(var i=0;i<=40;i++){var t=i/40;prof.push(new THREE.Vector2(.55+1.05*Math.sin(t*Math.PI*.5)+.06*Math.sin(t*9),-.95+1.75*t+.12*Math.sin(t*3.1)))}
+    for(i=40;i>=0;i--){t=i/40;prof.push(new THREE.Vector2((.55+1.05*Math.sin(t*Math.PI*.5))*.92,-.82+1.62*t))}
+    /* texture argilla */
+    var cv=document.createElement('canvas');cv.width=512;cv.height=256;var g=cv.getContext('2d');
+    var gr=g.createLinearGradient(0,0,0,256);gr.addColorStop(0,'#2a2621');gr.addColorStop(.55,'#1b1916');gr.addColorStop(1,'#3b2f25');g.fillStyle=gr;g.fillRect(0,0,512,256);
+    for(i=0;i<2600;i++){g.fillStyle='rgba('+(120+Math.random()*80|0)+','+(100+Math.random()*60|0)+','+(80+Math.random()*40|0)+','+(Math.random()*.12)+')';g.fillRect(Math.random()*512,Math.random()*256,Math.random()*3,Math.random()*3)}
+    g.strokeStyle='rgba(157,187,87,.18)';g.lineWidth=6;for(i=0;i<6;i++){g.beginPath();var y=40+Math.random()*120;g.moveTo(0,y);for(var x=0;x<=512;x+=16)g.lineTo(x,y+Math.sin(x*.03+i)*10+Math.random()*4);g.stroke()}
+    var tex=new THREE.CanvasTexture(cv);tex.wrapS=THREE.RepeatWrapping;tex.encoding=THREE.sRGBEncoding;
+    var bowl=new THREE.Mesh(new THREE.LatheGeometry(prof,96),new THREE.MeshStandardMaterial({map:tex,roughness:.72,metalness:.05,side:THREE.DoubleSide}));
+    /* superficie del matcha con schiuma */
+    var mc=document.createElement('canvas');mc.width=mc.height=512;var m=mc.getContext('2d');
+    var rg=m.createRadialGradient(256,256,20,256,256,256);rg.addColorStop(0,'#b9d36b');rg.addColorStop(.7,'#8fae45');rg.addColorStop(1,'#5f7d2a');m.fillStyle=rg;m.fillRect(0,0,512,512);
+    for(i=0;i<5200;i++){var a=Math.random()*6.283,rr=Math.pow(Math.random(),.6)*250;m.fillStyle='rgba(235,245,200,'+(Math.random()*.32)+')';m.beginPath();m.arc(256+Math.cos(a)*rr,256+Math.sin(a)*rr,Math.random()*2.4,0,6.283);m.fill()}
+    var mt=new THREE.CanvasTexture(mc);mt.encoding=THREE.sRGBEncoding;
+    var tea=new THREE.Mesh(new THREE.CircleGeometry(1.36,96),new THREE.MeshStandardMaterial({map:mt,roughness:.42}));tea.rotation.x=-Math.PI/2;tea.position.y=.42;
+    var grp=new THREE.Group();grp.add(bowl,tea);grp.position.y=-.35;S.add(grp);
+    /* vapore */
+    var N=140,pos=new Float32Array(N*3),sp=[];for(i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*1.4;pos[i*3+1]=Math.random()*3;pos[i*3+2]=(Math.random()-.5)*1.4;sp.push(.004+Math.random()*.008)}
+    var sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    var sc=document.createElement('canvas');sc.width=sc.height=64;var s2=sc.getContext('2d'),sr=s2.createRadialGradient(32,32,0,32,32,32);sr.addColorStop(0,'rgba(255,255,255,.55)');sr.addColorStop(1,'rgba(255,255,255,0)');s2.fillStyle=sr;s2.fillRect(0,0,64,64);
+    var steam=new THREE.Points(sg,new THREE.PointsMaterial({size:1.25,map:new THREE.CanvasTexture(sc),transparent:true,depthWrite:false,opacity:.13,blending:THREE.AdditiveBlending}));steam.position.y=.1;S.add(steam);
+    var mx=0,my=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+    function size(){var w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+    addEventListener('resize',size);size();
+    var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(host);
+    (function loop(t){requestAnimationFrame(loop);if(!vis)return;
+      var s=Math.min(1,scrollY/innerHeight);
+      grp.rotation.y=t*.00022+s*1.6;grp.rotation.x=.08+my*.18+s*.35;grp.rotation.z=mx*.12;
+      tea.rotation.z=t*.0003;
+      var p=sg.attributes.position.array;for(var i=0;i<N;i++){p[i*3+1]+=sp[i];p[i*3]+=Math.sin(t*.001+i)*.002;if(p[i*3+1]>2.4){p[i*3+1]=.2;p[i*3]=(Math.random()-.5)*1.2;p[i*3+2]=(Math.random()-.5)*1.2}}
+      sg.attributes.position.needsUpdate=true;steam.material.opacity=.13*(1-s);
+      R.render(S,C)})(0);
+  }catch(err){}
+})();
+</script>
+</body>
+</html>

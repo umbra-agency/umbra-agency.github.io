@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ca' delle Noci · B&amp;B in collina</title>
+<meta name="description" content="Concept Umbra per un B&B: Home, La casa, Gallery e Contatti, con una giornata alla casa raccontata dall'alba alla notte.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/umbra.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* Layout: un quaderno di casa. Calce bianca, verde salvia, legno di noce; il colore della pagina segue l'ora del giorno. */
+  --lime:#FBF8F1; --lime-2:#F1EBDD; --sage:#5F6E4C; --walnut:#5A3E2B; --sun:#E3B34F; --ink:#2A2420; --mute:#8C8173; --line:#E2D9C8;
+  --display:"Fraunces",Georgia,serif; --body:"Work Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--lime);color:var(--ink);font:300 17.5px/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px}
+.w{width:min(1240px,100% - 48px);margin-inline:auto}
+.lbl{font:500 12px/1.4 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h1 i,h2 i,h3 i{font-style:italic}
+h2{font-size:clamp(42px,5.6vw,84px)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;background:var(--sage);color:#fff;text-decoration:none;font:500 15px var(--body);border:1px solid var(--sage);cursor:pointer;transition:transform .3s,background .3s}
+.btn:hover{transform:translateY(-2px);background:#4D5A3D}
+.btn--line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:#fff}
+
+.nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s,box-shadow .4s}
+.nav.solid{background:rgba(251,248,241,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:78px}
+.logo{font:400 24px/1 var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+.nav ul{display:flex;gap:34px;list-style:none;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transition:transform .3s}
+.nav ul a:hover::after{transform:none}
+.nav.light:not(.solid){color:#fff}
+@media(max-width:860px){.nav ul{display:none}}
+
+/* home */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+.hero>img{position:absolute;inset:-6% 0 0;width:100%;height:112%;object-fit:cover;will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,25,18,.25),rgba(30,25,18,.1) 40%,rgba(30,25,18,.65))}
+.hero .w{position:relative;z-index:1;padding-bottom:70px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(64px,10vw,160px);line-height:.92}
+.hero p{font-size:19px;max-width:38ch;color:#F2ECE0}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero .btn--line{color:#fff;border-color:rgba(255,255,255,.7)}
+.hero .btn--line:hover{background:#fff;color:var(--ink)}
+.house{width:130px;margin-bottom:18px}
+.house path{fill:none;stroke:#fff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:dr 2.4s 2s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr;gap:14px;padding-bottom:50px}}
+
+section{padding:130px 0}
+@media(max-width:860px){section{padding:84px 0}}
+
+/* una giornata alla casa */
+.day{position:relative;transition:background-color 1s}
+.day__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:70px}
+.day__vis{position:sticky;top:96px;height:calc(100vh - 140px);min-height:520px;align-self:start}
+.sky{position:absolute;inset:0;border-radius:24px;overflow:hidden}
+.sky figure{position:absolute;inset:0;opacity:0;transition:opacity 1.1s}
+.sky figure.on{opacity:1}
+.sky img{width:100%;height:100%;object-fit:cover}
+.arc{position:absolute;left:0;top:-30px;width:100%;height:150px;pointer-events:none;z-index:2}
+.arc path{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1;stroke-dasharray:3 6}
+.sunball{transition:all 1s cubic-bezier(.4,0,.2,1)}
+.clock{position:absolute;left:22px;bottom:22px;z-index:2;background:rgba(251,248,241,.92);border-radius:16px;padding:12px 18px;font:300 42px/1 var(--display);font-variant-numeric:tabular-nums;color:var(--ink)}
+.clock small{display:block;font:500 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.mom{min-height:80vh;display:flex;flex-direction:column;justify-content:center}
+.mom .t{font:300 18px var(--display);font-style:italic;color:var(--walnut)}
+.mom h3{font-size:clamp(34px,3.6vw,54px);margin:10px 0 16px}
+.mom p{color:#5C5249}
+.mom ul{list-style:none;padding:0;margin-top:22px;display:grid;gap:8px;font-size:15.5px}
+.mom li{display:flex;gap:12px;align-items:baseline}.mom li::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--sun);transform:translateY(-2px)}
+@media(max-width:860px){.day__g{grid-template-columns:1fr}.day__vis{position:relative;top:0;height:360px;min-height:0}.mom{min-height:0;padding:40px 0}}
+
+/* la casa: camere */
+.casa__intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:end;margin-bottom:70px}
+.casa__intro p{color:#5C5249}
+.rooms{display:grid;gap:110px}
+.room{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:60px;align-items:center}
+.room:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.room:nth-child(even) .room__ph{order:2}
+.room__ph{position:relative;aspect-ratio:5/4;border-radius:22px;overflow:hidden}
+.room__ph img{width:100%;height:100%;object-fit:cover}
+.room__ph span{position:absolute;left:16px;top:16px;background:var(--lime);border-radius:999px;padding:6px 14px;font:500 12px var(--body);letter-spacing:.1em;text-transform:uppercase}
+.room h3{font-size:clamp(38px,3.8vw,56px)}
+.room p{color:#5C5249;margin:14px 0 22px}
+.feat{display:flex;flex-wrap:wrap;gap:8px}
+.feat span{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px}
+.breakfast{margin-top:120px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.breakfast figure{border-radius:22px;overflow:hidden;aspect-ratio:3/4}
+.breakfast figure:nth-child(2){transform:translateY(60px)}
+.breakfast img{width:100%;height:100%;object-fit:cover}
+.bf__t{margin-top:110px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+@media(max-width:860px){.casa__intro,.room,.room:nth-child(even),.bf__t{grid-template-columns:1fr;gap:26px}.room:nth-child(even) .room__ph{order:0}.breakfast{grid-template-columns:1fr 1fr}.breakfast figure:nth-child(3){display:none}.breakfast figure:nth-child(2){transform:none}}
+
+/* gallery */
+.gal{background:var(--lime-2)}
+.masonry{columns:3 300px;column-gap:16px}
+.masonry button{display:block;width:100%;border:0;padding:0;margin:0 0 16px;border-radius:16px;overflow:hidden;cursor:zoom-in;background:none;break-inside:avoid}
+.masonry img{width:100%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.masonry button:hover img{transform:scale(1.05)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(20,16,12,.94);display:none;place-items:center;padding:40px}
+.lb.on{display:grid}
+.lb img{max-height:84vh;width:auto;border-radius:10px}
+.lb button{position:absolute;background:none;border:0;color:#fff;font-size:30px;cursor:pointer;padding:14px}
+.lb .x{top:14px;right:14px}.lb .pv{left:10px;top:50%;transform:translateY(-50%)}.lb .nx{right:10px;top:50%;transform:translateY(-50%)}
+.lb p{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#ccc;font-size:14px}
+
+/* contatti */
+.ct__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+.ct__card{background:var(--sage);color:#fff;border-radius:26px;padding:40px;display:flex;flex-direction:column;gap:20px}
+.ct__card h2{font-size:clamp(38px,4vw,58px)}
+.ct__card .btn{background:#fff;color:var(--sage);border-color:#fff;align-self:flex-start}
+.ct__card dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;font-size:15.5px;border-top:1px solid rgba(255,255,255,.25);padding-top:18px}
+.ct__card dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.75;padding-top:3px}
+form{display:grid;gap:16px;align-content:start}
+label{display:grid;gap:6px;font-size:13px;font-weight:500;color:var(--mute);letter-spacing:.06em}
+input,select,textarea{font:300 17px var(--body);color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ok{font-size:15px;color:var(--sage);border:1px solid var(--sage);border-radius:12px;padding:12px}.ok[hidden]{display:none}
+.getthere{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.getthere div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px}
+.getthere b{display:block;font:300 26px/1 var(--display);margin-bottom:4px}
+@media(max-width:860px){.ct__g{grid-template-columns:1fr}.two,.getthere{grid-template-columns:1fr}}
+
+.pitch{background:var(--ink);color:#E9E1D3}
+.pitch h2 i{color:var(--sun)}
+.pitch__g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:50px;border-top:1px solid #3d352f}
+.pitch__g div{padding:24px 22px 0 0}.pitch__g div+div{padding-left:22px;border-left:1px solid #3d352f}
+.pitch__g b{display:block;font:300 24px/1.15 var(--display);color:#fff;margin-bottom:8px}
+.pitch__g p{font-size:15px;color:#B3A796}
+@media(max-width:860px){.pitch__g{grid-template-columns:1fr 1fr}.pitch__g div{border-left:0!important;padding:20px 12px 0 0!important}}
+footer{background:var(--ink);color:#8C8173;font-size:13px;padding:26px 0 40px;border-top:1px solid #3d352f}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:50;width:56px;height:56px;border-radius:50%;background:#1F8F55;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(0,0,0,.4)}
+.wa svg{width:27px;height:27px}
+</style>
+</head>
+<body data-umbra="un concept per la vostra richiesta" data-note="«Ca' delle Noci» è un nome di fantasia. Sezioni come le avete chieste: Home, La casa, Gallery, Contatti.">
+
+<header class="nav light" id="nav"><div class="w">
+  <a class="logo" href="#home"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 26V13L15 5l11 8v13M11 26v-8h8v8"/></svg>Ca' delle Noci</a>
+  <ul><li><a href="#home">Home</a></li><li><a href="#la-casa">La casa</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contatti">Contatti</a></li></ul>
+  <a class="btn" href="#contatti">Prenota</a>
+</div></header>
+
+<main>
+<div class="hero" id="home">
+  <img src="img/hero.jpg" alt="Colline verdi con un albero in primo piano e nuvole basse" id="hImg" fetchpriority="high">
+  <div class="w">
+    <div>
+      <svg class="house" viewBox="0 0 130 70" aria-hidden="true"><path pathLength="1" d="M2 66H128M14 66V34L40 16L66 34V66M66 40H116V66M78 66V50H92V66M100 48H110V58H100ZM26 66V48H38V66M48 44H58V54H48ZM40 16V6H48V22M90 40L104 26L118 40"/></svg>
+      <h1 class="rv">Tre camere,<br><i>una collina.</i></h1>
+    </div>
+    <div class="rv" data-d="2">
+      <p>Un B&amp;B di famiglia in una casa di pietra, con l'orto, il noce in cortile e la colazione che sa di quello che c'è in stagione.</p>
+      <div class="ctas"><a class="btn" href="#contatti">Verifica le date</a><a class="btn btn--line" href="#la-casa">Guarda la casa</a></div>
+    </div>
+  </div>
+</div>
+
+<section class="day" id="giornata"><div class="w day__g">
+  <div class="day__vis" aria-hidden="true">
+    <div class="sky" id="sky">
+      <figure class="on"><img src="img/terrazza.jpg" alt=""></figure>
+      <figure><img src="img/paese.jpg" alt=""></figure>
+      <figure><img src="img/tramonto.jpg" alt=""></figure>
+      <figure><img src="img/camera3.jpg" alt=""></figure>
+    </div>
+    <svg class="arc" viewBox="0 0 600 150" preserveAspectRatio="none"><path d="M20 140 Q300 -60 580 140"/><circle class="sunball" id="sunb" cx="60" cy="110" r="12" fill="#E3B34F"/></svg>
+    <div class="clock"><span id="clk">07:30</span><small id="clkl">colazione</small></div>
+  </div>
+  <div>
+    <span class="lbl rv">Una giornata alla casa</span>
+    <div class="mom" data-i="0" data-t="07:30" data-l="colazione" data-bg="#FBF8F1" data-x="60" data-y="110"><span class="t">Alle sette e mezza</span><h3>La colazione è <i>in terrazza</i>, se il tempo vuole.</h3><p>Torte fatte in casa, marmellate dell'orto, uova delle galline del vicino. Chi parte presto trova il caffè già pronto.</p><ul><li>Dalle 7:30 alle 10:00</li><li>Senza glutine o vegana, su richiesta</li></ul></div>
+    <div class="mom" data-i="1" data-t="11:00" data-l="in giro" data-bg="#F6F1E4" data-x="230" data-y="28"><span class="t">A metà mattina</span><h3>Il paese <i>a piedi</i>, le cantine in bicicletta.</h3><p>Vi diamo una mappa disegnata a mano con i nostri posti: il forno, il belvedere, la cantina dove si assaggia senza prenotare.</p><ul><li>Biciclette della casa, gratis</li><li>Mappa dei sentieri in camera</li></ul></div>
+    <div class="mom" data-i="2" data-t="19:30" data-l="tramonto" data-bg="#F4E6D4" data-x="470" data-y="70"><span class="t">Verso sera</span><h3>Il tramonto <i>dal noce</i>, con un calice.</h3><p>Le panche sotto il noce guardano a ovest. È il momento in cui gli ospiti si conoscono e si scambiano i consigli per la cena.</p><ul><li>Aperitivo del sabato offerto dalla casa</li><li>Tavoli consigliati nei dintorni</li></ul></div>
+    <div class="mom" data-i="3" data-t="23:00" data-l="notte" data-bg="#E9E4DA" data-x="560" data-y="132"><span class="t">La notte</span><h3>Silenzio, <i>stelle</i> e lenzuola di lino.</h3><p>Nessuna strada vicina, nessun lampione. Le camere hanno scuri di legno: la mattina la luce la decidete voi.</p><ul><li>Self check-in fino a mezzanotte</li><li>Wi-Fi in tutta la casa</li></ul></div>
+  </div>
+</div></section>
+
+<section id="la-casa" style="padding-top:40px"><div class="w">
+  <div class="casa__intro">
+    <div><span class="lbl rv">La casa</span><h2 class="rv" data-d="1" style="margin-top:14px">Pietra, legno <i>e niente di superfluo.</i></h2></div>
+    <p class="rv" data-d="2">Una casa colonica restaurata conservando muri, travi e cotto. Tre camere, ognuna con il suo bagno, e una cucina comune dove la sera si può scaldare una tisana.</p>
+  </div>
+  <div class="rooms">
+    <article class="room"><figure class="room__ph rv-clip"><img src="img/camera1.jpg" alt="Camera con letto matrimoniale e travi in legno" loading="lazy"><span>Camera 1</span></figure><div class="rv"><h3>Il Noce</h3><p>La camera più grande, al primo piano, con la finestra sul cortile e sull'albero che dà il nome alla casa.</p><div class="feat"><span>2 + 1 ospiti</span><span>Bagno privato</span><span>Vista cortile</span><span>Culla su richiesta</span></div></div></article>
+    <article class="room"><figure class="room__ph rv-clip"><img src="img/camera2.jpg" alt="Camera con letto, cuscini e luce naturale" loading="lazy"><span>Camera 2</span></figure><div class="rv"><h3>L'Orto</h3><p>Al piano terra, con l'ingresso indipendente sull'orto. Comoda per chi ha un cane o porta le biciclette.</p><div class="feat"><span>2 ospiti</span><span>Bagno privato</span><span>Ingresso indipendente</span><span>Animali ammessi</span></div></div></article>
+    <article class="room"><figure class="room__ph rv-clip"><img src="img/camera3.jpg" alt="Camera calda con lampada accesa e pareti in legno" loading="lazy"><span>Camera 3</span></figure><div class="rv"><h3>Il Fienile</h3><p>Sotto il tetto, dove una volta si teneva il fieno. Le travi a vista e il lucernario sopra il letto.</p><div class="feat"><span>2 ospiti</span><span>Bagno privato</span><span>Lucernario</span><span>Mansarda</span></div></div></article>
+  </div>
+  <div class="bf__t"><div><span class="lbl rv">La colazione</span><h2 class="rv" data-d="1" style="margin-top:14px;font-size:clamp(38px,4.4vw,64px)">Quello che c'è, <i>quando c'è.</i></h2></div><p class="rv" data-d="2" style="color:#5C5249;align-self:end">Dolce e salato, preparata ogni mattina. In inverno davanti al camino, d'estate in terrazza. Ditecelo prima se avete intolleranze: ci organizziamo.</p></div>
+  <div class="breakfast"><figure class="rv-clip"><img src="img/colazione.jpg" alt="Tavola apparecchiata per la colazione" loading="lazy"></figure><figure class="rv-clip"><img src="img/colazione2.jpg" alt="Colazione con frutta, yogurt e torte" loading="lazy"></figure><figure class="rv-clip"><img src="img/balcone.jpg" alt="Colazione su un balcone" loading="lazy"></figure></div>
+</div></section>
+
+<section class="gal" id="gallery"><div class="w">
+  <div class="casa__intro" style="margin-bottom:50px"><div><span class="lbl rv">Gallery</span><h2 class="rv" data-d="1" style="margin-top:14px">Guardatevi <i>intorno.</i></h2></div><p class="rv" data-d="2">Toccate una foto per ingrandirla. Si sfoglia anche con le frecce della tastiera.</p></div>
+  <div class="masonry" id="gal">
+    <button type="button"><img src="img/casa.jpg" alt="La casa di pietra immersa nel verde" loading="lazy"></button>
+    <button type="button"><img src="img/camera1.jpg" alt="Camera Il Noce" loading="lazy"></button>
+    <button type="button"><img src="img/tramonto.jpg" alt="Tramonto sulle colline" loading="lazy"></button>
+    <button type="button"><img src="img/colazione2.jpg" alt="La colazione" loading="lazy"></button>
+    <button type="button"><img src="img/borgo.jpg" alt="Il borgo vicino" loading="lazy"></button>
+    <button type="button"><img src="img/camera2.jpg" alt="Camera L'Orto" loading="lazy"></button>
+    <button type="button"><img src="img/paese.jpg" alt="Il paese sulla collina" loading="lazy"></button>
+    <button type="button"><img src="img/terrazza.jpg" alt="Colazione in terrazza con vista" loading="lazy"></button>
+    <button type="button"><img src="img/tetti.jpg" alt="Tetti di coppi tra gli alberi" loading="lazy"></button>
+  </div>
+</div></section>
+
+<section id="contatti"><div class="w ct__g">
+  <div>
+    <div class="ct__card">
+      <span class="lbl" style="color:#DDE5D0">Contatti</span>
+      <h2>Scriveteci le date, <i>vi rispondiamo in giornata.</i></h2>
+      <a class="btn" href="https://wa.me/390000000000?text=Buongiorno%2C%20vorremmo%20sapere%20se%20avete%20disponibilit%C3%A0." aria-label="Scriveteci su WhatsApp (numero di esempio)">Scriveteci su WhatsApp</a>
+      <dl><dt>Dove</dt><dd>[Via e comune del B&amp;B]</dd><dt>Check-in</dt><dd>Dalle 15:00 a mezzanotte</dd><dt>Check-out</dt><dd>Entro le 10:30</dd><dt>CIN</dt><dd>[Codice identificativo nazionale]</dd></dl>
+    </div>
+    <div class="getthere"><div><b>[xx] min</b>dalla stazione</div><div><b>[xx] min</b>dall'autostrada</div><div><b>[xx] min</b>dall'aeroporto</div></div>
+  </div>
+  <form id="form" novalidate>
+    <div class="two"><label for="f1">Arrivo<input id="f1" type="date"></label><label for="f2">Partenza<input id="f2" type="date"></label></div>
+    <div class="two"><label for="f3">Ospiti<select id="f3"><option>2</option><option>1</option><option>3</option><option>4 o più</option></select></label><label for="f4">Camera<select id="f4"><option>Nessuna preferenza</option><option>Il Noce</option><option>L'Orto</option><option>Il Fienile</option></select></label></div>
+    <div class="two"><label for="f5">Nome<input id="f5" autocomplete="name"></label><label for="f6">Email<input id="f6" type="email" autocomplete="email"></label></div>
+    <label for="f7">Una nota per noi<textarea id="f7" rows="3" placeholder="Intolleranze, orario d'arrivo, un'occasione da festeggiare…"></textarea></label>
+    <button class="btn" type="submit" style="justify-self:start">Chiedi disponibilità</button>
+    <p class="ok" id="ok" role="status" hidden></p>
+  </form>
+</div></section>
+
+<section class="pitch"><div class="w">
+  <span class="lbl" style="color:#B3A796">Il progetto che avete chiesto</span>
+  <h2 style="margin-top:14px;max-width:16ch">Su WordPress, <i>gestito da voi.</i></h2>
+  <div class="pitch__g">
+    <div><b>Le sezioni richieste</b><p>Home, La casa, Gallery, Contatti, più le camere e la colazione dentro La casa.</p></div>
+    <div><b>Dal vecchio al nuovo</b><p>Il vecchio sito e il dominio si chiudono senza perdere le visite: reindirizziamo i vecchi indirizzi.</p></div>
+    <div><b>Foto e testi dal telefono</b><p>Cambiate una foto della gallery o una frase dal pannello, senza chiamare nessuno.</p></div>
+    <div><b>Prenotazione diretta</b><p>Il modulo può collegarsi al vostro calendario o al channel manager: meno commissioni ai portali.</p></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="w"><span>Ca' delle Noci · nome di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
+<a class="wa" href="https://wa.me/390000000000" aria-label="WhatsApp (numero di esempio)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ingrandita"><img id="lbi" alt=""><p id="lbp"></p><button class="x" type="button" aria-label="Chiudi">×</button><button class="pv" type="button" aria-label="Foto precedente">‹</button><button class="nx" type="button" aria-label="Foto successiva">›</button></div>
+
+<script src="../lib/umbra.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'),hImg=document.getElementById('hImg');
+  addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>innerHeight-90);if(!reduce&&scrollY<innerHeight)hImg.style.transform='translateY('+(scrollY*.25)+'px) scale(1.04)'},{passive:true});
+
+  /* giornata: ora, sole, colore, foto */
+  var moms=document.querySelectorAll('.mom'),figs=document.querySelectorAll('#sky figure'),day=document.getElementById('giornata'),sun=document.getElementById('sunb');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var m=e.target,i=+m.dataset.i;
+    figs.forEach(function(f,j){f.classList.toggle('on',j===i)});document.getElementById('clk').textContent=m.dataset.t;document.getElementById('clkl').textContent=m.dataset.l;
+    day.style.backgroundColor=m.dataset.bg;sun.setAttribute('cx',m.dataset.x);sun.setAttribute('cy',m.dataset.y);sun.setAttribute('fill',i===3?'#F4EEDC':'#E3B34F')})},{rootMargin:'-45% 0px -45% 0px'});
+  moms.forEach(function(m){io.observe(m)});
+
+  /* gallery */
+  var btns=[].slice.call(document.querySelectorAll('#gal button')),lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),cur=0,last;
+  function open(i){cur=(i+btns.length)%btns.length;var im=btns[cur].querySelector('img');lbi.src=im.src;lbi.alt=im.alt;document.getElementById('lbp').textContent=im.alt+' · '+(cur+1)+' di '+btns.length;lb.classList.add('on');lb.querySelector('.x').focus()}
+  function close(){lb.classList.remove('on');last&&last.focus()}
+  btns.forEach(function(b,i){b.addEventListener('click',function(){last=b;open(i)})});
+  lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){open(cur-1)};lb.querySelector('.nx').onclick=function(){open(cur+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')open(cur+1);if(e.key==='ArrowLeft')open(cur-1)});
+
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;ok.textContent='Anteprima: nel sito vero la richiesta vi arriva via email e WhatsApp con le date già scritte. Nessun dato è stato inviato.'});
+})();
+</script>
+</body>
+</html>

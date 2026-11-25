@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amalia Prunotto · Psicologa e psicoterapeuta a Padova, Parma e online</title>
+<meta name="description" content="Dott.ssa Amalia Prunotto, psicologa, psicoterapeuta e sessuologa. Ansia e attacchi di panico, dipendenze affettive, truffe affettive online, crisi di coppia, percorso per diventare genitori. Studi a Padova e Parma, colloqui anche online.">
+<meta property="og:title" content="Amalia Prunotto · Ogni storia ha il suo filo">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/umbra.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* Layout: una pagina che si legge come una seduta, con un filo rosso che la attraversa dall'alto in basso. */
+  --paper:#F4EFE8; --paper-2:#EAE2D6; --ink:#231B19; --ink-2:#4B403C; --mute:#8A7E77; --thread:#A3201B; --sage:#55665A; --line:#D8CEC1;
+  --display:"Newsreader",Georgia,serif; --body:"Manrope","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:300 17.5px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--thread);outline-offset:3px}
+.w{width:min(1240px,100% - 48px);margin-inline:auto}
+.eyebrow{font:500 12px/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--thread)}
+h2{font-size:clamp(40px,5.4vw,78px)}
+p{max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font:500 15px var(--body);border:1px solid var(--ink);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.btn:hover{background:var(--thread);border-color:var(--thread);transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn svg{width:18px;height:18px}
+
+/* filo che scende lungo la pagina */
+.spine{position:fixed;left:max(10px,calc((100vw - 1240px)/2 - 44px));top:0;height:100vh;width:40px;z-index:5;pointer-events:none}
+.spine path{fill:none;stroke:var(--thread);stroke-width:1.6;stroke-linecap:round}
+@media(max-width:1100px){.spine{display:none}}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s,box-shadow .4s}
+.nav.solid{background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .w{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{text-decoration:none;font:400 22px/1 var(--display)}
+.logo span{display:block;font:500 10px/1.6 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:14.5px}
+.nav ul a{text-decoration:none;opacity:.8}.nav ul a:hover{opacity:1;color:var(--thread)}
+@media(max-width:600px){.hm{display:none}}
+@media(max-width:920px){.nav ul{display:none}.nav .btn{padding:12px 18px;font-size:14px}}
+
+/* hero */
+.hero{min-height:min(920px,100vh);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:30px;padding-top:96px;position:relative}
+.hero h1{font-size:clamp(54px,7.4vw,118px);margin:22px 0 26px}
+.hero h1 em{display:inline-block}
+.hero p.lead{font-size:clamp(18px,1.5vw,21px);color:var(--ink-2);max-width:44ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.creds{display:flex;flex-wrap:wrap;gap:28px;margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+.creds b{display:block;font:300 34px/1 var(--display);color:var(--ink);margin-bottom:4px}
+.knot{position:relative;height:min(720px,80vh)}
+.knot canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.knot__ph{position:absolute;right:0;bottom:6%;width:46%;aspect-ratio:3/4;border-radius:200px 200px 12px 12px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(60,20,15,.45)}
+.knot__ph img{width:100%;height:100%;object-fit:cover}
+@media(max-width:920px){.hero{grid-template-columns:1fr;padding-top:110px}.knot{height:420px;order:-1;margin-bottom:-40px}.knot__ph{width:42%}}
+
+section{padding:130px 0;position:relative}
+@media(max-width:920px){section{padding:84px 0}}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:60px}
+.sec-head p{color:var(--ink-2)}
+@media(max-width:920px){.sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:40px}}
+
+/* inizio: selettore */
+.start{background:var(--ink);color:var(--paper)}
+.start .eyebrow{color:#B9AEA6}
+.start h2 em{color:#E06A5F}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.chip{border:1px solid #5B4F4A;background:transparent;color:var(--paper);padding:13px 20px;border-radius:999px;font:400 15.5px var(--body);cursor:pointer;transition:background .3s,border-color .3s,color .3s}
+.chip:hover{border-color:#E06A5F}
+.chip[aria-pressed=true]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.answer{margin-top:44px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;border-top:1px solid #4A3F3B;padding-top:36px;min-height:240px}
+.answer h3{font-size:clamp(30px,3vw,44px)}
+.answer p{color:#D8CEC6;margin-top:14px}
+.answer .step{border-left:2px solid #E06A5F;padding:4px 0 4px 22px}
+.answer .step b{display:block;font:500 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:#E06A5F;margin-bottom:10px}
+.answer .btn{margin-top:24px;background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.answer .btn:hover{background:#E06A5F;border-color:#E06A5F;color:#fff}
+.fade{animation:fade .6s ease both}@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+@media(max-width:920px){.answer{grid-template-columns:1fr}}
+
+/* percorsi */
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.path{background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.path:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(60,20,15,.35)}
+.path figure{aspect-ratio:4/3;overflow:hidden}
+.path figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.path:hover figure img{transform:scale(1.06)}
+.path .in{padding:28px 28px 30px;display:flex;flex-direction:column;gap:14px;flex:1}
+.path h3{font-size:34px}
+.path ul{list-style:none;padding:0;margin-top:auto;border-top:1px solid var(--line)}
+.path li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;font-size:15.5px}
+.path li::after{content:"→";color:var(--thread);transition:transform .3s}
+.path li:hover::after{transform:translateX(5px)}
+@media(max-width:920px){.paths{grid-template-columns:1fr}}
+
+/* approccio */
+.method{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:70px;align-items:start}
+.method .sticky{position:sticky;top:120px}
+.tech{list-style:none;padding:0}
+.tech li{display:grid;grid-template-columns:62px 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--line)}
+.tech li:last-child{border-bottom:1px solid var(--line)}
+.tech .n{font:300 44px/1 var(--display);color:var(--thread)}
+.tech h3{font-size:30px;margin-bottom:8px}
+.tech p{color:var(--ink-2);font-size:16px}
+@media(max-width:920px){.method{grid-template-columns:1fr;gap:30px}.method .sticky{position:static}}
+
+/* chi sono */
+.me{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:70px;align-items:center}
+.me figure{position:relative;aspect-ratio:4/5;border-radius:280px 280px 16px 16px;overflow:hidden}
+.me figure img{width:100%;height:100%;object-fit:cover}
+.me figcaption{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(35,27,25,.78);color:#F4EFE8;font-size:13px;padding:10px 14px;border-radius:10px;backdrop-filter:blur(6px)}
+.me blockquote{font:italic 300 clamp(26px,2.6vw,36px)/1.25 var(--display);margin:24px 0 28px;border-left:2px solid var(--thread);padding-left:24px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.facts div{padding:18px 18px 18px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--ink-2)}
+.facts div:nth-child(odd){border-right:1px solid var(--line)}
+.facts div:nth-child(even){padding-left:18px}
+.facts b{display:block;font-weight:600;color:var(--ink);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+@media(max-width:920px){.me{grid-template-columns:1fr;gap:40px}.me figure{max-width:440px}}
+
+/* libri */
+.books{background:var(--paper-2)}
+.shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px;perspective:1400px}
+.book{text-align:left}
+.cover{position:relative;aspect-ratio:2/3;border-radius:3px 8px 8px 3px;padding:26px 22px;display:flex;flex-direction:column;justify-content:space-between;color:#F4EFE8;transform:rotateY(-18deg) rotateX(4deg);transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .8s;box-shadow:18px 24px 40px -20px rgba(40,15,10,.55),inset 6px 0 0 rgba(0,0,0,.18)}
+.cover::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:1px;background:rgba(255,255,255,.18)}
+.book:hover .cover{transform:rotateY(0) rotateX(0) translateY(-8px);box-shadow:0 40px 60px -30px rgba(40,15,10,.6),inset 6px 0 0 rgba(0,0,0,.18)}
+.cover h3{font-size:clamp(22px,2vw,28px);line-height:1.08}
+.cover small{font:500 10.5px var(--body);letter-spacing:.18em;text-transform:uppercase;opacity:.8}
+.cover .knotline{height:30px;width:100%}
+.book p{font-size:14.5px;color:var(--ink-2);margin-top:20px}
+.b1{background:#7B1E19}.b2{background:#2F3A33}.b3{background:#3B2A3C}.b4{background:#8A5A2E}
+.also{margin-top:56px;font-size:15px;color:var(--ink-2);border-top:1px solid #CFC4B6;padding-top:20px}
+@media(max-width:920px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}}
+
+/* sedi */
+.places{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px}
+.place{position:relative;border-radius:16px;overflow:hidden;min-height:440px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
+.place img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.place::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(20,12,10,.82))}
+.place:hover img{transform:scale(1.06)}
+.place h3{font-size:44px}
+.place p{font-size:15px;opacity:.9;margin-top:6px}
+.place .tag{position:absolute;top:22px;left:22px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);padding:7px 12px;border-radius:999px;font:500 11.5px var(--body);letter-spacing:.12em;text-transform:uppercase}
+@media(max-width:920px){.places{grid-template-columns:1fr}.place{min-height:320px}}
+
+/* faq */
+.faq{max-width:880px}
+.faq details{border-top:1px solid var(--line);padding:24px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font:300 clamp(22px,2.2vw,28px)/1.25 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--thread);font-family:var(--body);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:14px;color:var(--ink-2)}
+
+/* contatti */
+.contact{background:var(--thread);color:#FBF3EF;overflow:hidden}
+.contact h2 em{color:#FFD7D1}
+.contact .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px}
+.contact .eyebrow{color:#F2B9B2}
+.lines{list-style:none;padding:0;margin-top:34px}
+.lines li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,.22);font-size:16px}
+.lines li span{font:500 12px var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.75;padding-top:3px}
+.lines a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+form{display:grid;gap:16px;background:#FBF3EF;color:var(--ink);padding:34px;border-radius:18px}
+label{display:grid;gap:6px;font:500 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+input,select,textarea{font:300 17px var(--body);color:var(--ink);border:0;border-bottom:1px solid var(--line);background:transparent;padding:10px 0;border-radius:0;width:100%}
+textarea{min-height:90px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ok{font-size:15px;color:var(--sage);border:1px solid var(--sage);padding:14px;border-radius:10px}
+.ok[hidden]{display:none}
+@media(max-width:920px){.contact .grid{grid-template-columns:1fr;gap:40px}.row2{grid-template-columns:1fr}}
+
+/* per Amalia */
+.pitch{background:#1B1513;color:#EDE4DC}
+.pitch h2{font-size:clamp(36px,4.4vw,60px)}
+.pitch h2 em{color:#E06A5F}
+.pitch .eyebrow{color:#9F928A}
+.pitch ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 50px;margin-top:50px;counter-reset:p}
+.pitch li{counter-increment:p;padding:24px 0 24px 54px;border-top:1px solid #3A302C;position:relative;font-size:16px;color:#D6CBC2}
+.pitch li::before{content:counter(p,decimal-leading-zero);position:absolute;left:0;top:24px;font:300 28px/1 var(--display);color:#E06A5F}
+.pitch li b{display:block;color:#fff;font-weight:500;margin-bottom:4px}
+@media(max-width:920px){.pitch ol{grid-template-columns:1fr}}
+footer{background:#1B1513;color:#8F837B;font-size:13.5px;padding:30px 0 40px;border-top:1px solid #3A302C}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
+.wa{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#1F8F55;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(0,0,0,.4);transition:transform .3s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px}
+</style>
+</head>
+<body data-umbra="un'anteprima per Amalia Prunotto" data-note="Testi, libri, sedi e contatti vengono dal tuo sito. Le foto sono provvisorie: al loro posto vanno le tue.">
+
+<svg class="spine" aria-hidden="true" viewBox="0 0 40 1000" preserveAspectRatio="none"><path id="spine" d="M20 0 C 36 80, 4 160, 20 240 S 36 400, 20 480 S 4 640, 20 720 S 36 880, 20 1000"/></svg>
+
+<header class="nav" id="nav"><div class="w">
+  <a class="logo" href="#top">Amalia Prunotto<span>Psicologa · Psicoterapeuta</span></a>
+  <ul><li><a href="#inizia">Da dove iniziare</a></li><li><a href="#percorsi">Percorsi</a></li><li><a href="#approccio">Approccio</a></li><li><a href="#libri">Libri</a></li><li><a href="#sedi">Dove ricevo</a></li></ul>
+  <a class="btn" href="#contatti">Prenota<span class="hm"> un colloquio</span></a>
+</div></header>
+
+<main id="top">
+<div class="w hero">
+  <div>
+    <span class="eyebrow rv">Psicologa · Psicoterapeuta · Sessuologa — Padova, Parma e online</span>
+    <h1 class="rv" data-d="1">Ogni storia ha il suo <em>filo.</em></h1>
+    <p class="lead rv" data-d="2">Un filo alla volta, con i tuoi tempi. Ti accompagno nelle difficoltà emotive, nelle relazioni e nel percorso per diventare genitore.</p>
+    <div class="ctas rv" data-d="3">
+      <a class="btn" href="#contatti">Prenota un primo colloquio</a>
+      <a class="btn btn--ghost" href="#inizia">Non so da dove iniziare</a>
+    </div>
+    <div class="creds rv" data-d="4">
+      <div><b>25+</b>anni con Lidap su ansia e panico</div>
+      <div><b>4</b>libri sui legami affettivi</div>
+      <div><b>3165</b>Albo Psicologi del Veneto</div>
+    </div>
+  </div>
+  <div class="knot" id="knot" aria-hidden="true">
+    <figure class="knot__ph rv-clip"><img src="img/hero.jpg" alt="" fetchpriority="high"></figure>
+  </div>
+</div>
+
+<section class="start" id="inizia"><div class="w">
+  <div class="sec-head">
+    <div><span class="eyebrow">Da dove iniziare</span><h2 style="margin-top:16px">Cosa stai <em>vivendo</em> adesso?</h2></div>
+    <p>Scegli la frase che ti somiglia di più. Ti dico come lavoro su quel tema e qual è il primo passo. Nessuna diagnosi: solo un punto di partenza.</p>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Scegli cosa stai vivendo">
+    <button class="chip" type="button" data-k="panico" aria-pressed="true">Ho attacchi di panico</button>
+    <button class="chip" type="button" data-k="dipendenza" aria-pressed="false">Una relazione mi fa stare male</button>
+    <button class="chip" type="button" data-k="truffa" aria-pressed="false">Ho subìto una truffa affettiva online</button>
+    <button class="chip" type="button" data-k="coppia" aria-pressed="false">La coppia è in crisi</button>
+    <button class="chip" type="button" data-k="genitori" aria-pressed="false">Stiamo cercando un figlio</button>
+    <button class="chip" type="button" data-k="lutto" aria-pressed="false">Ho perso una persona cara</button>
+    <button class="chip" type="button" data-k="maschile" aria-pressed="false">Sono un uomo e faccio fatica a parlarne</button>
+  </div>
+  <div class="answer" id="answer" aria-live="polite"></div>
+</div></section>
+
+<section id="percorsi"><div class="w">
+  <div class="sec-head">
+    <div><span class="eyebrow rv">Percorsi</span><h2 class="rv" data-d="1">Tre aree, <em>un filo</em> che le tiene insieme.</h2></div>
+    <p class="rv" data-d="2">Offro consulenza, colloqui di sostegno e psicoterapia per adulti e giovani adulti, singoli e coppie. Il primo incontro serve a capire il momento che stai attraversando e a dare una direzione condivisa al lavoro.</p>
+  </div>
+  <div class="paths">
+    <article class="path rv"><figure><img src="img/gomitolo.jpg" alt="Gomitolo di filo rosso" loading="lazy"></figure><div class="in">
+      <span class="eyebrow">01</span><h3>Legami e relazioni</h3>
+      <p>Dipendenza relazionale, affettiva e sessuale. Ghosting, inganni e truffe affettive online. Separazioni, infedeltà, difficoltà del maschile.</p>
+      <ul><li>Truffe affettive online</li><li>Coppia, crisi e separazioni</li><li>Dipendenze affettive e sessuali</li><li>Difficoltà del maschile</li></ul></div></article>
+    <article class="path rv" data-d="1"><figure><img src="img/tazza.jpg" alt="Mani che stringono una tazza" loading="lazy"></figure><div class="in">
+      <span class="eyebrow">02</span><h3>Diventare genitori</h3>
+      <p>Il tempo dell'attesa e della ricerca di una gravidanza, naturale o con PMA: un percorso che coinvolge la persona e la coppia.</p>
+      <ul><li>L'attesa</li><li>La ricerca di una gravidanza</li><li>Il percorso di PMA</li></ul></div></article>
+    <article class="path rv" data-d="2"><figure><img src="img/finestra.jpg" alt="Luce che entra da una finestra" loading="lazy"></figure><div class="in">
+      <span class="eyebrow">03</span><h3>Difficoltà personali</h3>
+      <p>Ansia, attacchi di panico, esperienze traumatiche e lutti. Spazio a ciò che stai vivendo, partendo dalla tua storia.</p>
+      <ul><li>Ansia e attacchi di panico</li><li>Esperienze traumatiche</li><li>Lutti</li></ul></div></article>
+  </div>
+</div></section>
+
+<section id="approccio" style="padding-top:0"><div class="w method">
+  <div class="sticky">
+    <span class="eyebrow rv">Approccio</span>
+    <h2 class="rv" data-d="1" style="margin-top:16px">Parola e <em>corpo,</em> insieme.</h2>
+    <p class="rv" data-d="2" style="margin-top:22px;color:var(--ink-2)">Lavoro con la psicoterapia dinamica breve, a orientamento psicoanalitico, integrata quando serve con tecniche a mediazione corporea. Gli strumenti e i tempi si decidono a partire da te, dalla tua storia e da ciò di cui hai bisogno. Collaboro con altre figure professionali quando il percorso lo richiede.</p>
+  </div>
+  <ol class="tech">
+    <li class="rv"><span class="n">01</span><div><h3>Psicoterapia dinamica breve</h3><p>Un lavoro a tempo definito su ciò che ti ha portato qui, con attenzione alla storia personale e ai legami.</p></div></li>
+    <li class="rv"><span class="n">02</span><div><h3>Mindfulness</h3><p>Per tornare al presente quando la mente corre avanti, soprattutto nell'ansia.</p></div></li>
+    <li class="rv"><span class="n">03</span><div><h3>EMDR</h3><p>Utile nell'elaborazione di esperienze traumatiche e di ricordi che continuano a pesare.</p></div></li>
+    <li class="rv"><span class="n">04</span><div><h3>Training autogeno</h3><p>Sono formatrice in training autogeno: esercizi che impari e puoi usare da sola o da solo, ogni giorno.</p></div></li>
+    <li class="rv"><span class="n">05</span><div><h3>Ipnosi</h3><p>Tecniche d'ipnosi, in cui sono formatrice, a sostegno del percorso quando sono indicate.</p></div></li>
+  </ol>
+</div></section>
+
+<section id="chi-sono" style="padding-top:20px"><div class="w me">
+  <figure class="rv-clip"><img src="img/tende.jpg" alt="Luce morbida attraverso le tende di uno studio" loading="lazy"><figcaption>Qui va il tuo ritratto, in studio.</figcaption></figure>
+  <div>
+    <span class="eyebrow rv">Piacere, sono Amalia</span>
+    <blockquote class="rv" data-d="1">«Nel mio lavoro unisco ascolto e curiosità: parto dalla tua storia per comprendere ciò che stai vivendo e costruire insieme obiettivi possibili.»</blockquote>
+    <p class="rv" data-d="2" style="color:var(--ink-2)">Sono psicologa, psicoterapeuta e sessuologa. Da oltre vent'anni accompagno persone e coppie nelle difficoltà relazionali, nel desiderio di diventare genitori e nei momenti segnati dall'ansia. Ho insegnato nelle università di Padova e Parma su comunicazione, gruppi e auto aiuto, colloquio in adolescenza.</p>
+    <div class="facts rv" data-d="3">
+      <div><b>Lidap</b>Consulente da oltre 25 anni su ansia e attacchi di panico</div>
+      <div><b>Gruppi di auto aiuto</b>Dal 1998, sui legami affettivi</div>
+      <div><b>Amori 4.0</b>Rete di professionisti su affettività e inganni sentimentali</div>
+      <div><b>Formazione</b>Training autogeno e tecniche d'ipnosi</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="books" id="libri"><div class="w">
+  <div class="sec-head">
+    <div><span class="eyebrow rv">Libri</span><h2 class="rv" data-d="1">Quello che ho imparato, <em>messo per iscritto.</em></h2></div>
+    <p class="rv" data-d="2">Quattro libri sui legami affettivi, sulla sessualità e sugli inganni dell'amore contemporaneo. Passa sopra una copertina per sfogliarla.</p>
+  </div>
+  <div class="shelf">
+    <div class="book rv"><div class="cover b1"><small>Alpes Italia</small><svg class="knotline" viewBox="0 0 200 30"><path d="M0 15 C40 0 60 30 100 15 S160 0 200 15" fill="none" stroke="#F4EFE8" stroke-width="1"/></svg><h3>Amori 4.0</h3></div><p>Narcisismo, dipendenze affettive e nuove forme del legame.</p></div>
+    <div class="book rv" data-d="1"><div class="cover b2"><small>Alpes Italia</small><svg class="knotline" viewBox="0 0 200 30"><path d="M0 15 C40 30 60 0 100 15 S160 30 200 15" fill="none" stroke="#F4EFE8" stroke-width="1"/></svg><h3>Quando l'amore diventa una truffa affettiva</h3></div><p>Riconoscere l'inganno sentimentale e ripartire.</p></div>
+    <div class="book rv" data-d="2"><div class="cover b3"><small>Kront</small><svg class="knotline" viewBox="0 0 200 30"><path d="M0 15 C30 0 70 30 100 15 S170 0 200 15" fill="none" stroke="#F4EFE8" stroke-width="1"/></svg><h3>Truffe affettive online</h3></div><p>Come funzionano le relazioni costruite per ingannare.</p></div>
+    <div class="book rv" data-d="3"><div class="cover b4"><small>Alpes Italia</small><svg class="knotline" viewBox="0 0 200 30"><path d="M0 15 C50 30 50 0 100 15 S150 30 200 15" fill="none" stroke="#F4EFE8" stroke-width="1"/></svg><h3>Maschilità e relazioni affettive</h3></div><p>Il maschile, le emozioni e i legami.</p></div>
+  </div>
+  <p class="also rv">Contributi anche in <i>Oltre la trappola del panico</i> (FrancoAngeli, 2021) e <i>Panico</i> (McGraw-Hill, 2000).</p>
+</div></section>
+
+<section id="sedi"><div class="w">
+  <div class="sec-head">
+    <div><span class="eyebrow rv">Dove ricevo</span><h2 class="rv" data-d="1">In studio <em>o da casa tua.</em></h2></div>
+    <p class="rv" data-d="2">Ricevo su appuntamento negli studi di Padova e Parma. Se preferisci, o se vivi lontano, i colloqui si fanno anche online.</p>
+  </div>
+  <div class="places">
+    <a class="place rv" href="#contatti" style="text-decoration:none"><img src="img/padova.jpg" alt="Prato della Valle a Padova, di sera" loading="lazy"><span class="tag">Studio</span><h3>Padova</h3><p>Via Sorio</p></a>
+    <a class="place rv" data-d="1" href="#contatti" style="text-decoration:none"><img src="img/finestra.jpg" alt="Luce su una parete" loading="lazy"><span class="tag">Studio</span><h3>Parma</h3><p>Via Bixio</p></a>
+    <a class="place rv" data-d="2" href="#contatti" style="text-decoration:none"><img src="img/tazza2.jpg" alt="Mani attorno a una tazza calda" loading="lazy"><span class="tag">Ovunque tu sia</span><h3>Online</h3><p>Videochiamata, stessi tempi dello studio</p></a>
+  </div>
+</div></section>
+
+<section id="domande" style="padding-top:0"><div class="w">
+  <div class="sec-head"><div><span class="eyebrow rv">Domande</span><h2 class="rv" data-d="1">Prima di <em>scrivermi.</em></h2></div><p class="rv" data-d="2">Le domande che mi fanno più spesso prima del primo incontro.</p></div>
+  <div class="faq">
+    <details class="rv"><summary>Come funziona il primo colloquio?</summary><p>Mi racconti cosa ti porta da me, con le parole che hai. Insieme capiamo il momento che stai attraversando e se e come proseguire. Alla fine del primo incontro hai una direzione, non un impegno.</p></details>
+    <details class="rv"><summary>Online funziona come in studio?</summary><p>Per molte persone sì: cambia la stanza, non il lavoro. Serve un luogo tranquillo dove nessuno ti ascolti e una connessione stabile.</p></details>
+    <details class="rv"><summary>Quanto dura un percorso?</summary><p>Dipende da te e da ciò che ti ha portato qui. La psicoterapia dinamica breve lavora a tempo definito: ne parliamo apertamente fin dall'inizio.</p></details>
+    <details class="rv"><summary>Lavori anche con le coppie?</summary><p>Sì. Seguo singoli e coppie, nelle crisi, nelle separazioni, nei percorsi per diventare genitori.</p></details>
+    <details class="rv"><summary>Quello che dico resta tra noi?</summary><p>Sì. Lo psicologo è tenuto al segreto professionale dal codice deontologico.</p></details>
+  </div>
+</div></section>
+
+<section class="contact" id="contatti"><div class="w grid">
+  <div>
+    <span class="eyebrow">Contatti</span>
+    <h2 style="margin-top:16px">Chiedere aiuto è <em>il primo passo.</em></h2>
+    <ul class="lines">
+      <li><span>WhatsApp</span><a href="https://wa.me/393382795278?text=Buongiorno%20dottoressa%2C%20vorrei%20fissare%20un%20primo%20colloquio.">338 279 5278</a></li>
+      <li><span>Telefono</span><a href="tel:+393382795278">+39 338 279 5278</a></li>
+      <li><span>Email</span><a href="mailto:amalia.prunotto@gmail.com">amalia.prunotto@gmail.com</a></li>
+      <li><span>Studi</span>Padova · Parma · Online</li>
+    </ul>
+  </div>
+  <form id="form" novalidate>
+    <div class="row2"><label for="f-n">Nome<input id="f-n" autocomplete="given-name" required></label><label for="f-t">Telefono o email<input id="f-t" required></label></div>
+    <div class="row2"><label for="f-d">Dove preferisci<select id="f-d"><option>Studio di Padova</option><option>Studio di Parma</option><option>Online</option></select></label><label for="f-c">Per<select id="f-c"><option>Me</option><option>La coppia</option></select></label></div>
+    <label for="f-m">Se vuoi, scrivi due righe<textarea id="f-m" placeholder="Non serve spiegare tutto: bastano poche parole."></textarea></label>
+    <button class="btn" type="submit">Chiedi un primo colloquio</button>
+    <p class="ok" id="ok" role="status" hidden></p>
+  </form>
+</div></section>
+
+<section class="pitch"><div class="w">
+  <span class="eyebrow">Per Amalia · cosa cambia rispetto a oggi</span>
+  <h2 style="margin-top:16px">Il sito che porta <em>richieste,</em> non solo visite.</h2>
+  <ol>
+    <li><b>Google ti dà «chiusa definitivamente»</b>La scheda Maps con il vecchio indirizzo va chiusa e vanno aperte le schede di Padova e Parma: è la prima causa di telefonate perse.</li>
+    <li><b>Una pagina per ogni cosa che le persone cercano</b>«Attacchi di panico Padova», «truffa affettiva cosa fare», «dipendenza affettiva psicologa Parma»: ogni percorso diventa una pagina che Google può mostrare.</li>
+    <li><b>«Da dove iniziare» porta a WhatsApp</b>Chi sceglie una frase ti scrive con il messaggio già pronto. Meno imbarazzo, più primi colloqui.</li>
+    <li><b>Libri e Lidap in primo piano</b>Vent'anni di competenza sono il tuo vantaggio sulla concorrenza. Oggi sono nascosti in fondo.</li>
+    <li><b>Veloce dal telefono</b>La maggior parte delle persone ti cerca dal cellulare, spesso di sera. La pagina si apre in un attimo e il pulsante per scriverti è sempre a portata di pollice.</li>
+    <li><b>Un costo che si ripaga</b>Il sito lo seguiamo noi, aggiornamenti compresi: niente più webmaster a ore.</li>
+  </ol>
+</div></section>
+</main>
+
+<footer><div class="w"><span>Dott.ssa Amalia Prunotto · Psicologa e psicoterapeuta · Albo Psicologi del Veneto n. 3165 · P.IVA 03457130288 · Sede legale Via Curtatone e Montanara 4, 35141 Padova</span><span>Anteprima di Umbra Agency · umbragency.it</span></div></footer>
+
+<a class="wa" href="https://wa.me/393382795278?text=Buongiorno%20dottoressa%2C%20vorrei%20fissare%20un%20primo%20colloquio." aria-label="Scrivi su WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<script src="../lib/three.min.js"></script>
+<script src="../lib/umbra.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>40)},{passive:true});
+
+  /* filo che si disegna scorrendo */
+  var sp=document.getElementById('spine'),L=sp.getTotalLength();
+  sp.style.strokeDasharray=L;sp.style.strokeDashoffset=L;
+  function draw(){var h=document.documentElement.scrollHeight-innerHeight,p=h>0?scrollY/h:0;sp.style.strokeDashoffset=L*(1-Math.min(1,p*1.05))}
+  addEventListener('scroll',draw,{passive:true});draw();
+
+  /* da dove iniziare */
+  var WA='https://wa.me/393382795278?text=';
+  var A={
+    panico:['Ansia e attacchi di panico','Il panico arriva all\'improvviso e lascia la paura che torni. Ci lavoro da oltre vent\'anni, anche con Lidap: capiamo insieme cosa lo innesca e impari strumenti concreti, come il training autogeno, per riprendere spazio.','Un primo colloquio, in studio o online, per raccontarmi quando succede e cosa hai già provato.','Buongiorno dottoressa, soffro di attacchi di panico e vorrei fissare un primo colloquio.'],
+    dipendenza:['Dipendenza affettiva','Quando una relazione fa stare male e non si riesce a lasciarla, il problema non è la forza di volontà. Lavoriamo su cosa ti tiene legata o legato, con i tuoi tempi.','Un primo colloquio per mettere in ordine quello che stai vivendo, senza giudizio.','Buongiorno dottoressa, sto vivendo una relazione che mi fa stare male e vorrei parlarne.'],
+    truffa:['Truffe affettive online','Chi subisce una truffa affettiva prova vergogna, rabbia e lutto insieme. Ho scritto due libri su questo tema: sai già che non sei l\'unica persona a cui è successo.','Un colloquio riservato per capire cosa è successo e come ripartire.','Buongiorno dottoressa, ho subito una truffa affettiva online e vorrei un colloquio.'],
+    coppia:['Coppia, crisi e separazioni','Silenzi, illusioni, conflitti che si ripetono. Il lavoro di coppia serve a capire cosa sta succedendo tra voi, anche quando la scelta è separarsi bene.','Un primo incontro insieme, oppure prima da sola o da solo se l\'altra persona non è pronta.','Buongiorno dottoressa, vorremmo un primo colloquio di coppia.'],
+    genitori:['Diventare genitori','L\'attesa e la ricerca di una gravidanza, naturale o con PMA, mettono alla prova la persona e la coppia. Ti accompagno lungo il percorso, mese dopo mese.','Un primo colloquio per te o per la coppia, in studio o online.','Buongiorno dottoressa, stiamo cercando un figlio e vorremmo un sostegno.'],
+    lutto:['Lutti ed esperienze traumatiche','Dopo una perdita o un trauma il tempo sembra fermarsi. Diamo spazio al dolore e, quando serve, usiamo strumenti come l\'EMDR per elaborare ciò che continua a pesare.','Un primo colloquio, con calma, per raccontarmi cosa è successo.','Buongiorno dottoressa, ho perso una persona cara e vorrei un sostegno.'],
+    maschile:['Difficoltà del maschile','Molti uomini arrivano tardi, dopo aver provato a farcela da soli. Ho scritto «Maschilità e relazioni affettive»: qui si parla con franchezza, senza giudizio.','Un primo colloquio, anche online, per dire ad alta voce quello che di solito si tiene dentro.','Buongiorno dottoressa, vorrei fissare un primo colloquio.']
+  };
+  var box=document.getElementById('answer'),chips=document.getElementById('chips');
+  function show(k){var a=A[k];box.innerHTML='<div class="fade"><span class="eyebrow" style="color:#B9AEA6">Percorso</span><h3 style="margin-top:12px">'+a[0]+'</h3><p>'+a[1]+'</p></div><div class="step fade"><b>Il primo passo</b><p style="color:#F4EFE8;margin:0">'+a[2]+'</p><a class="btn" href="'+WA+encodeURIComponent(a[3])+'">Scrivimi su WhatsApp</a></div>'}
+  chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;chips.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b)});show(b.dataset.k)});
+  show('panico');
+
+  /* modulo dimostrativo */
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;
+    ok.textContent=document.getElementById('f-n').value.trim()&&document.getElementById('f-t').value.trim()?'Anteprima: nel sito vero la richiesta arriva ad Amalia via email e WhatsApp. Nessun dato è stato inviato.':'Servono un nome e un recapito per risponderti.'});
+
+  /* filo 3D */
+  var host=document.getElementById('knot');
+  if(!window.THREE||reduce)return;
+  try{
+    var R=new THREE.WebGLRenderer({antialias:true,alpha:true});
+    R.setPixelRatio(Math.min(devicePixelRatio,2));host.prepend(R.domElement);
+    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(36,1,.1,100);C.position.set(0,0,9);
+    S.add(new THREE.HemisphereLight(0xfff4ea,0x5a2a20,1.05));
+    var dl=new THREE.DirectionalLight(0xffffff,.9);dl.position.set(3,5,6);S.add(dl);
+    var pts=[],n=170,rnd=function(i){return Math.sin(i*12.9898)*43758.5453%1};
+    for(var i=0;i<n;i++){var t=i/n*Math.PI*14,r=1.55+.25*Math.sin(i*.37);
+      pts.push(new THREE.Vector3(r*Math.cos(t)*Math.sin(i*.061+1),r*Math.sin(t)*Math.sin(i*.043+.6),r*Math.cos(i*.052)))}
+    for(var j=1;j<=26;j++){var p=pts[pts.length-1];pts.push(new THREE.Vector3(p.x-.32*j*.6-.4,p.y-.18*j*.55,p.z+.02*Math.sin(j)))}
+    var curve=new THREE.CatmullRomCurve3(pts),seg=1400,rad=10;
+    var geo=new THREE.TubeGeometry(curve,seg,.028,rad,false);
+    var mat=new THREE.MeshStandardMaterial({color:0xA3201B,roughness:.55,metalness:.05});
+    var mesh=new THREE.Mesh(geo,mat);S.add(mesh);
+    var total=geo.index.count;geo.setDrawRange(0,0);
+    var mx=0,my=0;host.addEventListener('pointermove',function(e){var r=host.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});
+    function size(){var w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();C.position.x=w<600?0:-.6}
+    addEventListener('resize',size);size();
+    var t0=performance.now()+1500,vis=true;
+    new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(host);
+    (function loop(t){requestAnimationFrame(loop);if(!vis)return;
+      var k=Math.max(0,Math.min(1,(t-t0)/3200)),e=1-Math.pow(1-k,3);
+      geo.setDrawRange(0,Math.floor(total*e/(rad*6))*rad*6);
+      var s=scrollY*.0012;
+      mesh.rotation.y=t*.00016+s*1.4+mx*.5;mesh.rotation.x=.3+my*.35+s*.4;mesh.rotation.z=Math.sin(t*.0003)*.08;
+      R.render(S,C)})(performance.now());
+  }catch(err){}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valmora Costruzioni · Residenza Corte Alta</title>
+<meta name="description" content="Concept Umbra per un costruttore: nuove iniziative immobiliari, appartamenti in 3D e diario di cantiere aggiornabile in autonomia.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400;75..125,600;75..125,800&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/umbra.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  /* Layout: tavola di cantiere. Cemento, grafite, il giallo delle gru e il blu dei disegni esecutivi. */
+  --concrete:#E7E5E0; --concrete-2:#D9D6CF; --graphite:#1C1E20; --graph-2:#2A2D30; --ink:#16181A; --mute:#73767A; --crane:#D9A21B; --plan:#2F5DA8; --sold:#B54A3A; --free:#3F8F5F; --line:#C9C5BC;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif; --mono:"IBM Plex Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--concrete);color:var(--ink);font:300 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit}
+:focus-visible{outline:2px solid var(--crane);outline-offset:3px}
+.w{width:min(1320px,100% - 48px);margin-inline:auto}
+.m{font:400 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:85%;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance}
+h2{font-size:clamp(44px,6.4vw,104px)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:var(--crane);color:var(--ink);text-decoration:none;font:600 14px var(--body);letter-spacing:.04em;text-transform:uppercase;border:0;cursor:pointer;transition:background .25s}
+.btn:hover{background:#ebb532}
+.btn--dark{background:var(--graphite);color:#fff}.btn--dark:hover{background:#000}
+
+.nav{position:fixed;inset:0 0 auto;z-index:40;background:var(--graphite);color:#fff}
+.nav .w{display:flex;justify-content:space-between;align-items:center;height:64px;gap:18px}
+.logo{font:800 20px var(--display);font-stretch:110%;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:20px;height:20px;background:var(--crane);clip-path:polygon(0 100%,0 30%,50% 0,100% 30%,100% 100%)}
+.nav ul{display:flex;gap:28px;list-style:none;padding:0;font:400 12.5px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.nav ul a{text-decoration:none;opacity:.75}.nav ul a:hover{opacity:1;color:var(--crane)}
+.nav .btn{padding:11px 16px;font-size:12.5px}
+@media(max-width:940px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding-top:64px;background:var(--graphite);color:#fff;position:relative;overflow:hidden}
+.hero__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:calc(100vh - 64px)}
+.hero__t{padding:70px 40px 50px 0;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.hero h1{font-size:clamp(64px,9vw,150px)}
+.hero h1 span{display:block;color:var(--crane)}
+.hero p{color:#BFC2C5;max-width:40ch;margin-top:24px;font-size:18px}
+.hero__ph{position:relative;overflow:hidden}
+.hero__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--graphite) 0%,transparent 30%)}
+.stamp{position:absolute;right:24px;bottom:24px;z-index:2;background:var(--crane);color:var(--ink);padding:14px 18px;font:800 15px/1.1 var(--display);text-transform:uppercase;transform:rotate(-3deg)}
+.stamp small{display:block;font:400 11px var(--mono);margin-top:4px}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #3a3e42}
+.kp div{padding:18px 14px 0 0}.kp div+div{padding-left:14px;border-left:1px solid #3a3e42}
+.kp b{display:block;font:800 46px/1 var(--display);font-stretch:85%}
+.kp span{font:400 11.5px var(--mono);color:#9EA2A6;text-transform:uppercase}
+@media(max-width:940px){.hero__g{grid-template-columns:1fr}.hero__t{padding:50px 0 40px}.hero__ph{min-height:320px}}
+
+section{padding:120px 0}
+@media(max-width:940px){section{padding:80px 0}}
+.hd{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:50px;align-items:end;margin-bottom:50px}
+.hd p{color:#45484C}
+@media(max-width:940px){.hd{grid-template-columns:1fr;gap:16px}}
+
+/* edificio 3D */
+.b3{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0;background:var(--graphite);color:#fff}
+.b3__stage{position:relative;min-height:600px;background:radial-gradient(70% 60% at 50% 40%,#30343a,#1c1e20)}
+.b3__stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:grab}
+.b3__hint{position:absolute;left:18px;top:16px;font:400 11.5px var(--mono);color:#9EA2A6;text-transform:uppercase}
+.legend{position:absolute;left:18px;bottom:16px;display:flex;gap:16px;font:400 11.5px var(--mono);text-transform:uppercase;color:#C9CCCF}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:6px}
+.b3__panel{padding:36px;display:flex;flex-direction:column;gap:18px;border-left:1px solid #3a3e42}
+.b3__panel h3{font-size:58px}
+.st{display:inline-block;padding:5px 10px;font:400 11.5px var(--mono);text-transform:uppercase}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #3a3e42}
+.spec div{padding:14px 0;border-bottom:1px solid #3a3e42}
+.spec div:nth-child(odd){padding-right:14px;border-right:1px solid #3a3e42}.spec div:nth-child(even){padding-left:14px}
+.spec b{display:block;font:600 26px/1.1 var(--display)}
+.spec span{font:400 11px var(--mono);color:#9EA2A6;text-transform:uppercase}
+.plan{background:#22262b;border:1px solid #3a3e42;padding:14px}
+.plan svg{width:100%;height:auto}
+.plan rect,.plan path{fill:none;stroke:#7FA4E0;stroke-width:1.2}
+.plan text{font:400 9px var(--mono);fill:#7FA4E0}
+.units{display:flex;flex-wrap:wrap;gap:6px}
+.units button{border:1px solid #3a3e42;background:none;color:#fff;padding:7px 10px;font:400 12px var(--mono);cursor:pointer}
+.units button[aria-pressed=true]{background:#fff;color:var(--ink)}
+@media(max-width:940px){.b3{grid-template-columns:1fr}.b3__stage{min-height:420px}.b3__panel{border-left:0;border-top:1px solid #3a3e42}}
+
+/* diario */
+.diary__g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:70px;align-items:start}
+.ring{position:sticky;top:100px}
+.ring svg{width:min(320px,100%)}
+.ring circle{fill:none;stroke-width:14}
+.ring .bg{stroke:var(--concrete-2)}
+.ring .fg{stroke:var(--crane);stroke-linecap:butt;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 2s cubic-bezier(.2,.7,.2,1)}
+.ring text{font:800 64px var(--display);fill:var(--ink)}
+.phases{display:grid;gap:12px;margin-top:30px}
+.ph{display:grid;grid-template-columns:150px 1fr 48px;gap:14px;align-items:center;font-size:14.5px}
+.ph .bar{height:10px;background:var(--concrete-2);position:relative;overflow:hidden}
+.ph .bar i{position:absolute;inset:0 auto 0 0;background:var(--graphite);width:0;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.ph .bar.done i{background:var(--free)}
+.ph b{font:400 12px var(--mono);text-align:right}
+.log{list-style:none;padding:0;border-left:2px solid var(--ink);margin-left:8px}
+.log li{position:relative;padding:0 0 60px 40px}
+.log li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;background:var(--crane);border:3px solid var(--concrete)}
+.log time{font:400 12px var(--mono);color:var(--mute);text-transform:uppercase}
+.log h3{font-size:clamp(28px,2.6vw,40px);margin:8px 0 10px}
+.log p{color:#45484C;max-width:56ch}
+.log figure{margin-top:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.log figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.log .tagp{display:inline-block;margin-top:12px;background:var(--graphite);color:#fff;padding:5px 10px;font:400 11px var(--mono);text-transform:uppercase}
+@media(max-width:940px){.diary__g{grid-template-columns:1fr}.ring{position:static}.ph{grid-template-columns:110px 1fr 40px}}
+
+/* aggiornate voi */
+.cms{background:var(--plan);color:#fff;overflow:hidden}
+.cms__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center}
+.cms .m{color:#BCD0F2}
+.cms p{color:#DCE6F7}
+.mock{background:#fff;color:var(--ink);border-radius:26px;padding:12px;max-width:340px;justify-self:center;box-shadow:0 40px 80px -30px rgba(0,0,0,.45);transform:rotate(3deg)}
+.mock__in{background:var(--concrete);border-radius:18px;padding:18px;display:grid;gap:12px}
+.mock .drop{border:2px dashed #A5A29B;border-radius:12px;height:120px;display:grid;place-items:center;font:400 12px var(--mono);color:var(--mute);background-size:cover;background-position:center}
+.mock .f{background:#fff;border-radius:10px;padding:10px 12px;font-size:14px}
+.mock .f small{display:block;font:400 10.5px var(--mono);color:var(--mute);text-transform:uppercase}
+.mock .btn{justify-content:center}
+@media(max-width:940px){.cms__g{grid-template-columns:1fr}}
+
+/* iniziative */
+.ini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:#fff;display:flex;flex-direction:column}
+.card figure{aspect-ratio:4/3;overflow:hidden;position:relative}
+.card figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.card:hover figure img{transform:scale(1.05)}
+.card figure span{position:absolute;left:0;top:14px;padding:6px 12px;font:400 11.5px var(--mono);text-transform:uppercase}
+.card div{padding:22px}
+.card h3{font-size:34px;margin-bottom:8px}
+.card p{font-size:15px;color:#55585C}
+@media(max-width:940px){.ini{grid-template-columns:1fr}}
+
+.contact{background:var(--graphite);color:#fff}
+.contact__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font:400 11.5px var(--mono);text-transform:uppercase;color:#9EA2A6}
+input,select,textarea{font:300 17px var(--body);color:#fff;background:transparent;border:0;border-bottom:1px solid #4a4e53;padding:10px 0;border-radius:0;width:100%}
+select option{color:#000}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ok{font-size:15px;color:var(--crane);border:1px solid var(--crane);padding:12px}.ok[hidden]{display:none}
+@media(max-width:940px){.contact__g{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+.pitch{background:var(--crane);color:var(--ink)}
+.pitch__g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:40px;border-top:2px solid var(--ink)}
+.pitch__g div{padding:22px 20px 0 0}.pitch__g div+div{padding-left:20px;border-left:1px solid rgba(22,24,26,.25)}
+.pitch__g b{display:block;font:800 22px/1.05 var(--display);text-transform:uppercase;margin-bottom:8px}
+.pitch__g p{font-size:15px}
+@media(max-width:940px){.pitch__g{grid-template-columns:1fr}.pitch__g div{border-left:0!important;padding:18px 12px 0 0!important}}
+footer{background:var(--ink);color:#8A8D91;font:400 12px var(--mono);padding:24px 0 40px}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body data-umbra="un concept per la vostra richiesta" data-note="«Valmora» e «Corte Alta» sono nomi di fantasia. Stati, superfici e date di cantiere sono esempi da sostituire con i vostri.">
+
+<header class="nav"><div class="w">
+  <a class="logo" href="#top"><i></i>Valmora</a>
+  <ul><li><a href="#appartamenti">Appartamenti</a></li><li><a href="#cantiere">Diario di cantiere</a></li><li><a href="#iniziative">Iniziative</a></li><li><a href="#contatti">Contatti</a></li></ul>
+  <a class="btn" href="#contatti">Prenota una visita</a>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="w hero__g">
+  <div class="hero__t">
+    <div>
+      <span class="m rv" style="color:#9EA2A6">Nuova iniziativa · cantiere aperto</span>
+      <h1 class="rv" data-d="1" style="margin-top:20px">Residenza<span>Corte Alta</span></h1>
+      <p class="rv" data-d="2">Dodici appartamenti in classe energetica A, dal bilocale all'attico. Sceglietelo dal modello 3D, seguite i lavori nel diario di cantiere.</p>
+      <div class="rv" data-d="3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:30px"><a class="btn" href="#appartamenti">Scegli l'appartamento</a><a class="btn btn--dark" href="#cantiere" style="background:#2f3337">Stato dei lavori</a></div>
+    </div>
+    <div class="kp rv" data-d="4"><div><b data-count="12">0</b><span>appartamenti</span></div><div><b data-count="62">0</b><span>% lavori</span></div><div><b>A4</b><span>classe energetica</span></div></div>
+  </div>
+  <div class="hero__ph"><img src="img/hero.jpg" alt="Edificio residenziale moderno con facciata chiara e vetrate" fetchpriority="high"><div class="stamp">Consegna<small>giugno 2027 · esempio</small></div></div>
+</div></div>
+
+<section class="b3" id="appartamenti" style="padding:0">
+  <div class="b3__stage" id="stage"><span class="b3__hint">Trascina per ruotare · tocca un appartamento</span><div class="legend"><span><i style="background:#3F8F5F"></i>disponibile</span><span><i style="background:#D9A21B"></i>riservato</span><span><i style="background:#B54A3A"></i>venduto</span></div></div>
+  <div class="b3__panel">
+    <span class="m" style="color:#9EA2A6">Appartamento selezionato</span>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><h3 id="uN">B2</h3><span class="st" id="uS"></span></div>
+    <div class="spec"><div><b id="uM"></b><span>superficie</span></div><div><b id="uL"></b><span>locali</span></div><div><b id="uP"></b><span>piano</span></div><div><b id="uE"></b><span>esterno</span></div></div>
+    <div class="plan" aria-hidden="true"><svg id="uPlan" viewBox="0 0 300 150"></svg></div>
+    <div class="units" id="units" role="group" aria-label="Appartamenti"></div>
+    <a class="btn" href="#contatti" id="uCta">Chiedi la scheda</a>
+  </div>
+</section>
+
+<section id="cantiere"><div class="w">
+  <div class="hd"><div><span class="m rv">Diario di cantiere</span><h2 class="rv" data-d="1" style="margin-top:14px">Come procedono <span style="color:var(--plan)">i lavori.</span></h2></div><p class="rv" data-d="2">Ogni due settimane un aggiornamento con foto e percentuale per fase. Chi ha già comprato lo riceve anche per email.</p></div>
+  <div class="diary__g">
+    <div class="ring">
+      <svg viewBox="0 0 220 220" role="img" aria-label="Avanzamento complessivo 62 per cento"><circle class="bg" cx="110" cy="110" r="90"/><circle class="fg" id="ring" cx="110" cy="110" r="90"/><text x="110" y="128" text-anchor="middle" id="ringT">0%</text></svg>
+      <div class="phases" id="phases">
+        <div class="ph"><span>Scavi e fondazioni</span><div class="bar done"><i data-w="100"></i></div><b>100%</b></div>
+        <div class="ph"><span>Struttura</span><div class="bar done"><i data-w="100"></i></div><b>100%</b></div>
+        <div class="ph"><span>Tamponamenti</span><div class="bar"><i data-w="80"></i></div><b>80%</b></div>
+        <div class="ph"><span>Impianti</span><div class="bar"><i data-w="45"></i></div><b>45%</b></div>
+        <div class="ph"><span>Finiture</span><div class="bar"><i data-w="10"></i></div><b>10%</b></div>
+        <div class="ph"><span>Esterni</span><div class="bar"><i data-w="0"></i></div><b>0%</b></div>
+      </div>
+    </div>
+    <ol class="log">
+      <li class="rv"><time>Aggiornamento 14 · 18 novembre</time><h3>Tamponamenti al terzo piano</h3><p>Chiuse le pareti esterne del terzo piano con blocchi termici. Al secondo piano sono iniziati i massetti e la posa dei tubi del riscaldamento a pavimento.</p><figure><img src="img/gru.jpg" alt="Gru sopra il cantiere" loading="lazy"><img src="img/interno.jpg" alt="Interno di un appartamento con pareti grezze" loading="lazy"></figure><span class="tagp">Impianti +10%</span></li>
+      <li class="rv"><time>Aggiornamento 13 · 4 novembre</time><h3>Struttura completata</h3><p>Getto dell'ultimo solaio e copertura. La struttura in cemento armato è chiusa, con due giorni di anticipo sul programma.</p><figure><img src="img/gru2.jpg" alt="Gru e cielo" loading="lazy"><img src="img/notte.jpg" alt="Cantiere al tramonto" loading="lazy"></figure><span class="tagp">Struttura 100%</span></li>
+      <li class="rv"><time>Aggiornamento 12 · 21 ottobre</time><h3>Scelta delle finiture con i primi acquirenti</h3><p>In ufficio con le campionature: tre pavimenti, due serie di sanitari, porte a filo muro. Le scelte sono già nel capitolato di ogni appartamento.</p><figure><img src="img/progetto.jpg" alt="Disegni tecnici sul tavolo" loading="lazy"><img src="img/disegno.jpg" alt="Mani che disegnano un progetto" loading="lazy"></figure></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="cms"><div class="w cms__g">
+  <div>
+    <span class="m rv">Accesso autonomo</span>
+    <h2 class="rv" data-d="1" style="margin-top:14px">Il diario lo aggiornate voi, <span style="color:var(--crane)">dal cantiere.</span></h2>
+    <p class="rv" data-d="2" style="margin-top:22px">Una foto dal telefono, due righe, le percentuali delle fasi. Si pubblica sul sito e parte l'email a chi ha già comprato. Le nuove iniziative si aggiungono allo stesso modo, senza chiamare nessuno.</p>
+  </div>
+  <div class="mock rv" data-d="2" aria-hidden="true"><div class="mock__in">
+    <span class="m">Nuovo aggiornamento</span>
+    <div class="drop" style="background-image:url(img/gru3.jpg)"></div>
+    <div class="f"><small>Titolo</small>Massetti al secondo piano</div>
+    <div class="f"><small>Fase · avanzamento</small>Impianti · 55%</div>
+    <span class="btn" style="font-size:13px">Pubblica</span>
+  </div></div>
+</div></section>
+
+<section id="iniziative"><div class="w">
+  <div class="hd"><div><span class="m rv">Iniziative</span><h2 class="rv" data-d="1" style="margin-top:14px">Costruite, in corso, in arrivo.</h2></div><p class="rv" data-d="2">Ogni iniziativa ha la sua pagina con appartamenti, capitolato e diario. Le nuove si annunciano qui prima che sui portali.</p></div>
+  <div class="ini">
+    <article class="card rv"><figure><img src="img/facciata.jpg" alt="Facciata con balconi al tramonto" loading="lazy"><span style="background:var(--crane)">In costruzione</span></figure><div><h3>Corte Alta</h3><p>12 appartamenti · consegna 2027</p></div></article>
+    <article class="card rv" data-d="1"><figure><img src="img/progetto.jpg" alt="Tavole di progetto" loading="lazy"><span style="background:#fff">In progettazione</span></figure><div><h3>Le Rive</h3><p>8 villette a schiera · prenotazioni dal 2027</p></div></article>
+    <article class="card rv" data-d="2"><figure><img src="img/villa.jpg" alt="Villa moderna con piscina" loading="lazy"><span style="background:var(--free);color:#fff">Consegnata</span></figure><div><h3>Villa Sole</h3><p>Residenza unifamiliare · 2025</p></div></article>
+  </div>
+</div></section>
+
+<section class="contact" id="contatti"><div class="w contact__g">
+  <div><span class="m" style="color:#9EA2A6">Contatti</span><h2 style="margin-top:14px">Venite a vedere <span style="color:var(--crane)">il cantiere.</span></h2><p style="color:#BFC2C5;margin-top:20px;max-width:40ch">Visite il sabato mattina, con caschetto e accompagnatore. Portiamo anche le campionature delle finiture.</p></div>
+  <form id="form" novalidate>
+    <div class="two"><label for="f1">Nome<input id="f1" autocomplete="name"></label><label for="f2">Telefono<input id="f2" type="tel" autocomplete="tel"></label></div>
+    <div class="two"><label for="f3">Appartamento<select id="f3"></select></label><label for="f4">Quando<select id="f4"><option>Sabato mattina</option><option>In settimana</option><option>Videochiamata</option></select></label></div>
+    <button class="btn" type="submit" style="justify-self:start">Prenota la visita</button>
+    <p class="ok" id="ok" role="status" hidden></p>
+  </form>
+</div></section>
+
+<section class="pitch"><div class="w">
+  <span class="m" style="color:var(--ink)">Il progetto che avete chiesto</span>
+  <h2 style="margin-top:14px;font-size:clamp(40px,5vw,80px)">Moderno fuori, semplice dentro.</h2>
+  <div class="pitch__g">
+    <div><b>Accesso autonomo</b><p>Testi, foto, iniziative e diario li gestite voi, anche dal telefono.</p></div>
+    <div><b>Aggiornamenti a parte</b><p>Se preferite, nuove iniziative e diari li pubblichiamo noi, a prezzo fisso per aggiornamento.</p></div>
+    <div><b>Appartamenti vivi</b><p>Venduto, riservato, disponibile: cambia lo stato e il modello 3D si aggiorna.</p></div>
+    <div><b>Acquirenti informati</b><p>Chi ha comprato riceve ogni aggiornamento del cantiere via email.</p></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="w"><span>Valmora Costruzioni · nome di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
+
+<script src="../lib/three.min.js"></script>
+<script src="../lib/umbra.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* dati appartamenti (esempio) */
+  var ST={d:['Disponibile','#3F8F5F',0x3F8F5F],r:['Riservato','#D9A21B',0xD9A21B],v:['Venduto','#B54A3A',0xB54A3A]};
+  var U=[],floors=['Terra','Primo','Secondo','Terzo'],lt='ABC';
+  var data=[[68,'2','Giardino 40 m²','v'],[92,'3','Giardino 75 m²','d'],[71,'2','Giardino 35 m²','r'],
+            [70,'2','Balcone 9 m²','v'],[96,'3','Balcone 14 m²','v'],[72,'2','Balcone 9 m²','d'],
+            [70,'2','Balcone 9 m²','d'],[96,'3','Balcone 14 m²','r'],[72,'2','Balcone 9 m²','d'],
+            [118,'4','Terrazzo 60 m²','d'],[0,0,0,0],[104,'3','Terrazzo 48 m²','v']];
+  for(var f=0;f<4;f++)for(var c=0;c<3;c++){var d=data[f*3+c];if(!d[0])continue;U.push({id:lt[c]+(f+1),f:f,c:c,m:d[0],l:d[1],e:d[2],s:d[3]})}
+  var sel=U[4];
+  var units=document.getElementById('units'),f3=document.getElementById('f3');
+  U.forEach(function(u){var b=document.createElement('button');b.type='button';b.textContent=u.id;b.style.borderLeft='3px solid '+ST[u.s][1];b.onclick=function(){pick(u)};units.appendChild(b);u.btn=b;
+    var o=document.createElement('option');o.textContent=u.id+' · '+u.m+' m²';f3.appendChild(o)});
+  function planSvg(u){var w=u.m>100?280:u.m>85?250:220,x=(300-w)/2,s='<rect x="'+x+'" y="15" width="'+w+'" height="110"/>';
+    var n=+u.l,step=w/(n);for(var i=1;i<n;i++)s+='<path d="M'+(x+step*i)+' 15V'+(i%2?95:125)+'"/>';
+    s+='<path d="M'+x+' 95H'+(x+step)+'"/><text x="'+(x+8)+'" y="30">'+u.id+' · '+u.m+' m²</text><text x="'+(x+8)+'" y="140">'+u.e+'</text>';return s}
+  function pick(u){sel=u;document.getElementById('uN').textContent=u.id;var s=document.getElementById('uS');s.textContent=ST[u.s][0];s.style.background=ST[u.s][1];s.style.color=u.s==='r'?'#16181A':'#fff';
+    document.getElementById('uM').textContent=u.m+' m²';document.getElementById('uL').textContent=u.l;document.getElementById('uP').textContent=floors[u.f];document.getElementById('uE').textContent=u.e;
+    document.getElementById('uPlan').innerHTML=planSvg(u);document.getElementById('uCta').textContent=u.s==='v'?'Avvisami se si libera':'Chiedi la scheda di '+u.id;
+    U.forEach(function(x){x.btn.setAttribute('aria-pressed',x===u);if(x.mesh){x.mesh.material.emissiveIntensity=x===u?.55:0}});
+    f3.selectedIndex=U.indexOf(u)}
+  pick(sel);
+
+  /* anello e barre */
+  var ring=document.getElementById('ring'),L=2*Math.PI*90;ring.style.strokeDasharray=L;ring.style.strokeDashoffset=L;
+  var done=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!done){done=true;ring.style.strokeDashoffset=L*(1-.62);
+    document.querySelectorAll('#phases i').forEach(function(i){i.style.width=i.dataset.w+'%'});
+    var t0=performance.now();(function k(t){var p=Math.min(1,(t-t0)/2000),e=1-Math.pow(1-p,3);document.getElementById('ringT').textContent=Math.round(62*e)+'%';if(p<1)requestAnimationFrame(k)})(t0)}},{threshold:.4}).observe(document.querySelector('.ring'));
+
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;ok.textContent='Anteprima: nel sito vero la richiesta arriva all\'ufficio vendite con l\'appartamento scelto. Nessun dato è stato inviato.'});
+
+  /* edificio 3D */
+  var host=document.getElementById('stage');
+  if(!window.THREE)return;
+  try{
+    var R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.shadowMap.enabled=true;host.appendChild(R.domElement);
+    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(32,1,.1,200);
+    S.add(new THREE.HemisphereLight(0xffffff,0x2a2d30,.7));var sun=new THREE.DirectionalLight(0xffffff,.85);sun.position.set(10,16,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);
+    sun.shadow.camera.left=-12;sun.shadow.camera.right=12;sun.shadow.camera.top=12;sun.shadow.camera.bottom=-12;S.add(sun);
+    var gnd=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshStandardMaterial({color:0x2a2e33,roughness:1}));gnd.rotation.x=-Math.PI/2;gnd.receiveShadow=true;S.add(gnd);
+    var G=new THREE.Group();S.add(G);
+    var slabM=new THREE.MeshStandardMaterial({color:0xEDEBE6,roughness:.85}),glassM=new THREE.MeshStandardMaterial({color:0xBFD3E0,roughness:.1,metalness:.3,transparent:true,opacity:.32});
+    var W=3.2,D=6.4,H=1.7,picks=[];
+    for(var f=0;f<4;f++){
+      var slab=new THREE.Mesh(new THREE.BoxGeometry(W*3+.3,.14,D+.9),slabM);slab.position.set(0,f*H,0);slab.castShadow=slab.receiveShadow=true;G.add(slab);
+      for(var c=0;c<3;c++){var u=U.filter(function(x){return x.f===f&&x.c===c})[0];if(!u)continue;
+        var mat=new THREE.MeshStandardMaterial({color:ST[u.s][2],roughness:.6,emissive:0xffffff,emissiveIntensity:0});
+        var box=new THREE.Mesh(new THREE.BoxGeometry(W-.1,H-.16,D),mat);box.position.set((c-1)*W,f*H+H/2,0);box.castShadow=true;box.userData.u=u;u.mesh=box;G.add(box);picks.push(box);
+        var gl=new THREE.Mesh(new THREE.BoxGeometry(W-.5,H-.5,.04),glassM);gl.position.set((c-1)*W,f*H+H/2,D/2+.02);G.add(gl);
+        var rail=new THREE.Mesh(new THREE.BoxGeometry(W-.3,.3,.04),glassM);rail.position.set((c-1)*W,f*H+.3,D/2+.44);G.add(rail)}
+    }
+    var roof=new THREE.Mesh(new THREE.BoxGeometry(W*3+.3,.2,D+.9),slabM);roof.position.y=4*H;roof.castShadow=true;G.add(roof);
+    /* gru stilizzata */
+    var cr=new THREE.MeshStandardMaterial({color:0xD9A21B,roughness:.5}),mast=new THREE.Mesh(new THREE.BoxGeometry(.3,9,.3),cr);mast.position.set(-7.5,4.5,-3);G.add(mast);
+    var jib=new THREE.Mesh(new THREE.BoxGeometry(11,.25,.25),cr);jib.position.set(-3.5,9,-3);G.add(jib);var cab=new THREE.Mesh(new THREE.BoxGeometry(.8,.6,.6),cr);cab.position.set(-7.5,8.6,-3);G.add(cab);
+    G.position.y=0;
+    var yaw=-.55,pitch=.35,drag=false,px=0,py=0,auto=true,ray=new THREE.Raycaster(),mv=new THREE.Vector2(),hov=null;
+    var cv=R.domElement;
+    cv.addEventListener('pointerdown',function(e){drag=true;auto=false;px=e.clientX;py=e.clientY;cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing';cv._moved=0});
+    cv.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mv.x=(e.clientX-r.left)/r.width*2-1;mv.y=-(e.clientY-r.top)/r.height*2+1;
+      if(drag){yaw-=(e.clientX-px)*.006;pitch=Math.max(.05,Math.min(.9,pitch+(e.clientY-py)*.004));cv._moved+=Math.abs(e.clientX-px)+Math.abs(e.clientY-py);px=e.clientX;py=e.clientY}});
+    cv.addEventListener('pointerup',function(e){drag=false;cv.style.cursor='grab';if(cv._moved<6){ray.setFromCamera(mv,C);var h=ray.intersectObjects(picks)[0];if(h)pick(h.object.userData.u)}});
+    function size(){var w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+    addEventListener('resize',size);size();pick(sel);
+    var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(host);
+    (function loop(t){requestAnimationFrame(loop);if(!vis)return;if(auto&&!reduce)yaw+=.0016;
+      var r=33;C.position.set(Math.sin(yaw)*Math.cos(pitch)*r,Math.sin(pitch)*r+3.4,Math.cos(yaw)*Math.cos(pitch)*r);C.lookAt(0,3.6,0);
+      ray.setFromCamera(mv,C);var h=ray.intersectObjects(picks)[0];var o=h?h.object:null;if(o!==hov){if(hov&&hov.userData.u!==sel)hov.material.emissiveIntensity=0;hov=o;if(hov&&hov.userData.u!==sel)hov.material.emissiveIntensity=.25}
+      R.render(S,C)})(0);
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
