@@ -34,11 +34,11 @@ a{color:inherit}
 .u-tag button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
 /* fascia finale: qui parla Umbra, non il sito */
-.u-end{background:#060606;color:#b9b9b9;font:400 16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;padding:clamp(64px,9vw,120px) 0 40px}
+.u-end{background:#060606;color:#b9b9b9;font:400 16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;text-transform:none;letter-spacing:0;font-stretch:normal;font-variation-settings:normal;padding:clamp(64px,9vw,120px) 0 40px}
 .u-end__in{width:min(1180px,100% - 48px);margin-inline:auto}
 .u-end__m{display:flex;align-items:center;gap:12px;color:#ededed;font:italic 400 26px/1 "Times New Roman",Georgia,serif}
 .u-end__m i{width:22px;height:22px;border-radius:50%;box-shadow:inset -6px 0 0 #dcdcdc}
-.u-end h2{color:#f2f2f2;font:400 clamp(28px,3.4vw,46px)/1.12 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.02em;max-width:22ch;margin:34px 0 0;text-wrap:balance}
+.u-end h2{text-transform:none;color:#f2f2f2;font:400 clamp(28px,3.4vw,46px)/1.12 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.02em;max-width:22ch;margin:34px 0 0;text-wrap:balance}
 .u-end ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0 48px;margin-top:44px;border-top:1px solid #262626}
 .u-end li{padding:20px 0;border-bottom:1px solid #262626}
 .u-end li b{display:block;color:#ededed;font-weight:500}

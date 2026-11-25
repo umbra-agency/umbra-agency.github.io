@@ -4,335 +4,278 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Valmora Costruzioni · Residenza Corte Alta</title>
-<meta name="description" content="Concept Umbra per un costruttore: nuove iniziative immobiliari, appartamenti in 3D e diario di cantiere aggiornabile in autonomia.">
+<meta name="description" content="Concept Umbra per un costruttore: la palazzina che si costruisce scorrendo, il diario di cantiere e la scelta dell'appartamento sul prospetto.">
 <meta property="og:image" content="img/hero.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400;75..125,600;75..125,800&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../lib/umbra.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5B700'/%3E%3Cpath d='M8 26V8h16v18' fill='none' stroke='%231B1C1E' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preload" href="../lib/fonts/big-shoulders-display-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../lib/u2.css">
 <style>
+@font-face{font-family:"Big Shoulders";font-weight:100 900;font-display:swap;src:url(../lib/fonts/big-shoulders-display-normal.woff2) format("woff2")}
+@font-face{font-family:Archivo;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../lib/fonts/archivo-normal.woff2) format("woff2")}
 :root{
-  /* Layout: tavola di cantiere. Cemento, grafite, il giallo delle gru e il blu dei disegni esecutivi. */
-  --concrete:#E7E5E0; --concrete-2:#D9D6CF; --graphite:#1C1E20; --graph-2:#2A2D30; --ink:#16181A; --mute:#73767A; --crane:#D9A21B; --plan:#2F5DA8; --sold:#B54A3A; --free:#3F8F5F; --line:#C9C5BC;
-  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif; --mono:"IBM Plex Mono",Menlo,monospace;
+  /* cemento chiaro, asfalto, e il giallo della segnaletica di cantiere */
+  --cem:#DAD8D2; --cem2:#CFCDC6; --asf:#1B1C1E; --sig:#F5B700; --dim:#62625E; --rule:rgba(27,28,30,.22);
+  --disp:"Big Shoulders","Arial Narrow",sans-serif; --txt:Archivo,system-ui,sans-serif; --pad:clamp(18px,4vw,64px);
 }
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--concrete);color:var(--ink);font:300 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}a{color:inherit}
-:focus-visible{outline:2px solid var(--crane);outline-offset:3px}
-.w{width:min(1320px,100% - 48px);margin-inline:auto}
-.m{font:400 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
-h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:85%;line-height:.92;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance}
-h2{font-size:clamp(44px,6.4vw,104px)}
-.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;background:var(--crane);color:var(--ink);text-decoration:none;font:600 14px var(--body);letter-spacing:.04em;text-transform:uppercase;border:0;cursor:pointer;transition:background .25s}
-.btn:hover{background:#ebb532}
-.btn--dark{background:var(--graphite);color:#fff}.btn--dark:hover{background:#000}
+html{scroll-padding-top:56px}
+body{background:var(--cem);color:var(--asf);font:400 17px/1.5 var(--txt)}
+:focus-visible{outline:3px solid var(--asf);outline-offset:3px}
+h1,h2,h3,.d{font-family:var(--disp);font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.005em}
+.wrap{padding-inline:var(--pad)}
+.cta{display:inline-block;padding:15px 22px;background:var(--sig);color:var(--asf);font:800 16px/1 var(--txt);font-stretch:85%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;border:0;cursor:pointer;transition:background .25s,color .25s}
+.cta:hover{background:var(--asf);color:var(--sig)}
 
-.nav{position:fixed;inset:0 0 auto;z-index:40;background:var(--graphite);color:#fff}
-.nav .w{display:flex;justify-content:space-between;align-items:center;height:64px;gap:18px}
-.logo{font:800 20px var(--display);font-stretch:110%;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo i{width:20px;height:20px;background:var(--crane);clip-path:polygon(0 100%,0 30%,50% 0,100% 30%,100% 100%)}
-.nav ul{display:flex;gap:28px;list-style:none;padding:0;font:400 12.5px var(--mono);text-transform:uppercase;letter-spacing:.08em}
-.nav ul a{text-decoration:none;opacity:.75}.nav ul a:hover{opacity:1;color:var(--crane)}
-.nav .btn{padding:11px 16px;font-size:12.5px}
-@media(max-width:940px){.nav ul{display:none}}
+.bar{position:fixed;inset:0 0 auto;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px var(--pad);background:var(--asf);color:#F1F0EC;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.going-down .bar{transform:translateY(-102%)}
+.bar a{text-decoration:none}
+.bar b{font:900 24px/1 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.bar b i{display:inline-block;width:12px;height:12px;background:var(--sig);margin-right:10px;font-style:normal}
+.bar nav{display:flex;gap:clamp(14px,2.2vw,30px);font-size:15px}
+@media(max-width:760px){.bar nav a:not(.keep){display:none}}
 
-/* hero */
-.hero{padding-top:64px;background:var(--graphite);color:#fff;position:relative;overflow:hidden}
-.hero__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:calc(100vh - 64px)}
-.hero__t{padding:70px 40px 50px 0;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
-.hero h1{font-size:clamp(64px,9vw,150px)}
-.hero h1 span{display:block;color:var(--crane)}
-.hero p{color:#BFC2C5;max-width:40ch;margin-top:24px;font-size:18px}
-.hero__ph{position:relative;overflow:hidden}
-.hero__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero__ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--graphite) 0%,transparent 30%)}
-.stamp{position:absolute;right:24px;bottom:24px;z-index:2;background:var(--crane);color:var(--ink);padding:14px 18px;font:800 15px/1.1 var(--display);text-transform:uppercase;transform:rotate(-3deg)}
-.stamp small{display:block;font:400 11px var(--mono);margin-top:4px}
-.kp{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #3a3e42}
-.kp div{padding:18px 14px 0 0}.kp div+div{padding-left:14px;border-left:1px solid #3a3e42}
-.kp b{display:block;font:800 46px/1 var(--display);font-stretch:85%}
-.kp span{font:400 11.5px var(--mono);color:#9EA2A6;text-transform:uppercase}
-@media(max-width:940px){.hero__g{grid-template-columns:1fr}.hero__t{padding:50px 0 40px}.hero__ph{min-height:320px}}
+/* apertura: il nome come un cartello di cantiere */
+.top{padding-top:clamp(84px,11vh,120px)}
+.top h1{font-size:clamp(64px,18.4vw,330px);margin-left:-.02em;white-space:nowrap}
+.top__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:26px clamp(24px,5vw,80px);margin-top:clamp(16px,2.4vw,34px);align-items:start}
+.top__g p{font-size:clamp(18px,1.5vw,22px);max-width:30ch}
+.facts{margin-top:28px;border-top:2px solid var(--asf)}
+.facts div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.facts dt{color:var(--dim)}
+.facts dd{font:800 30px/1 var(--disp);text-transform:uppercase}
+.top .cta{margin-top:26px}
+.top figure{height:min(70vh,640px);overflow:hidden;clip-path:inset(0 0 calc((1 - var(--o,0))*100%) 0);transition:clip-path 1.5s cubic-bezier(.16,1,.3,1) .35s}
+.is-in .top figure{--o:1}
+.top figure img{width:100%;height:120%;object-fit:cover;transform:translateY(calc(var(--p,.3)*-14%))}
+@media(max-width:820px){.top__g{grid-template-columns:1fr}.top figure{height:54vh}}
 
-section{padding:120px 0}
-@media(max-width:940px){section{padding:80px 0}}
-.hd{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:50px;align-items:end;margin-bottom:50px}
-.hd p{color:#45484C}
-@media(max-width:940px){.hd{grid-template-columns:1fr;gap:16px}}
-
-/* edificio 3D */
-.b3{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0;background:var(--graphite);color:#fff}
-.b3__stage{position:relative;min-height:600px;background:radial-gradient(70% 60% at 50% 40%,#30343a,#1c1e20)}
-.b3__stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:grab}
-.b3__hint{position:absolute;left:18px;top:16px;font:400 11.5px var(--mono);color:#9EA2A6;text-transform:uppercase}
-.legend{position:absolute;left:18px;bottom:16px;display:flex;gap:16px;font:400 11.5px var(--mono);text-transform:uppercase;color:#C9CCCF}
-.legend i{display:inline-block;width:10px;height:10px;margin-right:6px}
-.b3__panel{padding:36px;display:flex;flex-direction:column;gap:18px;border-left:1px solid #3a3e42}
-.b3__panel h3{font-size:58px}
-.st{display:inline-block;padding:5px 10px;font:400 11.5px var(--mono);text-transform:uppercase}
-.spec{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #3a3e42}
-.spec div{padding:14px 0;border-bottom:1px solid #3a3e42}
-.spec div:nth-child(odd){padding-right:14px;border-right:1px solid #3a3e42}.spec div:nth-child(even){padding-left:14px}
-.spec b{display:block;font:600 26px/1.1 var(--display)}
-.spec span{font:400 11px var(--mono);color:#9EA2A6;text-transform:uppercase}
-.plan{background:#22262b;border:1px solid #3a3e42;padding:14px}
-.plan svg{width:100%;height:auto}
-.plan rect,.plan path{fill:none;stroke:#7FA4E0;stroke-width:1.2}
-.plan text{font:400 9px var(--mono);fill:#7FA4E0}
-.units{display:flex;flex-wrap:wrap;gap:6px}
-.units button{border:1px solid #3a3e42;background:none;color:#fff;padding:7px 10px;font:400 12px var(--mono);cursor:pointer}
-.units button[aria-pressed=true]{background:#fff;color:var(--ink)}
-@media(max-width:940px){.b3{grid-template-columns:1fr}.b3__stage{min-height:420px}.b3__panel{border-left:0;border-top:1px solid #3a3e42}}
+/* il cantiere: la palazzina si costruisce scorrendo */
+.site{height:560vh;position:relative;margin-top:clamp(70px,9vw,130px)}
+.site__st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--cem2)}
+#build{position:absolute;inset:0 0 0 34%;width:66%;height:100%}
+.nogl #build{display:none}
+.site__still{display:none;position:absolute;inset:0 0 0 38%;width:62%;height:100%;object-fit:cover}
+.nogl .site__still{display:block}
+.site__h{position:absolute;left:var(--pad);top:clamp(76px,11vh,110px);font-size:clamp(34px,4.2vw,66px);max-width:6em}
+.ph{position:absolute;left:var(--pad);bottom:clamp(120px,19vh,180px);width:min(400px,34vw);opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
+.ph.on{opacity:1;visibility:visible;transition:opacity .45s .1s}
+.ph small{display:block;font:600 15px/1 var(--txt);color:var(--dim);margin-bottom:10px}
+.ph h3{font-size:clamp(48px,6.4vw,104px)}
+.ph p{margin-top:14px}
+.ph em{display:inline-block;margin-top:12px;padding:5px 9px;background:var(--asf);color:var(--sig);font:700 13px/1 var(--txt);font-style:normal;text-transform:uppercase;letter-spacing:.04em}
+.rul{position:absolute;inset:auto var(--pad) clamp(26px,5vh,48px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:end}
+.rul b{font:900 clamp(64px,8.4vw,130px)/.78 var(--disp);font-variant-numeric:tabular-nums;min-width:2.3ch}
+.rul b sup{font-size:.4em;vertical-align:top;position:relative;top:.1em}
+.rul__t{position:relative;height:30px;border-bottom:2px solid var(--asf);background:repeating-linear-gradient(90deg,var(--asf) 0 1px,transparent 1px 2%) bottom/100% 9px no-repeat}
+.rul__t i{position:absolute;left:0;bottom:-2px;height:6px;width:calc(var(--t,0)*100%);background:var(--sig)}
+.rul__t span{position:absolute;left:62%;bottom:12px;transform:translateX(-50%);padding:4px 7px;background:var(--asf);color:#F1F0EC;font:700 12px/1 var(--txt);white-space:nowrap}
+.rul__t span::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:10px;background:var(--asf)}
+@media(max-width:820px){#build{inset:8% 0 auto 0;width:100%;height:52%}.site__still{inset:0;width:100%;height:55%}.site__h{font-size:30px;top:70px}.ph{width:auto;right:var(--pad);bottom:116px}.ph h3{font-size:44px}.ph p{font-size:15.5px}.rul b{font-size:56px}}
 
 /* diario */
-.diary__g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:70px;align-items:start}
-.ring{position:sticky;top:100px}
-.ring svg{width:min(320px,100%)}
-.ring circle{fill:none;stroke-width:14}
-.ring .bg{stroke:var(--concrete-2)}
-.ring .fg{stroke:var(--crane);stroke-linecap:butt;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 2s cubic-bezier(.2,.7,.2,1)}
-.ring text{font:800 64px var(--display);fill:var(--ink)}
-.phases{display:grid;gap:12px;margin-top:30px}
-.ph{display:grid;grid-template-columns:150px 1fr 48px;gap:14px;align-items:center;font-size:14.5px}
-.ph .bar{height:10px;background:var(--concrete-2);position:relative;overflow:hidden}
-.ph .bar i{position:absolute;inset:0 auto 0 0;background:var(--graphite);width:0;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
-.ph .bar.done i{background:var(--free)}
-.ph b{font:400 12px var(--mono);text-align:right}
-.log{list-style:none;padding:0;border-left:2px solid var(--ink);margin-left:8px}
-.log li{position:relative;padding:0 0 60px 40px}
-.log li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;background:var(--crane);border:3px solid var(--concrete)}
-.log time{font:400 12px var(--mono);color:var(--mute);text-transform:uppercase}
-.log h3{font-size:clamp(28px,2.6vw,40px);margin:8px 0 10px}
-.log p{color:#45484C;max-width:56ch}
-.log figure{margin-top:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
-.log figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.log .tagp{display:inline-block;margin-top:12px;background:var(--graphite);color:#fff;padding:5px 10px;font:400 11px var(--mono);text-transform:uppercase}
-@media(max-width:940px){.diary__g{grid-template-columns:1fr}.ring{position:static}.ph{grid-template-columns:110px 1fr 40px}}
+.log{padding-block:clamp(80px,11vw,160px)}
+.log__h{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px 60px;align-items:end}
+.log h2{font-size:clamp(60px,10.5vw,180px)}
+.log__h p{max-width:36ch;font-size:19px}
+.ent{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr) minmax(0,1.1fr);gap:18px clamp(20px,4vw,60px);padding:clamp(26px,3.4vw,48px) 0;border-top:2px solid var(--asf);margin-top:clamp(40px,5vw,70px)}
+.ent+.ent{margin-top:0}
+.ent time{font:900 clamp(40px,4.6vw,76px)/.86 var(--disp);text-transform:uppercase}
+.ent h3{font-size:clamp(30px,3.2vw,52px)}
+.ent p{margin-top:12px;max-width:42ch}
+.ent figure{aspect-ratio:3/2;overflow:hidden}
+.ent img{width:100%;height:118%;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5)*-14%))}
+@media(max-width:820px){.log__h,.ent{grid-template-columns:1fr}}
 
-/* aggiornate voi */
-.cms{background:var(--plan);color:#fff;overflow:hidden}
-.cms__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center}
-.cms .m{color:#BCD0F2}
-.cms p{color:#DCE6F7}
-.mock{background:#fff;color:var(--ink);border-radius:26px;padding:12px;max-width:340px;justify-self:center;box-shadow:0 40px 80px -30px rgba(0,0,0,.45);transform:rotate(3deg)}
-.mock__in{background:var(--concrete);border-radius:18px;padding:18px;display:grid;gap:12px}
-.mock .drop{border:2px dashed #A5A29B;border-radius:12px;height:120px;display:grid;place-items:center;font:400 12px var(--mono);color:var(--mute);background-size:cover;background-position:center}
-.mock .f{background:#fff;border-radius:10px;padding:10px 12px;font-size:14px}
-.mock .f small{display:block;font:400 10.5px var(--mono);color:var(--mute);text-transform:uppercase}
-.mock .btn{justify-content:center}
-@media(max-width:940px){.cms__g{grid-template-columns:1fr}}
+/* appartamenti: il prospetto come disegno tecnico */
+.apt{background:#F1F0EC;padding-block:clamp(80px,11vw,160px)}
+.apt h2{font-size:clamp(60px,10.5vw,180px)}
+.apt__g{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px clamp(30px,6vw,100px);margin-top:clamp(36px,5vw,70px);align-items:start}
+.elev{width:100%;height:auto;overflow:visible}
+.elev .u{cursor:pointer}
+.elev .u rect.b{stroke:var(--asf);stroke-width:1.5;transition:fill .3s}
+.elev .u[data-s=d] rect.b{fill:var(--sig)}
+.elev .u[data-s=r] rect.b{fill:url(#hat)}
+.elev .u[data-s=v] rect.b{fill:#C9C7C1}
+.elev .u rect.w{fill:#F1F0EC;stroke:var(--asf);stroke-width:1}
+.elev .u text{font:900 26px var(--disp);fill:var(--asf);pointer-events:none}
+.elev .u.sel rect.b{stroke-width:5}
+.elev .u:focus-visible{outline:none}.elev .u:focus-visible rect.b{stroke-width:5}
+.elev .fl{font:500 13px var(--txt);fill:var(--dim)}
+.elev .ln{stroke:var(--asf);stroke-width:1}
+.key{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:20px;font-size:15px}
+.key i{display:inline-block;width:16px;height:16px;border:1.5px solid var(--asf);margin-right:8px;vertical-align:-3px}
+.card{position:sticky;top:90px;border-top:4px solid var(--asf);padding-top:18px}
+.card .d{font-size:clamp(110px,13vw,210px)}
+.card__s{display:inline-block;margin-top:10px;padding:6px 10px;font:800 13px/1 var(--txt);text-transform:uppercase;letter-spacing:.04em;background:var(--asf);color:#F1F0EC}
+.card__s[data-s=d]{background:var(--sig);color:var(--asf)}
+.card dl{margin-top:22px}
+.card dl div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--rule)}
+.card dt{color:var(--dim)}.card dd{font-weight:700}
+.card .cta{margin-top:24px}
+@media(max-width:900px){.apt__g{grid-template-columns:1fr}.card{position:static}}
 
-/* iniziative */
-.ini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{background:#fff;display:flex;flex-direction:column}
-.card figure{aspect-ratio:4/3;overflow:hidden;position:relative}
-.card figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
-.card:hover figure img{transform:scale(1.05)}
-.card figure span{position:absolute;left:0;top:14px;padding:6px 12px;font:400 11.5px var(--mono);text-transform:uppercase}
-.card div{padding:22px}
-.card h3{font-size:34px;margin-bottom:8px}
-.card p{font-size:15px;color:#55585C}
-@media(max-width:940px){.ini{grid-template-columns:1fr}}
-
-.contact{background:var(--graphite);color:#fff}
-.contact__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
-form{display:grid;gap:14px}
-label{display:grid;gap:6px;font:400 11.5px var(--mono);text-transform:uppercase;color:#9EA2A6}
-input,select,textarea{font:300 17px var(--body);color:#fff;background:transparent;border:0;border-bottom:1px solid #4a4e53;padding:10px 0;border-radius:0;width:100%}
-select option{color:#000}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ok{font-size:15px;color:var(--crane);border:1px solid var(--crane);padding:12px}.ok[hidden]{display:none}
-@media(max-width:940px){.contact__g{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
-.pitch{background:var(--crane);color:var(--ink)}
-.pitch__g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:40px;border-top:2px solid var(--ink)}
-.pitch__g div{padding:22px 20px 0 0}.pitch__g div+div{padding-left:20px;border-left:1px solid rgba(22,24,26,.25)}
-.pitch__g b{display:block;font:800 22px/1.05 var(--display);text-transform:uppercase;margin-bottom:8px}
-.pitch__g p{font-size:15px}
-@media(max-width:940px){.pitch__g{grid-template-columns:1fr}.pitch__g div{border-left:0!important;padding:18px 12px 0 0!important}}
-footer{background:var(--ink);color:#8A8D91;font:400 12px var(--mono);padding:24px 0 40px}
-footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+/* visita */
+.see{background:var(--asf);color:#F1F0EC;padding-block:clamp(90px,12vw,180px) 34px}
+.see h2{font-size:clamp(64px,13vw,230px)}
+.see h2 span{color:var(--sig)}
+.see__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px clamp(30px,6vw,100px);margin-top:clamp(36px,5vw,70px)}
+.see__g>p{font-size:20px;max-width:32ch;color:#D5D3CC}
+.vis{display:grid;gap:16px}
+.vis input,.vis select{width:100%;background:none;border:0;border-bottom:2px solid #55565A;padding:12px 0;font-size:19px;border-radius:0}
+.vis select option{color:#111}
+.vis input::placeholder{color:#8B8B86}
+.vis .cta{justify-self:start;margin-top:8px}
+.vis output{color:var(--sig);min-height:1.5em}
+.see small{display:block;margin-top:clamp(60px,8vw,100px);font-size:13.5px;color:#8B8B86}
+@media(max-width:820px){.see__g{grid-template-columns:1fr}}
 </style>
 </head>
-<body data-umbra="un concept per la vostra richiesta" data-note="«Valmora» e «Corte Alta» sono nomi di fantasia. Stati, superfici e date di cantiere sono esempi da sostituire con i vostri.">
+<body data-umbra="un concept per la vostra richiesta" data-note="«Valmora» e «Corte Alta» sono nomi di fantasia. Date, percentuali, superfici e stati degli appartamenti sono esempi da sostituire con i vostri.">
 
-<header class="nav"><div class="w">
-  <a class="logo" href="#top"><i></i>Valmora</a>
-  <ul><li><a href="#appartamenti">Appartamenti</a></li><li><a href="#cantiere">Diario di cantiere</a></li><li><a href="#iniziative">Iniziative</a></li><li><a href="#contatti">Contatti</a></li></ul>
-  <a class="btn" href="#contatti">Prenota una visita</a>
-</div></header>
+<header class="bar"><a href="#top"><b><i></i>Valmora</b></a><nav aria-label="Sezioni"><a href="#cantiere">Cantiere</a><a href="#diario">Diario</a><a href="#appartamenti">Appartamenti</a><a class="keep" href="#visita">Visita</a></nav></header>
 
 <main id="top">
-<div class="hero"><div class="w hero__g">
-  <div class="hero__t">
-    <div>
-      <span class="m rv" style="color:#9EA2A6">Nuova iniziativa · cantiere aperto</span>
-      <h1 class="rv" data-d="1" style="margin-top:20px">Residenza<span>Corte Alta</span></h1>
-      <p class="rv" data-d="2">Dodici appartamenti in classe energetica A, dal bilocale all'attico. Sceglietelo dal modello 3D, seguite i lavori nel diario di cantiere.</p>
-      <div class="rv" data-d="3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:30px"><a class="btn" href="#appartamenti">Scegli l'appartamento</a><a class="btn btn--dark" href="#cantiere" style="background:#2f3337">Stato dei lavori</a></div>
+<section class="top wrap">
+  <h1><span class="ln"><span class="li">Corte Alta</span></span></h1>
+  <div class="top__g">
+    <div class="fx" style="--i:4">
+      <p>Dodici appartamenti in classe A4. Sceglietelo sul prospetto e seguite i lavori dal diario di cantiere, senza telefonare a nessuno.</p>
+      <dl class="facts"><div><dt>Appartamenti</dt><dd>12</dd></div><div><dt>Classe energetica</dt><dd>A4</dd></div><div><dt>Consegna</dt><dd>Giugno 2027</dd></div><div><dt>Lavori</dt><dd>62%</dd></div></dl>
+      <a class="cta" href="#appartamenti">Scegli l'appartamento</a>
     </div>
-    <div class="kp rv" data-d="4"><div><b data-count="12">0</b><span>appartamenti</span></div><div><b data-count="62">0</b><span>% lavori</span></div><div><b>A4</b><span>classe energetica</span></div></div>
-  </div>
-  <div class="hero__ph"><img src="img/hero.jpg" alt="Edificio residenziale moderno con facciata chiara e vetrate" fetchpriority="high"><div class="stamp">Consegna<small>giugno 2027 · esempio</small></div></div>
-</div></div>
-
-<section class="b3" id="appartamenti" style="padding:0">
-  <div class="b3__stage" id="stage"><span class="b3__hint">Trascina per ruotare · tocca un appartamento</span><div class="legend"><span><i style="background:#3F8F5F"></i>disponibile</span><span><i style="background:#D9A21B"></i>riservato</span><span><i style="background:#B54A3A"></i>venduto</span></div></div>
-  <div class="b3__panel">
-    <span class="m" style="color:#9EA2A6">Appartamento selezionato</span>
-    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><h3 id="uN">B2</h3><span class="st" id="uS"></span></div>
-    <div class="spec"><div><b id="uM"></b><span>superficie</span></div><div><b id="uL"></b><span>locali</span></div><div><b id="uP"></b><span>piano</span></div><div><b id="uE"></b><span>esterno</span></div></div>
-    <div class="plan" aria-hidden="true"><svg id="uPlan" viewBox="0 0 300 150"></svg></div>
-    <div class="units" id="units" role="group" aria-label="Appartamenti"></div>
-    <a class="btn" href="#contatti" id="uCta">Chiedi la scheda</a>
+    <figure data-p><img src="img/hero.jpg" alt="Una palazzina moderna con facciata scura e grandi vetrate" fetchpriority="high"></figure>
   </div>
 </section>
 
-<section id="cantiere"><div class="w">
-  <div class="hd"><div><span class="m rv">Diario di cantiere</span><h2 class="rv" data-d="1" style="margin-top:14px">Come procedono <span style="color:var(--plan)">i lavori.</span></h2></div><p class="rv" data-d="2">Ogni due settimane un aggiornamento con foto e percentuale per fase. Chi ha già comprato lo riceve anche per email.</p></div>
-  <div class="diary__g">
-    <div class="ring">
-      <svg viewBox="0 0 220 220" role="img" aria-label="Avanzamento complessivo 62 per cento"><circle class="bg" cx="110" cy="110" r="90"/><circle class="fg" id="ring" cx="110" cy="110" r="90"/><text x="110" y="128" text-anchor="middle" id="ringT">0%</text></svg>
-      <div class="phases" id="phases">
-        <div class="ph"><span>Scavi e fondazioni</span><div class="bar done"><i data-w="100"></i></div><b>100%</b></div>
-        <div class="ph"><span>Struttura</span><div class="bar done"><i data-w="100"></i></div><b>100%</b></div>
-        <div class="ph"><span>Tamponamenti</span><div class="bar"><i data-w="80"></i></div><b>80%</b></div>
-        <div class="ph"><span>Impianti</span><div class="bar"><i data-w="45"></i></div><b>45%</b></div>
-        <div class="ph"><span>Finiture</span><div class="bar"><i data-w="10"></i></div><b>10%</b></div>
-        <div class="ph"><span>Esterni</span><div class="bar"><i data-w="0"></i></div><b>0%</b></div>
+<section class="site" id="cantiere" aria-label="Il cantiere, fase per fase">
+  <div class="site__st">
+    <canvas id="build" aria-hidden="true"></canvas>
+    <img class="site__still" src="img/gru.jpg" alt="Il cantiere con le gru">
+    <h2 class="site__h">Come procedono i lavori</h2>
+    <div class="ph on"><small>Fase 1 di 5 · marzo 2026</small><h3>Scavi e fondazioni</h3><p>Scavo, magrone e platea armata. Gettata in tre settimane.</p></div>
+    <div class="ph"><small>Fase 2 di 5 · giugno 2026</small><h3>Struttura</h3><p>Pilastri, quattro solai e copertura in cemento armato. Chiusa con due giorni di anticipo.</p></div>
+    <div class="ph"><small>Fase 3 di 5 · ottobre 2026</small><h3>Tamponamenti</h3><p>Pareti esterne in blocchi termici e balconi, piano dopo piano.</p></div>
+    <div class="ph"><small>Fase 4 di 5 · in corso</small><h3>Impianti</h3><p>Serramenti posati, riscaldamento a pavimento al secondo piano, fotovoltaico in copertura.</p></div>
+    <div class="ph"><small>Fase 5 di 5 · da gennaio 2027</small><h3>Finiture</h3><p>Intonaco, parapetti, verde. La gru se ne va, a giugno si consegna.</p><em>In programma</em></div>
+    <div class="rul"><b><span id="pct">0</span><sup>%</sup></b><div class="rul__t" id="rul"><i></i><span>Oggi: 62%</span></div></div>
+  </div>
+</section>
+
+<section class="log wrap" id="diario">
+  <div class="log__h"><h2>Diario di cantiere</h2><p>Una foto e due righe dal telefono: lo aggiornate voi. Chi ha già comprato riceve l'email.</p></div>
+  <article class="ent"><time datetime="2026-11-18">18 nov</time><div><h3>Tamponamenti al terzo piano</h3><p>Chiuse le pareti esterne del terzo piano. Al secondo sono partiti i massetti e la posa dei tubi del riscaldamento a pavimento.</p></div><figure data-p><img src="img/gru.jpg" alt="Il ponteggio e le gru contro il cielo" loading="lazy"></figure></article>
+  <article class="ent"><time datetime="2026-11-04">4 nov</time><div><h3>Struttura completata</h3><p>Getto dell'ultimo solaio e copertura. La struttura è chiusa con due giorni di anticipo sul programma.</p></div><figure data-p><img src="img/gru3.jpg" alt="Una gru gialla sopra il cantiere" loading="lazy"></figure></article>
+  <article class="ent"><time datetime="2026-10-21">21 ott</time><div><h3>Finiture: si sceglie</h3><p>In ufficio con il campionario: tre pavimenti, due serie di sanitari, porte a filo muro. Le scelte finiscono nel capitolato di ogni appartamento.</p></div><figure data-p><img src="img/progetto.jpg" alt="Una matita sopra un disegno quotato" loading="lazy"></figure></article>
+</section>
+
+<section class="apt" id="appartamenti">
+  <div class="wrap">
+    <h2>Scegli sul prospetto</h2>
+    <div class="apt__g">
+      <div>
+        <svg class="elev" id="elev" viewBox="0 0 720 560" role="group" aria-label="Prospetto con i dodici appartamenti"><defs><pattern id="hat" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" fill="#F1F0EC"/><rect width="4.5" height="9" fill="#F5B700"/></pattern></defs></svg>
+        <p class="key"><span><i style="background:var(--sig)"></i>Disponibile</span><span><i style="background:repeating-linear-gradient(45deg,var(--sig) 0 4px,#F1F0EC 4px 8px)"></i>Riservato</span><span><i style="background:#C9C7C1"></i>Venduto</span></p>
       </div>
+      <aside class="card" aria-live="polite">
+        <div class="d" id="aC"></div>
+        <span class="card__s" id="aS"></span>
+        <dl><div><dt>Superficie</dt><dd id="aM"></dd></div><div><dt>Locali</dt><dd id="aL"></dd></div><div><dt>Piano</dt><dd id="aP"></dd></div><div><dt>Esterno</dt><dd id="aE"></dd></div></dl>
+        <a class="cta" id="aGo" href="#visita"></a>
+      </aside>
     </div>
-    <ol class="log">
-      <li class="rv"><time>Aggiornamento 14 · 18 novembre</time><h3>Tamponamenti al terzo piano</h3><p>Chiuse le pareti esterne del terzo piano con blocchi termici. Al secondo piano sono iniziati i massetti e la posa dei tubi del riscaldamento a pavimento.</p><figure><img src="img/gru.jpg" alt="Gru sopra il cantiere" loading="lazy"><img src="img/interno.jpg" alt="Interno di un appartamento con pareti grezze" loading="lazy"></figure><span class="tagp">Impianti +10%</span></li>
-      <li class="rv"><time>Aggiornamento 13 · 4 novembre</time><h3>Struttura completata</h3><p>Getto dell'ultimo solaio e copertura. La struttura in cemento armato è chiusa, con due giorni di anticipo sul programma.</p><figure><img src="img/gru2.jpg" alt="Gru e cielo" loading="lazy"><img src="img/notte.jpg" alt="Cantiere al tramonto" loading="lazy"></figure><span class="tagp">Struttura 100%</span></li>
-      <li class="rv"><time>Aggiornamento 12 · 21 ottobre</time><h3>Scelta delle finiture con i primi acquirenti</h3><p>In ufficio con le campionature: tre pavimenti, due serie di sanitari, porte a filo muro. Le scelte sono già nel capitolato di ogni appartamento.</p><figure><img src="img/progetto.jpg" alt="Disegni tecnici sul tavolo" loading="lazy"><img src="img/disegno.jpg" alt="Mani che disegnano un progetto" loading="lazy"></figure></li>
-    </ol>
   </div>
-</div></section>
+</section>
 
-<section class="cms"><div class="w cms__g">
-  <div>
-    <span class="m rv">Accesso autonomo</span>
-    <h2 class="rv" data-d="1" style="margin-top:14px">Il diario lo aggiornate voi, <span style="color:var(--crane)">dal cantiere.</span></h2>
-    <p class="rv" data-d="2" style="margin-top:22px">Una foto dal telefono, due righe, le percentuali delle fasi. Si pubblica sul sito e parte l'email a chi ha già comprato. Le nuove iniziative si aggiungono allo stesso modo, senza chiamare nessuno.</p>
+<section class="see" id="visita">
+  <div class="wrap">
+    <h2>Venite a vedere <span>il cantiere.</span></h2>
+    <div class="see__g">
+      <p>Il sabato mattina, con caschetto e accompagnatore. Portiamo anche il campionario delle finiture.</p>
+      <form class="vis" id="vis">
+        <input name="n" placeholder="Nome e cognome" aria-label="Nome e cognome" autocomplete="name">
+        <input name="t" placeholder="Telefono" aria-label="Telefono" autocomplete="tel">
+        <select name="a" id="visA" aria-label="Appartamento"></select>
+        <button class="cta" type="submit">Prenota la visita</button><output id="visO"></output>
+      </form>
+    </div>
+    <small>Valmora Costruzioni e Corte Alta sono nomi di fantasia per questo concept. Foto Unsplash.</small>
   </div>
-  <div class="mock rv" data-d="2" aria-hidden="true"><div class="mock__in">
-    <span class="m">Nuovo aggiornamento</span>
-    <div class="drop" style="background-image:url(img/gru3.jpg)"></div>
-    <div class="f"><small>Titolo</small>Massetti al secondo piano</div>
-    <div class="f"><small>Fase · avanzamento</small>Impianti · 55%</div>
-    <span class="btn" style="font-size:13px">Pubblica</span>
-  </div></div>
-</div></section>
-
-<section id="iniziative"><div class="w">
-  <div class="hd"><div><span class="m rv">Iniziative</span><h2 class="rv" data-d="1" style="margin-top:14px">Costruite, in corso, in arrivo.</h2></div><p class="rv" data-d="2">Ogni iniziativa ha la sua pagina con appartamenti, capitolato e diario. Le nuove si annunciano qui prima che sui portali.</p></div>
-  <div class="ini">
-    <article class="card rv"><figure><img src="img/facciata.jpg" alt="Facciata con balconi al tramonto" loading="lazy"><span style="background:var(--crane)">In costruzione</span></figure><div><h3>Corte Alta</h3><p>12 appartamenti · consegna 2027</p></div></article>
-    <article class="card rv" data-d="1"><figure><img src="img/progetto.jpg" alt="Tavole di progetto" loading="lazy"><span style="background:#fff">In progettazione</span></figure><div><h3>Le Rive</h3><p>8 villette a schiera · prenotazioni dal 2027</p></div></article>
-    <article class="card rv" data-d="2"><figure><img src="img/villa.jpg" alt="Villa moderna con piscina" loading="lazy"><span style="background:var(--free);color:#fff">Consegnata</span></figure><div><h3>Villa Sole</h3><p>Residenza unifamiliare · 2025</p></div></article>
-  </div>
-</div></section>
-
-<section class="contact" id="contatti"><div class="w contact__g">
-  <div><span class="m" style="color:#9EA2A6">Contatti</span><h2 style="margin-top:14px">Venite a vedere <span style="color:var(--crane)">il cantiere.</span></h2><p style="color:#BFC2C5;margin-top:20px;max-width:40ch">Visite il sabato mattina, con caschetto e accompagnatore. Portiamo anche le campionature delle finiture.</p></div>
-  <form id="form" novalidate>
-    <div class="two"><label for="f1">Nome<input id="f1" autocomplete="name"></label><label for="f2">Telefono<input id="f2" type="tel" autocomplete="tel"></label></div>
-    <div class="two"><label for="f3">Appartamento<select id="f3"></select></label><label for="f4">Quando<select id="f4"><option>Sabato mattina</option><option>In settimana</option><option>Videochiamata</option></select></label></div>
-    <button class="btn" type="submit" style="justify-self:start">Prenota la visita</button>
-    <p class="ok" id="ok" role="status" hidden></p>
-  </form>
-</div></section>
-
-<section class="pitch"><div class="w">
-  <span class="m" style="color:var(--ink)">Il progetto che avete chiesto</span>
-  <h2 style="margin-top:14px;font-size:clamp(40px,5vw,80px)">Moderno fuori, semplice dentro.</h2>
-  <div class="pitch__g">
-    <div><b>Accesso autonomo</b><p>Testi, foto, iniziative e diario li gestite voi, anche dal telefono.</p></div>
-    <div><b>Aggiornamenti a parte</b><p>Se preferite, nuove iniziative e diari li pubblichiamo noi, a prezzo fisso per aggiornamento.</p></div>
-    <div><b>Appartamenti vivi</b><p>Venduto, riservato, disponibile: cambia lo stato e il modello 3D si aggiorna.</p></div>
-    <div><b>Acquirenti informati</b><p>Chi ha comprato riceve ogni aggiornamento del cantiere via email.</p></div>
-  </div>
-</div></section>
+</section>
 </main>
-<footer><div class="w"><span>Valmora Costruzioni · nome di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
+
+<aside class="u-end"><div class="u-end__in">
+  <p class="u-end__m"><i></i>umbra</p>
+  <h2>Il rinnovo del sito con gli aggiornamenti di cantiere che avete chiesto.</h2>
+  <ul>
+    <li><b>Il diario lo aggiornate voi</b>Foto, titolo e percentuale dal telefono, in due minuti. Il modello 3D e la barra dei lavori si aggiornano da soli.</li>
+    <li><b>Appartamenti sempre veri</b>Disponibile, riservato, venduto: cambiate lo stato e il prospetto cambia.</li>
+    <li><b>Acquirenti informati</b>Chi ha comprato riceve ogni aggiornamento per email e smette di chiamare in ufficio.</li>
+    <li><b>Una pagina per iniziativa</b>Le prossime si aggiungono allo stesso modo, senza rifare il sito.</li>
+  </ul>
+  <p class="u-end__f"><span>Nomi, date, superfici e stati sono esempi.</span><a href="https://umbragency.it">umbragency.it</a></p>
+</div></aside>
 
 <script src="../lib/three.min.js"></script>
-<script src="../lib/umbra.js"></script>
+<script src="../lib/u2.js"></script>
 <script>
 (function(){
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  /* dati appartamenti (esempio) */
-  var ST={d:['Disponibile','#3F8F5F',0x3F8F5F],r:['Riservato','#D9A21B',0xD9A21B],v:['Venduto','#B54A3A',0xB54A3A]};
-  var U=[],floors=['Terra','Primo','Secondo','Terzo'],lt='ABC';
-  var data=[[68,'2','Giardino 40 m²','v'],[92,'3','Giardino 75 m²','d'],[71,'2','Giardino 35 m²','r'],
-            [70,'2','Balcone 9 m²','v'],[96,'3','Balcone 14 m²','v'],[72,'2','Balcone 9 m²','d'],
-            [70,'2','Balcone 9 m²','d'],[96,'3','Balcone 14 m²','r'],[72,'2','Balcone 9 m²','d'],
-            [118,'4','Terrazzo 60 m²','d'],[0,0,0,0],[104,'3','Terrazzo 48 m²','v']];
-  for(var f=0;f<4;f++)for(var c=0;c<3;c++){var d=data[f*3+c];if(!d[0])continue;U.push({id:lt[c]+(f+1),f:f,c:c,m:d[0],l:d[1],e:d[2],s:d[3]})}
-  var sel=U[4];
-  var units=document.getElementById('units'),f3=document.getElementById('f3');
-  U.forEach(function(u){var b=document.createElement('button');b.type='button';b.textContent=u.id;b.style.borderLeft='3px solid '+ST[u.s][1];b.onclick=function(){pick(u)};units.appendChild(b);u.btn=b;
-    var o=document.createElement('option');o.textContent=u.id+' · '+u.m+' m²';f3.appendChild(o)});
-  function planSvg(u){var w=u.m>100?280:u.m>85?250:220,x=(300-w)/2,s='<rect x="'+x+'" y="15" width="'+w+'" height="110"/>';
-    var n=+u.l,step=w/(n);for(var i=1;i<n;i++)s+='<path d="M'+(x+step*i)+' 15V'+(i%2?95:125)+'"/>';
-    s+='<path d="M'+x+' 95H'+(x+step)+'"/><text x="'+(x+8)+'" y="30">'+u.id+' · '+u.m+' m²</text><text x="'+(x+8)+'" y="140">'+u.e+'</text>';return s}
-  function pick(u){sel=u;document.getElementById('uN').textContent=u.id;var s=document.getElementById('uS');s.textContent=ST[u.s][0];s.style.background=ST[u.s][1];s.style.color=u.s==='r'?'#16181A':'#fff';
-    document.getElementById('uM').textContent=u.m+' m²';document.getElementById('uL').textContent=u.l;document.getElementById('uP').textContent=floors[u.f];document.getElementById('uE').textContent=u.e;
-    document.getElementById('uPlan').innerHTML=planSvg(u);document.getElementById('uCta').textContent=u.s==='v'?'Avvisami se si libera':'Chiedi la scheda di '+u.id;
-    U.forEach(function(x){x.btn.setAttribute('aria-pressed',x===u);if(x.mesh){x.mesh.material.emissiveIntensity=x===u?.55:0}});
-    f3.selectedIndex=U.indexOf(u)}
-  pick(sel);
+  /* appartamenti sul prospetto */
+  var FL=['Terra','Primo','Secondo','Terzo'],ST={d:'Disponibile',r:'Riservato',v:'Venduto'};
+  var A=[['A1',0,74,3,'Giardino 60 m²','v'],['A2',0,58,2,'Giardino 35 m²','d'],['A3',0,88,3,'Giardino 80 m²','v'],['B1',1,82,3,'Balcone 12 m²','r'],['B2',1,96,4,'Balcone 14 m²','v'],['B3',1,68,2,'Balcone 9 m²','d'],['C1',2,82,3,'Balcone 12 m²','d'],['C2',2,96,4,'Balcone 14 m²','r'],['C3',2,68,2,'Balcone 9 m²','v'],['D1',3,104,4,'Terrazzo 28 m²','v'],['D2',3,72,3,'Terrazzo 18 m²','d'],['D3',3,90,3,'Terrazzo 22 m²','d']];
+  var svg=document.getElementById('elev'),ns='http://www.w3.org/2000/svg',$=function(i){return document.getElementById(i)},sel=$('visA');
+  function el(n,a,p){var e=document.createElementNS(ns,n);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+  el('line',{x1:40,y1:520,x2:700,y2:520,class:'ln','stroke-width':3});el('rect',{x:76,y:36,width:614,height:14,fill:'#1B1C1E'});
+  A.forEach(function(a,i){var c=i%3,r=a[1],x=80+c*204,y=400-r*118,g=el('g',{class:'u','data-s':a[5],tabindex:0,role:'button','aria-label':'Appartamento '+a[0]+', '+ST[a[5]].toLowerCase()});
+    el('rect',{class:'b',x:x,y:y,width:198,height:112},g);[0,1,2].forEach(function(k){el('rect',{class:'w',x:x+16+k*60,y:y+30,width:44,height:r?64:82},g)});
+    if(r)el('line',{class:'ln',x1:x+8,y1:y+96,x2:x+190,y2:y+96,'stroke-width':2.5},g);el('text',{x:x+16,y:y+24},g).textContent=a[0];
+    g.addEventListener('click',function(){pick(i)});g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(i)}});a.g=g;
+    if(c===0)el('text',{class:'fl',x:70,y:y+62,'text-anchor':'end'}).textContent=FL[r];
+    var o=document.createElement('option');o.textContent=a[0]+' · '+a[2]+' m² · '+ST[a[5]].toLowerCase();o.value=a[0];sel.appendChild(o)});
+  function pick(i){var a=A[i];A.forEach(function(x){x.g.classList.toggle('sel',x===a)});$('aC').textContent=a[0];$('aS').textContent=ST[a[5]];$('aS').dataset.s=a[5];$('aM').textContent=a[2]+' m²';$('aL').textContent=a[3];$('aP').textContent=FL[a[1]];$('aE').textContent=a[4];
+    $('aGo').textContent=a[5]==='v'?'Avvisatemi se si libera':'Prenota una visita per il '+a[0];sel.value=a[0]}
+  pick(5);
+  $('vis').addEventListener('submit',function(e){e.preventDefault();$('visO').textContent='In questa anteprima il modulo non invia nulla: nel sito vero la richiesta arriva in ufficio.'});
 
-  /* anello e barre */
-  var ring=document.getElementById('ring'),L=2*Math.PI*90;ring.style.strokeDasharray=L;ring.style.strokeDashoffset=L;
-  var done=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!done){done=true;ring.style.strokeDashoffset=L*(1-.62);
-    document.querySelectorAll('#phases i').forEach(function(i){i.style.width=i.dataset.w+'%'});
-    var t0=performance.now();(function k(t){var p=Math.min(1,(t-t0)/2000),e=1-Math.pow(1-p,3);document.getElementById('ringT').textContent=Math.round(62*e)+'%';if(p<1)requestAnimationFrame(k)})(t0)}},{threshold:.4}).observe(document.querySelector('.ring'));
-
-  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;ok.textContent='Anteprima: nel sito vero la richiesta arriva all\'ufficio vendite con l\'appartamento scelto. Nessun dato è stato inviato.'});
-
-  /* edificio 3D */
-  var host=document.getElementById('stage');
-  if(!window.THREE)return;
-  try{
-    var R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.shadowMap.enabled=true;host.appendChild(R.domElement);
-    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(32,1,.1,200);
-    S.add(new THREE.HemisphereLight(0xffffff,0x2a2d30,.7));var sun=new THREE.DirectionalLight(0xffffff,.85);sun.position.set(10,16,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);
-    sun.shadow.camera.left=-12;sun.shadow.camera.right=12;sun.shadow.camera.top=12;sun.shadow.camera.bottom=-12;S.add(sun);
-    var gnd=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshStandardMaterial({color:0x2a2e33,roughness:1}));gnd.rotation.x=-Math.PI/2;gnd.receiveShadow=true;S.add(gnd);
-    var G=new THREE.Group();S.add(G);
-    var slabM=new THREE.MeshStandardMaterial({color:0xEDEBE6,roughness:.85}),glassM=new THREE.MeshStandardMaterial({color:0xBFD3E0,roughness:.1,metalness:.3,transparent:true,opacity:.32});
-    var W=3.2,D=6.4,H=1.7,picks=[];
-    for(var f=0;f<4;f++){
-      var slab=new THREE.Mesh(new THREE.BoxGeometry(W*3+.3,.14,D+.9),slabM);slab.position.set(0,f*H,0);slab.castShadow=slab.receiveShadow=true;G.add(slab);
-      for(var c=0;c<3;c++){var u=U.filter(function(x){return x.f===f&&x.c===c})[0];if(!u)continue;
-        var mat=new THREE.MeshStandardMaterial({color:ST[u.s][2],roughness:.6,emissive:0xffffff,emissiveIntensity:0});
-        var box=new THREE.Mesh(new THREE.BoxGeometry(W-.1,H-.16,D),mat);box.position.set((c-1)*W,f*H+H/2,0);box.castShadow=true;box.userData.u=u;u.mesh=box;G.add(box);picks.push(box);
-        var gl=new THREE.Mesh(new THREE.BoxGeometry(W-.5,H-.5,.04),glassM);gl.position.set((c-1)*W,f*H+H/2,D/2+.02);G.add(gl);
-        var rail=new THREE.Mesh(new THREE.BoxGeometry(W-.3,.3,.04),glassM);rail.position.set((c-1)*W,f*H+.3,D/2+.44);G.add(rail)}
-    }
-    var roof=new THREE.Mesh(new THREE.BoxGeometry(W*3+.3,.2,D+.9),slabM);roof.position.y=4*H;roof.castShadow=true;G.add(roof);
-    /* gru stilizzata */
-    var cr=new THREE.MeshStandardMaterial({color:0xD9A21B,roughness:.5}),mast=new THREE.Mesh(new THREE.BoxGeometry(.3,9,.3),cr);mast.position.set(-7.5,4.5,-3);G.add(mast);
-    var jib=new THREE.Mesh(new THREE.BoxGeometry(11,.25,.25),cr);jib.position.set(-3.5,9,-3);G.add(jib);var cab=new THREE.Mesh(new THREE.BoxGeometry(.8,.6,.6),cr);cab.position.set(-7.5,8.6,-3);G.add(cab);
-    G.position.y=0;
-    var yaw=-.55,pitch=.35,drag=false,px=0,py=0,auto=true,ray=new THREE.Raycaster(),mv=new THREE.Vector2(),hov=null;
-    var cv=R.domElement;
-    cv.addEventListener('pointerdown',function(e){drag=true;auto=false;px=e.clientX;py=e.clientY;cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing';cv._moved=0});
-    cv.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mv.x=(e.clientX-r.left)/r.width*2-1;mv.y=-(e.clientY-r.top)/r.height*2+1;
-      if(drag){yaw-=(e.clientX-px)*.006;pitch=Math.max(.05,Math.min(.9,pitch+(e.clientY-py)*.004));cv._moved+=Math.abs(e.clientX-px)+Math.abs(e.clientY-py);px=e.clientX;py=e.clientY}});
-    cv.addEventListener('pointerup',function(e){drag=false;cv.style.cursor='grab';if(cv._moved<6){ray.setFromCamera(mv,C);var h=ray.intersectObjects(picks)[0];if(h)pick(h.object.userData.u)}});
-    function size(){var w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
-    addEventListener('resize',size);size();pick(sel);
-    var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(host);
-    (function loop(t){requestAnimationFrame(loop);if(!vis)return;if(auto&&!reduce)yaw+=.0016;
-      var r=33;C.position.set(Math.sin(yaw)*Math.cos(pitch)*r,Math.sin(pitch)*r+3.4,Math.cos(yaw)*Math.cos(pitch)*r);C.lookAt(0,3.6,0);
-      ray.setFromCamera(mv,C);var h=ray.intersectObjects(picks)[0];var o=h?h.object:null;if(o!==hov){if(hov&&hov.userData.u!==sel)hov.material.emissiveIntensity=0;hov=o;if(hov&&hov.userData.u!==sel)hov.material.emissiveIntensity=.25}
-      R.render(S,C)})(0);
-  }catch(err){}
+  /* la palazzina che si costruisce */
+  var track=document.getElementById('cantiere'),phs=[].slice.call(document.querySelectorAll('.ph')),pct=$('pct'),rul=$('rul'),tt=0;
+  U.pin(track,function(t){tt=t;var i=t<.17?0:t<.43?1:t<.65?2:t<.81?3:4;phs.forEach(function(p,k){p.classList.toggle('on',k===i)});pct.textContent=Math.round(t*100);rul.style.setProperty('--t',t)});
+  var cv=$('build'),st=U.three(cv,{fov:26,shadows:true,exposure:.78});if(!st)return;
+  var T=st.T,sc=st.scene,cam=st.camera;sc.environment=U.env(T,st.renderer,'#9fb0c2','#4f4d48',[[-7,8,5,10,6,3],[9,3,-4,3,10,1.2],[0,-4,10,14,2,.4]]);
+  var sun=new T.DirectionalLight(0xfff3df,1.35);sun.position.set(14,22,12);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);var sh=sun.shadow.camera;sh.left=-22;sh.right=22;sh.top=22;sh.bottom=-10;sh.near=1;sh.far=70;sun.shadow.bias=-.0006;sun.shadow.radius=4;sc.add(sun);sc.add(new T.HemisphereLight(0xffffff,0x8a8880,.22));
+  var gnd=new T.Mesh(new T.PlaneGeometry(120,120),new T.ShadowMaterial({opacity:.26}));gnd.rotation.x=-Math.PI/2;gnd.receiveShadow=true;sc.add(gnd);
+  function M(c,r,m){return new T.MeshStandardMaterial({color:c,roughness:r,metalness:m||0,envMapIntensity:.55})}
+  var mC=M(0x9c9992,.92),mS=M(0xb0ada6,.9),mW=M(0x9a8468,.95),mF=M(0x1c1e20,.6),mY=M(0xe9a800,.55),mSoil=M(0x7d7566,1),mPV=M(0x16233d,.25,.7),mTree=M(0x4c6b3d,.9),mTr=M(0x5a4a3a,.9),
+      mG=new T.MeshPhysicalMaterial({color:0x4d6b7c,roughness:.04,metalness:.35,transparent:true,opacity:.78,envMapIntensity:2.2});
+  var raw=new T.Color(0x9a8468),fin=new T.Color(0xe9e5dc),parts=[],B=new T.Group();sc.add(B);
+  function add(g,m,x,y,z,b,par){var o=new T.Mesh(g,m);o.position.set(x,y,z);o.castShadow=o.receiveShadow=true;o.userData={b:b,y:y};(par||B).add(o);parts.push(o);return o}
+  function box(w,h,d){return new T.BoxGeometry(w,h,d)}
+  var FH=3,XS=[-6,-2,2,6],ZS=[-4,0,4];
+  add(box(14.4,.5,10.4),mSoil,0,-.24,0,.02);add(box(13.2,.5,9.2),mC,0,.05,0,.08);
+  for(var f=0;f<4;f++){var y0=.3+f*FH,b0=.18+f*.06;
+    XS.forEach(function(x,i){ZS.forEach(function(z,j){add(box(.36,FH-.24,.36),mC,x,y0+(FH-.24)/2,z,b0+(i*3+j)*.0022)})});
+    add(box(2.6,FH-.24,2.6),mC,0,y0+(FH-.24)/2,-2,b0+.012);
+    add(box(12.8,.24,8.8),mS,0,y0+FH-.12,0,b0+.038);
+    var bw=.44+f*.05;
+    for(var i=0;i<3;i++){var x=-4+i*4;
+      add(box(3.6,FH-.3,.24),mW,x,y0+(FH-.3)/2,4.06,bw+i*.006);add(box(3.6,FH-.3,.24),mW,x,y0+(FH-.3)/2,-4.06,bw+.02+i*.006);
+      add(box(2.5,f?1.9:2.3,.08),mG,x,y0+(f?1.45:1.25),4.2,.66+f*.03+i*.004);add(box(1.6,1.3,.08),mG,x,y0+1.55,-4.2,.67+f*.03);
+      add(box(2.62,f?2.02:2.42,.1),mF,x,y0+(f?1.45:1.25),4.16,.655+f*.03+i*.004);
+      if(f){add(box(3.5,.16,1.3),mS,x,y0-.2,4.8,bw+.03+i*.006);add(box(3.5,.95,.05),mG,x,y0+.42,5.42,.84+f*.02+i*.004)}}
+    for(var k=0;k<2;k++){var z=-2+k*4;[-6.06,6.06].forEach(function(xx,q){add(box(.24,FH-.3,3.6),mW,xx,y0+(FH-.3)/2,z,bw+.04+k*.006+q*.004);add(box(.08,1.4,1.5),mG,xx+(q?.14:-.14),y0+1.55,z,.68+f*.03)})}}
+  add(box(13,.5,9),mS,0,.3+4*FH+.2,0,.44);
+  for(var p=0;p<8;p++){var pv=add(box(1.25,.06,2.2),mPV,-5.2+p*1.5,.3+4*FH+.72,-.4,.72+p*.008);pv.rotation.x=-.32}
+  [[-9.6,6.4,1.5],[9.4,5.8,1.25],[8.2,-6.6,1.7],[-8.4,-6,1.1]].forEach(function(t,i){add(new T.CylinderGeometry(.12,.16,1.6,8),mTr,t[0],.8,t[1],.88+i*.02);add(new T.IcosahedronGeometry(t[2],1),mTree,t[0],1.6+t[2]*.8,t[1],.89+i*.02)});
+  /* gru */
+  var crane=new T.Group(),jib=new T.Group();crane.position.set(-10.5,0,-7.5);sc.add(crane);
+  var mast=new T.Mesh(box(.55,16.4,.55),mY);mast.position.y=8.2;mast.castShadow=true;crane.add(mast);jib.position.y=16;crane.add(jib);
+  [[16,.35,.35,5.2,0],[5,.35,.35,-3.6,0],[1.6,1.1,1.1,-5.2,-.4],[.07,6,.07,9,-3.2],[.5,.4,.5,9,-6.3]].forEach(function(q){var m=new T.Mesh(box(q[0],q[1],q[2]),q[4]<-3?mF:mY);m.position.set(q[3],q[4],0);m.castShadow=true;jib.add(m)});
+  var s=0,mx=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5},{passive:true});var smx=0;
+  st.frame(function(time){s=U.reduce?tt:s+(tt-s)*.09;smx+=(mx-smx)*.05;
+    for(var i=0;i<parts.length;i++){var o=parts[i],k=U.out(U.clamp((s-o.userData.b)/.04,0,1));o.visible=k>.001;o.position.y=o.userData.y+(1-k)*2.6;o.scale.setScalar(.82+.18*k)}
+    mW.color.copy(raw).lerp(fin,U.ease(U.map(s,.82,.95)));
+    var ck=U.ease(U.map(s,.03,.1))*(1-U.ease(U.map(s,.88,.97)));crane.visible=ck>.01;crane.scale.setScalar(Math.max(.001,ck));jib.rotation.y=.5+Math.sin(time*.25)*.7+s*3;
+    var az=U.lerp(-.85,.5,s)+smx*.18,el=U.lerp(.36,.2,s),R=cv.clientWidth<700?60:50;
+    cam.position.set(Math.sin(az)*Math.cos(el)*R,6+Math.sin(el)*R,Math.cos(az)*Math.cos(el)*R);cam.lookAt(0,6.4,0)});
 })();
 </script>
 </body>
