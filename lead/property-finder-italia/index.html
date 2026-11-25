@@ -1,325 +1,210 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Altrove · Buyer's advisory for homes in Italy</title>
-<meta name="description" content="Umbra concept for a property finding and buyer's advisory firm serving international clients buying homes in Italy.">
+<title>Altrove · Buying a home in Italy, with someone on your side</title>
+<meta name="description" content="Concept by Umbra for an Italian property finder: bilingual EN/IT, four regions, the buying journey explained and a brief that qualifies every enquiry.">
 <meta property="og:image" content="img/hero.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Albert+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../lib/umbra.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ECEDE8'/%3E%3Cpath d='M9 28V14a7 7 0 0 1 14 0v14z' fill='%231E3A2F'/%3E%3C/svg%3E">
+<link rel="preload" href="../lib/fonts/instrument-serif-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../lib/u2.css">
 <style>
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../lib/fonts/instrument-serif-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../lib/fonts/instrument-serif-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400 700;font-stretch:75% 100%;font-display:swap;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2")}
 :root{
-  /* Layout: rivista di architettura. Bodoni grande, molto bianco, un blu lago e un oro foglia per i dettagli. */
-  --paper:#F6F3EE; --paper-2:#ECE6DC; --ink:#13161C; --ink-2:#3C414B; --mute:#80848C; --lake:#2D4F6B; --gold:#B08D57; --line:#D9D2C6;
-  --display:"Bodoni Moda","Didot",Georgia,serif; --body:"Albert Sans","Helvetica Neue",Arial,sans-serif;
+  /* pietra chiara, verde cipresso; il colore lo portano le fotografie */
+  --stone:#ECEDE8; --white:#F8F8F5; --cyp:#1E3A2F; --ink:#151A18; --dim:#667069; --rule:rgba(21,26,24,.16);
+  --ser:"Instrument Serif",Georgia,serif; --sans:"Instrument Sans",system-ui,sans-serif; --pad:clamp(20px,4.6vw,72px);
 }
-[data-lang=en] [lang=it],[data-lang=it] [lang=en]{display:none!important}
-*{box-sizing:border-box;margin:0}
-body{background:var(--paper);color:var(--ink);font:300 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.w{width:min(1320px,100% - 48px);margin-inline:auto}
-.ey{font:500 11.5px/1.4 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1;letter-spacing:-.02em;text-wrap:balance}
-h1 i,h2 i,h3 i{font-style:italic}
-h2{font-size:clamp(42px,6vw,92px)}
-.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;background:var(--ink);color:var(--paper);text-decoration:none;font:500 13px var(--body);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);cursor:pointer;transition:background .3s,color .3s}
-.btn:hover{background:var(--lake);border-color:var(--lake)}
-.btn--line{background:transparent;color:var(--ink)}
-.btn--line:hover{background:var(--ink);color:var(--paper)}
+html{scroll-padding-top:60px}
+body{background:var(--stone);color:var(--ink);font:400 17.5px/1.6 var(--sans)}
+:focus-visible{outline:2px solid var(--cyp);outline-offset:3px}
+h1,h2,h3{font-family:var(--ser);font-weight:400;line-height:.96;letter-spacing:-.015em;text-wrap:balance}
+.wrap{padding-inline:var(--pad)}
+.lnk{font-weight:600;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:3px}
 
-.nav{position:fixed;inset:0 0 auto;z-index:40;mix-blend-mode:normal;transition:background .4s}
-.nav.solid{background:rgba(246,243,238,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
-.nav .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px}
-.nav ul{display:flex;gap:26px;list-style:none;padding:0;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase}
-.nav ul a{text-decoration:none}.nav ul a:hover{color:var(--gold)}
-.logo{font:400 30px/1 var(--display);letter-spacing:.02em;text-decoration:none;text-align:center}
-.logo small{display:block;font:500 9.5px var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-top:4px}
-.right{display:flex;justify-content:flex-end;align-items:center;gap:16px}
-.lang{display:flex;border:1px solid var(--line)}
-.lang button{border:0;background:none;padding:8px 11px;font:500 12px var(--body);letter-spacing:.1em;cursor:pointer;color:var(--mute)}
-.lang button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
-@media(max-width:960px){.nav ul{display:none}.nav .w{grid-template-columns:auto 1fr}.logo{text-align:left}.right .btn{display:none}}
+.bar{position:fixed;inset:0 0 auto;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);transition:transform .6s cubic-bezier(.16,1,.3,1),background .4s,color .4s}
+.going-down .bar{transform:translateY(-102%)}
+.scrolled .bar{background:rgba(236,237,232,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.on-dark .bar{color:var(--white);background:none}
+.bar a{text-decoration:none}
+.bar b{font:400 28px/1 var(--ser)}
+.bar nav{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px);font-size:15.5px}
+.lang{display:flex;gap:10px;font-weight:600;font-size:14px}
+.lang button{background:none;border:0;padding:2px 0;cursor:pointer;color:inherit;opacity:.5;border-bottom:1.5px solid transparent}
+.lang button[aria-pressed=true]{opacity:1;border-color:currentColor}
+@media(max-width:760px){.bar nav a{display:none}}
 
-/* hero ad arco che si apre */
-.hero{position:relative;height:200vh}
-.hero__pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
-.hero__img{position:absolute;inset:0;clip-path:inset(18% 32% 0 32% round 50vw 50vw 0 0);will-change:clip-path}
-.hero__img img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);will-change:transform}
-.hero__t{position:relative;text-align:center;pointer-events:none;color:var(--ink);will-change:transform,opacity}
-.hero h1{font-size:clamp(60px,10vw,170px);line-height:.92}
-.hero h1 i{color:var(--lake)}
-.hero__sub{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:space-between;align-items:end;gap:20px}
-.hero__sub p{max-width:38ch;font-size:16px;color:var(--ink-2)}
-.hero__sub .ey{color:var(--ink-2)}
-.hero__over{position:absolute;inset:auto 0 0;padding:0 0 70px;color:#fff;opacity:0}
-.hero__over h2{font-size:clamp(40px,5vw,80px);max-width:14ch}
-.hero__over p{max-width:46ch;margin-top:16px;color:#E8E3DA}
-@media(max-width:700px){.hero__sub{flex-direction:column;align-items:flex-start;bottom:24px}.hero__img{clip-path:inset(22% 12% 0 12% round 50vw 50vw 0 0)}}
+/* apertura: una finestra ad arco che si apre fino a diventare tutta la pagina */
+.win{height:230vh;position:relative}
+.win__st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center}
+.win__img{position:absolute;inset:0;clip-path:inset(calc((1 - var(--t,0))*17%) calc((1 - var(--t,0))*34%) calc((1 - var(--t,0))*0%) calc((1 - var(--t,0))*34%) round calc((1 - var(--t,0))*50vw) calc((1 - var(--t,0))*50vw) 0 0);will-change:clip-path}
+.win__img img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.18 - var(--t,0)*.18))}
+.win__img::after{content:"";position:absolute;inset:0;background:rgba(15,22,18,calc(var(--t,0)*.35))}
+.win h1{position:relative;z-index:1;font-size:clamp(60px,12.4vw,210px);text-align:center;color:var(--ink);transition:color .5s;text-shadow:0 0 40px rgba(236,237,232,.35)}
+.win.open h1{color:var(--white);text-shadow:0 2px 40px rgba(15,22,18,.45)}
+.win h1 em{font-style:italic}
+.win__sub{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(26px,5vh,48px);z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;color:var(--ink);transition:color .5s}
+.win__sub p{max-width:38ch}
+.win.open .win__sub{color:var(--white)}
+@media(max-width:760px){.win__img{clip-path:inset(calc((1 - var(--t,0))*20%) calc((1 - var(--t,0))*14%) calc((1 - var(--t,0))*24%) calc((1 - var(--t,0))*14%) round calc((1 - var(--t,0))*50vw) calc((1 - var(--t,0))*50vw) 0 0)}.win__sub{flex-direction:column;align-items:flex-start}}
 
-section{padding:140px 0}
-@media(max-width:960px){section{padding:90px 0}}
+/* da che parte stiamo */
+.side{padding-block:clamp(90px,12vw,180px)}
+.side h2{font-size:clamp(44px,6.8vw,116px);max-width:11em}
+.side h2 em{font-style:italic;color:var(--cyp)}
+.cmp{margin-top:clamp(40px,6vw,90px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr)}
+.cmp>*{padding:18px 0;border-top:1px solid var(--rule)}
+.cmp .h{font:400 clamp(24px,2.4vw,36px)/1 var(--ser);border-top:0;padding-bottom:14px}
+.cmp .q{color:var(--dim)}
+.cmp .us{font-weight:600;color:var(--cyp)}
+@media(max-width:700px){.cmp{grid-template-columns:1fr 1fr}.cmp .q{grid-column:1/-1;padding-bottom:0}.cmp .q+*,.cmp .q+*+*{border-top:0;padding-top:6px}.cmp .h:first-child{display:none}}
 
-/* manifesto e confronto */
-.mani{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
-.mani p.big{font:400 clamp(28px,3vw,42px)/1.2 var(--display)}
-.mani p.big i{color:var(--lake)}
-.cmp{width:100%;border-collapse:collapse;font-size:15.5px}
-.cmp th{font:500 11.5px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);text-align:left;padding:0 0 14px;border-bottom:1px solid var(--ink)}
-.cmp td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.cmp td:last-child{color:var(--lake);font-weight:500}
-.cmp td:first-child{color:var(--ink-2)}
-@media(max-width:960px){.mani{grid-template-columns:1fr;gap:40px}}
+/* quattro Italie: pannelli che si impilano */
+.four h2{font-size:clamp(44px,6.8vw,116px);padding:0 var(--pad) clamp(30px,4vw,60px)}
+.reg{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);background:var(--bg);color:var(--fg);overflow:hidden}
+.reg__t{display:flex;flex-direction:column;justify-content:space-between;padding:clamp(84px,12vh,120px) var(--pad) clamp(28px,5vh,56px)}
+.reg h3{font-size:clamp(64px,10.6vw,190px);line-height:.86}
+.reg p{margin-top:20px;max-width:32ch;font-size:clamp(17px,1.4vw,20px)}
+.reg dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;font-size:15.5px;max-width:460px}
+.reg dt{opacity:.6}
+.reg figure{overflow:hidden}
+.reg img{width:100%;height:100%;object-fit:cover}
+@media(max-width:820px){.reg{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}.reg__t{padding:76px var(--pad) 22px;gap:18px}.reg h3{font-size:19vw}}
 
-/* regioni in orizzontale */
-.regions{background:var(--ink);color:var(--paper);padding:0;overflow:hidden}
-.regions__pin{height:100vh;display:flex;flex-direction:column;justify-content:center;gap:34px;padding:90px 0 40px}
-.regions__head{display:flex;justify-content:space-between;align-items:end;gap:30px}
-.regions__head p{max-width:40ch;color:#B9B3A8}
-.track{display:flex;gap:26px;padding-left:max(24px,calc((100vw - 1320px)/2));will-change:transform}
-.reg{flex:0 0 min(760px,80vw);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:26px;align-items:end}
-.reg figure{aspect-ratio:4/5;overflow:hidden;position:relative}
-.reg figure img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 1.4s}
-.reg:hover figure img{transform:scale(1.02)}
-.reg .n{font:400 92px/1 var(--display);color:var(--gold);opacity:.9}
-.reg h3{font-size:46px;margin:8px 0 14px}
-.reg p{font-size:15.5px;color:#C9C3B8}
-.reg dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin-top:20px;font-size:14px;border-top:1px solid #353A44;padding-top:14px}
-.reg dt{color:#8F9198;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;padding-top:3px}
-@media(max-width:960px){.regions__pin{height:auto}.track{overflow-x:auto;scroll-snap-type:x mandatory;padding-right:24px}.reg{scroll-snap-align:start;grid-template-columns:1fr;flex-basis:82vw}.reg figure{aspect-ratio:4/3}}
+/* il brief: una frase da completare */
+.brief{background:var(--white);padding-block:clamp(90px,12vw,180px);position:relative;z-index:1}
+.brief__lead{color:var(--dim);max-width:40ch}
+.brief p.s{margin-top:26px;font:400 clamp(34px,5.2vw,88px)/1.14 var(--ser);letter-spacing:-.015em;max-width:17em}
+.brief select{appearance:none;background:none;border:0;border-bottom:2px solid var(--cyp);color:var(--cyp);font:italic 400 1em/1.1 var(--ser);padding:0 .1em;cursor:pointer;border-radius:0;max-width:100%}
+.brief select:hover{background:rgba(30,58,47,.07)}
+.brief__go{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;margin-top:clamp(30px,4vw,54px)}
+.brief button{padding:16px 26px;background:var(--cyp);color:var(--white);border:0;font-weight:600;font-size:17px;cursor:pointer}
+.brief output{color:var(--cyp);font-weight:500}
 
 /* il percorso */
-.path{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:80px}
-.path__side{position:sticky;top:120px;align-self:start}
-.prog{height:2px;background:var(--line);margin-top:34px;position:relative}
-.prog i{position:absolute;inset:0 auto 0 0;background:var(--gold);width:0}
-.prog__n{font:400 120px/1 var(--display);color:var(--lake);margin-top:20px;font-variant-numeric:tabular-nums}
-.steps{list-style:none;padding:0;counter-reset:s}
-.steps li{padding:40px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:80px 1fr;gap:20px;opacity:.35;transition:opacity .5s}
-.steps li.on{opacity:1}
-.steps li b{font:400 30px/1 var(--display);color:var(--gold)}
-.steps h3{font-size:clamp(28px,2.6vw,38px);margin-bottom:10px}
-.steps p{color:var(--ink-2);font-size:16px}
-.steps small{display:block;margin-top:10px;font-size:13px;color:var(--mute);letter-spacing:.04em}
-@media(max-width:960px){.path{grid-template-columns:1fr;gap:20px}.path__side{position:static}.prog__n{font-size:72px}.steps li{opacity:1;grid-template-columns:50px 1fr}}
+.path{padding-block:clamp(90px,12vw,180px);position:relative;z-index:1;background:var(--stone)}
+.path__g{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:40px clamp(30px,7vw,120px);align-items:start}
+.path h2{font-size:clamp(44px,6.8vw,116px);position:sticky;top:110px}
+.path h2 em{font-style:italic}
+.path ol{counter-reset:n}
+.path li{counter-increment:n;display:grid;grid-template-columns:clamp(54px,6vw,88px) minmax(0,1fr);gap:0 18px;padding:22px 0;border-top:1px solid var(--rule)}
+.path li::before{content:counter(n);font:400 clamp(40px,4.4vw,68px)/.9 var(--ser);color:var(--cyp)}
+.path h3{font-size:clamp(26px,2.6vw,38px);line-height:1.05}
+.path li p{margin-top:6px;color:#3D4641;max-width:46ch}
+@media(max-width:820px){.path__g{grid-template-columns:1fr}.path h2{position:static}}
 
-/* brief */
-.brief{background:var(--paper-2)}
-.brief__g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:start}
-.q{margin-bottom:34px}
-.q>span{display:block;font:500 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips button{border:1px solid #C9C0B2;background:var(--paper);padding:11px 16px;font:400 15px var(--body);cursor:pointer;transition:all .25s}
-.chips button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-input[type=range]{width:100%;accent-color:var(--lake)}
-.card{background:var(--ink);color:var(--paper);padding:38px;position:sticky;top:110px}
-.card h3{font-size:40px;margin:12px 0 22px}
-.card dl{display:grid;grid-template-columns:120px 1fr;gap:12px 16px;font-size:15.5px;border-top:1px solid #353A44;padding-top:18px}
-.card dt{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#8F9198;padding-top:4px}
-.card .btn{background:var(--gold);border-color:var(--gold);color:var(--ink);margin-top:28px}
-.card .btn:hover{background:transparent;color:var(--gold)}
-.card small{display:block;margin-top:14px;color:#8F9198;font-size:13px}
-@media(max-width:960px){.brief__g{grid-template-columns:1fr}.card{position:static}}
-
-/* controlli */
-.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink)}
-.ck{padding:30px 28px 30px 0;border-bottom:1px solid var(--line)}
-.ck:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
-.ck h3{font-size:28px;margin-bottom:10px}
-.ck p{font-size:15px;color:var(--ink-2)}
-.ck span{display:block;font:500 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-@media(max-width:960px){.checks{grid-template-columns:1fr}.ck{padding-left:0!important;border-left:0!important}}
-
-.contact{position:relative;color:#fff;min-height:90vh;display:flex;align-items:center;overflow:hidden}
-.contact>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.contact::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(19,22,28,.85),rgba(19,22,28,.35))}
-.contact h2{max-width:13ch}
-.contact p{max-width:44ch;margin-top:20px;color:#E5E0D7}
-.contact .btn{margin-top:30px;background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.contact .btn:hover{background:var(--gold);border-color:var(--gold)}
-.pitch{background:var(--paper)}
-.pitch__g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 60px;margin-top:50px}
-.pitch__g div{padding:22px 0;border-top:1px solid var(--line)}
-.pitch__g b{font:400 24px/1.2 var(--display);display:block;margin-bottom:6px}
-.pitch__g p{font-size:15.5px;color:var(--ink-2)}
-@media(max-width:960px){.pitch__g{grid-template-columns:1fr}}
-footer{border-top:1px solid var(--line);padding:30px 0 44px;font-size:13px;color:var(--mute)}
-footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+/* contatto */
+.call{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--white);overflow:hidden;z-index:1}
+.call img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5)*-12%))}
+.call::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,22,18,.8),rgba(15,22,18,.15) 70%)}
+.call__in{position:relative;z-index:1;width:100%;padding-bottom:clamp(40px,8vh,90px)}
+.call h2{font-size:clamp(54px,10.4vw,180px)}
+.call h2 em{font-style:italic}
+.call p{margin-top:20px;max-width:36ch;font-size:19px;color:#E4E7E2}
+.call .lnk{display:inline-block;margin-top:20px;font-size:20px}
+.call small{display:block;margin-top:40px;font-size:13.5px;color:#C6CCC6}
+.u-end{position:relative;z-index:1}
 </style>
 </head>
-<body data-umbra="un concept per la vostra richiesta" data-note="«Altrove» è un nome di fantasia. Selettore EN/IT in alto a destra: il sito è già bilingue.">
+<body data-umbra="un concept per la vostra richiesta" data-note="«Altrove» è un nome di fantasia. Il sito nasce in inglese e passa all'italiano dal selettore EN/IT in alto: i vostri clienti arrivano dall'estero.">
 
-<header class="nav" id="nav"><div class="w">
-  <ul><li><a href="#approach"><span lang="en">Approach</span><span lang="it">Metodo</span></a></li><li><a href="#regions"><span lang="en">Regions</span><span lang="it">Zone</span></a></li><li><a href="#journey"><span lang="en">The journey</span><span lang="it">Il percorso</span></a></li></ul>
-  <a class="logo" href="#top">Altrove<small>Italian property advisors</small></a>
-  <div class="right"><div class="lang" id="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">EN</button><button type="button" data-l="it" aria-pressed="false">IT</button></div><a class="btn" href="#brief"><span lang="en">Start your brief</span><span lang="it">Inizia</span></a></div>
-</div></header>
+<header class="bar"><a href="#top"><b>Altrove</b></a><nav aria-label="Sections"><a href="#regions" data-it="Dove cerchiamo">Where we search</a><a href="#brief" data-it="Il brief">Your brief</a><a href="#journey" data-it="Il percorso">The journey</a><span class="lang" role="group" aria-label="Language"><button type="button" aria-pressed="true" data-l="en">EN</button><button type="button" aria-pressed="false" data-l="it">IT</button></span></nav></header>
 
 <main id="top">
-<div class="hero" id="hero"><div class="hero__pin">
-  <div class="hero__img" id="hImg"><img src="img/hero.jpg" alt="Arched loggia overlooking Lake Como" fetchpriority="high"></div>
-  <div class="hero__t" id="hT">
-    <span class="ey"><span lang="en">Buyer's advisory · Italy</span><span lang="it">Consulenza all'acquisto · Italia</span></span>
-    <h1 style="margin-top:20px"><span lang="en">Find your<br><i>place</i> in Italy.</span><span lang="it">Il vostro<br><i>posto</i> in Italia.</span></h1>
+<section class="win" id="win">
+  <div class="win__st">
+    <div class="win__img fx"><img src="img/hero.jpg" alt="A loggia with stone columns over the lake" fetchpriority="high"></div>
+    <h1><span class="ln"><span class="li" data-it="Trovate il vostro">Find your place</span></span><span class="ln"><span class="li" style="--i:1"><em data-it="posto in Italia.">in Italy.</em></span></span></h1>
+    <div class="win__sub fx" style="--i:6"><p data-it="Cerchiamo, verifichiamo e trattiamo solo dalla vostra parte. Dalla prima telefonata al notaio, in inglese, italiano, tedesco o francese.">We search, check and negotiate on your side only. From the first call to the notary, in English, Italian, German or French.</p><a class="lnk" href="#brief" data-it="Scrivete il vostro brief">Write your brief</a></div>
   </div>
-  <div class="w hero__sub" id="hSub">
-    <span class="ey"><span lang="en">Scroll</span><span lang="it">Scorrete</span> ↓</span>
-    <p><span lang="en">We search, check and negotiate on your side only. From the first call to the notary, in English, Italian, German or French.</span><span lang="it">Cerchiamo, verifichiamo e trattiamo solo dalla vostra parte. Dalla prima chiamata al notaio, in inglese, italiano, tedesco o francese.</span></p>
-  </div>
-  <div class="w hero__over" id="hOver">
-    <h2><span lang="en">The house is the easy part. <i>Buying it</i> is where we come in.</span><span lang="it">La casa è la parte facile. <i>Comprarla</i> è dove entriamo noi.</span></h2>
-  </div>
-</div></div>
+</section>
 
-<section id="approach"><div class="w mani">
-  <div>
-    <span class="ey rv"><span lang="en">Our approach</span><span lang="it">Il nostro metodo</span></span>
-    <p class="big rv" data-d="1" style="margin-top:22px"><span lang="en">In Italy the estate agent is usually paid by both sides. <i>We are paid only by you</i>, so every viewing, every check and every euro of negotiation works for one person.</span><span lang="it">In Italia l'agente immobiliare di solito è pagato da entrambe le parti. <i>Noi siamo pagati solo da voi</i>, quindi ogni visita, ogni controllo e ogni euro di trattativa lavora per una persona sola.</span></p>
+<section class="side wrap" id="approach">
+  <h2><span data-it="Trovare la casa è la parte facile.">The house is the easy part.</span> <em data-it="Comprarla è dove entriamo noi.">Buying it is where we come in.</em></h2>
+  <div class="cmp">
+    <span class="h"></span><span class="h" data-it="Agenzia immobiliare">Estate agent</span><span class="h">Altrove</span>
+    <span class="q" data-it="Lavora per">Works for</span><span data-it="La vendita, spesso per entrambe le parti">The sale, often for both sides</span><span class="us" data-it="Voi, soltanto">You, only</span>
+    <span class="q" data-it="Vi mostra">Shows you</span><span data-it="Gli immobili che ha in portafoglio">Their own listings</span><span class="us" data-it="Tutto il mercato, anche fuori dai portali">The whole market, off-market too</span>
+    <span class="q" data-it="Controlla">Checks</span><span data-it="Quello che serve per vendere">What is needed to sell</span><span class="us" data-it="Catasto, permessi, ipoteche, classe energetica">Land registry, permits, mortgages, energy class</span>
+    <span class="q" data-it="Viene pagata">Is paid</span><span data-it="Quando la casa si vende">When the house sells</span><span class="us" data-it="Da voi, con un compenso scritto prima">By you, on a fee agreed in writing first</span>
   </div>
-  <table class="cmp rv" data-d="2">
-    <thead><tr><th></th><th><span lang="en">Estate agent</span><span lang="it">Agente</span></th><th><span lang="en">Altrove</span><span lang="it">Altrove</span></th></tr></thead>
-    <tbody>
-      <tr><td><span lang="en">Works for</span><span lang="it">Lavora per</span></td><td><span lang="en">The sale, often both sides</span><span lang="it">La vendita, spesso entrambe le parti</span></td><td><span lang="en">You, only</span><span lang="it">Voi, soltanto</span></td></tr>
-      <tr><td><span lang="en">Properties shown</span><span lang="it">Immobili proposti</span></td><td><span lang="en">Their own listings</span><span lang="it">I propri annunci</span></td><td><span lang="en">The whole market, off-market too</span><span lang="it">Tutto il mercato, anche fuori annuncio</span></td></tr>
-      <tr><td><span lang="en">Technical checks</span><span lang="it">Verifiche tecniche</span></td><td><span lang="en">Up to the buyer</span><span lang="it">A carico di chi compra</span></td><td><span lang="en">Before every offer</span><span lang="it">Prima di ogni offerta</span></td></tr>
-      <tr><td><span lang="en">Negotiation</span><span lang="it">Trattativa</span></td><td><span lang="en">Aims to close</span><span lang="it">Punta a chiudere</span></td><td><span lang="en">Aims at your price</span><span lang="it">Punta al vostro prezzo</span></td></tr>
-      <tr><td><span lang="en">After the keys</span><span lang="it">Dopo il rogito</span></td><td>—</td><td><span lang="en">Utilities, works, rentals</span><span lang="it">Utenze, lavori, affitti</span></td></tr>
-    </tbody>
-  </table>
-</div></section>
+</section>
 
-<section class="regions" id="regions"><div class="regions__pin" id="rPin">
-  <div class="w regions__head">
-    <div><span class="ey"><span lang="en">Where we search</span><span lang="it">Dove cerchiamo</span></span><h2 style="margin-top:16px"><span lang="en">Four Italies.</span><span lang="it">Quattro Italie.</span></h2></div>
-    <p><span lang="en">Each with its own market, rules and rhythm. We know the towns, the surveyors and the notaries in all of them.</span><span lang="it">Ognuna con il suo mercato, le sue regole e il suo ritmo. Conosciamo paesi, geometri e notai di tutte.</span></p>
-  </div>
-  <div class="track" id="track">
-    <article class="reg"><figure><img src="img/como.jpg" alt="Villa on the shore of Lake Como" loading="lazy"></figure><div><span class="n">01</span><h3>Lake Como</h3><p><span lang="en">Lakeside villas, apartments in historic palazzi, life organised around the ferry.</span><span lang="it">Ville sul lago, appartamenti in palazzi storici, la vita scandita dal battello.</span></p><dl><dt><span lang="en">Airport</span><span lang="it">Aeroporto</span></dt><dd><span lang="en">Milan Malpensa, about 1 hour</span><span lang="it">Milano Malpensa, circa 1 ora</span></dd><dt><span lang="en">Look for</span><span lang="it">Da cercare</span></dt><dd><span lang="en">Lake access, parking, boat mooring</span><span lang="it">Accesso al lago, parcheggio, posto barca</span></dd></dl></div></article>
-    <article class="reg"><figure><img src="img/casale.jpg" alt="Stone farmhouse in Tuscany under pine trees" loading="lazy"></figure><div><span class="n">02</span><h3><span lang="en">Tuscany</span><span lang="it">Toscana</span></h3><p><span lang="en">Stone farmhouses, olive groves, hill towns where everyone knows the land registry by heart.</span><span lang="it">Casali in pietra, uliveti, borghi in collina dove tutti conoscono il catasto a memoria.</span></p><dl><dt><span lang="en">Airport</span><span lang="it">Aeroporto</span></dt><dd><span lang="en">Florence or Pisa, about 1 hour</span><span lang="it">Firenze o Pisa, circa 1 ora</span></dd><dt><span lang="en">Look for</span><span lang="it">Da cercare</span></dt><dd><span lang="en">Rural constraints, water supply, road access</span><span lang="it">Vincoli agricoli, acqua, strada d'accesso</span></dd></dl></div></article>
-    <article class="reg"><figure><img src="img/chalet.jpg" alt="Wooden chalet in an alpine meadow" loading="lazy"></figure><div><span class="n">03</span><h3><span lang="en">Dolomites</span><span lang="it">Dolomiti</span></h3><p><span lang="en">Chalets and apartments for two seasons, ski in winter and trails in summer.</span><span lang="it">Chalet e appartamenti per due stagioni, sci d'inverno e sentieri d'estate.</span></p><dl><dt><span lang="en">Airport</span><span lang="it">Aeroporto</span></dt><dd><span lang="en">Venice, Verona or Innsbruck, 2–3 hours</span><span lang="it">Venezia, Verona o Innsbruck, 2–3 ore</span></dd><dt><span lang="en">Look for</span><span lang="it">Da cercare</span></dt><dd><span lang="en">Residency rules on second homes</span><span lang="it">Regole locali sulle seconde case</span></dd></dl></div></article>
-    <article class="reg"><figure><img src="img/liguria.jpg" alt="Colourful Ligurian village above the sea" loading="lazy"></figure><div><span class="n">04</span><h3><span lang="en">Liguria</span><span lang="it">Liguria</span></h3><p><span lang="en">Coloured villages, terraces over the sea, apartments reached by stairs and lanes.</span><span lang="it">Borghi colorati, terrazze sul mare, case raggiunte da scalinate e caruggi.</span></p><dl><dt><span lang="en">Airport</span><span lang="it">Aeroporto</span></dt><dd><span lang="en">Genoa, 30–60 minutes</span><span lang="it">Genova, 30–60 minuti</span></dd><dt><span lang="en">Look for</span><span lang="it">Da cercare</span></dt><dd><span lang="en">Damp, access, condominium rules</span><span lang="it">Umidità, accessi, regolamento condominiale</span></dd></dl></div></article>
-  </div>
-</div></section>
+<section class="four" id="regions">
+  <h2 data-it="Quattro Italie.">Four Italies.</h2>
+  <article class="reg" style="--bg:#1E3A2F;--fg:#F8F8F5" data-dark><div class="reg__t"><div><h3 data-it="Lago di Como">Lake Como</h3><p data-it="Ville sull'acqua e appartamenti in palazzi storici. La vita si organizza intorno al battello.">Lakeside villas and apartments in historic palazzi. Life is organised around the ferry.</p></div><dl><dt data-it="Aeroporto">Airport</dt><dd data-it="Milano Malpensa, circa un'ora">Milan Malpensa, about one hour</dd><dt data-it="Da controllare">Look out for</dt><dd data-it="Accesso al lago, posto auto, ormeggio">Lake access, parking, boat mooring</dd></dl></div><figure><img src="img/como.jpg" alt="A villa on Lake Como" loading="lazy"></figure></article>
+  <article class="reg" style="--bg:#E7DFCF;--fg:#151A18"><div class="reg__t"><div><h3 data-it="Toscana">Tuscany</h3><p data-it="Casali in pietra, oliveti, paesi di collina dove tutti conoscono il catasto a memoria.">Stone farmhouses, olive groves, hill towns where everyone knows the land registry by heart.</p></div><dl><dt data-it="Aeroporto">Airport</dt><dd data-it="Firenze o Pisa, circa un'ora">Florence or Pisa, about one hour</dd><dt data-it="Da controllare">Look out for</dt><dd data-it="Vincoli agricoli, acqua, strada d'accesso">Rural constraints, water supply, road access</dd></dl></div><figure><img src="img/casale.jpg" alt="A brick farmhouse in Tuscany" loading="lazy"></figure></article>
+  <article class="reg" style="--bg:#DCE3E6;--fg:#151A18"><div class="reg__t"><div><h3 data-it="Dolomiti">Dolomites</h3><p data-it="Chalet e appartamenti per due stagioni: sci d'inverno, sentieri d'estate.">Chalets and apartments for two seasons: skiing in winter, trails in summer.</p></div><dl><dt data-it="Aeroporto">Airport</dt><dd data-it="Venezia, Verona o Innsbruck, due o tre ore">Venice, Verona or Innsbruck, two to three hours</dd><dt data-it="Da controllare">Look out for</dt><dd data-it="Regole sulle seconde case">Residency rules on second homes</dd></dl></div><figure><img src="img/chalet.jpg" alt="A wooden chalet in a meadow under the Dolomites" loading="lazy"></figure></article>
+  <article class="reg" style="--bg:#16242E;--fg:#F8F8F5" data-dark><div class="reg__t"><div><h3>Liguria</h3><p data-it="Paesi colorati, terrazze sul mare, case che si raggiungono a piedi per scale e carruggi.">Coloured villages, terraces over the sea, homes reached on foot by stairs and lanes.</p></div><dl><dt data-it="Aeroporto">Airport</dt><dd data-it="Genova, da trenta a sessanta minuti">Genoa, thirty to sixty minutes</dd><dt data-it="Da controllare">Look out for</dt><dd data-it="Umidità, accessi, regolamento di condominio">Damp, access, condominium rules</dd></dl></div><figure><img src="img/liguria.jpg" alt="A Ligurian village on the cliffs" loading="lazy"></figure></article>
+</section>
 
-<section id="journey"><div class="w path">
-  <div class="path__side">
-    <span class="ey"><span lang="en">The journey</span><span lang="it">Il percorso</span></span>
-    <h2 style="margin-top:16px;font-size:clamp(40px,4.6vw,68px)"><span lang="en">From first call <i>to the keys.</i></span><span lang="it">Dalla prima chiamata <i>alle chiavi.</i></span></h2>
-    <div class="prog"><i id="pg"></i></div>
-    <div class="prog__n" id="pn">01</div>
+<section class="brief" id="brief">
+  <div class="wrap">
+    <p class="brief__lead" data-it="Completate la frase: è il vostro brief. Ci arriva così, e vi richiamiamo sapendo già da dove partire.">Complete the sentence: that is your brief. It reaches us as written, so we call you already knowing where to start.</p>
+    <p class="s" id="sent"></p>
+    <div class="brief__go"><button type="button" id="send" data-it="Invia il brief e prenota una chiamata">Send the brief and book a call</button><output id="out"></output></div>
   </div>
-  <ol class="steps" id="steps">
-    <li><b>01</b><div><h3><span lang="en">Brief</span><span lang="it">La richiesta</span></h3><p><span lang="en">A video call to understand how you want to live: seasons, budget, family, work, what you will never compromise on.</span><span lang="it">Una videochiamata per capire come volete vivere: stagioni, budget, famiglia, lavoro, ciò su cui non cedereste mai.</span></p></div></li>
-    <li><b>02</b><div><h3><span lang="en">Codice fiscale and bank</span><span lang="it">Codice fiscale e banca</span></h3><p><span lang="en">The Italian tax code and an account in Italy are needed to buy. We arrange both, early, so nothing slows you down later.</span><span lang="it">Per comprare servono il codice fiscale e un conto in Italia. Li prepariamo subito, così dopo non si perde tempo.</span></p></div></li>
-    <li><b>03</b><div><h3><span lang="en">Search and shortlist</span><span lang="it">Ricerca e selezione</span></h3><p><span lang="en">On and off the market. You receive a short list with what we like and what worries us about each house.</span><span lang="it">Sul mercato e fuori. Ricevete una lista corta con ciò che ci piace e ciò che ci preoccupa di ogni casa.</span></p></div></li>
-    <li><b>04</b><div><h3><span lang="en">Viewings</span><span lang="it">Visite</span></h3><p><span lang="en">In person, or by live video with us walking the rooms, the garden and the neighbours' side.</span><span lang="it">Di persona, o in video dal vivo mentre percorriamo stanze, giardino e il lato dei vicini.</span></p></div></li>
-    <li><b>05</b><div><h3><span lang="en">Due diligence</span><span lang="it">Verifiche</span></h3><p><span lang="en">A surveyor checks that the house matches the land registry and the building permits, the energy certificate and any mortgages or liens.</span><span lang="it">Un tecnico verifica conformità catastale e urbanistica, attestato energetico, ipoteche e gravami.</span></p></div></li>
-    <li><b>06</b><div><h3><span lang="en">Offer and negotiation</span><span lang="it">Proposta e trattativa</span></h3><p><span lang="en">A written purchase proposal, with conditions that protect you if the checks reveal problems.</span><span lang="it">Una proposta d'acquisto scritta, con condizioni che vi tutelano se le verifiche fanno emergere problemi.</span></p></div></li>
-    <li><b>07</b><div><h3><span lang="en">Preliminary contract</span><span lang="it">Compromesso</span></h3><p><span lang="en">The binding preliminary agreement and the deposit, with translation and a clear timeline to completion.</span><span lang="it">Il preliminare vincolante e la caparra, con traduzione e una data chiara per il rogito.</span></p></div></li>
-    <li><b>08</b><div><h3><span lang="en">Notary deed</span><span lang="it">Rogito</span></h3><p><span lang="en">Signed before the notary, with an interpreter if needed. Or by power of attorney, if you cannot travel.</span><span lang="it">Firmato davanti al notaio, con interprete se serve. Oppure con procura, se non potete venire.</span></p><small><span lang="en">After the keys: utilities, renovation, rental management.</span><span lang="it">Dopo le chiavi: utenze, lavori, gestione degli affitti.</span></small></div></li>
-  </ol>
-</div></section>
+</section>
 
-<section class="brief" id="brief"><div class="w brief__g">
-  <div>
-    <span class="ey rv"><span lang="en">Start your brief</span><span lang="it">La vostra richiesta</span></span>
-    <h2 class="rv" data-d="1" style="margin:16px 0 50px;font-size:clamp(40px,4.6vw,68px)"><span lang="en">Tell us what you <i>are looking for.</i></span><span lang="it">Diteci cosa <i>state cercando.</i></span></h2>
-    <div class="q"><span><span lang="en">Where</span><span lang="it">Dove</span></span><div class="chips" id="cR" data-multi="1"><button type="button" aria-pressed="true">Lake Como</button><button type="button" aria-pressed="false">Tuscany</button><button type="button" aria-pressed="false">Dolomites</button><button type="button" aria-pressed="false">Liguria</button><button type="button" aria-pressed="false"><span lang="en">Not sure yet</span><span lang="it">Non so ancora</span></button></div></div>
-    <div class="q"><span><span lang="en">What</span><span lang="it">Cosa</span></span><div class="chips" id="cT"><button type="button" aria-pressed="true"><span lang="en">Apartment</span><span lang="it">Appartamento</span></button><button type="button" aria-pressed="false">Villa</button><button type="button" aria-pressed="false"><span lang="en">Farmhouse</span><span lang="it">Casale</span></button><button type="button" aria-pressed="false">Chalet</button></div></div>
-    <div class="q"><span><span lang="en">Budget</span><span lang="it">Budget</span> · <b id="bv"></b></span><input type="range" id="bud" min="300" max="5000" step="50" value="1200" aria-label="Budget"></div>
-    <div class="q"><span><span lang="en">When</span><span lang="it">Quando</span></span><div class="chips" id="cW"><button type="button" aria-pressed="false"><span lang="en">Within 6 months</span><span lang="it">Entro 6 mesi</span></button><button type="button" aria-pressed="true"><span lang="en">Within a year</span><span lang="it">Entro un anno</span></button><button type="button" aria-pressed="false"><span lang="en">Just exploring</span><span lang="it">Sto esplorando</span></button></div></div>
+<section class="path" id="journey">
+  <div class="wrap path__g">
+    <h2><span data-it="Dalla prima chiamata">From first call</span> <em data-it="alle chiavi.">to the keys.</em></h2>
+    <ol>
+      <li><div><h3 data-it="Il brief">Brief</h3><p data-it="Una videochiamata per capire come volete vivere: stagioni, budget, famiglia, lavoro.">A video call to understand how you want to live: seasons, budget, family, work.</p></div></li>
+      <li><div><h3 data-it="Codice fiscale e conto">Codice fiscale and bank</h3><p data-it="Per comprare servono un codice fiscale e un conto in Italia. Li prepariamo subito, così non rallentano niente.">You need an Italian tax code and bank account to buy. We arrange both early, so nothing slows you down later.</p></div></li>
+      <li><div><h3 data-it="Ricerca e selezione">Search and shortlist</h3><p data-it="Portali, agenzie locali e case che non sono in vendita pubblicamente. Vi arriva una selezione ragionata.">Portals, local agents and homes not publicly for sale. You receive a reasoned shortlist.</p></div></li>
+      <li><div><h3 data-it="Visite">Viewings</h3><p data-it="Due o tre giorni sul posto, con noi. Oppure in video, se siete lontani.">Two or three days on the ground, with us. Or by video, if you are far away.</p></div></li>
+      <li><div><h3 data-it="Verifiche tecniche">Technical checks</h3><p data-it="Un geometra controlla che la casa corrisponda a catasto e permessi, la classe energetica, eventuali ipoteche.">A surveyor checks that the house matches the land registry and permits, the energy certificate and any mortgages.</p></div></li>
+      <li><div><h3 data-it="Proposta e trattativa">Offer and negotiation</h3><p data-it="Una proposta scritta, con condizioni che vi tutelano se le verifiche fanno emergere problemi.">A written proposal, with conditions that protect you if the checks reveal problems.</p></div></li>
+      <li><div><h3 data-it="Preliminare">Preliminary contract</h3><p data-it="Il compromesso e la caparra, con traduzione e tempi chiari fino al rogito.">The binding agreement and the deposit, with translation and a clear timeline to completion.</p></div></li>
+      <li><div><h3 data-it="Rogito">Notary deed</h3><p data-it="Davanti al notaio, con interprete se serve. O per procura, se non potete viaggiare.">Signed before the notary, with an interpreter if needed. Or by power of attorney, if you cannot travel.</p></div></li>
+    </ol>
   </div>
-  <aside class="card rv" data-d="2" aria-live="polite">
-    <span class="ey"><span lang="en">Your brief</span><span lang="it">La vostra richiesta</span></span>
-    <h3 id="bt"></h3>
-    <dl><dt><span lang="en">Regions</span><span lang="it">Zone</span></dt><dd id="br"></dd><dt>Budget</dt><dd id="bb"></dd><dt><span lang="en">Timing</span><span lang="it">Tempi</span></dt><dd id="bw"></dd></dl>
-    <a class="btn" href="#contact"><span lang="en">Send it and book a call</span><span lang="it">Inviatela e fissate una chiamata</span></a>
-    <small><span lang="en">Demo: nothing is sent from this preview.</span><span lang="it">Anteprima: da qui non viene inviato nulla.</span></small>
-  </aside>
-</div></section>
+</section>
 
-<section><div class="w">
-  <span class="ey rv"><span lang="en">Before you sign</span><span lang="it">Prima di firmare</span></span>
-  <h2 class="rv" data-d="1" style="margin:16px 0 56px;max-width:16ch"><span lang="en">What we check, <i>every time.</i></span><span lang="it">Cosa verifichiamo, <i>ogni volta.</i></span></h2>
-  <div class="checks">
-    <div class="ck rv"><span>01</span><h3><span lang="en">Land registry</span><span lang="it">Catasto</span></h3><p><span lang="en">Floor plans and registered data must match what you see.</span><span lang="it">Planimetrie e dati catastali devono corrispondere a ciò che vedete.</span></p></div>
-    <div class="ck rv" data-d="1"><span>02</span><h3><span lang="en">Building permits</span><span lang="it">Conformità urbanistica</span></h3><p><span lang="en">Every extension, terrace and window must be authorised.</span><span lang="it">Ogni ampliamento, terrazzo e finestra deve essere autorizzato.</span></p></div>
-    <div class="ck rv" data-d="2"><span>03</span><h3><span lang="en">Energy certificate</span><span lang="it">APE</span></h3><p><span lang="en">Required to sell, and a first measure of running costs.</span><span lang="it">Obbligatorio per vendere, e prima misura dei costi di gestione.</span></p></div>
-    <div class="ck rv"><span>04</span><h3><span lang="en">Mortgages and liens</span><span lang="it">Ipoteche e gravami</span></h3><p><span lang="en">The house must reach you free of debts and claims.</span><span lang="it">La casa deve arrivarvi libera da debiti e pretese.</span></p></div>
-    <div class="ck rv" data-d="1"><span>05</span><h3><span lang="en">Condominium</span><span lang="it">Condominio</span></h3><p><span lang="en">Unpaid fees and approved works that would become yours.</span><span lang="it">Spese arretrate e lavori deliberati che diventerebbero vostri.</span></p></div>
-    <div class="ck rv" data-d="2"><span>06</span><h3><span lang="en">Taxes at purchase</span><span lang="it">Imposte d'acquisto</span></h3><p><span lang="en">What you will pay at the deed, explained before the offer.</span><span lang="it">Quanto pagherete al rogito, spiegato prima della proposta.</span></p></div>
+<section class="call" id="contact" data-p data-dark>
+  <img src="img/toscana.jpg" alt="" loading="lazy">
+  <div class="call__in wrap">
+    <h2><span data-it="Trenta minuti,">Thirty minutes,</span> <em data-it="senza impegno.">no obligation.</em></h2>
+    <p data-it="Una prima chiamata per capire se l'Italia fa per voi, e quale parte.">A first call to understand if Italy is right for you, and which part of it.</p>
+    <a class="lnk" href="#brief" data-it="Prenotate una chiamata">Book a call</a>
+    <small data-it="Altrove è un nome di fantasia per questo concept. Foto Unsplash.">Altrove is a made-up name for this concept. Photos: Unsplash.</small>
   </div>
-</div></section>
-
-<section class="contact" id="contact"><img src="img/toscana.jpg" alt="" loading="lazy"><div class="w">
-  <span class="ey" style="color:#E0C79B"><span lang="en">Contact</span><span lang="it">Contatti</span></span>
-  <h2 style="margin-top:16px"><span lang="en">Thirty minutes, <i>no obligation.</i></span><span lang="it">Trenta minuti, <i>senza impegno.</i></span></h2>
-  <p><span lang="en">A first call to understand if Italy, and which part of it, is right for you. In English, Italian, German or French.</span><span lang="it">Una prima chiamata per capire se l'Italia, e quale parte, fa per voi. In inglese, italiano, tedesco o francese.</span></p>
-  <a class="btn" href="#brief"><span lang="en">Book a call</span><span lang="it">Fissate una chiamata</span></a>
-</div></section>
-
-<section class="pitch"><div class="w">
-  <span class="ey">Per voi · il restyling che avete chiesto</span>
-  <h2 style="margin-top:16px;max-width:18ch">Più professionale, più moderno, <i>più chiaro.</i></h2>
-  <div class="pitch__g">
-    <div><b>Bilingue dal primo giorno</b><p>Inglese e italiano con un clic, pronto per tedesco e francese. Ogni lingua ha le sue pagine su Google.</p></div>
-    <div><b>Il valore spiegato in una tabella</b><p>Perché un buyer's advisor e non un'agenzia: chi vi trova dall'estero lo capisce in dieci secondi.</p></div>
-    <div><b>Una pagina per ogni zona</b><p>Lago di Como, Toscana, Dolomiti, Liguria: chi cerca «buy house Lake Como» atterra sulla pagina giusta.</p></div>
-    <div><b>Richieste già qualificate</b><p>Il brief arriva con zona, tipologia, budget e tempi. Chiamate solo con chi è pronto.</p></div>
-    <div><b>Il percorso italiano, senza paura</b><p>Codice fiscale, compromesso, rogito: lo straniero vede che lo guidate voi in ogni passo.</p></div>
-    <div><b>Struttura nuova, non solo grafica</b><p>Ordine dei contenuti, velocità, versione telefono e moduli ripensati insieme.</p></div>
-  </div>
-</div></section>
+</section>
 </main>
-<footer><div class="w"><span>Altrove · nome di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
 
-<script src="../lib/gsap.min.js"></script>
-<script src="../lib/ScrollTrigger.min.js"></script>
-<script src="../lib/umbra.js"></script>
+<aside class="u-end"><div class="u-end__in">
+  <p class="u-end__m"><i></i>umbra</p>
+  <h2>Il restyling che avete chiesto: più professionale, più moderno, più chiaro.</h2>
+  <ul>
+    <li><b>Bilingue dal primo giorno</b>Inglese e italiano con un clic, pronto per tedesco e francese. Ogni lingua ha le sue pagine su Google.</li>
+    <li><b>Una pagina per ogni zona</b>Chi cerca «buy house Lake Como» atterra sulla pagina giusta, non sulla home.</li>
+    <li><b>Richieste già qualificate</b>Il brief arriva con zona, tipologia, budget e tempi. Chiamate solo chi è pronto.</li>
+    <li><b>Il percorso italiano, spiegato</b>Codice fiscale, compromesso, rogito: lo straniero vede che lo guidate voi in ogni passo.</li>
+  </ul>
+  <p class="u-end__f"><span>Nome, zone e testi sono esempi.</span><a href="https://umbragency.it">umbragency.it</a></p>
+</div></aside>
+
+<script src="../lib/u2.js"></script>
 <script>
 (function(){
-  var de=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>innerHeight*1.4)},{passive:true});
-  /* lingua */
-  var lang=document.getElementById('lang');
-  function setL(l){de.setAttribute('data-lang',l);de.lang=l;lang.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});brief();if(window.ScrollTrigger)ScrollTrigger.refresh()}
-  lang.addEventListener('click',function(e){var b=e.target.closest('button');if(b)setL(b.dataset.l)});
-
-  /* brief */
-  function sel(id){return [].slice.call(document.querySelectorAll('#'+id+' button')).filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){var s=b.querySelector('[lang='+de.getAttribute('data-lang')+']');return (s||b).textContent.trim()})}
-  ['cR','cT','cW'].forEach(function(id){var g=document.getElementById(id);g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
-    if(g.dataset.multi){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');if(!sel(id).length)b.setAttribute('aria-pressed','true')}else{g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}brief()})});
-  var bud=document.getElementById('bud');bud.addEventListener('input',brief);
-  function money(v){return v>=1000?'€ '+(v/1000).toLocaleString('en',{maximumFractionDigits:2})+' m':'€ '+v+'k'}
-  function brief(){var it=de.getAttribute('data-lang')==='it',t=sel('cT')[0],r=sel('cR');
-    document.getElementById('bv').textContent=(it?'fino a ':'up to ')+money(+bud.value);
-    document.getElementById('bt').textContent=it?(t+' a '+r[0]):(t+' in '+r[0]);
-    document.getElementById('br').textContent=r.join(', ');document.getElementById('bb').textContent=(it?'Fino a ':'Up to ')+money(+bud.value);document.getElementById('bw').textContent=sel('cW')[0]}
-  brief();
-
-  if(!window.gsap||reduce){document.getElementById('hImg').style.clipPath='none';return}
-  gsap.registerPlugin(ScrollTrigger);
-  /* arco che si apre */
-  var tl=gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom',scrub:.6}});
-  tl.to('#hImg',{clipPath:'inset(0% 0% 0% 0% round 0vw 0vw 0 0)',ease:'none'},0)
-    .to('#hImg img',{scale:1,ease:'none'},0)
-    .to('#hT',{yPercent:-60,opacity:0,ease:'none',duration:.5},0)
-    .to('#hSub',{opacity:0,duration:.3},0)
-    .to('#hOver',{opacity:1,duration:.3},.65);
-  /* zone in orizzontale */
-  var mm=gsap.matchMedia();
-  mm.add('(min-width: 961px)',function(){
-    var tr=document.getElementById('track');
-    gsap.to(tr,{x:function(){return -(tr.scrollWidth-innerWidth+80)},ease:'none',scrollTrigger:{trigger:'#regions',start:'top top',end:function(){return '+='+(tr.scrollWidth-innerWidth+80)},pin:'#rPin',scrub:.8,invalidateOnRefresh:true}});
-  });
-  /* percorso */
-  var lis=document.querySelectorAll('#steps li'),pn=document.getElementById('pn'),pg=document.getElementById('pg');
-  lis.forEach(function(li,i){ScrollTrigger.create({trigger:li,start:'top 60%',end:'bottom 60%',onToggle:function(s){if(s.isActive){lis.forEach(function(x){x.classList.remove('on')});li.classList.add('on');pn.textContent=String(i+1).padStart(2,'0');pg.style.width=((i+1)/lis.length*100)+'%'}}})});
-  lis[0].classList.add('on');
+  var lang='en',$=function(i){return document.getElementById(i)},win=$('win');
+  U.pin(win,function(t){win.classList.toggle('open',t>.42)});
+  /* il brief come frase */
+  var O={en:{what:['an apartment','a villa','a farmhouse','a chalet'],where:['on Lake Como','in Tuscany','in the Dolomites','in Liguria','somewhere in Italy'],bud:['up to €500k','up to €1.2M','up to €2.5M','above €2.5M'],when:['within six months','within a year','when the right one comes up'],tpl:'We are looking for {what} {where}, {bud}, {when}.',ok:'In this preview nothing is sent. On the real site the brief reaches you by email and in your CRM.'},
+    it:{what:['un appartamento','una villa','un casale','uno chalet'],where:['sul Lago di Como','in Toscana','nelle Dolomiti','in Liguria','da qualche parte in Italia'],bud:['fino a 500 mila €','fino a 1,2 milioni','fino a 2,5 milioni','oltre 2,5 milioni'],when:['entro sei mesi','entro un anno','quando arriva quella giusta'],tpl:'Cerchiamo {what} {where}, {bud}, {when}.',ok:'In questa anteprima non parte nulla. Nel sito vero il brief vi arriva per email e nel CRM.'}},v={what:0,where:0,bud:1,when:1};
+  function sent(){var o=O[lang];$('sent').innerHTML=o.tpl.replace(/\{(\w+)\}/g,function(_,k){return '<select data-k="'+k+'" aria-label="'+k+'">'+o[k].map(function(x,i){return '<option value="'+i+'"'+(i===v[k]?' selected':'')+'>'+x+'</option>'}).join('')+'</select>'});fit()}
+  function fit(){var m=document.createElement('span');m.style.cssText='position:absolute;visibility:hidden;white-space:nowrap;font:italic 400 1em/1.1 var(--ser)';$('sent').appendChild(m);$('sent').querySelectorAll('select').forEach(function(x){m.textContent=x.options[x.selectedIndex].text;x.style.width=Math.ceil(m.getBoundingClientRect().width+m.getBoundingClientRect().height*.22)+'px'});m.remove()}
+  $('sent').addEventListener('change',function(e){v[e.target.dataset.k]=+e.target.value;fit()});addEventListener('resize',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  $('send').onclick=function(){$('out').textContent=O[lang].ok};
+  /* EN / IT */
+  var tr=[].slice.call(document.querySelectorAll('[data-it]'));tr.forEach(function(e){e.dataset.en=e.textContent});
+  function set(l){lang=l;document.documentElement.lang=l;tr.forEach(function(e){e.textContent=e.dataset[l]});document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});sent();$('out').textContent=''}
+  document.querySelectorAll('.lang button').forEach(function(b){b.onclick=function(){set(b.dataset.l)}});sent();
 })();
 </script>
 </body>
