@@ -3,408 +3,263 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Approdo · Gestione affitti brevi con automazioni IA</title>
-<meta name="description" content="Concept Umbra per un property manager di affitti brevi: sito per proprietari e ospiti, concierge IA multilingua, automazioni dal check-in alla recensione.">
+<title>Approdo · Affitti brevi sul lago di Como, gestiti anche di notte</title>
+<meta name="description" content="Concept Umbra per un property manager: prenotazioni, check-in, documenti e domande degli ospiti gestiti da automazioni IA, raccontati come una notte sul lago.">
 <meta property="og:image" content="img/hero.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700&family=Figtree:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../lib/umbra.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B1622'/%3E%3Ccircle cx='16' cy='14' r='4' fill='%23F4B860'/%3E%3Cpath d='M4 23h24' stroke='%23F4B860' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preload" href="../lib/fonts/bricolage-grotesque-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../lib/u2.css">
 <style>
+@font-face{font-family:Bricolage;font-weight:200 800;font-stretch:75% 100%;font-display:swap;src:url(../lib/fonts/bricolage-grotesque-normal.woff2) format("woff2")}
 :root{
-  /* Layout: interfaccia chiara da prodotto digitale, blu lago profondo, un ottone caldo per le luci accese delle case. */
-  --paper:#F7F6F2; --mist:#E9EEEE; --lake:#14303F; --lake-2:#1F4456; --ink:#0F1E26; --mute:#6B7A80; --brass:#D29A3F; --ok:#2E8A62; --line:#D7DEDF;
-  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; --body:"Figtree","Helvetica Neue",Arial,sans-serif; --mono:"JetBrains Mono",Menlo,monospace;
+  /* la notte sul lago: blu profondo, il giallo delle finestre accese, e la carta del mattino */
+  --night:#0B1622; --lamp:#F4B860; --dawn:#F1ECE2; --ink:#12202D; --mist:#9DB0C2; --slate:#5C6B79; --rule:rgba(18,32,45,.16);
+  --f:Bricolage,system-ui,sans-serif; --pad:clamp(20px,4.6vw,72px);
 }
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}a{color:inherit}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
-.w{width:min(1280px,100% - 48px);margin-inline:auto}
-.tag{display:inline-flex;align-items:center;gap:8px;font:400 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
-.tag.nod::before{display:none}
-.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brass)}
-h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1;letter-spacing:-.03em;text-wrap:balance}
-h2{font-size:clamp(40px,5.2vw,76px)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:12px;background:var(--lake);color:#fff;text-decoration:none;font:500 15.5px var(--body);border:1px solid var(--lake);cursor:pointer;transition:transform .25s,background .25s}
-.btn:hover{transform:translateY(-2px);background:var(--lake-2)}
-.btn--brass{background:var(--brass);border-color:var(--brass);color:var(--ink)}
-.btn--brass:hover{background:#e0ab55}
-.btn--ghost{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);backdrop-filter:blur(8px)}
+html{scroll-padding-top:60px}
+body{background:var(--dawn);color:var(--ink);font:400 18px/1.55 var(--f);font-variation-settings:"opsz" 14}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:.98;text-wrap:balance;font-variation-settings:"opsz" 96}
+.wrap{padding-inline:var(--pad)}
+.lnk{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:var(--lamp)}
 
-.nav{position:fixed;inset:14px 0 auto;z-index:40}
-.nav .w{display:flex;justify-content:space-between;align-items:center;gap:18px;background:rgba(247,246,242,.82);backdrop-filter:blur(14px);border:1px solid rgba(15,30,38,.08);border-radius:16px;padding:10px 10px 10px 20px}
-.logo{display:flex;align-items:center;gap:10px;font:700 21px var(--display);text-decoration:none;letter-spacing:-.02em}
-.logo i{width:26px;height:26px;border-radius:8px;background:var(--lake);position:relative}
-.logo i::after{content:"";position:absolute;left:7px;right:7px;bottom:6px;height:8px;border-radius:2px;background:var(--brass)}
-.nav ul{display:flex;gap:26px;list-style:none;padding:0;font-size:15px}
-.nav ul a{text-decoration:none;color:#3A4A52}.nav ul a:hover{color:var(--ink)}
-@media(max-width:940px){.nav ul{display:none}}
+.bar{position:fixed;inset:0 0 auto;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);color:#F3F6F9;transition:transform .6s cubic-bezier(.16,1,.3,1),color .4s,background .4s}
+.bar a{text-decoration:none}
+.bar b{font-weight:700;font-size:22px;letter-spacing:-.04em}
+.bar nav{display:flex;gap:clamp(16px,2.4vw,32px);font-size:16px}
+.going-down .bar{transform:translateY(-102%)}
+html.scrolled:not(.on-dark) .bar{color:var(--ink);background:rgba(241,236,226,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+@media(max-width:700px){.bar nav a:not(.keep){display:none}}
 
-/* hero con doppio ingresso */
-.hero{position:relative;min-height:100vh;color:#fff;display:flex;align-items:flex-end;padding:140px 0 60px;overflow:hidden}
-.hero__img{position:absolute;inset:0;z-index:-2}
-.hero__img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kb 18s ease-out forwards}
-@keyframes kb{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,26,34,.25) 0%,rgba(10,26,34,.15) 40%,rgba(10,26,34,.85) 100%)}
-.switch{display:inline-flex;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:5px;margin-bottom:28px}
-.switch button{border:0;background:none;color:#fff;font:500 15px var(--body);padding:11px 18px;border-radius:10px;cursor:pointer;transition:background .3s,color .3s}
-.switch button[aria-pressed=true]{background:#fff;color:var(--ink)}
-.hero h1{font-size:clamp(52px,8vw,124px);max-width:12ch}
-.hero p{max-width:48ch;font-size:19px;color:#E3ECEE;margin-top:22px}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.hero__stats{display:grid;grid-template-columns:repeat(3,auto);gap:36px;margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25);width:max-content;max-width:100%}
-.hero__stats b{display:block;font:500 34px/1 var(--display)}
-.hero__stats span{font-size:13.5px;color:#C8D6DA}
-.swap{transition:opacity .35s,transform .35s}.swap.out{opacity:0;transform:translateY(8px)}
-@media(max-width:700px){.hero__stats{grid-template-columns:1fr 1fr;gap:20px}}
+/* la notte: il cielo resta fermo dietro, l'ora scorre */
+.night{position:relative;background:var(--night);color:#F3F6F9}
+.night__bg{position:sticky;top:0;height:100vh;margin-bottom:-100vh;overflow:hidden}
+.night__bg canvas{width:100%;height:100%}
+.night__bg img{display:none;width:100%;height:100%;object-fit:cover}
+.nogl .night__bg canvas{display:none}.nogl .night__bg img{display:block;filter:brightness(.55)}
+.night>*:not(.night__bg){position:relative;z-index:1}
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;padding-top:clamp(110px,17vh,170px)}
+.hero h1{font-size:clamp(52px,9.4vw,160px);max-width:9.5em}
+.hero p{margin-top:clamp(20px,3vh,34px);max-width:36ch;font-size:clamp(18px,1.5vw,22px);color:#D7E0E8}
+.hero__go{display:flex;flex-wrap:wrap;gap:12px 34px;margin-top:26px;font-size:19px}
+.log{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:0 clamp(24px,5vw,90px);padding-bottom:30vh}
+.clock{position:sticky;top:30vh;align-self:start;height:0}
+.clock time{display:block;font-size:clamp(84px,16vw,280px);font-weight:700;line-height:.8;letter-spacing:-.06em;font-variant-numeric:tabular-nums;font-variation-settings:"opsz" 96}
+.clock span{display:block;margin-top:18px;font-size:17px;color:var(--mist)}
+.events{grid-column:2}
+.ev{min-height:76vh;display:flex;flex-direction:column;justify-content:center;opacity:clamp(.12,min(var(--p,0),1 - var(--p,0))*5 - .7,1);transform:translateY(calc((.5 - var(--p,.5))*40px))}
+.ev h2{font-size:clamp(32px,4.6vw,76px)}
+.ev p{margin-top:18px;max-width:38ch;color:#D7E0E8;font-size:clamp(18px,1.4vw,21px)}
+.ev time{display:none;font-weight:700;font-size:20px;color:var(--lamp);margin-bottom:10px;font-variant-numeric:tabular-nums}
+.chat{margin-top:22px;display:grid;gap:8px;max-width:440px;font-size:16.5px;line-height:1.4}
+.chat span{padding:11px 15px;border-radius:16px 16px 16px 4px;background:rgba(255,255,255,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);justify-self:start}
+.chat span+span{border-radius:16px 16px 4px 16px;background:var(--lamp);color:#1B1408;justify-self:end}
+.tally{grid-column:1/-1;min-height:70vh;display:flex;align-items:center}
+.tally h2{font-size:clamp(46px,9vw,150px)}
+.tally h2 span{display:block;color:var(--lamp)}
+@media(max-width:820px){.log{grid-template-columns:1fr}.clock{position:static;height:auto;display:none}.events{grid-column:1}.ev time{display:block}.ev{min-height:64vh}}
 
-section{padding:130px 0}
-@media(max-width:940px){section{padding:84px 0}}
-.head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:50px;align-items:end;margin-bottom:56px}
-.head p{color:#3E4E56}
-@media(max-width:940px){.head{grid-template-columns:1fr;gap:18px}}
+/* il mattino: proprietari */
+.own{padding-block:clamp(90px,12vw,180px)}
+.own__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:50px clamp(40px,7vw,120px);align-items:start}
+.own h2{font-size:clamp(44px,6.6vw,112px)}
+.own h2+p{margin-top:24px;max-width:38ch;color:#33414E}
+.calc{border-top:3px solid var(--ink);padding-top:26px}
+.calc label{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:baseline;margin-bottom:22px;font-size:17px}
+.calc output{font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
+.calc input{grid-column:1/-1;width:100%;appearance:none;height:26px;background:none;cursor:pointer}
+.calc input::-webkit-slider-runnable-track{height:3px;background:var(--rule)}
+.calc input::-moz-range-track{height:3px;background:var(--rule)}
+.calc input::-webkit-slider-thumb{appearance:none;width:22px;height:22px;margin-top:-10px;border-radius:50%;background:var(--ink);border:4px solid var(--dawn);box-shadow:0 0 0 2px var(--ink)}
+.calc input::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ink);border:4px solid var(--dawn);box-shadow:0 0 0 2px var(--ink)}
+.net{margin-top:34px}
+.net>b{display:block;font-size:clamp(64px,10vw,170px);font-weight:700;line-height:.86;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.legend b{font-weight:600;color:var(--ink)}
+.net span{display:block;margin-top:12px;color:var(--slate)}
+.split{display:flex;height:10px;margin-top:22px;background:var(--rule)}
+.split i{display:block;transition:width .5s cubic-bezier(.16,1,.3,1)}
+.split i:nth-child(1){background:var(--ink)}.split i:nth-child(2){background:var(--lamp)}.split i:nth-child(3){background:#9AA7B2}
+.legend{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:12px;font-size:15.5px;color:var(--slate)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:8px}
+.fine{margin-top:16px;font-size:14.5px;color:var(--slate);max-width:52ch}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px clamp(20px,3vw,50px);margin-top:clamp(70px,10vw,150px);counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--rule);padding-top:18px}
+.steps li::before{content:counter(s);display:block;font-weight:700;font-size:44px;line-height:1;font-stretch:75%;color:var(--slate)}
+.steps h3{font-size:26px;margin-top:14px}
+.steps p{margin-top:8px;color:#33414E;font-size:16.5px}
+@media(max-width:900px){.own__g{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
 
-/* palazzo 3D + feed */
-.live{background:var(--mist)}
-.live__g{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
-.stage{position:relative;min-height:520px;background:radial-gradient(90% 70% at 50% 20%,#35596a 0%,#1a3442 55%,#0f2430 100%);border-radius:22px;overflow:hidden}
-.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
-.stage__lbl{position:absolute;left:18px;top:16px;font:400 12px var(--mono);color:#41525A;background:rgba(255,255,255,.85);padding:6px 10px;border-radius:8px}
-.stage__k{position:absolute;right:16px;bottom:16px;display:flex;gap:14px;font:400 12px var(--mono);color:#41525A;background:rgba(255,255,255,.75);padding:8px 12px;border-radius:8px}
-.stage__k i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.feed{background:#fff;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:12px}
-.feed__h{display:flex;justify-content:space-between;align-items:center}
-.pulse{width:9px;height:9px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(46,138,98,.5);animation:pl 1.6s infinite}
-@keyframes pl{to{box-shadow:0 0 0 12px rgba(46,138,98,0)}}
-.ev{display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:center;padding:12px;border-radius:12px;background:var(--paper);animation:in .5s cubic-bezier(.2,.7,.2,1) both}
-@keyframes in{from{opacity:0;transform:translateY(-10px)}}
-.ev i{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:17px}
-.ev b{display:block;font-weight:600;font-size:15px}
-.ev small{color:var(--mute);font-size:13px}
-.ev time{font:400 11.5px var(--mono);color:var(--mute)}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:auto}
-.kpis div{background:var(--lake);color:#fff;border-radius:12px;padding:14px}
-.kpis b{display:block;font:500 28px/1 var(--display)}
-.kpis span{font-size:12px;color:#B9CDD3}
-@media(max-width:940px){.live__g{grid-template-columns:1fr}.stage{min-height:380px}}
-
-/* concierge IA */
-.ai{background:var(--lake);color:#fff}
-.ai .tag{color:#9FB8C0}
-.ai .head p{color:#C3D3D8}
-.ai__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:30px;align-items:start}
-.phone{background:#0B1A21;border-radius:34px;padding:14px;max-width:420px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);justify-self:center;width:100%}
-.phone__in{background:#F2F4F3;color:var(--ink);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:560px}
-.phone__top{background:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
-.phone__top i{width:34px;height:34px;border-radius:50%;background:var(--lake);position:relative}
-.phone__top i::after{content:"";position:absolute;inset:11px 9px 9px;border-radius:2px;background:var(--brass)}
-.phone__top b{font-size:15px}.phone__top small{display:block;color:var(--ok);font-size:12px}
-.msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
-.m{max-width:82%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.45;animation:in .35s ease both}
-.m.g{align-self:flex-end;background:var(--lake);color:#fff;border-bottom-right-radius:4px}
-.m.a{background:#fff;border-bottom-left-radius:4px;box-shadow:0 1px 0 var(--line)}
-.m.a small{display:block;font:400 10.5px var(--mono);color:var(--mute);margin-top:6px}
-.typing{display:inline-flex;gap:4px}.typing i{width:6px;height:6px;border-radius:50%;background:#9AA8AD;animation:ty 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes ty{50%{transform:translateY(-4px);opacity:.4}}
-.qs{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:#fff;border-top:1px solid var(--line)}
-.qs button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 12px;font:500 13px var(--body);cursor:pointer}
-.qs button:hover{border-color:var(--lake)}
-.flow{display:grid;gap:10px}
-.fl{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;position:relative;overflow:hidden}
-.fl::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--brass);transform:scaleY(0);transform-origin:top;transition:transform .6s}
-.fl.on::after{transform:none}
-.fl.on{background:rgba(255,255,255,.1)}
-.fl i{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;font:400 12px var(--mono);font-style:normal;color:var(--brass)}
-.fl b{display:block;font-size:16.5px;font-weight:600}
-.fl span{font-size:14.5px;color:#C3D3D8}
-@media(max-width:940px){.ai__g{grid-template-columns:1fr}.phone__in{height:500px}}
-
-/* calcolo proprietari */
-.calc__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
-.box{background:#fff;border-radius:22px;padding:32px;border:1px solid var(--line)}
-.rng{margin-bottom:26px}
-.rng label{display:flex;justify-content:space-between;font-weight:500;font-size:15px;margin-bottom:10px}
-.rng output{font:500 15px var(--mono);color:var(--lake)}
-input[type=range]{width:100%;accent-color:var(--lake)}
-.res{background:var(--lake);color:#fff;border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:18px}
-.res .big{font:500 clamp(52px,6vw,84px)/1 var(--display);font-variant-numeric:tabular-nums}
-.bar{height:14px;border-radius:7px;background:rgba(255,255,255,.12);overflow:hidden;display:flex}
-.bar i{display:block;height:100%;transition:width .5s}
-.leg{display:grid;gap:8px;font-size:14.5px}
-.leg div{display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:8px}
-.leg span{display:flex;align-items:center;gap:8px}.leg span i{width:10px;height:10px;border-radius:3px;display:inline-block}
-.res small{color:#A9BFC6;font-size:13px}
-@media(max-width:940px){.calc__g{grid-template-columns:1fr}}
-
-/* case */
-.homes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.home{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
-.home:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(15,30,38,.35)}
-.home figure{aspect-ratio:4/3;overflow:hidden;position:relative}
-.home figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
-.home:hover figure img{transform:scale(1.06)}
-.home figure span{position:absolute;left:12px;top:12px;background:#fff;border-radius:999px;padding:5px 10px;font:400 11.5px var(--mono)}
-.home div{padding:20px 22px 24px}
-.home h3{font-size:26px;margin-bottom:6px}
-.home p{color:var(--mute);font-size:14.5px}
-.home ul{display:flex;gap:14px;list-style:none;padding:0;margin-top:14px;font:400 12px var(--mono);color:#41525A}
-@media(max-width:940px){.homes{grid-template-columns:1fr}}
-
-/* passi proprietari */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
-.st{padding:26px 22px 0 0}.st+.st{padding-left:22px;border-left:1px solid var(--line)}
-.st b{font:500 15px var(--mono);color:var(--brass)}
-.st h3{font-size:26px;margin:12px 0 8px}
-.st p{font-size:15px;color:#3E4E56}
-@media(max-width:940px){.steps{grid-template-columns:1fr 1fr}.st{border-left:0!important;padding:22px 16px 22px 0!important}}
+/* le case: tre ante che si allargano */
+.homes{padding-bottom:clamp(90px,12vw,180px)}
+.homes h2{font-size:clamp(44px,6.6vw,112px);max-width:9em}
+.homes h2+p{margin-top:22px;max-width:44ch;color:#33414E}
+.ante{display:flex;gap:10px;height:min(78vh,760px);margin-top:clamp(40px,6vw,80px)}
+.anta{position:relative;flex:1;min-width:0;overflow:hidden;color:#fff;transition:flex 1s cubic-bezier(.16,1,.3,1)}
+.anta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+.anta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,16,24,.82))}
+.anta div{position:absolute;inset:auto 0 0;z-index:1;padding:clamp(18px,2.2vw,32px)}
+.anta h3{font-size:clamp(28px,3vw,48px)}
+.anta p{margin-top:8px;max-width:34ch;font-size:16.5px;color:#DDE5EC}
+@media(hover:hover){.ante:hover .anta{flex:.7}.ante .anta:hover{flex:2.3}.anta:hover img{transform:scale(1.04)}}
+@media(max-width:820px){.ante{flex-direction:column;height:auto}.anta{flex:none;aspect-ratio:4/3}}
 
 /* contatti */
-.cta{position:relative;color:#fff;overflow:hidden}
-.cta__img{position:absolute;inset:0;z-index:-2}.cta__img img{width:100%;height:100%;object-fit:cover}
-.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(10,26,34,.78)}
-.cta__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:50px;align-items:center}
-form{background:#fff;color:var(--ink);border-radius:22px;padding:30px;display:grid;gap:14px}
-.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:12px;padding:4px}
-.seg button{border:0;background:none;padding:11px;border-radius:9px;font:500 15px var(--body);cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--lake);color:#fff}
-label{display:grid;gap:6px;font-size:13px;font-weight:500;color:#41525A}
-input,select{font:400 16px var(--body);border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--paper);width:100%}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ok{font-size:14.5px;color:var(--ok);border:1px solid var(--ok);border-radius:10px;padding:12px}.ok[hidden]{display:none}
-@media(max-width:940px){.cta__g{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
-
-.pitch{background:var(--ink);color:#D9E3E6}
-.pitch h2{color:#fff}
-.pitch__g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:50px}
-.pitch__g div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:24px}
-.pitch__g b{display:block;color:#fff;font:500 21px/1.2 var(--display);margin-bottom:8px}
-.pitch__g p{font-size:15px;color:#A9BFC6}
-@media(max-width:940px){.pitch__g{grid-template-columns:1fr}}
-footer{background:var(--ink);color:#6E848C;font-size:13px;padding:26px 0 40px;border-top:1px solid #22343C}
-footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.say{background:var(--night);color:#F3F6F9;padding-block:clamp(90px,12vw,180px) 40px}
+.say h2{font-size:clamp(44px,7.4vw,130px);max-width:10em}
+.say__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(40px,7vw,120px);margin-top:clamp(44px,6vw,90px);align-items:start}
+.say__g>p{font-size:20px;color:#C9D4DE;max-width:32ch}
+.form{display:grid;gap:18px}
+.seg{display:flex;gap:26px;font-size:19px}
+.seg label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.seg input{appearance:none;width:14px;height:14px;margin:0;border:1px solid var(--mist);border-radius:50%}
+.seg input:checked{background:var(--lamp);border-color:var(--lamp)}
+.form input[type=text]{width:100%;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.3);padding:12px 0;font-size:20px}
+.form input[type=text]::placeholder{color:#7F92A4}
+.form button{justify-self:start;margin-top:8px;padding:16px 26px;background:var(--lamp);color:#1B1408;border:0;font-weight:700;font-size:18px;cursor:pointer}
+.form output{color:var(--lamp);min-height:1.5em}
+.say small{display:block;margin-top:clamp(60px,8vw,110px);font-size:14px;color:#7F92A4}
+@media(max-width:820px){.say__g{grid-template-columns:1fr}}
 </style>
 </head>
-<body data-umbra="un concept per la vostra richiesta" data-note="«Approdo» è un nome di fantasia. Al suo posto entrano il vostro nome, le vostre case e i vostri strumenti.">
+<body data-umbra="un concept per la vostra richiesta" data-note="«Approdo» è un nome di fantasia, come le case e gli orari della notte. Al loro posto entrano il vostro nome, le vostre case e i vostri strumenti.">
 
-<header class="nav"><div class="w">
-  <a class="logo" href="#top"><i></i>Approdo</a>
-  <ul><li><a href="#case">Le case</a></li><li><a href="#concierge">Concierge IA</a></li><li><a href="#proprietari">Per i proprietari</a></li><li><a href="#contatti">Contatti</a></li></ul>
-  <a class="btn" href="#contatti">Prenota</a>
-</div></header>
+<header class="bar"><a href="#top"><b>Approdo</b></a><nav aria-label="Sezioni"><a href="#notte">La notte</a><a href="#proprietari">Proprietari</a><a href="#case">Le case</a><a class="keep" href="#contatti">Contatti</a></nav></header>
 
 <main id="top">
-<div class="hero">
-  <div class="hero__img"><img src="img/hero.jpg" alt="Il lago di Como al tramonto dall'alto" fetchpriority="high"></div>
-  <div class="w">
-    <div class="switch" id="sw" role="group" aria-label="Chi sei"><button type="button" data-v="g" aria-pressed="true">Cerco una casa</button><button type="button" data-v="o" aria-pressed="false">Ho una casa da affittare</button></div>
-    <div class="swap" id="hx">
-      <h1 id="h1">Case sul lago, chiavi in tasca in 2 minuti.</h1>
-      <p id="hp">Appartamenti scelti uno per uno tra Como e Bellagio. Check-in online, codice d'ingresso sul telefono e un concierge che risponde nella tua lingua, a ogni ora.</p>
-      <div class="ctas"><a class="btn btn--brass" id="hc1" href="#case">Vedi le case</a><a class="btn btn--ghost" id="hc2" href="#concierge">Prova il concierge</a></div>
+<div class="night" id="night" data-dark>
+  <div class="night__bg" aria-hidden="true"><canvas id="sky" class="fx"></canvas><img src="img/hero.jpg" alt=""></div>
+  <section class="hero wrap">
+    <h1><span class="ln"><span class="li">Mentre dormite,</span></span><span class="ln"><span class="li" style="--i:1">le case lavorano.</span></span></h1>
+    <p class="fx" style="--i:5">Gestione di affitti brevi sul lago di Como. Prenotazioni, check-in, documenti e domande degli ospiti vanno avanti da soli, anche alle due di notte.</p>
+    <p class="hero__go fx" style="--i:7"><a class="lnk" href="#proprietari">Ho una casa da affittare</a><a class="lnk" href="#case">Cerco una casa sul lago</a></p>
+  </section>
+  <section class="log wrap" id="notte" aria-label="Una notte ad Approdo">
+    <div class="clock" aria-hidden="true"><time id="clk">18:42</time><span id="clkd">Una notte qualsiasi, a Varenna</span></div>
+    <div class="events" id="events">
+      <article class="ev" data-p data-m="1122"><time>18:42</time><h2>Arriva una prenotazione dal sito.</h2><p>Casa Varenna, tre notti. Il calendario si aggiorna da solo anche su Airbnb e Booking: nessuna doppia prenotazione, nessuna commissione.</p></article>
+      <article class="ev" data-p data-m="1123"><time>18:43</time><h2>Il benvenuto parte nella lingua dell'ospite.</h2><div class="chat"><span>Hallo Lena! Hier sind die Wegbeschreibung und der Link für den Online-Check-in.</span></div></article>
+      <article class="ev" data-p data-m="1275"><time>21:15</time><h2>Documenti caricati, schedina pronta.</h2><p>L'ospite fotografa i documenti dal telefono. Comunicazione ad Alloggiati Web e imposta di soggiorno si preparano da sole.</p></article>
+      <article class="ev" data-p data-m="1420"><time>23:40</time><h2>Il codice d'ingresso arriva sul telefono.</h2><p>Vale dal check-in al check-out. Nessuna chiave da consegnare a mano, nessun appuntamento a mezzanotte.</p></article>
+      <article class="ev" data-p data-m="1570"><time>02:10</time><h2>Una domanda, alle due di notte.</h2><div class="chat"><span>Wie funktioniert die Heizung?</span><span>Der Thermostat ist im Flur, rechts neben der Tür. Auf 21° stellen und zwei Sekunden gedrückt halten.</span></div><p>Il concierge risponde in quattro secondi, con le istruzioni di quella casa. Voi non vi svegliate.</p></article>
+      <article class="ev" data-p data-m="1890"><time>07:30</time><h2>Le pulizie sono già assegnate.</h2><p>La squadra riceve orario e indirizzo appena l'ospite conferma l'uscita.</p></article>
+      <article class="ev" data-p data-m="1985"><time>09:05</time><h2>Parte la richiesta di recensione.</h2><p>Il giorno dopo, con il tono giusto. Le risposte arrivano a voi.</p></article>
     </div>
-    <div class="hero__stats"><div><b>24/7</b><span>risposte agli ospiti</span></div><div><b>9</b><span>lingue gestite dal concierge</span></div><div><b>0</b><span>chiavi da consegnare a mano</span></div></div>
-  </div>
+    <div class="tally"><h2>Sette cose fatte.<span>Zero telefonate.</span></h2></div>
+  </section>
 </div>
 
-<section class="live"><div class="w">
-  <div class="head">
-    <div><span class="tag rv">Il vostro portafoglio, dal vivo</span><h2 class="rv" data-d="1" style="margin-top:14px">Ogni luce accesa è una notte venduta.</h2></div>
-    <p class="rv" data-d="2">Il sito mostra ai proprietari quello che succede davvero: prenotazioni, arrivi, pulizie, recensioni. Qui sotto una simulazione con dati di esempio.</p>
-  </div>
-  <div class="live__g">
-    <div class="stage rv" id="stage"><span class="stage__lbl">Portafoglio · 16 unità</span><div class="stage__k"><span><i style="background:#FFC46B"></i>occupata</span><span><i style="background:#9FB2B8"></i>libera</span></div></div>
-    <div class="feed rv" data-d="1">
-      <div class="feed__h"><b>Attività di oggi</b><span class="tag nod" style="gap:8px"><span class="pulse"></span>in diretta · esempio</span></div>
-      <div id="feed" style="display:grid;gap:10px"></div>
-      <div class="kpis"><div><b id="k1">11</b><span>unità occupate</span></div><div><b id="k2">4</b><span>arrivi oggi</span></div><div><b id="k3">7</b><span>messaggi gestiti dall'IA</span></div></div>
-    </div>
-  </div>
-</div></section>
-
-<section class="ai" id="concierge"><div class="w">
-  <div class="head">
-    <div><span class="tag rv">Concierge IA</span><h2 class="rv" data-d="1" style="margin-top:14px">Risponde l'IA. Voi intervenite solo quando serve.</h2></div>
-    <p class="rv" data-d="2">Un assistente addestrato sulle vostre case risponde agli ospiti su WhatsApp e sul sito, nella loro lingua. Le richieste fuori dall'ordinario passano a voi. Provatelo: tocca una domanda.</p>
-  </div>
-  <div class="ai__g">
-    <div class="phone rv"><div class="phone__in">
-      <div class="phone__top"><i></i><div><b>Approdo · Casa Varenna</b><small>risponde subito</small></div></div>
-      <div class="msgs" id="msgs"></div>
-      <div class="qs" id="qs">
-        <button type="button" data-q="0">A che ora è il check-in?</button>
-        <button type="button" data-q="1">Wo kann ich parken?</button>
-        <button type="button" data-q="2">What's the Wi-Fi password?</button>
-        <button type="button" data-q="3">Un ristorante per stasera?</button>
-        <button type="button" data-q="4">La doccia non scarica</button>
-      </div>
-    </div></div>
-    <div>
-      <span class="tag" style="color:#9FB8C0">Cosa succede da sola, a ogni prenotazione</span>
-      <div class="flow" id="flow" style="margin-top:18px">
-        <div class="fl"><i>01</i><div><b>Prenotazione confermata</b><span>Da Airbnb, Booking o dal vostro sito, tutto in un unico calendario.</span></div></div>
-        <div class="fl"><i>02</i><div><b>Benvenuto nella lingua dell'ospite</b><span>Con le istruzioni della casa e il link per il check-in online.</span></div></div>
-        <div class="fl"><i>03</i><div><b>Documenti e Alloggiati Web</b><span>L'ospite carica i documenti, la schedina per la Questura si prepara da sola.</span></div></div>
-        <div class="fl"><i>04</i><div><b>Imposta di soggiorno</b><span>Calcolata per ogni ospite e riepilogata a fine mese.</span></div></div>
-        <div class="fl"><i>05</i><div><b>Codice d'ingresso</b><span>Arriva sul telefono il giorno dell'arrivo e scade alla partenza.</span></div></div>
-        <div class="fl"><i>06</i><div><b>Pulizie assegnate</b><span>La squadra riceve orario e indirizzo appena l'ospite esce.</span></div></div>
-        <div class="fl"><i>07</i><div><b>Richiesta di recensione</b><span>Il giorno dopo, con un tono che invita a scrivere.</span></div></div>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<section id="case"><div class="w">
-  <div class="head"><div><span class="tag rv">Le case</span><h2 class="rv" data-d="1" style="margin-top:14px">Poche, scelte, curate come la nostra.</h2></div><p class="rv" data-d="2">Il sito prende le case dal vostro gestionale: foto, disponibilità e prezzi sono sempre aggiornati. Prenotare qui costa meno che sui portali, e voi non pagate commissioni.</p></div>
-  <div class="homes">
-    <article class="home rv"><figure><img src="img/soggiorno.jpg" alt="Soggiorno luminoso con divano chiaro" loading="lazy"><span>Varenna</span></figure><div><h3>Casa Varenna</h3><p>Bilocale a due passi dall'imbarcadero, balcone sul lago.</p><ul><li>4 ospiti</li><li>1 bagno</li><li>vista lago</li></ul></div></article>
-    <article class="home rv" data-d="1"><figure><img src="img/scuro.jpg" alt="Interno elegante con piante e luce calda" loading="lazy"><span>Bellagio</span></figure><div><h3>Attico Punta</h3><p>Ultimo piano nel borgo, terrazzo per la colazione.</p><ul><li>2 ospiti</li><li>1 bagno</li><li>terrazzo</li></ul></div></article>
-    <article class="home rv" data-d="2"><figure><img src="img/letto.jpg" alt="Camera da letto con lenzuola bianche" loading="lazy"><span>Como centro</span></figure><div><h3>Loft Duomo</h3><p>In centro a piedi, per chi arriva in treno da Milano.</p><ul><li>3 ospiti</li><li>1 bagno</li><li>a piedi</li></ul></div></article>
-  </div>
-</div></section>
-
-<section id="proprietari" style="padding-top:0"><div class="w">
-  <div class="head"><div><span class="tag rv">Per i proprietari</span><h2 class="rv" data-d="1" style="margin-top:14px">Quanto vi resta, fatti due conti.</h2></div><p class="rv" data-d="2">Inserite i vostri numeri. La percentuale di gestione è un esempio: nel sito vero mettete la vostra.</p></div>
-  <div class="calc__g">
-    <div class="box rv">
-      <div class="rng"><label for="r1">Prezzo medio a notte <output id="o1"></output></label><input type="range" id="r1" min="60" max="400" step="5" value="140"></div>
-      <div class="rng"><label for="r2">Notti occupate al mese <output id="o2"></output></label><input type="range" id="r2" min="5" max="30" value="20"></div>
-      <div class="rng"><label for="r3">Commissione dei portali <output id="o3"></output></label><input type="range" id="r3" min="0" max="20" value="15"></div>
-      <div class="rng" style="margin:0"><label for="r4">Gestione (esempio) <output id="o4"></output></label><input type="range" id="r4" min="10" max="30" value="20"></div>
-    </div>
-    <div class="res rv" data-d="1">
-      <span class="tag" style="color:#A9BFC6">Netto stimato al mese, prima delle tasse</span>
-      <div class="big" id="net">0 €</div>
-      <div class="bar"><i id="b1" style="background:#FFC46B"></i><i id="b2" style="background:#6E8D97"></i><i id="b3" style="background:#3B5966"></i></div>
-      <div class="leg"><div><span><i style="background:#FFC46B"></i>A voi</span><b id="l1"></b></div><div><span><i style="background:#6E8D97"></i>Portali</span><b id="l2"></b></div><div><span><i style="background:#3B5966"></i>Gestione</span><b id="l3"></b></div><div><span>Incasso lordo</span><b id="l0"></b></div></div>
-      <small>Calcolo indicativo sui numeri inseriti. Pulizie, utenze e imposte non sono comprese.</small>
-      <a class="btn btn--brass" href="#contatti" style="align-self:flex-start">Chiedete una stima vera</a>
-    </div>
-  </div>
-  <div class="steps" style="margin-top:70px">
-    <div class="st rv"><b>01</b><h3>Sopralluogo</h3><p>Veniamo a vedere la casa e vi diciamo quanto può rendere, mese per mese.</p></div>
-    <div class="st rv" data-d="1"><b>02</b><h3>Foto e annuncio</h3><p>Servizio fotografico, testi in più lingue, CIN e pratiche in ordine.</p></div>
-    <div class="st rv" data-d="2"><b>03</b><h3>Gestione</h3><p>Ospiti, pulizie, biancheria, manutenzioni. Voi non ricevete telefonate.</p></div>
-    <div class="st rv" data-d="3"><b>04</b><h3>Rendiconto</h3><p>Ogni mese un resoconto chiaro, consultabile anche dal telefono.</p></div>
-  </div>
-</div></section>
-
-<section class="cta" id="contatti">
-  <div class="cta__img"><img src="img/lago.jpg" alt="" loading="lazy"></div>
-  <div class="w cta__g">
-    <div><span class="tag" style="color:#C3D3D8">Contatti</span><h2 style="margin-top:14px">Scriveteci. Risponde una persona, o l'IA se è notte.</h2></div>
-    <form id="form" novalidate>
-      <div class="seg" id="seg"><button type="button" aria-pressed="true">Sono un ospite</button><button type="button" aria-pressed="false">Sono un proprietario</button></div>
-      <div class="two"><label for="f1">Nome<input id="f1" autocomplete="name"></label><label for="f2">Email o telefono<input id="f2"></label></div>
-      <div class="two" id="gx"><label for="f3">Arrivo<input id="f3" type="date"></label><label for="f4">Partenza<input id="f4" type="date"></label></div>
-      <label for="f5" id="f5l">Ospiti<select id="f5"><option>2</option><option>3</option><option>4</option><option>5 o più</option></select></label>
-      <button class="btn" type="submit">Invia</button>
-      <p class="ok" id="ok" role="status" hidden></p>
+<section class="own wrap" id="proprietari">
+  <div class="own__g">
+    <div><h2>Quanto vi resta, fatti due conti.</h2><p>Mettete i vostri numeri. La percentuale di gestione qui è un esempio: nel sito vero c'è la vostra.</p></div>
+    <form class="calc" id="calc" onsubmit="return false">
+      <label>Prezzo medio a notte<output id="o1"></output><input type="range" id="c1" min="60" max="400" step="5" value="140"></label>
+      <label>Notti occupate al mese<output id="o2"></output><input type="range" id="c2" min="4" max="30" value="20"></label>
+      <label>Commissione dei portali<output id="o3"></output><input type="range" id="c3" min="0" max="25" value="15"></label>
+      <label>Gestione<output id="o4"></output><input type="range" id="c4" min="10" max="35" value="20"></label>
+      <div class="net" aria-live="polite"><b id="net"></b><span>netto stimato al mese, prima delle tasse</span>
+        <div class="split" aria-hidden="true"><i id="s1"></i><i id="s2"></i><i id="s3"></i></div>
+        <p class="legend"><span><i style="background:var(--ink)"></i>A voi</span><span><i style="background:var(--lamp)"></i>Gestione <b id="l2"></b></span><span><i style="background:#9AA7B2"></i>Portali <b id="l3"></b></span></p>
+        <p class="fine">Calcolo indicativo sui numeri inseriti. Pulizie, utenze e imposte non sono comprese.</p></div>
     </form>
+  </div>
+  <ol class="steps">
+    <li><h3>Sopralluogo</h3><p>Veniamo a vedere la casa e vi diciamo quanto può rendere, mese per mese.</p></li>
+    <li><h3>Foto e annuncio</h3><p>Servizio fotografico, testi in più lingue, CIN e pratiche in ordine.</p></li>
+    <li><h3>Gestione</h3><p>Ospiti, pulizie, biancheria, manutenzioni. A voi non arrivano telefonate.</p></li>
+    <li><h3>Rendiconto</h3><p>Ogni mese un resoconto chiaro, da consultare anche dal telefono.</p></li>
+  </ol>
+</section>
+
+<section class="homes wrap" id="case">
+  <h2>Poche case, scelte una per una.</h2>
+  <p>Foto, disponibilità e prezzi arrivano dal vostro gestionale. Chi prenota qui paga meno che sui portali, e voi non pagate commissioni.</p>
+  <div class="ante">
+    <article class="anta"><img src="img/lago.jpg" alt="Il lungolago di Varenna con le case colorate" loading="lazy"><div><h3>Casa Varenna</h3><p>Bilocale a due passi dall'imbarcadero, con il balcone sul lago. Quattro ospiti.</p></div></article>
+    <article class="anta"><img src="img/soggiorno.jpg" alt="Un soggiorno luminoso con tavolo e lampada arancione" loading="lazy"><div><h3>Attico Punta</h3><p>Ultimo piano nel borgo, terrazzo per la colazione. Due ospiti.</p></div></article>
+    <article class="anta"><img src="img/letto2.jpg" alt="Una camera con letto bianco e parete in legno scuro" loading="lazy"><div><h3>Loft Duomo</h3><p>In centro a Como, a piedi dalla stazione. Tre ospiti.</p></div></article>
   </div>
 </section>
 
-<section class="pitch"><div class="w">
-  <span class="tag" style="color:#A9BFC6">Il progetto che avete chiesto</span>
-  <h2 style="margin-top:14px;max-width:18ch">Un sito che lavora mentre dormite.</h2>
-  <div class="pitch__g">
-    <div><b>Due ingressi, un sito</b><p>Ospiti che prenotano diretto e proprietari che vi affidano la casa: due percorsi chiari, misurati separatamente.</p></div>
-    <div><b>Concierge IA sulle vostre case</b><p>Addestrato su regole, istruzioni e zona di ogni appartamento. Su WhatsApp e sul sito, in 9 lingue.</p></div>
-    <div><b>Automazioni con i vostri strumenti</b><p>Collegate a channel manager, serrature smart, check-in online e squadra pulizie che usate già.</p></div>
-    <div><b>Prenotazione diretta</b><p>Calendario e prezzi dal gestionale, pagamento con carta, nessuna commissione ai portali.</p></div>
-    <div><b>Pratiche in ordine</b><p>Alloggiati Web, imposta di soggiorno e CIN gestiti nel flusso, con il riepilogo mensile.</p></div>
-    <div><b>Area proprietari</b><p>Occupazione, incassi e recensioni di ogni casa, sempre consultabili.</p></div>
+<section class="say" id="contatti" data-dark>
+  <div class="wrap">
+    <h2>Scriveteci. Di giorno risponde una persona.</h2>
+    <div class="say__g">
+      <p>Di notte risponde il concierge, e la mattina trovate tutto scritto.</p>
+      <form class="form" id="form">
+        <div class="seg"><label><input type="radio" name="w" value="p" checked>Ho una casa</label><label><input type="radio" name="w" value="o">Cerco una casa</label></div>
+        <input type="text" name="n" placeholder="Nome" aria-label="Nome" autocomplete="name">
+        <input type="text" name="c" placeholder="Email o telefono" aria-label="Email o telefono">
+        <button type="submit">Invia</button><output id="sent"></output>
+      </form>
+    </div>
+    <small>Approdo è un nome di fantasia per questo concept. Foto Unsplash.</small>
   </div>
-</div></section>
+</section>
 </main>
-<footer><div class="w"><span>Approdo · nome di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
 
-<script src="../lib/three.min.js"></script>
-<script src="../lib/umbra.js"></script>
+<aside class="u-end"><div class="u-end__in">
+  <p class="u-end__m"><i></i>umbra</p>
+  <h2>Il sito con automazioni IA che avete chiesto, raccontato in una notte.</h2>
+  <ul>
+    <li><b>Due ingressi, un sito</b>Ospiti che prenotano diretto e proprietari che vi affidano la casa: due percorsi, misurati separatamente.</li>
+    <li><b>Concierge IA sulle vostre case</b>Addestrato su regole, istruzioni e zona di ogni appartamento. Risponde su WhatsApp e sul sito, nella lingua dell'ospite.</li>
+    <li><b>I vostri strumenti, collegati</b>Channel manager, serrature, check-in online e squadra pulizie che usate già.</li>
+    <li><b>Pratiche nel flusso</b>Alloggiati Web, imposta di soggiorno e CIN, con il riepilogo mensile per i proprietari.</li>
+  </ul>
+  <p class="u-end__f"><span>Nome, case, orari e messaggi sono esempi.</span><a href="https://umbragency.it">umbragency.it</a></p>
+</div></aside>
+
+<script src="../lib/u2.js"></script>
 <script>
 (function(){
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  /* doppio ingresso */
-  var H={g:['Case sul lago, chiavi in tasca in 2 minuti.','Appartamenti scelti uno per uno tra Como e Bellagio. Check-in online, codice d\'ingresso sul telefono e un concierge che risponde nella tua lingua, a ogni ora.','Vedi le case','#case','Prova il concierge','#concierge'],
-         o:['La vostra casa rende. Voi non ci pensate.','Gestiamo ospiti, pulizie, pratiche e prezzi. Ogni mese ricevete il rendiconto e un bonifico. Le telefonate delle tre di notte le prende il nostro concierge.','Calcola quanto rende','#proprietari','Come lavoriamo','#proprietari']};
-  var sw=document.getElementById('sw'),hx=document.getElementById('hx');
-  sw.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.getAttribute('aria-pressed')==='true')return;sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    hx.classList.add('out');setTimeout(function(){var h=H[b.dataset.v];document.getElementById('h1').textContent=h[0];document.getElementById('hp').textContent=h[1];
-      var c1=document.getElementById('hc1'),c2=document.getElementById('hc2');c1.textContent=h[2];c1.href=h[3];c2.textContent=h[4];c2.href=h[5];hx.classList.remove('out')},300)});
+  /* il cielo sul lago: dal tramonto alla notte all'alba, con le finestre che si accendono e si spengono */
+  var night=document.getElementById('night'),tN=0,sN=0;
+  var sky=U.shader(document.getElementById('sky'),[
+    'uniform float uN;uniform float uHz;',
+    'float h1(float n){return fract(sin(n*127.1)*43758.5453);}',
+    'float h2(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+    'float n1(float x){float i=floor(x),f=fract(x);f=f*f*(3.-2.*f);return mix(h1(i),h1(i+1.),f);}',
+    'float ridge(float x,float f,float s){return n1(x*f+s)*.6+n1(x*f*2.3+s*1.7)*.28+n1(x*f*5.1+s)*.12;}',
+    'vec3 sky(float y,float a,float b){vec3 T=mix(mix(vec3(.10,.16,.33),vec3(.015,.03,.065),a),vec3(.38,.56,.76),b);',
+    ' vec3 H=mix(mix(vec3(.96,.55,.34),vec3(.05,.10,.18),a),vec3(1.,.86,.68),b);return mix(H,T,pow(clamp(y,0.,1.),.55));}',
+    'float lights(vec2 p){vec2 g=vec2(.02,.024),id=floor(p/g);float acc=0.;',
+    ' for(int j=-1;j<=1;j++)for(int i=-1;i<=1;i++){vec2 c=id+vec2(float(i),float(j));if(c.y<0.||c.y>5.)continue;',
+    '  float r=h2(c),town=smoothstep(.35,.75,n1(c.x*.09+2.));float on=step(.9-town*.55+c.y*.06,r);',
+    '  float tOn=h2(c+3.1)*.22,tOff=.38+h2(c+7.7)*.5;float act=smoothstep(tOn,tOn+.05,uN)*(1.-smoothstep(tOff,tOff+.06,uN));act=max(act,step(.965,r)*smoothstep(0.,.1,uN)*(1.-smoothstep(.9,1.,uN)));',
+    '  vec2 o=(c+.5+(vec2(h2(c+1.3),h2(c+2.9))-.5)*.7)*g,d=p-o;acc+=on*act*exp(-dot(d,d)*120000.)*(.5+h2(c+5.));}',
+    ' return acc;}',
+    'void main(){vec2 uv=gl_FragCoord.xy/u_res;float asp=u_res.x/u_res.y,a=smoothstep(0.,.3,uN),b=smoothstep(.74,1.,uN);',
+    ' float y=uv.y-uHz;bool w=y<0.;vec2 p=vec2(uv.x*asp,abs(y));float d=max(-y,0.);',
+    ' if(w)p.x+=(sin(d*310.-u_time*1.4)*.0007+sin(d*130.+u_time*.9)*.0011)*(1.+d*9.);',
+    ' vec3 col=sky(p.y/(1.-uHz),a,b);',
+    ' if(!w)col+=step(.9987,h2(floor(gl_FragCoord.xy/2.)))*a*(1.-b)*smoothstep(.08,.4,y)*.75;',
+    ' float r2=.085+ridge(p.x,1.25,4.)*.17,r1=.028+ridge(p.x,2.,9.)*.115;',
+    ' vec3 mF=mix(mix(vec3(.36,.30,.42),vec3(.03,.055,.1),a),vec3(.52,.62,.72),b),mN=mix(mix(vec3(.13,.13,.23),vec3(.012,.026,.05),a),vec3(.2,.31,.36),b);',
+    ' col=mix(col,mF,smoothstep(r2+.004,r2-.004,p.y));col=mix(col,mN,smoothstep(r1+.003,r1-.003,p.y));',
+    ' vec3 lamp=vec3(1.,.72,.36);',
+    ' if(w){col*=mix(.55,.78,b);col+=lamp*lights(vec2(p.x,p.y*.13))*(.6+.4*sin(d*420.-u_time*2.))*step(p.y*.13,r1+.01)*1.5*exp(-d*3.2)*(1.-b*.8);}',
+    ' else col+=lamp*lights(p)*step(p.y,r1+.012)*2.2*(1.-b*.8);',
+    ' col+=mix(vec3(1.,.5,.25),vec3(.1,.16,.26),a)*exp(-abs(y)*70.)*.14*(1.-b);',
+    ' col*=1.-.3*dot(uv-.5,uv-.5);col+=(h2(gl_FragCoord.xy+fract(u_time))-.5)*.014;gl_FragColor=vec4(col,1.);}'].join('\n'),{uniforms:{uN:0,uHz:.34},dpr:1.25});
+  /* l'orologio: l'ora si legge dagli eventi che attraversano lo schermo */
+  var evs=[].slice.call(document.querySelectorAll('.ev')),clk=document.getElementById('clk'),clkd=document.getElementById('clkd');
+  function hhmm(m){m=Math.round(m)%1440;return ('0'+Math.floor(m/60)).slice(-2)+':'+('0'+m%60).slice(-2)}
+  U.pin(night,function(t){tN=t});
+  U.onScroll(function(){var mid=innerHeight/2,m=1122,prev=null;
+    for(var i=0;i<evs.length;i++){var r=evs[i].getBoundingClientRect(),c=r.top+r.height/2,mm=+evs[i].dataset.m;
+      if(c>=mid){m=prev?U.lerp(prev[1],mm,U.clamp((mid-prev[0])/(c-prev[0]),0,1)):mm;break}prev=[c,mm];m=mm}
+    clk.textContent=hhmm(m);clkd.textContent=m<1440?'Una notte qualsiasi, a Varenna':m<1800?'Voi dormite':'Buongiorno';
+    if(sky&&U.reduce)sky.set('uN',tN)});
+  if(sky&&!U.reduce)(function f(){sN+=(tN-sN)*.08;sky.set('uN',sN);sky.set('uHz',innerWidth<820?.26:.34);requestAnimationFrame(f)})();
 
-  /* feed attività (esempio) */
-  var EV=[['🔑','Arrivo · Casa Varenna','Codice inviato a Lena (DE)','#FFF1D9'],['🌐','Nuova prenotazione · Attico Punta','3 notti · Booking','#E5EFF2'],['🧺','Pulizie assegnate · Loft Duomo','Squadra B alle 11:00','#E8F3EC'],['💬','Domanda gestita dall\'IA','«Is there a lift?» · risposta in 4 s','#EEF0F6'],['📄','Alloggiati Web inviato','2 ospiti · Casa Varenna','#F3EEE4'],['⭐','Recensione ricevuta','Loft Duomo · 5 stelle','#FFF4E0']];
-  var feed=document.getElementById('feed'),fi=0;
-  function push(){var e=EV[fi++%EV.length],d=new Date(),t=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
-    var el=document.createElement('div');el.className='ev';el.innerHTML='<i style="background:'+e[3]+'">'+e[0]+'</i><div><b></b><small></small></div><time>'+t+'</time>';el.querySelector('b').textContent=e[1];el.querySelector('small').textContent=e[2];
-    feed.prepend(el);while(feed.children.length>4)feed.lastChild.remove()}
-  for(var k=0;k<4;k++)push();setInterval(push,3400);
-  var k3=document.getElementById('k3'),kv=7;setInterval(function(){kv++;k3.textContent=kv},6800);
-
-  /* concierge */
-  var QA=[['A che ora è il check-in?','Il check-in è dalle 15:00. Il codice d\'ingresso ti arriva qui alle 14:00 del giorno di arrivo. Se arrivi prima, puoi lasciare i bagagli al deposito in Piazza San Giorgio. 🧳'],
-    ['Wo kann ich parken?','Das kostenlose Parken ist am Parkplatz an der Via per Esino, 4 Minuten zu Fuß. Ich schicke Ihnen den Standort. 🚗'],
-    ['What\'s the Wi-Fi password?','Network «Varenna-Guest», password «lago2026». The router is on the shelf by the door, if you need to restart it. 📶'],
-    ['Un ristorante per stasera?','Per stasera ti consiglio la trattoria sul molo, 3 minuti a piedi: meglio prenotare per le 20:00. Vuoi che ti mandi il numero? 🍝'],
-    ['La doccia non scarica','Mi dispiace! Ho avvisato Marco, il nostro tecnico: passa entro un\'ora. Intanto puoi usare il bagno di servizio accanto all\'ingresso. 🔧','passato a una persona']];
-  var msgs=document.getElementById('msgs'),busy=false;
-  function add(cls,html){var m=document.createElement('div');m.className='m '+cls;m.innerHTML=html;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m}
-  function ask(i){if(busy)return;busy=true;var q=QA[i];add('g',q[0]);var t=add('a','<span class="typing"><i></i><i></i><i></i></span>');
-    setTimeout(function(){t.innerHTML=q[1]+'<small>'+(q[2]?'IA · '+q[2]:'IA · risposto in 3 s')+'</small>';msgs.scrollTop=msgs.scrollHeight;busy=false},1300)}
-  add('a','Ciao Lena! Sono il concierge di Casa Varenna. Chiedimi qualsiasi cosa, in qualsiasi lingua.<small>IA</small>');
-  document.getElementById('qs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)ask(+b.dataset.q)});
-  var played=false;new IntersectionObserver(function(es){if(es[0].isIntersecting&&!played){played=true;setTimeout(function(){ask(0)},700)}},{threshold:.5}).observe(msgs);
-  /* flusso che si accende */
-  var fl=document.querySelectorAll('.fl'),fn=0;
-  new IntersectionObserver(function(es){if(es[0].isIntersecting&&!fn){fn=1;fl.forEach(function(f,i){setTimeout(function(){f.classList.add('on')},300+i*420)})}},{threshold:.3}).observe(document.getElementById('flow'));
-
-  /* calcolatore */
-  var r=['r1','r2','r3','r4'].map(function(id){return document.getElementById(id)}),eur=function(v){return Math.round(v).toLocaleString('it-IT')+' €'};
-  function calc(){var p=+r[0].value,n=+r[1].value,c=+r[2].value/100,g=+r[3].value/100,L=p*n,pc=L*c,gc=(L-pc)*g,net=L-pc-gc;
-    document.getElementById('o1').textContent=p+' €';document.getElementById('o2').textContent=n;document.getElementById('o3').textContent=Math.round(c*100)+' %';document.getElementById('o4').textContent=Math.round(g*100)+' %';
-    document.getElementById('net').textContent=eur(net);document.getElementById('l0').textContent=eur(L);document.getElementById('l1').textContent=eur(net);document.getElementById('l2').textContent=eur(pc);document.getElementById('l3').textContent=eur(gc);
-    document.getElementById('b1').style.width=(net/L*100)+'%';document.getElementById('b2').style.width=(pc/L*100)+'%';document.getElementById('b3').style.width=(gc/L*100)+'%'}
-  r.forEach(function(x){x.addEventListener('input',calc)});calc();
-
-  /* modulo */
-  var seg=document.getElementById('seg');seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    var own=b===seg.children[1];document.getElementById('gx').style.display=own?'none':'';document.getElementById('f5l').firstChild.textContent=own?'Dove si trova la casa':'Ospiti';
-    document.getElementById('f5').innerHTML=own?'<option>Como</option><option>Bellagio</option><option>Varenna</option><option>Altro</option>':'<option>2</option><option>3</option><option>4</option><option>5 o più</option>'});
-  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;ok.textContent='Anteprima: nel sito vero la richiesta entra nel vostro gestionale e riceve subito una risposta. Nessun dato è stato inviato.'});
-
-  /* palazzo 3D */
-  var host=document.getElementById('stage');
-  if(!window.THREE||reduce)return;
-  try{
-    var R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.shadowMap.enabled=true;host.appendChild(R.domElement);
-    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(30,1,.1,200);
-    S.add(new THREE.HemisphereLight(0xbfd4dc,0x1a3442,.75));var sun=new THREE.DirectionalLight(0xffd9a8,.75);sun.position.set(8,14,6);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);S.add(sun);
-    var wall=new THREE.MeshStandardMaterial({color:0xF1EADF,roughness:.9}),roof=new THREE.MeshStandardMaterial({color:0xC87A55,roughness:.8});
-    var ground=new THREE.Mesh(new THREE.PlaneGeometry(60,60),new THREE.MeshStandardMaterial({color:0x223f4c,roughness:1}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;S.add(ground);
-    var g=new THREE.Group();S.add(g);var wins=[];
-    /* due edifici affiancati, 4 piani, 2 unità per piano ciascuno */
-    [[-2.3,0,4],[2.1,.4,4]].forEach(function(b,bi){
-      var w=3.6,d=3.2,fh=1.15,floors=b[2];
-      var body=new THREE.Mesh(new THREE.BoxGeometry(w,fh*floors,d),wall);body.position.set(b[0],fh*floors/2,b[1]);body.castShadow=body.receiveShadow=true;g.add(body);
-      var r=new THREE.Mesh(new THREE.ConeGeometry(Math.hypot(w,d)/2*1.02,1.1,4),roof);r.rotation.y=Math.PI/4;r.scale.set(w/Math.hypot(w,d)*1.42,1,d/Math.hypot(w,d)*1.42);r.position.set(b[0],fh*floors+.55,b[1]);r.castShadow=true;g.add(r);
-      for(var f=0;f<floors;f++)for(var u=0;u<2;u++)for(var k=0;k<2;k++){
-        var mat=new THREE.MeshStandardMaterial({color:0x9FB2B8,emissive:0x000000,roughness:.3,metalness:.2});
-        [1,-1].forEach(function(sd){var win=new THREE.Mesh(new THREE.PlaneGeometry(.52,.62),mat);
-          win.position.set(b[0]-w/2+.55+u*1.8+k*.75,fh*f+.62,b[1]+sd*(d/2+.01));if(sd<0)win.rotation.y=Math.PI;g.add(win)});
-        var sw=new THREE.Mesh(new THREE.PlaneGeometry(.52,.62),mat);sw.position.set(b[0]+(u?1:-1)*(w/2+.01),fh*f+.62,b[1]-d/2+.7+k*1.6);sw.rotation.y=(u?1:-1)*Math.PI/2;g.add(sw);
-        wins.push({m:mat,unit:bi*8+f*2+u})}
-    });
-    var occ=new Array(16).fill(0).map(function(_,i){return Math.random()<.68});
-    function paint(){wins.forEach(function(w){var on=occ[w.unit];w.m.color.set(on?0xE9A24E:0x4C6570);w.m.emissive.set(on?0xC9772A:0x000000);w.m.emissiveIntensity=on?.55:0})}
-    paint();setInterval(function(){var i=Math.floor(Math.random()*16);occ[i]=!occ[i];paint();document.getElementById('k1').textContent=occ.filter(Boolean).length},2400);
-    function size(){var w=host.clientWidth,h=host.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
-    addEventListener('resize',size);size();
-    var mx=0;host.addEventListener('pointermove',function(e){var r=host.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5});
-    var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(host);
-    (function loop(t){requestAnimationFrame(loop);if(!vis)return;var a=t*.00012+mx*.8;C.position.set(Math.sin(a)*19,7.4,Math.cos(a)*19);C.lookAt(0,2.4,0);R.render(S,C)})(0);
-  }catch(err){}
+  /* conti del proprietario */
+  var $=function(i){return document.getElementById(i)},eur=function(v){return Math.round(v).toLocaleString('it-IT')+' €'};
+  function calc(){var p=+$('c1').value,n=+$('c2').value,po=+$('c3').value/100,g=+$('c4').value/100,lordo=p*n,port=lordo*po,ges=(lordo-port)*g,net=lordo-port-ges;
+    $('o1').textContent=p+' €';$('o2').textContent=n;$('o3').textContent=Math.round(po*100)+' %';$('o4').textContent=Math.round(g*100)+' %';$('net').textContent=eur(net);
+    $('s1').style.width=net/lordo*100+'%';$('s2').style.width=ges/lordo*100+'%';$('s3').style.width=port/lordo*100+'%';$('l2').textContent=eur(ges);$('l3').textContent=eur(port)}
+  $('calc').addEventListener('input',calc);calc();
+  $('form').addEventListener('submit',function(e){e.preventDefault();$('sent').textContent='In questa anteprima il modulo non invia nulla: nel sito vero la richiesta arriva a voi e nel gestionale.'});
 })();
 </script>
 </body>
