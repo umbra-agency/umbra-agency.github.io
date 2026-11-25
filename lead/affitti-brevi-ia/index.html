@@ -120,11 +120,48 @@ html.scrolled:not(.on-dark) .bar{color:var(--ink);background:rgba(241,236,226,.8
 .form output{color:var(--lamp);min-height:1.5em}
 .say small{display:block;margin-top:clamp(60px,8vw,110px);font-size:14px;color:#7F92A4}
 @media(max-width:820px){.say__g{grid-template-columns:1fr}}
+
+/* il concierge, da provare */
+.conc{position:relative;z-index:2;background:var(--dawn);color:var(--ink);padding-block:clamp(90px,12vw,170px);border-bottom:1px solid var(--rule)}
+.conc__g{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:50px clamp(40px,7vw,120px);align-items:center}
+.conc h2{font-size:clamp(44px,6.4vw,108px)}
+.conc__t>p{margin-top:22px;max-width:40ch;color:#33414E}
+.lang{display:flex;gap:6px;margin-top:28px}
+.lang button{min-width:46px;height:40px;padding:0 12px;border:1px solid var(--rule);background:none;border-radius:20px;cursor:pointer;font:600 14px var(--f);color:var(--slate);transition:background .3s,color .3s,border-color .3s}
+.lang button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--dawn)}
+.conc__small{margin-top:16px;font-size:14.5px;color:var(--slate)}
+.chat{background:var(--night);color:#E7EDF3;border-radius:22px;display:grid;grid-template-rows:auto 1fr auto auto;height:min(640px,82vh);overflow:hidden;box-shadow:0 50px 90px -50px rgba(11,22,34,.7)}
+.chat__h{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid rgba(231,237,243,.1)}
+.chat__h i{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFE1A8,var(--lamp) 55%,#B9782A);box-shadow:0 0 18px rgba(244,184,96,.45)}
+.chat__h b{display:block;font-weight:600;font-size:15.5px}
+.chat__h small{font-size:13px;color:var(--mist)}
+.msgs{overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.msg{max-width:82%;padding:11px 15px;border-radius:16px;font-size:15.5px;line-height:1.45;animation:mIn .45s cubic-bezier(.16,1,.3,1)}
+@keyframes mIn{from{opacity:0;transform:translateY(8px)}}
+.msg.g{align-self:flex-end;background:#22384B;border-bottom-right-radius:5px}
+.msg.a{align-self:flex-start;background:var(--lamp);color:#1B1408;border-bottom-left-radius:5px}
+.msg.h{align-self:flex-start;background:#2C3B49;color:#E7EDF3;border-bottom-left-radius:5px}
+.msg small{display:block;margin-top:4px;font-size:12px;opacity:.65}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:14px 16px;background:rgba(244,184,96,.2);border-radius:16px}
+.typing span{width:6px;height:6px;border-radius:50%;background:var(--lamp);animation:tp 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 22px 4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;padding:8px 13px;border:1px solid rgba(231,237,243,.2);border-radius:18px;background:none;color:#C9D5E0;font:500 13.5px var(--f);cursor:pointer;transition:background .3s,border-color .3s}
+.chips button:hover{background:rgba(231,237,243,.08);border-color:rgba(231,237,243,.4)}
+.ask2{display:flex;gap:10px;padding:12px 16px 18px}
+.ask2 input{flex:1;min-width:0;height:46px;border-radius:23px;border:1px solid rgba(231,237,243,.18);background:rgba(231,237,243,.05);padding:0 18px;color:#E7EDF3;font:400 15px var(--f)}
+.ask2 input::placeholder{color:#7C8FA1}
+.ask2 input:focus{outline:none;border-color:var(--lamp)}
+.ask2 button{height:46px;padding:0 18px;border:0;border-radius:23px;background:var(--lamp);color:#1B1408;font:600 15px var(--f);cursor:pointer}
+@media(max-width:900px){.conc__g{grid-template-columns:1fr}.chat{height:560px}}
+@media(prefers-reduced-motion:reduce){.msg{animation:none}.typing span{animation:none}}
 </style>
 </head>
 <body data-umbra="un concept per la vostra richiesta" data-note="«Approdo» è un nome di fantasia, come le case e gli orari della notte. Al loro posto entrano il vostro nome, le vostre case e i vostri strumenti.">
 
-<header class="bar"><a href="#top"><b>Approdo</b></a><nav aria-label="Sezioni"><a href="#notte">La notte</a><a href="#proprietari">Proprietari</a><a href="#case">Le case</a><a class="keep" href="#contatti">Contatti</a></nav></header>
+<header class="bar"><a href="#top"><b>Approdo</b></a><nav aria-label="Sezioni"><a href="#notte">La notte</a><a href="#concierge">Concierge</a><a href="#proprietari">Proprietari</a><a href="#case">Le case</a><a class="keep" href="#contatti">Contatti</a></nav></header>
 
 <main id="top">
 <div class="night" id="night" data-dark>
@@ -148,6 +185,23 @@ html.scrolled:not(.on-dark) .bar{color:var(--ink);background:rgba(241,236,226,.8
     <div class="tally"><h2>Sette cose fatte.<span>Zero telefonate.</span></h2></div>
   </section>
 </div>
+
+<section class="conc" id="concierge" aria-labelledby="concT">
+  <div class="wrap conc__g">
+    <div class="conc__t">
+      <h2 id="concT">Fategli una domanda.</h2>
+      <p>Il concierge conosce le istruzioni di ogni casa e risponde nella lingua dell'ospite, a qualsiasi ora. Quando non sa una cosa non la inventa: la passa a una persona, che risponde la mattina.</p>
+      <div class="lang" id="lang" role="group" aria-label="Lingua dell'ospite"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="en" aria-pressed="false">EN</button><button type="button" data-l="de" aria-pressed="false">DE</button><button type="button" data-l="fr" aria-pressed="false">FR</button></div>
+      <p class="conc__small">Qui le risposte sono di esempio, su una casa di fantasia. Nel sito vero escono dalle vostre schede.</p>
+    </div>
+    <div class="chat" aria-label="Chat con il concierge di Casa Varenna">
+      <div class="chat__h"><i aria-hidden="true"></i><div><b>Casa Varenna</b><small id="chSub">Concierge, risponde subito</small></div></div>
+      <div class="msgs" id="msgs" aria-live="polite" data-native></div>
+      <div class="chips" id="chips"></div>
+      <form class="ask2" id="ask2"><input id="askIn" autocomplete="off" aria-label="Scrivete una domanda"><button type="submit" id="askB">Invia</button></form>
+    </div>
+  </div>
+</section>
 
 <section class="own wrap" id="proprietari">
   <div class="own__g">
@@ -213,6 +267,31 @@ html.scrolled:not(.on-dark) .bar{color:var(--ink);background:rgba(241,236,226,.8
 <script src="../lib/u2.js"></script>
 <script>
 (function(){
+
+  /* il concierge: domande pronte, quattro lingue, e quando non sa passa a una persona */
+  (function(){
+    var $=function(i){return document.getElementById(i)};
+    var Q={it:['A che ora posso entrare?','Come si accende il riscaldamento?','Dove parcheggio?','Posso lasciare i bagagli dopo il check-out?','Un posto per cena qui vicino?'],
+      en:['What time can I check in?','How do I turn on the heating?','Where can I park?','Can I leave my bags after check-out?','Somewhere for dinner nearby?'],
+      de:['Ab wann kann ich einchecken?','Wie funktioniert die Heizung?','Wo kann ich parken?','Kann ich nach dem Check-out mein Gepäck lassen?','Wo kann man in der Nähe essen?'],
+      fr:['À quelle heure puis-je arriver ?','Comment allumer le chauffage ?','Où puis-je me garer ?','Puis-je laisser mes bagages après le départ ?','Un endroit pour dîner près d’ici ?']},
+    A={it:['Dalle 15 in poi, quando volete. Il codice della porta vi arriva alle 12 del giorno d\'arrivo e vale fino al check-out.','Il termostato è nel corridoio, a destra della porta. Portatelo a 21° e tenete premuto il tasto per due secondi: in mezz\'ora la casa è calda.','Al parcheggio comunale del lungolago, a 200 metri. Il pass per gli ospiti è nel cassetto dell\'ingresso: mettetelo sul cruscotto.','Sì, fino alle 18, nel ripostiglio dell\'ingresso. Il codice della porta resta valido fino a quell\'ora.','La trattoria sul molo, a tre minuti a piedi: pesce di lago, conviene prenotare. Se volete, vi preparo il messaggio per la prenotazione.'],
+      en:['Any time from 3 pm. Your door code arrives at noon on arrival day and works until check-out.','The thermostat is in the hallway, right of the door. Set it to 21° and hold the button for two seconds: the flat is warm in half an hour.','At the lakeside public car park, 200 metres away. The guest pass is in the entrance drawer: leave it on the dashboard.','Yes, until 6 pm, in the storage room by the entrance. Your door code keeps working until then.','The trattoria on the pier, three minutes on foot: lake fish, better to book. I can draft the booking message for you.'],
+      de:['Ab 15 Uhr, wann Sie möchten. Der Türcode kommt am Anreisetag um 12 Uhr und gilt bis zum Check-out.','Der Thermostat ist im Flur, rechts neben der Tür. Auf 21° stellen und die Taste zwei Sekunden halten: in einer halben Stunde ist es warm.','Auf dem öffentlichen Parkplatz am See, 200 Meter entfernt. Der Gästeausweis liegt in der Schublade im Eingang: bitte hinter die Windschutzscheibe legen.','Ja, bis 18 Uhr, im Abstellraum am Eingang. Der Türcode gilt bis dahin.','Die Trattoria am Steg, drei Minuten zu Fuß: Fisch aus dem See, besser reservieren. Ich kann die Nachricht für die Reservierung vorbereiten.'],
+      fr:['À partir de 15 h, quand vous voulez. Le code de la porte arrive à midi le jour de l’arrivée et reste valable jusqu’au départ.','Le thermostat est dans le couloir, à droite de la porte. Réglez-le sur 21° et appuyez deux secondes : la maison est chaude en une demi-heure.','Au parking municipal du bord du lac, à 200 mètres. Le badge invité est dans le tiroir de l’entrée : posez-le sur le tableau de bord.','Oui, jusqu’à 18 h, dans le local de l’entrée. Le code de la porte reste valable jusque-là.','La trattoria sur le ponton, à trois minutes à pied : poisson du lac, mieux vaut réserver. Je peux préparer le message de réservation.']},
+    H={it:['Questa la giro a Marta, che segue la casa: vi risponde entro le 9 di domattina. Intanto, se è urgente, il numero d\'emergenza è nel libretto della casa.','Marta, di persona'],en:['I’m passing this to Marta, who looks after the house: she’ll reply by 9 tomorrow morning. If it’s urgent, the emergency number is in the house guide.','Marta, in person'],de:['Ich gebe das an Marta weiter, die das Haus betreut: Sie antwortet bis morgen um 9 Uhr. Wenn es dringend ist, steht die Notfallnummer im Hausbuch.','Marta, persönlich'],fr:['Je transmets à Marta, qui s’occupe de la maison : elle vous répond avant 9 h demain matin. Si c’est urgent, le numéro d’urgence est dans le livret.','Marta, en personne']},
+    PH={it:'Scrivete una domanda',en:'Type a question',de:'Frage eingeben',fr:'Posez une question'},SUB={it:'Concierge, risponde subito',en:'Concierge, replies right away',de:'Concierge, antwortet sofort',fr:'Concierge, répond tout de suite'},
+    KW=[/check|entr|arriv|ora|time|einchek|ab wann|heure/i,/riscald|termost|heat|heiz|chauff/i,/parche|park|auto|garer|voiture/i,/bagagl|bag|gepäck|bagage|valig/i,/cena|mangi|ristor|dinner|eat|essen|dîner|restaurant/i];
+    var L='it',ms=$('msgs'),ch=$('chips'),busy=false,used={};
+    function add(cls,txt,sm){var d=document.createElement('div');d.className='msg '+cls;d.textContent=txt;if(sm){var s2=document.createElement('small');s2.textContent=sm;d.appendChild(s2)}ms.appendChild(d);ms.scrollTop=ms.scrollHeight}
+    function reply(txt,cls,sm){busy=true;var ty=document.createElement('div');ty.className='typing';ty.innerHTML='<span></span><span></span><span></span>';ms.appendChild(ty);ms.scrollTop=ms.scrollHeight;
+      setTimeout(function(){ty.remove();add(cls,txt,sm);busy=false},U.reduce?200:900+Math.min(1400,txt.length*9))}
+    function ask(txt,i){if(busy||!txt.trim())return;add('g',txt);if(i==null){i=-1;KW.some(function(r,k){if(r.test(txt)){i=k;return true}})}
+      if(i<0)reply(H[L][0],'h',H[L][1]);else reply(A[L][i],'a')}
+    function chips(){ch.innerHTML='';Q[L].forEach(function(q,i){var b=document.createElement('button');b.type='button';b.textContent=q;b.onclick=function(){ask(q,i)};ch.appendChild(b)});$('askIn').placeholder=PH[L];$('chSub').textContent=SUB[L];$('askB').textContent={it:'Invia',en:'Send',de:'Senden',fr:'Envoyer'}[L]}
+    $('lang').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;L=b.dataset.l;this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});chips()});
+    $('ask2').addEventListener('submit',function(e){e.preventDefault();var v=$('askIn').value;$('askIn').value='';ask(v)});
+    chips();add('a',{it:'Ciao Lena, benvenuta a Casa Varenna. Chiedetemi pure: indicazioni, casa, dintorni.'}.it)})();
   /* il cielo sul lago: dal tramonto alla notte all'alba, con le finestre che si accendono e si spengono */
   var night=document.getElementById('night'),tN=0,sN=0;
   var sky=U.shader(document.getElementById('sky'),[
