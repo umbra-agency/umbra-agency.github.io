@@ -167,13 +167,141 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
 .ask .lnk{margin-top:26px;font-size:19px}.ask .lnk:hover{color:#C9DB86}
 .foot{margin-top:clamp(70px,9vw,120px);padding-top:22px;border-top:1px solid rgba(237,234,223,.18);font-size:13.5px;color:#8C8A7F}
 @media(max-width:900px){.qui__g{grid-template-columns:1fr}}
+button.lnk{background:none;border:0;border-bottom:1px solid currentColor;padding:0 0 3px;cursor:pointer;font-size:inherit}
+
+/* tea club: l'anteprima della lezione, come la vedrà un socio */
+.lib__list li{cursor:pointer}
+.pl{border:0;padding:0;width:min(1100px,calc(100% - 32px));max-height:calc(100% - 32px);background:#11130F;color:#EDEADF;border-radius:4px;overflow:auto}
+.pl::backdrop{background:rgba(8,9,7,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.pl[open]{animation:plIn .7s cubic-bezier(.16,1,.3,1)}
+@keyframes plIn{from{clip-path:inset(12% 8% round 4px);opacity:.4}to{clip-path:inset(0 round 4px);opacity:1}}
+.pl__in{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr)}
+.pl__v{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+.pl__v img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.9);transform:scale(1.04);transition:transform 9s linear}
+.pl[open] .pl__v img{transform:scale(1.16)}
+.pl__lock{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;padding:20px}
+.pl__lock svg{width:22px;height:26px;fill:none;stroke:#EDEADF;stroke-width:1.3}
+.pl__lock p{font:500 clamp(22px,2.4vw,34px)/1.15 var(--mincho);max-width:16ch}
+.pl__lock .lnk:hover{color:#C9DB86}
+.pl__bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(237,234,223,.18)}
+.pl__bar i{display:block;height:100%;width:0;background:#C9DB86}
+.pl[open] .pl__bar i{width:22%;transition:width 4s cubic-bezier(.16,1,.3,1) .4s}
+.pl__side{position:relative;padding:clamp(22px,3vw,38px)}
+.pl__side small{font-size:14px;color:#8C8A7F}
+.pl__side h3{margin-top:8px;font-size:clamp(24px,2.4vw,34px);line-height:1.15;padding-right:56px}
+.pl__side ol{margin-top:24px;border-top:1px solid rgba(237,234,223,.16)}
+.pl__side li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid rgba(237,234,223,.16);font-size:15.5px;color:#BDBAAE}
+.pl__side li span{font-variant-numeric:tabular-nums;color:#8C8A7F}
+.pl__side li:first-child{color:#EDEADF}.pl__side li:first-child span{color:#C9DB86}
+.pl__x{position:absolute;right:clamp(16px,2.4vw,30px);top:clamp(18px,2.6vw,34px);background:none;border:0;color:#BDBAAE;cursor:pointer;font-size:14.5px;border-bottom:1px solid rgba(237,234,223,.3);padding:0 0 2px}
+.pl__x:hover{color:#EDEADF}
+@media(max-width:760px){.pl__in{grid-template-columns:1fr}}
+
+/* 4 · infusione: ogni tè la sua acqua */
+.inf{padding:clamp(90px,12vw,170px) 0;border-top:1px solid var(--line)}
+.inf__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px clamp(40px,6vw,100px);align-items:center}
+.inf h2{font-size:clamp(40px,5.4vw,84px);line-height:1.04;max-width:12ch}
+.inf__lede{margin-top:18px;max-width:40ch;color:#4B4D45}
+.teas{margin-top:clamp(34px,5vw,56px);border-top:1px solid var(--line)}
+.teas label{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:4px 20px;padding:15px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:padding .5s cubic-bezier(.16,1,.3,1),color .3s,box-shadow .3s}
+.teas input{position:absolute;opacity:0;pointer-events:none}
+.teas b{font:500 clamp(21px,2.1vw,30px)/1.15 var(--mincho)}
+.teas span{font-size:14.5px;color:var(--ash);font-variant-numeric:tabular-nums;text-align:right}
+.teas label:hover{color:var(--matcha)}
+.teas label:has(input:checked){padding-left:20px;color:var(--matcha);box-shadow:inset 2px 0 0 var(--matcha)}
+.teas label:has(input:focus-visible){outline:2px solid var(--seal);outline-offset:2px}
+.cup{justify-self:center;width:min(100%,580px)}
+.cup__stage{position:relative;aspect-ratio:1}
+#cupgl{position:absolute;inset:7%;width:86%;height:86%}
+.cup__still{display:none;position:absolute;inset:9%;width:82%;height:82%;object-fit:cover;border-radius:50%}
+.nogl #cupgl{display:none}.nogl .cup__still{display:block}
+.cup__ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.cup__ring circle{fill:none;stroke-width:.5}
+.cup__ring .bg{stroke:var(--line)}
+.cup__ring .fg{stroke:var(--matcha);stroke-width:.9;stroke-linecap:round}
+.cup__read{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px 26px;margin-top:20px;border-top:2px solid var(--sumi);padding-top:18px}
+.cup__read dl{display:flex;gap:clamp(18px,3vw,40px)}
+.cup__read dt{font-size:13.5px;color:var(--ash)}
+.cup__read dd{font:500 clamp(30px,3.2vw,48px)/1.05 var(--mincho);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cup__read .lnk{font-size:18px}
+.cup__msg{margin-top:12px;font-size:15px;color:var(--ash);min-height:1.6em}
+@media(max-width:900px){.inf__g{grid-template-columns:1fr}.cup{width:min(100%,460px)}.teas{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}.teas label{grid-template-columns:1fr;padding:12px 0}.teas label:has(input:checked){padding-left:12px}.teas span{text-align:left;font-size:13px}}
+
+/* 6 · un anno nella stanza del tè: le stagioni scorrono di lato */
+.anno{position:relative;height:430vh}
+.anno__stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.anno__track{display:flex;width:400%;height:100%;transform:translate3d(calc(var(--t,0)*-75%),0,0);will-change:transform}
+.mese{--d:calc(var(--t,0)*3 - var(--n));position:relative;flex:0 0 25%;height:100%;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,.95fr);align-items:center;gap:clamp(24px,4.5vw,80px);padding:96px var(--pad) 96px;overflow:hidden}
+.mese:nth-child(1){background:#2B2620;color:#EFE9DC}
+.mese:nth-child(2){background:#E7E5DF;color:var(--sumi)}
+.mese:nth-child(3){background:#D8E0C2;color:#1E2614}
+.mese:nth-child(4){background:#1C2628;color:#E4EAE8}
+.mese__k{font:400 clamp(96px,26vh,280px)/1 var(--mincho);writing-mode:vertical-rl;letter-spacing:.04em;transform:translate3d(calc(var(--d)*14vw),0,0);opacity:calc(.92 - max(var(--d),calc(var(--d)*-1))*.9)}
+.mese>div:not(.mese__k){position:relative;z-index:1}
+.mese small{display:block;font:500 clamp(18px,1.7vw,24px)/1 var(--mincho);opacity:.62;margin-bottom:18px}
+.mese h3{font-size:clamp(34px,4.4vw,72px);line-height:1.02;max-width:11ch}
+.mese p{margin-top:20px;max-width:36ch;font-size:clamp(16px,1.25vw,19px);opacity:.85}
+.mese figure{height:min(68vh,640px);overflow:hidden;border-radius:2px}
+.mese figure img{width:100%;height:100%;object-fit:cover;transform:scale(1.16) translate3d(calc(var(--d)*6%),0,0)}
+.anno__nav{position:absolute;right:var(--pad);bottom:28px;display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);font-size:14px;color:#fff;mix-blend-mode:difference}
+.anno__nav b{font:500 15px/1 var(--mincho);margin-right:clamp(10px,3vw,40px)}
+.anno__nav span{opacity:.45;transition:opacity .4s}
+.anno__nav span.on{opacity:1}
+@media(max-width:900px){
+  .mese{grid-template-columns:minmax(0,1fr);align-content:center;gap:18px;padding:84px var(--pad) 80px}
+  .mese__k{writing-mode:horizontal-tb;font-size:clamp(64px,18vw,110px)}
+  .mese figure{height:26vh;order:3}
+  .mese p{margin-top:12px}
+  .anno__nav b{display:none}
+  .anno__nav{gap:12px;font-size:13px;bottom:24px}
+}
+
+/* 8 · regala: il buono si scrive mentre lo compili */
+.dono{background:#E2DED1;padding:clamp(90px,12vw,170px) 0}
+.dono__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:60px clamp(40px,6vw,110px);align-items:center}
+.dono h2{font-size:clamp(42px,5.8vw,92px);line-height:1;max-width:11ch}
+.dono__lede{margin-top:18px;max-width:40ch;color:#4B4D45}
+.gift{margin-top:clamp(30px,4vw,48px);display:grid;gap:0}
+.gift label.f{display:grid;gap:6px;padding:14px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ash)}
+.gift input[type=text],.gift textarea{width:100%;border:0;background:none;padding:2px 0;font:400 clamp(20px,1.8vw,26px)/1.35 var(--mincho);color:var(--sumi);resize:none}
+.gift input[type=text]:focus,.gift textarea:focus{outline:none}
+.gift label.f:focus-within{border-top-color:var(--sumi)}
+.gift fieldset{border:0;border-top:1px solid var(--line);margin:0;padding:14px 0 6px}
+.gift legend{font-size:14px;color:var(--ash);padding:0;float:left;width:100%;margin-bottom:8px}
+.gift fieldset label{display:inline-flex;align-items:center;gap:9px;margin:4px 18px 8px 0;cursor:pointer;font-size:16.5px}
+.gift fieldset input{appearance:none;width:13px;height:13px;border:1px solid var(--ash);border-radius:50%;margin:0;transition:background .3s,border-color .3s}
+.gift fieldset input:checked{background:var(--seal);border-color:var(--seal)}
+.gift fieldset input:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.gift__go{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;margin-top:22px;border-top:1px solid var(--line);padding-top:22px}
+.gift__go .lnk{font-size:18px}
+.card3d{perspective:1600px;justify-self:center;width:min(100%,620px)}
+.card{position:relative;aspect-ratio:1.58;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(calc(var(--ry,0deg) + var(--flip,0deg)));transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.card.live{transition:transform .25s ease-out}
+.card__f,.card__b{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:5px;padding:clamp(20px,3.2vw,36px);overflow:hidden;box-shadow:0 40px 70px -36px rgba(24,26,22,.55),0 2px 6px rgba(24,26,22,.14)}
+.card__f{background:#F6F3EA;display:grid;grid-template-rows:auto 1fr auto}
+.card__f::before{content:"";position:absolute;inset:0;opacity:.55;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .4 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.card__top{position:relative;display:flex;justify-content:space-between;font:500 14px/1.2 var(--mincho);color:#4B4D45}
+.card__mid{position:relative;align-self:center}
+.card__mid small{display:block;font-size:13.5px;color:var(--ash);margin-bottom:6px}
+.card__mid strong{display:block;font:500 clamp(28px,3.6vw,46px)/1.05 var(--mincho);overflow-wrap:anywhere}
+.card__mid em{display:block;margin-top:10px;font:400 clamp(17px,1.6vw,21px)/1.3 var(--mincho);font-style:normal;color:var(--matcha)}
+.card__ded{position:relative;max-width:70%;font:400 15px/1.45 var(--mincho);color:#4B4D45;min-height:2.9em}
+.seal{position:absolute;right:clamp(20px,3.2vw,36px);bottom:clamp(20px,3.2vw,36px);display:grid;place-items:center;width:clamp(48px,6vw,64px);aspect-ratio:1;background:var(--seal);color:#F6EDE6;font:400 clamp(26px,3.2vw,36px)/1 var(--mincho);border-radius:4px;transform:rotate(-4deg);box-shadow:inset 0 0 0 3px rgba(246,237,230,.85),inset 0 0 0 5px var(--seal)}
+.seal.stamp{animation:stamp .7s cubic-bezier(.2,1.4,.4,1)}
+@keyframes stamp{0%{transform:rotate(-12deg) scale(1.7);opacity:0}60%{opacity:1}100%{transform:rotate(-4deg) scale(1)}}
+.card__b{background:var(--sumi);color:#EDEADF;transform:rotateY(180deg);display:grid;align-content:space-between}
+.card__b p{font:500 clamp(22px,2.6vw,32px)/1.2 var(--mincho)}
+.card__b dl{display:grid;gap:4px;font-size:14.5px;color:#BDBAAE}
+.card__b dt{display:none}
+@media(max-width:900px){.dono__g{grid-template-columns:1fr}.card3d{order:-1}}
+@media(prefers-reduced-motion:reduce){.card,.card.live{transition:none}.seal.stamp{animation:none}}
 </style>
 </head>
-<body data-umbra="per Letizia · Tea Sommelier Italia" data-note="Corsi, date, indirizzo, contatti e libro vengono dal sito attuale. Le foto e i titoli dei video sono esempi: al loro posto vanno i tuoi.">
+<body data-umbra="per Letizia · Tea Sommelier Italia" data-note="Corsi, date, indirizzo, contatti e libro vengono dal sito attuale. Foto, titoli dei video e voci del buono sono esempi: al loro posto vanno i tuoi. Dosi e tempi d'infusione sono indicazioni di partenza.">
 
 <header class="bar">
   <a class="brand" href="#top"><i>寂</i>Tea Sommelier Italia</a>
-  <nav aria-label="Sezioni"><a class="keep" href="#club">Tea Club</a><a href="#corsi">Corsi</a><a href="#cerimonia">Cerimonia</a><a href="#contatti">Contatti</a></nav>
+  <nav aria-label="Sezioni"><a class="keep" href="#club">Tea Club</a><a href="#corsi">Corsi</a><a href="#cerimonia">Cerimonia</a><a href="#regala">Regala</a><a href="#contatti">Contatti</a></nav>
 </header>
 
 <main>
@@ -207,8 +335,17 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
       <div class="lib__tabs" role="tablist" aria-label="Argomenti" id="tabs"></div>
       <ul class="lib__list" id="list"></ul>
       <figure class="lib__peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></figure>
-      <p class="lib__note">I video si aprono solo ai soci, in streaming. Non si scaricano.</p>
+      <p class="lib__note">Tocca una lezione per vedere come la trova un socio. I video si aprono solo ai soci, in streaming. Non si scaricano.</p>
     </div>
+    <dialog class="pl" id="player" aria-labelledby="plTitle">
+      <div class="pl__in">
+        <figure class="pl__v"><img id="plImg" alt="">
+          <div class="pl__lock"><svg viewBox="0 0 15 18" aria-hidden="true"><rect x="1" y="7.5" width="13" height="9.5" rx="1.5"/><path d="M4 7.5V5a3.5 3.5 0 0 1 7 0v2.5"/></svg><p>Questa lezione si apre ai soci del Tea Club</p><a class="lnk" href="https://wa.me/393473727093?text=Buongiorno%20Letizia%2C%20vorrei%20entrare%20nel%20Tea%20Club%20dal%201%C2%B0%20dicembre.">Entra dal 1° dicembre</a></div>
+          <div class="pl__bar"><i></i></div>
+        </figure>
+        <div class="pl__side"><small id="plCat"></small><h3 id="plTitle"></h3><ol id="plCh"></ol><button class="pl__x" type="button" id="plX">Chiudi</button></div>
+      </div>
+    </dialog>
     <dl class="club__facts">
       <div><dt>Ogni mese</dt><dd>Lezioni nuove, in ordine di livello.</dd></div>
       <div><dt>Dove vuoi</dt><dd>Telefono, tablet o computer.</dd></div>
@@ -244,6 +381,28 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
   </div>
 </section>
 
+<section class="inf" id="infusione" aria-labelledby="infT">
+  <div class="wrap inf__g">
+    <div>
+      <h2 id="infT">Ogni tè vuole la sua acqua.</h2>
+      <p class="inf__lede">È la prima cosa che si impara al secondo livello: la stessa foglia, a dieci gradi di troppo, diventa amara. Scegli un tè, versa l'acqua e guarda la tazza.</p>
+      <div class="teas" id="teas" role="radiogroup" aria-label="Tè"></div>
+    </div>
+    <div class="cup">
+      <div class="cup__stage">
+        <svg class="cup__ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="bg" cx="50" cy="50" r="49"/><circle class="fg" id="ringFg" cx="50" cy="50" r="49" stroke-dasharray="307.9" stroke-dashoffset="307.9"/></svg>
+        <canvas id="cupgl" aria-label="Una tazza vista dall'alto: l'acqua si colora mentre il tè infonde" role="img"></canvas>
+        <img class="cup__still" src="img/bianco.jpg" alt="Matcha in una ciotola bianca" loading="lazy">
+      </div>
+      <div class="cup__read">
+        <dl><div><dt>Acqua</dt><dd id="rT">75 °C</dd></div><div><dt>Foglie</dt><dd id="rG">3 g</dd></div><div><dt>Tempo</dt><dd id="rS">1:00</dd></div></dl>
+        <button class="lnk" type="button" id="pour">Versa l'acqua</button>
+      </div>
+      <p class="cup__msg" id="cupMsg" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
 <section id="cerimonia" data-dark>
   <div class="rito" data-p>
     <img src="img/casa.jpg" alt="Una stanza del tè in penombra, aperta sul giardino" loading="lazy">
@@ -264,6 +423,34 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
   </article>
 </section>
 
+<section class="anno" id="anno" data-dark aria-label="Un anno nella stanza del tè">
+  <div class="anno__stick">
+    <div class="anno__track">
+      <article class="mese" style="--n:0">
+        <div class="mese__k" lang="ja" aria-hidden="true">炉開</div>
+        <div><small>Novembre</small><h3>Si apre il focolare.</h3><p>Il braciere portatile lascia il posto al ro, il focolare incassato nel pavimento, e si apre la giara con il tè raccolto in primavera. Per chi pratica la cerimonia, l'anno comincia qui.</p></div>
+        <figure><img src="img/stanza.jpg" alt="Una stanza del tè con il bollitore sul fuoco" loading="lazy"></figure>
+      </article>
+      <article class="mese" style="--n:1">
+        <div class="mese__k" lang="ja" aria-hidden="true">初釜</div>
+        <div><small>Gennaio</small><h3>Il primo bollitore dell'anno.</h3><p>Hatsugama: la prima cerimonia dopo Capodanno, con gli auguri, i dolci della stagione e il tè preparato con un po' più di cura del solito.</p></div>
+        <figure><img src="img/hero.jpg" alt="Una ciotola di matcha montata con la frusta" loading="lazy"></figure>
+      </article>
+      <article class="mese" style="--n:2">
+        <div class="mese__k" lang="ja" aria-hidden="true">新茶</div>
+        <div><small>Maggio</small><h3>La prima raccolta.</h3><p>Ottantotto notti dopo l'inizio della primavera arriva lo shincha: foglie giovani, profumo d'erba tagliata. Si beve subito, finché è fresco.</p></div>
+        <figure><img src="img/piantagione.jpg" alt="Filari di tè in collina" loading="lazy"></figure>
+      </article>
+      <article class="mese" style="--n:3">
+        <div class="mese__k" lang="ja" aria-hidden="true">風炉</div>
+        <div><small>Da maggio a ottobre</small><h3>Il fuoco si allontana.</h3><p>Con il caldo torna il furo, il braciere portatile, e si sposta lontano dagli ospiti. Le ciotole diventano basse e larghe, perché il tè si raffreddi prima.</p></div>
+        <figure><img src="img/bianco.jpg" alt="Matcha in una ciotola bassa con la frusta di bambù" loading="lazy"></figure>
+      </article>
+    </div>
+    <p class="anno__nav" aria-hidden="true"><b>Un anno nella stanza del tè</b><span class="on">Novembre</span><span>Gennaio</span><span>Maggio</span><span>Estate</span></p>
+  </div>
+</section>
+
 <section class="lei" id="scuola">
   <div class="wrap lei__g">
     <div>
@@ -274,6 +461,41 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
       <h3>Corso per Sommelier del tè</h3>
       <p>Il libro. L'arte della degustazione professionale, a cura di Silvia Battistini: dalla storia della bevanda alle tecniche di lavorazione e infusione, fino ai materiali e al servizio.</p>
       <img src="img/tavolo.jpg" alt="Una tavola apparecchiata per il tè" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="dono" id="regala" aria-labelledby="donoT">
+  <div class="wrap dono__g">
+    <div>
+      <h2 id="donoT">Regala la Via del Tè.</h2>
+      <p class="dono__lede">Un'esperienza nella stanza del tè, un corso, le lezioni del Tea Club. Scrivi il buono qui: lo vedi com'è prima di chiederlo.</p>
+      <form class="gift" id="gift" onsubmit="return false">
+        <label class="f">Per chi<input type="text" id="gTo" maxlength="32" placeholder="Giulia" autocomplete="off"></label>
+        <label class="f">Da parte di<input type="text" id="gFrom" maxlength="40" placeholder="Marco" autocomplete="off"></label>
+        <fieldset id="gWhat"><legend>Cosa regali</legend>
+          <label><input type="radio" name="w" value="Un'esperienza di cerimonia del tè" checked>Esperienza di cerimonia</label>
+          <label><input type="radio" name="w" value="Il primo livello da tea sommelier">Primo livello</label>
+          <label><input type="radio" name="w" value="Le lezioni di cerimonia">Lezioni di cerimonia</label>
+          <label><input type="radio" name="w" value="Tre mesi di Tea Club">Tre mesi di Tea Club</label>
+        </fieldset>
+        <label class="f">Dedica<textarea id="gDed" rows="2" maxlength="120" placeholder="Per le tue mattine lente."></textarea></label>
+        <div class="gift__go"><a class="lnk" id="gGo" href="#">Chiedi il buono a Letizia</a><button class="lnk" type="button" id="gFlip">Gira il buono</button></div>
+      </form>
+    </div>
+    <div class="card3d" id="card3d">
+      <div class="card" id="card">
+        <div class="card__f">
+          <div class="card__top"><span>Tea Sommelier Italia</span><span>Buono regalo</span></div>
+          <div class="card__mid"><small>Per</small><strong id="cTo">Giulia</strong><em id="cWhat">Un'esperienza di cerimonia del tè</em></div>
+          <p class="card__ded" id="cDed">Per le tue mattine lente.</p>
+          <span class="seal" id="seal" aria-hidden="true">寂</span>
+        </div>
+        <div class="card__b" aria-hidden="true">
+          <p id="cFrom">Da parte di Marco</p>
+          <dl><dt>Dove</dt><dd>Scuola Jaku, Via Benedetto Cairoli 33, Lucca</dd><dt>Prenotazioni</dt><dd>+39 347 372 7093, su appuntamento</dd></dl>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -310,6 +532,8 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
     <li><b>Video in streaming protetto</b>Nessun file da scaricare, nessun link da girare agli amici.</li>
     <li><b>Pagamento con carta</b>Oggi le iscrizioni passano dal bonifico. Con la carta ci si iscrive la sera stessa.</li>
     <li><b>Una persona che risponde</b>Aggiornamenti, backup e modifiche li segue sempre la stessa persona, con tempi scritti.</li>
+    <li><b>Buoni regalo prima di Natale</b>Il buono si compila sul sito e arriva a te già scritto: dicembre è il mese in cui si regalano.</li>
+    <li><b>Pagine che rispondono</b>Dosi, temperature e stagioni del tè: sono le domande che le persone fanno a Google, e qui trovano la scuola.</li>
   </ul>
   <p class="u-end__f"><span>Corsi, date e contatti vengono dal sito attuale. Foto e titoli dei video sono esempi.</span><a href="https://umbragency.it">umbragency.it</a></p>
 </div></aside>
@@ -336,6 +560,92 @@ h1,h2,h3{font-family:var(--mincho);font-weight:500;letter-spacing:-.01em;text-wr
     list.addEventListener('pointermove',function(e){tx=e.clientX+24;ty=e.clientY-100;var li=e.target.closest('li');if(li){var s='img/'+li.dataset.img+'.jpg';if(pimg.getAttribute('src')!==s)pimg.src=s;peek.classList.add('on');if(!act){act=true;px=tx;py=ty;loop()}}});
     list.addEventListener('pointerleave',function(){peek.classList.remove('on');act=false});
     function loop(){px+=(tx-px)*.14;py+=(ty-py)*.14;peek.style.transform='translate('+Math.min(px,innerWidth-320)+'px,'+py+'px)';if(act)requestAnimationFrame(loop)}}
+
+  /* l'anteprima della lezione: capitoli e lucchetto, come la trova un socio */
+  var dlg=document.getElementById('player'),CH=['Prima di cominciare','Gli strumenti sul tavolo','Il gesto, lentamente','Il gesto, a tempo reale','Gli errori più comuni','Da provare a casa'];
+  function openL(li){var i=[].indexOf.call(list.children,li),l=L[i],tot=l[2]*60,ol=document.getElementById('plCh');
+    document.getElementById('plImg').src='img/'+l[3]+'.jpg';document.getElementById('plCat').textContent=l[1]+', '+l[2]+' minuti';document.getElementById('plTitle').textContent=l[0];ol.innerHTML='';
+    CH.forEach(function(c,k){var s=Math.round(tot*[0,.08,.22,.48,.72,.88][k]),li2=document.createElement('li');li2.innerHTML='<span>'+Math.floor(s/60)+':'+('0'+s%60).slice(-2)+'</span>'+c;ol.appendChild(li2)});
+    if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}}
+  list.querySelectorAll('li').forEach(function(li){li.tabIndex=0;li.setAttribute('role','button');li.setAttribute('aria-haspopup','dialog');
+    li.addEventListener('click',function(){openL(li)});li.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openL(li)}})});
+  document.getElementById('plX').onclick=function(){dlg.close?dlg.close():dlg.removeAttribute('open')};
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+
+  /* infusione: la tazza vista dall'alto */
+  var TEAS=[['Sencha',75,3,100,60,[.73,.77,.33],0],['Gyokuro',55,5,60,120,[.67,.76,.4],0],['Matcha, usucha',80,2,70,20,[.38,.55,.13],1],['Oolong Tie Guan Yin',95,7,100,45,[.86,.67,.27],2],['Darjeeling first flush',90,2,100,180,[.83,.56,.21],3],["Pu'er",98,5,100,20,[.38,.14,.06],3]];
+  function mm(s){return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
+  var teas=document.getElementById('teas'),cur=0,run=0,t0=0,cup=null,fg=document.getElementById('ringFg'),pour=document.getElementById('pour'),msg=document.getElementById('cupMsg');
+  TEAS.forEach(function(t,i){var lb=document.createElement('label');lb.innerHTML='<input type="radio" name="tea" value="'+i+'"'+(i?'':' checked')+'><b>'+t[0]+'</b><span>'+t[1]+' °C, '+t[2]+' g in '+t[3]+' ml</span>';teas.appendChild(lb)});
+  function setTea(i){cur=i;run=0;var t=TEAS[i];document.getElementById('rT').textContent=t[1]+' °C';document.getElementById('rG').textContent=t[2]+' g';document.getElementById('rS').textContent=mm(t[4]);
+    pour.textContent=t[6]===1?'Versa e monta':'Versa l\'acqua';msg.textContent=t[6]===1?'Acqua a '+t[1]+' °C, poi frusta a zig-zag per '+t[4]+' secondi.':'';fg.style.strokeDashoffset=307.9;
+    if(cup){cup.set('uTea',t[5]);cup.set('uKind',t[6]);cup.set('uProg',0);cup.set('uFill',0);cup.set('uSince',9)}}
+  teas.addEventListener('change',function(e){setTea(+e.target.value)});
+  function brew(){if(!run)return;var t=TEAS[cur],e=(performance.now()-t0)/1000,p=Math.min(1,e/t[4]);
+    if(cup){cup.set('uFill',Math.min(1,e/1.1));cup.set('uProg',p);cup.set('uSince',e)}
+    fg.style.strokeDashoffset=(307.9*(1-p)).toFixed(1);document.getElementById('rS').textContent=mm(Math.max(0,Math.ceil(t[4]-e)));
+    if(p>=1){run=0;pour.textContent='Ricomincia';msg.textContent=t[6]===1?'Pronto: si beve subito, in tre sorsi e mezzo.':t[6]===2?'Pronta la prima infusione. Le foglie reggono altre cinque o sei.':'Pronto. Togli le foglie, o il tè diventa amaro.';return}
+    requestAnimationFrame(brew)}
+  pour.onclick=function(){if(run)return;setTea(cur);run=1;t0=performance.now();pour.textContent=TEAS[cur][6]===1?'Si monta':'In infusione';requestAnimationFrame(brew)};
+
+  /* le stagioni: il mese in vista si accende in basso */
+  var mesi=[].slice.call(document.querySelectorAll('.anno__nav span'));
+  U.pin(document.getElementById('anno'),function(t){var k=Math.min(3,Math.round(t*3));mesi.forEach(function(s,j){s.classList.toggle('on',j===k)})});
+
+  /* il buono regalo */
+  var gTo=document.getElementById('gTo'),gFrom=document.getElementById('gFrom'),gDed=document.getElementById('gDed'),gWhat=document.getElementById('gWhat'),card=document.getElementById('card'),seal=document.getElementById('seal'),flip=0;
+  function gift(){var to=gTo.value.trim()||'Giulia',fr=gFrom.value.trim()||'Marco',w=gWhat.querySelector('input:checked').value,dd=gDed.value.trim()||'Per le tue mattine lente.';
+    document.getElementById('cTo').textContent=to;document.getElementById('cWhat').textContent=w;document.getElementById('cDed').textContent=dd;document.getElementById('cFrom').textContent='Da parte di '+fr;
+    document.getElementById('gGo').href='https://wa.me/393473727093?text='+encodeURIComponent('Buongiorno Letizia, vorrei regalare «'+w+'» a '+to+', da parte di '+fr+'. Dedica: '+dd)}
+  document.getElementById('gift').addEventListener('input',gift);
+  gWhat.addEventListener('change',function(){seal.classList.remove('stamp');void seal.offsetWidth;seal.classList.add('stamp');if(flip){flip=0;card.style.setProperty('--flip','0deg')}});
+  document.getElementById('gFlip').onclick=function(){flip=1-flip;card.classList.remove('live');card.style.setProperty('--flip',flip?'180deg':'0deg')};
+  gift();
+  if(U.fine&&!U.reduce){var c3=document.getElementById('card3d');
+    c3.addEventListener('pointermove',function(e){var r=c3.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.classList.add('live');card.style.setProperty('--ry',(x*16).toFixed(2)+'deg');card.style.setProperty('--rx',(-y*12).toFixed(2)+'deg')});
+    c3.addEventListener('pointerleave',function(){card.classList.remove('live');card.style.setProperty('--ry','0deg');card.style.setProperty('--rx','0deg')})}
+
+  /* la tazza: shader, così le foglie si aprono e l'acqua si colora davvero */
+  cup=U.shader(document.getElementById('cupgl'),[
+    'uniform vec3 uTea;uniform float uProg,uFill,uKind,uSince;',
+    'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+    'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}',
+    'float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<5;i++){s+=a*n(p);p=p*2.03+7.1;a*=.5;}return s;}',
+    'float wor(vec2 p){vec2 i=floor(p),f=fract(p);float d=1.;for(int y=-1;y<=1;y++)for(int x=-1;x<=1;x++){vec2 g=vec2(float(x),float(y));vec2 o=vec2(h(i+g),h(i+g+17.3));d=min(d,length(g+o-f));}return d;}',
+    'mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}',
+    'void main(){vec2 p=(gl_FragCoord.xy*2.-u_res)/min(u_res.x,u_res.y);float fw=3./min(u_res.x,u_res.y);float r=length(p);',
+    ' float R0=.96,R1=.8;vec2 L=normalize(vec2(-.6,.75));float ld=dot(p/max(r,.001),L);',
+    ' vec3 por=vec3(.955,.948,.925);',
+    ' vec3 rim=por*(.94+.06*ld);rim+=vec3(.05)*smoothstep(.6,1.,ld)*smoothstep(.05,0.,abs(r-.885));rim*=1.-.1*smoothstep(R1+.035,R1,r);',
+    ' vec3 inn=por*(1.-.2*smoothstep(.35,R1,r)*(.6+.4*ld))*(1.-.06*smoothstep(.0,.8,r));',
+    ' float t=u_time,k=uFill*clamp(uProg*1.12,0.,1.),un=uFill*smoothstep(0.,.75,uProg);',
+    ' vec3 col=inn;',
+    ' if(uKind<.5||uKind>1.5){',
+    '  float cnt=uKind<.5?11.:uKind<2.5?6.:12.;',
+    '  for(int i=0;i<12;i++){if(float(i)>=cnt)break;float fi=float(i);',
+    '   vec2 c=(vec2(h(vec2(fi,1.3)),h(vec2(fi,7.1)))-.5)*1.05;c=rot(t*.025*uFill+fi*.3*uFill)*c;if(length(c)>.6)c*=.6/length(c);',
+    '   float a=h(vec2(fi,3.7))*6.283+t*.06*uFill;vec2 lp=rot(a)*(p-c);',
+    '   float len=uKind<.5?mix(.075,.12,un):uKind<2.5?mix(.04,.095,un):mix(.035,.05,un),wid=uKind<.5?mix(.011,.034,un):uKind<2.5?mix(.034,.055,un):mix(.016,.026,un);',
+    '   float d=length(vec2(lp.x/len,lp.y/wid));float m=smoothstep(1.,.82,d);',
+    '   vec3 dry=uKind<.5?vec3(.22,.29,.1):uKind<2.5?vec3(.28,.31,.13):vec3(.2,.12,.06);vec3 wet=uKind<2.5?vec3(.3,.42,.12):vec3(.26,.14,.07);',
+    '   vec3 lc=mix(dry,wet,uFill)*(.78+.22*smoothstep(1.,.25,d))*(1.-.15*smoothstep(.12,0.,abs(lp.y/wid)));',
+    '   col=mix(col,lc,m);}',
+    ' }else{',
+    '  float mound=smoothstep(.3,.14,r+(fbm(p*9.)-.5)*.08);col=mix(col,vec3(.42,.58,.17)*(.85+.25*fbm(p*30.)),mound*(1.-uFill));',
+    ' }',
+    ' vec2 q=rot(t*.04+(1.-r)*2.2*(1.-uProg))*p;float f=fbm(q*2.3+vec2(0.,t*.05));float st=smoothstep(.38,.78,f);',
+    ' float dens=clamp(k*(.6+.5*f)+st*k*(1.-k)*1.3,0.,1.);',
+    ' vec3 water=mix(col*vec3(.975,.985,.98),uTea*(.95+.1*f),dens);water*=1.-.2*smoothstep(.15,R1,r)*k;',
+    ' if(uKind>.5&&uKind<1.5){float b1=wor(q*42.),b2=wor(q*14.+4.);vec3 foam=mix(vec3(.55,.66,.27),vec3(.72,.79,.44),smoothstep(0.,.8,b1))*(1.-.18*smoothstep(.13,.02,b2)*(1.-uProg));',
+    '  water=mix(water,foam*(1.04-.14*r*r),smoothstep(.3,1.,uProg)*uFill);}',
+    ' float rip=sin(r*48.-uSince*11.)*exp(-uSince*1.3)*uFill*smoothstep(R1,.1,r);water+=rip*.05;',
+    ' vec2 wp=p-vec2(-.24,.34);float win=smoothstep(.14,0.,length(max(abs(wp)-vec2(.1,.05),0.)))*.09;float arc=exp(-pow((r-.66)/.07,2.))*smoothstep(.35,1.,ld)*.1;water+=(win+arc)*uFill*(1.-.4*k);',
+    ' water+=vec3(.12)*smoothstep(.02,0.,abs(r-R1+.015))*smoothstep(.3,1.,ld)*uFill;',
+    ' col=mix(col,water,uFill);',
+    ' vec3 c=mix(rim,col,smoothstep(R1+fw,R1-fw,r));',
+    ' float cm=smoothstep(R0+fw,R0-fw,r);float sh=smoothstep(1.05,.88,length(p-vec2(.04,-.07)))*.26;',
+    ' gl_FragColor=mix(vec4(.11,.1,.08,sh),vec4(c,1.),cm);}'].join('\n'),{alpha:true,dpr:2,uniforms:{uTea:TEAS[0][5],uProg:0,uFill:0,uKind:0,uSince:9}});
+  setTea(0);
 
   /* contatti: il messaggio WhatsApp si scrive da solo */
   var ask=document.getElementById('ask'),goA=document.getElementById('askGo');
