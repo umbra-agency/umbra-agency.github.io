@@ -4,322 +4,203 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Valfonda · Vini e distillati</title>
-<meta name="description" content="Concept Umbra per una cantina e distilleria: sito e presenza social coordinati, bottiglia 3D, schede di degustazione, area per ristoratori e importatori.">
-<meta property="og:image" content="img/hero.jpg">
+<meta name="description" content="Concept Umbra per una cantina con distilleria: una bottiglia in 3D che scorrendo passa dal vino alla grappa, perché l'uva lavora due volte.">
+<meta property="og:image" content="img/botti.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../lib/umbra.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232A0C13'/%3E%3Cpath d='M13 4h6v7c3 2 4 4 4 7v10H9V18c0-3 1-5 4-7z' fill='%23C17A3A'/%3E%3C/svg%3E">
+<link rel="preload" href="../lib/fonts/gloock-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../lib/u2.css">
 <style>
+@font-face{font-family:Gloock;font-weight:400;font-display:swap;src:url(../lib/fonts/gloock-400-normal.woff2) format("woff2")}
+@font-face{font-family:Hanken;font-weight:100 900;font-display:swap;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2")}
 :root{
-  /* Layout: una cantina di notte. Nero fumo, avorio dell'etichetta, rame dell'alambicco; la bottiglia al centro della scena. */
-  --night:#0D0B0A; --night-2:#171310; --ivory:#EEE5D3; --mute:#9A8F7E; --copper:#C07A45; --wine:#6E1B27; --line:#2C2520;
-  --display:"Gloock",Georgia,serif; --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif; --it:"Instrument Serif",Georgia,serif;
+  /* il rosso scuro del vino, il rame dell'alambicco, la carta delle etichette */
+  --vino:#2A0C13; --rame:#C17A3A; --carta:#EFE7DA; --ink:#1C1210; --mosto:#7A1F2C; --fumo:#B9A99A; --rule:rgba(239,231,218,.18);
+  --gl:Gloock,"Bodoni 72",Georgia,serif; --sans:Hanken,system-ui,sans-serif; --pad:clamp(20px,4.6vw,72px);
 }
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--night);color:var(--ivory);font:400 16.5px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}a{color:inherit}
-:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
-.w{width:min(1300px,100% - 48px);margin-inline:auto}
-.k{font:500 11.5px/1.4 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--copper)}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.98;letter-spacing:-.01em;text-wrap:balance}
-h1 i,h2 i,h3 i{font-family:var(--it);font-style:italic}
-h2{font-size:clamp(42px,5.8vw,92px)}
-.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border:1px solid var(--copper);color:var(--ivory);text-decoration:none;font:500 13px var(--body);letter-spacing:.16em;text-transform:uppercase;background:transparent;cursor:pointer;transition:background .3s,color .3s}
-.btn:hover{background:var(--copper);color:var(--night)}
-.btn--fill{background:var(--copper);color:var(--night)}
-.btn--fill:hover{background:transparent;color:var(--ivory)}
+html{scroll-padding-top:60px}
+body{background:var(--vino);color:var(--carta);font:400 17.5px/1.6 var(--sans)}
+:focus-visible{outline:2px solid var(--rame);outline-offset:3px}
+h1,h2,h3{font-family:var(--gl);font-weight:400;line-height:.98;letter-spacing:-.02em;text-wrap:balance}
+.wrap{padding-inline:var(--pad)}
+.lnk{font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--rame);padding-bottom:3px}
 
-.nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s}
-.nav.solid{background:rgba(13,11,10,.86);backdrop-filter:blur(10px)}
-.nav .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:80px}
-.nav ul{display:flex;gap:26px;list-style:none;padding:0;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
-.nav ul a{text-decoration:none;color:#CFC5B3}.nav ul a:hover{color:var(--copper)}
-.logo{font:400 30px/1 var(--display);text-decoration:none;text-align:center;letter-spacing:.04em}
-.logo small{display:block;font:500 9.5px var(--body);letter-spacing:.4em;text-transform:uppercase;color:var(--mute);margin-top:6px}
-.nav .right{display:flex;justify-content:flex-end}
-@media(max-width:940px){.nav ul{display:none}.nav .w{grid-template-columns:auto 1fr}.logo{text-align:left}}
+.bar{position:fixed;inset:0 0 auto;z-index:40;display:flex;justify-content:space-between;align-items:baseline;padding:20px var(--pad);transition:transform .6s cubic-bezier(.16,1,.3,1),background .4s,color .4s}
+.going-down .bar{transform:translateY(-102%)}
+.scrolled.on-dark .bar{background:rgba(28,14,12,.8);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+html.scrolled:not(.on-dark) .bar{color:var(--ink);background:rgba(239,231,218,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.bar a{text-decoration:none}
+.bar b{font:400 26px/1 var(--gl)}
+.bar nav{display:flex;gap:clamp(16px,2.4vw,32px);font-size:15.5px}
+@media(max-width:700px){.bar nav a:not(.keep){display:none}}
 
-/* scena della bottiglia: fissata mentre scorrono tre capitoli */
-.scene{position:relative;height:320vh}
-.scene__pin{position:sticky;top:0;height:100vh;overflow:hidden}
-.scene__bg{position:absolute;inset:0;background:radial-gradient(45% 60% at 50% 55%,#2a1d16 0%,var(--night) 70%)}
-.scene__bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;mix-blend-mode:luminosity}
-.scene canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
-.chap{position:absolute;top:50%;transform:translateY(-50%);width:min(420px,38vw);opacity:0;transition:opacity .7s,transform .7s}
-.chap.on{opacity:1}
-.chap.l{left:max(24px,calc((100vw - 1300px)/2))}.chap.r{right:max(24px,calc((100vw - 1300px)/2))}
-.chap h1,.chap h2{font-size:clamp(46px,5.4vw,86px);margin:16px 0 18px}
-.chap p{color:#CBBFAA;max-width:36ch}
-.chap .btn{margin-top:26px}
-.dots{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:grid;gap:10px}
-.dots i{width:6px;height:6px;border-radius:50%;background:#4a3f36;transition:background .4s,transform .4s}
-.dots i.on{background:var(--copper);transform:scale(1.5)}
-.scroll{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:500 11px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
-.bottle-fb{position:absolute;left:50%;top:50%;width:min(340px,60vw);transform:translate(-50%,-50%);opacity:.9}
-.gl .bottle-fb{display:none}
-@media(max-width:940px){.chap{width:auto;left:24px!important;right:24px!important;top:auto;bottom:70px;transform:none;background:rgba(13,11,10,.72);backdrop-filter:blur(6px);padding:20px}.chap h1,.chap h2{font-size:40px}.dots{display:none}}
+/* una bottiglia, due volte */
+.due{height:480vh;position:relative}
+.due__st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(60% 55% at 50% 48%,var(--halo),transparent 70%),var(--bg)}
+#btl{position:absolute;inset:0;width:100%;height:100%}
+.nogl #btl{display:none}
+.due__still{display:none;position:absolute;left:50%;top:50%;height:74vh;transform:translate(-50%,-50%)}
+.nogl .due__still{display:block}
+.fr{position:absolute;top:50%;width:min(31vw,470px);opacity:0;visibility:hidden;transform:translateY(calc(-50% + 14px));transition:opacity .55s,transform .55s,visibility 0s .55s}
+.fr.on{opacity:1;visibility:visible;transform:translateY(-50%);transition:opacity .55s .12s,transform .55s .12s}
+.fr--l{left:var(--pad)}.fr--r{right:var(--pad)}
+.fr h1{font-size:clamp(50px,6.3vw,108px)}
+.fr h1+p{margin-top:22px;font-size:clamp(18px,1.4vw,21px);color:#E2D6C8;max-width:30ch}
+.fr h2{font-size:clamp(46px,5.6vw,96px)}
+.fr>p{margin-top:14px;color:#E2D6C8;max-width:32ch}
+.fr ul{margin-top:24px;border-top:1px solid var(--rule)}
+.fr li{padding:14px 0;border-bottom:1px solid var(--rule)}
+.fr li b{display:block;font:400 clamp(22px,2vw,29px)/1.1 var(--gl)}
+.fr li span{font-size:15.5px;color:var(--fumo)}
+@media(max-width:820px){.fr{top:auto;bottom:clamp(64px,10vh,90px);left:var(--pad);right:var(--pad);width:auto;transform:translateY(14px)}.fr.on{transform:none}.fr li:nth-child(n+3){display:none}.fr h1{font-size:13vw}.fr h2{font-size:12vw}}
 
-section{padding:130px 0}
-@media(max-width:940px){section{padding:84px 0}}
-.hd{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:50px;align-items:end;margin-bottom:56px}
-.hd p{color:#BFB3A0}
-@media(max-width:940px){.hd{grid-template-columns:1fr;gap:16px}}
+/* la cantina */
+.cant{position:relative;height:120vh;overflow:hidden}
+.cant img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5)*-16%))}
+.cant::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,10,8,.86),rgba(20,10,8,.2) 60%)}
+.cant__in{position:absolute;inset:auto 0 0;z-index:1;padding:0 var(--pad) clamp(40px,8vh,90px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px clamp(30px,6vw,100px);align-items:end}
+.cant h2{font-size:clamp(46px,7.4vw,126px)}
+.cant p{max-width:38ch;color:#E2D6C8}
+@media(max-width:820px){.cant{height:100vh}.cant__in{grid-template-columns:1fr}}
 
-/* etichette */
-.labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.lab{background:var(--night-2);border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;gap:14px;transition:border-color .4s,transform .5s cubic-bezier(.2,.7,.2,1)}
-.lab:hover{border-color:var(--copper);transform:translateY(-6px)}
-.lab .sw{height:6px;width:46px}
-.lab h3{font-size:30px}
-.lab p{font-size:14.5px;color:#BFB3A0}
-.lab svg{width:100%;max-width:220px;margin:6px auto 0}
-.lab svg .grid{fill:none;stroke:#3a312a}
-.lab svg .val{fill:rgba(192,122,69,.28);stroke:var(--copper);stroke-width:1.5;transform-origin:110px 100px;transform:scale(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.lab.in svg .val{transform:scale(1)}
-.lab svg text{font:500 9px var(--body);fill:#8E8372;letter-spacing:.08em;text-transform:uppercase}
-.lab dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13.5px;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
-.lab dt{color:var(--mute)}
-@media(max-width:1100px){.labels{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.labels{grid-template-columns:1fr}}
+/* la vigna */
+.vigna{background:var(--carta);color:var(--ink);padding-block:clamp(90px,12vw,180px)}
+.vigna__g{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:30px 24px;align-items:end}
+.vigna figure{grid-column:1/8;aspect-ratio:3/2;overflow:hidden}
+.vigna img{width:100%;height:118%;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5)*-14%))}
+.vigna__t{grid-column:9/13}
+.vigna h2{font-size:clamp(44px,6vw,100px)}
+.vigna p{margin-top:18px;max-width:36ch;color:#3B2B26}
+.nums{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,60px);margin-top:clamp(50px,7vw,110px)}
+.nums div{border-top:2px solid var(--ink);padding-top:14px}
+.nums b{display:block;font:400 clamp(60px,9vw,150px)/.9 var(--gl);font-variant-numeric:lining-nums}
+.nums span{display:block;margin-top:10px;color:#3B2B26;max-width:22ch}
+@media(max-width:820px){.vigna figure,.vigna__t{grid-column:1/-1}.nums{grid-template-columns:1fr;gap:30px}}
 
-/* territorio con parallasse */
-.terr{position:relative;height:110vh;overflow:hidden;display:flex;align-items:center}
-.terr>img{position:absolute;inset:-15% 0;width:100%;height:130%;object-fit:cover;will-change:transform}
-.terr::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,11,10,.88),rgba(13,11,10,.2))}
-.terr .w{position:relative;z-index:1}
-.terr h2{max-width:12ch}
-.terr p{max-width:44ch;color:#D7CCB9;margin-top:22px}
-
-/* cantina: due colonne di foto */
-.cellar__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
-.cellar__g figure{overflow:hidden}
-.cellar__g figure:nth-child(2){margin-top:90px}
-.cellar__g img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.cellar__t{margin-top:70px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;border-top:1px solid var(--line);padding-top:30px}
-.cellar__t h3{font-size:28px;margin-bottom:8px}
-.cellar__t p{font-size:15px;color:#BFB3A0}
-@media(max-width:940px){.cellar__g{grid-template-columns:1fr 1fr}.cellar__g figure:nth-child(3){display:none}.cellar__g figure:nth-child(2){margin-top:40px}.cellar__t{grid-template-columns:1fr}}
-
-/* social */
-.social{background:var(--ivory);color:var(--night)}
-.social .k{color:#9A5A2D}
-.social .hd p{color:#4A4036}
-.soc__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:start}
-.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:#fff;padding:14px;border-radius:14px;box-shadow:0 30px 60px -40px rgba(0,0,0,.5)}
-.feed__h{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:4px 4px 12px}
-.feed__h i{width:44px;height:44px;border-radius:50%;background:var(--night);display:grid;place-items:center;color:var(--ivory);font:400 18px var(--display);font-style:normal}
-.feed__h b{font-size:15px}.feed__h small{display:block;font-size:12.5px;color:#7a7065}
-.feed figure{aspect-ratio:1;overflow:hidden;position:relative}
-.feed img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
-.feed figure:hover img{transform:scale(1.08)}
-.feed figure span{position:absolute;left:6px;bottom:6px;background:rgba(13,11,10,.75);color:#fff;font-size:10.5px;padding:3px 6px;letter-spacing:.06em}
-.cal{background:#fff;border-radius:14px;padding:22px;box-shadow:0 30px 60px -40px rgba(0,0,0,.4)}
-.cal__h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
-.cal__h h3{font-size:28px}
-.cal__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:12px}
-.cal__grid b{font-weight:600;color:#7a7065;text-align:center;padding:4px 0}
-.cal__grid div{min-height:62px;border:1px solid #eee5d6;padding:5px;position:relative}
-.cal__grid div small{color:#9a8f7e}
-.cal__grid div em{display:block;font-style:normal;font-size:10.5px;line-height:1.25;margin-top:4px;padding:3px 4px;border-left:2px solid}
-.cal__leg{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:12.5px;color:#5a5046}
-.cal__leg span::before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px;background:var(--c)}
-@media(max-width:940px){.soc__g{grid-template-columns:1fr}.cal__grid div{min-height:48px}.cal__grid div em{font-size:0;height:6px;padding:0;border-left:0;background:currentColor}}
-
-/* professionisti */
-.pro__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
-.pro ul{list-style:none;padding:0}
-.pro li{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-top:1px solid var(--line);font-size:16px}
-.pro li span{color:var(--mute)}
-form{display:grid;gap:14px;align-content:start}
-label{display:grid;gap:6px;font:500 11.5px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-input,select{font:400 17px var(--body);color:var(--ivory);background:transparent;border:0;border-bottom:1px solid #3a312a;padding:10px 0;border-radius:0;width:100%}
-select option{color:#000}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ok{font-size:15px;color:var(--copper);border:1px solid var(--copper);padding:12px}.ok[hidden]{display:none}
-@media(max-width:940px){.pro__g{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
-.pitch{border-top:1px solid var(--line)}
-.pitch__g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:40px;border-top:1px solid var(--line)}
-.pitch__g div{padding:24px 24px 24px 0;border-bottom:1px solid var(--line)}
-.pitch__g div:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--line)}
-.pitch__g b{display:block;font:400 24px/1.15 var(--display);margin-bottom:8px}
-.pitch__g p{font-size:15px;color:#BFB3A0}
-@media(max-width:940px){.pitch__g{grid-template-columns:1fr}.pitch__g div{padding-left:0!important;border-left:0!important}}
-footer{color:#6E6458;font-size:12.5px;padding:26px 0 40px;border-top:1px solid var(--line)}
-footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+/* venite */
+.vieni{padding-block:clamp(90px,12vw,180px) 36px;background:#1D120C}
+.vieni h2{font-size:clamp(50px,8.6vw,150px);max-width:8em}
+.vieni__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(30px,7vw,120px);margin-top:clamp(40px,6vw,90px)}
+.vieni dl div{padding:18px 0;border-top:1px solid var(--rule)}
+.vieni dt{font:400 clamp(24px,2.3vw,33px)/1.1 var(--gl)}
+.vieni dd{margin-top:5px;color:#D5C7B8}
+.form{display:grid;gap:18px;align-content:start}
+.seg{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:18px}
+.seg label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.seg input{appearance:none;width:14px;height:14px;margin:0;border:1px solid var(--fumo);border-radius:50%}
+.seg input:checked{background:var(--rame);border-color:var(--rame)}
+.form input[type=text]{width:100%;background:none;border:0;border-bottom:1.5px solid rgba(239,231,218,.35);padding:12px 0;font-size:19px}
+.form input::placeholder{color:#9C8B7C}
+.form button{justify-self:start;padding:15px 24px;background:var(--rame);color:#1C1210;border:0;font-weight:700;font-size:17px;cursor:pointer}
+.form output{color:#E3B37F;min-height:1.5em}
+.vieni small{display:block;margin-top:clamp(60px,8vw,100px);font-size:13.5px;color:#9C8B7C}
+@media(max-width:820px){.vieni__g{grid-template-columns:1fr}}
 </style>
 </head>
-<body data-umbra="un concept per la vostra richiesta" data-note="«Valfonda» e le etichette sono di fantasia. Al loro posto entrano i vostri vini, i vostri distillati e le vostre foto.">
+<body data-umbra="un concept per la vostra richiesta" data-note="«Valfonda», le etichette e i numeri sono di fantasia. Al loro posto entrano i vostri vini, i vostri distillati e le vostre foto.">
 
-<header class="nav" id="nav"><div class="w">
-  <ul><li><a href="#etichette">Etichette</a></li><li><a href="#cantina">Cantina</a></li><li><a href="#social">Social</a></li></ul>
-  <a class="logo" href="#top">Valfonda<small>vini · distillati</small></a>
-  <div class="right"><a class="btn" href="#professionisti">Professionisti</a></div>
-</div></header>
+<header class="bar"><a href="#top"><b>Valfonda</b></a><nav aria-label="Sezioni"><a href="#top">Vini e distillati</a><a href="#cantina">Cantina</a><a href="#vigna">Vigna</a><a class="keep" href="#visite">Visite</a></nav></header>
 
-<main id="top">
-<div class="scene" id="scene"><div class="scene__pin" id="pin">
-  <div class="scene__bg"><img src="img/hero.jpg" alt="" fetchpriority="high"></div>
-  <svg class="bottle-fb" viewBox="0 0 200 520" aria-hidden="true"><path d="M86 20h28v120c0 30 46 50 46 110v240c0 14-10 22-22 22H62c-12 0-22-8-22-22V250c0-60 46-80 46-110z" fill="#2a1a14" stroke="#C07A45"/><rect x="48" y="300" width="104" height="120" fill="#EEE5D3"/></svg>
-  <div class="chap l on" data-c="0"><span class="k">Cantina e distilleria</span><h1>Dalla vigna <i>all'alambicco.</i></h1><p>Una famiglia, due mestieri: il vino della collina e i distillati fatti con le sue vinacce. Scorrete: la bottiglia vi racconta il resto.</p></div>
-  <div class="chap r" data-c="1"><span class="k">Il vino</span><h2>Rosso <i>Riserva.</i></h2><p>Ventiquattro mesi in botte grande, un anno in bottiglia prima di uscire. Si apre con calma e si beve con il tempo.</p><a class="btn" href="#etichette">Scheda tecnica</a></div>
-  <div class="chap l" data-c="2"><span class="k">Il distillato</span><h2>Grappa <i>di vinacce.</i></h2><p>Distillata a vapore in piccoli lotti, con le vinacce ancora fresche della stessa vendemmia. Riposa in legno di ciliegio.</p><a class="btn" href="#etichette">Scheda tecnica</a></div>
-  <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
-  <span class="scroll" id="scrollHint">Scorrete</span>
-</div></div>
-
-<section id="etichette"><div class="w">
-  <div class="hd"><div><span class="k rv">Le etichette</span><h2 class="rv" data-d="1" style="margin-top:16px">Quattro bottiglie, <i>un territorio.</i></h2></div><p class="rv" data-d="2">Ogni etichetta ha la sua scheda: profilo di degustazione, abbinamenti, scheda tecnica da scaricare per ristoratori e importatori.</p></div>
-  <div class="labels" id="labels"></div>
-</div></section>
-
-<div class="terr" id="terr"><img src="img/vigna.jpg" alt="Vigneti in collina visti dall'alto" loading="lazy" id="terrImg"><div class="w">
-  <span class="k rv">Il territorio</span>
-  <h2 class="rv" data-d="1" style="margin-top:16px">Filari in collina, <i>vendemmia a mano.</i></h2>
-  <p class="rv" data-d="2">Qui entrano la vostra storia, le vostre vigne e i vostri numeri veri: ettari, altitudine, esposizione, anno di fondazione. Raccontati con le immagini della vostra vendemmia.</p>
-</div></div>
-
-<section id="cantina"><div class="w">
-  <div class="hd"><div><span class="k rv">Cantina e distilleria</span><h2 class="rv" data-d="1" style="margin-top:16px">Il legno, il rame, <i>il tempo.</i></h2></div><p class="rv" data-d="2">Visite e degustazioni su prenotazione, anche in inglese e tedesco. La prenotazione arriva direttamente in calendario.</p></div>
-  <div class="cellar__g"><figure class="rv-clip"><img src="img/botti.jpg" alt="Botti in cantina" loading="lazy"></figure><figure class="rv-clip"><img src="img/versa.jpg" alt="Vino rosso versato nel calice" loading="lazy"></figure><figure class="rv-clip"><img src="img/whisky.jpg" alt="Distillato in un bicchiere" loading="lazy"></figure></div>
-  <div class="cellar__t">
-    <div class="rv"><h3>Degustazione classica</h3><p>Quattro vini e una grappa, con taglieri del territorio. Circa un'ora e mezza.</p></div>
-    <div class="rv" data-d="1"><h3>Dalla botte al bicchiere</h3><p>La cantina e la distilleria con chi ci lavora, assaggi direttamente dalle botti.</p></div>
-    <div class="rv" data-d="2"><h3>Per aziende e gruppi</h3><p>Su misura, con cena in cantina e regali personalizzati per i clienti.</p></div>
+<main>
+<section class="due" id="top" data-dark aria-label="Dal vino al distillato">
+  <div class="due__st" id="st">
+    <canvas id="btl" class="fx" style="--i:3" aria-hidden="true"></canvas>
+    <img class="due__still" src="img/bottiglia.jpg" alt="Una bottiglia scura">
+    <div class="fr fr--l on"><h1><span class="ln"><span class="li">L'uva lavora</span></span><span class="ln"><span class="li" style="--i:1">due volte.</span></span></h1><p class="fx" style="--i:6">Prima diventa vino. Poi le vinacce passano dall'alambicco, e diventano grappa. Stessa collina, stessa famiglia.</p></div>
+    <div class="fr fr--l"><h2>I vini</h2><p>Dodici ettari attorno alla cantina, vendemmiati a mano.</p><ul><li><b>Rosso Riserva</b><span>Ventiquattro mesi in botte grande</span></li><li><b>Bianco di collina</b><span>Solo acciaio, in bottiglia a marzo</span></li><li><b>Rosato</b><span>Una notte sulle bucce</span></li></ul></div>
+    <div class="fr fr--r"><h2>I distillati</h2><p>Le vinacce arrivano all'alambicco ancora fresche, il giorno della svinatura.</p><ul><li><b>Grappa di vinacce</b><span>Bianca, a bagnomaria</span></li><li><b>Grappa riserva</b><span>Diciotto mesi in rovere</span></li><li><b>Acquavite d'uva</b><span>Dal mosto intero, in poche bottiglie</span></li></ul></div>
   </div>
-</div></section>
+</section>
 
-<section class="social" id="social"><div class="w">
-  <div class="hd"><div><span class="k rv">Social</span><h2 class="rv" data-d="1" style="margin-top:16px">Un sito e un profilo <i>che si parlano.</i></h2></div><p class="rv" data-d="2">La presenza digitale che chiedete: stessa voce, stesse immagini, un piano di pubblicazione. Ecco come potrebbe essere dicembre.</p></div>
-  <div class="soc__g">
-    <div class="feed rv">
-      <div class="feed__h"><i>V</i><div><b>valfonda</b><small>Vini e distillati di famiglia</small></div></div>
-      <figure><img src="img/versa2.jpg" alt="" loading="lazy"><span>Reel</span></figure><figure><img src="img/vigna2.jpg" alt="" loading="lazy"></figure><figure><img src="img/bicchiere.jpg" alt="" loading="lazy"><span>Reel</span></figure>
-      <figure><img src="img/cantina.jpg" alt="" loading="lazy"></figure><figure><img src="img/bottiglia.jpg" alt="" loading="lazy"><span>Carosello</span></figure><figure><img src="img/filari.jpg" alt="" loading="lazy"></figure>
+<section class="cant" id="cantina" data-p data-dark>
+  <img src="img/botti.jpg" alt="La bottaia sotto la volta di mattoni" loading="lazy">
+  <div class="cant__in"><h2>Sotto la collina, quattordici gradi tutto l'anno.</h2><p>La bottaia è scavata nel tufo. Qui il Riserva aspetta due inverni, e la grappa prende il colore del rovere.</p></div>
+</section>
+
+<section class="vigna" id="vigna">
+  <div class="wrap vigna__g">
+    <figure data-p><img src="img/vigna2.jpg" alt="I filari al tramonto" loading="lazy"></figure>
+    <div class="vigna__t"><h2>La vigna</h2><p>Filari esposti a sud-ovest, inerbiti, senza diserbo. In vendemmia si raccoglie al mattino, quando l'uva è ancora fresca.</p></div>
+    <div class="nums"><div><b>12</b><span>ettari, tutti attorno alla cantina</span></div><div><b>3</b><span>generazioni, la quarta sta imparando</span></div><div><b>1</b><span>alambicco discontinuo, a bagnomaria</span></div></div>
+  </div>
+</section>
+
+<section class="vieni" id="visite" data-dark>
+  <div class="wrap">
+    <h2>Venite ad assaggiare.</h2>
+    <div class="vieni__g">
+      <dl>
+        <div><dt>Visita e degustazione</dt><dd>Un'ora e mezza tra vigna, bottaia e alambicco. Quattro assaggi, su prenotazione.</dd></div>
+        <div><dt>Il giorno della distillazione</dt><dd>A novembre si entra in distilleria mentre l'alambicco lavora.</dd></div>
+        <div><dt>Ristoranti ed enoteche</dt><dd>Listino e campionatura per chi vende: scriveteci.</dd></div>
+      </dl>
+      <form class="form" id="form">
+        <div class="seg"><label><input type="radio" name="w" checked>Una visita</label><label><input type="radio" name="w">Un ordine</label><label><input type="radio" name="w">Il listino</label></div>
+        <input type="text" name="n" placeholder="Nome" aria-label="Nome" autocomplete="name">
+        <input type="text" name="c" placeholder="Email o telefono" aria-label="Email o telefono">
+        <button type="submit">Scriveteci</button><output id="out"></output>
+      </form>
     </div>
-    <div class="cal rv" data-d="1">
-      <div class="cal__h"><h3>Dicembre 2026</h3><span class="k" style="color:#9A5A2D">Piano contenuti</span></div>
-      <div class="cal__grid" id="cal"></div>
-      <div class="cal__leg"><span style="--c:#6E1B27">Prodotto</span><span style="--c:#C07A45">Dietro le quinte</span><span style="--c:#4D6B45">Territorio</span><span style="--c:#1F2E4A">Vendita</span></div>
-    </div>
+    <small>Valfonda è un nome di fantasia per questo concept. Foto Unsplash.</small>
   </div>
-</div></section>
-
-<section class="pro" id="professionisti"><div class="w pro__g">
-  <div>
-    <span class="k rv">Ristoratori, enoteche, importatori</span>
-    <h2 class="rv" data-d="1" style="margin:16px 0 30px">Listino e schede, <i>in un clic.</i></h2>
-    <ul class="rv" data-d="2"><li>Listino HoReCa aggiornato <span>su richiesta</span></li><li>Schede tecniche in italiano, inglese e tedesco <span>PDF</span></li><li>Foto ad alta risoluzione per le carte dei vini <span>cartella</span></li><li>Campionature per importatori <span>su richiesta</span></li></ul>
-  </div>
-  <form id="form" novalidate>
-    <div class="two"><label for="f1">Nome e locale<input id="f1"></label><label for="f2">Email<input id="f2" type="email" autocomplete="email"></label></div>
-    <div class="two"><label for="f3">Siete<select id="f3"><option>Ristorante</option><option>Enoteca</option><option>Distributore</option><option>Importatore estero</option></select></label><label for="f4">Paese<input id="f4" placeholder="Italia"></label></div>
-    <button class="btn btn--fill" type="submit" style="justify-self:start">Richiedi il listino</button>
-    <p class="ok" id="ok" role="status" hidden></p>
-  </form>
-</div></section>
-
-<section class="pitch"><div class="w">
-  <span class="k">La presenza digitale che avete chiesto</span>
-  <h2 style="margin-top:16px;max-width:18ch">Professionale, moderna, <i>orientata a vendere.</i></h2>
-  <div class="pitch__g">
-    <div><b>Sito e social insieme</b><p>Stessa identità, stesse foto: chi vi scopre su Instagram trova sul sito la stessa cantina.</p></div>
-    <div><b>Piano editoriale mensile</b><p>Prodotto, dietro le quinte, territorio, vendita: un calendario chiaro, approvato da voi prima di pubblicare.</p></div>
-    <div><b>Area professionisti</b><p>Listino e schede scaricabili: le richieste da ristoratori e importatori arrivano già qualificate.</p></div>
-    <div><b>Degustazioni prenotabili</b><p>Visite in cantina con calendario e pagamento online: meno telefonate, più presenze.</p></div>
-    <div><b>Tre lingue</b><p>Italiano, inglese e tedesco per turisti e mercati esteri.</p></div>
-    <div><b>Shop quando volete</b><p>Le confezioni regalo di Natale si vendono online dalla stessa pagina dell'etichetta.</p></div>
-  </div>
-</div></section>
+</section>
 </main>
-<footer><div class="w"><span>Valfonda · nome di fantasia per questo concept · foto Unsplash · Bevete responsabilmente</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
+
+<aside class="u-end"><div class="u-end__in">
+  <p class="u-end__m"><i></i>umbra</p>
+  <h2>La presenza digitale professionale che avete chiesto parte dal sito.</h2>
+  <ul>
+    <li><b>Una scheda per ogni etichetta</b>Vino o distillato: uve, affinamento, abbinamenti, scheda tecnica in PDF. È quello che chiedono enoteche e importatori.</li>
+    <li><b>Social con materiale vero</b>Vendemmia, svinatura, distillazione: un calendario di contenuti che segue il vostro anno.</li>
+    <li><b>Google e visite</b>Scheda curata, prenotazione delle degustazioni dal sito, recensioni richieste dopo ogni visita.</li>
+    <li><b>Listino per chi vende</b>Un'area riservata a ristoranti ed enoteche, in italiano e in inglese.</li>
+  </ul>
+  <p class="u-end__f"><span>Nome, etichette e numeri sono esempi.</span><a href="https://umbragency.it">umbragency.it</a></p>
+</div></aside>
 
 <script src="../lib/three.min.js"></script>
-<script src="../lib/umbra.js"></script>
+<script src="../lib/u2.js"></script>
 <script>
 (function(){
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>innerHeight*2.6)},{passive:true});
+  var $=function(i){return document.getElementById(i)},stEl=$('st'),frs=[].slice.call(document.querySelectorAll('.fr')),tt=0;
+  function hx(h){return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]}
+  function mix(a,b,f){var x=hx(a),y=hx(b);return 'rgb('+Math.round(x[0]+(y[0]-x[0])*f)+','+Math.round(x[1]+(y[1]-x[1])*f)+','+Math.round(x[2]+(y[2]-x[2])*f)+')'}
+  U.pin($('top'),function(t){tt=t;var i=t<.16?0:t<.47?1:t<.56?-1:2;frs.forEach(function(f,k){f.classList.toggle('on',k===i)});var f=U.ease(U.map(t,.4,.62));stEl.style.setProperty('--bg',mix('#2A0C13','#1D120C',f));stEl.style.setProperty('--halo',mix('#5A1A26','#5B3516',f))});
+  $('form').addEventListener('submit',function(e){e.preventDefault();$('out').textContent='In questa anteprima il modulo non invia nulla: nel sito vero la richiesta vi arriva per email.'});
 
-  /* etichette con profilo di degustazione */
-  var LB=[['Rosso Riserva','#6E1B27','Corvina e altre uve autoctone. Ciliegia matura, spezie dolci, tannino setoso.',[8,6,9,5,7],'Rosso','Arrosti, formaggi stagionati','16–18 °C'],
-          ['Bianco di collina','#D9C77A','Vinificato in acciaio. Fiori bianchi, mela, chiusura sapida.',[5,8,3,9,6],'Bianco','Pesce, risotti','8–10 °C'],
-          ['Grappa di vinacce','#E8DFC9','Distillazione a vapore. Uva fresca, fiori secchi, finale pulito.',[4,7,8,6,9],'Distillato','Fine pasto','12–14 °C'],
-          ['Amaro alle erbe','#5A3A1E','Ventiquattro erbe di montagna in infusione. Genziana, arancia amara, liquirizia.',[7,4,6,8,8],'Liquore','Dopocena, miscelazione','Con ghiaccio']];
-  var ax=['Frutto','Fiore','Corpo','Acidità','Persistenza'];
-  function radar(v){var cx=110,cy=100,R=74,pts=function(s){return v.map(function(_,i){var a=-Math.PI/2+i*2*Math.PI/5,r=R*s(i);return (cx+Math.cos(a)*r).toFixed(1)+','+(cy+Math.sin(a)*r).toFixed(1)}).join(' ')};
-    var g='';[.33,.66,1].forEach(function(k){g+='<polygon class="grid" points="'+pts(function(){return k})+'"/>'});
-    var lab=ax.map(function(t,i){var a=-Math.PI/2+i*2*Math.PI/5;return '<text x="'+(cx+Math.cos(a)*(R+14)).toFixed(0)+'" y="'+(cy+Math.sin(a)*(R+14)+3).toFixed(0)+'" text-anchor="middle">'+t+'</text>'}).join('');
-    return '<svg viewBox="0 0 220 200" role="img" aria-label="Profilo di degustazione">'+g+'<polygon class="val" points="'+pts(function(i){return v[i]/10})+'"/>'+lab+'</svg>'}
-  var box=document.getElementById('labels');
-  LB.forEach(function(l,i){var a=document.createElement('article');a.className='lab rv';a.setAttribute('data-d',i);
-    a.innerHTML='<span class="sw" style="background:'+l[1]+'"></span><h3>'+l[0]+'</h3><p>'+l[2]+'</p>'+radar(l[3])+'<dl><dt>Tipo</dt><dd>'+l[4]+'</dd><dt>Con</dt><dd>'+l[5]+'</dd><dt>Servire</dt><dd>'+l[6]+'</dd></dl>';box.appendChild(a)});
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
-  box.querySelectorAll('.lab').forEach(function(a){io.observe(a)});
-
-  /* calendario contenuti di dicembre 2026 (inizia di martedì) */
-  var cal=document.getElementById('cal'),C={p:'#6E1B27',d:'#C07A45',t:'#4D6B45',v:'#1F2E4A'};
-  var plan={1:['v','Confezioni regalo'],3:['d','La grappa nasce'],5:['t','Nebbia sui filari'],8:['p','Rosso Riserva'],10:['d','Chi imbottiglia'],12:['v','Ordini entro il 18'],15:['p','Amaro e ghiaccio'],17:['t','Potatura'],19:['p','Abbinamenti di Natale'],22:['d','Brindisi in cantina'],27:['t','Fine anno in vigna'],30:['v','Buoni degustazione']};
-  cal.innerHTML=['L','M','M','G','V','S','D'].map(function(d){return '<b>'+d+'</b>'}).join('')+'<div style="border:0"></div>';
-  for(var d=1;d<=31;d++){var p=plan[d];cal.innerHTML+='<div><small>'+d+'</small>'+(p?'<em style="border-color:'+C[p[0]]+';color:'+C[p[0]]+'">'+p[1]+'</em>':'')+'</div>'}
-
-  /* parallasse territorio */
-  var terr=document.getElementById('terr'),ti=document.getElementById('terrImg');
-  addEventListener('scroll',function(){if(reduce)return;var r=terr.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;ti.style.transform='translateY('+((r.top/innerHeight)*-12)+'%)'},{passive:true});
-
-  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('ok');ok.hidden=false;ok.textContent='Anteprima: nel sito vero il listino parte in automatico e la richiesta arriva all\'ufficio commerciale. Nessun dato è stato inviato.'});
-
-  /* capitoli della scena */
-  var scene=document.getElementById('scene'),chaps=document.querySelectorAll('.chap'),dots=document.querySelectorAll('.dots i'),prog=0;
-  function onScroll(){var r=scene.getBoundingClientRect(),h=scene.offsetHeight-innerHeight;prog=Math.max(0,Math.min(1,-r.top/h));var c=prog<.3?0:prog<.66?1:2;
-    chaps.forEach(function(x,i){x.classList.toggle('on',i===c)});dots.forEach(function(x,i){x.classList.toggle('on',i===c)});document.getElementById('scrollHint').style.opacity=prog>.05?0:1}
-  addEventListener('scroll',onScroll,{passive:true});onScroll();
-
-  /* bottiglia 3D */
-  var pin=document.getElementById('pin');
-  if(!window.THREE)return;
-  try{
-    var R=new THREE.WebGLRenderer({antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.outputEncoding=THREE.sRGBEncoding;pin.insertBefore(R.domElement,pin.children[1]);pin.classList.add('gl');
-    var S=new THREE.Scene(),Cm=new THREE.PerspectiveCamera(30,1,.1,100);Cm.position.set(0,0,11);
-    S.add(new THREE.AmbientLight(0x3a2a20,.9));
-    var k1=new THREE.SpotLight(0xffe2c0,1.5,40,.6,.6);k1.position.set(-5,6,6);S.add(k1);
-    var k2=new THREE.PointLight(0xC07A45,1.6,20);k2.position.set(5,1,3);S.add(k2);
-    var k3=new THREE.PointLight(0xffffff,.8,20);k3.position.set(0,-4,5);S.add(k3);
-    function lathe(prof){return new THREE.LatheGeometry(prof.map(function(p){return new THREE.Vector2(p[0],p[1])}),96)}
-    /* bordolese e bottiglia da distillato */
-    var wineP=[[0,-2.6],[.78,-2.6],[.8,-2.5],[.8,.9],[.74,1.25],[.5,1.6],[.27,1.95],[.25,2.9],[.28,2.95],[.28,3.05],[0,3.05]];
-    var spiritP=[[0,-2.3],[.95,-2.3],[1,-2.2],[1,.6],[.92,.95],[.55,1.15],[.32,1.35],[.3,2.15],[.36,2.2],[.36,2.5],[0,2.5]];
-    function makeBottle(prof,liquid,label,cap){
-      var g=new THREE.Group();
-      var glass=new THREE.Mesh(lathe(prof),new THREE.MeshPhysicalMaterial({color:liquid==='w'?0x08120a:0xe9efe6,roughness:.05,metalness:.35,transparent:true,opacity:liquid==='w'?.97:.3,clearcoat:1,side:THREE.DoubleSide}));g.add(glass);
-      if(liquid!=='w'){var lp=prof.filter(function(p){return p[1]<.5}).map(function(p){return [Math.max(0,p[0]-.06),p[1]+.05]});lp.push([0,.5]);var liq=new THREE.Mesh(lathe(lp),new THREE.MeshStandardMaterial({color:liquid,roughness:.2,transparent:true,opacity:.75}));g.add(liq)}
-      var cv=document.createElement('canvas');cv.width=1024;cv.height=512;var x=cv.getContext('2d');x.fillStyle='#EEE5D3';x.fillRect(0,0,1024,512);
-      x.strokeStyle='#C07A45';x.lineWidth=3;x.strokeRect(300,40,424,432);x.fillStyle='#1a1410';x.textAlign='center';
-      x.font='64px Georgia';x.fillText('VALFONDA',512,170);x.font='italic 44px Georgia';x.fillText(label[0],512,260);x.font='22px Arial';x.fillText(label[1],512,330);x.font='18px Arial';x.fillStyle='#8a7a66';x.fillText('IMBOTTIGLIATO ALL\'ORIGINE',512,420);
-      var tex=new THREE.CanvasTexture(cv);tex.encoding=THREE.sRGBEncoding;
-      var r=prof[3][0]+.012,lab=new THREE.Mesh(new THREE.CylinderGeometry(r,r,label[2],96,1,true,-Math.PI*.55,Math.PI*1.1),new THREE.MeshStandardMaterial({map:tex,roughness:.85}));lab.position.y=label[3];g.add(lab);
-      var top=prof[prof.length-2],cp=new THREE.Mesh(new THREE.CylinderGeometry(top[0]+.04,top[0]+.04,cap[0],48),new THREE.MeshStandardMaterial({color:cap[1],roughness:.45,metalness:.25}));cp.position.y=top[1]-cap[0]/2+.06;g.add(cp);
-      return g}
-    var wine=makeBottle(wineP,'w',['Rosso Riserva','VINO ROSSO · 75 cl',1.5,-1.1],[.75,0x3A0C13]);
-    var spirit=makeBottle(spiritP,0xE8D9A8,['Grappa di vinacce','DISTILLATO · 50 cl',1.6,-.9],[.5,0x2a2018]);
-    S.add(wine);S.add(spirit);spirit.scale.setScalar(.001);
-    function size(){var w=pin.clientWidth,h=pin.clientHeight;R.setSize(w,h,false);Cm.aspect=w/h;Cm.updateProjectionMatrix();var mob=w<940;Cm.position.set(0,mob?-.6:.1,mob?21:16.5)}
-    addEventListener('resize',size);size();
-    var mx=0;addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5});
-    var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(pin);
-    (function loop(t){requestAnimationFrame(loop);if(!vis)return;
-      var p=prog,sw=Math.max(0,Math.min(1,(p-.55)/.15)),ease=sw*sw*(3-2*sw);
-      var rot=(reduce?0:t*.00025)+p*Math.PI*2.4+mx*.6;
-      wine.rotation.y=rot;spirit.rotation.y=rot;
-      wine.scale.setScalar(Math.max(.001,1-ease));spirit.scale.setScalar(Math.max(.001,ease));
-      var off=p<.3?1.6:p<.66?-2.6:2.6;var ww=pin.clientWidth<940?0:off;
-      wine.position.x+=(ww-wine.position.x)*.06;spirit.position.x=wine.position.x;
-      wine.position.y=spirit.position.y=Math.sin(t*.001)*.08-.2;
-      wine.rotation.z=spirit.rotation.z=Math.sin(t*.0007)*.04;
-      R.render(S,Cm)})(0);
-  }catch(err){console.warn(err)}
+  /* la bottiglia cambia forma, vetro, liquido ed etichetta */
+  var cv=$('btl'),st=U.three(cv,{fov:24,exposure:1.05});if(!st)return;
+  var T=st.T,sc=st.scene,cam=st.camera;
+  sc.environment=U.env(T,st.renderer,'#3a302c','#0c0908',[[-5,5,6,1.8,12,4.5],[6,4,5,1,12,2.6],[0,9,2,9,3,1.2],[0,-5,6,10,2,.3]]);
+  var key=new T.DirectionalLight(0xffe8cf,.8);key.position.set(-4,6,7);sc.add(key);
+  var A=[[0,0],[.34,0],[.38,.04],[.38,.6],[.38,1.15],[.38,1.56],[.36,1.74],[.28,1.92],[.16,2.06],[.13,2.2],[.13,2.5],[.13,2.72],[.155,2.74],[.155,2.86],[0,2.86]],
+      B=[[0,0],[.43,0],[.49,.05],[.49,.5],[.49,.95],[.49,1.2],[.47,1.4],[.37,1.58],[.19,1.71],[.15,1.78],[.15,1.9],[.15,2.0],[.18,2.02],[.18,2.15],[0,2.15]];
+  var g=new T.Group();sc.add(g);
+  var glass=new T.MeshPhysicalMaterial({color:0x07120a,roughness:.07,metalness:0,transparent:true,opacity:.97,envMapIntensity:1.25}),
+      liq=new T.MeshStandardMaterial({color:0x8c4a10,roughness:.14,envMapIntensity:.45,emissive:0x3c1a03,emissiveIntensity:.55}),
+      capM=new T.MeshStandardMaterial({color:0x3a0a14,roughness:.4,metalness:.55,envMapIntensity:.8});
+  var body=new T.Mesh(new T.BufferGeometry(),glass),inner=new T.Mesh(new T.BufferGeometry(),liq),cap=new T.Mesh(new T.BufferGeometry(),capM);body.renderOrder=2;g.add(inner);g.add(body);g.add(cap);
+  /* etichette disegnate su tela */
+  function label(dark,l1,l2,l3){var c=document.createElement('canvas');c.width=1024;c.height=640;var x=c.getContext('2d');x.fillStyle=dark?'#17110e':'#efe7da';x.fillRect(0,0,1024,640);
+    x.strokeStyle=dark?'#c17a3a':'#7a1f2c';x.lineWidth=3;x.strokeRect(34,34,956,572);x.fillStyle=dark?'#c17a3a':'#1c1210';x.textAlign='center';
+    x.font='400 54px Gloock,Georgia,serif';x.fillText('Valfonda',512,150);x.font='400 '+(l1.length>14?104:128)+'px Gloock,Georgia,serif';x.fillText(l1,512,340);
+    x.font='500 40px Hanken,Arial,sans-serif';x.fillStyle=dark?'#b9a99a':'#7a1f2c';x.fillText(l2,512,440);x.fillStyle=dark?'#8d7d6e':'#5a4a44';x.font='400 32px Hanken,Arial,sans-serif';x.fillText(l3,512,530);
+    var t=new T.CanvasTexture(c);t.encoding=T.sRGBEncoding;t.anisotropy=8;return t}
+  var labM=new T.MeshStandardMaterial({roughness:.85,transparent:true,envMapIntensity:.25}),lab=new T.Mesh(new T.CylinderGeometry(1,1,1,56,1,true,-1.05,2.1),labM);lab.renderOrder=3;g.add(lab);
+  var tex=[null,null],cur=-1;function draw(){tex[0]=label(false,'Rosso Riserva','2021','Vino rosso, 75 cl');tex[1]=label(true,'Grappa','di vinacce','50 cl, 42% vol');cur=-1}
+  draw();if(document.fonts&&document.fonts.load)Promise.all([document.fonts.load('400 100px Gloock'),document.fonts.load('500 40px Hanken')]).then(draw);
+  var s=0,last=-1;
+  function build(m){var pts=[],li=[],fill=U.lerp(2.3,1.84,m),i;for(i=0;i<A.length;i++){var x=U.lerp(A[i][0],B[i][0],m),y=U.lerp(A[i][1],B[i][1],m);pts.push(new T.Vector2(x,y));if(y<fill&&i>0&&i<A.length-1)li.push(new T.Vector2(Math.max(0,x-.035),Math.max(.05,y)))}
+    li.unshift(new T.Vector2(0,.05));li.push(new T.Vector2(li[li.length-1].x*.98,fill));li.push(new T.Vector2(0,fill));
+    body.geometry.dispose();body.geometry=new T.LatheGeometry(new T.SplineCurve(pts).getPoints(96),72);inner.geometry.dispose();inner.geometry=new T.LatheGeometry(li,48);
+    var top=pts[pts.length-2].y,nr=pts[pts.length-4].x;cap.geometry.dispose();cap.geometry=new T.CylinderGeometry(nr+.035,nr+.03,U.lerp(.62,.3,m),32);cap.position.y=top-U.lerp(.28,.1,m);
+    var r=U.lerp(.38,.49,m)+.004;lab.scale.set(r,U.lerp(.86,.62,m),r);lab.position.y=U.lerp(.92,.62,m)}
+  st.frame(function(time){s=U.reduce?tt:s+(tt-s)*.085;var m=U.ease(U.map(s,.4,.62));
+    if(Math.abs(m-last)>.0015||last<0){build(m);last=m;var gc=U.ease(U.map(m,.55,1));glass.color.setRGB(U.lerp(.027,.5,gc),U.lerp(.07,.55,gc),U.lerp(.04,.52,gc));glass.opacity=U.lerp(.97,.13,U.ease(U.map(m,.3,.95)));liq.color.setRGB(U.lerp(.2,.4,m),U.lerp(.02,.17,m),U.lerp(.05,.02,m));liq.emissiveIntensity=U.lerp(.2,.42,m);capM.color.setRGB(U.lerp(.23,.07,m),U.lerp(.04,.06,m),U.lerp(.08,.055,m))}
+    var side=m<.5?0:1;if(side!==cur){cur=side;labM.map=tex[side];labM.needsUpdate=true}labM.opacity=U.clamp(Math.abs(m-.5)*5-.6,0,1);
+    var a=cv.clientWidth/cv.clientHeight,desk=a>1.1,cy=U.lerp(1.43,1.08,m),dist=desk?9.5:13.5/Math.max(.55,a)*.62;
+    cam.position.set(0,cy+.5,dist);cam.lookAt(0,cy,0);if(!desk)cam.setViewOffset(cv.clientWidth,cv.clientHeight,0,cv.clientHeight*.16,cv.clientWidth,cv.clientHeight);else cam.clearViewOffset();
+    g.rotation.y=m*Math.PI*2+Math.sin(time*.45)*.14+U.map(s,0,.4)*.5-.25;g.position.y=Math.sin(time*.8)*.025;g.position.x=desk?U.lerp(.9,0,U.ease(U.map(s,.08,.3)))*(1-m)+U.lerp(0,-.9,U.ease(U.map(s,.5,.7))):0});
 })();
 </script>
 </body>
