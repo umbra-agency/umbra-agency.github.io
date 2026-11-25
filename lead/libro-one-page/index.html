@@ -7,28 +7,28 @@
 <meta name="description" content="Concept Umbra: la pagina di un libro con prefazione da sfogliare, indice, autrice, presentazioni, contatti e QR code da stampare sul retro di copertina.">
 <meta property="og:image" content="img/hero.jpg">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../lib/umbra.css">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2310293A'/%3E%3Crect x='5' y='5' width='22' height='22' fill='none' stroke='%23C6A15B'/%3E%3C/svg%3E">
+<link rel="preload" href="../lib/fonts/cormorant-garamond-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../lib/u2.css">
 <style>
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:300 700;font-display:swap;src:url(../lib/fonts/cormorant-garamond-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:300 700;font-display:swap;src:url(../lib/fonts/cormorant-garamond-italic.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400 700;font-stretch:75% 100%;font-display:swap;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2")}
 :root{
   /* Layout: la pagina è un libro aperto sul tavolo. Carta calda, inchiostro blu di mare, oro della copertina e un rosso corallo per i segni a margine. */
-  --paper:#F4EEE3; --paper-2:#EAE1D2; --ink:#10293A; --ink-2:#1B3A4F; --gold:#C6A15B; --coral:#B9523C; --mute:#6B7480; --rule:#D8CCB8;
+  --paper:#F4EEE3; --paper-2:#EAE1D2; --ink:#10293A; --ink-2:#1B3A4F; --gold:#C6A15B; --coral:#9A7836; --mute:#6B7480; --rule:#D8CCB8;
   --display:"Cormorant Garamond",Georgia,serif; --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
 }
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-padding-top:70px}
 body{background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}a{color:inherit}
 :focus-visible{outline:2px solid var(--coral);outline-offset:3px}
 .w{width:min(1240px,100% - 48px);margin-inline:auto}
 .k{font:600 11.5px/1.4 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--coral)}
 h1,h2,h3{font-family:var(--display);font-weight:500;line-height:.98;letter-spacing:-.01em;text-wrap:balance}
 h1 i,h2 i,h3 i{font-style:italic;font-weight:400}
 h2{font-size:clamp(46px,6vw,92px)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:var(--ink);color:var(--paper);text-decoration:none;font:500 15px var(--body);border:1px solid var(--ink);cursor:pointer;transition:transform .25s,background .25s,color .25s}
-.btn:hover{transform:translateY(-2px);background:var(--coral);border-color:var(--coral)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:2px;background:var(--ink);color:var(--paper);text-decoration:none;font:500 15px var(--body);border:1px solid var(--ink);cursor:pointer;transition:transform .25s,background .25s,color .25s}
+.btn:hover{background:var(--ink-2);border-color:var(--ink-2)}
 .btn--line{background:transparent;color:var(--ink)}
 .btn--line:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .btn--gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
@@ -53,7 +53,7 @@ h2{font-size:clamp(46px,6vw,92px)}
 .hero h1{font-size:clamp(64px,8.6vw,138px)}
 .hero h1 span{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 span>b{display:block;font-weight:inherit;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.7,.1,1)}
-.hero.go h1 span>b{transform:none}
+.is-in .hero h1 span>b{transform:none}
 .hero h1 span:nth-child(2)>b{transition-delay:.12s;color:var(--gold)}
 .hero h1 span:nth-child(3)>b{transition-delay:.24s}
 .hero .by{font:italic 400 26px var(--display);color:#E7DCC8;margin-top:18px}
@@ -125,7 +125,7 @@ section{padding:130px 0}
 .endpg canvas{width:132px;height:132px;margin:18px auto 12px;image-rendering:pixelated}
 .endpg b{font:italic 400 30px/1.1 var(--display);color:var(--ink)}
 .endpg span{font:400 14px/1.5 var(--body);color:var(--mute);max-width:24ch}
-.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:500 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:10px}
+.hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:400 14px var(--body);color:var(--mute);display:flex;align-items:center;gap:10px}
 .hint i{width:1px;height:26px;background:var(--mute);animation:hn 1.8s ease-in-out infinite}
 @keyframes hn{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1)}}
 /* versione mobile della prefazione: pagine impilate */
@@ -145,7 +145,7 @@ section{padding:130px 0}
 .meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule);margin-top:36px}
 .meta div{padding:16px 0;border-bottom:1px solid var(--rule)}
 .meta div:nth-child(odd){padding-right:18px}
-.meta span{display:block;font:600 10.5px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.meta span{display:block;font:400 13.5px var(--body);color:var(--mute)}
 .meta b{font:500 24px var(--display)}
 .collage{position:relative;height:640px}
 .collage figure{position:absolute;overflow:hidden;border-radius:4px;box-shadow:0 30px 60px -30px rgba(16,41,58,.6)}
@@ -166,9 +166,7 @@ section{padding:130px 0}
 /* indice a chiavi */
 .keys{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative;padding-top:34px}
 .keys::before{content:"";position:absolute;left:0;right:0;top:20px;height:3px;border-radius:2px;background:linear-gradient(90deg,#8C7248,#C6A15B,#8C7248)}
-.key{background:none;border:0;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;align-items:center;transform-origin:50% -14px;animation:sway 5s ease-in-out infinite;font:inherit}
-.key:nth-child(2n){animation-delay:-1.4s}.key:nth-child(3n){animation-delay:-2.6s}
-@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.key{background:none;border:0;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;align-items:center;transform-origin:50% -14px;font:inherit}
 .key:hover,.key[aria-pressed=true]{animation:swing .9s ease-out}
 @keyframes swing{0%{transform:rotate(0)}25%{transform:rotate(14deg)}50%{transform:rotate(-9deg)}75%{transform:rotate(4deg)}100%{transform:rotate(0)}}
 .key svg{width:46px;height:120px}
@@ -195,15 +193,12 @@ section{padding:130px 0}
 @media(max-width:900px){.author{grid-template-columns:1fr;gap:34px}}
 
 /* dove trovarlo */
-.buy{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:50px}
-.bc{background:#FBF7EF;border:1px solid var(--rule);border-radius:10px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
-.bc:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 26px 50px -30px rgba(16,41,58,.6)}
-.bc svg{width:36px;height:36px;stroke:var(--coral);fill:none;stroke-width:1.4}
-.bc h3{font-size:30px}
-.bc p{font-size:14.5px;color:var(--mute)}
-.bc a{margin-top:auto;font:500 14px var(--body);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--coral);align-self:flex-start;padding-bottom:2px}
-@media(max-width:900px){.buy{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.buy{grid-template-columns:1fr}}
+.buy{margin-top:50px;border-top:1px solid var(--rule)}
+.buy li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) auto;gap:8px 40px;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--rule)}
+.buy b{font:500 clamp(30px,3.4vw,50px)/1 var(--display)}
+.buy span{color:#3A4650;max-width:46ch}
+.buy a{font:500 15px var(--body);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;white-space:nowrap}
+@media(max-width:760px){.buy li{grid-template-columns:1fr}}
 
 /* QR */
 .qr{background:var(--paper-2)}
@@ -213,7 +208,7 @@ section{padding:130px 0}
 .qr__vis{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap}
 .qrcard{background:#fff;padding:22px;border-radius:14px;box-shadow:0 40px 70px -40px rgba(16,41,58,.6);transform:rotate(-2deg)}
 .qrcard canvas{width:250px;height:250px;display:block;image-rendering:pixelated}
-.qrcard small{display:block;text-align:center;margin-top:10px;font:500 11px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.qrcard small{display:block;text-align:center;margin-top:10px;font:400 13px var(--body);color:var(--mute)}
 .bm{width:120px;height:330px;background:var(--ink);border-radius:6px 6px 0 0;color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 12px 18px;position:relative;transform:rotate(5deg);box-shadow:0 30px 50px -30px rgba(16,41,58,.8);clip-path:polygon(0 0,100% 0,100% 100%,50% 94%,0 100%)}
 .bm::before{content:"";position:absolute;inset:7px;border:1px solid rgba(198,161,91,.5);pointer-events:none;clip-path:inherit}
 .bm b{font:italic 400 22px/1.05 var(--display);color:var(--gold);text-align:center}
@@ -247,12 +242,6 @@ textarea{min-height:110px;resize:vertical}
 form small{font-size:12.5px;color:var(--mute)}
 @media(max-width:900px){.invite__g{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
 
-.pitch .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:46px;border-top:1px solid var(--rule)}
-.pitch .grid div{padding:26px 24px 26px 0;border-bottom:1px solid var(--rule)}
-.pitch .grid div:not(:nth-child(3n+1)){padding-left:24px;border-left:1px solid var(--rule)}
-.pitch b{display:block;font:500 26px/1.1 var(--display);margin-bottom:8px}
-.pitch p{font-size:15px;color:#3A4650}
-@media(max-width:900px){.pitch .grid{grid-template-columns:1fr}.pitch .grid div{padding-left:0!important;border-left:0!important}}
 footer{background:var(--ink);color:#AFA48F;padding:30px 0 40px;font-size:13px}
 footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 #printBm{display:none}
@@ -279,8 +268,7 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <canvas id="dust" aria-hidden="true"></canvas>
   <div class="w hero__g">
     <div>
-      <span class="k" style="color:var(--gold)">Un romanzo · prima edizione</span>
-      <h1 style="margin-top:22px"><span><b>Le stanze</b></span><span><b><i>del mare</i></b></span></h1>
+      <h1><span><b>Le stanze</b></span><span><b><i>del mare</i></b></span></h1>
       <div class="by">di Marta Seravalle</div>
       <p>Una casa sopra gli scogli, quattro sorelle tornate per venderla e una stanza chiusa a chiave per ogni anno della loro famiglia.</p>
       <div class="ctas"><a class="btn btn--gold" href="#prefazione">Leggi la prefazione</a><a class="btn btn--line" href="#dove">Dove trovarlo</a></div>
@@ -301,8 +289,7 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <div class="flip__track" id="track">
     <div class="flip__sticky">
       <div class="flip__side">
-        <span class="k rv">Prefazione</span>
-        <h2 class="rv" data-d="1" style="margin-top:16px">Sfogliatela <i>qui.</i></h2>
+        <h2 class="rv" data-d="1">Sfogliatela <i>qui.</i></h2>
         <p class="rv" data-d="2">Scorrete e il libro si apre: la copertina, poi le pagine, una alla volta. Le stesse che troverete in libreria.</p>
         <div class="prog" id="prog"><i><b></b></i><i><b></b></i><i><b></b></i></div>
         <div class="pagenum" id="pnum">Copertina</div>
@@ -322,8 +309,7 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <section class="about" id="libro"><div class="w about__g">
   <div>
-    <span class="k rv">Il libro</span>
-    <h2 class="rv" data-d="1" style="margin:16px 0 30px">Una stanza <i>al giorno.</i></h2>
+    <h2 class="rv" data-d="1" style="margin:0 0 30px">Una stanza <i>al giorno.</i></h2>
     <p class="rv">Dopo la morte della madre, Teresa, Lia, Nina e Agata tornano nella casa sopra il porto per venderla. Trovano ogni porta chiusa e, in un cassetto della cucina, un mazzo di chiavi con un cartoncino legato a ciascuna: un anno, nient'altro.</p>
     <p class="rv">Decidono di aprire una stanza al giorno. Ogni porta restituisce un pezzo di famiglia che nessuna di loro conosceva: un telaio, un registro di pesca, una lettera mai spedita. Il compratore aspetta, il paese osserva, il mare entra dalle finestre.</p>
     <div class="meta rv">
@@ -343,14 +329,12 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 </div></section>
 
 <section class="quote"><div class="w">
-  <span class="k" style="color:var(--gold)">Dal capitolo uno</span>
   <blockquote id="ink">Nessuna di noi sapeva contare all'indietro fino a quegli anni. La casa sì, e aveva aspettato che tornassimo tutte e quattro per cominciare.</blockquote>
   <cite>Le stanze del mare · pagina 11</cite>
 </div></section>
 
 <section id="indice"><div class="w">
-  <span class="k rv">Indice</span>
-  <h2 class="rv" data-d="1" style="margin:16px 0 20px;max-width:14ch">Sei chiavi, <i>sei anni.</i></h2>
+  <h2 class="rv" data-d="1" style="margin:0 0 20px;max-width:14ch">Sei chiavi, <i>sei anni.</i></h2>
   <p class="rv" data-d="2" style="color:var(--mute);max-width:52ch">Ogni parte del romanzo apre una stanza. Toccate una chiave.</p>
   <div class="keys" id="keys" role="group" aria-label="Le parti del romanzo"></div>
   <div class="teaser" aria-live="polite"><b id="tY">1952</b><p id="tP"></p></div>
@@ -359,28 +343,25 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <section id="autrice" style="padding-top:0"><div class="w author">
   <figure class="rv-clip"><img src="img/penna.jpg" alt="Una mano che scrive con la stilografica" loading="lazy"><figcaption>Nel sito vero: il ritratto dell'autrice.</figcaption></figure>
   <div>
-    <span class="k rv">L'autrice</span>
-    <h2 class="rv" data-d="1" style="margin-top:16px">Marta <i>Seravalle</i></h2>
+    <h2 class="rv" data-d="1">Marta <i>Seravalle</i></h2>
     <p class="rv" data-d="2">È nata in un paese di pescatori e vive in città da vent'anni. Insegna lettere in un liceo e scrive la mattina presto, prima che suoni la campanella. «Le stanze del mare» è il suo primo romanzo.</p>
     <ul class="rv" data-d="3"><li><span>Scrive di</span>famiglie, case, il Sud che resta</li><li><span>Presentazioni</span>librerie, scuole, club del libro</li><li><span>Per la stampa</span><a href="#contatti">scheda e foto ad alta risoluzione</a></li></ul>
   </div>
 </div></section>
 
 <section id="dove" style="padding-top:0"><div class="w">
-  <span class="k rv">Dove trovarlo</span>
-  <h2 class="rv" data-d="1" style="margin-top:16px;max-width:16ch">In libreria, online, <i>con dedica.</i></h2>
-  <div class="buy">
-    <article class="bc rv"><svg viewBox="0 0 36 36"><path d="M4 30V10l14-6 14 6v20M4 30h28M10 30V16h6v14M20 18h6v6h-6z"/></svg><h3>In libreria</h3><p>Si ordina in qualsiasi libreria con il codice ISBN. Arriva in due o tre giorni.</p><a href="#libro">Copia l'ISBN</a></article>
-    <article class="bc rv" data-d="1"><svg viewBox="0 0 36 36"><rect x="4" y="8" width="28" height="18" rx="2"/><path d="M12 32h12M18 26v6"/></svg><h3>Online</h3><p>Sui principali store, cartaceo con consegna a casa.</p><a href="#dove">Vai allo store</a></article>
-    <article class="bc rv" data-d="2"><svg viewBox="0 0 36 36"><rect x="9" y="3" width="18" height="30" rx="3"/><path d="M14 8h8M16 29h4"/></svg><h3>eBook</h3><p>Per chi legge sul telefono o sul lettore, in tutti i formati.</p><a href="#dove">Scarica l'eBook</a></article>
-    <article class="bc rv" data-d="3"><svg viewBox="0 0 36 36"><path d="M6 28c6-2 8-10 14-14 4-3 9-3 10 0s-3 6-8 6-8 2-10 6M4 32h28"/></svg><h3>Con dedica</h3><p>Copia firmata dall'autrice, spedita a casa vostra o a chi volete regalarla.</p><a href="#contatti">Richiedila</a></article>
-  </div>
+  <h2 class="rv" data-d="1" style="max-width:16ch">In libreria, online, <i>con dedica.</i></h2>
+  <ul class="buy">
+    <li><b>In libreria</b><span>Si ordina in qualsiasi libreria con il codice ISBN. Arriva in due o tre giorni.</span><a href="#libro">Copia l'ISBN</a></li>
+    <li><b>Online</b><span>Sui principali store, in cartaceo, con consegna a casa.</span><a href="#dove">Vai allo store</a></li>
+    <li><b>eBook</b><span>Per chi legge sul telefono o sul lettore, in tutti i formati.</span><a href="#dove">Scarica l'eBook</a></li>
+    <li><b>Con dedica</b><span>Una copia firmata dall'autrice, spedita a casa vostra o a chi volete regalarla.</span><a href="#contatti">Richiedila</a></li>
+  </ul>
 </div></section>
 
 <section class="qr" id="qr"><div class="w qr__g">
   <div>
-    <span class="k rv">Il QR del libro</span>
-    <h2 class="rv" data-d="1" style="margin-top:16px">Dalla carta <i>al telefono.</i></h2>
+    <h2 class="rv" data-d="1">Dalla carta <i>al telefono.</i></h2>
     <p class="rv" data-d="2">Lo stampate sul retro di copertina, sui segnalibri e sulle locandine delle presentazioni. Chi lo inquadra arriva qui, alla prefazione, e da qui alla libreria.</p>
     <div class="ctas rv" data-d="3"><button class="btn" type="button" id="dlQr">Scarica il QR in PNG</button><button class="btn btn--line" type="button" id="prBm">Stampa il segnalibro</button></div>
     <div class="stats rv" data-d="4"><div><b>Retro</b><span>di copertina</span></div><div><b>Segnalibri</b><span>da lasciare in libreria</span></div><div><b>Locandine</b><span>per le presentazioni</span></div></div>
@@ -393,8 +374,7 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <section class="invite" id="contatti"><img src="img/libreria.jpg" alt="" loading="lazy"><div class="w invite__g">
   <div>
-    <span class="k" style="color:var(--gold)">Presentazioni e contatti</span>
-    <h2 style="margin-top:16px">Portate il libro <i>nella vostra città.</i></h2>
+    <h2>Portate il libro <i>nella vostra città.</i></h2>
     <p>Marta incontra lettori in libreria, classi e circoli di lettura. Scrivete qui: rispondiamo entro due giorni.</p>
     <div class="tiles"><div><b>Librerie</b><span>presentazione con lettura e firma copie</span></div><div><b>Scuole</b><span>incontro con le classi, scrittura e memoria familiare</span></div><div><b>Club</b><span>serata con il vostro gruppo di lettura, anche online</span></div><div><b>Stampa</b><span>copia stampa, scheda e foto ad alta risoluzione</span></div></div>
   </div>
@@ -409,24 +389,22 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   </form>
 </div></section>
 
-<section class="pitch"><div class="w">
-  <span class="k rv">Cosa include questa pagina</span>
-  <h2 class="rv" data-d="1" style="margin-top:16px;max-width:16ch">Una pagina sola, <i>tutto il libro.</i></h2>
-  <div class="grid">
-    <div class="rv"><b>Prefazione da sfogliare</b><p>Il vostro testo impaginato come nel libro, con le pagine che girano allo scroll e una versione a schede sul telefono.</p></div>
-    <div class="rv" data-d="1"><b>QR pronto per la stampa</b><p>PNG ad alta risoluzione per il retro di copertina e un segnalibro stampabile, con un indirizzo che non cambia mai.</p></div>
-    <div class="rv" data-d="2"><b>Quante persone lo inquadrano</b><p>Il QR porta un codice di tracciamento: sapete quante visite arrivano dal libro, dalle locandine e dai social.</p></div>
-    <div class="rv"><b>Contatti che arrivano a voi</b><p>Richieste di presentazioni, copie con dedica e stampa in un unico modulo, smistate per motivo.</p></div>
-    <div class="rv" data-d="1"><b>Dominio col titolo</b><p>Un indirizzo breve come lestanzedelmare.it, facile da dire in radio e da scrivere su una locandina.</p></div>
-    <div class="rv" data-d="2"><b>Aggiornabile</b><p>Nuove presentazioni, recensioni e ristampe si aggiungono senza rifare nulla.</p></div>
-  </div>
-</div></section>
 </main>
-<footer><div class="w"><span>Le stanze del mare · titolo, autrice ed editore di fantasia per questo concept · foto Unsplash</span><span>Concept e sviluppo · Umbra Agency · umbragency.it</span></div></footer>
+<aside class="u-end"><div class="u-end__in">
+  <p class="u-end__m"><i></i>umbra</p>
+  <h2>Una pagina sola, tutto il libro: quella che avete chiesto.</h2>
+  <ul>
+    <li><b>Prefazione da sfogliare</b>Il vostro testo impaginato come nel libro: le pagine girano scorrendo, sul telefono diventano schede.</li>
+    <li><b>QR pronto per la stampa</b>PNG ad alta risoluzione per il retro di copertina e un segnalibro stampabile. L'indirizzo non cambia mai.</li>
+    <li><b>Quante persone lo inquadrano</b>Il QR porta un codice di tracciamento: sapete quante visite arrivano dal libro e quante dalle locandine.</li>
+    <li><b>Contatti in un modulo</b>Presentazioni, copie con dedica e stampa arrivano a voi già divise per motivo.</li>
+  </ul>
+  <p class="u-end__f"><span>Titolo, autrice, editore e testi sono di fantasia. Foto Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></p>
+</div></aside>
 <div id="printBm"></div>
 
 <script src="../lib/qrcode.js"></script>
-<script src="../lib/umbra.js"></script>
+<script src="../lib/u2.js"></script>
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -456,7 +434,7 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   if('IntersectionObserver' in window){var mio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');mio.unobserve(e.target)}})},{threshold:.2});mp.querySelectorAll('.pg').forEach(function(p){mio.observe(p)})}
 
   /* libro 3D nell'apertura */
-  var hero=document.getElementById('hero');setTimeout(function(){hero.classList.add('go')},reduce?0:3000);
+  var hero=document.getElementById('hero');
   var b3=document.getElementById('b3'),mx=0,my=0,tx=0,ty=0;
   hero.addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
   var small=matchMedia('(max-width:900px)');
