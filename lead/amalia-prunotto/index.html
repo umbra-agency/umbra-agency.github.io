@@ -159,9 +159,78 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
 .pick .lnk{font-size:20px}
 .legal{margin-top:clamp(70px,9vw,120px);padding-top:22px;border-top:1px solid rgba(233,236,238,.18);font-size:13.5px;color:#8D97A9;max-width:80ch}
 @media(max-width:900px){.reach__g{grid-template-columns:1fr}}
+
+/* libri in tre dimensioni: si girano mentre scorri */
+.shelf{perspective:none}
+.bk{perspective:1500px;position:relative}
+.bk3{--d:clamp(18px,2vw,28px);position:relative;aspect-ratio:2/3;transform-style:preserve-3d;transform:rotateY(calc((.62 - var(--p,.62))*80deg + var(--i,0)*3deg)) rotateX(2deg);transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.bk:hover .bk3{transform:rotateY(-26deg) rotateX(4deg) translateZ(24px)}
+.bk3>i{position:absolute;top:0;height:100%;display:block}
+.bk3 .f{inset:0;transform:translateZ(calc(var(--d)/2));background:var(--c);color:var(--t,#fff);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(16px,1.8vw,26px);box-shadow:inset 7px 0 9px -6px rgba(0,0,0,.45);overflow:hidden}
+.bk3 .f small{font:400 12.5px/1 var(--sans);opacity:.75}
+.bk3 .f b{position:relative;font:400 clamp(20px,2.1vw,32px)/1.06 var(--serif);letter-spacing:-.015em}
+.bk3 .f span{position:relative;font:400 13.5px/1 var(--sans);opacity:.8}
+.bk3 .f svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--k,#D8392B);stroke-width:2.2;stroke-linecap:round;opacity:.95}
+.bk3 .s{left:0;width:var(--d);transform-origin:left center;transform:translateZ(calc(var(--d)/2)) rotateY(90deg);background:var(--c);filter:brightness(.72)}
+.bk3 .g{right:0;width:var(--d);transform-origin:right center;transform:translateZ(calc(var(--d)/2)) rotateY(-90deg);background:repeating-linear-gradient(90deg,#F2EFE6 0 2px,#D9D4C7 2px 3px)}
+.bk3 .b{inset:0;transform:translateZ(calc(var(--d)/-2)) rotateY(180deg);background:var(--c);filter:brightness(.6)}
+.bk3 .h{left:0;right:0;top:0;height:var(--d);transform-origin:top center;transform:translateZ(calc(var(--d)/2)) rotateX(-90deg);background:repeating-linear-gradient(0deg,#F2EFE6 0 2px,#D9D4C7 2px 3px)}
+.bk__sh{position:absolute;left:6%;right:-4%;bottom:auto;height:22px;margin-top:-14px;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent);filter:blur(4px);transform:translateX(calc((var(--p,.62) - .62)*40px))}
+@media(prefers-reduced-motion:reduce){.bk3{transform:rotateY(-14deg);transition:none}}
+
+/* segnali: la truffa affettiva, riconosciuta prima */
+.segni{padding-block:clamp(80px,11vw,160px);border-top:1px solid var(--rule)}
+.segni__g{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px clamp(40px,8vw,140px);align-items:start}
+.segni h2{font-size:clamp(40px,5.2vw,82px);line-height:1}
+.segni__note{margin-top:20px;max-width:40ch;color:var(--mist)}
+.res{position:sticky;top:60px;margin-top:clamp(30px,4vw,54px);border-top:2px solid var(--ink);padding-top:18px}
+.res b{display:block;font:400 clamp(64px,8vw,128px)/.9 var(--serif);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.res b small{font-size:.32em;letter-spacing:0;color:var(--mist);margin-left:.2em}
+.res p{margin-top:14px;max-width:38ch;font:400 clamp(19px,1.6vw,23px)/1.4 var(--serif)}
+.res .lnk{display:inline-block;margin-top:16px}
+.res__pp{margin-top:12px;font-size:15px;color:var(--mist)}
+.sig{border-top:1px solid var(--rule)}
+.sig label{position:relative;display:grid;grid-template-columns:24px minmax(0,1fr);gap:18px;padding:clamp(16px,2vw,24px) 0;border-bottom:1px solid var(--rule);cursor:pointer;font:italic 400 clamp(21px,2.2vw,31px)/1.22 var(--serif);letter-spacing:-.01em;color:#4A5366;transition:color .35s}
+.sig input{appearance:none;margin:.38em 0 0;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--mist);transition:background .3s,border-color .3s,transform .4s cubic-bezier(.2,1.6,.4,1)}
+.sig input:checked{background:var(--filo);border-color:var(--filo);transform:scale(1.15)}
+.sig input:focus-visible{outline:2px solid var(--filo);outline-offset:3px}
+.sig label:has(input:checked){color:var(--ink)}
+.sig label:hover{color:var(--ink)}
+@media(max-width:900px){.segni__g{grid-template-columns:1fr}.segni__g>div:first-child{display:contents}.sig{order:1}.res{order:2;position:static;margin-top:10px}}
+
+/* un minuto di respiro */
+.breath{background:var(--paper);padding-block:clamp(80px,11vw,160px);border-top:1px solid var(--rule)}
+.breath__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(40px,7vw,120px);align-items:center}
+.breath h2{font-size:clamp(40px,5.2vw,82px);line-height:1}
+.breath__t>p{margin-top:20px;max-width:42ch}
+.breath__small{font-size:15px;color:var(--mist)}
+.breath__stage{position:relative;aspect-ratio:1;width:min(100%,560px);justify-self:center}
+#breathCv{position:absolute;inset:0;width:100%;height:100%}
+.breath__mid{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;pointer-events:none}
+.breath__word{font:italic 400 clamp(34px,4vw,58px)/1 var(--serif);letter-spacing:-.02em}
+.breath__count{margin-top:10px;font-size:15px;color:var(--mist);font-variant-numeric:tabular-nums;min-height:1.5em}
+.breath__go{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);background:none;border:0;cursor:pointer;font:500 17px/1 var(--sans);text-decoration:underline;text-decoration-color:var(--filo);text-decoration-thickness:2px;text-underline-offset:5px;padding:6px 2px}
+@media(max-width:900px){.breath__g{grid-template-columns:1fr}}
+
+/* dal primo messaggio al primo colloquio: il filo li unisce */
+.passi{position:relative;height:300vh}
+.passi__st{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding-inline:var(--pad);overflow:hidden}
+.passi h2{font-size:clamp(38px,4.8vw,76px);line-height:1;max-width:14em}
+.passi__svg{width:100%;height:auto;margin-top:clamp(26px,5vh,60px);overflow:visible}
+.passi__svg path{fill:none;stroke:var(--filo);stroke-width:3;stroke-linecap:round}
+.passi__svg .ghost{stroke:var(--rule);stroke-width:1.5}
+.passi__svg circle{fill:var(--fog);stroke:var(--mist);stroke-width:1.5;transition:fill .5s,stroke .5s}
+.passi__svg circle.on{fill:var(--filo);stroke:var(--filo)}
+.passi ol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,3vw,44px);margin-top:clamp(18px,3vh,34px)}
+.passi li{opacity:.28;transform:translateY(10px);transition:opacity .6s,transform .8s cubic-bezier(.16,1,.3,1)}
+.passi li.on{opacity:1;transform:none}
+.passi li b{display:block;font:italic 400 clamp(17px,1.4vw,20px)/1 var(--serif);color:var(--filo)}
+.passi h3{margin-top:10px;font-size:clamp(24px,2.4vw,36px);line-height:1.08}
+.passi li p{margin-top:10px;font-size:16px;color:#3F485A;max-width:28ch}
+@media(max-width:820px){.passi{height:auto}.passi__st{position:static;height:auto;padding-block:clamp(70px,12vw,110px)}.passi__svg{display:none}.passi ol{grid-template-columns:1fr;gap:26px;margin-top:30px}.passi li{opacity:1;transform:none;border-top:1px solid var(--rule);padding-top:16px}}
 </style>
 </head>
-<body data-umbra="per Amalia Prunotto" data-note="Testi, percorsi, libri, sedi e contatti vengono dal tuo sito. Le foto sono provvisorie: al loro posto vanno le tue.">
+<body data-umbra="per Amalia Prunotto" data-note="Testi, percorsi, libri, sedi e contatti vengono dal tuo sito. Le foto e le copertine sono provvisorie; i segnali e l'esercizio di respiro sono proposte da rivedere con te.">
 
 <canvas id="filo" class="fx" style="--i:4" aria-hidden="true"></canvas>
 <div class="thread" aria-hidden="true"></div>
@@ -200,6 +269,24 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
   </div>
 </section>
 
+<section class="segni wrap" id="segnali">
+  <div class="segni__g">
+    <div>
+      <h2 class="knot">Truffa affettiva: i segnali che si vedono prima.</h2>
+      <p class="segni__note">Chi ci è passato lo dice quasi sempre: «c'erano, ma non li volevo vedere». Segna quelli che riconosci nella storia che stai vivendo. Resta tutto su questa pagina.</p>
+      <div class="res" aria-live="polite"><b id="segN">0<small>su 6</small></b><p id="segT">Nessun segnale, per ora. Se qualcosa non ti torna, fidati di quella sensazione.</p><a class="lnk" id="segGo" href="#" hidden>Parlane con me, in modo riservato</a><p class="res__pp" id="segPP" hidden>Puoi anche segnalarlo alla Polizia Postale, sul sito commissariatodips.it.</p></div>
+    </div>
+    <div class="sig" id="sig">
+      <label><input type="checkbox">Ti ha dichiarato amore dopo pochi giorni, senza esservi mai visti.</label>
+      <label><input type="checkbox">Trova sempre un motivo per non fare una videochiamata.</label>
+      <label><input type="checkbox">Lavora lontano: una missione all'estero, una piattaforma petrolifera, un ospedale da campo.</label>
+      <label><input type="checkbox">Arriva un'emergenza, e servono soldi: una dogana, un conto bloccato, un biglietto.</label>
+      <label><input type="checkbox">Ti chiede di non parlarne con amici e familiari.</label>
+      <label><input type="checkbox">Ti propone un investimento, spesso in criptovalute, «per il vostro futuro».</label>
+    </div>
+  </div>
+</section>
+
 <section class="how wrap" id="approccio">
   <div class="how__g">
     <div><h2 class="knot">Parola e corpo, insieme.</h2><p>Lavoro con la psicoterapia dinamica breve, a orientamento psicoanalitico, integrata quando serve con tecniche a mediazione corporea. Strumenti e tempi si decidono a partire da te, dalla tua storia e da ciò di cui hai bisogno. Collaboro con altre figure professionali quando il percorso lo richiede.</p></div>
@@ -210,6 +297,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
       <div><dt>Training autogeno</dt><dd>Sono formatrice: esercizi che impari e poi usi da sola o da solo, ogni giorno.</dd></div>
       <div><dt>Ipnosi</dt><dd>Tecniche in cui sono formatrice, a sostegno del percorso quando sono indicate.</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="breath" id="respiro">
+  <div class="wrap breath__g">
+    <div class="breath__t">
+      <h2 class="knot">Un minuto, quando l'ansia sale.</h2>
+      <p>Nell'ansia il respiro si accorcia, e un respiro corto fa salire l'ansia. Per uscire dal giro si allunga l'espirazione: quattro secondi dentro, sei fuori, per sei volte. Segui il filo.</p>
+      <p class="breath__small">È un esercizio, non una cura. Se gli attacchi di panico tornano spesso, parlarne è il passo che viene dopo.</p>
+    </div>
+    <div class="breath__stage">
+      <canvas id="breathCv" aria-hidden="true"></canvas>
+      <div class="breath__mid" aria-live="polite"><p class="breath__word" id="bWord">Pronta, pronto?</p><p class="breath__count" id="bCount">Un minuto, sei respiri</p></div>
+      <button class="breath__go" type="button" id="bGo">Comincia</button>
+    </div>
   </div>
 </section>
 
@@ -232,11 +334,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
 <section class="books" id="libri" data-dark>
   <div class="wrap">
     <h2 class="knot">Quello che ho imparato, messo per iscritto.</h2>
-    <div class="shelf">
-      <div class="bk"><div class="bk__c" style="--c:#B6322A"><small>Alpes Italia</small><b>Amori 4.0</b></div><p>Narcisismo, dipendenze affettive e nuove forme del legame.</p></div>
-      <div class="bk"><div class="bk__c" style="--c:#DFE3E8;--t:#1B2231"><small>Alpes Italia</small><b>Quando l'amore diventa una truffa affettiva</b></div><p>Riconoscere l'inganno sentimentale e ripartire.</p></div>
-      <div class="bk"><div class="bk__c" style="--c:#3D5270"><small>Kront</small><b>Truffe affettive online</b></div><p>Come funzionano le relazioni costruite per ingannare.</p></div>
-      <div class="bk"><div class="bk__c" style="--c:#8C93A0;--t:#11151E"><small>Alpes Italia</small><b>Maschilità e relazioni affettive</b></div><p>Il maschile, le emozioni e i legami.</p></div>
+    <div class="shelf" data-p>
+      <div class="bk" style="--i:0"><div class="bk3" style="--c:#B6322A;--t:#fff;--k:#F3D9C9"><i class="b"></i><i class="h"></i><i class="s"></i><i class="g"></i><i class="f"><svg viewBox="0 0 270 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 60 C 60 20, 90 140, 160 90 S 230 170, 280 120"/></svg><small>Alpes Italia</small><b>Amori 4.0</b><span>Amalia Prunotto</span></i></div><div class="bk__sh"></div><p>Narcisismo, dipendenze affettive e nuove forme del legame.</p></div>
+      <div class="bk" style="--i:1"><div class="bk3" style="--c:#DFE3E8;--t:#1B2231;--k:#D8392B"><i class="b"></i><i class="h"></i><i class="s"></i><i class="g"></i><i class="f"><svg viewBox="0 0 270 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 250 C 50 200, 40 300, 120 260 S 200 160, 280 230"/></svg><small>Alpes Italia</small><b>Quando l'amore diventa una truffa affettiva</b><span>Amalia Prunotto</span></i></div><div class="bk__sh"></div><p>Riconoscere l'inganno sentimentale e ripartire.</p></div>
+      <div class="bk" style="--i:2"><div class="bk3" style="--c:#3D5270;--t:#fff;--k:#E07A6E"><i class="b"></i><i class="h"></i><i class="s"></i><i class="g"></i><i class="f"><svg viewBox="0 0 270 400" preserveAspectRatio="none" aria-hidden="true"><path d="M 40 -10 C 90 60, 10 130, 80 190 S 200 260, 150 330"/></svg><small>Kront</small><b>Truffe affettive online</b><span>Amalia Prunotto</span></i></div><div class="bk__sh"></div><p>Come funzionano le relazioni costruite per ingannare.</p></div>
+      <div class="bk" style="--i:3"><div class="bk3" style="--c:#8C93A0;--t:#11151E;--k:#B6322A"><i class="b"></i><i class="h"></i><i class="s"></i><i class="g"></i><i class="f"><svg viewBox="0 0 270 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 180 C 70 150, 120 230, 170 170 S 250 120, 290 160"/></svg><small>Alpes Italia</small><b>Maschilità e relazioni affettive</b><span>Amalia Prunotto</span></i></div><div class="bk__sh"></div><p>Il maschile, le emozioni e i legami.</p></div>
     </div>
     <p class="books__more">Contributi anche in <i>Oltre la trappola del panico</i> (FrancoAngeli, 2021) e <i>Panico</i> (McGraw-Hill, 2000).</p>
   </div>
@@ -253,6 +355,19 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
     </ul>
   </div>
   <figure data-p><img src="img/padova2.jpg" alt="Padova, le cupole della Basilica del Santo" loading="lazy"></figure>
+</section>
+
+<section class="passi" id="primo" data-p="pin" aria-labelledby="passiT">
+  <div class="passi__st">
+    <h2 class="knot" id="passiT">Dal primo messaggio al primo colloquio.</h2>
+    <svg class="passi__svg" id="passiSvg" viewBox="0 0 1200 160" aria-hidden="true"><path class="ghost" d="M 0 90 C 120 20, 200 150, 300 80 S 470 10, 600 80 S 780 160, 900 80 S 1080 20, 1200 70"/><path id="passiP" d="M 0 90 C 120 20, 200 150, 300 80 S 470 10, 600 80 S 780 160, 900 80 S 1080 20, 1200 70"/><circle cx="150" cy="71" r="9"/><circle cx="450" cy="45" r="9"/><circle cx="750" cy="118" r="9"/><circle cx="1050" cy="45" r="9"/></svg>
+    <ol>
+      <li><b>uno</b><h3>Mi scrivi</h3><p>Su WhatsApp o per email, anche solo due righe. Non serve sapere già cosa dire.</p></li>
+      <li><b>due</b><h3>Fissiamo l'incontro</h3><p>Ci sentiamo per scegliere giorno e luogo: Padova, Parma oppure online.</p></li>
+      <li><b>tre</b><h3>Il primo colloquio</h3><p>Mi racconti cosa ti porta da me, con le parole che hai. Capiamo insieme il momento che stai vivendo.</p></li>
+      <li><b>quattro</b><h3>Una direzione</h3><p>Alla fine hai una direzione, non un impegno: decidiamo insieme se e come continuare.</p></li>
+    </ol>
+  </div>
 </section>
 
 <section class="faq wrap">
@@ -297,6 +412,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
     <li><b>Google oggi ti dà «chiusa definitivamente»</b>La scheda Maps con il vecchio indirizzo va chiusa e vanno aperte quelle di Padova e Parma: è la prima causa di telefonate perse.</li>
     <li><b>Una pagina per ogni ricerca</b>«Attacchi di panico Padova», «truffa affettiva cosa fare»: ogni percorso diventa una pagina che Google può mostrare.</li>
     <li><b>Dalla frase a WhatsApp</b>Chi sceglie una frase ti scrive con il messaggio già pronto. Meno imbarazzo, più primi colloqui.</li>
+    <li><b>Pagine che servono anche a chi non ti conosce</b>I segnali della truffa affettiva e il minuto di respiro rispondono a ricerche vere. Chi li usa sa già a chi scrivere.</li>
     <li><b>Libri e Lidap in primo piano</b>Venticinque anni di lavoro sono il tuo vantaggio. Oggi stanno in fondo alla pagina.</li>
   </ul>
   <p class="u-end__f"><span>Testi, sedi e contatti vengono dal tuo sito. Le foto sono provvisorie.</span><a href="https://umbragency.it">umbragency.it</a></p>
@@ -321,6 +437,41 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;text-wra
   var pick=document.getElementById('pick'),go=document.getElementById('pickGo');
   function wa(){go.href=WA+encodeURIComponent('Buongiorno dottoressa, vorrei fissare un primo colloquio '+pick.c.value+', '+pick.d.value+'.')}
   pick.addEventListener('change',wa);wa();
+
+  /* i segnali: il conto si aggiorna, e dal terzo in poi c'è un passo concreto */
+  var sig=document.getElementById('sig'),segN=document.getElementById('segN'),segT=document.getElementById('segT'),segGo=document.getElementById('segGo'),segPP=document.getElementById('segPP');
+  segGo.href=WA+encodeURIComponent('Buongiorno dottoressa, credo di aver vissuto una truffa affettiva e vorrei un colloquio riservato.');
+  sig.addEventListener('change',function(){var n=sig.querySelectorAll('input:checked').length;segN.firstChild.nodeValue=n;
+    segT.textContent=n===0?'Nessun segnale, per ora. Se qualcosa non ti torna, fidati di quella sensazione.':n<3?'Qualche segnale. Vale la pena fermarsi e rileggere la storia con calma, magari insieme a qualcuno di cui ti fidi.':'Sono i segnali tipici di una truffa affettiva. Non mandare altro denaro. E non è colpa tua: succede a persone attente e intelligenti.';
+    segGo.hidden=n===0;segPP.hidden=n<3});
+
+  /* un minuto di respiro: il filo si allarga in quattro secondi e si stringe in sei */
+  (function(){var cv=document.getElementById('breathCv'),cx=cv.getContext('2d'),wd=document.getElementById('bWord'),ct=document.getElementById('bCount'),bt=document.getElementById('bGo'),run=0,t0=0,vis=false,raf=0,R=getComputedStyle(document.documentElement);
+    var red=R.getPropertyValue('--filo').trim()||'#D8392B',rule='rgba(27,34,49,.16)';
+    function ez(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2}
+    function draw(now){var dpr=Math.min(2,devicePixelRatio||1),w=cv.clientWidth*dpr,h=cv.clientHeight*dpr;if(cv.width!==w){cv.width=w;cv.height=h}
+      var t=now/1000,e,phase='',cyc=0;
+      if(run){var el=(now-t0)/1000;cyc=Math.floor(el/10);var ph=el%10;if(cyc>=6){run=0;wd.textContent='Fatto.';ct.textContent='Come va, adesso?';bt.textContent='Ancora un minuto';e=0}
+        else if(ph<4){e=ez(ph/4);phase='Inspira';ct.textContent='Respiro '+(cyc+1)+' di 6, '+Math.ceil(4-ph)+' s'}else{e=1-ez((ph-4)/6);phase='Espira';ct.textContent='Respiro '+(cyc+1)+' di 6, '+Math.ceil(10-ph)+' s'}
+        if(phase&&wd.textContent!==phase)wd.textContent=phase}
+      else e=.5+.5*Math.sin(t*.55)*.35-.0;
+      var m=Math.min(w,h),r0=m*.2,r1=m*.4,r=r0+(r1-r0)*e;cx.clearRect(0,0,w,h);
+      cx.lineWidth=1*dpr;cx.strokeStyle=rule;cx.setLineDash([2*dpr,6*dpr]);[r0,r1].forEach(function(rr){cx.beginPath();cx.arc(w/2,h/2,rr,0,7);cx.stroke()});cx.setLineDash([]);
+      cx.beginPath();var A=Math.PI*2+.55;for(var k=0;k<=240;k++){var a=k/240*A-1.9,f=k/240,rr=r*(1+.022*Math.sin(3*a+t*.8)+.014*Math.sin(5*a-t*1.2))-(f>.9?(f-.9)*10*m*.035:0)+(f<.08?(.08-f)/.08*m*.03:0);
+        var x=w/2+Math.cos(a)*rr,y=h/2+Math.sin(a)*rr;k?cx.lineTo(x,y):cx.moveTo(x,y)}
+      cx.strokeStyle=red;cx.lineWidth=3.2*dpr;cx.lineCap='round';cx.lineJoin='round';cx.stroke();
+      if(vis||run)raf=requestAnimationFrame(draw)}
+    new IntersectionObserver(function(es){vis=es[0].isIntersecting;cancelAnimationFrame(raf);if(vis||run)raf=requestAnimationFrame(draw)}).observe(cv);
+    bt.onclick=function(){run=1;t0=performance.now();bt.textContent='Ricomincia';cancelAnimationFrame(raf);raf=requestAnimationFrame(draw)}})();
+
+  /* i quattro passi: il filo li raggiunge uno alla volta */
+  var pp=document.getElementById('passiP'),pl=pp.getTotalLength(),pli=[].slice.call(document.querySelectorAll('.passi li')),pci=[].slice.call(document.querySelectorAll('.passi__svg circle'));
+  pp.style.strokeDasharray=pl;pp.style.strokeDashoffset=pl;
+  var psv=document.getElementById("passiSvg"),ppt=[];for(var j=0;j<=300;j++)ppt.push(pp.getPointAtLength(pl*j/300));
+  function placeC(){var sr=psv.getBoundingClientRect();if(!sr.width)return;pli.forEach(function(li,i){var x=(li.getBoundingClientRect().left-sr.left)/sr.width*1200+9,best=ppt[0];ppt.forEach(function(q){if(Math.abs(q.x-x)<Math.abs(best.x-x))best=q});pci[i].setAttribute('cx',best.x.toFixed(1));pci[i].setAttribute('cy',best.y.toFixed(1))})}
+  placeC();addEventListener('resize',placeC);addEventListener('load',placeC);
+  U.pin(document.getElementById('primo'),function(t){var q=U.map(t,.04,.86);pp.style.strokeDashoffset=(pl*(1-q)).toFixed(1);
+    pli.forEach(function(li,i){var on=q>=i*.25+.11;li.classList.toggle('on',on);pci[i].classList.toggle('on',on)})});
 
   /* il groviglio che si scioglie: 3D finché è un nodo, poi diventa la riga rossa della pagina */
   var de=document.documentElement,cv=document.getElementById('filo'),st=U.three(cv,{fov:30,shadows:true,exposure:1});if(!st){de.classList.add('resolved');return}
