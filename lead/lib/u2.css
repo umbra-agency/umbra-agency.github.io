@@ -30,7 +30,7 @@ a{color:inherit}
 .u-tag button{display:flex;align-items:center;gap:8px;height:34px;padding:0 14px 0 11px;border:0;border-radius:17px;background:rgba(10,10,10,.84);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:inherit;cursor:pointer}
 .u-tag button i{width:12px;height:12px;border-radius:50%;box-shadow:inset -3.5px 0 0 #dcdcdc}
 .u-tag p{position:absolute;left:0;bottom:42px;width:min(330px,calc(100vw - 32px));padding:12px 14px;border-radius:12px;background:rgba(10,10,10,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .4s,transform .4s}
-.u-tag.open p{opacity:1;transform:none;pointer-events:auto}
+.u-tag.is-open p{opacity:1;transform:none;pointer-events:auto}
 .u-tag button:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
 /* fascia finale: qui parla Umbra, non il sito */

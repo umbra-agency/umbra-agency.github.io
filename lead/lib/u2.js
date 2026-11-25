@@ -23,8 +23,8 @@
   /* etichetta con la nota */
   var note=b.getAttribute('data-note');
   if(note){var tg=d.createElement('div');tg.className='u-tag';tg.innerHTML='<p></p><button type="button" aria-expanded="false"><i></i>Anteprima Umbra</button>';tg.querySelector('p').textContent=note;
-    var tb=tg.querySelector('button'),tog=function(o){tg.classList.toggle('open',o);tb.setAttribute('aria-expanded',o)};
-    tb.onclick=function(){tog(!tg.classList.contains('open'))};
+    var tb=tg.querySelector('button'),tog=function(o){tg.classList.toggle('is-open',o);tb.setAttribute('aria-expanded',o)};
+    tb.onclick=function(){tog(!tg.classList.contains('is-open'))};
     setTimeout(function(){b.appendChild(tg);requestAnimationFrame(function(){requestAnimationFrame(function(){tog(true)})});setTimeout(function(){tog(false)},5500)},hold+1600)}
 
   /* stato dello scroll */
