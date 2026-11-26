@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>NMG Italia · Passa da una porta, solleva un cantiere</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Unbounded;src:url(../lib/fonts/unbounded-normal.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:Sora;src:url(../lib/fonts/sora-normal.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{
+  /* giallo sicurezza, grafite, cemento, il blu della spina elettrica */
+  --giallo:#F5C400; --graf:#1C2024; --graf2:#2A2F35; --cem:#DAD8D2; --bianco:#F6F6F3; --volt:#3D7BFF; --riga:#1c202426;
+  --u:Unbounded,system-ui,sans-serif; --s:Sora,system-ui,sans-serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 16px/1.6 var(--s);color:var(--graf);background:var(--bianco)}
+h1,h2,h3{font-family:var(--u);font-weight:700;line-height:1;letter-spacing:-.03em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--volt);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1380px;margin-inline:auto}
+
+/* ---------- la gru che si apre ---------- */
+.gru{position:relative;height:320vh;background:var(--graf);color:#fff}
+.gru__st{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.gru__st::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:40px 40px}
+.bar{position:absolute;inset:0 0 auto;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad)}
+.bar b{font:800 20px/1 var(--u);letter-spacing:-.02em}
+.bar b span{color:var(--giallo)}
+.bar a{font-weight:700;font-size:14px;color:var(--graf);background:var(--giallo);padding:11px 16px;border-radius:3px;text-decoration:none}
+.gru__t{position:relative;z-index:2;align-self:end;padding:0 var(--pad) clamp(40px,8vh,90px)}
+.gru__t h1{font-size:clamp(40px,4.8vw,80px);margin:0 0 18px}
+.gru__t h1 em{font-style:normal;color:var(--giallo)}
+.gru__t p{font-size:clamp(16px,1.3vw,18px);max-width:42ch;margin:0;opacity:.85}
+.spec{display:flex;gap:24px;margin-top:26px;flex-wrap:wrap}
+.spec div{border-left:3px solid var(--giallo);padding-left:12px}
+.spec b{display:block;font:700 clamp(26px,2.6vw,40px)/1 var(--u)}
+.spec span{font-size:13px;opacity:.75}
+.gru svg{position:relative;z-index:1;width:100%;height:100%;display:block}
+.dim{font:600 15px var(--s);fill:#fff}
+.dimy{font:700 15px var(--s);fill:var(--giallo)}
+
+/* ---------- numeri ---------- */
+.num{background:var(--giallo);padding-block:clamp(26px,3vw,40px)}
+.num__g{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.num b{display:block;font:800 clamp(30px,3.4vw,54px)/1 var(--u);letter-spacing:-.04em}
+.num span{font-size:14px;font-weight:600}
+
+/* ---------- un cantiere, sei contenuti ---------- */
+.sei{padding-block:clamp(70px,9vw,130px)}
+.sei h2{font-size:clamp(36px,4.6vw,72px);margin:0 0 14px;max-width:18ch}
+.sei .lead{font-size:clamp(16.5px,1.4vw,19px);max-width:58ch;margin:0 0 28px}
+.cant{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
+.cant button{border:2px solid var(--graf);background:none;border-radius:3px;padding:11px 16px;font-weight:700;cursor:pointer}
+.cant button[aria-pressed=true]{background:var(--graf);color:var(--giallo)}
+.sei__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:start}
+.sb h3{font-size:22px;margin:0 0 14px}
+.shot{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--riga);animation:su .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes su{from{opacity:0;transform:translateY(8px)}}
+.shot svg{width:74px;height:54px;display:block;background:var(--cem);border-radius:3px}
+.shot b{display:block;font-size:15.5px}
+.shot span{font-size:14px;opacity:.75}
+.shot time{float:right;font:700 12.5px var(--u);color:var(--volt)}
+.outs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.out{border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--riga);display:flex;flex-direction:column}
+.out small{display:block;padding:10px 12px;font-size:12.5px;font-weight:700;border-bottom:1px solid var(--riga)}
+.li{background:var(--graf);color:#fff;aspect-ratio:1;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:8%;container-type:inline-size}
+.li i{font-style:normal;font:700 5cqw/1 var(--u);color:var(--giallo)}
+.li b{font:700 9.6cqw/1.02 var(--u);letter-spacing:-.03em}
+.li span{font-size:4.6cqw;opacity:.8}
+.li nav{display:flex;gap:2.4cqw}
+.li nav button{width:2.8cqw;height:2.8cqw;border-radius:50%;border:0;background:#ffffff59;padding:0;cursor:pointer}
+.li nav button[aria-pressed=true]{background:var(--giallo)}
+.li .ar{position:absolute;right:6%;bottom:7%;border:0;background:var(--giallo);color:var(--graf);width:11cqw;height:11cqw;border-radius:50%;font-weight:800;cursor:pointer}
+.reel{aspect-ratio:9/16;position:relative;overflow:hidden;background:#000;color:#fff;container-type:inline-size}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
+.reel div{position:absolute;left:7%;right:7%;bottom:8%}
+.reel b{display:inline;font:800 8.6cqw/1.35 var(--u);background:var(--giallo);color:var(--graf);padding:.06em .25em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.reel span{display:block;font-size:4.8cqw;margin-top:4cqw}
+.reel em{position:absolute;top:6%;left:7%;font:700 4.6cqw/1 var(--u);font-style:normal;background:#0009;padding:2cqw 3cqw;border-radius:99px}
+
+/* ---------- scheda macchina ---------- */
+.sch{background:var(--cem);padding-block:clamp(70px,9vw,130px)}
+.sch h2{font-size:clamp(36px,4.6vw,72px);margin:0 0 14px;max-width:16ch}
+.sch .lead{font-size:clamp(16.5px,1.4vw,19px);max-width:58ch;margin:0 0 clamp(28px,4vw,48px)}
+.sheet{background:#fff;border-radius:6px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);overflow:hidden;box-shadow:0 30px 60px -40px #0007}
+.sheet__v{background:var(--graf);color:#fff;padding:clamp(20px,3vw,40px);position:relative}
+.sheet__v small{font:700 12.5px var(--u);color:var(--giallo)}
+.sheet__v h3{font-size:clamp(26px,2.6vw,40px);margin:10px 0 6px}
+.sheet__v svg{display:block;width:100%;height:auto;margin-top:14px}
+.sheet__d{padding:clamp(20px,3vw,40px)}
+.sheet__d h4{font:700 15px var(--u);margin:0 0 10px}
+.sheet__d table{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:20px}
+.sheet__d td{padding:10px 0;border-bottom:1px solid var(--riga)}
+.sheet__d td:last-child{text-align:right;font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tags span{background:var(--cem);border-radius:99px;padding:6px 11px;font-size:13px;font-weight:600}
+.tags span.v{background:var(--volt);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:3px;padding:14px 18px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer}
+.btn--y{background:var(--giallo);color:var(--graf)}
+.btn--d{background:var(--graf);color:#fff}
+.nota{font-size:13px;opacity:.65;margin-top:12px}
+
+/* ---------- vicini ---------- */
+.vic{background:var(--graf);color:#fff;padding-block:clamp(70px,9vw,130px)}
+.vic__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.vic h2{font-size:clamp(36px,4.6vw,72px);margin:0 0 18px}
+.vic p{font-size:clamp(16.5px,1.4vw,19px);margin:0 0 14px;max-width:48ch;opacity:.88}
+.vic svg{width:100%;height:auto;display:block}
+
+.foot{background:var(--giallo);padding-block:clamp(36px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(28px,3.4vw,52px);margin:0}
+.foot p{margin:0;font-size:15px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:980px){
+  .gru__st{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .gru__t{align-self:start;padding-top:80px;order:-1}
+  .num__g{grid-template-columns:repeat(3,1fr)}
+  .sei__g,.sheet,.vic__g{grid-template-columns:1fr}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .gru__t h1{font-size:30px}
+  .gru__t p{font-size:14.5px}
+  .spec{gap:14px;margin-top:16px}
+  .spec b{font-size:22px}
+  .num__g{grid-template-columns:1fr 1fr}
+  .outs{grid-template-columns:1fr 1fr;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){.shot{animation:none}}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per NMG Italia" data-note="Anteprima preparata da Umbra per NMG Italia, a partire dal vostro annuncio per videomaker. Numeri, servizi, sede e contatti vengono dal vostro sito; la gru è disegnata, i dati della scheda sono di esempio e le foto sono di repertorio.">
+
+<section class="gru" id="top">
+  <div class="gru__st">
+    <header class="bar"><b>NMG <span>Italia</span></b><a href="tel:800205050">800 20 50 50</a></header>
+    <div class="gru__t">
+      <h1>Passa da una porta. <em>Solleva un cantiere.</em></h1>
+      <p>Mini gru cingolate elettriche: larghe da 0,7 metri, fino a 10 tonnellate e 30 metri di altezza. Senza fumi, dentro e fuori, anche in centro storico.</p>
+      <div class="spec"><div><b id="sH">0 m</b><span>altezza raggiunta</span></div><div><b>0,7 m</b><span>larghezza minima</span></div><div><b>0</b><span>emissioni allo scarico</span></div></div>
+    </div>
+    <svg id="crane" viewBox="0 0 900 900" preserveAspectRatio="xMidYMax meet" aria-label="Una mini gru cingolata che apre il braccio"></svg>
+  </div>
+</section>
+
+<section class="num">
+  <div class="wrap num__g">
+    <div><b>70+</b><span>gru elettriche in flotta</span></div>
+    <div><b>25+</b><span>modelli di mini gru e pick &amp; carry</span></div>
+    <div><b>275+</b><span>aziende servite ogni anno</span></div>
+    <div><b>24/48h</b><span>consegna nel Centro-Nord</span></div>
+    <div><b>ISO 9001</b><span>azienda certificata</span></div>
+  </div>
+</section>
+
+<section class="sei">
+  <div class="wrap">
+    <h2>Un cantiere, sei contenuti.</h2>
+    <p class="lead">Il vostro annuncio chiede riprese in cantiere anche con il drone, casi studio e video brevi per sito, LinkedIn, Instagram, Facebook e TikTok. Scegliete un lavoro: ecco la scaletta delle riprese e cosa ne esce.</p>
+    <div class="cant" id="cant" role="group" aria-label="Tipo di lavoro"></div>
+    <div class="sei__g">
+      <div class="sb" aria-live="polite"><h3 id="sbT"></h3><div id="shots"></div></div>
+      <div class="outs">
+        <div class="out"><small>Carosello LinkedIn</small><div class="li" id="li"></div></div>
+        <div class="out"><small>Reel e TikTok</small><div class="reel" id="reel"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sch">
+  <div class="wrap">
+    <h2>Ogni macchina in vendita ha la sua scheda.</h2>
+    <p class="lead">Foto, misure e diagramma di carico nello stesso formato per tutto il parco: si stampa, si allega all'offerta e si pubblica. Il diagramma risponde da solo alla domanda che fa ogni cliente.</p>
+    <div class="sheet">
+      <div class="sheet__v">
+        <small>In vendita · usato garantito</small>
+        <h3>Mini gru cingolata elettrica</h3>
+        <svg id="chart" viewBox="0 0 520 330" role="img" aria-label="Diagramma di carico di esempio"></svg>
+        <p class="nota" style="color:#fff">Diagramma di esempio: nella scheda vera ci sono i dati del costruttore.</p>
+      </div>
+      <div class="sheet__d">
+        <h4>Quanto sollevo, a che distanza?</h4>
+        <label for="sb" style="display:flex;justify-content:space-between;font-weight:700;font-size:14.5px">Sbraccio <output id="sbO"></output></label>
+        <input id="sb" type="range" min="2" max="16" step=".5" value="6" style="width:100%;accent-color:#1C2024;margin:6px 0 16px">
+        <table><tr><td>Portata a questo sbraccio</td><td id="pt"></td></tr><tr><td>Larghezza di passaggio</td><td>0,78 m</td></tr><tr><td>Alimentazione</td><td>elettrica, batteria al litio</td></tr><tr><td>Utilizzo</td><td>indoor e outdoor</td></tr></table>
+        <div class="tags"><span class="v">100% elettrica</span><span>Cingolata</span><span>Radiocomando</span><span>Con o senza operatore</span></div>
+        <a class="btn btn--d" href="mailto:info@nmgitalia.com">Chiedi il preventivo in 2 ore</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vic">
+  <div class="wrap vic__g">
+    <div>
+      <h2>Siamo a Rovigo. Legnago è a mezz'ora.</h2>
+      <p>Per le riprese in cantiere e in stabilimento, anche con il drone, possiamo esserci noi. Per il resto, gli operatori mandano foto e video dal telefono seguendo la scaletta, e tutto torna montato.</p>
+      <p>Il materiale resta vostro: casi studio per il sito, video brevi per i social, schede per le macchine in vendita e grafiche per le presentazioni.</p>
+    </div>
+    <svg viewBox="0 0 480 360" aria-label="Rovigo e Legnago sulla mappa">
+      <path d="M20 300 C120 260 200 300 300 250 C380 210 430 230 470 200" fill="none" stroke="#ffffff33" stroke-width="2"/>
+      <path d="M40 120 C140 140 220 90 320 120 C390 140 430 110 470 120" fill="none" stroke="#ffffff22" stroke-width="2"/>
+      <path id="rt" d="M120 110 C170 170 260 220 340 250" fill="none" stroke="#F5C400" stroke-width="4" stroke-dasharray="10 8"/>
+      <circle cx="120" cy="110" r="10" fill="#F5C400"/><text x="140" y="102" fill="#fff" font-family="Unbounded" font-weight="700" font-size="18">Legnago</text><text x="140" y="124" fill="#ffffffaa" font-family="Sora" font-size="13">NMG Italia, San Pietro di Legnago</text>
+      <circle cx="340" cy="250" r="10" fill="#fff"/><text x="290" y="290" fill="#fff" font-family="Unbounded" font-weight="700" font-size="18">Rovigo</text><text x="290" y="310" fill="#ffffffaa" font-family="Sora" font-size="13">Umbra</text>
+      <text x="236" y="168" fill="#F5C400" font-family="Unbounded" font-weight="700" font-size="16" transform="rotate(28 236 168)">circa 35 minuti</text>
+    </svg>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Noleggio gru elettriche e relocation industriale.</h2>
+    <p>NMG Italia<br>San Pietro di Legnago (VR)<br>Lun–Ven 8:30–17:30</p>
+    <p>Numero verde <a href="tel:800205050">800 20 50 50</a><br><a href="mailto:info@nmgitalia.com">info@nmgitalia.com</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il reparto video che vi serve, già pronto e a mezz'ora da voi.</h2>
+    <ul>
+      <li><b>Riprese in cantiere, anche col drone</b>Veniamo noi da Rovigo per i lavori che meritano: una scaletta precisa e mezza giornata di riprese.</li>
+      <li><b>Sei contenuti per ogni lavoro</b>Caso studio per il sito, carosello LinkedIn, reel, TikTok, foto per l'archivio e un post per Facebook.</li>
+      <li><b>Le schede delle macchine in vendita</b>Lo stesso formato per tutto il parco: foto, misure e diagramma di carico.</li>
+      <li><b>Grafiche e presentazioni</b>Annunci, slide commerciali e materiali per le fiere, con il vostro marchio.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per NMG Italia. Foto di repertorio da Unsplash, dati della scheda di esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+/* ---------- la gru: il braccio si apre con lo scroll ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)},svg=$('crane');
+  var Y='#F5C400',G='#2A2F35';
+  function draw(t){
+    var e=U.ease(U.clamp(t*1.15,0,1)),ang=-(8+e*58)*Math.PI/180,len=150+e*440,ox=300,oy=640,h='';
+    /* porta da cui è passata */
+    var dx=U.lerp(-140,0,U.clamp(t*4,0,1));
+    h+='<rect x="0" y="0" width="900" height="900" fill="none"/>';
+    h+='<path d="M60 760 H860" stroke="#ffffff40" stroke-width="2"/>';
+    h+='<g opacity="'+(1-U.clamp(t*3,0,1)*.7)+'"><path d="M96 760 V470 H200 V760" fill="none" stroke="#ffffff59" stroke-width="3"/><text x="104" y="455" class="dim">porta 0,8 m</text></g>';
+    h+='<g transform="translate('+dx+' 0)">';
+    /* stabilizzatori */
+    var st=e;[[-1,1],[1,1]].forEach(function(s){var x2=ox+s[0]*(60+st*120);h+='<path d="M'+(ox+s[0]*40)+' 700 L'+x2+' '+(700+st*40)+' L'+x2+' '+(744+st*16)+'" stroke="'+Y+'" stroke-width="10" fill="none" stroke-linejoin="round"/><rect x="'+(x2-16)+'" y="'+(744+st*16)+'" width="32" height="8" fill="#fff"/>'});
+    /* cingoli e corpo */
+    h+='<rect x="'+(ox-100)+'" y="712" width="200" height="44" rx="22" fill="'+G+'" stroke="#ffffff59" stroke-width="2"/>';
+    for(var k=0;k<7;k++)h+='<circle cx="'+(ox-78+k*26)+'" cy="734" r="8" fill="#ffffff26"/>';
+    h+='<path d="M'+(ox-80)+' 712 L'+(ox-80)+' 650 Q'+(ox-80)+' 630 '+(ox-60)+' 630 L'+(ox+70)+' 630 Q'+(ox+90)+' 630 '+(ox+90)+' 650 L'+(ox+90)+' 712Z" fill="'+Y+'"/>';
+    h+='<rect x="'+(ox-60)+'" y="648" width="60" height="22" rx="3" fill="'+G+'"/><text x="'+(ox-54)+'" y="664" font-family="Unbounded" font-size="12" font-weight="800" fill="'+Y+'">NMG</text>';
+    h+='<path d="M'+(ox+40)+' 664 l14 -10 v8 h10 l-14 10 v-8z" fill="#3D7BFF"/>';
+    /* braccio telescopico in tre sfili */
+    var x1=ox+20,y1=632,seg=[.42,.34,.24],cx=x1,cy=y1,w=[26,20,15];
+    seg.forEach(function(sg,i){var l=len*sg+(i?20:0),x2=cx+Math.cos(ang)*l,y2=cy+Math.sin(ang)*l;h+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(i%2?'#E2B300':Y)+'" stroke-width="'+w[i]+'" stroke-linecap="square"/>';cx=x2-Math.cos(ang)*14;cy=y2-Math.sin(ang)*14});
+    var tx=cx+Math.cos(ang)*14,ty=cy+Math.sin(ang)*14;
+    /* fune e carico */
+    var ly=Math.min(700,ty+120+e*60);h+='<line x1="'+tx+'" y1="'+ty+'" x2="'+tx+'" y2="'+ly+'" stroke="#fff" stroke-width="2"/><path d="M'+(tx-8)+' '+ly+' q8 14 16 0" stroke="#fff" stroke-width="3" fill="none"/>';
+    h+='<rect x="'+(tx-46)+'" y="'+(ly+14)+'" width="92" height="56" fill="none" stroke="#fff" stroke-width="2"/><path d="M'+(tx-46)+' '+(ly+14)+' l46 -22 l46 22" stroke="#fff" stroke-width="1.5" fill="none" opacity=".6"/><text x="'+(tx-36)+'" y="'+(ly+48)+'" class="dim" font-size="13">vetrata</text>';
+    /* quota d'altezza */
+    var hm=Math.round(U.lerp(3,30,e));h+='<line x1="840" y1="760" x2="840" y2="'+ty+'" stroke="'+Y+'" stroke-dasharray="6 6"/><line x1="'+tx+'" y1="'+ty+'" x2="840" y2="'+ty+'" stroke="#ffffff40" stroke-dasharray="3 6"/><text x="752" y="'+(ty-10)+'" class="dimy">'+hm+' m</text>';
+    h+='</g>';
+    svg.innerHTML=h;$('sH').textContent=hm+' m';
+  }
+  U.pin($('top'),draw);draw(0);
+})();
+
+/* ---------- un cantiere, sei contenuti ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function ic(k){var m={drone:'<path d="M14 14h12M48 14h12M26 14l11 10 11-10M37 24v8" stroke="#1C2024" stroke-width="3" fill="none"/><rect x="30" y="30" width="14" height="10" fill="#1C2024"/>',
+    gru:'<path d="M12 46h30M20 46V34h16v12M30 34L60 12" stroke="#1C2024" stroke-width="3" fill="none"/><path d="M60 12v20" stroke="#1C2024" stroke-width="1.5"/>',
+    mani:'<circle cx="37" cy="22" r="8" fill="#1C2024"/><path d="M22 46c2-10 28-10 30 0" fill="#1C2024"/>',
+    det:'<circle cx="37" cy="27" r="13" stroke="#1C2024" stroke-width="3" fill="none"/><path d="M46 36l10 10" stroke="#1C2024" stroke-width="4"/>',
+    tl:'<path d="M12 40h50M18 40V28M30 40V22M42 40V16M54 40V10" stroke="#1C2024" stroke-width="3"/>',
+    intv:'<path d="M28 18h18v22H28z" stroke="#1C2024" stroke-width="3" fill="none"/><circle cx="37" cy="27" r="4" fill="#1C2024"/><path d="M24 46h26" stroke="#1C2024" stroke-width="3"/>'};
+    return '<svg viewBox="0 0 74 54" aria-hidden="true">'+(m[k]||'')+'</svg>'}
+  var C={
+    'Centro storico':{t:'Una vetrata in centro storico',shots:[['drone','Dall\'alto, la piazza','Il drone sale lento: la gru è già dentro il vicolo.','0:00'],['gru','La gru passa dal portone','Ripresa bassa sui cingoli, la larghezza in sovrimpressione.','0:04'],['tl','Il timelapse del sollevamento','Telefono fermo sul cavalletto, un\'ora diventa otto secondi.','0:09'],['det','Il dettaglio del radiocomando','L\'operatore lavora a pochi metri dal carico.','0:17'],['mani','Il cliente, una frase','«Pensavamo servisse chiudere la strada.»','0:21'],['drone','La vetrata al suo posto','Il drone si allontana, la piazza torna normale.','0:27']],
+      li:[['Caso studio','Una vetrata di 600 kg in un vicolo di 1 metro.','Centro storico, senza chiudere la strada'],['Il problema','Nessun camion gru poteva entrare.','Portone d\'accesso stretto, pavimentazione delicata'],['La macchina','Una mini gru cingolata elettrica.','Passa da 0,7 m, zero emissioni allo scarico'],['Il risultato','Lavoro finito in mezza giornata.','Con operatore NMG'],['NMG Italia','Hai un lavoro così?','Preventivo in 2 ore · 800 20 50 50']],
+      reel:['img/alto.jpg','Una gru dentro un vicolo di un metro','Come? Guarda fino alla fine.','0:28']},
+    'Trasferimento stabilimento':{t:'Una linea di produzione che cambia casa',shots:[['drone','Lo stabilimento, prima','Il drone sorvola il capannone di partenza.','0:00'],['intv','La macchina da spostare','Ripresa frontale, con le misure in grafica.','0:05'],['tl','Smontaggio in timelapse','Due giorni in dieci secondi.','0:10'],['gru','Il carico sul camion','La pick & carry lavora dentro il capannone.','0:20'],['drone','Il viaggio','Il camion esce dal cancello, ripreso dall\'alto.','0:26'],['mani','Il responsabile di produzione','«Abbiamo ripreso a produrre in tre giorni.»','0:32']],
+      li:[['Relocation','Un reparto intero, da un capannone all\'altro.','Smontaggio, trasporto e rimontaggio'],['La sfida','Fermare la produzione il meno possibile.','Calendario fissato con il cliente'],['Le macchine','Pick & carry elettriche, dentro il capannone.','Fino a 50 tonnellate'],['Il risultato','Linea di nuovo in funzione.','Chiavi in mano, una sola regia'],['NMG Italia','Devi spostare uno stabilimento?','Parliamone · info@nmgitalia.com']],
+      reel:['img/drone.jpg','Uno stabilimento intero, spostato','Dall\'alto, dall\'inizio alla fine.','0:36']},
+    'Lavoro in quota':{t:'Un intervento a trenta metri',shots:[['drone','La facciata, da vicino','Il drone sale lungo la parete fino al punto di lavoro.','0:00'],['gru','Il braccio che si apre','Ripresa dal basso: tre sfili, uno dopo l\'altro.','0:05'],['det','Gli stabilizzatori','Il dettaglio che rassicura chi guarda.','0:11'],['tl','Il lavoro in quota','Timelapse dall\'alto.','0:15'],['mani','La squadra','Chi ha lavorato, a fine giornata.','0:22'],['drone','Il panorama','Si chiude con la città dall\'alto.','0:26']],
+      li:[['In quota','Trenta metri, in sicurezza.','Mezzi certificati e controllati'],['Il problema','Spazio a terra ridotto.','Cortile interno, accesso pedonale'],['La macchina','Mini gru cingolata con braccio telescopico.','Fino a 30 metri di altezza'],['Il risultato','Intervento chiuso in giornata.','Con assistenza tecnica continua'],['NMG Italia','Lavori in quota in vista?','Consegna in 24/48 ore']],
+      reel:['img/gancio.jpg','Trenta metri. Un braccio solo.','Il dettaglio che non vedi da terra.','0:30']}
+  };
+  var cur='Centro storico',slide=0;
+  $('cant').innerHTML=Object.keys(C).map(function(k){return '<button aria-pressed="'+(k==cur)+'">'+k+'</button>'}).join('');
+  function li(){var s=C[cur].li[slide];$('li').innerHTML='<i>'+(slide+1)+' / 5 · '+s[0]+'</i><div><b>'+s[1]+'</b><span style="display:block;margin-top:3cqw">'+s[2]+'</span></div><nav>'+C[cur].li.map(function(x,i){return '<button aria-label="Scheda '+(i+1)+'" aria-pressed="'+(i==slide)+'" data-i="'+i+'"></button>'}).join('')+'</nav><button class="ar" aria-label="Scheda successiva">→</button>'}
+  function draw(){var c=C[cur];$('sbT').textContent=c.t;
+    $('shots').innerHTML=c.shots.map(function(s,i){return '<div class="shot" style="animation-delay:'+(i*60)+'ms">'+ic(s[0])+'<div><time>'+s[3]+'</time><b>'+s[1]+'</b><span>'+s[2]+'</span></div></div>'}).join('');
+    slide=0;li();$('reel').innerHTML='<img src="'+c.reel[0]+'" alt="" loading="lazy"><em>'+c.reel[3]+'</em><div><b>'+c.reel[1]+'</b><span>'+c.reel[2]+'</span></div>'}
+  $('cant').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});draw()});
+  $('li').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;slide=b.classList.contains('ar')?(slide+1)%5:+b.dataset.i;li()});
+  draw();
+})();
+
+/* ---------- la scheda: diagramma di carico di esempio ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function cap(r){return Math.max(.12,Math.min(2.9,2.9*Math.pow(2/r,1.05)))}
+  function X(r){return 50+(r-2)/14*440}function Yv(c){return 290-c/3*250}
+  function draw(){var r=+$('sb').value,c=cap(r),h='';
+    for(var i=0;i<=3;i++){h+='<line x1="50" x2="490" y1="'+Yv(i)+'" y2="'+Yv(i)+'" stroke="#ffffff1f"/><text x="12" y="'+(Yv(i)+5)+'" fill="#ffffff99" font-family="Sora" font-size="12">'+i+' t</text>'}
+    for(i=2;i<=16;i+=2)h+='<text x="'+(X(i)-6)+'" y="314" fill="#ffffff99" font-family="Sora" font-size="12">'+i+'</text>';
+    var d='';for(var q=2;q<=16;q+=.25)d+=(q==2?'M':'L')+X(q).toFixed(1)+' '+Yv(cap(q)).toFixed(1)+' ';
+    h+='<path d="'+d+' L490 290 L50 290Z" fill="#F5C40022"/><path d="'+d+'" stroke="#F5C400" stroke-width="3" fill="none"/>';
+    h+='<line x1="'+X(r)+'" x2="'+X(r)+'" y1="290" y2="'+Yv(c)+'" stroke="#fff" stroke-dasharray="4 4"/><circle cx="'+X(r)+'" cy="'+Yv(c)+'" r="7" fill="#fff"/><text x="'+(X(r)+12)+'" y="'+(Yv(c)-10)+'" fill="#fff" font-family="Unbounded" font-weight="700" font-size="16">'+c.toFixed(2).replace('.',',')+' t</text>';
+    h+='<text x="420" y="306" fill="#ffffff66" font-family="Sora" font-size="11">sbraccio, m</text>';
+    $('chart').innerHTML=h;$('sbO').textContent=String(r).replace('.',',')+' m';$('pt').textContent=c.toFixed(2).replace('.',',')+' t'}
+  $('sb').addEventListener('input',draw);draw();
+})();
+</script>
+</body>
+</html>
