@@ -38,6 +38,7 @@ jobs:
           if [ -d studio ]; then cp -R studio _site/studio; fi
           if [ -d lavoro ]; then cp -R lavoro _site/lavoro; rm -rf _site/lavoro/_strumenti; fi
           if [ -d lead ]; then cp -R lead _site/lead; fi
+          if [ -d cantine ]; then cp -R cantine _site/cantine; fi
           if [ -d ambiente ]; then cp -R ambiente _site/ambiente; rm -rf _site/ambiente/_tools _site/ambiente/_media.tsv; fi
           if [ -d nozze ]; then for d in nozze/*/; do n=$(basename "$d"); [ -e "_site/$n" ] || cp -R "$d" "_site/$n"; done; fi
           ls -R _site/linea-impianti
