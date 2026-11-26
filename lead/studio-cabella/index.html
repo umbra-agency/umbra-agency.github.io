@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Studio Ca'Bella · Dal nord di Milano a Como</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Fraunces;src:url(../lib/fonts/fraunces-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../lib/fonts/fraunces-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:Schib;src:url(../lib/fonts/schibsted-grotesk-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{
+  /* Brianza e lago: mattone delle corti, intonaco giallo, il blu del lago di Como, la carta del cartello vendesi */
+  --into:#F5EFE3; --matt:#A2472F; --lago:#26557A; --lago2:#173A56; --giallo:#E8B64C; --ink:#1A1A1C;
+  --d:Fraunces,Georgia,serif; --s:Schib,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--into)}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:1;letter-spacing:-.02em;text-wrap:balance;font-variation-settings:"SOFT" 50}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--matt);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);max-width:1320px;margin-inline:auto;gap:12px}
+.bar b{font:600 22px/1 var(--d)}
+.bar b i{color:var(--matt)}
+.bar a{color:var(--ink);font-weight:700;text-decoration:none;font-size:14.5px}
+.hero{padding-block:clamp(10px,2vw,30px) clamp(30px,4vw,50px)}
+.hero h1{font-size:clamp(50px,7vw,116px);margin:0 0 14px;max-width:13ch}
+.hero h1 i{font-style:italic;color:var(--lago)}
+.hero p{max-width:56ch;font-size:clamp(17px,1.5vw,20px);color:#4a4642;margin:0}
+
+/* la linea */
+.line{position:relative;margin-top:clamp(30px,4vw,50px);padding:28px 0 10px}
+.line svg{display:block;width:100%;height:auto}
+.st{cursor:pointer}
+.st circle{transition:r .2s}
+.st:hover circle.o,.st.on circle.o{r:16}
+.kit{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(16px,3vw,40px);padding-block:clamp(20px,3vw,40px) clamp(60px,8vw,110px)}
+.cartello{background:var(--matt);color:#fff;border-radius:6px;padding:clamp(18px,2.6vw,30px);position:relative;box-shadow:0 30px 50px -30px #a2472faa}
+.cartello::before{content:"VENDESI";position:absolute;top:-14px;left:22px;background:var(--giallo);color:var(--ink);font-weight:900;font-size:13px;padding:5px 10px;letter-spacing:.08em}
+.cartello h3{font-size:clamp(30px,3vw,44px);margin:8px 0 6px}
+.cartello .ad{opacity:.85;margin:0 0 14px;font-size:15px}
+.cartello .pr{font:600 clamp(40px,4vw,60px)/1 var(--d)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.facts span{background:#ffffff22;border-radius:99px;padding:6px 12px;font-size:14px;font-weight:700}
+.out{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.out>div{background:#fff;border-radius:14px;padding:16px;box-shadow:0 0 0 1px #1a1a1c12;min-width:0}
+.out small{display:block;font-weight:800;font-size:12px;color:var(--lago);letter-spacing:.04em;margin-bottom:8px}
+.out p{margin:0;font-size:14.5px;white-space:pre-line}
+.car{display:flex;gap:6px;overflow:hidden}
+.car div{flex:none;width:31%;aspect-ratio:4/5;border-radius:8px;background:var(--lago);color:#fff;padding:8px;font:500 13px/1.15 var(--d);display:flex;align-items:flex-end}
+.car div:first-child{background:var(--matt)}
+.car div:last-child{background:var(--giallo);color:var(--ink)}
+
+/* compriamo */
+.buy{background:var(--lago2);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.bg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.buy h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 14px}
+.buy p{opacity:.85;max-width:46ch}
+.form{background:#fff;color:var(--ink);border-radius:16px;padding:22px}
+.form label{display:block;font-weight:800;font-size:13px;margin:12px 0 6px}
+.form select,.form input{width:100%;border:1.5px solid #1a1a1c26;border-radius:9px;padding:11px;background:#fff}
+.form output{display:block;font:600 34px/1.1 var(--d);margin:16px 0 4px;color:var(--lago)}
+.form small{color:#6a665f}
+.form a{display:block;text-align:center;margin-top:14px;background:var(--matt);color:#fff;font-weight:800;text-decoration:none;padding:14px;border-radius:10px}
+
+/* agenda */
+.ag{padding-block:clamp(60px,8vw,110px)}
+.ag h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 12px;max-width:15ch}
+.ag .lead{max-width:56ch;color:#4a4642;margin:0 0 26px}
+.wk{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.wk div{background:#fff;border-radius:12px;padding:12px;min-height:200px;box-shadow:0 0 0 1px #1a1a1c12}
+.wk b{display:block;font:600 18px/1 var(--d);margin-bottom:10px}
+.ev{border-left:3px solid var(--lago);padding:4px 8px;margin-bottom:8px;font-size:13px;background:#f3f6f9;border-radius:0 6px 6px 0}
+.ev.v{border-color:var(--matt);background:#fbf0ec}
+.ev.s{border-color:var(--giallo);background:#fcf5e4}
+.ev time{display:block;font-weight:800}
+.q{margin-top:26px;font:italic 400 clamp(22px,2.4vw,32px)/1.3 var(--d);max-width:40ch}
+.q cite{display:block;font:700 14px/1.4 var(--s);font-style:normal;margin-top:8px;color:#6a665f}
+.foot{background:var(--ink);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85;font-size:15.5px}
+.foot a{color:inherit}
+@media(max-width:980px){.kit,.bg,.foot__g{grid-template-columns:1fr}.wk{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.out{grid-template-columns:1fr}.wk{grid-template-columns:1fr}.wk div{min-height:0}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Studio Ca'Bella" data-note="Anteprima preparata da Umbra per Studio Ca'Bella, a partire dal vostro annuncio per la coordinatrice d'agenzia. Immobili, prezzi, metrature, telefoni, zona e anni di attività vengono dal vostro sito; testi degli annunci, stime e appuntamenti sono un esempio.">
+
+<header class="bar"><b>Studio <i>Ca'Bella</i></b><a href="tel:+390362508494">0362 508494</a></header>
+
+<section class="wrap hero" id="top">
+  <h1>Dal nord di Milano a Como, <i>una casa alla volta.</i></h1>
+  <p>Oltre quarant'anni di intermediazione sulla stessa linea. Toccate una fermata: l'immobile diventa annuncio per i portali, carosello, storia e messaggio per chi sta già cercando, senza riscrivere niente.</p>
+  <div class="line"><svg id="line" viewBox="0 0 1200 220" role="img" aria-label="Linea da Cesano Maderno a Como con gli immobili"></svg></div>
+  <div class="kit" aria-live="polite">
+    <div class="cartello"><h3 id="kT"></h3><p class="ad" id="kA"></p><div class="pr" id="kP"></div><div class="facts" id="kF"></div></div>
+    <div class="out">
+      <div><small>ANNUNCIO PER I PORTALI</small><p id="oP"></p></div>
+      <div><small>CAROSELLO INSTAGRAM</small><div class="car" id="oC"></div></div>
+      <div><small>STORIA</small><p id="oS"></p></div>
+      <div><small>WHATSAPP A CHI CERCA</small><p id="oW"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="buy">
+  <div class="wrap bg">
+    <div>
+      <h2>Compriamo la tua casa.</h2>
+      <p>Il vostro servizio che merita più spazio: chi vuole vendere senza aspettare lascia tre dati e riceve una prima idea di prezzo, e voi un contatto già qualificato da richiamare.</p>
+    </div>
+    <div class="form">
+      <label for="fz">Dove si trova</label><select id="fz"><option value="2450">Cesano Maderno</option><option value="2550">Seveso</option><option value="2600">Meda</option><option value="2300">Cantù</option><option value="3300">Como città</option></select>
+      <label for="ft">Che casa è</label><select id="ft"><option value="1">Appartamento</option><option value="1.15">Villa o villetta</option><option value=".8">Da ristrutturare</option></select>
+      <label for="fm">Metri quadri</label><input id="fm" type="number" value="85" min="20" max="600">
+      <output id="fo"></output><small>Prima stima indicativa: il valore vero lo dà il sopralluogo.</small>
+      <a id="fa" href="mailto:info@studiocabella.it">Chiedi il sopralluogo</a>
+    </div>
+  </div>
+</section>
+
+<section class="ag">
+  <div class="wrap">
+    <h2>La settimana dell'agenzia, in un colpo d'occhio.</h2>
+    <p class="lead">Chi coordina vede visite, sopralluoghi e pubblicazioni di tutti gli agenti in un posto solo; gli annunci nuovi escono il giorno stesso su portali e social. Appuntamenti d'esempio.</p>
+    <div class="wk">
+      <div><b>Lunedì</b><div class="ev s"><time>9:00</time>Pubblicazione trilocale Binzago</div><div class="ev v"><time>11:30</time>Visita bilocale Via Como</div></div>
+      <div><b>Martedì</b><div class="ev"><time>10:00</time>Sopralluogo «Compriamo la tua casa», Seveso</div><div class="ev v"><time>17:00</time>Visita trilocale Binzago</div></div>
+      <div><b>Mercoledì</b><div class="ev s"><time>9:00</time>Carosello terreno San Bernardo</div><div class="ev v"><time>15:00</time>Visita bilocale Borgovico, Como</div></div>
+      <div><b>Giovedì</b><div class="ev"><time>11:00</time>Firma incarico, Meda</div><div class="ev v"><time>18:00</time>Seconda visita Via Como</div></div>
+      <div><b>Venerdì</b><div class="ev s"><time>9:00</time>Report della settimana ai proprietari</div><div class="ev"><time>16:00</time>Sopralluogo, Cantù</div></div>
+    </div>
+    <p class="q">«Essere felici a casa è il massimo risultato dell'ambizione.»<cite>Samuel Johnson, dalla vostra home</cite></p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Studio Ca'Bella, consulenze immobiliari.</h2>
+    <p>Dal nord di Milano a Como<br>da oltre quarant'anni</p>
+    <p><a href="tel:+390362508494">0362 508494</a> · <a href="tel:+39031920760">031 920760</a><br><a href="mailto:info@studiocabella.it">info@studiocabella.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Ogni casa in vendita, cinque contenuti lo stesso giorno.</h2>
+    <ul>
+      <li><b>Un immobile, tutti i canali</b>Portali, carosello, storia e WhatsApp escono dalla stessa scheda.</li>
+      <li><b>Compriamo la tua casa</b>Una pagina che porta proprietari già decisi a vendere.</li>
+      <li><b>L'agenda di tutti</b>Visite e sopralluoghi degli agenti in un posto solo.</li>
+      <li><b>Da esterni</b>Contenuti e pubblicazioni li seguiamo noi, chi coordina pensa ai clienti.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Studio Ca'Bella. Testi, stime e agenda d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var STOPS=[['Cesano Maderno',110],['Seveso',330],['Meda',520],['Cantù',780],['Como',1080]];
+  var H=[
+    {k:'tri',x:150,t:'Trilocale a Binzago, ultimo piano',a:'Via Caravaggio, Binzago · Cesano Maderno',p:'160.000 €',f:['80 m²','2 camere','1 bagno','Ultimo piano'],pt:'Trilocale all\'ultimo piano a Binzago, Cesano Maderno: 80 m² con due camere e bagno, luminoso e silenzioso. Vicino a scuole, negozi e stazione. Classe e spese su richiesta.',c:['Ultimo piano, a Binzago','80 m², due camere','160.000 € · visite da lunedì'],s:'Nuovo: trilocale all\'ultimo piano a Binzago. Scrivici «Binzago» per la visita.'},
+    {k:'bil',x:70,t:'Bilocale di 83 m² in centro',a:'Via Como · Cesano Maderno',p:'139.000 €',f:['83 m²','1 camera','1 bagno','Centro'],pt:'Bilocale ampio, 83 m², nel centro di Cesano Maderno, in Via Como: soggiorno generoso, camera matrimoniale e bagno. Ideale anche come primo acquisto.',c:['83 m² in centro','Un bilocale grande come un trilocale','139.000 €'],s:'83 metri quadri in centro a Cesano: un bilocale che sembra un trilocale.'},
+    {k:'ter',x:300,t:'Terreno edificabile a San Bernardo',a:'Via Carlo Pasini, Cassina Savina · Cesano Maderno',p:'220.000 €',f:['Edificabile','Cassina Savina','Progetto su richiesta'],pt:'Terreno edificabile a San Bernardo, Cassina Savina: zona residenziale tranquilla, servita. Ideale per villa singola o bifamiliare. Indici e progetto su richiesta.',c:['Costruire la casa giusta','A San Bernardo, Cesano','220.000 €'],s:'Un terreno per costruire la casa che non trovi. San Bernardo, Cesano Maderno.'},
+    {k:'com',x:1100,t:'Bilocale in Via Borgovico, Como',a:'Borgo Vico · Como',p:'Prezzo su richiesta',f:['50 m²','1 camera','1 bagno','Vicino al lago'],pt:'Bilocale di 50 m² in Via Borgovico, a due passi dal lago e da Villa Olmo: camera, soggiorno con cucina e bagno. Perfetto da abitare o da mettere a reddito.',c:['A due passi dal lago','50 m² in Borgovico','Da abitare o affittare'],s:'Como, Borgovico: il lago a due passi. Bilocale da abitare o da mettere a reddito.'}
+  ];
+  var cur='tri';
+  function line(){var o='<path d="M60 120 L1140 120" stroke="#1A1A1C" stroke-width="6" stroke-linecap="round"/><path d="M60 120 L1140 120" stroke="#E8B64C" stroke-width="2" stroke-dasharray="2 14"/>';
+    o+='<path d="M960 170 Q1060 140 1160 175 L1160 220 L960 220Z" fill="#26557A" opacity=".25"/><text x="1060" y="208" text-anchor="middle" font-size="14" fill="#26557A" font-family="Schib" font-weight="700">lago</text>';
+    STOPS.forEach(function(s){o+='<circle cx="'+s[1]+'" cy="120" r="10" fill="#F5EFE3" stroke="#1A1A1C" stroke-width="4"/><text x="'+s[1]+'" y="160" text-anchor="middle" font-size="17" font-family="Fraunces" font-weight="600">'+s[0]+'</text>'});
+    H.forEach(function(h,i){var y=i%2?50:30;o+='<g class="st'+(h.k===cur?' on':'')+'" data-k="'+h.k+'" tabindex="0" role="button" aria-label="'+h.t+'"><line x1="'+h.x+'" y1="'+(y+12)+'" x2="'+h.x+'" y2="110" stroke="#A2472F" stroke-width="2"/><circle class="o" cx="'+h.x+'" cy="'+y+'" r="12" fill="'+(h.k===cur?'#A2472F':'#fff')+'" stroke="#A2472F" stroke-width="3"/><text x="'+(h.x+18)+'" y="'+(y+5)+'" font-size="14" font-family="Schib" font-weight="700" fill="#A2472F">'+h.p+'</text></g>'});
+    $('line').innerHTML=o}
+  function kit(){var h=H.filter(function(x){return x.k===cur})[0];$('kT').textContent=h.t;$('kA').textContent=h.a;$('kP').textContent=h.p;$('kF').innerHTML=h.f.map(function(f){return '<span>'+f+'</span>'}).join('');
+    $('oP').textContent=h.pt;$('oC').innerHTML=h.c.map(function(c){return '<div>'+c+'</div>'}).join('');$('oS').textContent=h.s;
+    $('oW').textContent='Buongiorno, è appena entrato '+h.t.charAt(0).toLowerCase()+h.t.slice(1)+' ('+h.p+'). Mi aveva detto che cercava in zona: le mando foto e planimetria?'}
+  function pick(e){var g=e.target.closest('.st');if(!g)return;cur=g.dataset.k;line();kit()}
+  $('line').addEventListener('click',pick);$('line').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(e)}});
+  line();kit();
+  function st(){var v=(+$('fz').value)*(+$('ft').value)*(+$('fm').value||0),lo=Math.round(v*.92/1000)*1000,hi=Math.round(v*1.08/1000)*1000;$('fo').textContent=lo.toLocaleString('it-IT')+' – '+hi.toLocaleString('it-IT')+' €';
+    $('fa').href='mailto:info@studiocabella.it?subject='+encodeURIComponent('Compriamo la tua casa: '+$('fz').selectedOptions[0].text)+'&body='+encodeURIComponent('Buongiorno, vorrei vendere: '+$('ft').selectedOptions[0].text.toLowerCase()+' di '+$('fm').value+' m² a '+$('fz').selectedOptions[0].text+'. Potete fare un sopralluogo?')}
+  ['fz','ft','fm'].forEach(function(i){$(i).addEventListener('input',st)});st();
+})();
+</script>
+</body>
+</html>

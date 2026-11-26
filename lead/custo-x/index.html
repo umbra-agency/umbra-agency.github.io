@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Custo-X · Scendiamo a 0,15 micron</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Syne;src:url(../lib/fonts/syne-normal.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(../lib/fonts/manrope-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{
+  /* laboratorio svizzero di cosmeceutica: bianco clinico, nude della pelle, il pigmento, il blu ghiaccio delle Alpi */
+  --bianco:#F7F5F2; --nude:#E8CFC0; --nude2:#C99A84; --pig:#8E3B46; --alpi:#BFD8E2; --ink:#16151A;
+  --d:Syne,system-ui,sans-serif; --s:Manrope,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--bianco)}
+h1,h2,h3{font-family:var(--d);font-weight:700;line-height:.98;letter-spacing:-.03em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pig);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+
+/* lo zoom */
+.zoom{position:relative;height:430vh;background:var(--ink);color:#fff}
+.zst{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(16px,3vw,40px);padding-inline:var(--pad);max-width:1440px;margin-inline:auto}
+.zbar{position:absolute;top:18px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;font-size:14px;z-index:3}
+.zbar b{font:800 20px/1 var(--d);letter-spacing:-.02em}
+.zbar b i{font-style:normal;color:var(--nude2)}
+.ztx small{display:block;font-weight:800;font-size:13px;color:var(--nude2);letter-spacing:.05em;margin-bottom:10px}
+.ztx h1{font-size:clamp(44px,5.8vw,92px);margin:0 0 16px}
+.ztx p{max-width:44ch;opacity:.82;margin:0;min-height:5.2em}
+.scale{display:flex;align-items:center;gap:12px;margin-top:26px;font:800 clamp(30px,3.4vw,48px)/1 var(--d);font-variant-numeric:tabular-nums}
+.scale i{display:block;height:2px;width:120px;background:#fff}
+.zv{position:relative;aspect-ratio:1;max-height:82svh;justify-self:center;width:100%}
+.zv svg{width:100%;height:100%;display:block}
+
+/* trattamenti */
+.tr{padding-block:clamp(64px,8vw,120px)}
+.tr h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 12px;max-width:14ch}
+.tr .lead{max-width:56ch;color:#4f4a4c;margin:0 0 28px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tabs button{border:1.5px solid #16151a26;background:#fff;border-radius:99px;padding:10px 16px;font-weight:700;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.kit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kit>div{background:#fff;border-radius:16px;padding:14px;box-shadow:0 0 0 1px #16151a12;display:flex;flex-direction:column;gap:10px;min-width:0}
+.kit small{font-weight:800;font-size:12px;color:var(--pig);letter-spacing:.04em}
+.kit svg{width:100%;height:auto;display:block;border-radius:10px}
+.kit p{margin:0;font-size:14.5px}
+.kit .ba{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--nude)}
+.kit .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kit .ba .af{clip-path:inset(0 0 0 var(--x,50%));filter:saturate(1.15) brightness(1.06) contrast(1.05)}
+.kit .ba input{position:absolute;left:0;right:0;bottom:8px;width:90%;margin:0 5%;accent-color:#fff}
+.kit .ba em{position:absolute;top:8px;font-style:normal;font-size:11px;font-weight:800;background:#000a;color:#fff;padding:3px 8px;border-radius:99px}
+
+/* academy */
+.ac{background:var(--nude);padding-block:clamp(64px,8vw,120px)}
+.acg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.ac h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 14px}
+.ac p{max-width:46ch;color:#3f3437}
+.cal{display:grid;gap:8px}
+.cal button{display:grid;grid-template-columns:86px 1fr auto;gap:12px;align-items:center;text-align:left;background:#fff;border:0;border-radius:14px;padding:14px 16px;cursor:pointer;box-shadow:0 0 0 1.5px transparent}
+.cal button[aria-pressed=true]{box-shadow:0 0 0 2.5px var(--pig)}
+.cal time{font:800 15px/1.2 var(--d)}
+.cal b{display:block}
+.cal span{font-size:13.5px;color:#6b5f62}
+.cal em{font-style:normal;font-size:12.5px;font-weight:800;background:var(--alpi);border-radius:99px;padding:4px 10px;white-space:nowrap}
+.go{display:inline-block;margin-top:16px;background:var(--ink);color:#fff;text-decoration:none;font-weight:800;padding:15px 20px;border-radius:12px}
+.cert{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.cert span{background:#ffffff88;border-radius:99px;padding:6px 12px;font-size:13.5px;font-weight:700}
+.foot{background:var(--ink);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85;font-size:15.5px}
+.foot a{color:inherit}
+@media(max-width:980px){.zst{grid-template-columns:1fr;align-content:center;gap:4px}.zv{max-height:44svh;max-width:44svh}.ztx h1{font-size:40px}.ztx p{min-height:0;font-size:15px}.scale{margin-top:12px;font-size:28px}.kit{grid-template-columns:1fr 1fr}.acg,.foot__g{grid-template-columns:1fr}}
+@media(max-width:560px){.kit{grid-template-columns:1fr}.cal button{grid-template-columns:70px 1fr}.cal em{grid-column:2}}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per Custo-X" data-note="Anteprima preparata da Umbra per Custo-X, a partire dal vostro annuncio per Grafico e Content Manager. Storia, micron dei pigmenti, certificazioni, trattamenti e contatti dei corsi vengono dal vostro sito; date e città dei corsi sono un esempio. Foto da Unsplash, al posto di prima e dopo veri.">
+
+<section class="zoom" id="top">
+  <div class="zst">
+    <div class="zbar"><b>CUSTO<i>-X</i></b><span>Swiss Skin Technology</span></div>
+    <div class="ztx"><small id="zK">SCORRETE</small><h1 id="zH">Scendiamo dentro la pelle.</h1><p id="zP">Custo-X sta per custode: cosmeceutici e pigmenti pensati per custodire la pelle. Scorrete e scendete fino a dove lavora il pigmento.</p><div class="scale"><i></i><span id="zS">1 cm</span></div></div>
+    <div class="zv"><svg id="zv" viewBox="-300 -300 600 600" role="img" aria-label="Ingrandimento dalla pelle alla microsfera del pigmento"></svg></div>
+  </div>
+</section>
+
+<section class="tr">
+  <div class="wrap">
+    <h2>Un trattamento, il kit per l'istituto.</h2>
+    <p class="lead">Le estetiste che scelgono Custo-X vendono meglio se hanno i contenuti pronti. Per ogni trattamento: prima e dopo da trascinare, il post, la storia e il copione del reel.</p>
+    <div class="tabs" id="tabs" role="group" aria-label="Trattamento"></div>
+    <div class="kit" aria-live="polite">
+      <div><small>PRIMA E DOPO</small><div class="ba"><img src="img/viso.jpg" alt=""><img class="af" src="img/viso.jpg" alt=""><em style="left:8px">Prima</em><em style="right:8px">Dopo</em><input type="range" id="ba" min="5" max="95" value="50" aria-label="Prima e dopo"></div></div>
+      <div><small>POST</small><svg id="post" viewBox="0 0 300 375" aria-hidden="true"></svg><p id="postC"></p></div>
+      <div><small>STORIA</small><svg id="story" viewBox="0 0 300 375" aria-hidden="true"></svg><p>Con il bottone per prenotare dall'istituto.</p></div>
+      <div><small>REEL, 15 SECONDI</small><ol id="reel" style="margin:0;padding-left:18px;font-size:14.5px;display:grid;gap:6px"></ol></div>
+    </div>
+  </div>
+</section>
+
+<section class="ac">
+  <div class="wrap acg">
+    <div>
+      <h2>L'Academy, in tutta Italia.</h2>
+      <p>Corsi di BB Glow, Kissum, lifting senza bisturi e dermopigmentazione. Si sceglie data e città, la richiesta arriva su WhatsApp a Custo-X Milano già completa.</p>
+      <div class="cert"><span>Pigmenti TÜV e SGS</span><span>Nickel free</span><span>Biocertitalia</span><span>Dermografi BKC e MOST</span><span>Senza parabeni</span></div>
+      <a class="go" id="go" target="_blank" rel="noopener">Chiedi un posto</a>
+    </div>
+    <div class="cal" id="cal" role="group" aria-label="Date dei corsi"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Custo-X. Upgrade Perfection.</h2>
+    <p>Corsi e formazione<br>Latina · Milano · tutta Italia</p>
+    <p><a href="mailto:info@custo-x.com">info@custo-x.com</a><br><a href="tel:+39077380014">0773 800014</a> · WhatsApp 366 873 0059</p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>La tecnologia che si vede, i corsi che si riempiono.</h2>
+    <ul>
+      <li><b>Raccontare il micron</b>Quello che vi distingue, i pigmenti da 0,15 micron in microsfere, diventa un'immagine che si ricorda.</li>
+      <li><b>Kit per gli istituti</b>Prima e dopo, post, storie e copioni per ogni trattamento, pronti da usare.</li>
+      <li><b>Academy a calendario</b>Date e città dei corsi con richiesta su WhatsApp già compilata.</li>
+      <li><b>Da esterni</b>Grafica, video e social li seguiamo noi, anche per l'e-commerce.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Custo-X. Date dei corsi d'esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* zoom: quattro livelli */
+  function rnd(n){var x=Math.sin(n*12.9898)*43758.5453;return x-Math.floor(x)}
+  var o='<defs><radialGradient id="sk" cx=".4" cy=".35"><stop offset="0" stop-color="#F2DCCF"/><stop offset="1" stop-color="#C99A84"/></radialGradient><radialGradient id="ms" cx=".35" cy=".3"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#BFD8E2" stop-opacity=".5"/><stop offset="1" stop-color="#BFD8E2" stop-opacity=".15"/></radialGradient></defs>';
+  /* livello 1: pelle con pori */
+  o+='<g id="L1"><circle r="290" fill="url(#sk)"/>';for(var i=0;i<140;i++){var a=rnd(i)*6.283,r=Math.sqrt(rnd(i+500))*280;o+='<circle cx="'+(Math.cos(a)*r).toFixed(1)+'" cy="'+(Math.sin(a)*r).toFixed(1)+'" r="'+(1.5+rnd(i+9)*2.5).toFixed(1)+'" fill="#A97862" opacity=".55"/>'}o+='</g>';
+  /* livello 2: strati del derma */
+  o+='<g id="L2" opacity="0"><circle r="290" fill="#F4E2D8"/>';for(var j=0;j<9;j++){o+='<path d="M-300 '+(-200+j*50)+' C-150 '+(-215+j*50)+' 150 '+(-185+j*50)+' 300 '+(-200+j*50)+'" stroke="#D9AE98" stroke-width="'+(6+j)+'" fill="none" opacity=".6"/>'}for(var k=0;k<60;k++){o+='<circle cx="'+(-260+rnd(k*3)*520).toFixed(0)+'" cy="'+(-40+rnd(k*7)*240).toFixed(0)+'" r="'+(4+rnd(k)*6).toFixed(1)+'" fill="#8E3B46" opacity="'+(.35+rnd(k+2)*.5).toFixed(2)+'"/>'}o+='</g>';
+  /* livello 3: particelle di pigmento */
+  o+='<g id="L3" opacity="0"><circle r="290" fill="#f7efe9"/>';for(var p=0;p<26;p++){var a2=rnd(p+70)*6.283,r2=Math.sqrt(rnd(p+90))*230;o+='<circle cx="'+(Math.cos(a2)*r2).toFixed(1)+'" cy="'+(Math.sin(a2)*r2).toFixed(1)+'" r="'+(16+rnd(p+33)*10).toFixed(1)+'" fill="#8E3B46"/><circle cx="'+(Math.cos(a2)*r2-5).toFixed(1)+'" cy="'+(Math.sin(a2)*r2-6).toFixed(1)+'" r="5" fill="#fff" opacity=".35"/>'}o+='</g>';
+  /* livello 4: la microsfera */
+  o+='<g id="L4" opacity="0"><circle r="290" fill="#101015"/><circle r="200" fill="url(#ms)" stroke="#BFD8E2" stroke-width="3"/><circle r="120" fill="#8E3B46"/><circle cx="-40" cy="-46" r="34" fill="#fff" opacity=".28"/>';for(var q=0;q<36;q++){var a3=q/36*6.283;o+='<circle cx="'+(Math.cos(a3)*200).toFixed(1)+'" cy="'+(Math.sin(a3)*200).toFixed(1)+'" r="5" fill="#BFD8E2"/>'}o+='<text y="250" text-anchor="middle" fill="#BFD8E2" font-family="Syne" font-weight="700" font-size="22">microsfera dermocompatibile</text></g>';
+  $('zv').innerHTML=o;
+  var L=['L1','L2','L3','L4'].map($),ST=[
+    ['LA PELLE','Scendiamo dentro la pelle.','Custo-X sta per custode: cosmeceutici e pigmenti pensati per custodire la pelle. Scorrete e scendete fino a dove lavora il pigmento.','1 cm'],
+    ['IL DERMA','Dove si deposita il colore.','Nella dermopigmentazione il pigmento deve restare dove viene impiantato: stabile, uniforme, senza migrare.','1 mm'],
+    ['IL PIGMENTO','Particelle sotto 0,15 micron.','I pigmenti vengono raffinati fino a dimensioni inferiori a 0,15 micron, resi lisci e sferici per resistenza e stabilità.','0,15 µm'],
+    ['LA MICROSFERA','Ogni particella, incapsulata.','Ogni particella di colore è racchiusa in una microsfera dermocompatibile, per un impianto corretto. Certificati TÜV e SGS, senza ammine aromatiche né resine acriliche.','0,15 µm']];
+  var last=-1;
+  function z(t){var f=t*3,i=Math.min(3,Math.floor(f)),u=f-i;
+    L.forEach(function(g,k){var s,op;if(k===i){s=1+u*2.2;op=k===3?1:(u<.75?1:1-(u-.75)/.25)}else if(k===i+1){s=.6+u*.4;op=u<.75?0:(u-.75)/.25}else{s=1;op=0}
+      if(i===3&&k===3){s=1+u*.15;op=1}g.setAttribute('transform','scale('+s.toFixed(3)+')');g.setAttribute('opacity',op.toFixed(3))});
+    var idx=u>.75&&i<3?i+1:i;if(idx!==last){last=idx;var d=ST[idx];$('zK').textContent=d[0];$('zH').textContent=d[1];$('zP').textContent=d[2];$('zS').textContent=d[3]}}
+  if(U.reduce){z(.99)}else U.pin($('top'),z);z(0);
+  /* trattamenti */
+  var TR={
+    bb:['BB Glow','Effetto BB cream permanente: incarnato uniforme, luminoso, senza trucco.',['La mattina, senza fondotinta','Il trattamento in cabina, a ritmo','Il risultato alla luce naturale','«Prenota la prova in istituto»']],
+    kis:['Kissum','Effetto filler sulle labbra, senza aghi da filler: volume e colore naturali.',['Primo piano labbra, prima','Il gesto dell\'estetista','Il sorriso, dopo','Il nome dell\'istituto e la data']],
+    lsb:['Lifting senza bisturi','Tecnica needling non invasiva per un effetto liftante.',['Profilo del viso, prima','I passaggi, in tre inquadrature','Il profilo, dopo','«Chiedi la consulenza gratuita»']],
+    dp:['Dermopigmentazione','Sopracciglia e labbra con pigmenti da 0,15 micron, certificati.',['Il disegno della forma','La scelta del colore','Il dettaglio, a fine seduta','La certificazione del pigmento']]
+  };
+  var cur='bb';
+  $('tabs').innerHTML=Object.keys(TR).map(function(k){return '<button data-k="'+k+'" aria-pressed="'+(k===cur)+'">'+TR[k][0]+'</button>'}).join('');
+  function card(bg,fg,title,sub,btn){return '<rect width="300" height="375" rx="14" fill="'+bg+'"/><circle cx="230" cy="90" r="120" fill="'+fg+'" opacity=".18"/><text x="22" y="40" font-family="Syne" font-weight="800" font-size="16" fill="'+fg+'">CUSTO-X</text><text x="22" y="220" font-family="Syne" font-weight="700" font-size="34" fill="'+fg+'">'+title+'</text><text x="22" y="250" font-family="Manrope" font-size="14" fill="'+fg+'" opacity=".85">'+sub+'</text>'+(btn?'<rect x="22" y="300" width="160" height="40" rx="20" fill="'+fg+'"/><text x="102" y="325" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="14" fill="'+bg+'">'+btn+'</text>':'')}
+  function kit(){var t=TR[cur];$('post').innerHTML=card('#E8CFC0','#16151A',t[0],'Il risultato che custodisce la pelle');$('postC').textContent=t[1];
+    $('story').innerHTML=card('#16151A','#F7F5F2',t[0],'Disponibile in istituto','Prenota ora');
+    $('reel').innerHTML=t[2].map(function(s){return '<li>'+s+'</li>'}).join('')}
+  $('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});kit()});
+  $('ba').addEventListener('input',function(){document.querySelector('.kit .af').style.setProperty('--x',this.value+'%')});
+  kit();
+  /* academy */
+  var C=[['13 gen','BB Glow','Latina, sede Custo-X','2 posti'],['27 gen','Kissum','Milano','4 posti'],['10 feb','Lifting senza bisturi','Roma','6 posti'],['24 feb','Dermopigmentazione sopracciglia','Napoli','3 posti'],['9 mar','BB Glow','Bari','5 posti']];
+  var sel=0;
+  function cal(){$('cal').innerHTML=C.map(function(c,i){return '<button aria-pressed="'+(i===sel)+'" data-i="'+i+'"><time>'+c[0]+' 2027</time><span><b>'+c[1]+'</b>'+c[2]+'</span><em>'+c[3]+'</em></button>'}).join('');
+    var c=C[sel];$('go').href='https://wa.me/393668730059?text='+encodeURIComponent('Buongiorno Custo-X, vorrei un posto al corso di '+c[1]+' del '+c[0]+' 2027 a '+c[2]+'. Sono un\'estetista di: ');$('go').textContent='Chiedi un posto, '+c[1]+' a '+c[2].split(',')[0]}
+  $('cal').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;sel=+b.dataset.i;cal()});
+  cal();
+})();
+</script>
+</body>
+</html>

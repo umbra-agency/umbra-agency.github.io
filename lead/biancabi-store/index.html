@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BiancaBi Store · Dalla diretta al pacco</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Bric;src:url(../lib/fonts/bricolage-grotesque-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:ISerif;src:url(../lib/fonts/instrument-serif-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:ISerif;src:url(../lib/fonts/instrument-serif-400-italic.woff2) format("woff2");font-style:italic;font-display:swap}
+:root{
+  /* il magazzino delle dirette: carta velina rosa, scatole avana, il lampone del bottone, l'oro dei bracciali */
+  --velina:#FCEFEC; --avana:#E3C9A3; --lampone:#D9466C; --oro:#C29A45; --ink:#1E1718; --bianco:#FFFDFC;
+  --d:ISerif,Georgia,serif; --s:Bric,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.5 var(--s);color:var(--ink);background:var(--velina)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:.96;letter-spacing:-.01em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--lampone);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);max-width:1320px;margin-inline:auto;gap:12px}
+.bar b{font:italic 400 28px/1 var(--d)}
+.bar span{font-size:14px;color:#7a6669}
+.intro{padding-block:clamp(10px,2vw,30px) clamp(26px,3vw,40px)}
+.intro h1{font-size:clamp(52px,7.6vw,126px);margin:0 0 14px}
+.intro h1 i{color:var(--lampone)}
+.intro p{max-width:58ch;font-size:clamp(17px,1.5vw,20px);color:#5b4a4c;margin:0}
+.ctrl{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.ctrl button{border:0;border-radius:99px;padding:13px 20px;font-weight:800;cursor:pointer;background:var(--ink);color:#fff}
+.ctrl button.alt{background:var(--lampone)}
+.ctrl button:disabled{opacity:.35;cursor:default}
+.gd{display:grid;grid-template-columns:300px minmax(0,1fr) minmax(0,.9fr);gap:clamp(14px,2vw,26px);align-items:start;padding-bottom:clamp(60px,8vw,110px)}
+.phone{background:#000;border-radius:38px;padding:10px;aspect-ratio:9/18.5;width:100%;box-shadow:0 30px 60px -30px #1e171888}
+.scr{position:relative;height:100%;border-radius:29px;overflow:hidden;background:linear-gradient(160deg,#3a2a2c,#1e1718)}
+.scr .tag{position:absolute;top:14px;left:12px;font-size:12px;font-weight:800;display:flex;gap:6px;align-items:center;color:#fff}
+.scr .tag i{background:var(--lampone);padding:3px 7px;border-radius:4px;font-style:normal}
+.scr .prod{position:absolute;top:60px;left:12px;right:12px;bottom:46%;border-radius:16px;background:var(--bianco);display:grid;place-items:center}
+.scr .prod svg{width:80%;height:auto}
+.cm{position:absolute;left:10px;right:10px;bottom:12px;height:42%;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;overflow:hidden;font-size:12.5px;color:#fff}
+.cm p{margin:0;background:#ffffff1c;border-radius:10px;padding:5px 9px;animation:up .35s ease-out}
+.cm p.ord{background:#d9466ccc}
+.cm b{margin-right:5px;opacity:.85}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+.panel{background:var(--bianco);border-radius:18px;padding:18px;box-shadow:0 0 0 1px #1e171812;min-height:420px}
+.panel h3{font-size:30px;margin:0 0 4px}
+.panel>small{display:block;color:#7a6669;font-size:13.5px;margin-bottom:12px}
+.cust{border-top:1px solid #1e171814;padding:10px 0}
+.cust b{display:flex;justify-content:space-between;font-size:15px}
+.cust ul{margin:4px 0 6px;padding:0;list-style:none;font-size:14px;color:#4b3c3e}
+.cust ul li{display:flex;justify-content:space-between;animation:up .35s}
+.fr{height:6px;border-radius:3px;background:#1e171812;overflow:hidden}
+.fr i{display:block;height:100%;background:var(--oro);transition:width .4s}
+.fr.ok i{background:#3E8E5A}
+.cust em{font-style:normal;font-size:12px;color:#7a6669}
+.empty{color:#9b8a8c;font-size:15px;padding:30px 0;text-align:center}
+.pick{background:var(--avana);border-radius:18px;padding:18px;min-height:420px}
+.pick h3{font-size:30px;margin:0 0 4px}
+.pick>small{display:block;color:#5d4a36;font-size:13.5px;margin-bottom:12px}
+.pick table{width:100%;border-collapse:collapse;font-size:14px}
+.pick td{padding:8px 4px;border-top:1px dashed #1e171833}
+.pick td:first-child{font-weight:800;white-space:nowrap}
+.pick td:last-child{text-align:right;font-weight:800}
+.lbl{margin-top:14px;background:#fff;border-radius:10px;padding:12px;font:13px/1.4 ui-monospace,Menlo,monospace;border:2px solid var(--ink);display:none}
+.lbl.on{display:block}
+.sch{background:var(--ink);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.sch h2{font-size:clamp(46px,6vw,96px);margin:0 0 12px}
+.sch .lead{max-width:56ch;opacity:.82;margin:0 0 28px}
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.days div{border:1px solid #ffffff26;border-radius:16px;padding:20px;display:grid;gap:8px}
+.days em{font-style:normal;font-weight:800;color:var(--lampone);font-size:13px}
+.days b{font:italic 400 38px/1 var(--d)}
+.days span{opacity:.8;font-size:15px}
+.foot{padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(36px,4vw,60px);margin:0}
+.foot p{margin:0;color:#5b4a4c}
+.foot a{color:inherit}
+@media(max-width:1060px){.gd{grid-template-columns:280px minmax(0,1fr)}.pick{grid-column:1/-1;min-height:0}}
+@media(max-width:700px){.gd{grid-template-columns:1fr}.phone{max-width:300px;margin-inline:auto}.panel{min-height:0}.days{grid-template-columns:1fr}.foot__g{grid-template-columns:1fr}.bar span{display:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per BiancaBi Store" data-note="Anteprima preparata da Umbra per BiancaBi Store, a partire dal vostro annuncio per il magazzino e il supporto alle dirette. Prodotti, prezzi, colori, spedizione gratuita sopra i 100 € e orari delle dirette vengono dal vostro sito e dall'annuncio; commenti, clienti e scaffali sono un esempio.">
+
+<header class="bar"><b>BiancaBi Store</b><span>Abbigliamento, bigiotteria e cosmesi · Albignasego (PD)</span></header>
+
+<section class="wrap intro" id="top">
+  <h1>Dalla diretta al pacco, <i>senza riscrivere niente.</i></h1>
+  <p>Chi scrive «prendo» nei commenti diventa una riga d'ordine; a fine diretta il magazzino ha già la lista di prelievo e le etichette. Premete «Avvia la diretta» e guardate.</p>
+  <div class="ctrl"><button id="go">Avvia la diretta</button><button id="end" class="alt" disabled>Chiudi la diretta</button></div>
+  <div class="gd">
+    <div class="phone"><div class="scr"><div class="tag"><i>LIVE</i>biancabistore · mercoledì 21:00</div><div class="prod" id="prod"></div><div class="cm" id="cm"></div></div></div>
+    <div class="panel" aria-live="polite"><h3>Ordini in diretta</h3><small>Raggruppati per cliente, con la soglia della spedizione gratuita</small><div id="ord"><p class="empty">La diretta non è ancora partita.</p></div></div>
+    <div class="pick" aria-live="polite"><h3>Lista di prelievo</h3><small id="pkS">Si compila alla chiusura della diretta</small><table id="pk"></table><div class="lbl" id="lbl"></div></div>
+  </div>
+</section>
+
+<section class="sch">
+  <div class="wrap">
+    <h2>Quattro dirette a settimana.</h2>
+    <p class="lead">Ogni diretta ha il suo tema e la sua lista pronta il mattino dopo: chi lavora in magazzino arriva alle 9 e prepara, non deve leggere i commenti.</p>
+    <div class="days"><div><em>MERCOLEDÌ 21–24</em><b>Nuovi arrivi</b><span>Maglioni, completi e abiti della settimana</span></div><div><em>VENERDÌ 21–24</em><b>Bigiotteria</b><span>Bracciali, collane e idee regalo</span></div><div><em>DOMENICA 14:30–19 e 21–24</em><b>Doppia diretta</b><span>Pomeriggio con le offerte, sera con le ultime taglie</span></div></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>BiancaBi Store</h2>
+    <p>Spedizione gratuita per ordini sopra i 100 €<br><a href="mailto:info@biancabistore.it">info@biancabistore.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Più ordini dalle dirette, meno errori in magazzino.</h2>
+    <ul>
+      <li><b>I commenti diventano ordini</b>«Prendo il fru fru bordeaux M» finisce nell'ordine giusto, col prezzo e la taglia.</li>
+      <li><b>Lista di prelievo pronta</b>Ordinata per prodotto e scaffale, con le etichette per ogni pacco.</li>
+      <li><b>Soglia dei 100 €</b>In diretta si vede chi è vicino alla spedizione gratuita: un bracciale in più, un ordine più grande.</li>
+      <li><b>Da esterni</b>Collegamenti, contenuti e video brevi dalle dirette li seguiamo noi.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per BiancaBi Store. Commenti e clienti d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P={fru:['Maglioncino Fru Fru',23,'A3'],grou:['Bracciale Groumettina',20,'B1'],biz:['Bracciale Bizantino',10,'B2'],ten:['Bracciale Tennis San Valentino',10,'B3']};
+  var COL={bordeaux:'#7A2232',panna:'#F2E8D8',nero:'#1E1718',verde:'#4F6B4A',grigio:'#9A9696',blu:'#2C3E6B',cioccolato:'#5A3A2A',cipolla:'#C89A6A',gold:'#C29A45',silver:'#B9BCC2'};
+  function svg(k,c){var f=COL[c]||'#ccc';if(k==='fru')return '<svg viewBox="0 0 200 160"><path d="M60 30 L80 20 Q100 34 120 20 L140 30 L175 60 L160 80 L145 70 L145 145 L55 145 L55 70 L40 80 L25 60Z" fill="'+f+'" stroke="#0002"/><path d="M55 100 Q100 110 145 100 M55 118 Q100 128 145 118" stroke="#ffffff55" stroke-width="3" fill="none"/></svg>';
+    return '<svg viewBox="0 0 200 160"><ellipse cx="100" cy="80" rx="70" ry="44" fill="none" stroke="'+f+'" stroke-width="10" stroke-dasharray="'+(k==='ten'?'4 6':k==='biz'?'14 4':'10 3')+'"/></svg>'}
+  /* copione dei commenti */
+  var S=[['mari.v','ciao a tutte!'],['giuly_pd','prendo fru fru bordeaux M'],['ely77','che bello il panna'],['ely77','prendo fru fru panna S'],['sara.b','il bracciale tennis è in argento?'],['mari.v','prendo groumettina gold'],['giuly_pd','prendo tennis silver'],['anna.c','prendo fru fru verde L'],['ely77','prendo bizantino gold'],['mari.v','prendo fru fru nero M'],['giuly_pd','prendo groumettina silver'],['anna.c','arriva entro sabato?'],['mari.v','prendo fru fru grigio M'],['sara.b','prendo tennis gold'],['ely77','prendo fru fru cioccolato S'],['giuly_pd','prendo fru fru blu M'],['mari.v','prendo bizantino silver']];
+  var RX=/prendo\s+(fru fru|groumettina|bizantino|tennis)\s+(\w+)(?:\s+(xs|s|m|l|xl))?/i,KEY={'fru fru':'fru','groumettina':'grou','bizantino':'biz','tennis':'ten'};
+  var orders={},lines=[],iv=null,i=0;
+  function show(k,c){$('prod').innerHTML=svg(k,c)}
+  show('fru','bordeaux');
+  function ord(){var ks=Object.keys(orders);if(!ks.length){$('ord').innerHTML='<p class="empty">Ancora nessun «prendo».</p>';return}
+    $('ord').innerHTML=ks.map(function(n){var o=orders[n],t=o.reduce(function(a,l){return a+l.p},0),pct=Math.min(100,t);return '<div class="cust"><b><span>'+n+'</span><span>'+t+' €</span></b><ul>'+o.map(function(l){return '<li><span>'+l.n+' · '+l.c+(l.s?' · '+l.s.toUpperCase():'')+'</span><span>'+l.p+' €</span></li>'}).join('')+'</ul><div class="fr'+(t>=100?' ok':'')+'"><i style="width:'+pct+'%"></i></div><em>'+(t>=100?'Spedizione gratuita':'Mancano '+(100-t)+' € alla spedizione gratuita')+'</em></div>'}).join('')}
+  function tick(){if(i>=S.length){stop();return}var c=S[i++],m=c[1].match(RX),p=document.createElement('p');p.innerHTML='<b>'+c[0]+'</b>';p.appendChild(document.createTextNode(c[1]));
+    if(m){p.className='ord';var k=KEY[m[1].toLowerCase()],l={k:k,n:P[k][0],p:P[k][1],c:m[2].toLowerCase(),s:m[3]||'',sh:P[k][2]};(orders[c[0]]=orders[c[0]]||[]).push(l);lines.push(l);show(k,l.c);ord()}
+    var cm=$('cm');cm.appendChild(p);while(cm.children.length>7)cm.removeChild(cm.firstChild)}
+  function stop(){clearInterval(iv);iv=null;$('go').disabled=true;$('end').disabled=true;pick()}
+  function pick(){var g={};lines.forEach(function(l){var key=l.sh+'|'+l.n+'|'+l.c+(l.s?' '+l.s.toUpperCase():'');g[key]=(g[key]||0)+1});
+    var ks=Object.keys(g).sort();$('pk').innerHTML=ks.map(function(k){var a=k.split('|');return '<tr><td>'+a[0]+'</td><td>'+a[1]+'<br><small>'+a[2]+'</small></td><td>×'+g[k]+'</td></tr>'}).join('');
+    var n=Object.keys(orders).length;$('pkS').textContent=lines.length+' pezzi, '+n+' pacchi, ordinati per scaffale';
+    var first=Object.keys(orders)[0];if(first){var o=orders[first],t=o.reduce(function(a,l){return a+l.p},0);$('lbl').innerHTML='PACCO 1 di '+n+'<br>'+first+' · '+o.length+' pezzi · '+t+' €<br>'+(t>=100?'SPEDIZIONE GRATUITA':'Spedizione a carico cliente')+'<br>Diretta di mercoledì 21:00';$('lbl').classList.add('on')}}
+  $('go').addEventListener('click',function(){if(iv)return;this.disabled=true;$('end').disabled=false;tick();iv=setInterval(tick,U.reduce?200:1100)});
+  $('end').addEventListener('click',function(){while(i<S.length)tick();stop()});
+  ord();
+  var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){io.disconnect();setTimeout(function(){if(!iv&&i===0)$('go').click()},900)}},{threshold:.35});io.observe(document.querySelector('.gd'));
+})();
+</script>
+</body>
+</html>

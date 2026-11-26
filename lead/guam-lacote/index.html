@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Guam · Il brief UGC che si scrive da solo</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Unb;src:url(../lib/fonts/unbounded-normal.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:Hanken;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* alghe e fango: verde alga profondo, schiuma del mare, il bruno del fango, la carta delle istruzioni */
+  --alga:#0F4A3B; --alga2:#0A3329; --schiuma:#DCEAE2; --fango:#5B4636; --carta:#F7F6F1; --corallo:#E8735A; --ink:#14201B;
+  --d:Unb,system-ui,sans-serif; --s:Hanken,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--d);font-weight:700;line-height:1;letter-spacing:-.035em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--corallo);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.top{background:var(--alga);color:#fff}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);max-width:1320px;margin-inline:auto}
+.bar b{font:800 20px/1 var(--d);letter-spacing:.02em}
+.bar span{font-size:13.5px;opacity:.8}
+.hero{padding-block:clamp(16px,3vw,40px) clamp(50px,7vw,90px)}
+.hero h1{font-size:clamp(40px,5.6vw,92px);margin:0 0 16px;max-width:16ch}
+.hero p{font-size:clamp(17px,1.5vw,20px);max-width:56ch;opacity:.85;margin:0}
+
+.bf{padding-block:clamp(40px,6vw,80px)}
+.bfg{display:grid;grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr);gap:clamp(18px,3vw,44px);align-items:start}
+.pk label{display:block;font-weight:800;font-size:13px;margin:0 0 8px;letter-spacing:.02em}
+.opts{display:grid;gap:6px;margin-bottom:18px}
+.opts button{display:flex;justify-content:space-between;gap:10px;text-align:left;border:1.5px solid #14201b1f;background:#fff;border-radius:10px;padding:11px 13px;cursor:pointer;font-weight:600;font-size:15px}
+.opts button span{font-weight:800;color:var(--alga)}
+.opts button[aria-pressed=true]{border-color:var(--alga);background:var(--schiuma)}
+.ch{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.ch button{border:1.5px solid #14201b26;background:#fff;border-radius:99px;padding:8px 13px;font-weight:700;font-size:14px;cursor:pointer}
+.ch button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.brief{background:#fff;border-radius:18px;box-shadow:0 30px 60px -36px #0f4a3b88,0 0 0 1px #14201b14;overflow:hidden}
+.bh{background:var(--schiuma);padding:18px 22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bh small{display:block;font-weight:800;font-size:12px;color:var(--alga);letter-spacing:.04em}
+.bh h3{font-size:clamp(22px,2.2vw,30px);margin:4px 0 0}
+.bh .tag{align-self:start;background:var(--corallo);color:#fff;font-weight:800;font-size:12.5px;border-radius:99px;padding:6px 12px}
+.bb{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;padding:20px 22px}
+.sb{display:grid;gap:6px}
+.sb div{aspect-ratio:9/16;border-radius:12px;background:var(--alga2);color:#fff;position:relative;overflow:hidden}
+.sb div svg{position:absolute;inset:0;width:100%;height:100%}
+.sb div p{position:absolute;left:10px;right:10px;bottom:10px;margin:0;font:700 13px/1.2 var(--d)}
+.sb nav{display:flex;gap:6px;justify-content:center}
+.sb nav button{width:10px;height:10px;border-radius:50%;border:0;background:#14201b33;cursor:pointer;padding:0}
+.sb nav button[aria-current=true]{background:var(--alga)}
+.bl dl{margin:0;display:grid;gap:12px}
+.bl dt{font-weight:800;font-size:12.5px;color:var(--alga);letter-spacing:.03em}
+.bl dd{margin:2px 0 0;font-size:15.5px}
+.bl ol{margin:4px 0 0;padding-left:18px}
+.no{color:#9b3b28}
+.cp{margin:0 22px 22px;border:0;background:var(--ink);color:#fff;font-weight:800;padding:13px 18px;border-radius:10px;cursor:pointer}
+
+.cr{background:var(--alga2);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.cr h2{font-size:clamp(38px,5vw,78px);margin:0 0 12px;max-width:18ch}
+.cr .lead{max-width:58ch;opacity:.82;margin:0 0 26px}
+.tb{width:100%;border-collapse:collapse;font-size:15px}
+.tb th{text-align:left;font-size:12.5px;opacity:.7;font-weight:700;padding:8px 10px;border-bottom:1px solid #ffffff33}
+.tb td{padding:12px 10px;border-bottom:1px solid #ffffff1a;font-variant-numeric:tabular-nums}
+.tb td b{font-family:var(--d);font-size:14px}
+.tb tr.best td{background:#ffffff0f}
+.tb .bar2{display:inline-block;height:8px;border-radius:4px;background:var(--corallo);vertical-align:middle;margin-right:8px}
+.sw{display:inline-flex;gap:4px;background:#ffffff14;border-radius:99px;padding:4px;margin-bottom:18px}
+.sw button{border:0;background:none;color:#fff;border-radius:99px;padding:8px 14px;font-weight:700;cursor:pointer}
+.sw button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.scroll{overflow-x:auto}
+.foot{padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(30px,3.6vw,52px);margin:0}
+.foot p{margin:0;color:#4a5a52}
+.foot a{color:inherit}
+@media(max-width:980px){.bfg,.foot__g{grid-template-columns:1fr}.bb{grid-template-columns:1fr}.sb{max-width:220px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Fanghi d'Alga Guam" data-note="Anteprima preparata da Umbra per Lacote e Fanghi d'Alga Guam, a partire dal vostro annuncio per UGC creator e influencer marketing manager in freelance. Prodotti e prezzi vengono dal vostro shop (26 novembre, con la promozione in corso); creator, codici e numeri della tabella sono un esempio.">
+
+<div class="top">
+  <header class="bar"><b>GUAM</b><span>Fanghi d'Alga · UGC e creator</span></header>
+  <section class="wrap hero" id="top">
+    <h1>Il brief UGC che si scrive da solo.</h1>
+    <p>Scegliete prodotto, creator e formato: escono il gancio dei primi due secondi, le scene, cosa dire e cosa non dire, i diritti d'uso. Sotto, la bacheca che dice quale creator vende davvero.</p>
+  </section>
+</div>
+
+<section class="bf wrap">
+  <div class="bfg">
+    <div class="pk">
+      <label>Il prodotto</label><div class="opts" id="pr" role="group" aria-label="Prodotto"></div>
+      <label>Chi lo racconta</label><div class="ch" id="cr" role="group" aria-label="Creator"></div>
+      <label>Il formato</label><div class="ch" id="fm" role="group" aria-label="Formato"></div>
+    </div>
+    <article class="brief" aria-live="polite">
+      <div class="bh"><div><small>BRIEF UGC</small><h3 id="bT"></h3></div><span class="tag">#adv obbligatorio</span></div>
+      <div class="bb">
+        <div class="sb"><div id="sbv"></div><nav id="sbn" aria-label="Scene"></nav></div>
+        <div class="bl"><dl>
+          <div><dt>GANCIO, PRIMI 2 SECONDI</dt><dd id="bG"></dd></div>
+          <div><dt>LE SCENE</dt><dd><ol id="bS"></ol></dd></div>
+          <div><dt>DA DIRE</dt><dd id="bD"></dd></div>
+          <div><dt class="no">DA NON DIRE</dt><dd>Niente promesse mediche né «perdi chili»: si parla di inestetismi della cellulite, di pelle e di sensazioni.</dd></div>
+          <div><dt>CONSEGNA</dt><dd id="bC"></dd></div>
+        </dl></div>
+      </div>
+      <button class="cp" id="cp">Copia il brief</button>
+    </article>
+  </div>
+</section>
+
+<section class="cr">
+  <div class="wrap">
+    <h2>Quale creator vende, non quale piace.</h2>
+    <p class="lead">Ogni creator ha il suo codice sconto: la bacheca conta visualizzazioni, ordini e costo per ordine, così il budget del mese successivo va a chi porta vendite. Numeri d'esempio.</p>
+    <div class="sw" id="sw" role="group" aria-label="Ordina"><button data-o="ord" aria-pressed="true">Per ordini</button><button data-o="cpo" aria-pressed="false">Per costo a ordine</button><button data-o="view" aria-pressed="false">Per visualizzazioni</button></div>
+    <div class="scroll"><table class="tb"><thead><tr><th>Creator</th><th>Profilo</th><th>Codice</th><th>Visualizzazioni</th><th>Ordini</th><th>Costo per ordine</th></tr></thead><tbody id="tb"></tbody></table></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Fanghi d'Alga Guam, Lacote.</h2>
+    <p><a href="https://www.guam.it">guam.it</a> · <a href="mailto:lacote@guam.it">lacote@guam.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Video veri, regole chiare, budget dove si vende.</h2>
+    <ul>
+      <li><b>Brief in un minuto</b>Prodotto, persona e formato: le creator ricevono tutto, compreso cosa non dire.</li>
+      <li><b>Selezione e contratti</b>Diritti d'uso, consegne e #adv già scritti, per ogni collaborazione.</li>
+      <li><b>Bacheca dei risultati</b>Codici sconto e ordini per creator, ogni settimana.</li>
+      <li><b>Da esterni</b>Ricerca creator, brief e controllo dei video li seguiamo noi.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Lacote. Creator e numeri d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var PR={fir:['Fanghi d\'Alga Guam F.I.R.','81,50 €','il barattolo','fango'],brac:['Fango Braccia','34,20 €','il barattolo','fango'],dren:['Fanghi Dren Plus','49,50 €','il barattolo','fango'],legg:['Leggings Snellente Girovita','70,00 €','i leggings','legg'],notte:['Leggings Slim Notte','74,00 €','i leggings','legg'],patch:['Patches F.I.R. Pancia AlgaCollagen','58,00 €','i patch','patch'],tour:['Tourmaline Crema Liporiducente','43,00 €','la crema','crema']};
+  var CR={mamma:['Mamma, 35 anni','tra una corsa a scuola e l\'altra'],sport:['Sportiva, 28 anni','dopo l\'allenamento'],over:['Donna, 52 anni','con la sua routine di sempre'],stud:['Studentessa, 23 anni','prima di uscire la sera']};
+  var FM={unbox:['Unboxing','Apro il pacco Guam con voi',['Il pacco sul tavolo, mani che lo aprono','Il prodotto in primo piano, si legge il nome','La consistenza sulle dita','Il primo commento, a caldo']],rout:['Routine','La mia routine della sera, in 30 secondi',['Lo specchio del bagno, luce calda','L\'applicazione, gesto per gesto','Il tempo di posa, col timer sul telefono','Il dopo: pelle, sensazione, una frase']],ba:['Prima e dopo 28 giorni','28 giorni con Guam: vi faccio vedere',['Giorno 1, stessa luce e stessa posa','La routine, accelerata','Giorno 28, stessa luce e stessa posa','Il confronto affiancato, senza filtri']],grwm:['Prepararsi con me','Get ready with me, versione Guam',['Outfit sul letto','Il prodotto dentro la preparazione','Lo specchio, si chiacchiera','L\'uscita, il saluto']]};
+  var s={p:'fir',c:'mamma',f:'rout'},sc=0;
+  function grp(id,obj,key,price){$(id).innerHTML=Object.keys(obj).map(function(k){return '<button data-k="'+k+'" aria-pressed="'+(k===s[key])+'">'+obj[k][0]+(price?'<span>'+obj[k][1]+'</span>':'')+'</button>'}).join('');
+    $(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;s[key]=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});sc=0;brief()})}
+  grp('pr',PR,'p',1);grp('cr',CR,'c');grp('fm',FM,'f');
+  function art(t,i){var o='<rect width="100%" height="100%" fill="#0A3329"/>';
+    if(t==='fango')o+='<rect x="30%" y="'+(38-i*2)+'%" width="40%" height="34%" rx="10" fill="#E6EEE9"/><rect x="28%" y="'+(33-i*2)+'%" width="44%" height="8%" rx="6" fill="#0F4A3B"/><rect x="34%" y="'+(50-i*2)+'%" width="32%" height="10%" fill="#5B4636"/>';
+    else if(t==='legg')o+='<path d="M38 20 L62 20 L66 85 L56 85 L50 45 L44 85 L34 85Z" transform="scale(1)" fill="#1d2b26" stroke="#E8735A" stroke-width=".6"/>';
+    else if(t==='patch')o+='<rect x="25%" y="35%" width="50%" height="28%" rx="12" fill="#E6EEE9"/><circle cx="50%" cy="49%" r="8%" fill="#E8735A" opacity=".6"/>';
+    else o+='<rect x="38%" y="22%" width="24%" height="50%" rx="10" fill="#E6EEE9"/><rect x="40%" y="16%" width="20%" height="8%" rx="3" fill="#E8735A"/>';
+    return '<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">'+o.replace(/%/g,'')+'</svg>'}
+  function brief(){var p=PR[s.p],c=CR[s.c],f=FM[s.f];
+    $('bT').textContent=p[0]+' · '+f[0]+' · '+c[0];
+    $('bG').textContent='«'+f[1]+'» — inquadratura su '+p[2]+', voce sopra, niente logo nei primi due secondi.';
+    $('bS').innerHTML=f[2].map(function(x){return '<li>'+x+'</li>'}).join('');
+    $('bD').textContent='Com\'è la consistenza, quanto tempo serve, come ci si sente '+c[1]+'. Il prezzo ('+p[1]+') e il codice sconto personale alla fine.';
+    $('bC').textContent='3 video verticali da 20–30 secondi, 5 foto del prodotto in uso. Diritti d\'uso per le inserzioni: 6 mesi. Consegna entro 10 giorni dal ricevimento.';
+    $('sbn').innerHTML=f[2].map(function(x,i){return '<button aria-label="Scena '+(i+1)+'" aria-current="'+(i===sc)+'" data-i="'+i+'"></button>'}).join('');
+    $('sbv').innerHTML=art(p[3],sc)+'<p>'+(sc+1)+'. '+f[2][sc]+'</p>'}
+  $('sbn').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;sc=+b.dataset.i;brief()});
+  if(!U.reduce)setInterval(function(){sc=(sc+1)%4;brief()},2600);
+  $('cp').addEventListener('click',function(){var t=$('bT').textContent+'\n\nGancio: '+$('bG').textContent+'\nScene:\n'+FM[s.f][2].map(function(x,i){return (i+1)+'. '+x}).join('\n')+'\nDa dire: '+$('bD').textContent+'\nDa non dire: promesse mediche o di dimagrimento.\nConsegna: '+$('bC').textContent+'\n#adv';try{navigator.clipboard.writeText(t)}catch(x){}var b=this;b.textContent='Copiato';setTimeout(function(){b.textContent='Copia il brief'},1400)});
+  brief();
+  /* bacheca */
+  var R=[['@giulia.routine','Mamma, Modena','GUAM-GIULIA',184000,212,38],['@sara.fit','Sportiva, Milano','GUAM-SARA',402000,166,61],['@ely.over50','Donna 50+, Roma','GUAM-ELY',96000,148,24],['@marta.grwm','Studentessa, Bologna','GUAM-MARTA',530000,121,90],['@chiara.home','Mamma, Torino','GUAM-CHIARA',72000,97,27],['@valentina.b','Sportiva, Bari','GUAM-VALE',215000,64,72]];
+  var by='ord';
+  function tb(){var rows=R.map(function(r){return {r:r,cpo:Math.round(r[5]*100/r[4]*10)/10}});
+    rows.sort(function(a,b){return by==='ord'?b.r[4]-a.r[4]:by==='view'?b.r[3]-a.r[3]:a.cpo-b.cpo});
+    var mx=Math.max.apply(null,R.map(function(r){return r[4]}));
+    $('tb').innerHTML=rows.map(function(x,i){var r=x.r;return '<tr'+(i===0?' class="best"':'')+'><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3].toLocaleString('it-IT')+'</td><td><span class="bar2" style="width:'+Math.round(r[4]/mx*80)+'px"></span>'+r[4]+'</td><td>'+x.cpo.toFixed(1).replace('.',',')+' €</td></tr>'}).join('')}
+  $('sw').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;by=b.dataset.o;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});tb()});
+  tb();
+})();
+</script>
+</body>
+</html>
