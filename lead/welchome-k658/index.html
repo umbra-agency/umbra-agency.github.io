@@ -122,7 +122,39 @@ button{font:inherit;color:inherit}
 .foot p{margin:0;font-size:15.5px;line-height:1.6}
 .foot a{color:inherit;font-weight:600}
 
+
+/* ---------- vetrina ---------- */
+.vet{background:var(--ciano2);padding-block:clamp(70px,9vw,130px)}
+.vet h2{font-size:clamp(40px,5.4vw,86px);margin:0 0 12px;max-width:16ch}
+.vet .lead{font-size:clamp(17px,1.4vw,19px);max-width:54ch;margin:0 0 clamp(28px,4vw,48px);opacity:.85}
+.vg{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.vc{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000;container-type:inline-size}
+.vc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform .8s}
+.vc:hover img{transform:scale(1.06)}
+.vc::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0e1e38f2 0,#0e1e3800 55%)}
+.vc div{position:absolute;z-index:1;left:8%;right:8%;bottom:7%}
+.vc small{display:block;font:600 6.4cqw/1 var(--s);letter-spacing:.06em;opacity:.8;margin-bottom:3cqw}
+.vc b{display:block;font:600 11cqw/1.02 var(--c)}
+.vc span{display:block;font:700 8cqw/1 var(--s);color:var(--luce);margin-top:4cqw}
+.vc em{position:absolute;z-index:1;top:6%;left:8%;font:700 5.6cqw/1 var(--s);font-style:normal;background:var(--luce);color:var(--ink);padding:2.4cqw 3.4cqw;border-radius:99px}
+/* ---------- valuta ---------- */
+.val{background:var(--carta);color:var(--ink);padding-block:clamp(70px,9vw,130px)}
+.val__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:clamp(24px,5vw,80px);align-items:start}
+.val h2{font-size:clamp(40px,5.2vw,82px);margin:0 0 16px}
+.val p{font-size:clamp(17px,1.4vw,19px);max-width:46ch;margin:0 0 14px}
+.vf{background:#fff;border-radius:12px;padding:22px;box-shadow:0 30px 60px -40px #0006}
+.vf .l{display:block;font-weight:700;font-size:13.5px;margin:12px 0 8px}
+.vf .chips{display:flex;flex-wrap:wrap;gap:6px}
+.vf .chips button{border:1px solid #101a2c33;background:#fff;border-radius:99px;padding:8px 12px;font-weight:600;font-size:14px;cursor:pointer}
+.vf .chips button[aria-pressed=true]{background:var(--ciano);color:#fff;border-color:var(--ciano)}
+.vf output{font:600 30px/1 var(--c)}
+.vf input[type=range]{width:100%;accent-color:#14294A}
+.vr{margin-top:16px;background:var(--ciano);color:#fff;border-radius:10px;padding:16px}
+.vr b{display:block;font:600 22px/1.1 var(--c);margin-bottom:6px}
+.vr ul{margin:0;padding-left:18px;font-size:14.5px}
 @media (max-width:1080px){
+  .vg{grid-template-columns:repeat(3,1fr)}
+  .val__g{grid-template-columns:1fr}
   .board{grid-template-columns:auto minmax(0,1fr)}
   .sp{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
   .sp h2,.sp>p{grid-column:1/-1}
@@ -143,7 +175,7 @@ button{font:inherit;color:inherit}
 @media (prefers-reduced-motion:reduce){.scr img.on{animation:none}.cap b span{animation:none;opacity:1;transform:none}}
 </style>
 </head>
-<body data-dark data-umbra="un'anteprima per WelcHome Immobiliare" data-note="Anteprima preparata da Umbra per WelcHome Immobiliare. Dati, prezzo e descrizione sono quelli del vostro annuncio Rif. K658. Le foto sono di esempio, lo spaccato è uno schema: nel reel vero ci sono le riprese della villa.">
+<body data-dark data-umbra="un'anteprima per WelcHome Immobiliare" data-note="Anteprima preparata da Umbra per WelcHome Immobiliare. Riferimenti, metri quadri, prezzi e descrizioni vengono dai vostri annunci. Le foto sono di esempio, lo spaccato è uno schema: nel reel vero ci sono le riprese della villa.">
 
 <section class="regia" id="top">
   <header class="bar">
@@ -239,6 +271,38 @@ button{font:inherit;color:inherit}
   </div>
 </section>
 
+
+
+<section class="vet">
+  <div class="wrap">
+    <h2>Tutta la vetrina, un reel per casa.</h2>
+    <p class="lead">Lo stesso metodo su ogni immobile in vendita: dal bilocale in centro alla villa di Signa. Chi scorre il profilo trova la vostra vetrina, non un archivio di foto.</p>
+    <div class="vg">
+      <div class="vc"><img src="img/camera.jpg" alt="" loading="lazy"><div><small>RIF. K741 · 53 m²</small><b>Bilocale con doppio balcone e posto auto</b><span>175.000 €</span></div></div>
+      <div class="vc"><img src="img/scala.jpg" alt="" loading="lazy"><div><small>RIF. K715 · 56 m²</small><b>Trilocale nel centro storico</b><span>207.000 €</span></div></div>
+      <div class="vc"><em>Esclusiva</em><img src="img/mansarda.jpg" alt="" loading="lazy"><div><small>RIF. K728 · 93 m²</small><b>Quadrilocale con mansarda e garage</b><span>269.000 €</span></div></div>
+      <div class="vc"><img src="img/ext.jpg" alt="" loading="lazy"><div><small>RIF. K737 · 115 m²</small><b>Villette a baiadera in classe A4</b><span>575.000 €</span></div></div>
+      <div class="vc"><img src="img/veranda.jpg" alt="" loading="lazy"><div><small>RIF. S056 · 280 m²</small><b>Villa libera su quattro lati a Signa</b><span>690.000 €</span></div></div>
+      <div class="vc"><img src="img/sera.jpg" alt="" loading="lazy"><div><small>RIF. K658 · 246 m²</small><b>Villa con taverna e mansarda</b><span>849.000 €</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="val">
+  <div class="wrap val__g">
+    <div>
+      <h2>I reel vendono le case. E portano quelle nuove.</h2>
+      <p>Chi deve vendere guarda come vendete. Un profilo pieno di reel curati è il miglior argomento per prendere un incarico: per questo, accanto alla vetrina, mettiamo la richiesta di valutazione.</p>
+      <p>Il proprietario dice dove, cosa e quanto è grande. A voi arriva un contatto da richiamare, già con i dati per la visita.</p>
+    </div>
+    <div class="vf" aria-live="polite">
+      <span class="l">Dove si trova</span><div class="chips" id="vz"><button aria-pressed="true">Campi Bisenzio</button><button aria-pressed="false">San Martino</button><button aria-pressed="false">Signa</button><button aria-pressed="false">Poggio a Caiano</button><button aria-pressed="false">Firenze</button></div>
+      <span class="l">Che immobile è</span><div class="chips" id="vt"><button aria-pressed="false">Appartamento</button><button aria-pressed="true">Terratetto</button><button aria-pressed="false">Villa</button></div>
+      <span class="l" style="display:flex;justify-content:space-between">Metri quadri <output id="vmO"></output></span><input id="vm" type="range" min="40" max="300" step="5" value="110" aria-label="Metri quadri">
+      <div class="vr"><b id="vrB"></b><ul><li>Vi richiamiamo entro la giornata</li><li>Sopralluogo e valutazione scritta</li><li>Se ci affidate la casa: foto, video e reel inclusi</li></ul></div>
+    </div>
+  </div>
+</section>
 <footer class="foot">
   <div class="wrap foot__g">
     <h2>Dove ogni casa trova il suo valore.</h2>
@@ -302,6 +366,10 @@ button{font:inherit;color:inherit}
   go(0);requestAnimationFrame(function(n){t0=n;loop(n)});
   window.__go=go;
 })();
+(function(){var $=function(i){return document.getElementById(i)};var z='Campi Bisenzio',t='Terratetto';
+  function d(){var m=+$('vm').value;$('vmO').textContent=m+' m²';$('vrB').textContent=t+' di '+m+' m² a '+z+': valutazione gratuita'}
+  [['vz',function(b){z=b.textContent}],['vt',function(b){t=b.textContent}]].forEach(function(g){$(g[0]).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});g[1](b);d()})});
+  $('vm').addEventListener('input',d);d()})();
 </script>
 </body>
 </html>
