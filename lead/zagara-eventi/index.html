@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zagara Eventi d'Autore · Il tableau si compone da solo</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Pinyon;src:url(../lib/fonts/pinyon-script-normal.woff2) format("woff2");font-display:block}
+@font-face{font-family:Caslon;src:url(../lib/fonts/libre-caslon-display-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;src:url(../lib/fonts/manrope-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{
+  /* avorio, il bianco della zagara, la foglia d'arancio, l'oro specchiato, l'inchiostro */
+  --avorio:#FAF6F0; --zagara:#FFFFFF; --foglia:#5E7A4E; --ink:#2A2622; --cipria:#EBD9CF; --riga:#2a26221f;
+  --c:Caslon,Georgia,serif; --m:Manrope,system-ui,sans-serif; --p:Pinyon,cursive; --pad:clamp(16px,4vw,60px);
+  --m0:#F8EBC1; --m1:#D9B45A; --m2:#9C7426; --mt:#FFFDF6;
+}
+body{font:400 16px/1.6 var(--m);color:var(--ink);background:var(--avorio)}
+h1,h2,h3{font-family:var(--c);font-weight:400;line-height:1.02;letter-spacing:.005em;text-wrap:balance}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--foglia);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1380px;margin-inline:auto}
+
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad)}
+.bar b{font:400 30px/1 var(--p)}
+.bar span{font-size:13.5px;font-weight:600;opacity:.7}
+.hero{padding:clamp(20px,4vw,50px) var(--pad) clamp(40px,6vw,80px);text-align:center}
+.hero h1{font-size:clamp(46px,6.6vw,108px);margin:0 auto 16px;max-width:15ch}
+.hero h1 em{font:400 1.08em/1 var(--p);font-style:normal}
+.hero p{font-size:clamp(16.5px,1.4vw,19px);max-width:56ch;margin:0 auto}
+
+/* ---------- il generatore ---------- */
+.gen{display:grid;grid-template-columns:minmax(300px,380px) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:start;padding-bottom:clamp(70px,9vw,130px)}
+.pan{background:#fff;border-radius:14px;padding:22px;box-shadow:0 30px 60px -45px #0006;position:sticky;top:16px}
+.pan h3{font-size:22px;margin:0 0 4px}
+.pan .grp{padding:16px 0;border-top:1px solid var(--riga)}
+.pan .grp:first-of-type{border-top:0;padding-top:8px}
+.pan label,.pan .l{display:block;font-weight:700;font-size:13.5px;margin-bottom:8px}
+.pan textarea{width:100%;min-height:150px;border:1px solid #2a262233;border-radius:10px;padding:12px;font-size:14.5px;line-height:1.45;resize:vertical}
+.pan small{display:block;font-size:12.5px;opacity:.65;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid #2a262233;background:#fff;border-radius:99px;padding:8px 12px;font-weight:600;font-size:14px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fin button{display:inline-flex;align-items:center;gap:8px}
+.fin button i{width:16px;height:16px;border-radius:50%;background:var(--g)}
+.rng{display:flex;justify-content:space-between;align-items:baseline}
+.rng output{font:400 28px/1 var(--c)}
+input[type=range]{width:100%;accent-color:#2A2622}
+.view{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.view span{font-size:13.5px;font-weight:700;margin-right:6px}
+.board{position:relative;border-radius:6px;padding:clamp(18px,3vw,44px);background:linear-gradient(135deg,var(--m0) 0%,var(--m1) 28%,var(--m0) 46%,var(--m2) 72%,var(--m1) 100%);box-shadow:0 40px 70px -40px #5a3f1088,inset 0 0 0 1px #ffffff80;color:var(--mt);transition:background .6s}
+.board::after{content:"";position:absolute;inset:0;border-radius:6px;background:linear-gradient(115deg,transparent 30%,#ffffff55 45%,transparent 60%);background-size:250% 100%;animation:luce 6s ease-in-out infinite;pointer-events:none}
+@keyframes luce{0%,100%{background-position:120% 0}50%{background-position:-20% 0}}
+.board.tr{background:linear-gradient(135deg,#ffffffb3,#eef3f6cc);color:var(--ink);box-shadow:0 40px 70px -40px #0004,inset 0 0 0 1px #2a262226}
+.board.laser{background:#fff;color:#111;box-shadow:inset 0 0 0 1px #d33}
+.board.laser::after{display:none}
+.bh{text-align:center;margin-bottom:clamp(16px,2.6vw,30px)}
+.bh b{display:block;font:400 clamp(44px,5.4vw,84px)/1.1 var(--p);text-shadow:0 1px 0 #ffffff66}
+.bh span{display:block;font:400 clamp(13px,1.1vw,16px)/1 var(--c);letter-spacing:.24em;text-transform:uppercase;margin-top:6px}
+.tabs{display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:clamp(10px,1.6vw,20px)}
+.tb{text-align:center;padding:10px 6px 12px;border-top:1px solid currentColor;border-color:color-mix(in srgb,currentColor 50%,transparent);animation:in .5s both}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.tb h4{font:400 clamp(22px,2vw,30px)/1 var(--p);margin:4px 0 8px}
+.tb p{margin:0;font:400 clamp(11.5px,.95vw,13.5px)/1.55 var(--c);letter-spacing:.04em}
+.board.laser .tb{border-color:#d33}
+.board.laser .bh b,.board.laser .tb h4{color:transparent;-webkit-text-stroke:.7px #d33}
+.board.laser .tb p,.board.laser .bh span{color:#111}
+.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.sum div{background:#fff;border-radius:10px;padding:14px}
+.sum b{display:block;font:400 30px/1 var(--c)}
+.sum span{font-size:13px;font-weight:600;opacity:.7}
+.cta{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px;padding:18px 20px;border-radius:12px;background:var(--ink);color:#fff}
+.cta b{font:400 22px/1.15 var(--c)}
+.cta a{background:#25D366;color:#0b2414;font-weight:800;text-decoration:none;padding:13px 18px;border-radius:99px;white-space:nowrap}
+
+/* ---------- collezioni ---------- */
+.col{background:var(--cipria);padding-block:clamp(70px,9vw,130px)}
+.col h2{font-size:clamp(42px,5.4vw,86px);margin:0 0 14px;max-width:15ch}
+.col .lead{font-size:clamp(16.5px,1.4vw,19px);max-width:56ch;margin:0 0 clamp(28px,4vw,46px)}
+.cl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cl div{background:var(--avorio);border-radius:12px;overflow:hidden}
+.cl i{display:block;height:120px;background:var(--g)}
+.cl b{display:block;font:400 24px/1.1 var(--c);padding:14px 14px 4px}
+.cl span{display:block;font-size:13.5px;padding:0 14px 16px;opacity:.75}
+
+/* ---------- dall'ordine al laser ---------- */
+.ord{padding-block:clamp(70px,9vw,130px)}
+.ord h2{font-size:clamp(42px,5.4vw,86px);margin:0 0 clamp(28px,4vw,50px);max-width:16ch}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink)}
+.flow div{padding:20px 22px 0 0}
+.flow b{display:block;font:400 26px/1.1 var(--c);margin-bottom:8px}
+.flow span{font-size:15px;opacity:.85}
+.flow em{display:block;font-style:normal;font-weight:700;font-size:12.5px;color:var(--foglia);margin-bottom:8px}
+.img2{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-top:clamp(36px,5vw,60px)}
+.img2 img{width:100%;height:100%;object-fit:cover;border-radius:12px;aspect-ratio:16/10}
+
+.foot{background:var(--ink);color:var(--avorio);padding-block:clamp(40px,6vw,80px)}
+.foot__g{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font:400 clamp(54px,6vw,96px)/.9 var(--p);margin:0}
+.foot p{margin:0;font-size:15px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:980px){
+  .gen{grid-template-columns:1fr}
+  .pan{position:relative;top:auto}
+  .cl{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .sum{grid-template-columns:1fr 1fr}
+  .tabs{grid-template-columns:1fr 1fr!important}
+  .bar span{display:none}
+  .img2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.board::after{animation:none}.tb{animation:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Zagara Eventi d'Autore" data-note="Anteprima preparata da Umbra per Zagara Eventi d'Autore. Collezioni, finiture, contatti e prodotti vengono dal vostro negozio; il generatore di tableau e gli ospiti sono di esempio, il tableau è disegnato.">
+
+<header class="bar"><b>Zagara</b><span>Eventi d'Autore · accessori in plexiglass per matrimoni</span></header>
+
+<section class="hero">
+  <h1>Incollate la lista degli invitati. <em>Il tableau si compone da solo.</em></h1>
+  <p>Tavoli, nomi, finitura: gli sposi vedono il loro tableau mariage prima di ordinarlo, e voi ricevete l'ordine con il file già pronto per il laser.</p>
+</section>
+
+<section class="wrap gen" id="gen">
+  <div class="pan">
+    <h3>Il vostro tableau</h3>
+    <div class="grp"><label for="sp">Gli sposi</label><input id="sp" value="Giulia &amp; Marco" maxlength="28" style="width:100%;padding:11px 12px;border:1px solid #2a262233;border-radius:10px"></div>
+    <div class="grp"><label for="ls">Gli invitati, uno per riga</label><textarea id="ls"></textarea><small id="lsN"></small></div>
+    <div class="grp"><div class="rng"><label for="pt">Persone per tavolo</label><output id="ptO"></output></div><input id="pt" type="range" min="6" max="12" value="8"></div>
+    <div class="grp"><span class="l">I nomi dei tavoli</span><div class="chips" id="nm" role="group" aria-label="Nomi dei tavoli"><button aria-pressed="true" data-k="cost">Costiera</button><button aria-pressed="false" data-k="fiori">Fiori</button><button aria-pressed="false" data-k="num">Numeri</button></div></div>
+    <div class="grp"><span class="l">La finitura</span><div class="chips fin" id="fn" role="group" aria-label="Finitura"></div></div>
+  </div>
+  <div>
+    <div class="view" role="group" aria-label="Vista"><span>Guardalo come</span><div class="chips" id="vw"><button aria-pressed="true" data-v="sp">gli sposi</button><button aria-pressed="false" data-v="la">il laser</button></div></div>
+    <div class="board" id="board" aria-live="polite"></div>
+    <div class="sum" id="sum"></div>
+    <div class="cta"><b>Preventivo in giornata, con il file già impaginato.</b><a id="wa" target="_blank" rel="noopener">Invia su WhatsApp</a></div>
+  </div>
+</section>
+
+<section class="col">
+  <div class="wrap">
+    <h2>Ogni collezione, la sua luce.</h2>
+    <p class="lead">Le vostre collezioni diventano filtri del generatore: chi sceglie Ravello o Lien vede subito il tableau, i segnaposto e la scatola buste nello stesso stile.</p>
+    <div class="cl">
+      <div><i style="--g:linear-gradient(135deg,#F8EBC1,#D9B45A 40%,#9C7426)"></i><b>Specchio Oro</b><span>Metallo nobile, splendente: per far brillare gli occhi degli invitati.</span></div>
+      <div><i style="--g:linear-gradient(135deg,#F7F7F7,#BFC3C8 40%,#7D838A)"></i><b>Specchio Argento</b><span>La luce fredda, per i matrimoni d'inverno.</span></div>
+      <div><i style="--g:linear-gradient(135deg,#F8DED3,#D9A08C 40%,#A96A57)"></i><b>Oro Rosa</b><span>Il più romantico, con le peonie.</span></div>
+      <div><i style="--g:linear-gradient(135deg,#ffffff,#E8EEF1 50%,#CFD9DE)"></i><b>Trasparente</b><span>Il nome sospeso, nient'altro.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ord">
+  <div class="wrap">
+    <h2>Dall'ordine al laser, senza ricopiare un nome.</h2>
+    <div class="flow">
+      <div><em>Shopify</em><b>L'ordine arriva completo</b><span>Lista ospiti, tavoli, finitura e sposi, già controllati da chi li ha scritti.</span></div>
+      <div><em>Grafica</em><b>Il file è già impaginato</b><span>Tracciati di taglio e incisione separati, pronti per CorelDRAW e per il laser.</span></div>
+      <div><em>Cliente</em><b>L'anteprima per l'ok</b><span>Gli sposi approvano lo stesso disegno che hanno visto, senza bozze avanti e indietro.</span></div>
+      <div><em>Social</em><b>Ogni tableau è un post</b><span>Il nome degli sposi rivelato pezzo per pezzo, con il loro permesso.</span></div>
+    </div>
+    <div class="img2"><img src="img/tavola.jpg" alt="Una tavola di matrimonio apparecchiata" loading="lazy"><img src="img/sposi.jpg" alt="Le sedie degli sposi tra i fiori" loading="lazy"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Daremo forma ai vostri sogni.</h2>
+    <p>Zagara Eventi d'Autore<br>by Mediaplex s.a.s.<br>Via Luigi Pasteur 3, Casoria (NA)</p>
+    <p>WhatsApp <a href="https://wa.me/393757172434">375 717 2434</a><br><a href="mailto:info@zagaraeventidautore.com">info@zagaraeventidautore.com</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il cliente si fa il tableau da solo. Voi lo tagliate.</h2>
+    <ul>
+      <li><b>Il generatore sul vostro negozio</b>Tableau, segnaposto e scatole buste che si compongono con la lista degli invitati, collegati ai prodotti Shopify.</li>
+      <li><b>File pronti per il laser</b>Ogni ordine porta con sé il tracciato di taglio e quello di incisione: la grafica controlla, non ricopia.</li>
+      <li><b>Meno messaggi, più ordini</b>Le domande su misure, tempi e finiture trovano risposta nella pagina, prima di arrivare in chat.</li>
+      <li><b>Contenuti dai vostri lavori</b>Ogni tableau consegnato diventa un post, una storia e una recensione, con un calendario fisso.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Zagara Eventi d'Autore. Ospiti di esempio, foto di esempio da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var OSP='Anna Esposito\nLuca Esposito\nMaria Russo\nGennaro Russo\nSofia Ferrara\nAndrea Ferrara\nChiara De Luca\nMarco Romano\nGiovanna Romano\nPaolo Greco\nElena Greco\nFrancesco Bruno\nTeresa Bruno\nSalvatore Costa\nRita Costa\nAlessia Gallo\nVincenzo Gallo\nLaura Conte\nCiro Conte\nSara Mancini\nPietro Mancini\nIlaria Rizzo\nDavide Rizzo\nNunzia Marino\nAntonio Marino\nMartina Fontana\nEmanuele Fontana\nCarmela Santoro\nGiuseppe Santoro\nFederica Caruso\nRoberto Caruso\nSimona Ferri\nMatteo Ferri\nValentina Lombardi\nStefano Lombardi\nAngela Moretti\nLorenzo Moretti\nGiulia Barbieri\nNicola Barbieri\nRoberta Leone';
+  $('ls').value=OSP;
+  var N={cost:['Ravello','Positano','Amalfi','Praiano','Minori','Maiori','Atrani','Furore','Conca dei Marini','Vietri','Cetara','Scala','Tramonti','Sorrento','Capri','Ischia','Procida'],fiori:['Zagara','Peonia','Gardenia','Gelsomino','Ortensia','Camelia','Magnolia','Rosa','Lavanda','Mughetto','Glicine','Iris','Dalia','Tulipano','Orchidea','Giglio','Anemone'],num:[]};
+  for(var i=1;i<=24;i++)N.num.push('Tavolo '+i);
+  var F=[['Specchio Oro','#F8EBC1','#D9B45A','#9C7426','#3A2A0E'],['Specchio Argento','#F7F7F7','#BFC3C8','#7D838A','#23272D'],['Oro Rosa','#F8DED3','#D9A08C','#A96A57','#43231B'],['Trasparente','','','','']];
+  var nm='cost',fn=0,vw='sp';
+  $('fn').innerHTML=F.map(function(f,i){return '<button aria-pressed="'+(i==fn)+'" data-i="'+i+'"><i style="--g:'+(f[1]?'linear-gradient(135deg,'+f[1]+','+f[2]+','+f[3]+')':'linear-gradient(135deg,#fff,#dfe7eb)')+'"></i>'+f[0]+'</button>'}).join('');
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/[<>"]/g,'')}
+  function draw(){
+    var g=$('ls').value.split('\n').map(function(x){return esc(x.trim())}).filter(Boolean),pt=+$('pt').value,nt=Math.ceil(g.length/pt),names=N[nm],sp=esc($('sp').value.trim()||'Gli sposi');
+    $('ptO').textContent=pt;$('lsN').textContent=g.length+' invitati · '+nt+' tavoli';
+    var f=F[fn],b=$('board');b.classList.toggle('tr',fn==3);b.classList.toggle('laser',vw=='la');
+    if(fn<3){b.style.setProperty('--m0',f[1]);b.style.setProperty('--m1',f[2]);b.style.setProperty('--m2',f[3]);b.style.setProperty('--mt',f[4])}
+    var cols=nt<=5?nt:nt<=8?4:nt<=10?5:6;b.style.setProperty('--cols',cols);
+    var h='<div class="bh"><b>'+sp+'</b><span>trovate il vostro posto</span></div><div class="tabs">';
+    for(var t=0;t<nt;t++){h+='<div class="tb" style="animation-delay:'+(t*40)+'ms"><h4>'+(names[t]||('Tavolo '+(t+1)))+'</h4><p>'+g.slice(t*pt,(t+1)*pt).join('<br>')+'</p></div>'}
+    b.innerHTML=h+'</div>';
+    $('sum').innerHTML='<div><b>1</b><span>tableau '+f[0].toLowerCase()+'</span></div><div><b>'+nt+'</b><span>cartelli tavolo</span></div><div><b>'+g.length+'</b><span>segnaposto con nome</span></div><div><b>'+(vw=='la'?'2':'1')+'</b><span>'+(vw=='la'?'tracciati: taglio e incisione':'file da approvare')+'</span></div>';
+    $('wa').href='https://wa.me/393757172434?text='+encodeURIComponent('Ciao Zagara! Siamo '+sp+'. Vorremmo il tableau '+f[0]+' con '+nt+' tavoli ('+({cost:'nomi della Costiera',fiori:'nomi di fiori',num:'numerati'})[nm]+') e '+g.length+' segnaposto. Ci mandate un preventivo?');
+  }
+  function grp(el,cb){el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(el.children,function(x){x.setAttribute('aria-pressed',x==b)});cb(b);draw()})}
+  grp($('nm'),function(b){nm=b.dataset.k});grp($('fn'),function(b){fn=+b.dataset.i});grp($('vw'),function(b){vw=b.dataset.v});
+  ['ls','pt','sp'].forEach(function(k){$(k).addEventListener('input',draw)});
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(draw);draw();
+})();
+</script>
+</body>
+</html>
