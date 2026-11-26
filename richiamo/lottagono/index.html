@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Preventivi senza risposta: anteprima per L&#x27;Ottagono | Umbra</title>
+<link rel="preload" href="../f/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../f/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Bodoni Moda";src:url(../f/bodoni-moda.woff2) format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url(../f/instrument-sans.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+:root{
+  /* Una relazione, non un volantino: testata scura Umbra, poi carta chiara, righe sottili, un solo verde per i soldi
+     e un'ambra per «tocca a voi». Una colonna; il telefono al centro è l'unica cosa che si muove. */
+  --notte:#0B0D13; --carta:#F4F5F7; --foglio:#FFFFFF; --linea:#D9DCE3;
+  --testo-c:#12151C; --grigio:#596070; --argento:#C3C6D3;
+  --verde:#0E6A4D; --verde-t:#E6F2EC; --ambra:#8A5A00; --ambra-t:#FBF1DA;
+  --titoli:"Bodoni Moda","Bodoni 72",Didot,Georgia,serif;
+  --testo:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--carta);color:var(--testo-c);font-family:var(--testo);font-size:1.0625rem;line-height:1.55}
+ul,ol{list-style:none}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--verde);outline-offset:3px}
+.dentro{max-width:1000px;margin:0 auto;padding-left:22px;padding-right:22px}
+h1,h2{font-family:var(--titoli);font-weight:500;line-height:1.08;text-wrap:balance;letter-spacing:-.005em}
+h1{font-size:clamp(2.2rem,8.4vw,4rem)}
+h2{font-size:clamp(1.8rem,6vw,2.7rem)}
+h3{font-size:1.06rem;font-weight:700;line-height:1.3}
+.num{font-variant-numeric:tabular-nums}
+
+/* intro Umbra: si chiude da sola */
+.intro{position:fixed;inset:0;z-index:50;background:var(--notte);color:#fff;display:grid;place-items:center;text-align:center;animation:via 2s ease forwards;pointer-events:none}
+.intro svg{width:70px;height:70px;display:block;margin:0 auto 16px}
+.intro b{display:block;font-family:var(--titoli);font-weight:500;font-size:2.3rem}
+.intro span{display:block;margin-top:8px;color:var(--argento);font-size:1rem}
+@keyframes via{0%,62%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+
+/* testata */
+.testata{background:var(--notte);color:#fff}
+.barra{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.12)}
+.marchio{display:flex;align-items:center;gap:10px;font-family:var(--titoli);font-size:1.3rem}
+.marchio svg{width:26px;height:26px}
+.barra small{color:var(--argento);font-size:.9rem;text-align:right}
+.apre{padding-top:46px;padding-bottom:54px}
+.apre h1 span{display:block}
+.apre h1 .domanda{color:var(--argento)}
+.apre .sotto{margin-top:24px;max-width:56ch;font-size:1.18rem;color:#E4E6EC}
+.apre .fatto{margin-top:22px;max-width:60ch;padding:14px 16px;border:1px solid rgba(255,255,255,.18);border-radius:10px;color:var(--argento);font-size:.98rem}
+.apre .fatto b{color:#fff;font-weight:600}
+.bottoni{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.bottone{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;text-align:center}
+.bottone.chiaro{background:#fff;color:var(--notte)}
+.bottone.filo{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+.bottone.verde{background:var(--verde);color:#fff}
+.bottone.scuro{background:var(--notte);color:#fff}
+.bottone.bordo{background:var(--foglio);border-color:var(--testo-c);color:var(--testo-c)}
+
+/* sezioni */
+.sezione{padding-top:64px;padding-bottom:64px;border-bottom:1px solid var(--linea)}
+.sezione > .dentro > p.guida{margin-top:14px;max-width:60ch;color:var(--grigio);font-size:1.1rem}
+
+/* storia */
+.giorni{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.giorni button{background:var(--foglio);border:1px solid var(--linea);border-radius:10px;padding:10px 6px;cursor:pointer;text-align:center;line-height:1.2}
+.giorni b{display:block;font-family:var(--titoli);font-weight:500;font-size:1.5rem}
+.giorni span{display:block;font-size:.8rem;color:var(--grigio)}
+.giorni button[aria-current="true"]{background:var(--notte);border-color:var(--notte);color:#fff}
+.giorni button[aria-current="true"] span{color:var(--argento)}
+.giorni button.fatto{border-color:var(--verde)}
+.scena{margin-top:18px;display:grid;gap:16px;align-items:start}
+.cosa{grid-area:a}.telefono{grid-area:b}.poi-voi{grid-area:c}
+.scena{grid-template-areas:"a" "b" "c"}
+.cosa{background:var(--foglio);border:1px solid var(--linea);border-radius:14px;padding:20px}
+.cosa .quando{color:var(--grigio);font-size:.95rem}
+.cosa .succede{margin-top:6px;font-size:1.2rem;font-weight:600;line-height:1.35}
+.voi{border-radius:10px;padding:14px 16px;background:var(--verde-t);color:#0A3F2E}
+.voi.tocca{background:var(--ambra-t);color:#5B3B00}
+.voi small{display:block;font-size:.86rem;font-weight:600;opacity:.8}
+.voi b{display:block;font-size:1.15rem;margin-top:2px}
+.avviso{margin-top:18px;border:1px solid var(--linea);border-left:4px solid var(--ambra);border-radius:10px;padding:16px;background:var(--foglio)}
+.avviso small{display:block;color:var(--grigio);font-size:.86rem;font-weight:600}
+.avviso b{display:block;font-size:1.2rem;margin-top:2px;line-height:1.3}
+.avviso p{margin-top:6px}
+.avviso .scelte{margin-top:14px;display:grid;gap:8px}
+.avviso .scelte button{min-height:50px;border-radius:9px;border:1px solid var(--testo-c);background:var(--foglio);font-weight:700;cursor:pointer;padding:10px 14px;text-align:left}
+.avviso .scelte button:first-child{background:var(--notte);color:#fff;border-color:var(--notte)}
+.avviso.caldo{border-left-color:var(--verde)}
+.avviso .esito{margin-top:12px;font-weight:700;color:var(--verde)}
+.telefono{background:#1A1D25;border-radius:30px;padding:10px;max-width:400px;width:100%;justify-self:center;box-shadow:0 18px 40px -22px rgba(11,13,19,.55)}
+.schermo{background:#EDEFF2;border-radius:22px;overflow:hidden;min-height:300px;display:flex;flex-direction:column}
+.chat-testa{background:var(--foglio);border-bottom:1px solid var(--linea);padding:12px 14px;display:flex;align-items:center;gap:10px}
+.chat-testa .tondo{flex:none;width:38px;height:38px;border-radius:50%;background:var(--notte);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.chat-testa b{display:block;line-height:1.2}
+.chat-testa small{display:block;color:var(--grigio);font-size:.82rem}
+.chat{padding:14px 12px 18px;display:flex;flex-direction:column;gap:10px}
+.data{align-self:center;background:#DDE0E6;color:#3C4250;border-radius:8px;padding:3px 10px;font-size:.78rem;font-weight:600}
+.msg{max-width:88%;padding:10px 12px 8px;border-radius:14px;font-size:.98rem;line-height:1.42}
+.msg small{display:block;margin-top:5px;font-size:.76rem;color:#4F5665}
+.msg.esce{align-self:flex-end;background:#D9F0E3;border-bottom-right-radius:4px}
+.msg.entra{align-self:flex-start;background:var(--foglio);border-bottom-left-radius:4px}
+.msg.nota{align-self:center;background:transparent;color:var(--grigio);font-size:.9rem;text-align:center;max-width:100%}
+.avanti{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.avanti .bottone{flex:1 1 220px}
+.somma{margin-top:22px;padding:18px 20px;border-radius:14px;background:var(--notte);color:#fff}
+.somma p{color:var(--argento)}
+.somma b{display:block;font-family:var(--titoli);font-weight:500;font-size:1.7rem;line-height:1.2;margin-top:4px}
+.entra-su{animation:su .3s ease-out}
+@keyframes su{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* resoconto */
+.resoconto{margin-top:28px;background:var(--foglio);border:1px solid var(--linea);border-radius:14px;overflow:hidden}
+.resoconto header{padding:16px 20px;border-bottom:1px solid var(--linea);display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:space-between;align-items:baseline}
+.resoconto header b{font-size:1.1rem}
+.resoconto header span{color:var(--grigio);font-size:.92rem}
+.cifre{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linea);border-bottom:1px solid var(--linea)}
+.cifre div{background:var(--foglio);padding:16px 20px}
+.cifre b{display:block;font-family:var(--titoli);font-weight:500;font-size:1.75rem;line-height:1.05;white-space:nowrap}
+.cifre span{display:block;margin-top:4px;color:var(--grigio);font-size:.92rem;line-height:1.3}
+.cifre .soldi b{color:var(--verde)}
+.riga{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:15px 20px;border-bottom:1px solid var(--linea)}
+.riga:last-child{border-bottom:0}
+.riga .chi{font-weight:700}
+.riga .imp{font-weight:700;white-space:nowrap}
+.riga .lav{grid-column:1 / -1;color:var(--grigio);font-size:.96rem}
+.riga .poi{grid-column:1 / -1;margin-top:6px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:.96rem}
+.stato{display:inline-block;border-radius:999px;padding:2px 11px;font-size:.84rem;font-weight:700;border:1px solid var(--linea);color:var(--grigio);background:var(--carta);white-space:nowrap}
+.stato.chiama{background:var(--ambra-t);border-color:#E3C98A;color:#5B3B00}
+.stato.risposta{background:var(--foglio);border-color:var(--testo-c);color:var(--testo-c)}
+.stato.ok{background:var(--verde-t);border-color:#A9D3C1;color:#0A3F2E}
+.riga.chiusa .chi,.riga.chiusa .imp{color:var(--grigio);font-weight:600}
+
+/* conto */
+.conto{margin-top:28px;display:grid;gap:0;background:var(--foglio);border:1px solid var(--linea);border-radius:14px;overflow:hidden}
+.campi{padding:6px 20px 14px}
+.campo{padding:16px 0;border-bottom:1px solid var(--linea)}
+.campo:last-child{border-bottom:0}
+.campo .testa{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.campo label{font-weight:600;line-height:1.3}
+.campo output{font-family:var(--titoli);font-size:1.7rem;line-height:1;white-space:nowrap}
+.regola{margin-top:10px;display:flex;align-items:center;gap:10px}
+.regola button{flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--testo-c);background:var(--foglio);font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+input[type=range]{-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:46px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:4px;background:var(--linea);border-radius:2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--notte);border:3px solid #fff;box-shadow:0 0 0 1px var(--notte);margin-top:-11px}
+input[type=range]::-moz-range-track{height:4px;background:var(--linea);border-radius:2px}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--notte);border:3px solid #fff}
+.esito{padding:22px 20px 24px;background:var(--notte);color:#fff}
+.esito .fermi{color:var(--argento)}
+.esito .fermi b{display:block;color:#fff;font-family:var(--titoli);font-weight:500;font-size:1.9rem;line-height:1.15;margin-top:2px}
+.ipotesi{margin-top:22px;border:0;min-width:0}
+.ipotesi legend{color:var(--argento);margin-bottom:8px}
+.ipotesi .gruppo{display:flex;flex-wrap:wrap;gap:8px}
+.ipotesi input{position:absolute;opacity:0;width:1px;height:1px}
+.ipotesi label{display:inline-flex;align-items:center;min-height:46px;padding:8px 16px;border:1px solid rgba(255,255,255,.4);border-radius:999px;font-weight:700;cursor:pointer}
+.ipotesi input:checked + label{background:#fff;color:var(--notte);border-color:#fff}
+.ipotesi input:focus-visible + label{outline:2px solid #fff;outline-offset:3px}
+.frutto{margin-top:22px;display:grid;gap:14px}
+.frutto p{color:var(--argento)}
+.frutto b{display:block;color:#fff;font-family:var(--titoli);font-weight:500;line-height:1.05}
+.frutto .lavori b{font-size:1.9rem}
+.frutto .margine b{font-size:clamp(2.6rem,11vw,3.6rem);color:#8FE0BC}
+.esito .nota{margin-top:16px;color:var(--argento);font-size:.92rem;max-width:46ch}
+
+/* voi */
+.due{margin-top:28px;display:grid;gap:16px}
+.scheda{background:var(--foglio);border:1px solid var(--linea);border-radius:14px;padding:22px}
+.scheda h3{font-size:1.2rem}
+.scheda ul{margin-top:12px;display:grid;gap:10px}
+.scheda li{padding-left:28px;position:relative}
+.scheda li::before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border-radius:50%;background:var(--verde)}
+.scheda.no li::before{background:transparent;border:1.5px solid var(--grigio)}
+.scheda.no li{color:var(--grigio)}
+
+/* domande */
+.domande{margin-top:26px;display:grid;gap:0;border-top:1px solid var(--linea)}
+.domande div{padding:18px 0;border-bottom:1px solid var(--linea)}
+.domande dt{font-weight:700;font-size:1.12rem;line-height:1.3}
+.domande dd{margin-top:6px;max-width:62ch;color:#2B303B}
+
+/* chiusura */
+.chiude{background:var(--notte);color:#fff;padding-top:60px;padding-bottom:60px}
+.chiude p{margin-top:14px;max-width:48ch;color:#E4E6EC;font-size:1.12rem}
+.chiude .orari{margin-top:14px;color:var(--argento);font-size:.92rem}
+.piede{padding-top:26px;padding-bottom:44px;color:var(--grigio);font-size:.9rem;display:grid;gap:8px}
+.piede p{max-width:78ch}
+
+@media (min-width:880px){
+  .apre{padding-top:70px;padding-bottom:78px}
+  .sezione{padding-top:92px;padding-bottom:92px}
+  .scena{grid-template-columns:minmax(0,1fr) 400px;column-gap:34px;grid-template-areas:"a b" "c b";grid-template-rows:auto 1fr}
+  .schermo{min-height:440px}
+  .giorni{max-width:560px}
+  .cifre{grid-template-columns:repeat(4,1fr)}
+  .riga{grid-template-columns:minmax(0,1.4fr) minmax(0,2fr) auto;align-items:center}
+  .riga .testi{grid-column:1;grid-row:1}
+  .riga .lav{grid-column:auto}
+  .riga .poi{grid-column:2;grid-row:1;margin-top:0}
+  .riga .imp{grid-column:3;grid-row:1}
+  .conto{grid-template-columns:1.05fr 1fr}
+  .due{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .intro{display:none}
+  .entra-su{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="intro" aria-hidden="true"><div><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="url(#um-i)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#um-i)"/><defs><linearGradient id="um-i" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg><b>Umbra</b><span>Anteprima riservata per L&#x27;Ottagono</span></div></div>
+
+<header class="testata">
+  <div class="dentro barra">
+    <span class="marchio"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="url(#um)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#um)"/><defs><linearGradient id="um" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg>Umbra</span>
+    <small>Anteprima per L&#x27;Ottagono</small>
+  </div>
+  <div class="dentro apre">
+    <h1><span>Mandate un preventivo.</span><span>Il cliente non risponde.</span><span class="domanda">Chi lo richiama?</span></h1>
+    <p class="sotto">Per L&#x27;Ottagono lo facciamo noi, a vostro nome: quattro messaggi in due settimane, finché arriva un sì o un no. Voi ricevete un avviso solo quando il cliente risponde.</p>
+    <p class="fatto"><b>Sul vostro sito invitate a contattarvi «per informazioni, appuntamenti e preventivi».</b> Ogni preventivo che parte da lì, poi, va seguito.</p>
+    <div class="bottoni">
+      <a class="bottone chiaro" href="#storia">Guardate un preventivo seguito per 13 giorni</a>
+      <a class="bottone filo" href="#conto">Fate il conto con i vostri numeri</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sezione" id="storia" aria-labelledby="storia-t">
+  <div class="dentro">
+    <h2 id="storia-t">Un preventivo di L&#x27;Ottagono, giorno per giorno.</h2>
+    <p class="guida">Un esempio dall'inizio alla fine: la cliente, i messaggi e le cifre sono inventati. I testi veri li approvate voi una volta sola, all'inizio.</p>
+    <div class="giorni" id="giorni" role="tablist" aria-label="I giorni del preventivo"></div>
+    <div class="scena">
+      <div class="cosa" aria-live="polite">
+        <p class="quando" id="quando"></p>
+        <p class="succede" id="succede"></p>
+      </div>
+      <div class="telefono" aria-label="La conversazione con la cliente">
+        <div class="schermo">
+          <div class="chat-testa"><span class="tondo">MB</span><div><b>Marta B.</b><small id="chat-sotto"></small></div></div>
+          <div class="chat" id="chat"></div>
+        </div>
+      </div>
+      <div class="poi-voi">
+        <div class="voi" id="voi"><small>Cosa fate voi</small><b id="voi-t"></b></div>
+        <div id="avviso"></div>
+        <div class="avanti">
+          <button type="button" class="bottone scuro" id="avanti"></button>
+        </div>
+        <div class="somma" id="somma" hidden>
+          <p>In 13 giorni: quattro messaggi partiti da soli, una risposta scelta da voi, una telefonata.</p>
+          <b id="somma-t"></b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="lunedi" aria-labelledby="lunedi-t">
+  <div class="dentro">
+    <h2 id="lunedi-t">Il lunedì mattina vi arriva questo.</h2>
+    <p class="guida">Per messaggio e per email. Si legge in un minuto e non c'è nessun programma da aprire.</p>
+    <div class="resoconto">
+      <header><b>Resoconto preventivi, L&#x27;Ottagono</b><span>Esempio</span></header>
+      <div class="cifre"><div class=""><b class="num">33</b><span>preventivi seguiti questo mese</span></div><div class=""><b class="num">1</b><span>cliente da chiamare oggi</span></div><div class=""><b class="num">1</b><span>risposta che aspetta voi</span></div><div class="soldi"><b class="num">19.400 €</b><span>accettati questo mese dopo un richiamo (4 lavori)</span></div></div>
+      <div class="riga"><div class="testi"><div class="chi">Marta B.</div><div class="lav">Caminetto a legna su misura</div></div><div class="imp num">5.800 €</div><div class="poi"><span class="stato chiama">Da chiamare</span><span>Vuole procedere</span></div></div><div class="riga"><div class="testi"><div class="chi">Gianni R.</div><div class="lav">Caminetto a legna</div></div><div class="imp num">7.400 €</div><div class="poi"><span class="stato risposta">Ha risposto</span><span>Chiede della canna fumaria: aspetta voi</span></div></div><div class="riga"><div class="testi"><div class="chi">Famiglia T.</div><div class="lav">Cucina a legna</div></div><div class="imp num">4.900 €</div><div class="poi"><span class="stato ">In attesa</span><span>Secondo richiamo giovedì</span></div></div><div class="riga"><div class="testi"><div class="chi">Luisa M.</div><div class="lav">Inserto per camino</div></div><div class="imp num">3.300 €</div><div class="poi"><span class="stato ok">Accettato</span><span>Ha confermato venerdì</span></div></div><div class="riga chiusa"><div class="testi"><div class="chi">Aldo P.</div><div class="lav">Stufa a legna</div></div><div class="imp num">2.600 €</div><div class="poi"><span class="stato ">Chiuso</span><span>Ha scelto un altro: nessun altro messaggio</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="conto" aria-labelledby="conto-t">
+  <div class="dentro">
+    <h2 id="conto-t">Quanto vale per voi.</h2>
+    <p class="guida">I numeri qui sotto sono un esempio. Metteteci i vostri: il conto si aggiorna da solo.</p>
+    <div class="conto">
+      <div class="campi">
+        <div class="campo"><div class="testa"><label for="c1">Preventivi che fate in un mese</label><output id="c1-o" for="c1"></output></div><div class="regola"><button type="button" data-c="c1" data-v="-1" aria-label="Diminuisci">&minus;</button><input type="range" id="c1" min="2" max="150" step="1"><button type="button" data-c="c1" data-v="1" aria-label="Aumenta">+</button></div></div>
+        <div class="campo"><div class="testa"><label for="c2">Valore medio di un preventivo</label><output id="c2-o" for="c2"></output></div><div class="regola"><button type="button" data-c="c2" data-v="-1" aria-label="Diminuisci">&minus;</button><input type="range" id="c2" min="500" max="40000" step="500"><button type="button" data-c="c2" data-v="1" aria-label="Aumenta">+</button></div></div>
+        <div class="campo"><div class="testa"><label for="c3">Quanti diventano lavori</label><output id="c3-o" for="c3"></output></div><div class="regola"><button type="button" data-c="c3" data-v="-1" aria-label="Diminuisci">&minus;</button><input type="range" id="c3" min="1" max="9" step="1"><button type="button" data-c="c3" data-v="1" aria-label="Aumenta">+</button></div></div>
+        <div class="campo"><div class="testa"><label for="c4">Quanto vi resta su un lavoro</label><output id="c4-o" for="c4"></output></div><div class="regola"><button type="button" data-c="c4" data-v="-1" aria-label="Diminuisci">&minus;</button><input type="range" id="c4" min="5" max="60" step="5"><button type="button" data-c="c4" data-v="1" aria-label="Aumenta">+</button></div></div>
+      </div>
+      <div class="esito" aria-live="polite">
+        <p class="fermi">In un anno restano senza un sì<b class="num" id="e-fermi"></b><span id="e-valore"></span></p>
+        <fieldset class="ipotesi">
+          <legend>Se richiamandoli ne recuperate</legend>
+          <div class="gruppo">
+            <input type="radio" name="ip" id="ip1" value="0.02"><label for="ip1">1 su 50</label>
+            <input type="radio" name="ip" id="ip2" value="0.05" checked><label for="ip2">1 su 20</label>
+            <input type="radio" name="ip" id="ip3" value="0.1"><label for="ip3">1 su 10</label>
+          </div>
+        </fieldset>
+        <div class="frutto">
+          <p class="lavori">Lavori in più in un anno<b class="num" id="e-lavori"></b></p>
+          <p class="margine">Che a voi lasciano<b class="num" id="e-margine"></b></p>
+        </div>
+        <p class="nota">È un'ipotesi, non una promessa. Il numero vero si misura sui vostri preventivi nei primi 60 giorni.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="voi-fate" aria-labelledby="voi-fate-t">
+  <div class="dentro">
+    <h2 id="voi-fate-t">Cosa dovete fare voi.</h2>
+    <div class="due">
+      <div class="scheda">
+        <h3>Due cose</h3>
+        <ul>
+          <li>Quando mandate un preventivo, mettete un indirizzo in copia. Se lo scrivete a mano, basta una foto.</li>
+          <li>Quando arriva un avviso, scegliete la risposta: dieci secondi.</li>
+        </ul>
+      </div>
+      <div class="scheda no">
+        <h3>Non serve</h3>
+        <ul>
+          <li>Darci password o accessi ai vostri programmi</li>
+          <li>Cambiare il programma con cui fate i preventivi</li>
+          <li>Imparare un programma nuovo</li>
+          <li>Darci l'elenco dei vostri vecchi clienti</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione" aria-labelledby="dom-t">
+  <div class="dentro">
+    <h2 id="dom-t">Le domande che fanno tutti.</h2>
+    <dl class="domande">
+      <div><dt>Scrive ai miei clienti senza che io lo sappia?</dt><dd>No. I messaggi programmati li leggete e li approvate voi una volta, all'inizio. Quando un cliente risponde, tutto si ferma e arriva l'avviso: decidete voi.</dd></div>
+      <div><dt>E se il cliente si scoccia?</dt><dd>Al massimo quattro messaggi in due settimane, e solo a chi vi ha chiesto il preventivo. L'ultimo chiede un sì o un no. Chi risponde di no non riceve più niente.</dd></div>
+      <div><dt>Da dove partono i messaggi?</dt><dd>Dal WhatsApp o dall'email di L&#x27;Ottagono: il cliente parla sempre con voi. Per collegare WhatsApp serve qualche giorno; nel frattempo si parte con l'email.</dd></div>
+      <div><dt>Quanto costa?</dt><dd>Ve lo diciamo dopo aver fatto il conto sui vostri numeri veri: un quarto d'ora al telefono. Se il conto non torna, ve lo diciamo noi per primi.</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+
+<section class="chiude" aria-labelledby="chiude-t">
+  <div class="dentro">
+    <h2 id="chiude-t">Facciamo il conto sui vostri preventivi veri.</h2>
+    <p>Un quarto d'ora al telefono, con i numeri dell'ultimo anno.</p>
+    <div class="bottoni"><a class="bottone chiaro" href="https://wa.me/393514618847?text=Buongiorno%2C%20ho%20visto%20l%27anteprima%20sul%20richiamo%20dei%20preventivi%20preparata%20per%20L%27Ottagono.%20Vorrei%20fare%20il%20conto%20sui%20nostri%20numeri.">Scriveteci su WhatsApp</a></div>
+    <p class="orari">Umbra risponde dal lunedì al venerdì, dalle 11 alle 19.</p>
+  </div>
+</section>
+
+<footer class="dentro piede">
+  <p>Questa pagina è un'anteprima preparata da Umbra per L&#x27;Ottagono. Non è una pagina di L&#x27;Ottagono e non raccoglie dati.</p>
+  <p>La cliente, la conversazione, il resoconto e le cifre sono esempi inventati. Il conto usa solo i numeri che inserite voi.</p>
+  <p>Il dato sul vostro sito viene da lottagono.com, letto il 26 novembre 2026.</p>
+</footer>
+
+<script type="application/json" id="dati">{"numero": 96, "importo": 5800, "giorni": [{"n": 0, "q": "martedì, ore 17:20", "d": "Martedì", "p": "Mandate il preventivo n. 96 per email, come sempre. Con un indirizzo in più in copia.", "voi": "Niente. Il primo messaggio parte da solo.", "m": [{"k": "esce", "x": "Buonasera Marta, qui L'Ottagono. Le abbiamo appena mandato per email il preventivo per un caminetto a legna su misura con la canna fumaria. Se qualcosa non è chiaro ci scriva pure qui.", "q": "17:22, partito da solo"}]}, {"n": 2, "q": "giovedì, ore 10:05", "d": "Giovedì", "p": "Nessuna risposta. Parte il primo richiamo, e Marta risponde.", "voi": "", "scelta": {"t": "Marta ha risposto: chiede i tempi.", "p": "La risposta è già pronta. La inviate così, la cambiate, oppure la chiamate voi."}, "m": [{"k": "esce", "x": "Buongiorno Marta, è riuscita a guardare il preventivo? Se vuole le spieghiamo in due righe la differenza tra i due modelli.", "q": "10:05, partito da solo"}, {"k": "entra", "x": "Buongiorno, sì l'ho visto. Mi chiedevo quanto tempo serve per l'installazione.", "q": "13:40"}, {"k": "esce", "x": "I tempi precisi glieli diamo dopo il sopralluogo, che è gratuito e non la impegna. Le proponiamo due date questa settimana?", "q": "13:52, partito dopo il vostro ok", "dopo": true}]}, {"n": 6, "q": "lunedì, ore 9:30", "d": "Lunedì", "p": "Marta non ha più scritto. Parte il secondo richiamo.", "voi": "Niente.", "m": [{"k": "esce", "x": "Buongiorno Marta, se le fa comodo passiamo per il sopralluogo: è gratuito e non la impegna a nulla. Meglio giovedì o sabato mattina?", "q": "9:30, partito da solo"}]}, {"n": 13, "q": "lunedì, ore 17:00", "d": "Lunedì", "p": "Ultimo messaggio: chiede solo un sì o un no. E Marta dice sì.", "voi": "Una telefonata.", "fine": {"t": "Marta vuole procedere.", "p": "Preventivo n. 96, 5.800 €. Chiede quando potete passare per il sopralluogo. Chiamatela."}, "m": [{"k": "esce", "x": "Buonasera Marta, teniamo aperto il preventivo o lo chiudiamo? Ci basta un sì o un no, così non la disturbiamo più.", "q": "17:00, partito da solo"}, {"k": "entra", "x": "Buonasera, scusate il ritardo. Abbiamo deciso: procediamo con voi. Quando potete venire per il sopralluogo?", "q": "18:42"}]}], "conto": {"mese": 25, "valore": 4500, "chiusi": 4, "margine": 30}}</script>
+<script>
+(function(){
+"use strict";
+var D = JSON.parse(document.getElementById("dati").textContent);
+function $(id){ return document.getElementById(id); }
+function el(tag, cls, testo){ var e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; }
+function punti(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+function euro(n){ return punti(n) + " €"; }
+
+/* ---------- la storia ---------- */
+var G = D.giorni, giorno = 0, scelta = null, visti = 0;
+$("chat-sotto").textContent = "Preventivo n. " + D.numero + ", " + euro(D.importo);
+function tabs(){
+  var box = $("giorni"); box.textContent = "";
+  G.forEach(function(g, i){
+    var b = el("button"); b.type = "button"; b.setAttribute("role", "tab");
+    b.setAttribute("aria-current", i === giorno ? "true" : "false");
+    if (i < giorno || (i <= visti && i !== giorno)) b.className = "fatto";
+    b.appendChild(el("span", null, "giorno"));
+    b.appendChild(el("b", null, String(g.n)));
+    b.addEventListener("click", function(){ vai(i); });
+    box.appendChild(b);
+  });
+}
+function bolla(m){
+  var b = el("div", "msg " + m.k + " entra-su");
+  b.appendChild(document.createTextNode(m.x));
+  if (m.q) b.appendChild(el("small", null, m.q));
+  return b;
+}
+function mostra(){
+  var g = G[giorno];
+  tabs();
+  $("quando").textContent = "Giorno " + g.n + ", " + g.q;
+  $("succede").textContent = g.p;
+  var chat = $("chat"); chat.textContent = "";
+  chat.appendChild(el("span", "data", g.d));
+  g.m.forEach(function(m){
+    if (m.dopo && !scelta) return;
+    if (m.dopo && scelta === "chiamo") return;
+    chat.appendChild(bolla(m));
+  });
+  if (g.scelta && scelta === "chiamo") chat.appendChild(el("div", "msg nota", "Qui non parte niente: la chiamate voi."));
+  var av = $("avviso"); av.textContent = "";
+  var voi = $("voi"), tocca = false, testo = g.voi;
+  if (g.scelta) {
+    var a = el("div", "avviso");
+    a.appendChild(el("small", null, "Avviso sul vostro telefono"));
+    a.appendChild(el("b", null, g.scelta.t));
+    a.appendChild(el("p", null, g.scelta.p));
+    if (!scelta) {
+      tocca = true; testo = "Scegliete: dieci secondi.";
+      var s = el("div", "scelte");
+      [["pronta", "Invio la risposta già pronta"], ["cambio", "La cambio e la invio"], ["chiamo", "La chiamo io"]].forEach(function(o){
+        var b = el("button", null, o[1]); b.type = "button";
+        b.addEventListener("click", function(){ scelta = o[0]; mostra(); });
+        s.appendChild(b);
+      });
+      a.appendChild(s);
+    } else {
+      testo = "Fatto, in dieci secondi.";
+      a.appendChild(el("p", "esito", scelta === "pronta" ? "Avete scelto: invio la risposta già pronta." : scelta === "cambio" ? "Avete scelto: la cambio e la invio." : "Avete scelto: la chiamo io. Tutto fermo finché non lo dite voi."));
+    }
+    av.appendChild(a);
+  }
+  if (g.fine) {
+    tocca = true;
+    var f = el("div", "avviso caldo");
+    f.appendChild(el("small", null, "Avviso sul vostro telefono"));
+    f.appendChild(el("b", null, g.fine.t));
+    f.appendChild(el("p", null, g.fine.p));
+    var w = el("a", "bottone bordo", "Guardate l'avviso sul vostro WhatsApp");
+    w.id = "avviso-wa"; w.style.marginTop = "14px";
+    w.href = "https://wa.me/?text=" + encodeURIComponent(g.fine.t + "\n" + g.fine.p + "\n\n(Esempio: così arriva l'avviso al titolare.)");
+    w.target = "_blank"; w.rel = "noopener";
+    f.appendChild(w);
+    av.appendChild(f);
+  }
+  voi.className = "voi" + (tocca ? " tocca" : "");
+  $("voi-t").textContent = testo;
+  var av2 = $("avanti");
+  if (giorno < G.length - 1) {
+    av2.textContent = "Avanti: giorno " + G[giorno + 1].n;
+    av2.disabled = !!(g.scelta && !scelta);
+    av2.style.opacity = av2.disabled ? ".45" : "1";
+  } else { av2.textContent = "Ricominciate dal giorno 0"; av2.disabled = false; av2.style.opacity = "1"; }
+  $("somma").hidden = giorno < G.length - 1;
+  $("somma-t").textContent = "Un lavoro da " + euro(D.importo) + " che era fermo.";
+}
+function vai(i){
+  if (i > 1 && !scelta) scelta = "pronta";
+  giorno = i; if (i > visti) visti = i;
+  mostra();
+}
+$("avanti").addEventListener("click", function(){
+  if (giorno < G.length - 1) vai(giorno + 1);
+  else { scelta = null; visti = 0; vai(0); $("storia").scrollIntoView(); }
+});
+mostra();
+
+/* ---------- il conto ---------- */
+var C = D.conto;
+[["c1", C.mese], ["c2", C.valore], ["c3", C.chiusi], ["c4", C.margine]].forEach(function(p){ $(p[0]).value = p[1]; });
+function conto(){
+  var mese = +$("c1").value, valore = +$("c2").value, chiusi = +$("c3").value, margine = +$("c4").value;
+  var quota = +document.querySelector('input[name="ip"]:checked').value;
+  $("c1-o").textContent = punti(mese);
+  $("c2-o").textContent = euro(valore);
+  $("c3-o").textContent = chiusi + " su 10";
+  $("c4-o").textContent = margine + " %";
+  var fermi = Math.round(mese * 12 * (10 - chiusi) / 10);
+  var lavori = Math.floor(fermi * quota + 1e-9);
+  $("e-fermi").textContent = punti(fermi) + " preventivi";
+  $("e-valore").textContent = "Valgono " + euro(fermi * valore) + ".";
+  $("e-lavori").textContent = lavori + (lavori === 1 ? " lavoro: " : " lavori: ") + euro(lavori * valore);
+  $("e-margine").textContent = euro(lavori * valore * margine / 100);
+}
+["c1", "c2", "c3", "c4"].forEach(function(id){ $(id).addEventListener("input", conto); });
+Array.prototype.forEach.call(document.querySelectorAll('input[name="ip"]'), function(r){ r.addEventListener("change", conto); });
+Array.prototype.forEach.call(document.querySelectorAll(".regola button"), function(b){
+  b.addEventListener("click", function(){
+    var i = $(b.getAttribute("data-c"));
+    i.value = Math.min(+i.max, Math.max(+i.min, +i.value + (+b.getAttribute("data-v")) * (+i.step)));
+    conto();
+  });
+});
+conto();
+})();
+</script>
+</body>
+</html>
