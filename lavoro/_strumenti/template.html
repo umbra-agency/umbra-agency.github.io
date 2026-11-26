@@ -16,11 +16,12 @@
 <link rel="preload" href="../f/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../f/anton.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* Umbra · anteprima «candidature dirette»
+/* Umbra · anteprima «candidature dirette», seconda versione
    Idea: la vetrina di notte. Il cartello «cercasi» è un foglio bianco che nessuno legge;
    la luce vera è lo schermo di un telefono.
+   Ordine: il risultato, la prova, quello che è già pronto, quanto vale, come si parte.
    Colori: nero Umbra, argento, bianco come luce. Unico colore: il rosso del cartello.
-   Caratteri: Bodoni Moda per titoli e numeri, Instrument Sans per leggere, Anton solo sul cartello.
+   Caratteri: Bodoni Moda per titoli e numeri, Instrument Sans per leggere, Anton su cartello e annunci.
    Layout: una colonna allineata a sinistra; il telefono è l'unico oggetto al centro. */
 {{FONTS}}
 :root{
@@ -61,10 +62,14 @@ a{color:inherit}
 .apertura{padding-top:40px;padding-bottom:20px;display:grid;grid-template-columns:1fr;gap:30px}
 .per{color:var(--argento);font-size:1rem}
 .apertura h1{margin-top:12px;font-family:var(--titoli);font-weight:500;font-size:clamp(2.2rem,8.2vw,3.7rem);line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
-.sotto{font-size:1.2rem;max-width:34em}
-.fonte{margin-top:14px;color:var(--fumo);font-size:.92rem}
-.vai{display:inline-block;margin-top:24px;padding:16px 26px;border-radius:999px;background:var(--bianco);color:var(--inch);font-weight:700;text-decoration:none;font-size:1.1rem}
+.attacco{margin-top:18px;font-size:1.25rem;line-height:1.45;max-width:30em}
+.gia{font-size:1.15rem;max-width:34em;padding-left:16px;border-left:3px solid var(--bianco)}
+.fonte{margin-top:18px;color:var(--fumo);font-size:.92rem;max-width:40em}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.vai{display:inline-block;padding:16px 26px;border-radius:999px;background:var(--bianco);color:var(--inch);font-weight:700;text-decoration:none;font-size:1.1rem;border:1.5px solid var(--bianco)}
 .vai:hover{background:var(--chiaro)}
+.apri{display:inline-block;padding:16px 24px;border-radius:999px;border:1.5px solid var(--argento);color:var(--bianco);font-weight:700;text-decoration:none;font-size:1.05rem}
+.apri:hover{background:var(--bianco);color:var(--inch);border-color:var(--bianco)}
 
 /* la vetrina con il cartello */
 .vetrina{position:relative;display:grid;place-items:center;padding:34px 10px 30px;border:1px solid var(--linea);border-radius:6px;background:
@@ -102,7 +107,13 @@ a{color:inherit}
 .avatar{flex:none;width:42px;height:42px;border-radius:50%;background:var(--inch);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.95rem}
 .ad-testa b{display:block;line-height:1.2}
 .ad-testa small{color:var(--grigio);font-size:.82rem}
-.foto{border:2px dashed #B8BAC4;border-radius:14px;min-height:150px;display:grid;place-items:center;text-align:center;padding:16px;color:var(--grigio);font-size:.95rem;background:#EFEEE8}
+.tessera{background:var(--inch);color:#fff;display:grid;align-content:center;gap:6px;padding:22px 20px;min-height:170px}
+.tessera.chiara{background:#E9E7DE;color:var(--inch)}
+.tessera .t1{font-family:var(--cartello);font-size:1.05rem;letter-spacing:.08em;color:#C9CCD6}
+.tessera.chiara .t1{color:var(--rosso)}
+.tessera .t2{font-family:var(--cartello);font-size:2.25rem;line-height:1;text-wrap:balance}
+.tessera .t3{font-weight:700;font-size:.98rem;margin-top:4px}
+.schermo .tessera{border-radius:14px}
 .ad-titolo{font-family:var(--titoli);font-weight:600;font-size:1.65rem;line-height:1.1}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips span{border:1.5px solid var(--inch);border-radius:999px;padding:4px 12px;font-size:.88rem;font-weight:600}
@@ -137,14 +148,45 @@ a{color:inherit}
 .avviso-prova{min-height:1.4em;text-align:center;color:var(--grigio);font-size:.88rem}
 .contorno{display:block;width:100%;min-height:52px;border:2px solid var(--inch);border-radius:16px;background:transparent;font-weight:700;cursor:pointer}
 .sotto-prova{margin-top:18px;color:var(--fumo);font-size:.95rem;text-align:center;max-width:26em}
+.vera{margin-top:26px;width:min(100%,560px);border:1px solid var(--argento);border-radius:6px;padding:22px;background:var(--notte)}
+.vera h3{font-family:var(--titoli);font-weight:500;font-size:1.6rem;line-height:1.15}
+.vera p{margin-top:8px;color:var(--argento)}
+.vera .vai{margin-top:16px}
 .entra{animation:entra .25s ease-out}
 @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* già pronto */
+.pezzi{margin-top:30px;display:grid;grid-template-columns:1fr;gap:16px}
+.pezzo{border:1px solid var(--linea);border-radius:6px;background:var(--notte);padding:22px;min-width:0}
+.pezzo h3{font-family:var(--titoli);font-weight:500;font-size:1.6rem;line-height:1.15}
+.pezzo > p{margin-top:8px;color:var(--argento);max-width:34em}
+.pezzo .apri{margin-top:18px;border-color:var(--bianco)}
+.posts{margin-top:18px;display:grid;grid-template-columns:1fr;gap:16px}
+.post{background:var(--carta);color:var(--inch);border-radius:14px;overflow:hidden;max-width:420px}
+.post-testa{display:flex;align-items:center;gap:10px;padding:14px 14px 0}
+.post-testa b{display:block;line-height:1.2}
+.post-testa small{color:var(--grigio);font-size:.82rem}
+.post-testo{padding:10px 14px 14px;font-size:1rem;line-height:1.45}
+.post-piede{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;background:#EFEEE8}
+.post-piede b{line-height:1.25;font-size:.98rem}
+.post-piede span{flex:none;border-radius:8px;background:var(--inch);color:#fff;font-weight:700;font-size:.9rem;padding:9px 12px}
+.quesiti{margin-top:16px;display:grid;gap:16px}
+.quesiti b{display:block;font-size:1.08rem}
+.quesiti span{display:block;margin-top:2px;color:var(--fumo);font-size:.98rem}
+.manca{margin-top:22px;padding:24px 22px;border-left:4px solid var(--bianco);background:var(--notte);max-width:44em}
+.manca h3{font-family:var(--titoli);font-weight:500;font-size:1.7rem}
+.manca ol{margin-top:12px;display:grid;gap:10px;counter-reset:m}
+.manca li{counter-increment:m;padding-left:34px;position:relative;color:var(--argento)}
+.manca li::before{content:counter(m);position:absolute;left:0;top:-.08em;font-family:var(--titoli);font-weight:600;font-size:1.35rem;color:var(--bianco)}
+.manca li b{color:var(--bianco)}
+.quando{margin-top:18px;font-size:1.2rem;font-weight:600}
+.quando b{white-space:nowrap}
 
 /* passi */
 .passi{margin-top:34px;display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--linea)}
 .passi li{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;padding:26px 0;border-bottom:1px solid var(--linea)}
 .passi .n{grid-row:1 / span 3;font-size:3.6rem;line-height:.9;color:var(--bianco);min-width:1ch}
-.passi .quando{color:var(--fumo);font-size:.92rem}
+.passi .momento{color:var(--fumo);font-size:.92rem}
 .passi h3{font-size:1.3rem;line-height:1.25;font-weight:700}
 .passi p{color:var(--argento);max-width:34em}
 .raggio{margin-top:34px;display:grid;grid-template-columns:1fr;gap:20px;align-items:center}
@@ -161,9 +203,8 @@ a{color:inherit}
 .col ul{margin-top:12px;display:grid;gap:10px}
 .col li{padding-left:22px;position:relative}
 .col li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--argento)}
-.col.no li{color:var(--fumo);text-decoration:line-through;text-decoration-color:var(--rosso)}
+.col.no li{color:var(--fumo);text-decoration:line-through;text-decoration-color:var(--rosso);padding-left:0}
 .col.no li::before{display:none}
-.col.no li{padding-left:0}
 .scelta{margin-top:22px;padding:20px 22px;border-left:4px solid var(--bianco);background:var(--notte);font-size:1.2rem;font-weight:600;max-width:36em}
 
 /* il conto */
@@ -182,6 +223,8 @@ a{color:inherit}
 .esito .cifra{display:block;font-size:clamp(3rem,13vw,4.4rem);line-height:1.02;margin-top:2px;font-weight:700}
 .esito .poi{margin-top:12px;font-weight:600;color:var(--grigio)}
 .esito .poi b{color:var(--inch)}
+.esito .anno{margin-top:14px;padding-top:14px;border-top:1px solid #DDDCD4}
+.esito .anno b{display:block;font-size:2.1rem;line-height:1.1}
 .esito small{display:block;margin-top:12px;color:var(--grigio);font-size:.88rem;font-weight:400}
 
 /* domande */
@@ -194,6 +237,7 @@ a{color:inherit}
 .invito .dentro{padding-top:60px;padding-bottom:60px}
 .invito h2{font-family:var(--titoli);font-weight:500;font-size:clamp(2.1rem,7.5vw,3.5rem);line-height:1.04}
 .invito p{margin-top:14px;max-width:30em;color:var(--argento);font-size:1.2rem}
+.invito .vai{margin-top:24px}
 .firma{margin-top:22px;font-family:var(--titoli);font-size:1.3rem;color:var(--chiaro)}
 .piede{padding-top:26px;padding-bottom:46px;color:var(--fumo);font-size:.92rem}
 .piede p{max-width:60em}
@@ -205,6 +249,9 @@ a{color:inherit}
   .apertura .vetrina{grid-column:2;grid-row:1 / span 2}
   .apertura .resto{grid-column:1}
   .sezione{padding-top:120px}
+  .pezzi{grid-template-columns:1fr 1fr}
+  .pezzo.largo{grid-column:1 / -1}
+  .posts{grid-template-columns:1fr 1fr}
   .passi{grid-template-columns:1fr 1fr;column-gap:56px}
   .raggio{grid-template-columns:300px 1fr;gap:44px}
   .colonne{grid-template-columns:1fr 1fr 1fr}
@@ -235,6 +282,7 @@ a{color:inherit}
   <div class="testa">
     <p class="per">Per {{AZIENDA}}, {{CITTA}}</p>
     <h1>{{H1}}</h1>
+    <p class="attacco">{{H1SOTTO}}</p>
   </div>
   <figure class="vetrina">
     <div class="cartello" aria-hidden="true">
@@ -248,14 +296,17 @@ a{color:inherit}
     <figcaption>Il cartello lo vede chi passa davanti. Chi fa quel mestiere, la sera, guarda il telefono.</figcaption>
   </figure>
   <div class="resto">
-    <p class="sotto">{{FRASE}} Qui sotto c'è la prova: l'annuncio come lo vede {{VEDE}}, la candidatura in 60 secondi senza curriculum, e quello che arriva a voi.</p>
-    <a class="vai" href="#prova">Provatela: bastano 40 secondi</a>
-    <p class="fonte">Fonte: {{FONTE}}.</p>
+    <p class="gia">Per {{AZIENDA}} è già tutto pronto: la pagina per candidarsi, due annunci, le domande. Manca solo il vostro sì.</p>
+    <div class="bottoni">
+      <a class="vai" href="#prova">Provatela: bastano 40 secondi</a>
+      <a class="apri" href="#pronto">Guardate cosa è già pronto</a>
+    </div>
+    <p class="fonte">{{FRASE}} Fonte: {{FONTE}}.</p>
   </div>
 </section>
 
 <section class="sezione dentro" id="prova" aria-labelledby="prova-t">
-  <h2 id="prova-t">Per 40 secondi siete {{LUI}} che cerca lavoro.</h2>
+  <h2 id="prova-t">Per 40 secondi siete {{LUI}} che guarda il telefono.</h2>
   <p>Toccate i pulsanti dentro il telefono. Alla fine vedete cosa arriva a voi.</p>
   <ol class="binario" aria-label="Le tre fasi della prova">
     <li class="attivo"><b>1</b>Vede l'annuncio</li>
@@ -270,18 +321,72 @@ a{color:inherit}
         <noscript><p>La prova funziona con JavaScript attivo. In breve: il candidato vede l'annuncio, risponde a quattro domande toccando lo schermo, e a voi arriva un messaggio con le sue risposte e il numero di telefono.</p></noscript>
       </div>
     </div>
-    <p class="sotto-prova">È una prova: non invia dati a nessuno. Le domande le decidete voi.</p>
+    <p class="sotto-prova">È una prova: a noi non arriva nessun dato. Le domande le decidete voi.</p>
+    <div class="vera" id="vera" hidden>
+      <h3>Volete vederla arrivare davvero?</h3>
+      <p>Si apre WhatsApp sul vostro telefono con questa candidatura già scritta. Mandatela a voi stessi o a un collega: è così che vi arriverebbe.</p>
+      <a class="vai" id="vera-wa" href="https://wa.me/" target="_blank" rel="noopener">Guardatela dentro WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="sezione dentro" id="pronto" aria-labelledby="pronto-t">
+  <h2 id="pronto-t">Per {{AZIENDA}} è già pronto.</h2>
+  <p>Non è una promessa: i pezzi qui sotto li abbiamo già scritti con quello che avete pubblicato. Si correggono insieme in dieci minuti.</p>
+  <div class="pezzi">
+    <div class="pezzo">
+      <h3>La pagina dove si candidano</h3>
+      <p>Con il vostro lavoro, le vostre condizioni e la candidatura in 60 secondi. Apritela come la vedrà {{LUI}}.</p>
+      <a class="apri" href="candidati/">Aprite la pagina dei candidati</a>
+    </div>
+    <div class="pezzo">
+      <h3>Le domande</h3>
+      <p>Quattro tocchi al posto del curriculum. Vi dicono subito se vale una telefonata.</p>
+      <ol class="quesiti">{{QUESITI}}</ol>
+    </div>
+    <div class="pezzo largo">
+      <h3>I due annunci per Facebook e Instagram</h3>
+      <p>Uno dice chi cercate, l'altro perché conviene venire da voi. Al posto del riquadro scuro ci va una vostra foto.</p>
+      <div class="posts">{{POSTS}}</div>
+    </div>
+  </div>
+  <div class="manca">
+    <h3>Cosa manca per partire</h3>
+    <ol>
+      <li><b>Il vostro sì</b> ai testi, o le correzioni: dieci minuti al telefono.</li>
+      <li><b>Il numero WhatsApp</b> dove volete ricevere le candidature.</li>
+      <li><b>Tre foto</b> fatte col telefono: la squadra, un mezzo, un lavoro finito.</li>
+    </ol>
+    <p class="quando">Se ci dite sì oggi, l'annuncio esce <b id="quando">tra quattro giorni lavorativi</b>.</p>
+  </div>
+</section>
+
+<section class="sezione dentro" id="conto" aria-labelledby="conto-t">
+  <h2 id="conto-t">Quanto vale quel posto.</h2>
+  <p>Finché resta vuoto ci sono lavori che non potete prendere. I numeri qui sotto sono un esempio: metteteci i vostri.</p>
+  <div class="foglio">
+    <div class="campi">
+      <div class="campo"><span id="l-per">{{L_PERSONE}}</span><div class="regola"><button type="button" data-c="per" data-d="-1" aria-label="Meno persone">&minus;</button><output class="num" id="o-per" aria-labelledby="l-per">1</output><button type="button" data-c="per" data-d="1" aria-label="Più persone">+</button></div></div>
+      <div class="campo"><span id="l-ore">{{L_ORE}}</span><div class="regola"><button type="button" data-c="ore" data-d="-1" aria-label="Meno ore">&minus;</button><output class="num" id="o-ore" aria-labelledby="l-ore">6</output><button type="button" data-c="ore" data-d="1" aria-label="Più ore">+</button></div></div>
+      <div class="campo"><span id="l-eur">{{L_EUR}}</span><div class="regola"><button type="button" data-c="eur" data-d="-1" aria-label="Meno euro">&minus;</button><output class="num" id="o-eur" aria-labelledby="l-eur">35 €</output><button type="button" data-c="eur" data-d="1" aria-label="Più euro">+</button></div></div>
+    </div>
+    <div class="esito" aria-live="polite">
+      <p>Ogni mese restano fuori lavori per<span class="cifra num" id="r-mese">4.410 €</span></p>
+      <p class="anno">In un anno<b class="num" id="r-anno">52.920 €</b></p>
+      <p class="poi">Anche se di quei lavori vi restasse in tasca solo 1 euro su 5, sono <b class="num" id="r-resta">10.584 €</b> l'anno.</p>
+      <small>Calcolo su 21 giorni lavorativi al mese. Sono numeri di esempio: cambiateli con i vostri.</small>
+    </div>
   </div>
 </section>
 
 <section class="sezione dentro" aria-labelledby="passi-t">
-  <h2 id="passi-t">Come funziona, dal primo giorno.</h2>
+  <h2 id="passi-t">Come si parte, dal vostro sì.</h2>
   <p>Quattro passaggi. Voi ne fate due: una telefonata all'inizio e le telefonate ai candidati.</p>
   <ol class="passi">
-    <li><span class="n num">1</span><span class="quando">Giorno 1, insieme</span><h3>Ci dite chi cercate</h3><p>Venti minuti al telefono: mansione, paga, orari, zona. E cinque foto vostre: la squadra, un mezzo, un lavoro finito.</p></li>
-    <li><span class="n num">2</span><span class="quando">Giorni 2 e 3, noi</span><h3>Prepariamo annuncio, domande e pagina</h3><p>Le domande sono le vostre, come nella prova qui sopra. Vedete tutto e date l'ok prima che esca qualsiasi cosa.</p></li>
-    <li><span class="n num">3</span><span class="quando">Giorno 4, noi</span><h3>L'annuncio esce attorno {{A_CITTA}}</h3><p>Su Facebook e Instagram, a chi vive entro 30 km. Il mestiere è scritto grande: si ferma {{CHI}}, anche se un lavoro ce l'ha e non sta cercando.</p></li>
-    <li><span class="n num">4</span><span class="quando">Da lì in poi, voi</span><h3>Le candidature arrivano a voi</h3><p>Una per una, su WhatsApp, con le risposte già scritte. Richiamate chi vi interessa. Ogni lunedì il riepilogo: quanti l'hanno visto, quanti si sono candidati.</p></li>
+    <li><span class="n num">1</span><span class="momento">Giorno 1, insieme</span><h3>Ci dite sì e correggete</h3><p>Dieci minuti al telefono: paga, orari, quello che abbiamo scritto male. E il numero WhatsApp dove ricevere le candidature.</p></li>
+    <li><span class="n num">2</span><span class="momento">Giorni 2 e 3, noi</span><h3>Sistemiamo testi e foto</h3><p>Mettiamo le vostre foto e le correzioni. Rivedete tutto e date l'ok prima che esca qualsiasi cosa.</p></li>
+    <li><span class="n num">3</span><span class="momento">Giorno 4, noi</span><h3>L'annuncio esce attorno {{A_CITTA}}</h3><p>Su Facebook e Instagram, a chi vive entro 30 km. Il mestiere è scritto grande: si ferma {{CHI}}, anche se un lavoro ce l'ha e non sta cercando.</p></li>
+    <li><span class="n num">4</span><span class="momento">Da lì in poi, voi</span><h3>Le candidature arrivano a voi</h3><p>Una per una, su WhatsApp, con le risposte già scritte. Richiamate chi vi interessa. Ogni lunedì il riepilogo: quanti l'hanno visto, quanti si sono candidati.</p></li>
   </ol>
   <div class="raggio">
     <svg viewBox="0 0 300 300" role="img" aria-label="Tre cerchi attorno {{A_CITTA}}: 10, 20 e 30 chilometri.">
@@ -304,28 +409,11 @@ a{color:inherit}
 <section class="sezione dentro" aria-labelledby="chi-t">
   <h2 id="chi-t">Chi fa cosa.</h2>
   <div class="colonne">
-    <div class="col"><h3>Voi</h3><ul><li>Venti minuti al telefono, all'inizio</li><li>Un sì ai testi prima di partire</li><li>Le telefonate ai candidati che vi interessano</li></ul></div>
-    <div class="col"><h3>Noi</h3><ul><li>Annuncio, domande e pagina «Lavora con noi»</li><li>La campagna nei 30 km attorno {{A_CITTA}}</li><li>L'informativa privacy per chi si candida</li><li>Il riepilogo del lunedì</li></ul></div>
+    <div class="col"><h3>Voi</h3><ul><li>Dieci minuti al telefono, all'inizio</li><li>Un sì ai testi prima di partire</li><li>Le telefonate ai candidati che vi interessano</li></ul></div>
+    <div class="col"><h3>Noi</h3><ul><li>Pagina, annunci e domande: già pronti qui sopra</li><li>La campagna nei 30 km attorno {{A_CITTA}}</li><li>L'informativa privacy per chi si candida</li><li>Il riepilogo del lunedì</li></ul></div>
     <div class="col no"><h3>Non serve</h3><ul><li>Curriculum da leggere</li><li>Portali da pagare</li><li>Password da darci</li><li>Programmi da imparare</li></ul></div>
   </div>
   <p class="scelta">Scegliete sempre voi. Tutte le candidature arrivano direttamente a voi: noi non selezioniamo e non scartiamo nessuno.</p>
-</section>
-
-<section class="sezione dentro" aria-labelledby="conto-t">
-  <h2 id="conto-t">Il conto del posto vuoto.</h2>
-  <p>Finché quel posto resta vuoto ci sono lavori che non potete prendere. Mettete i vostri numeri.</p>
-  <div class="foglio">
-    <div class="campi">
-      <div class="campo"><span id="l-ore">Ore al giorno che lavorerebbe per i clienti</span><div class="regola"><button type="button" data-c="ore" data-d="-1" aria-label="Meno ore">&minus;</button><output class="num" id="o-ore" aria-labelledby="l-ore">6</output><button type="button" data-c="ore" data-d="1" aria-label="Più ore">+</button></div></div>
-      <div class="campo"><span id="l-eur">Quanto vale per voi un'ora del suo lavoro</span><div class="regola"><button type="button" data-c="eur" data-d="-1" aria-label="Meno euro">&minus;</button><output class="num" id="o-eur" aria-labelledby="l-eur">35 €</output><button type="button" data-c="eur" data-d="1" aria-label="Più euro">+</button></div></div>
-      <div class="campo"><span id="l-mesi">Da quanti mesi cercate</span><div class="regola"><button type="button" data-c="mesi" data-d="-1" aria-label="Meno mesi">&minus;</button><output class="num" id="o-mesi" aria-labelledby="l-mesi">2</output><button type="button" data-c="mesi" data-d="1" aria-label="Più mesi">+</button></div></div>
-    </div>
-    <div class="esito" aria-live="polite">
-      <p>Ogni mese restano fuori lavori per<span class="cifra num" id="r-mese">4.410 €</span></p>
-      <p class="poi"><span id="r-mesi-l">In 2 mesi</span>: <b class="num" id="r-tot">8.820 €</b></p>
-      <small>Calcolo su 21 giorni lavorativi al mese. Sono numeri di esempio: cambiateli con i vostri.</small>
-    </div>
-  </div>
 </section>
 
 <section class="sezione dentro" aria-labelledby="faq-t">
@@ -333,17 +421,18 @@ a{color:inherit}
   <dl class="faq">
     <div><dt>Chi sceglie i candidati?</dt><dd>Voi. Vi arrivano tutte le candidature, con le risposte e il numero di telefono. Noi non selezioniamo nessuno.</dd></div>
     <div><dt>Dobbiamo avere Facebook o un sito?</dt><dd>No. Annuncio e pagina li mettiamo in piedi noi. Voi ricevete le candidature su WhatsApp.</dd></div>
-    <div><dt>E quelli che non c'entrano niente?</dt><dd>Le domande servono a questo: esperienza, patente, distanza. Chi non fa per voi lo capite in cinque secondi, senza leggere un curriculum.</dd></div>
+    <div><dt>E quelli che non c'entrano niente?</dt><dd>Le domande servono a questo. Chi non fa per voi lo capite in cinque secondi, senza leggere un curriculum.</dd></div>
+    <div><dt>È come un'agenzia di selezione?</dt><dd>No. Un'agenzia chiede di solito dal 10 al 20% della retribuzione annua per ogni persona assunta. Qui pagate la pagina e la campagna, e pagina, annunci e candidature restano vostri.</dd></div>
     <div><dt>Quanto costa la pubblicità?</dt><dd>Il budget lo decidete voi prima di partire, ed è separato dal nostro lavoro. Lo vedete sempre.</dd></div>
     <div><dt>E se non si candida nessuno?</dt><dd>Può succedere, soprattutto per i mestieri più rari. Per questo ogni lunedì vedete i numeri: se non girano, cambiamo annuncio o zona.</dd></div>
-    <div><dt>Quanto ci vuole per partire?</dt><dd>Dalla telefonata all'annuncio fuori passano quattro giorni lavorativi.</dd></div>
+    <div><dt>Quanto ci vuole per partire?</dt><dd>Pagina e annunci sono già pronti. Dal vostro sì all'annuncio fuori passano quattro giorni lavorativi: servono per le correzioni, le foto e l'apertura della campagna.</dd></div>
   </dl>
 </section>
 
 <section class="invito" aria-labelledby="invito-t">
   <div class="dentro">
     <h2 id="invito-t">Il posto è ancora aperto?</h2>
-    <p>Rispondete alla mail o scriveteci su WhatsApp: in dieci minuti vi diciamo tempi e costo {{PERCHI}}.</p>
+    <p>Rispondete alla mail o scriveteci su WhatsApp: in dieci minuti vi diciamo tempi e costo {{PERCHI}} e correggiamo insieme i testi.</p>
     <a class="vai" href="{{WA}}" target="_blank" rel="noopener">Scriveteci su WhatsApp</a>
     <p class="firma">Umbra</p>
   </div>
@@ -351,8 +440,8 @@ a{color:inherit}
 </main>
 
 <footer class="piede dentro">
-  <p>Anteprima riservata preparata da Umbra per {{AZIENDA}}: il link è stato mandato solo a voi. Non è una pagina di {{AZIENDA}} e non raccoglie candidature: la prova qui sopra non invia dati a nessuno.</p>
-  <p>Le informazioni sulla ricerca di personale vengono da: {{FONTE}}.</p>
+  <p>Anteprima riservata preparata da Umbra per {{AZIENDA}}: il link è stato mandato solo a voi. Non è una pagina di {{AZIENDA}} e non raccoglie candidature. La prova non invia dati né a Umbra né a {{AZIENDA}}; il pulsante «Guardatela dentro WhatsApp» apre WhatsApp sul vostro telefono con un messaggio di prova, e decidete voi se e a chi mandarlo.</p>
+  <p>Le informazioni sulla ricerca di personale vengono da: {{FONTE}}. Il costo delle agenzie di selezione viene dalla guida di Indeed per le aziende.</p>
 </footer>
 
 <script type="application/json" id="dati">{{JSON}}</script>
@@ -376,9 +465,17 @@ var risposte = [], nome = "Marco", t0 = 0, secondi = 0, orologio = null;
 function fase(n){ for (var i = 0; i < fasi.length; i++) fasi[i].classList.toggle("attivo", i === n); }
 function nuovo(){ S.textContent = ""; var b = el("div", "entra"); b.style.display = "flex"; b.style.flexDirection = "column"; b.style.gap = "14px"; b.style.flex = "1"; S.appendChild(b); return b; }
 function tempo(){ if (!t0) { $("tempo").textContent = ""; return; } secondi = Math.max(1, Math.round((Date.now() - t0) / 1000)); $("tempo").textContent = secondi + " s"; }
+function messaggio(){
+  var r = ["Nuova candidatura: " + D.ruolo, "Nome: " + nome];
+  domande.forEach(function(q, i){ r.push(q.e + ": " + (risposte[i] || "")); });
+  r.push("Telefono: 333 000 00 00");
+  r.push("(Candidatura di prova, dall'anteprima Umbra per " + D.azienda + ")");
+  return r.join("\n");
+}
 
 function annuncio(){
   fase(0); risposte = []; t0 = 0; secondi = 0; clearInterval(orologio); tempo();
+  $("vera").hidden = true;
   $("ora").textContent = "21:47";
   $("etichetta").textContent = "Il telefono di " + D.lui + ", ore 21:47";
   var b = nuovo();
@@ -386,7 +483,7 @@ function annuncio(){
   testa.appendChild(el("span", "avatar", D.sigla));
   var chi = el("div"); chi.appendChild(el("b", null, D.azienda)); chi.appendChild(el("small", null, "Annuncio vicino a te"));
   testa.appendChild(chi); b.appendChild(testa);
-  b.appendChild(el("div", "foto", "Qui va una vostra foto: la squadra, un mezzo, un lavoro finito"));
+  var ts = el("div", "tessera"); ts.appendChild(el("span", "t1", D.tessera[0])); ts.appendChild(el("span", "t2", D.tessera[1])); ts.appendChild(el("span", "t3", D.tessera[2])); b.appendChild(ts);
   b.appendChild(el("p", "ad-titolo", D.titoloAnnuncio));
   var chips = el("div", "chips"); D.chips.forEach(function(c){ chips.appendChild(el("span", null, c)); }); b.appendChild(chips);
   var vai = el("button", "pieno", "Mi candido in 60 secondi"); vai.type = "button";
@@ -438,33 +535,49 @@ function voi(){
   $("etichetta").textContent = "Il vostro telefono, ore 21:48";
   var b = nuovo();
   var n = el("div", "notifica");
-  var da = el("div", "da"); da.appendChild(el("span", null, "Candidature " + D.azienda)); da.appendChild(el("span", null, "adesso")); n.appendChild(da);
-  n.appendChild(el("h3", null, "Nuova candidatura: " + nome));
+  var da = el("div", "da"); da.appendChild(el("span", null, "WhatsApp · " + nome)); da.appendChild(el("span", null, "adesso")); n.appendChild(da);
+  n.appendChild(el("h3", null, "Nuova candidatura: " + D.ruolo));
   var dl = el("dl", "righe");
+  var rn = el("div"); rn.appendChild(el("dt", null, "Nome")); rn.appendChild(el("dd", null, nome)); dl.appendChild(rn);
   domande.forEach(function(q, i){ var r = el("div"); r.appendChild(el("dt", null, q.e)); r.appendChild(el("dd", null, risposte[i] || "")); dl.appendChild(r); });
   var rt = el("div"); rt.appendChild(el("dt", null, "Telefono")); rt.appendChild(el("dd", null, "333 000 00 00")); dl.appendChild(rt);
   n.appendChild(dl);
-  var due = el("div", "due"); var c1 = el("button", null, "Chiama"), c2 = el("button", null, "Scrivi"); c1.type = "button"; c2.type = "button"; due.appendChild(c1); due.appendChild(c2); n.appendChild(due);
+  var due = el("div", "due"); var c1 = el("button", null, "Chiama"), c2 = el("button", null, "Rispondi"); c1.type = "button"; c2.type = "button"; due.appendChild(c1); due.appendChild(c2); n.appendChild(due);
   b.appendChild(n);
   var av = el("p", "avviso-prova", ""); b.appendChild(av);
   c1.addEventListener("click", function(){ av.textContent = "Nella versione vera qui parte la telefonata."; });
-  c2.addEventListener("click", function(){ av.textContent = "Nella versione vera qui si apre la chat con lui."; });
+  c2.addEventListener("click", function(){ av.textContent = "Nella versione vera gli rispondete in chat."; });
   b.appendChild(el("p", "sottile", "Arrivata " + sec(secondi) + " dopo aver visto l'annuncio. Nessun curriculum da leggere."));
   var sp = el("div"); sp.style.flex = "1"; b.appendChild(sp);
   var r = el("button", "contorno", "Ricomincio la prova"); r.type = "button"; r.addEventListener("click", annuncio); b.appendChild(r);
+  $("vera-wa").href = "https://wa.me/?text=" + encodeURIComponent(messaggio());
+  $("vera").hidden = false;
 }
 annuncio();
 
+/* ---------- quando esce l'annuncio ---------- */
+(function(){
+  var feste = {"1-1":1,"1-6":1,"4-25":1,"5-1":1,"6-2":1,"8-15":1,"11-1":1,"12-8":1,"12-25":1,"12-26":1};
+  var d = new Date(), n = 0;
+  while (n < 4){
+    d.setDate(d.getDate() + 1);
+    var g = d.getDay();
+    if (g === 0 || g === 6 || feste[(d.getMonth() + 1) + "-" + d.getDate()]) continue;
+    n++;
+  }
+  try { $("quando").textContent = new Intl.DateTimeFormat("it-IT", {weekday:"long", day:"numeric", month:"long"}).format(d); } catch (e) {}
+})();
+
 /* ---------- il conto ---------- */
-var C = {ore:{v:6,min:1,max:10,p:1}, eur:{v:35,min:15,max:150,p:5}, mesi:{v:2,min:1,max:18,p:1}};
+var C = {per:{v:D.conto.persone,min:1,max:12,p:1}, ore:{v:D.conto.ore,min:1,max:12,p:1}, eur:{v:D.conto.eur,min:15,max:200,p:5}};
 function conto(){
+  $("o-per").textContent = C.per.v;
   $("o-ore").textContent = C.ore.v;
   $("o-eur").textContent = C.eur.v + " €";
-  $("o-mesi").textContent = C.mesi.v;
-  var mese = C.ore.v * C.eur.v * 21;
+  var mese = C.per.v * C.ore.v * C.eur.v * 21;
   $("r-mese").textContent = punti(mese) + " €";
-  $("r-mesi-l").textContent = C.mesi.v === 1 ? "In un mese" : "In " + C.mesi.v + " mesi";
-  $("r-tot").textContent = punti(mese * C.mesi.v) + " €";
+  $("r-anno").textContent = punti(mese * 12) + " €";
+  $("r-resta").textContent = punti(mese * 12 / 5) + " €";
 }
 Array.prototype.forEach.call(document.querySelectorAll(".regola button"), function(bt){
   bt.addEventListener("click", function(){

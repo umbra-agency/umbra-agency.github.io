@@ -1,169 +1,145 @@
 [
  {
-  "slug": "domovip",
-  "azienda": "Domovip Italia",
-  "ragione": "Domovip Italia Srl",
-  "sigla": "DI",
-  "breve": "Domovip",
-  "citta": "Aviano",
-  "citta_breve": "Aviano",
-  "prov": "PN",
-  "vede": "uno di loro",
-  "h1": "Cercate elettricisti e idraulici. Portiamo l'annuncio sui loro telefoni.",
-  "cartello": "ELETTRICISTI E IDRAULICI",
-  "cartello2": "Aviano",
-  "frase": "Il 6 ottobre avete pubblicato su Subito un annuncio per elettricisti e idraulici, con sede di lavoro ad Aviano e nelle province vicine.",
-  "fonte": "Subito.it, annuncio «Elettricisti e idraulici» del 6 ottobre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/elettricisti-e-idraulici-pordenone-663529987.htm",
-  "data_annuncio": "6 ott 2026",
-  "lui": "un elettricista",
-  "chi": "chi fa l'elettricista o l'idraulico",
-  "perchi": "per la ricerca di elettricisti e idraulici",
-  "titolo_annuncio": "Domovip Italia cerca elettricisti e idraulici",
-  "chips": [
-   "Aviano e province vicine",
-   "Tempo pieno",
-   "Anche con partita IVA"
-  ],
-  "domande": [
-   {
-    "t": "Che mestiere fai?",
-    "e": "Mestiere",
-    "o": [
-     "Elettricista",
-     "Idraulico",
-     "Tutti e due"
-    ]
-   },
-   {
-    "t": "Hai già montato fotovoltaico, caldaie o climatizzatori?",
-    "e": "Esperienza",
-    "o": [
-     "Sì, da anni",
-     "Qualche volta",
-     "No, ma imparo"
-    ]
-   }
-  ],
-  "paesi": [
-   "Roveredo in Piano",
-   "San Quirino",
-   "Fontanafredda",
-   "Budoia",
-   "Polcenigo",
-   "Pordenone"
-  ]
- },
- {
-  "slug": "tm-elettric",
-  "azienda": "T.M. Elettric",
-  "ragione": "T.M. Elettric S.a.s.",
-  "sigla": "TM",
-  "breve": "T.M. Elettric",
-  "citta": "Lignano Sabbiadoro",
-  "citta_breve": "Lignano",
-  "prov": "UD",
-  "h1": "Cercate un tecnico elettricista. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "ELETTRICISTA",
-  "cartello2": "Lignano Pineta",
-  "frase": "Il 6 ottobre avete pubblicato su Subito un annuncio per un tecnico elettricista per la sede di Lignano Pineta, chiedendo la residenza in zona.",
-  "fonte": "Subito.it, annuncio «Tecnico elettricista» del 6 ottobre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/tecnico-elettricista-udine-663463166.htm",
-  "data_annuncio": "6 ott 2026",
-  "lui": "un elettricista",
-  "chi": "chi fa l'elettricista",
-  "perchi": "per la ricerca dell'elettricista",
-  "titolo_annuncio": "T.M. Elettric cerca un tecnico elettricista",
-  "chips": [
-   "Lignano Pineta",
-   "Tempo indeterminato",
-   "Civile, industriale, domotica"
-  ],
-  "domande": [
-   {
-    "t": "Da quanto fai l'elettricista?",
-    "e": "Esperienza",
-    "o": [
-     "Più di 5 anni",
-     "Da 1 a 5 anni",
-     "Ho appena iniziato"
-    ]
-   },
-   {
-    "t": "Hai lavorato con domotica e automazione?",
-    "e": "Domotica",
-    "o": [
-     "Sì",
-     "Un po'",
-     "No"
-    ]
-   }
-  ],
-  "paesi": [
-   "Latisana",
-   "Precenicco",
-   "Marano Lagunare",
-   "Palazzolo dello Stella",
-   "Ronchis",
-   "Muzzana del Turgnano"
-  ]
- },
- {
-  "slug": "toffoli-serramenti",
-  "azienda": "Toffoli Serramenti",
-  "ragione": "Toffoli Serramenti Srl",
-  "sigla": "TS",
-  "breve": "Toffoli",
-  "citta": "Varmo",
-  "citta_breve": "Varmo",
-  "prov": "UD",
-  "h1": "Cercate un operaio per la produzione. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "OPERAIO DI PRODUZIONE",
-  "cartello2": "Varmo",
-  "frase": "Sulla pagina «Lavora con noi» del vostro sito c'è una ricerca aperta: operaio addetto alla produzione.",
-  "fonte": "toffoliserramenti.com, pagina «Lavora con noi», vista il 25 novembre 2026",
-  "url_fonte": "https://www.toffoliserramenti.com/lavora-con-noi/",
-  "data_annuncio": "visto il 25 nov 2026",
+  "slug": "gaia",
+  "regione": "Friuli",
+  "azienda": "Gaia",
+  "ragione": "Gaia Srl",
+  "sigla": "GA",
+  "breve": "Gaia",
+  "citta": "Monfalcone",
+  "citta_breve": "Monfalcone",
+  "prov": "GO",
+  "h1": "Chi cercate abita a dieci minuti da voi.",
+  "h1sotto": "E non sa che per la nuova linea state assumendo. Portategli l'annuncio sul telefono: si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "OPERAI DI PRODUZIONE",
+  "cartello2": "Monfalcone",
+  "frase": "Su Subito c'è il vostro annuncio del 19 novembre: cercate operai di produzione e confezionamento per una nuova linea.",
+  "fonte": "Subito.it, annuncio «Operai addetti alla produzione e confezionamento» del 19 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/operai-addetti-alla-produzione-e-confezionamento-gorizia-658642827.htm",
+  "data_annuncio": "19 nov 2026",
   "lui": "un operaio",
-  "chi": "chi lavora in produzione",
-  "perchi": "per la ricerca dell'operaio",
-  "titolo_annuncio": "Toffoli Serramenti cerca un operaio per la produzione",
-  "chips": [
-   "Varmo, zona industriale",
-   "Serramenti in PVC e alluminio",
-   "Azienda dal 1964"
-  ],
+  "chi": "chi cerca un posto in produzione vicino a casa",
+  "perchi": "per la nuova linea",
+  "ruolo": "operaio di produzione",
+  "titolo_annuncio": "Gaia cerca operai per la nuova linea",
+  "chips": ["Monfalcone", "Part time o full time", "Formazione iniziale"],
+  "tessera": ["CERCHIAMO", "OPERAI DI PRODUZIONE", "Monfalcone (GO)"],
   "domande": [
-   {
-    "t": "Hai già lavorato in produzione?",
-    "e": "Esperienza",
-    "o": [
-     "Sì, nei serramenti",
-     "Sì, in altri settori",
-     "No"
-    ]
-   },
-   {
-    "t": "Sai usare macchine da taglio o centri di lavoro?",
-    "e": "Macchine",
-    "o": [
-     "Sì",
-     "Un po'",
-     "No, ma imparo"
-    ]
-   }
+   {"t": "Hai già lavorato in produzione?", "e": "Esperienza", "o": ["Sì, nell'alimentare", "Sì, in altri settori", "No"]},
+   {"t": "Che orario preferisci?", "e": "Orario", "o": ["Full time", "Part time", "Vanno bene tutti e due"]}
   ],
-  "paesi": [
-   "Codroipo",
-   "Rivignano Teor",
-   "Camino al Tagliamento",
-   "Bertiolo",
-   "Ronchis",
-   "Morsano al Tagliamento"
+  "paesi": ["Ronchi dei Legionari", "Staranzano", "Gradisca d'Isonzo", "Cervignano del Friuli", "Gorizia", "Duino Aurisina"],
+  "conto": {"persone": 3, "ore": 7, "eur": 25, "l_persone": "Persone che vi mancano sulla linea", "l_ore": "Ore al giorno di ognuna", "l_eur": "Quanto produce una persona in un'ora"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Operai di produzione e confezionamento",
+   "sotto": "Prodotti da forno senza glutine, su una nuova linea a Monfalcone. Part time o full time.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Produzione e confezionamento di prodotti da forno senza glutine", "Inserimento su una nuova linea, dopo un periodo di formazione", "Sede di lavoro: Monfalcone"]},
+    {"t": "Cosa offriamo", "v": ["Contratto iniziale a tempo determinato, con l'obiettivo della stabilizzazione", "Inquadramento da CCNL", "Part time o full time"]},
+    {"t": "Chi cerchiamo", "v": ["Persone precise, veloci e serie", "Disponibilità a imparare il nostro metodo di lavoro"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "OPERAI DI PRODUZIONE", "t3": "Monfalcone (GO)", "testo": "Gaia, prodotti da forno senza glutine, apre una nuova linea a Monfalcone e cerca operai di produzione e confezionamento. Part time o full time, formazione iniziale, obiettivo stabilizzazione. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Nuova linea a Monfalcone: candidati in 60 secondi"},
+   {"t1": "LAVORO VICINO A CASA", "t2": "ANCHE PART TIME", "t3": "Gaia · Monfalcone", "testo": "A Monfalcone parte una nuova linea di produzione. C'è un periodo di formazione: il metodo te lo insegniamo noi. Contratto da CCNL, part time o full time. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Il metodo te lo insegniamo noi"}
+  ]
+ },
+ {
+  "slug": "katalan",
+  "regione": "Friuli",
+  "azienda": "Katalan",
+  "ragione": "Katalan Srl",
+  "sigla": "KA",
+  "breve": "Katalan",
+  "citta": "Trieste",
+  "citta_breve": "Trieste",
+  "prov": "TS",
+  "h1": "Gli autisti che cercate un lavoro ce l'hanno già.",
+  "h1sotto": "E gli annunci non li guardano. Il telefono sì: portategli lì la vostra offerta. Si candidano in 60 secondi, senza curriculum, e vi arrivano su WhatsApp.",
+  "cartello": "AUTISTI CE",
+  "cartello2": "Trieste",
+  "frase": "Il 18 novembre avete pubblicato su Subito la ricerca di due autisti con patente CE e CQC, con almeno cinque anni sugli autoarticolati.",
+  "fonte": "Subito.it, annuncio «Autisti CE + CQC - Trieste - Nord Italia» del 18 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/autisti-ce-cqc-trieste-nord-italia-trieste-668905678.htm",
+  "data_annuncio": "18 nov 2026",
+  "lui": "un autista",
+  "chi": "chi guida già un autoarticolato",
+  "perchi": "per la ricerca dei due autisti",
+  "ruolo": "autista CE",
+  "titolo_annuncio": "Katalan cerca due autisti con patente CE",
+  "chips": ["Trieste", "2.500-3.000 € al mese", "Weekend a casa"],
+  "tessera": ["CERCHIAMO", "2 AUTISTI CE", "Trieste"],
+  "domande": [
+   {"t": "Da quanti anni guidi autoarticolati?", "e": "Esperienza", "o": ["Più di 5 anni", "Da 2 a 5 anni", "Meno di 2 anni"]},
+   {"t": "Ti vanno bene le trasferte in settimana?", "e": "Trasferte", "o": ["Sì, con rientro nel weekend", "Ne parliamo", "No"]}
+  ],
+  "paesi": ["Muggia", "San Dorligo della Valle", "Duino Aurisina", "Sgonico", "Monrupino", "Monfalcone"],
+  "conto": {"persone": 2, "ore": 9, "eur": 50, "l_persone": "Camion fermi senza autista", "l_ore": "Ore al giorno in cui ognuno viaggerebbe", "l_eur": "Quanto fattura un camion in un'ora"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Autisti con patente CE",
+   "sotto": "Trasporti nel Nord Italia con partenza da Trieste. Trasferte in settimana, weekend a casa.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Trasporti nazionali e internazionali, soprattutto nel Nord Italia", "Sede operativa a Trieste", "Trasferte settimanali con pernottamento fuori sede", "Rientro nel weekend"]},
+    {"t": "Cosa offriamo", "v": ["Retribuzione mensile indicativa da 2.500 a 3.000 €, in base a esperienza e competenze", "Lavoro stabile e continuativo", "Un'azienda solida e strutturata"]},
+    {"t": "Chi cerchiamo", "v": ["Patente C, CE e CQC merci valide", "Almeno 5 anni di guida di autoarticolati", "Autonomia e cura del mezzo affidato"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "2 AUTISTI CE", "t3": "Trieste", "testo": "Katalan, trasporti nazionali e internazionali, cerca due autisti con patente CE e CQC. Partenza da Trieste, Nord Italia, weekend a casa. Da 2.500 a 3.000 € al mese. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Autisti CE a Trieste: candidati in 60 secondi"},
+   {"t1": "DA 2.500 A 3.000 €", "t2": "E NEL WEEKEND SEI A CASA", "t3": "Autisti CE · Trieste", "testo": "Guidi autoarticolati da almeno cinque anni? Katalan ti offre un lavoro stabile nel Nord Italia: trasferte in settimana, rientro nel weekend, retribuzione in base all'esperienza. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Lavoro stabile, weekend a casa"}
+  ]
+ },
+ {
+  "slug": "mg-group",
+  "regione": "Friuli",
+  "azienda": "MG Group",
+  "ragione": "MG Group Srl",
+  "sigla": "MG",
+  "breve": "MG Group",
+  "citta": "Trieste",
+  "citta_breve": "Trieste",
+  "prov": "TS",
+  "h1": "Il saldatore che cercate un lavoro ce l'ha già.",
+  "h1sotto": "E gli annunci non li guarda. Il telefono sì: portategli lì la vostra offerta. Si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "SALDATORI E CARPENTIERI",
+  "cartello2": "Trieste",
+  "frase": "Il 16 novembre avete pubblicato su Subito la ricerca di saldatori e carpentieri con esperienza ventennale per la sede di Trieste.",
+  "fonte": "Subito.it, annuncio «Saldatore» del 16 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/saldatore-trieste-668619714.htm",
+  "data_annuncio": "16 nov 2026",
+  "lui": "un saldatore",
+  "chi": "chi salda da una vita",
+  "perchi": "per la ricerca di saldatori e carpentieri",
+  "ruolo": "saldatore o carpentiere",
+  "titolo_annuncio": "MG Group cerca saldatori e carpentieri",
+  "chips": ["Trieste", "Tempo indeterminato", "Per chi ha grande esperienza"],
+  "tessera": ["CERCHIAMO", "SALDATORI E CARPENTIERI", "Trieste"],
+  "domande": [
+   {"t": "Cosa fai meglio?", "e": "Mestiere", "o": ["Saldatura", "Carpenteria", "Tutte e due"]},
+   {"t": "Da quanti anni fai questo lavoro?", "e": "Esperienza", "o": ["Più di 20", "Da 10 a 20", "Meno di 10"]}
+  ],
+  "paesi": ["Muggia", "San Dorligo della Valle", "Duino Aurisina", "Sgonico", "Monrupino", "Monfalcone"],
+  "conto": {"persone": 2, "ore": 7, "eur": 40},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Saldatori e carpentieri",
+   "sotto": "Settore metalmeccanico, sede di Trieste. Tempo indeterminato, per chi ha tanta esperienza.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Saldatura e carpenteria nel settore metalmeccanico", "Sede di lavoro: Trieste"]},
+    {"t": "Cosa offriamo", "v": ["Contratto a tempo indeterminato"]},
+    {"t": "Chi cerchiamo", "v": ["Saldatori e carpentieri con esperienza ventennale"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "SALDATORI E CARPENTIERI", "t3": "Trieste", "testo": "MG Group, settore metalmeccanico, cerca saldatori e carpentieri con grande esperienza per la sede di Trieste. Contratto a tempo indeterminato. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Saldatori a Trieste: candidati in 60 secondi"},
+   {"t1": "IL MESTIERE", "t2": "LO FAI DA UNA VITA?", "t3": "A Trieste c'è posto per te", "testo": "Se saldi o fai carpenteria da una vita, MG Group ti cerca a Trieste, a tempo indeterminato. Niente curriculum da scrivere: quattro domande dal telefono e ti richiamiamo.", "titolo": "MG Group assume a tempo indeterminato"}
   ]
  },
  {
   "slug": "franceschino-loris",
+  "regione": "Friuli",
   "azienda": "Gruppo Franceschino Loris",
   "ragione": "Gruppo Franceschino Loris",
   "sigla": "FL",
@@ -171,52 +147,90 @@
   "citta": "Gemona del Friuli",
   "citta_breve": "Gemona",
   "prov": "UD",
-  "h1": "Cercate un operaio per le macchine del legno. Portiamo l'annuncio sul suo telefono.",
+  "h1": "La persona giusta per le vostre macchine abita vicino a Gemona.",
+  "h1sotto": "E non sa che state cercando. Portatele l'annuncio sul telefono: si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
   "cartello": "OPERAIO DEL LEGNO",
   "cartello2": "Gemona del Friuli",
-  "frase": "Il 19 novembre avete pubblicato su Subito un annuncio per un operaio alla conduzione dei macchinari per la lavorazione del legno, a Gemona.",
+  "frase": "Il 19 novembre avete pubblicato su Subito la ricerca di un operaio per la conduzione dei macchinari per la lavorazione del legno, a Gemona.",
   "fonte": "Subito.it, annuncio «Operaio conduzione macchina lavorazione del legno» del 19 novembre 2026",
   "url_fonte": "https://www.subito.it/offerte-lavoro/operaio-conduzione-macchina-lavorazione-del-legno-udine-668964477.htm",
   "data_annuncio": "19 nov 2026",
   "lui": "un operaio",
   "chi": "chi lavora in produzione o nel legno",
   "perchi": "per la ricerca dell'operaio",
+  "ruolo": "operaio per le macchine del legno",
   "titolo_annuncio": "Gruppo Franceschino Loris cerca un operaio per le macchine del legno",
-  "chips": [
-   "Gemona del Friuli",
-   "Tempo pieno",
-   "Venerdì pomeriggio libero"
-  ],
+  "chips": ["Gemona del Friuli", "Tempo pieno", "Venerdì pomeriggio libero"],
+  "tessera": ["CERCHIAMO", "OPERAIO DEL LEGNO", "Gemona del Friuli"],
   "domande": [
-   {
-    "t": "Hai già lavorato in produzione?",
-    "e": "Esperienza",
-    "o": [
-     "Sì, nel legno",
-     "Sì, in altri settori",
-     "No"
-    ]
-   },
-   {
-    "t": "Ti va bene il tempo pieno, con il venerdì pomeriggio libero?",
-    "e": "Orario",
-    "o": [
-     "Sì",
-     "Ne parliamo"
-    ]
-   }
+   {"t": "Hai già lavorato in produzione?", "e": "Esperienza", "o": ["Sì, nel legno", "Sì, in altri settori", "No"]},
+   {"t": "Ti va bene il tempo pieno, con il venerdì pomeriggio libero?", "e": "Orario", "o": ["Sì", "Ne parliamo"]}
   ],
-  "paesi": [
-   "Osoppo",
-   "Artegna",
-   "Buja",
-   "Venzone",
-   "Trasaghis",
-   "Majano"
+  "paesi": ["Osoppo", "Artegna", "Buja", "Venzone", "Trasaghis", "Majano"],
+  "conto": {"persone": 1, "ore": 7, "eur": 30, "l_ore": "Ore al giorno in cui quelle macchine lavorerebbero", "l_eur": "Quanto producono in un'ora"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Operaio per le macchine del legno",
+   "sotto": "A Gemona del Friuli, a tempo pieno. Venerdì pomeriggio, sabato e domenica liberi.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Conduzione dei macchinari per la lavorazione del legno", "Sede di lavoro: Gemona del Friuli", "Tempo pieno: venerdì pomeriggio, sabato e domenica liberi"]},
+    {"t": "Cosa offriamo", "v": ["Formazione continua, fino alla piena autonomia", "Un ambiente giovane e la possibilità di crescere con noi"]},
+    {"t": "Chi cerchiamo", "v": ["Esperienza in produzione, anche minima", "Precisione e attenzione ai dettagli", "Buona conoscenza dell'italiano", "Voglia di imparare e di lavorare in squadra"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "OPERAIO DEL LEGNO", "t3": "Gemona del Friuli", "testo": "Gruppo Franceschino Loris cerca un operaio per le macchine della lavorazione del legno, a Gemona. Tempo pieno, venerdì pomeriggio libero, formazione fino alla piena autonomia. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Operaio a Gemona: candidati in 60 secondi"},
+   {"t1": "VENERDÌ POMERIGGIO", "t2": "SEI GIÀ A CASA", "t3": "Operaio del legno · Gemona", "testo": "Ti piace lavorare il legno? A Gemona cerchiamo una persona precisa, anche con poca esperienza: ti formiamo noi, in un ambiente giovane. Sabato e domenica liberi. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Basta anche poca esperienza"}
+  ]
+ },
+ {
+  "slug": "soluzioni-verticali",
+  "regione": "Friuli",
+  "azienda": "Soluzioni Verticali",
+  "ragione": "Soluzioni Verticali SRL",
+  "sigla": "SV",
+  "breve": "Sol. Verticali",
+  "citta": "Trieste",
+  "citta_breve": "Trieste",
+  "prov": "TS",
+  "h1": "Chi cercate non guarda gli annunci. Guarda il telefono.",
+  "h1sotto": "Portategli lì la vostra offerta: si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "OPERAIO PER COPERTURE",
+  "cartello2": "Trieste",
+  "frase": "Il 13 novembre avete pubblicato su Subito la ricerca di due persone: un operaio per la manutenzione delle coperture e i sistemi anticaduta, e un apprendista.",
+  "fonte": "Subito.it, annuncio «Tecnico Manutentore» del 13 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/tecnico-manutentore-trieste-668250437.htm",
+  "data_annuncio": "13 nov 2026",
+  "lui": "un operaio",
+  "chi": "chi lavora già in cantiere o vuole imparare",
+  "perchi": "per le due ricerche aperte",
+  "ruolo": "lavori in quota",
+  "titolo_annuncio": "Soluzioni Verticali cerca due persone per i lavori in quota",
+  "chips": ["Trieste", "Formazione per i lavori in quota", "Obiettivo: contratto stabile"],
+  "tessera": ["CERCHIAMO", "2 PERSONE", "Lavori in quota · Trieste"],
+  "domande": [
+   {"t": "Per quale posizione?", "e": "Posizione", "o": ["Operaio per coperture e anticaduta", "Apprendista", "Vanno bene tutte e due"]},
+   {"t": "Hai già lavorato in quota o in cantiere?", "e": "Esperienza", "o": ["Sì, in quota", "Sì, in cantiere", "No, voglio imparare"]}
+  ],
+  "paesi": ["Muggia", "San Dorligo della Valle", "Duino Aurisina", "Sgonico", "Monrupino", "Monfalcone"],
+  "conto": {"persone": 2, "ore": 6, "eur": 40},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Due persone per i lavori in quota",
+   "sotto": "Manutenzione di coperture e sistemi anticaduta, a Trieste. La formazione la facciamo noi.",
+   "blocchi": [
+    {"t": "Le due posizioni", "v": ["Operaio addetto alla manutenzione di coperture e all'installazione di sistemi anticaduta", "Apprendista per edilizia o impianti per le energie rinnovabili"]},
+    {"t": "Cosa offriamo", "v": ["Inserimento in una squadra", "Percorso di formazione per operatore di lavori in quota e su fune", "Contratto iniziale a tempo determinato, con l'obiettivo della stabilizzazione"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "2 PERSONE", "t3": "Lavori in quota · Trieste", "testo": "Soluzioni Verticali amplia la squadra a Trieste: un operaio per la manutenzione di coperture e sistemi anticaduta e un apprendista. Formazione per i lavori in quota e su fune, obiettivo contratto stabile. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Lavori in quota a Trieste: candidati in 60 secondi"},
+   {"t1": "UN MESTIERE", "t2": "CHE NON FANNO TUTTI", "t3": "Lavori in quota · Trieste", "testo": "Coperture, sistemi anticaduta, lavori su fune. A Trieste ti inseriamo in squadra e ti formiamo come operatore di lavori in quota. Si parte a tempo determinato, con l'obiettivo di restare. Quattro domande dal telefono e ti richiamiamo.", "titolo": "La formazione la facciamo noi"}
   ]
  },
  {
   "slug": "forti-giorgio",
+  "regione": "Friuli",
   "azienda": "Forti Giorgio",
   "ragione": "Forti Giorgio s.r.l.",
   "sigla": "FG",
@@ -224,317 +238,316 @@
   "citta": "San Giovanni al Natisone",
   "citta_breve": "S. Giovanni al Natisone",
   "prov": "UD",
-  "h1": "Cercate un saldatore. Portiamo l'annuncio sul suo telefono.",
+  "h1": "Il saldatore che cercate un lavoro ce l'ha già.",
+  "h1sotto": "E gli annunci non li guarda. Il telefono sì: portategli lì la vostra offerta. Si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
   "cartello": "SALDATORE",
   "cartello2": "San Giovanni al Natisone",
-  "frase": "Il 16 novembre avete pubblicato su Subito un annuncio per un saldatore o una saldatrice su ferro, inox e alluminio, a MIG/MAG e TIG.",
+  "frase": "Il 16 novembre avete pubblicato su Subito la ricerca di un saldatore o una saldatrice su ferro, inox e alluminio, a MIG/MAG e TIG.",
   "fonte": "Subito.it, annuncio «Saldatore» del 16 novembre 2026",
   "url_fonte": "https://www.subito.it/offerte-lavoro/saldatore-udine-668570676.htm",
   "data_annuncio": "16 nov 2026",
   "lui": "un saldatore",
   "chi": "chi salda già",
   "perchi": "per la ricerca del saldatore",
+  "ruolo": "saldatore",
   "titolo_annuncio": "Forti Giorgio cerca un saldatore",
-  "chips": [
-   "San Giovanni al Natisone",
-   "Ferro, inox, alluminio",
-   "Anche profili junior"
-  ],
+  "chips": ["San Giovanni al Natisone", "Ferro, inox, alluminio", "Anche profili junior"],
+  "tessera": ["CERCHIAMO", "SALDATORE", "San Giovanni al Natisone"],
   "domande": [
-   {
-    "t": "Come saldi?",
-    "e": "Saldatura",
-    "o": [
-     "MIG/MAG",
-     "TIG",
-     "Tutti e due"
-    ]
-   },
-   {
-    "t": "Su quali materiali?",
-    "e": "Materiali",
-    "o": [
-     "Ferro",
-     "Inox e alluminio",
-     "Tutti e tre"
-    ]
-   }
+   {"t": "Come saldi?", "e": "Saldatura", "o": ["MIG/MAG", "TIG", "Tutti e due"]},
+   {"t": "Su quali materiali?", "e": "Materiali", "o": ["Ferro", "Inox e alluminio", "Tutti e tre"]}
   ],
-  "paesi": [
-   "Manzano",
-   "Corno di Rosazzo",
-   "Chiopris-Viscone",
-   "Trivignano Udinese",
-   "Cormons",
-   "Buttrio"
+  "paesi": ["Manzano", "Corno di Rosazzo", "Chiopris-Viscone", "Trivignano Udinese", "Cormons", "Buttrio"],
+  "conto": {"persone": 1, "ore": 6, "eur": 35},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Saldatore o saldatrice",
+   "sotto": "Ferro, inox e alluminio, a MIG/MAG e TIG. A San Giovanni al Natisone, anche profili junior.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Saldatura su ferro, inox e alluminio", "MIG/MAG e TIG", "Niente carpenteria pesante", "Sede di lavoro: San Giovanni al Natisone"]},
+    {"t": "Chi cerchiamo", "v": ["Esperienza di saldatura; valutiamo anche profili junior", "Ottima comprensione dell'italiano, scritto e parlato"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "SALDATORE", "t3": "San Giovanni al Natisone", "testo": "Forti Giorgio amplia la squadra e cerca un saldatore o una saldatrice: ferro, inox e alluminio, MIG/MAG e TIG, niente carpenteria pesante. A San Giovanni al Natisone. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Saldatore a San Giovanni al Natisone: candidati in 60 secondi"},
+   {"t1": "SALDI DA POCO?", "t2": "VA BENE LO STESSO", "t3": "Forti Giorgio · San Giovanni al Natisone", "testo": "Cerchiamo chi salda a MIG/MAG e TIG su ferro, inox e alluminio, e valutiamo anche profili junior. Niente carpenteria pesante. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Valutiamo anche profili junior"}
   ]
  },
  {
-  "slug": "automotive-service",
-  "azienda": "Automotive Service",
-  "ragione": "Automotive Service Srl",
-  "sigla": "AS",
-  "breve": "Automotive Service",
-  "citta": "Pradamano",
-  "citta_breve": "Pradamano",
-  "prov": "UD",
-  "h1": "Cercate un tecnico installatore. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "TECNICO INSTALLATORE",
-  "cartello2": "Pradamano",
-  "frase": "Il 2 novembre avete pubblicato su Subito un annuncio per un tecnico installatore di attrezzature per autoriparatori, per il reparto di assistenza tecnica.",
-  "fonte": "Subito.it, annuncio «Tecnico/installatore attrezzature per autoriparatori» del 2 novembre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/tecnico-installatore-attrez-per-autoriparatori-udine-665146532.htm",
-  "data_annuncio": "2 nov 2026",
-  "lui": "un tecnico",
-  "chi": "chi ha un diploma tecnico",
-  "perchi": "per la ricerca del tecnico",
-  "titolo_annuncio": "Automotive Service cerca un tecnico installatore",
-  "chips": [
-   "Pradamano",
-   "Mezzi aziendali",
-   "Formazione in azienda"
-  ],
-  "domande": [
-   {
-    "t": "Che diploma hai?",
-    "e": "Diploma",
-    "o": [
-     "Tecnico: elettronico, meccatronico…",
-     "Un altro diploma",
-     "Nessun diploma"
-    ]
-   },
-   {
-    "t": "Hai la patente B?",
-    "e": "Patente B",
-    "o": [
-     "Sì",
-     "No"
-    ]
-   }
-  ],
-  "paesi": [
-   "Udine",
-   "Buttrio",
-   "Remanzacco",
-   "Pavia di Udine",
-   "Premariacco",
-   "Manzano"
-  ]
- },
- {
-  "slug": "cat-automobili",
-  "azienda": "CAT Automobili",
-  "ragione": "CAT Automobili Srl",
-  "sigla": "CA",
-  "breve": "CAT",
-  "citta": "Tolmezzo",
-  "citta_breve": "Tolmezzo",
-  "prov": "UD",
-  "h1": "Cercate un apprendista meccanico. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "APPRENDISTA MECCANICO",
-  "cartello2": "Tolmezzo",
-  "frase": "Il 23 ottobre avete pubblicato su Subito un annuncio per un apprendista meccanico e preparatore di veicoli a Tolmezzo, anche senza esperienza.",
-  "fonte": "Subito.it, annuncio «Apprendista meccanico auto / preparatore veicoli» del 23 ottobre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/apprendista-meccanico-auto-preparatore-veicoli-udine-665635491.htm",
-  "data_annuncio": "23 ott 2026",
-  "lui": "un aspirante meccanico",
-  "chi": "chi vuole imparare il mestiere",
-  "perchi": "per la ricerca dell'apprendista",
-  "titolo_annuncio": "CAT Automobili cerca un apprendista meccanico",
-  "chips": [
-   "Tolmezzo",
-   "Anche senza esperienza",
-   "Apprendistato con affiancamento"
-  ],
-  "domande": [
-   {
-    "t": "Hai già messo le mani su un'auto?",
-    "e": "Esperienza",
-    "o": [
-     "Sì, in officina",
-     "Sì, per passione",
-     "No, ma voglio imparare"
-    ]
-   },
-   {
-    "t": "Hai la patente B?",
-    "e": "Patente B",
-    "o": [
-     "Sì",
-     "La sto prendendo",
-     "No"
-    ]
-   }
-  ],
-  "paesi": [
-   "Amaro",
-   "Villa Santina",
-   "Cavazzo Carnico",
-   "Verzegnis",
-   "Arta Terme",
-   "Zuglio"
-  ]
- },
- {
-  "slug": "cocozza",
-  "azienda": "Cocozza",
-  "ragione": "Cocozza Srl",
-  "sigla": "CO",
-  "breve": "Cocozza",
-  "citta": "Pordenone",
-  "citta_breve": "Pordenone",
-  "prov": "PN",
-  "h1": "Cercate un autista per il soccorso stradale. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "AUTISTA",
-  "cartello2": "soccorso stradale, Pordenone",
-  "frase": "Il 13 ottobre avete pubblicato su Subito un annuncio per un autista per il soccorso stradale e il trasporto veicoli, valutando anche chi ha solo la patente B.",
-  "fonte": "Subito.it, annuncio «Autista per soccorso stradale e trasporto veicoli» del 13 ottobre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/autista-per-soccorso-stradale-e-trasporto-veicoli-pordenone-664344516.htm",
-  "data_annuncio": "13 ott 2026",
+  "slug": "gal-lo",
+  "regione": "Veneto",
+  "azienda": "GAL.Lo",
+  "ragione": "GAL.Lo srl",
+  "sigla": "GL",
+  "breve": "GAL.Lo",
+  "citta": "Vigonza",
+  "citta_breve": "Vigonza",
+  "prov": "PD",
+  "h1": "Gli autisti che cercate un lavoro ce l'hanno già.",
+  "h1sotto": "E gli annunci non li guardano. Il telefono sì: portategli lì la vostra offerta. Si candidano in 60 secondi, senza curriculum, e vi arrivano su WhatsApp.",
+  "cartello": "AUTISTI CE",
+  "cartello2": "Vigonza",
+  "frase": "Su Subito c'è il vostro annuncio del 21 novembre: cercate autisti con patente CE e CQC, giornalieri o trasfertisti.",
+  "fonte": "Subito.it, annuncio «Autista CE CQC ADR liquidi naz e internaz» del 21 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/autista-ce-cqc-adr-liquidi-naz-e-internaz-padova-659267248.htm",
+  "data_annuncio": "21 nov 2026",
   "lui": "un autista",
-  "chi": "chi guida per mestiere",
+  "chi": "chi guida già un autoarticolato",
+  "perchi": "per la ricerca degli autisti",
+  "ruolo": "autista CE",
+  "titolo_annuncio": "GAL.Lo cerca autisti con patente CE",
+  "chips": ["Vigonza (PD)", "Giornaliero o trasfertista", "Cisterne: formazione inclusa"],
+  "tessera": ["CERCHIAMO", "AUTISTI CE", "Vigonza (PD)"],
+  "domande": [
+   {"t": "Che patenti hai?", "e": "Patenti", "o": ["CE + CQC merci", "CE + CQC + ADR", "Sto prendendo la CQC"]},
+   {"t": "Che lavoro preferisci?", "e": "Preferenza", "o": ["Giornaliero", "Trasfertista", "Vanno bene tutti e due"]}
+  ],
+  "paesi": ["Padova", "Cadoneghe", "Noventa Padovana", "Dolo", "Mirano", "Camposampiero"],
+  "conto": {"persone": 2, "ore": 9, "eur": 50, "l_persone": "Camion fermi senza autista", "l_ore": "Ore al giorno in cui ognuno viaggerebbe", "l_eur": "Quanto fattura un camion in un'ora"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Autisti con patente CE",
+   "sotto": "Cisterne e cassoni nel Nord Italia, con partenza da Vigonza. Giornaliero o trasfertista: scegli tu.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Trasporti nel Nord Italia e nei Paesi comunitari vicini", "Cisterne per prodotti liquidi e prodotti sfusi in cassone", "Due possibilità: giornaliero, con rientro in giornata, oppure trasfertista", "Sede: Vigonza (PD)"]},
+    {"t": "Cosa offriamo", "v": ["Lavoro continuativo tutto l'anno", "Formazione specifica per il trasporto in cisterna", "Mezzi e attrezzature professionali", "Retribuzione in base a esperienza, attività e trasferte"]},
+    {"t": "Chi cerchiamo", "v": ["Patente CE e CQC merci valide, carta tachigrafica", "Esperienza nella guida di autoarticolati", "Patentino ADR gradito", "Chi non ha mai guidato cisterne viene formato"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "AUTISTI CE", "t3": "Vigonza (PD)", "testo": "GAL.Lo cerca autisti con patente CE e CQC a Vigonza. Giornaliero o trasfertista, scegli tu. Lavoro tutto l'anno, formazione per le cisterne. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Autisti CE a Vigonza: candidati in 60 secondi"},
+   {"t1": "GIORNALIERO", "t2": "O TRASFERTISTA: SCEGLI TU", "t3": "Autisti CE · Vigonza", "testo": "Hai la CE e la CQC? A Vigonza GAL.Lo assume autisti per cisterne e cassoni, nel Nord Italia. Non hai mai fatto cisterne? Ti formiamo noi. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Rientro in giornata o trasferta"}
+  ]
+ },
+ {
+  "slug": "muraro",
+  "regione": "Veneto",
+  "azienda": "Muraro",
+  "ragione": "Muraro Srl",
+  "sigla": "MU",
+  "breve": "Muraro",
+  "citta": "Montorso Vicentino",
+  "citta_breve": "Montorso Vicentino",
+  "prov": "VI",
+  "h1": "I montatori che cercate un lavoro ce l'hanno già.",
+  "h1sotto": "E gli annunci non li guardano. Il telefono sì: portategli lì la vostra offerta. Si candidano in 60 secondi, senza curriculum, e vi arrivano su WhatsApp.",
+  "cartello": "MONTATORI MECCANICI",
+  "cartello2": "Montorso Vicentino",
+  "frase": "Il 25 novembre avete pubblicato su Subito la ricerca di due o tre montatori meccanici, per l'officina e le trasferte dai clienti.",
+  "fonte": "Subito.it, annuncio «Montatore meccanico» del 25 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/montatore-meccanico-vicenza-669690921.htm",
+  "data_annuncio": "25 nov 2026",
+  "lui": "un montatore",
+  "chi": "chi monta macchine per mestiere",
+  "perchi": "per la ricerca dei montatori",
+  "ruolo": "montatore meccanico",
+  "titolo_annuncio": "Muraro cerca montatori meccanici",
+  "chips": ["Montorso Vicentino", "Tempo indeterminato", "Trasferte in Italia e all'estero"],
+  "tessera": ["CERCHIAMO", "MONTATORI MECCANICI", "Montorso Vicentino"],
+  "domande": [
+   {"t": "Da quanti anni monti macchine o impianti?", "e": "Esperienza", "o": ["Più di 3 anni", "Da 1 a 3 anni", "Sto iniziando"]},
+   {"t": "Sei disponibile alle trasferte?", "e": "Trasferte", "o": ["Sì, anche all'estero", "Sì, solo in Italia", "Preferisco di no"]}
+  ],
+  "paesi": ["Arzignano", "Montecchio Maggiore", "Chiampo", "Montebello Vicentino", "Trissino", "Lonigo"],
+  "conto": {"persone": 2, "ore": 7, "eur": 50},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Montatori meccanici",
+   "sotto": "Macchine e impianti per la formatura dei metalli. Officina a Montorso Vicentino, poi dai clienti in Italia e all'estero.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Montaggio meccanico di macchine e impianti di nostra produzione: oleodinamici, meccanici, elettrici", "Assistenza ai clienti, in Italia e all'estero", "Trasferte da 1 a 5 giorni in Italia, al massimo 3 settimane all'estero", "Lavoro insieme all'ufficio tecnico"]},
+    {"t": "Cosa offriamo", "v": ["Contratto a tempo indeterminato, tempo pieno"]},
+    {"t": "Chi cerchiamo", "v": ["Almeno 3 anni in aziende metalmeccaniche che lavorano su commessa", "Lettura del disegno tecnico", "Disponibilità alle trasferte", "Inglese intermedio"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "MONTATORI MECCANICI", "t3": "Montorso Vicentino", "testo": "Muraro, da oltre 60 anni macchine e impianti per la formatura dei metalli, cerca 2 o 3 montatori meccanici a Montorso Vicentino. Tempo indeterminato, trasferte in Italia e all'estero. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Montatori meccanici: candidati in 60 secondi"},
+   {"t1": "MONTI MACCHINE", "t2": "E TI PIACE VIAGGIARE?", "t3": "Muraro · Montorso Vicentino", "testo": "Cerchiamo chi sa leggere un disegno e montare una macchina dall'inizio alla fine. Officina a Montorso Vicentino, poi dai clienti: da 1 a 5 giorni in Italia, al massimo 3 settimane all'estero. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Muraro assume a tempo indeterminato"}
+  ]
+ },
+ {
+  "slug": "officine-tiengo",
+  "regione": "Veneto",
+  "azienda": "Officine Tiengo",
+  "ragione": "Officine Tiengo Srl",
+  "sigla": "OT",
+  "breve": "Tiengo",
+  "citta": "Porto Viro",
+  "citta_breve": "Porto Viro",
+  "prov": "RO",
+  "h1": "Il meccanico che cercate un lavoro ce l'ha già.",
+  "h1sotto": "E gli annunci non li guarda. Il telefono sì: portategli lì la vostra offerta. Si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "MECCANICO AUTO E CAMION",
+  "cartello2": "Porto Viro",
+  "frase": "Il 24 novembre avete pubblicato su Subito la ricerca di un meccanico auto e camion, di un magazziniere ricambi e di una figura per la contabilità, tutti con esperienza.",
+  "fonte": "Subito.it, annuncio «Meccanico» del 24 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/meccanico-rovigo-669526677.htm",
+  "data_annuncio": "24 nov 2026",
+  "lui": "un meccanico",
+  "chi": "chi ripara già auto e camion",
+  "perchi": "per la ricerca del meccanico",
+  "ruolo": "meccanico auto e camion",
+  "titolo_annuncio": "Officine Tiengo cerca un meccanico auto e camion",
+  "chips": ["Porto Viro (RO)", "Tempo indeterminato", "Solo con esperienza"],
+  "tessera": ["CERCHIAMO", "MECCANICO AUTO E CAMION", "Porto Viro (RO)"],
+  "domande": [
+   {"t": "Su cosa lavori oggi?", "e": "Mezzi", "o": ["Auto e camion", "Solo auto", "Solo veicoli industriali"]},
+   {"t": "Fai diagnosi e riparazioni in autonomia?", "e": "Autonomia", "o": ["Sì, da anni", "Sì, con qualche aiuto", "Non ancora"]}
+  ],
+  "paesi": ["Adria", "Taglio di Po", "Rosolina", "Loreo", "Porto Tolle", "Chioggia"],
+  "conto": {"persone": 1, "ore": 6, "eur": 45, "l_ore": "Ore al giorno che lavorerebbe sui mezzi dei clienti", "l_eur": "Quanto fatturate per un'ora di officina"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Meccanico auto e camion",
+   "sotto": "In officina a Porto Viro, a tempo indeterminato. Per chi il mestiere lo sa già.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Diagnosi, riparazione e manutenzione di auto e veicoli industriali", "Lavoro in autonomia", "Sede di lavoro: Porto Viro (RO)"]},
+    {"t": "Cosa offriamo", "v": ["Contratto a tempo indeterminato"]},
+    {"t": "Chi cerchiamo", "v": ["Esperienza vera in officina meccanica, documentabile", "Niente apprendisti e niente profili generici"]},
+    {"t": "Cerchiamo anche", "v": ["Magazziniere ricambi auto e camion, con esperienza", "Impiegata o impiegato per amministrazione e contabilità, con esperienza"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "MECCANICO AUTO E CAMION", "t3": "Porto Viro (RO)", "testo": "Officine Tiengo cerca un meccanico auto e camion a Porto Viro. Tempo indeterminato. Solo chi ha esperienza vera in officina: diagnosi, riparazione, manutenzione, in autonomia. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Meccanico a Porto Viro: candidati in 60 secondi"},
+   {"t1": "IL MESTIERE", "t2": "LO SAI GIÀ?", "t3": "Officine Tiengo · Porto Viro", "testo": "Se ripari auto e veicoli industriali da anni, a Porto Viro c'è un posto a tempo indeterminato. Non cerchiamo apprendisti: cerchiamo chi il mestiere lo sa già. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Officine Tiengo assume un meccanico esperto"}
+  ]
+ },
+ {
+  "slug": "sadeco",
+  "regione": "Veneto",
+  "azienda": "Sadeco",
+  "ragione": "Sadeco Srl",
+  "sigla": "SA",
+  "breve": "Sadeco",
+  "citta": "Martellago",
+  "citta_breve": "Martellago",
+  "prov": "VE",
+  "h1": "L'escavatorista che cercate un lavoro ce l'ha già.",
+  "h1sotto": "E gli annunci non li guarda. Il telefono sì: portategli lì la vostra offerta. Si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "ESCAVATORISTA",
+  "cartello2": "Martellago",
+  "frase": "Su Subito c'è il vostro annuncio del 19 novembre: cercate un escavatorista con esperienza in demolizioni, per ampliare l'organico.",
+  "fonte": "Subito.it, annuncio «Escavatorista» del 19 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/escavatorista-venezia-655824331.htm",
+  "data_annuncio": "19 nov 2026",
+  "lui": "un escavatorista",
+  "chi": "chi lavora già sull'escavatore",
+  "perchi": "per la ricerca dell'escavatorista",
+  "ruolo": "escavatorista",
+  "titolo_annuncio": "Sadeco cerca un escavatorista",
+  "chips": ["Martellago (VE)", "Demolizioni e bonifiche", "CCNL Edilizia Industria"],
+  "tessera": ["CERCHIAMO", "ESCAVATORISTA", "Martellago (VE)"],
+  "domande": [
+   {"t": "Hai l'abilitazione MMT?", "e": "Abilitazione MMT", "o": ["Sì", "La sto prendendo", "No"]},
+   {"t": "Quanta esperienza hai nelle demolizioni?", "e": "Demolizioni", "o": ["Più di 2 anni", "Meno di 2 anni", "Nessuna, ma uso l'escavatore"]}
+  ],
+  "paesi": ["Mestre", "Mirano", "Spinea", "Scorzè", "Noale", "Mogliano Veneto"],
+  "conto": {"persone": 1, "ore": 7, "eur": 55, "l_ore": "Ore al giorno in cui quell'escavatore lavorerebbe", "l_eur": "Quanto fatturate per un'ora di escavatore"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Escavatorista",
+   "sotto": "Demolizioni e bonifiche ambientali, con sede a Martellago. Per chi ha già esperienza.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Escavatorista nei lavori di demolizione e di bonifica ambientale", "Tempo pieno"]},
+    {"t": "Cosa offriamo", "v": ["CCNL Edilizia Industria", "Tempo determinato, con l'obiettivo dell'inserimento in azienda", "Vitto e alloggio non previsti"]},
+    {"t": "Chi cerchiamo", "v": ["Abilitazione MMT", "Almeno 2 anni di lavori di demolizione", "Patente B; gradita la C"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "ESCAVATORISTA", "t3": "Martellago (VE)", "testo": "Sadeco, bonifiche ambientali e demolizioni, cerca un escavatorista con esperienza. Sede a Martellago, CCNL Edilizia Industria, inserimento in azienda dopo il primo contratto. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Escavatorista a Martellago: candidati in 60 secondi"},
+   {"t1": "DEMOLIZIONI?", "t2": "LE FAI DA ANNI", "t3": "Sadeco · Martellago", "testo": "Hai l'abilitazione MMT e almeno due anni di demolizioni? Sadeco amplia la squadra: tempo pieno, CCNL Edilizia Industria, con l'obiettivo di restare in azienda. Quattro domande dal telefono e ti richiamiamo.", "titolo": "Sadeco amplia la squadra"}
+  ]
+ },
+ {
+  "slug": "bragatto",
+  "regione": "Veneto",
+  "azienda": "Bragatto",
+  "ragione": "Bragatto Srl",
+  "sigla": "BR",
+  "breve": "Bragatto",
+  "citta": "San Stino di Livenza",
+  "citta_breve": "San Stino di Livenza",
+  "prov": "VE",
+  "h1": "L'autista che cercate abita entro 25 km. E un lavoro ce l'ha già.",
+  "h1sotto": "Gli annunci non li guarda. Il telefono sì: portategli lì la vostra offerta. Si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "AUTISTA CE NOTTURNO",
+  "cartello2": "San Stino di Livenza",
+  "frase": "Su Subito c'è il vostro annuncio del 25 novembre: cercate un autista con patente CE e CQC per la linea notturna, residente entro 20-25 km dalla sede.",
+  "fonte": "Subito.it, annuncio «Autista patente CE + CQC merci - Linea notturna» del 25 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/autista-patente-ce-cqc-merci-linea-notturna-venezia-664512396.htm",
+  "data_annuncio": "25 nov 2026",
+  "lui": "un autista",
+  "chi": "chi guida già un bilico e abita in zona",
   "perchi": "per la ricerca dell'autista",
-  "titolo_annuncio": "Cocozza cerca un autista per il soccorso stradale",
-  "chips": [
-   "Pordenone e provincia",
-   "Anche solo patente B",
-   "Le altre patenti dopo"
-  ],
+  "ruolo": "autista CE, linea notturna",
+  "titolo_annuncio": "Bragatto cerca un autista CE per la linea notturna",
+  "chips": ["San Stino di Livenza", "RAL 30-40.000 €", "Tempo indeterminato"],
+  "tessera": ["CERCHIAMO", "AUTISTA CE", "Linea notturna · San Stino di Livenza"],
   "domande": [
-   {
-    "t": "Che patente hai?",
-    "e": "Patente",
-    "o": [
-     "B",
-     "C",
-     "C+E"
-    ]
-   },
-   {
-    "t": "Hai la CQC?",
-    "e": "CQC",
-    "o": [
-     "Sì",
-     "La sto prendendo",
-     "No"
-    ]
-   }
+   {"t": "Che patenti hai?", "e": "Patenti", "o": ["CE + CQC merci", "CE + CQC + ADR", "Sto prendendo la CQC"]},
+   {"t": "Sei disponibile per la linea notturna?", "e": "Notte", "o": ["Sì", "Vorrei saperne di più", "No"]}
   ],
-  "paesi": [
-   "Cordenons",
-   "Porcia",
-   "Fiume Veneto",
-   "Azzano Decimo",
-   "Roveredo in Piano",
-   "Zoppola"
+  "paesi": ["Portogruaro", "San Donà di Piave", "Motta di Livenza", "Caorle", "Ceggia", "Annone Veneto"],
+  "conto": {"persone": 1, "ore": 9, "eur": 50, "l_persone": "Camion fermi senza autista", "l_ore": "Ore a notte in cui quel camion viaggerebbe", "l_eur": "Quanto fattura quel camion in un'ora"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Autista CE per la linea notturna",
+   "sotto": "Mezzi centinati, tratte nel Nord-Est, partenza da San Stino di Livenza. Tempo indeterminato.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Linea notturna con mezzi centinati", "Tratte principali nel Nord-Est", "Programma operativo pianificato sull'anno"]},
+    {"t": "Cosa offriamo", "v": ["Tempo indeterminato, CCNL Trasporti e Logistica", "RAL da 30.000 a 40.000 €", "Bonus in base ai risultati", "Tutela legale per il conducente e convenzioni locali", "Azienda certificata PAS 24000: tempi di guida e di riposo rispettati"]},
+    {"t": "Chi cerchiamo", "v": ["Patente CE e CQC merci valide", "Residenza entro 20-25 km da San Stino di Livenza", "Disponibilità alla linea notturna", "Patentino ADR base gradito"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "AUTISTA CE", "t3": "Linea notturna · San Stino di Livenza", "testo": "Bragatto, trasporti dal 1962, cerca un autista CE e CQC per la linea notturna. Tratte nel Nord-Est, tempo indeterminato, RAL da 30.000 a 40.000 € più bonus. Per chi abita entro 20-25 km da San Stino di Livenza. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Autista CE, linea notturna: candidati in 60 secondi"},
+   {"t1": "ABITI VICINO", "t2": "A SAN STINO?", "t3": "Autista CE · tempo indeterminato", "testo": "Se hai la CE e la CQC e abiti in zona, c'è un posto a tempo indeterminato vicino a casa: linea notturna, mezzi centinati, tempi di guida e di riposo rispettati. Quattro domande dal telefono e ti richiamiamo.", "titolo": "RAL 30-40.000 €, tempo indeterminato"}
   ]
  },
  {
-  "slug": "allest",
-  "azienda": "Allest",
-  "ragione": "Allest Srl",
-  "sigla": "AL",
-  "breve": "Allest",
-  "citta": "Mossa",
-  "citta_breve": "Mossa",
-  "prov": "GO",
-  "h1": "Cercate un carpentiere del legno. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "CARPENTIERE",
-  "cartello2": "legno e montaggio, Mossa",
-  "frase": "Il 6 novembre avete pubblicato su Subito un annuncio per un carpentiere del legno e montatore, con trasferte in Italia e in Europa.",
-  "fonte": "Subito.it, annuncio «Carpentiere legno/montatore/elettricista» del 6 novembre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/carpentiere-legno-montatore-elettricista-gorizia-667341015.htm",
-  "data_annuncio": "6 nov 2026",
-  "lui": "un carpentiere",
-  "chi": "chi lavora il legno o monta allestimenti",
-  "perchi": "per la ricerca del carpentiere",
-  "titolo_annuncio": "Allest cerca un carpentiere del legno e montatore",
-  "chips": [
-   "Mossa",
-   "Vitto e alloggio pagati in trasferta",
-   "Inserimento nel personale fisso"
-  ],
+  "slug": "itmec",
+  "regione": "Veneto",
+  "azienda": "ITMEC",
+  "ragione": "ITMEC Srl",
+  "sigla": "IT",
+  "breve": "ITMEC",
+  "citta": "Zanè",
+  "citta_breve": "Zanè",
+  "prov": "VI",
+  "h1": "Il fresatore che cercate un lavoro ce l'ha già.",
+  "h1sotto": "E gli annunci non li guarda. Il telefono sì: portategli lì la vostra offerta. Si candida in 60 secondi, senza curriculum, e vi arriva su WhatsApp.",
+  "cartello": "FRESATORE CNC",
+  "cartello2": "Zanè",
+  "frase": "Su Subito c'è il vostro annuncio, online il 26 novembre: cercate un fresatore meccanico CNC, con residenza nell'alto vicentino.",
+  "fonte": "Subito.it, annuncio «Fresatore meccanico CNC / operatore CNC», online il 26 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/fresatore-meccanico-cnc-operatore-cnc-vicenza-654971293.htm",
+  "data_annuncio": "26 nov 2026",
+  "lui": "un fresatore",
+  "chi": "chi lavora già su una fresa CNC",
+  "perchi": "per la ricerca del fresatore",
+  "ruolo": "fresatore CNC",
+  "titolo_annuncio": "ITMEC cerca un fresatore CNC",
+  "chips": ["Zanè (VI)", "Tempo indeterminato", "Contratto industria"],
+  "tessera": ["CERCHIAMO", "FRESATORE CNC", "Zanè (VI)"],
   "domande": [
-   {
-    "t": "Hai esperienza con il legno o con gli allestimenti?",
-    "e": "Esperienza",
-    "o": [
-     "Sì, da anni",
-     "Un po'",
-     "No, ma ho manualità"
-    ]
-   },
-   {
-    "t": "Sei disponibile a trasferte in Italia e in Europa?",
-    "e": "Trasferte",
-    "o": [
-     "Sì",
-     "Ogni tanto",
-     "No"
-    ]
-   }
+   {"t": "Con che linguaggio lavori?", "e": "Linguaggio", "o": ["Siemens", "Heidenhain o Fanuc", "Altro"]},
+   {"t": "Sai leggere il disegno meccanico?", "e": "Disegno", "o": ["Sì, senza problemi", "Sì, con qualche aiuto", "Sto imparando"]}
   ],
-  "paesi": [
-   "Gorizia",
-   "Cormons",
-   "Capriva del Friuli",
-   "San Lorenzo Isontino",
-   "Farra d'Isonzo",
-   "Gradisca d'Isonzo"
-  ]
- },
- {
-  "slug": "med-security",
-  "azienda": "Med Security",
-  "ragione": "Med Security srl",
-  "sigla": "MS",
-  "breve": "Med Security",
-  "citta": "Tavagnacco",
-  "citta_breve": "Tavagnacco",
-  "prov": "UD",
-  "h1": "Cercate un operaio edile esperto. Portiamo l'annuncio sul suo telefono.",
-  "cartello": "OPERAIO EDILE",
-  "cartello2": "Tavagnacco",
-  "frase": "Il 17 novembre avete pubblicato su Subito un annuncio per un operaio edile esperto: opere murarie, cartongesso e tinteggiatura.",
-  "fonte": "Subito.it, annuncio «Operaio edile esperto» del 17 novembre 2026",
-  "url_fonte": "https://www.subito.it/offerte-lavoro/operaio-edile-esperto-udine-668696867.htm",
-  "data_annuncio": "17 nov 2026",
-  "lui": "un operaio edile",
-  "chi": "chi lavora in cantiere",
-  "perchi": "per la ricerca dell'operaio edile",
-  "titolo_annuncio": "Med Security cerca un operaio edile esperto",
-  "chips": [
-   "Tavagnacco",
-   "Murature, cartongesso, tinteggiatura",
-   "3 mesi, poi possibile indeterminato"
-  ],
-  "domande": [
-   {
-    "t": "Cosa sai fare meglio?",
-    "e": "Specialità",
-    "o": [
-     "Opere murarie",
-     "Cartongesso e pittura",
-     "Un po' di tutto"
-    ]
-   },
-   {
-    "t": "Hai la patente B?",
-    "e": "Patente B",
-    "o": [
-     "Sì",
-     "No"
-    ]
-   }
-  ],
-  "paesi": [
-   "Udine",
-   "Tricesimo",
-   "Pagnacco",
-   "Reana del Rojale",
-   "Martignacco",
-   "Pasian di Prato"
+  "paesi": ["Thiene", "Schio", "Malo", "Breganze", "Piovene Rocchette", "Dueville"],
+  "conto": {"persone": 1, "ore": 7, "eur": 60, "l_ore": "Ore al giorno in cui quella macchina lavorerebbe", "l_eur": "Quanto fatturate per un'ora di quella macchina"},
+  "cand": {
+   "cerca": "ASSUMIAMO",
+   "h1": "Fresatore CNC",
+   "sotto": "Lavorazioni meccaniche di medie e grandi dimensioni, a Zanè. Tempo indeterminato.",
+   "blocchi": [
+    {"t": "Il lavoro", "v": ["Fresatura CNC su lavorazioni meccaniche di medie e grandi dimensioni", "Sede di lavoro: Zanè (VI)"]},
+    {"t": "Cosa offriamo", "v": ["Tempo indeterminato, contratto industria", "Retribuzione adeguata alla professionalità"]},
+    {"t": "Chi cerchiamo", "v": ["Esperienza come fresatore o operatore CNC", "Preferibilmente linguaggio Siemens", "Conoscenza del disegno meccanico", "Residenza nell'alto vicentino"]}
+   ]
+  },
+  "annunci": [
+   {"t1": "CERCHIAMO", "t2": "FRESATORE CNC", "t3": "Zanè (VI)", "testo": "ITMEC, lavorazioni meccaniche di medie e grandi dimensioni, assume un fresatore CNC a Zanè. Tempo indeterminato, contratto industria, retribuzione adeguata alla professionalità. Ti candidi in 60 secondi dal telefono, senza curriculum.", "titolo": "Fresatore CNC a Zanè: candidati in 60 secondi"},
+   {"t1": "LAVORI", "t2": "IN SIEMENS?", "t3": "ITMEC · Zanè", "testo": "Se lavori su una fresa CNC, conosci il disegno meccanico e abiti nell'alto vicentino, a Zanè c'è un posto a tempo indeterminato su lavorazioni di medie e grandi dimensioni. Quattro domande dal telefono e ti richiamiamo.", "titolo": "ITMEC assume a tempo indeterminato"}
   ]
  }
 ]

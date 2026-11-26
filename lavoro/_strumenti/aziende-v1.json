@@ -1,0 +1,540 @@
+[
+ {
+  "slug": "domovip",
+  "azienda": "Domovip Italia",
+  "ragione": "Domovip Italia Srl",
+  "sigla": "DI",
+  "breve": "Domovip",
+  "citta": "Aviano",
+  "citta_breve": "Aviano",
+  "prov": "PN",
+  "vede": "uno di loro",
+  "h1": "Cercate elettricisti e idraulici. Portiamo l'annuncio sui loro telefoni.",
+  "cartello": "ELETTRICISTI E IDRAULICI",
+  "cartello2": "Aviano",
+  "frase": "Il 6 ottobre avete pubblicato su Subito un annuncio per elettricisti e idraulici, con sede di lavoro ad Aviano e nelle province vicine.",
+  "fonte": "Subito.it, annuncio «Elettricisti e idraulici» del 6 ottobre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/elettricisti-e-idraulici-pordenone-663529987.htm",
+  "data_annuncio": "6 ott 2026",
+  "lui": "un elettricista",
+  "chi": "chi fa l'elettricista o l'idraulico",
+  "perchi": "per la ricerca di elettricisti e idraulici",
+  "titolo_annuncio": "Domovip Italia cerca elettricisti e idraulici",
+  "chips": [
+   "Aviano e province vicine",
+   "Tempo pieno",
+   "Anche con partita IVA"
+  ],
+  "domande": [
+   {
+    "t": "Che mestiere fai?",
+    "e": "Mestiere",
+    "o": [
+     "Elettricista",
+     "Idraulico",
+     "Tutti e due"
+    ]
+   },
+   {
+    "t": "Hai già montato fotovoltaico, caldaie o climatizzatori?",
+    "e": "Esperienza",
+    "o": [
+     "Sì, da anni",
+     "Qualche volta",
+     "No, ma imparo"
+    ]
+   }
+  ],
+  "paesi": [
+   "Roveredo in Piano",
+   "San Quirino",
+   "Fontanafredda",
+   "Budoia",
+   "Polcenigo",
+   "Pordenone"
+  ]
+ },
+ {
+  "slug": "tm-elettric",
+  "azienda": "T.M. Elettric",
+  "ragione": "T.M. Elettric S.a.s.",
+  "sigla": "TM",
+  "breve": "T.M. Elettric",
+  "citta": "Lignano Sabbiadoro",
+  "citta_breve": "Lignano",
+  "prov": "UD",
+  "h1": "Cercate un tecnico elettricista. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "ELETTRICISTA",
+  "cartello2": "Lignano Pineta",
+  "frase": "Il 6 ottobre avete pubblicato su Subito un annuncio per un tecnico elettricista per la sede di Lignano Pineta, chiedendo la residenza in zona.",
+  "fonte": "Subito.it, annuncio «Tecnico elettricista» del 6 ottobre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/tecnico-elettricista-udine-663463166.htm",
+  "data_annuncio": "6 ott 2026",
+  "lui": "un elettricista",
+  "chi": "chi fa l'elettricista",
+  "perchi": "per la ricerca dell'elettricista",
+  "titolo_annuncio": "T.M. Elettric cerca un tecnico elettricista",
+  "chips": [
+   "Lignano Pineta",
+   "Tempo indeterminato",
+   "Civile, industriale, domotica"
+  ],
+  "domande": [
+   {
+    "t": "Da quanto fai l'elettricista?",
+    "e": "Esperienza",
+    "o": [
+     "Più di 5 anni",
+     "Da 1 a 5 anni",
+     "Ho appena iniziato"
+    ]
+   },
+   {
+    "t": "Hai lavorato con domotica e automazione?",
+    "e": "Domotica",
+    "o": [
+     "Sì",
+     "Un po'",
+     "No"
+    ]
+   }
+  ],
+  "paesi": [
+   "Latisana",
+   "Precenicco",
+   "Marano Lagunare",
+   "Palazzolo dello Stella",
+   "Ronchis",
+   "Muzzana del Turgnano"
+  ]
+ },
+ {
+  "slug": "toffoli-serramenti",
+  "azienda": "Toffoli Serramenti",
+  "ragione": "Toffoli Serramenti Srl",
+  "sigla": "TS",
+  "breve": "Toffoli",
+  "citta": "Varmo",
+  "citta_breve": "Varmo",
+  "prov": "UD",
+  "h1": "Cercate un operaio per la produzione. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "OPERAIO DI PRODUZIONE",
+  "cartello2": "Varmo",
+  "frase": "Sulla pagina «Lavora con noi» del vostro sito c'è una ricerca aperta: operaio addetto alla produzione.",
+  "fonte": "toffoliserramenti.com, pagina «Lavora con noi», vista il 25 novembre 2026",
+  "url_fonte": "https://www.toffoliserramenti.com/lavora-con-noi/",
+  "data_annuncio": "visto il 25 nov 2026",
+  "lui": "un operaio",
+  "chi": "chi lavora in produzione",
+  "perchi": "per la ricerca dell'operaio",
+  "titolo_annuncio": "Toffoli Serramenti cerca un operaio per la produzione",
+  "chips": [
+   "Varmo, zona industriale",
+   "Serramenti in PVC e alluminio",
+   "Azienda dal 1964"
+  ],
+  "domande": [
+   {
+    "t": "Hai già lavorato in produzione?",
+    "e": "Esperienza",
+    "o": [
+     "Sì, nei serramenti",
+     "Sì, in altri settori",
+     "No"
+    ]
+   },
+   {
+    "t": "Sai usare macchine da taglio o centri di lavoro?",
+    "e": "Macchine",
+    "o": [
+     "Sì",
+     "Un po'",
+     "No, ma imparo"
+    ]
+   }
+  ],
+  "paesi": [
+   "Codroipo",
+   "Rivignano Teor",
+   "Camino al Tagliamento",
+   "Bertiolo",
+   "Ronchis",
+   "Morsano al Tagliamento"
+  ]
+ },
+ {
+  "slug": "franceschino-loris",
+  "azienda": "Gruppo Franceschino Loris",
+  "ragione": "Gruppo Franceschino Loris",
+  "sigla": "FL",
+  "breve": "Franceschino",
+  "citta": "Gemona del Friuli",
+  "citta_breve": "Gemona",
+  "prov": "UD",
+  "h1": "Cercate un operaio per le macchine del legno. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "OPERAIO DEL LEGNO",
+  "cartello2": "Gemona del Friuli",
+  "frase": "Il 19 novembre avete pubblicato su Subito un annuncio per un operaio alla conduzione dei macchinari per la lavorazione del legno, a Gemona.",
+  "fonte": "Subito.it, annuncio «Operaio conduzione macchina lavorazione del legno» del 19 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/operaio-conduzione-macchina-lavorazione-del-legno-udine-668964477.htm",
+  "data_annuncio": "19 nov 2026",
+  "lui": "un operaio",
+  "chi": "chi lavora in produzione o nel legno",
+  "perchi": "per la ricerca dell'operaio",
+  "titolo_annuncio": "Gruppo Franceschino Loris cerca un operaio per le macchine del legno",
+  "chips": [
+   "Gemona del Friuli",
+   "Tempo pieno",
+   "Venerdì pomeriggio libero"
+  ],
+  "domande": [
+   {
+    "t": "Hai già lavorato in produzione?",
+    "e": "Esperienza",
+    "o": [
+     "Sì, nel legno",
+     "Sì, in altri settori",
+     "No"
+    ]
+   },
+   {
+    "t": "Ti va bene il tempo pieno, con il venerdì pomeriggio libero?",
+    "e": "Orario",
+    "o": [
+     "Sì",
+     "Ne parliamo"
+    ]
+   }
+  ],
+  "paesi": [
+   "Osoppo",
+   "Artegna",
+   "Buja",
+   "Venzone",
+   "Trasaghis",
+   "Majano"
+  ]
+ },
+ {
+  "slug": "forti-giorgio",
+  "azienda": "Forti Giorgio",
+  "ragione": "Forti Giorgio s.r.l.",
+  "sigla": "FG",
+  "breve": "Forti Giorgio",
+  "citta": "San Giovanni al Natisone",
+  "citta_breve": "S. Giovanni al Natisone",
+  "prov": "UD",
+  "h1": "Cercate un saldatore. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "SALDATORE",
+  "cartello2": "San Giovanni al Natisone",
+  "frase": "Il 16 novembre avete pubblicato su Subito un annuncio per un saldatore o una saldatrice su ferro, inox e alluminio, a MIG/MAG e TIG.",
+  "fonte": "Subito.it, annuncio «Saldatore» del 16 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/saldatore-udine-668570676.htm",
+  "data_annuncio": "16 nov 2026",
+  "lui": "un saldatore",
+  "chi": "chi salda già",
+  "perchi": "per la ricerca del saldatore",
+  "titolo_annuncio": "Forti Giorgio cerca un saldatore",
+  "chips": [
+   "San Giovanni al Natisone",
+   "Ferro, inox, alluminio",
+   "Anche profili junior"
+  ],
+  "domande": [
+   {
+    "t": "Come saldi?",
+    "e": "Saldatura",
+    "o": [
+     "MIG/MAG",
+     "TIG",
+     "Tutti e due"
+    ]
+   },
+   {
+    "t": "Su quali materiali?",
+    "e": "Materiali",
+    "o": [
+     "Ferro",
+     "Inox e alluminio",
+     "Tutti e tre"
+    ]
+   }
+  ],
+  "paesi": [
+   "Manzano",
+   "Corno di Rosazzo",
+   "Chiopris-Viscone",
+   "Trivignano Udinese",
+   "Cormons",
+   "Buttrio"
+  ]
+ },
+ {
+  "slug": "automotive-service",
+  "azienda": "Automotive Service",
+  "ragione": "Automotive Service Srl",
+  "sigla": "AS",
+  "breve": "Automotive Service",
+  "citta": "Pradamano",
+  "citta_breve": "Pradamano",
+  "prov": "UD",
+  "h1": "Cercate un tecnico installatore. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "TECNICO INSTALLATORE",
+  "cartello2": "Pradamano",
+  "frase": "Il 2 novembre avete pubblicato su Subito un annuncio per un tecnico installatore di attrezzature per autoriparatori, per il reparto di assistenza tecnica.",
+  "fonte": "Subito.it, annuncio «Tecnico/installatore attrezzature per autoriparatori» del 2 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/tecnico-installatore-attrez-per-autoriparatori-udine-665146532.htm",
+  "data_annuncio": "2 nov 2026",
+  "lui": "un tecnico",
+  "chi": "chi ha un diploma tecnico",
+  "perchi": "per la ricerca del tecnico",
+  "titolo_annuncio": "Automotive Service cerca un tecnico installatore",
+  "chips": [
+   "Pradamano",
+   "Mezzi aziendali",
+   "Formazione in azienda"
+  ],
+  "domande": [
+   {
+    "t": "Che diploma hai?",
+    "e": "Diploma",
+    "o": [
+     "Tecnico: elettronico, meccatronico…",
+     "Un altro diploma",
+     "Nessun diploma"
+    ]
+   },
+   {
+    "t": "Hai la patente B?",
+    "e": "Patente B",
+    "o": [
+     "Sì",
+     "No"
+    ]
+   }
+  ],
+  "paesi": [
+   "Udine",
+   "Buttrio",
+   "Remanzacco",
+   "Pavia di Udine",
+   "Premariacco",
+   "Manzano"
+  ]
+ },
+ {
+  "slug": "cat-automobili",
+  "azienda": "CAT Automobili",
+  "ragione": "CAT Automobili Srl",
+  "sigla": "CA",
+  "breve": "CAT",
+  "citta": "Tolmezzo",
+  "citta_breve": "Tolmezzo",
+  "prov": "UD",
+  "h1": "Cercate un apprendista meccanico. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "APPRENDISTA MECCANICO",
+  "cartello2": "Tolmezzo",
+  "frase": "Il 23 ottobre avete pubblicato su Subito un annuncio per un apprendista meccanico e preparatore di veicoli a Tolmezzo, anche senza esperienza.",
+  "fonte": "Subito.it, annuncio «Apprendista meccanico auto / preparatore veicoli» del 23 ottobre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/apprendista-meccanico-auto-preparatore-veicoli-udine-665635491.htm",
+  "data_annuncio": "23 ott 2026",
+  "lui": "un aspirante meccanico",
+  "chi": "chi vuole imparare il mestiere",
+  "perchi": "per la ricerca dell'apprendista",
+  "titolo_annuncio": "CAT Automobili cerca un apprendista meccanico",
+  "chips": [
+   "Tolmezzo",
+   "Anche senza esperienza",
+   "Apprendistato con affiancamento"
+  ],
+  "domande": [
+   {
+    "t": "Hai già messo le mani su un'auto?",
+    "e": "Esperienza",
+    "o": [
+     "Sì, in officina",
+     "Sì, per passione",
+     "No, ma voglio imparare"
+    ]
+   },
+   {
+    "t": "Hai la patente B?",
+    "e": "Patente B",
+    "o": [
+     "Sì",
+     "La sto prendendo",
+     "No"
+    ]
+   }
+  ],
+  "paesi": [
+   "Amaro",
+   "Villa Santina",
+   "Cavazzo Carnico",
+   "Verzegnis",
+   "Arta Terme",
+   "Zuglio"
+  ]
+ },
+ {
+  "slug": "cocozza",
+  "azienda": "Cocozza",
+  "ragione": "Cocozza Srl",
+  "sigla": "CO",
+  "breve": "Cocozza",
+  "citta": "Pordenone",
+  "citta_breve": "Pordenone",
+  "prov": "PN",
+  "h1": "Cercate un autista per il soccorso stradale. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "AUTISTA",
+  "cartello2": "soccorso stradale, Pordenone",
+  "frase": "Il 13 ottobre avete pubblicato su Subito un annuncio per un autista per il soccorso stradale e il trasporto veicoli, valutando anche chi ha solo la patente B.",
+  "fonte": "Subito.it, annuncio «Autista per soccorso stradale e trasporto veicoli» del 13 ottobre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/autista-per-soccorso-stradale-e-trasporto-veicoli-pordenone-664344516.htm",
+  "data_annuncio": "13 ott 2026",
+  "lui": "un autista",
+  "chi": "chi guida per mestiere",
+  "perchi": "per la ricerca dell'autista",
+  "titolo_annuncio": "Cocozza cerca un autista per il soccorso stradale",
+  "chips": [
+   "Pordenone e provincia",
+   "Anche solo patente B",
+   "Le altre patenti dopo"
+  ],
+  "domande": [
+   {
+    "t": "Che patente hai?",
+    "e": "Patente",
+    "o": [
+     "B",
+     "C",
+     "C+E"
+    ]
+   },
+   {
+    "t": "Hai la CQC?",
+    "e": "CQC",
+    "o": [
+     "Sì",
+     "La sto prendendo",
+     "No"
+    ]
+   }
+  ],
+  "paesi": [
+   "Cordenons",
+   "Porcia",
+   "Fiume Veneto",
+   "Azzano Decimo",
+   "Roveredo in Piano",
+   "Zoppola"
+  ]
+ },
+ {
+  "slug": "allest",
+  "azienda": "Allest",
+  "ragione": "Allest Srl",
+  "sigla": "AL",
+  "breve": "Allest",
+  "citta": "Mossa",
+  "citta_breve": "Mossa",
+  "prov": "GO",
+  "h1": "Cercate un carpentiere del legno. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "CARPENTIERE",
+  "cartello2": "legno e montaggio, Mossa",
+  "frase": "Il 6 novembre avete pubblicato su Subito un annuncio per un carpentiere del legno e montatore, con trasferte in Italia e in Europa.",
+  "fonte": "Subito.it, annuncio «Carpentiere legno/montatore/elettricista» del 6 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/carpentiere-legno-montatore-elettricista-gorizia-667341015.htm",
+  "data_annuncio": "6 nov 2026",
+  "lui": "un carpentiere",
+  "chi": "chi lavora il legno o monta allestimenti",
+  "perchi": "per la ricerca del carpentiere",
+  "titolo_annuncio": "Allest cerca un carpentiere del legno e montatore",
+  "chips": [
+   "Mossa",
+   "Vitto e alloggio pagati in trasferta",
+   "Inserimento nel personale fisso"
+  ],
+  "domande": [
+   {
+    "t": "Hai esperienza con il legno o con gli allestimenti?",
+    "e": "Esperienza",
+    "o": [
+     "Sì, da anni",
+     "Un po'",
+     "No, ma ho manualità"
+    ]
+   },
+   {
+    "t": "Sei disponibile a trasferte in Italia e in Europa?",
+    "e": "Trasferte",
+    "o": [
+     "Sì",
+     "Ogni tanto",
+     "No"
+    ]
+   }
+  ],
+  "paesi": [
+   "Gorizia",
+   "Cormons",
+   "Capriva del Friuli",
+   "San Lorenzo Isontino",
+   "Farra d'Isonzo",
+   "Gradisca d'Isonzo"
+  ]
+ },
+ {
+  "slug": "med-security",
+  "azienda": "Med Security",
+  "ragione": "Med Security srl",
+  "sigla": "MS",
+  "breve": "Med Security",
+  "citta": "Tavagnacco",
+  "citta_breve": "Tavagnacco",
+  "prov": "UD",
+  "h1": "Cercate un operaio edile esperto. Portiamo l'annuncio sul suo telefono.",
+  "cartello": "OPERAIO EDILE",
+  "cartello2": "Tavagnacco",
+  "frase": "Il 17 novembre avete pubblicato su Subito un annuncio per un operaio edile esperto: opere murarie, cartongesso e tinteggiatura.",
+  "fonte": "Subito.it, annuncio «Operaio edile esperto» del 17 novembre 2026",
+  "url_fonte": "https://www.subito.it/offerte-lavoro/operaio-edile-esperto-udine-668696867.htm",
+  "data_annuncio": "17 nov 2026",
+  "lui": "un operaio edile",
+  "chi": "chi lavora in cantiere",
+  "perchi": "per la ricerca dell'operaio edile",
+  "titolo_annuncio": "Med Security cerca un operaio edile esperto",
+  "chips": [
+   "Tavagnacco",
+   "Murature, cartongesso, tinteggiatura",
+   "3 mesi, poi possibile indeterminato"
+  ],
+  "domande": [
+   {
+    "t": "Cosa sai fare meglio?",
+    "e": "Specialità",
+    "o": [
+     "Opere murarie",
+     "Cartongesso e pittura",
+     "Un po' di tutto"
+    ]
+   },
+   {
+    "t": "Hai la patente B?",
+    "e": "Patente B",
+    "o": [
+     "Sì",
+     "No"
+    ]
+   }
+  ],
+  "paesi": [
+   "Udine",
+   "Tricesimo",
+   "Pagnacco",
+   "Reana del Rojale",
+   "Martignacco",
+   "Pasian di Prato"
+  ]
+ }
+]
