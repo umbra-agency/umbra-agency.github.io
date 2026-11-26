@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dall'Italia al Regno Unito: il piano per il vostro e-commerce alimentare</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Gloock;src:url(../lib/fonts/gloock-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Onest;src:url(../lib/fonts/onest-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* magazzino alimentare: cartone kraft, etichetta crema, il rosso del pomodoro, il verde del basilico, nastro adesivo */
+  --kraft:#E5D7BF; --crema:#FBF6EC; --pom:#C2381F; --basil:#2E5B3A; --nastro:#C9A86A; --ink:#1C1A17;
+  --d:Gloock,Georgia,serif; --s:Onest,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--crema)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pom);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);max-width:1320px;margin-inline:auto;gap:12px}
+.bar b{font-weight:800;font-size:15px}
+.bar span{font-size:14px;color:#6d6458}
+.hero{padding-block:clamp(16px,3vw,40px) clamp(50px,7vw,100px)}
+.hero h1{font-size:clamp(48px,6.8vw,112px);margin:0 0 16px;max-width:15ch}
+.hero p{font-size:clamp(17px,1.5vw,20px);max-width:56ch;margin:0 0 26px;color:#4f473d}
+.route{background:var(--kraft);border-radius:16px;overflow:hidden;box-shadow:inset 0 0 0 1px #1c1a171a}
+.route svg{display:block;width:100%;height:auto}
+
+/* cestino */
+.bk{padding-block:clamp(60px,8vw,110px);background:#fff;border-block:1px solid #1c1a1714}
+.bk h2{font-size:clamp(42px,5.4vw,86px);margin:0 0 12px;max-width:16ch}
+.bk .lead{max-width:58ch;color:#4f473d;margin:0 0 26px}
+.dest{display:inline-flex;background:var(--kraft);border-radius:99px;padding:4px;margin-bottom:22px}
+.dest button{border:0;background:none;border-radius:99px;padding:9px 16px;font-weight:700;cursor:pointer}
+.dest button[aria-pressed=true]{background:var(--ink);color:#fff}
+.bkg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:start}
+.prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pr{border:0;text-align:left;background:var(--crema);border-radius:12px;padding:12px;cursor:pointer;box-shadow:inset 0 0 0 1.5px #1c1a171f;display:grid;gap:6px}
+.pr svg{width:100%;height:auto;display:block}
+.pr b{font-size:14.5px}
+.pr small{font-size:12.5px;color:#6d6458}
+.pr[aria-pressed=true]{box-shadow:inset 0 0 0 2.5px var(--basil);background:#EEF4EC}
+.flow{background:var(--crema);border-radius:14px;padding:18px;box-shadow:inset 0 0 0 1px #1c1a171a}
+.flow svg{display:block;width:100%;height:auto}
+.chk{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.chk li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15px;align-items:start}
+.chk li i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px;color:#fff}
+.chk li.ok i{background:var(--basil)}.chk li.wa i{background:#C98A1B}.chk li.st i{background:var(--pom)}
+.chk small{display:block;color:#6d6458;font-size:13px}
+.note{font-size:13px;color:#6d6458;margin-top:12px}
+
+/* due negozi */
+.two{background:var(--ink);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.two h2{font-size:clamp(42px,5.4vw,86px);margin:0 0 12px;max-width:16ch}
+.two .lead{max-width:58ch;opacity:.85;margin:0 0 30px}
+.arch{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.sh{background:#ffffff0f;border:1px solid #ffffff22;border-radius:14px;padding:18px}
+.sh b{display:block;font:400 28px/1 var(--d);margin-bottom:12px}
+.sh ul{margin:0;padding-left:18px;font-size:15px;opacity:.9;display:grid;gap:6px}
+.sync{display:flex;flex-direction:column;justify-content:center;gap:10px;font-size:13px;font-weight:700;text-align:center}
+.sync span{background:var(--nastro);color:var(--ink);border-radius:99px;padding:7px 12px;white-space:nowrap}
+.wk{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:30px}
+.wk div{border-top:3px solid var(--nastro);padding-top:10px}
+.wk b{display:block;font-size:13px;color:var(--nastro)}
+.wk span{font-size:15px}
+.foot{padding-block:clamp(40px,5vw,64px)}
+.foot h2{font-size:clamp(32px,3.6vw,52px);margin:0 0 8px}
+.foot p{margin:0;color:#4f473d;max-width:60ch}
+@media(max-width:980px){.bkg{grid-template-columns:1fr}.arch{grid-template-columns:1fr}.sync{flex-direction:row;flex-wrap:wrap}.wk{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.prods{grid-template-columns:1fr 1fr}.wk{grid-template-columns:1fr 1fr}.bar span{display:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per il vostro e-commerce alimentare" data-note="Anteprima preparata da Umbra a partire dal vostro annuncio: e-commerce WooCommerce in dropshipping di prodotti alimentari italiani verso Regno Unito e Unione Europea, con consolidamento ordini, dogana e accise e la valutazione di un negozio Shopify affiancato. Prodotti, tempi e controlli doganali sono indicativi e vanno verificati con spedizioniere e consulente doganale.">
+
+<header class="bar"><b>Piano per il vostro e-commerce alimentare</b><span>WooCommerce · Shopify · Regno Unito e UE</span></header>
+
+<section class="hero wrap" id="top">
+  <h1>Tre fornitori, un pacco solo, oltre la Manica.</h1>
+  <p>Avete chiesto chi sistemi sito e catalogo, trovi i partner logistici per consolidare gli ordini e valuti un negozio Shopify accanto a WooCommerce. Questa pagina è la prima bozza del piano: provate a comporre un ordine qui sotto.</p>
+  <div class="route"><svg id="route" viewBox="0 0 1200 420" role="img" aria-label="Fornitori italiani che convergono in un magazzino e poi verso Regno Unito ed Europa"></svg></div>
+</section>
+
+<section class="bk">
+  <div class="wrap">
+    <h2>Componete un ordine e guardate dove si complica.</h2>
+    <p class="lead">Ogni prodotto arriva da un fornitore diverso. Il piano li raccoglie in un magazzino di consolidamento, riconfeziona e spedisce un pacco solo. Cambiando destinazione cambiano i controlli.</p>
+    <div class="dest" id="dest" role="group" aria-label="Destinazione"><button data-d="uk" aria-pressed="true">Regno Unito</button><button data-d="ue" aria-pressed="false">Unione Europea</button></div>
+    <div class="bkg">
+      <div class="prods" id="prods" role="group" aria-label="Prodotti"></div>
+      <div class="flow" aria-live="polite"><svg id="flow" viewBox="0 0 520 250" aria-hidden="true"></svg><ul class="chk" id="chk"></ul><p class="note">Indicazioni di massima per impostare il lavoro: le regole precise si confermano con lo spedizioniere e un consulente doganale.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="two">
+  <div class="wrap">
+    <h2>WooCommerce resta, Shopify si affianca.</h2>
+    <p class="lead">Un catalogo solo, due vetrine. Giacenze e ordini restano allineati, così nessuno vende un prodotto che il fornitore ha finito.</p>
+    <div class="arch">
+      <div class="sh"><b>WooCommerce</b><ul><li>Il sito di oggi, ripulito e veloce</li><li>Plugin controllati e aggiornati</li><li>Server con backup e monitoraggio</li><li>Clienti e storico ordini</li></ul></div>
+      <div class="sync"><span>Catalogo ↔</span><span>Prezzi ↔</span><span>Giacenze ↔</span><span>Ordini →</span></div>
+      <div class="sh"><b>Shopify</b><ul><li>Vetrina per Regno Unito, in sterline</li><li>Pagamenti e imposte del paese</li><li>Stesse schede, stesse foto</li><li>Ordini girati al magazzino</li></ul></div>
+    </div>
+    <div class="wk">
+      <div><b>Settimana 1</b><span>Controllo di sito, plugin e server</span></div>
+      <div><b>Settimana 2</b><span>Catalogo e schede sistemati</span></div>
+      <div><b>Settimana 3</b><span>Partner logistico e consolidamento</span></div>
+      <div><b>Settimana 4</b><span>Dogana, accise e documenti</span></div>
+      <div><b>Settimana 5</b><span>Shopify affiancato e sincronizzato</span></div>
+      <div><b>Settimana 6</b><span>Ordini di prova, poi si parte</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <h2>Prima la fattibilità, poi i costi.</h2>
+    <p>Una chiamata per capire volumi, fornitori e paesi, poi un piano scritto con tempi e costi, prima di toccare il sito.</p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il cibo italiano arriva intero, in regola e in tempo.</h2>
+    <ul>
+      <li><b>Sito e catalogo</b>WooCommerce ripulito: plugin, server, velocità, schede prodotto.</li>
+      <li><b>Logistica</b>Partner per ritiro dai fornitori, consolidamento e riconfezionamento.</li>
+      <li><b>Regole per paese</b>Dogana, IVA e accise impostate con chi le segue di mestiere.</li>
+      <li><b>Due vetrine, un catalogo</b>Shopify accanto a WooCommerce, senza doppio lavoro.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra. Indicazioni di massima, da verificare con spedizioniere e consulente doganale.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* rotta */
+  (function(){var S=[[260,330,'Pastificio, Gragnano'],[330,250,'Caseificio, Emilia'],[200,210,'Frantoio, Toscana'],[420,300,'Cantina, Puglia']],HUB=[560,220],UK=[1010,90],EU=[1000,330];
+    var o='<rect width="1200" height="420" fill="#E5D7BF"/>';for(var i=0;i<26;i++)o+='<line x1="0" y1="'+(i*16)+'" x2="1200" y2="'+(i*16)+'" stroke="#00000008"/>';
+    function curve(a,b,c,dur,del){var mx=(a[0]+b[0])/2,my=Math.min(a[1],b[1])-60;var d='M'+a[0]+' '+a[1]+' Q'+mx+' '+my+' '+b[0]+' '+b[1];return '<path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="3" stroke-dasharray="8 8"/><circle r="7" fill="'+c+'"><animateMotion dur="'+dur+'s" begin="'+del+'s" repeatCount="indefinite" path="'+d+'"/></circle>'}
+    S.forEach(function(s,i){o+=curve(s,HUB,'#2E5B3A',2.4,i*.4)+'<circle cx="'+s[0]+'" cy="'+s[1]+'" r="9" fill="#2E5B3A"/><text x="'+(s[0]-14)+'" y="'+(s[1]+30)+'" font-size="15" font-family="Onest" font-weight="700" fill="#1C1A17" text-anchor="end">'+s[2]+'</text>'});
+    o+=curve(HUB,UK,'#C2381F',3,1)+curve(HUB,EU,'#C2381F',3,1.6);
+    o+='<rect x="'+(HUB[0]-48)+'" y="'+(HUB[1]-40)+'" width="96" height="80" rx="6" fill="#C9A86A"/><rect x="'+(HUB[0]-48)+'" y="'+(HUB[1]-8)+'" width="96" height="14" fill="#B08D4E"/><text x="'+HUB[0]+'" y="'+(HUB[1]+66)+'" text-anchor="middle" font-size="16" font-family="Onest" font-weight="800">Consolidamento</text>';
+    o+='<text x="'+UK[0]+'" y="'+(UK[1]-18)+'" font-size="34" font-family="Gloock" fill="#1C1A17">Londra</text><circle cx="'+UK[0]+'" cy="'+UK[1]+'" r="10" fill="#C2381F"/><text x="'+EU[0]+'" y="'+(EU[1]+40)+'" font-size="34" font-family="Gloock" fill="#1C1A17">Parigi, Berlino…</text><circle cx="'+EU[0]+'" cy="'+EU[1]+'" r="10" fill="#C2381F"/>';
+    $('route').innerHTML=o})();
+  /* prodotti */
+  var P={
+    pasta:['Pasta di Gragnano','pastificio','#E8C98A',{uk:['ok','Pasta secca','In genere senza controlli sanitari particolari']},'jar'],
+    parm:['Parmigiano 24 mesi','caseificio','#EFD9A0',{uk:['wa','Formaggio','Prodotto di origine animale: verificare i certificati richiesti in entrata'],ue:['ok','Formaggio','Mercato unico, nessuna dogana']},'wedge'],
+    olio:['Olio extravergine','frantoio','#9DAA3E',{uk:['ok','Olio','Imballo anti-urto e anti-perdita']},'bottle'],
+    vino:['Vino rosso','cantina','#7B1E2A',{uk:['st','Vino: accisa','Accisa e dichiarazione doganale per ogni spedizione'],ue:['st','Vino: accisa','Anche nell\'UE serve gestire le accise del paese di arrivo']},'bottle'],
+    salumi:['Salame stagionato','salumificio','#B0473A',{uk:['st','Carne suina','Regole sanitarie severe: verificare se e come può entrare'],ue:['ok','Salumi','Mercato unico, catena del fresco se serve']},'log'],
+    dolci:['Cantucci','forno','#D8A15E',{uk:['ok','Dolci da forno','Etichetta in inglese con allergeni']},'jar']
+  };
+  var sel={pasta:1,parm:1,vino:1},dest='uk';
+  function icon(k){var c=P[k][2],t=P[k][4],o='<svg viewBox="0 0 120 80" aria-hidden="true"><rect width="120" height="80" rx="8" fill="#E5D7BF"/>';
+    if(t==='bottle')o+='<rect x="50" y="10" width="20" height="16" fill="'+c+'"/><rect x="42" y="24" width="36" height="50" rx="8" fill="'+c+'"/><rect x="46" y="40" width="28" height="18" fill="#FBF6EC"/>';
+    else if(t==='wedge')o+='<path d="M20 64 L100 64 L100 40 Z" fill="'+c+'"/><path d="M20 64 L100 40 L100 30 L20 56 Z" fill="#C99A45"/>';
+    else if(t==='log')o+='<rect x="18" y="30" width="84" height="30" rx="15" fill="'+c+'"/><circle cx="34" cy="38" r="3" fill="#F3D2C6"/><circle cx="56" cy="48" r="3" fill="#F3D2C6"/><circle cx="80" cy="40" r="3" fill="#F3D2C6"/>';
+    else o+='<rect x="34" y="16" width="52" height="58" rx="6" fill="'+c+'"/><rect x="38" y="30" width="44" height="22" fill="#FBF6EC"/>';
+    return o+'</svg>'}
+  function prods(){$('prods').innerHTML=Object.keys(P).map(function(k){return '<button class="pr" data-k="'+k+'" aria-pressed="'+(!!sel[k])+'">'+icon(k)+'<b>'+P[k][0]+'</b><small>dal '+P[k][1]+'</small></button>'}).join('')}
+  function flow(){var ks=Object.keys(sel).filter(function(k){return sel[k]}),n=ks.length,o='';
+    ks.forEach(function(k,i){var y=n===1?125:30+i*(190/Math.max(1,n-1));o+='<rect x="10" y="'+(y-16)+'" width="120" height="32" rx="8" fill="#fff" stroke="#1c1a1722"/><text x="20" y="'+(y+5)+'" font-size="12.5" font-family="Onest" font-weight="700">'+P[k][1].charAt(0).toUpperCase()+P[k][1].slice(1)+'</text><path d="M130 '+y+' C190 '+y+' 190 125 240 125" fill="none" stroke="#2E5B3A" stroke-width="2.5"/>'});
+    o+='<rect x="240" y="95" width="110" height="60" rx="8" fill="#C9A86A"/><text x="295" y="122" text-anchor="middle" font-size="12.5" font-weight="800" font-family="Onest">Magazzino</text><text x="295" y="140" text-anchor="middle" font-size="11.5" font-family="Onest">riconfeziona</text>';
+    o+='<path d="M350 125 L420 125" stroke="#C2381F" stroke-width="3" stroke-dasharray="7 6"/><rect x="420" y="98" width="90" height="54" rx="6" fill="#B08D4E"/><rect x="420" y="118" width="90" height="10" fill="#9a7a40"/><text x="465" y="172" text-anchor="middle" font-size="13" font-weight="800" font-family="Onest">'+(dest==='uk'?'1 pacco per Londra':'1 pacco per l\'UE')+'</text>';
+    $('flow').innerHTML=n?o:'<text x="260" y="125" text-anchor="middle" font-size="15" font-family="Onest">Scegliete almeno un prodotto</text>';
+    var L=[];if(dest==='uk')L.push(['wa','Dichiarazione doganale','Una per spedizione, con codici e valore di ogni prodotto']);
+    ks.forEach(function(k){var r=P[k][3][dest]||(dest==='ue'?['ok',P[k][0],'Mercato unico, nessuna dogana']:P[k][3].uk);L.push([r[0],P[k][0]+': '+r[1],r[2]])});
+    if(dest==='uk')L.push(['ok','IVA del Regno Unito','Calcolata al checkout per gli ordini piccoli, sulla vetrina in sterline']);
+    $('chk').innerHTML=L.map(function(l){return '<li class="'+l[0]+'"><i>'+(l[0]==='ok'?'✓':l[0]==='wa'?'!':'×')+'</i><span>'+l[1]+'<small>'+l[2]+'</small></span></li>'}).join('')}
+  $('prods').addEventListener('click',function(e){var b=e.target.closest('.pr');if(!b)return;sel[b.dataset.k]=!sel[b.dataset.k];b.setAttribute('aria-pressed',!!sel[b.dataset.k]);flow()});
+  $('dest').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;dest=b.dataset.d;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});flow()});
+  prods();flow();
+})();
+</script>
+</body>
+</html>

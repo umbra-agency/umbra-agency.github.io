@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Isola di Sant'Antioco · Residenti temporanei</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Marcellus;src:url(../lib/fonts/marcellus-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;src:url(../lib/fonts/manrope-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{
+  /* l'isola nell'isola: calce delle case, trachite, mare del sud, il viola della jacaranda in fiore */
+  --calce:#F6F2EA; --trach:#8E7F72; --mare:#125E74; --mare2:#0B3E4D; --jac:#7A5CA6; --ocra:#C88A3B; --ink:#1B1A18;
+  --d:Marcellus,Georgia,serif; --s:Manrope,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.6 var(--s);color:var(--ink);background:var(--calce)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.02;letter-spacing:.005em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ocra);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{position:relative;min-height:min(90svh,820px);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0b3e4d55,transparent 40%,#0b3e4ddd)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:clamp(36px,6vw,80px);width:100%}
+.top{position:absolute;z-index:3;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);color:#fff}
+.top b{font:400 22px/1 var(--d)}
+.top span{font-size:14px;opacity:.9}
+.hero h1{font-size:clamp(50px,7.6vw,124px);margin:0 0 14px;max-width:12ch}
+.hero p{font-size:clamp(17px,1.5vw,20px);max-width:52ch;margin:0;opacity:.92}
+
+/* chi sei */
+.who{padding-block:clamp(60px,8vw,110px)}
+.who h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 12px}
+.who .lead{max-width:56ch;color:#4c4640;margin:0 0 26px}
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.tabs button{border:0;text-align:left;background:#fff;border-radius:14px;padding:18px;cursor:pointer;box-shadow:inset 0 0 0 1.5px #1b1a1818}
+.tabs button small{display:block;font-weight:800;font-size:12.5px;letter-spacing:.04em;color:var(--trach)}
+.tabs button b{display:block;font:400 26px/1.1 var(--d);margin-top:4px}
+.tabs button[aria-pressed=true]{box-shadow:inset 0 0 0 2.5px var(--c,var(--mare));background:var(--calce)}
+.stay{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(18px,3vw,44px);align-items:stretch}
+.isl{background:var(--mare2);border-radius:18px;overflow:hidden;position:relative}
+.isl svg{display:block;width:100%;height:100%}
+.day{background:#fff;border-radius:18px;padding:clamp(18px,2.6vw,30px);box-shadow:inset 0 0 0 1px #1b1a1814}
+.day small{font-weight:800;font-size:12.5px;color:var(--c,var(--mare));letter-spacing:.04em}
+.day h3{font-size:clamp(32px,3.2vw,46px);margin:6px 0 2px}
+.day .ad{color:#6b625a;font-size:14.5px;margin:0 0 14px}
+.tl{list-style:none;margin:0 0 18px;padding:0}
+.tl li{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:10px 0;border-top:1px solid #1b1a1814;font-size:15.5px}
+.tl time{font-weight:800;color:var(--c,var(--mare))}
+.day a{display:block;text-align:center;background:var(--c,var(--mare));color:#fff;font-weight:800;text-decoration:none;padding:14px;border-radius:10px}
+
+/* mosaico */
+.mos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:10px;padding-inline:var(--pad);max-width:1320px;margin:0 auto clamp(60px,8vw,110px)}
+.mos img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block}
+.mos img:first-child{grid-row:span 2}
+
+/* piano */
+.pl{background:var(--mare);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.pl h2{font-size:clamp(42px,5.4vw,86px);margin:0 0 12px;max-width:16ch}
+.pl .lead{max-width:58ch;opacity:.86;margin:0 0 30px}
+.mesi{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.mesi div{background:#ffffff12;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:240px}
+.mesi b{font:400 26px/1 var(--d)}
+.mesi em{font-style:normal;font-size:12.5px;font-weight:800;color:#F2C98F}
+.mesi ul{margin:0;padding-left:16px;font-size:14.5px;opacity:.92;display:grid;gap:4px}
+.foot{background:var(--ink);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85;font-size:15.5px}
+.foot a{color:inherit}
+@media(max-width:980px){.stay,.foot__g{grid-template-columns:1fr}.isl{aspect-ratio:4/3}.mesi{grid-template-columns:repeat(3,1fr)}.mos{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.mos img:first-child{grid-column:span 2;grid-row:auto}}
+@media(max-width:560px){.tabs{grid-template-columns:1fr}.mesi{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Isola di Sant'Antioco Ospitalità Diffusa" data-note="Anteprima preparata da Umbra per Isola di Sant'Antioco Ospitalità Diffusa, a partire dal vostro annuncio per il tirocinio in comunicazione e marketing digitale. Le tre strutture, gli indirizzi e l'idea del residente temporaneo vengono dal vostro sito; le giornate e il piano dei sei mesi sono una proposta. Foto da Unsplash.">
+
+<header class="hero" id="top">
+  <img src="img/costa.jpg" alt="Costa rocciosa sul mare">
+  <div class="top"><b>Isola di Sant'Antioco</b><span>Ospitalità diffusa · tre case</span></div>
+  <div class="wrap">
+    <h1>Non turista. Residente temporaneo.</h1>
+    <p>Tre case storiche ristrutturate, nel centro, sul lungomare e sul punto più alto dell'isola. Dimmi che viaggiatore sei e ti diciamo dove dormire e come passare la giornata.</p>
+  </div>
+</header>
+
+<section class="who wrap">
+  <h2>Che viaggiatore sei?</h2>
+  <p class="lead">Ogni casa ha il suo ospite. Scegli e guarda la giornata tipo, dall'ora del caffè alla sera in piazza.</p>
+  <div class="tabs" id="tabs" role="group" aria-label="Tipo di viaggiatore"></div>
+  <div class="stay">
+    <div class="isl"><svg id="isl" viewBox="0 0 600 520" role="img" aria-label="Mappa stilizzata dell'isola con le tre case"></svg></div>
+    <div class="day" aria-live="polite"><small id="dK"></small><h3 id="dN"></h3><p class="ad" id="dA"></p><ol class="tl" id="dT"></ol><a id="dB" href="mailto:info@isoladisantantioco.com">Chiedi disponibilità</a></div>
+  </div>
+</section>
+
+<div class="mos"><img src="img/baia.jpg" alt="Baia con barche" loading="lazy"><img src="img/vicolo.jpg" alt="Vicolo con piante" loading="lazy"><img src="img/scogli.jpg" alt="Scogli rossi sul mare" loading="lazy"><img src="img/spiaggia.jpg" alt="Spiaggia bianca" loading="lazy"><img src="img/terrazza.jpg" alt="Terrazza sul mare" loading="lazy"></div>
+
+<section class="pl">
+  <div class="wrap">
+    <h2>Sei mesi, prima che arrivi l'estate.</h2>
+    <p class="lead">Il piano di comunicazione da dicembre a maggio, pronto per chi entra in tirocinio dal primo giorno: cosa pubblicare, a chi scrivere, cosa misurare. Noi seguiamo da esterni le parti più tecniche.</p>
+    <div class="mesi">
+      <div><em>Dicembre</em><b>Le fondamenta</b><ul><li>Recensioni vere in home</li><li>Foto delle tre case</li><li>Profili social sistemati</li></ul></div>
+      <div><em>Gennaio</em><b>Il residente</b><ul><li>Una persona dell'isola a settimana</li><li>Newsletter agli ospiti 2026</li></ul></div>
+      <div><em>Febbraio</em><b>Prenota prima</b><ul><li>Offerta per giugno e settembre</li><li>Campagna su chi ama il mare</li></ul></div>
+      <div><em>Marzo</em><b>Le spiagge</b><ul><li>Guida alle spiagge, una al giorno</li><li>Reel dal punto più alto</li></ul></div>
+      <div><em>Aprile</em><b>Sapori</b><ul><li>Esperienze con i produttori</li><li>Pacchetti con le esperienze</li></ul></div>
+      <div><em>Maggio</em><b>Si apre</b><ul><li>Storie degli arrivi</li><li>Report del semestre</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Isola di Sant'Antioco, ospitalità diffusa.</h2>
+    <p>La Jacaranda · Domo Lungomare · Il Punto più alto<br><a href="mailto:info@isoladisantantioco.com">info@isoladisantantioco.com</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Ogni ospite nella casa giusta, l'estate prenotata d'inverno.</h2>
+    <ul>
+      <li><b>Le tre case, tre ospiti</b>Chi arriva sceglie per come viaggia, non per una foto: meno domande, più prenotazioni dirette.</li>
+      <li><b>La giornata del residente</b>Il racconto dell'isola che distingue l'ospitalità diffusa da un hotel qualunque.</li>
+      <li><b>Un piano per il tirocinio</b>Sei mesi già scritti, con noi da esterni sulle parti tecniche.</li>
+      <li><b>Prenotazioni dirette</b>Meno commissioni ai portali, più ospiti che tornano.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Isola di Sant'Antioco Ospitalità Diffusa. Giornate e piano sono una proposta, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var C={
+    esp:{t:'Per gli esploratori',n:'La Jacaranda',a:'Via Risorgimento 22, nel centro',c:'#7A5CA6',p:[300,260],d:[['8:30','Caffè al bancone, due passi dal mercato'],['10:00','Basilica e catacombe, prima che arrivi il caldo'],['13:00','Pranzo dove mangiano i residenti'],['16:30','In bici fino alla laguna'],['21:00','Passeggiata e piazza, la movida dell\'isola']]},
+    mar:{t:'Per chi ama il mare',n:'Domo Lungomare',a:'Via Fiume 24, sul lungomare',c:'#125E74',p:[360,330],d:[['7:30','Il mare sotto casa, prima di colazione'],['10:00','Spiaggia sul lato sud, ombrellone e libro'],['14:00','Pranzo leggero sul lungomare'],['17:30','Calette in barca o snorkeling'],['20:30','Aperitivo con il tramonto sull\'acqua']]},
+    pan:{t:'Per chi ama i panorami',n:'Il Punto più alto',a:'Via della Pineta 11, sopra la costa',c:'#C88A3B',p:[250,180],d:[['7:00','L\'alba dalla terrazza, su tutta la costa'],['9:30','Sentiero tra i faraglioni'],['13:00','Pranzo con vista, all\'ombra della pineta'],['18:00','Fotografie dall\'alto con la luce bassa'],['21:30','Le luci del paese, da lassù']]}
+  };
+  var cur='mar';
+  $('tabs').innerHTML=Object.keys(C).map(function(k){return '<button data-k="'+k+'" aria-pressed="'+(k===cur)+'" style="--c:'+C[k].c+'"><small>'+C[k].t.toUpperCase()+'</small><b>'+C[k].n+'</b></button>'}).join('');
+  function isl(){var o='<rect width="600" height="520" fill="#0B3E4D"/>';for(var i=0;i<18;i++)o+='<path d="M0 '+(i*30+10)+' Q150 '+(i*30)+' 300 '+(i*30+10)+' T600 '+(i*30+10)+'" fill="none" stroke="#ffffff0c"/>';
+    o+='<path d="M180 70 C250 40 330 60 380 110 C430 160 470 220 450 300 C430 380 380 450 300 470 C230 490 170 450 150 380 C130 320 110 260 120 190 C130 130 140 90 180 70Z" fill="#E9DFCD" stroke="#ffffff55" stroke-width="2"/>';
+    o+='<path d="M380 110 C420 100 470 120 520 110" fill="none" stroke="#E9DFCD" stroke-width="10" stroke-linecap="round"/><text x="470" y="96" font-size="13" fill="#ffffffaa" font-family="Manrope">verso la Sardegna</text>';
+    o+='<path d="M210 120 Q260 200 300 260 T360 330" fill="none" stroke="#8E7F72" stroke-width="2" stroke-dasharray="4 6"/>';
+    Object.keys(C).forEach(function(k){var c=C[k],on=k===cur;o+='<g><circle cx="'+c.p[0]+'" cy="'+c.p[1]+'" r="'+(on?16:10)+'" fill="'+c.c+'" stroke="#fff" stroke-width="3"/>'+(on?'<circle cx="'+c.p[0]+'" cy="'+c.p[1]+'" r="16" fill="none" stroke="'+c.c+'" stroke-width="2"><animate attributeName="r" from="16" to="40" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" from="1" to="0" dur="1.8s" repeatCount="indefinite"/></circle>':'')+'<text x="'+(c.p[0]+22)+'" y="'+(c.p[1]+5)+'" font-size="'+(on?19:15)+'" font-family="Marcellus" fill="#1B1A18">'+c.n+'</text></g>'});
+    $('isl').innerHTML=o}
+  function day(){var c=C[cur];document.querySelector('.day').style.setProperty('--c',c.c);$('dK').textContent=c.t.toUpperCase();$('dN').textContent=c.n;$('dA').textContent=c.a+' · Sant\'Antioco';
+    $('dT').innerHTML=c.d.map(function(x){return '<li><time>'+x[0]+'</time><span>'+x[1]+'</span></li>'}).join('');
+    $('dB').href='mailto:info@isoladisantantioco.com?subject='+encodeURIComponent('Disponibilità '+c.n)+'&body='+encodeURIComponent('Buongiorno, vorremmo soggiornare a '+c.n+'. Date: \nOspiti: ')}
+  $('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});isl();day()});
+  isl();day();
+})();
+</script>
+</body>
+</html>

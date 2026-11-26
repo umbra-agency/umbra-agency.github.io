@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Imperatrice · La regia della diretta</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Abril;src:url(../lib/fonts/abril-fatface-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Tight;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* pelle e diretta: nero lucido, cuoio cognac, crema delle cuciture, il rosso del pallino LIVE */
+  --nero:#121010; --cuoio:#8B4A2B; --cuoio2:#B8794E; --crema:#F5EDE3; --live:#F2335B; --ink:#121010;
+  --d:Abril,Georgia,serif; --s:Tight,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.5 var(--s);color:var(--ink);background:var(--crema)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:.98;letter-spacing:-.005em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--live);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.studio{background:var(--nero);color:#fff;padding-bottom:clamp(50px,7vw,100px)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);max-width:1320px;margin-inline:auto}
+.bar b{font:400 26px/1 var(--d);letter-spacing:.06em}
+.bar span{font-size:13.5px;opacity:.75}
+.sg{display:grid;grid-template-columns:minmax(0,1fr) 330px minmax(0,1fr);gap:clamp(16px,2.6vw,36px);align-items:start;max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.sg h1{font-size:clamp(44px,5.4vw,84px);margin:10px 0 16px}
+.sg .lead{opacity:.8;max-width:38ch;margin:0 0 20px}
+.queue{display:grid;gap:8px}
+.queue button{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;text-align:left;border:1.5px solid #ffffff22;background:#ffffff08;border-radius:12px;padding:8px;cursor:pointer;color:#fff}
+.queue img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+.queue b{display:block;font-size:14.5px;line-height:1.25}
+.queue small{opacity:.65;font-size:12.5px}
+.queue span{font-weight:800}
+.queue button[aria-pressed=true]{border-color:var(--live);background:#f2335b18}
+.phone{background:#000;border-radius:40px;padding:10px;aspect-ratio:9/19;box-shadow:0 40px 70px -30px #000,0 0 0 1px #ffffff1a}
+.scr{position:relative;width:100%;height:100%;border-radius:31px;overflow:hidden;background:#222}
+.scr>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scr .sh{position:absolute;inset:0;background:linear-gradient(180deg,#0008,transparent 25%,transparent 55%,#000c)}
+.lv{position:absolute;top:14px;left:12px;right:12px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.lv i{background:var(--live);padding:3px 7px;border-radius:4px;font-style:normal;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.6}}
+.lv em{margin-left:auto;font-style:normal;background:#0006;padding:3px 8px;border-radius:99px}
+.cm{position:absolute;left:12px;right:70px;bottom:118px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.cm p{margin:0;background:#0007;border-radius:12px;padding:6px 10px;width:fit-content;max-width:100%;animation:up .4s ease-out}
+.cm p b{color:#ffd0dc;margin-right:5px}
+@keyframes up{from{opacity:0;transform:translateY(10px)}}
+.pc{position:absolute;left:12px;right:12px;bottom:14px;background:#fff;color:var(--ink);border-radius:14px;padding:10px;display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center}
+.pc img{width:52px;height:52px;object-fit:cover;border-radius:8px}
+.pc b{display:block;font-size:13px;line-height:1.2}
+.pc s{font-size:11.5px;opacity:.55}
+.pc strong{font-size:16px}
+.pc button{border:0;background:var(--live);color:#fff;font-weight:800;border-radius:9px;padding:9px 10px;font-size:12.5px}
+.timer{position:absolute;top:44px;right:12px;background:var(--live);border-radius:10px;padding:6px 9px;font-weight:800;font-size:13px;text-align:center;line-height:1.1;display:none}
+.timer.on{display:block}
+.timer small{display:block;font-size:10px;font-weight:700}
+.cue{background:var(--crema);color:var(--ink);border-radius:16px;padding:20px}
+.cue small{display:block;font-weight:800;font-size:12px;color:var(--cuoio);letter-spacing:.04em}
+.cue h3{font-size:30px;margin:6px 0 12px}
+.cue ol{margin:0 0 16px;padding-left:20px;display:grid;gap:8px;font-size:15px}
+.cue ol b{display:block;font-size:12.5px;color:#7b6a5f}
+.cue .acts{display:grid;gap:8px}
+.cue .acts button{border:0;border-radius:10px;padding:12px;font-weight:800;cursor:pointer;background:var(--nero);color:#fff}
+.cue .acts button.alt{background:var(--live)}
+.stats{display:flex;gap:16px;margin-top:14px;font-size:13px}
+.stats b{display:block;font:400 26px/1 var(--d)}
+
+/* settimana + taglie */
+.wk{padding-block:clamp(60px,8vw,110px)}
+.wk h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 12px;max-width:16ch}
+.wk .lead{max-width:56ch;color:#5d4e44;margin:0 0 28px}
+.days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.days div{background:#fff;border-radius:14px;padding:18px;box-shadow:inset 0 0 0 1px #12101014}
+.days em{font-style:normal;font-weight:800;font-size:12.5px;color:var(--live)}
+.days b{display:block;font:400 28px/1.05 var(--d);margin:6px 0 8px}
+.days p{margin:0;font-size:14.5px;color:#5d4e44}
+.sz{background:var(--cuoio);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.szg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.sz h2{font-size:clamp(44px,5.6vw,90px);margin:0 0 12px}
+.sz p{opacity:.88;max-width:46ch}
+.foot-in{display:flex;align-items:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+.foot-in input{width:min(100%,300px);accent-color:#fff}
+.num{font:400 clamp(110px,14vw,200px)/.8 var(--d);text-align:center}
+.num small{display:block;font:700 15px/1.4 var(--s);opacity:.85;margin-top:16px}
+.foot{background:var(--nero);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85}
+@media(max-width:1100px){.sg{grid-template-columns:minmax(0,1fr) 300px}.cue{grid-column:1/-1}}
+@media(max-width:760px){.sg{grid-template-columns:1fr}.phone{max-width:320px;margin-inline:auto;width:100%}.days{grid-template-columns:1fr 1fr}.szg,.foot__g{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.lv i{animation:none}.cm p{animation:none}}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per Imperatrice" data-note="Anteprima preparata da Umbra per Imperatrice, a partire dal vostro annuncio per il volto delle dirette su TikTok Shop. Prodotti, prezzi, spedizione gratuita in 2–4 giorni, reso in 14 giorni e recensioni vengono dal vostro negozio online (26 novembre); i commenti della diretta e la scaletta sono un esempio. Foto da Unsplash, al posto delle vostre.">
+
+<section class="studio" id="top">
+  <header class="bar"><b>IMPERATRICE</b><span>Calzature e giacche in pelle · Maddaloni</span></header>
+  <div class="sg">
+    <div>
+      <h1>La regia della diretta.</h1>
+      <p class="lead">Chi conduce guarda solo il telefono; tutto il resto è qui. Scegli il prodotto della coda: in diretta compare il prezzo vero, a destra il copione da dire.</p>
+      <div class="queue" id="queue" role="group" aria-label="Prodotti della diretta"></div>
+    </div>
+    <div class="phone"><div class="scr"><img id="lImg" src="img/giacca.jpg" alt=""><div class="sh"></div>
+      <div class="lv"><i>LIVE</i><span>imperatrice</span><em id="lV">412 spettatori</em></div>
+      <div class="timer" id="tm"><small>OFFERTA</small><span id="tmS">10:00</span></div>
+      <div class="cm" id="cm"></div>
+      <div class="pc"><img id="pI" src="img/giacca.jpg" alt=""><div><b id="pN"></b><s id="pL"></s></div><div style="text-align:right"><strong id="pP"></strong><br><button type="button">Acquista</button></div></div>
+    </div></div>
+    <aside class="cue" aria-live="polite">
+      <small>COPIONE DEL PRODOTTO</small>
+      <h3 id="qT"></h3>
+      <ol id="qL"></ol>
+      <div class="acts"><button type="button" id="aQ">Rispondi alla domanda in diretta</button><button type="button" class="alt" id="aO">Avvia l'offerta di 10 minuti</button></div>
+      <div class="stats"><div><b id="sC">0</b>nel carrello</div><div><b id="sQ">0</b>domande</div></div>
+    </aside>
+  </div>
+</section>
+
+<section class="wk wrap">
+  <h2>Quattro dirette a settimana, quattro temi.</h2>
+  <p class="lead">Una scaletta fissa aiuta chi conduce e abitua chi guarda. I prodotti si scelgono dal catalogo il giorno prima, con le taglie disponibili.</p>
+  <div class="days">
+    <div><em>LUNEDÌ 21:00</em><b>Le novità</b><p>Gli arrivi della settimana, indossati e spiegati.</p></div>
+    <div><em>MERCOLEDÌ 21:00</em><b>Giacche in pelle</b><p>Uomo e donna, vestibilità e come abbinarle.</p></div>
+    <div><em>VENERDÌ 21:00</em><b>Tacchi e cerimonia</b><p>Décolleté e sandali, con l'altezza del tacco in diretta.</p></div>
+    <div><em>DOMENICA 18:00</em><b>Ultime taglie</b><p>Le paia rimaste, a prezzo di diretta.</p></div>
+  </div>
+</section>
+
+<section class="sz">
+  <div class="wrap szg">
+    <div>
+      <h2>Che numero porto?</h2>
+      <p>La domanda che arriva a ogni diretta. Si misura il piede col righello, dal tallone all'alluce, e il numero esce da solo: chi conduce lo legge in diretta e chi compra non sbaglia taglia.</p>
+      <div class="foot-in"><input type="range" id="cm2" min="22" max="30" step=".5" value="24.5" aria-label="Lunghezza del piede in centimetri"><b id="cmO"></b></div>
+    </div>
+    <div class="num"><span id="nO">38</span><small>numero consigliato, tabella d'esempio</small></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Imperatrice. Stile deciso, identità unica.</h2>
+    <p>Spedizione gratuita in 2–4 giorni lavorativi<br>Reso facile entro 14 giorni</p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Dirette che vendono, anche quando chi conduce è nuovo.</h2>
+    <ul>
+      <li><b>Copione per ogni prodotto</b>Gancio, taglie, materiale e offerta: chi conduce non deve improvvisare.</li>
+      <li><b>Regia da dietro le quinte</b>Coda dei prodotti, domande e timer delle offerte in un'unica schermata.</li>
+      <li><b>Video brevi dalle dirette</b>I momenti migliori diventano video da pubblicare il giorno dopo.</li>
+      <li><b>Da esterni</b>Scaletta, regia e montaggio li seguiamo noi.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Imperatrice. Commenti e tabella taglie d'esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P=[
+    {n:'Giubbino in vera pelle',c:'Giacche pelle donna',p:'da catalogo',l:'',img:'donna.jpg',s:[['Gancio, primi 3 secondi','Toccate la pelle con me: sentite com\'è morbida?'],['Vestibilità','Veste regolare: se siete tra due taglie, prendete la più grande.'],['Abbinamento','Con jeans e stivaletto è il look di tutto l\'inverno.'],['Chiusura','Spedizione gratis, arriva in 2–4 giorni.']]},
+    {n:'Anfibi in simil pelle con stringhe, Art. 68333',c:'Anfibi donna',p:'49,90 €',l:'200,00 €',img:'stivaletto.jpg',s:[['Gancio, primi 3 secondi','Da 200 a 49,90 euro: solo in diretta, guardate la suola.'],['Taglia','Calzata regolare: ditemi il vostro numero nei commenti.'],['Materiale','Simil pelle lucida, stringhe e zip laterale per infilarli in un secondo.'],['Chiusura','Reso facile in 14 giorni: provateli a casa.']]},
+    {n:'Polacchine stringate in camoscio',c:'Uomo',p:'59,90 €',l:'233,00 €',img:'marrone.jpg',s:[['Gancio, primi 3 secondi','Il camoscio che non passa mai di moda, da 233 a 59,90.'],['Taglia','Calzata regolare, pianta comoda.'],['Abbinamento','Con chino e giacca: per l\'ufficio e per la sera.'],['Chiusura','Spedizione gratis, reso in 14 giorni.']]},
+    {n:'Décolleté tacco 9 cm, Art. DYD200557',c:'Cerimonia',p:'39,90 €',l:'133,00 €',img:'stivaletto.jpg',s:[['Gancio, primi 3 secondi','Nove centimetri, ma guardate come si cammina.'],['Taglia','Se avete il piede largo, mezzo numero in più.'],['Occasione','Matrimoni, battesimi, serate: sotto un abito lungo spariscono.'],['Chiusura','Ultime taglie: 37 e 38.']]},
+    {n:'Giacca in pelle uomo',c:'Giacche pelle uomo',p:'da catalogo',l:'',img:'giacca.jpg',s:[['Gancio, primi 3 secondi','Questa giacca la portate per dieci anni.'],['Vestibilità','Spalle strutturate: prendete la vostra solita taglia.'],['Dettagli','Zip metalliche, interno foderato.'],['Chiusura','Arriva in 2–4 giorni, in tempo per Natale.']]}
+  ];
+  var cur=0,cart=0,qs=0;
+  $('queue').innerHTML=P.map(function(p,i){return '<button data-i="'+i+'" aria-pressed="'+(i===cur)+'"><img src="img/'+p.img+'" alt=""><span style="font-weight:400"><b>'+p.n+'</b><small>'+p.c+'</small></span><span>'+p.p+'</span></button>'}).join('');
+  function show(){var p=P[cur];$('lImg').src=$('pI').src='img/'+p.img;$('pN').textContent=p.n;$('pL').textContent=p.l;$('pP').textContent=p.p;$('qT').textContent=p.n;
+    $('qL').innerHTML=p.s.map(function(s){return '<li><b>'+s[0]+'</b>'+s[1]+'</li>'}).join('')}
+  $('queue').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=+b.dataset.i;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});show()});
+  var N=['giusi_88','marco.pellerossa','sara.ce','anto_maddaloni','vale.m','lucia_37','fra.style','ciro_n'],Q=['che numero mi consigli? porto il 38','la pelle è vera?','arriva prima di Natale?','c\'è anche nero?','quanto è alto il tacco?','si può fare il reso?','vestono grandi o piccole?','la voglio! 🔥','bellissime','ce l\'avete in 41?'];
+  function cmt(t,who){var c=$('cm'),p=document.createElement('p');p.innerHTML='<b>'+(who||N[Math.floor(Math.random()*N.length)])+'</b>';p.appendChild(document.createTextNode(t));c.appendChild(p);while(c.children.length>4)c.removeChild(c.firstChild)}
+  if(!U.reduce)setInterval(function(){cmt(Q[Math.floor(Math.random()*Q.length)]);var v=380+Math.floor(Math.random()*90);$('lV').textContent=v+' spettatori'},2200);
+  cmt('eccomi! 👋');cmt('che numero mi consigli? porto il 38');
+  $('aQ').addEventListener('click',function(){qs++;$('sQ').textContent=qs;cmt('Rispondo: '+P[cur].s[1][1],'imperatrice')});
+  var t=0,iv=null;
+  $('aO').addEventListener('click',function(){t=600;$('tm').classList.add('on');clearInterval(iv);iv=setInterval(function(){t--;$('tmS').textContent=Math.floor(t/60)+':'+('0'+t%60).slice(-2);if(t%7===0){cart++;$('sC').textContent=cart}if(t<=0){clearInterval(iv);$('tm').classList.remove('on')}},250)});
+  document.querySelector('.pc button').addEventListener('click',function(){cart++;$('sC').textContent=cart});
+  show();
+  /* taglie */
+  function sz(){var cm=+$('cm2').value,n=Math.round((cm+1.5)*1.5);$('cmO').textContent=cm.toFixed(1).replace('.',',')+' cm';$('nO').textContent=n}
+  $('cm2').addEventListener('input',sz);sz();
+})();
+</script>
+</body>
+</html>

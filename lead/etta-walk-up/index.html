@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Etta Walk Up · Dicembre in quota, con Diletta</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Young;src:url(../lib/fonts/young-serif-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Hanken;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* la carta escursionistica: verde dei faggi, curve di livello, il segnavia bianco e rosso, l'arancio dell'alba sul Camicia */
+  --carta:#F1EEE4; --faggio:#22402F; --curva:#A99F84; --alba:#E36F34; --rosso:#C8362C; --neve:#FBFBF8; --ink:#17221B;
+  --d:Young,Georgia,serif; --s:Hanken,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--alba);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px var(--pad);max-width:1320px;margin-inline:auto}
+.bar b{font:400 22px/1 var(--d);display:flex;align-items:center;gap:10px}
+.bar b i{width:22px;height:14px;background:linear-gradient(var(--neve) 0 33%,var(--rosso) 33% 66%,var(--neve) 66%);box-shadow:0 0 0 1px #0002;display:inline-block}
+.bar a{font-weight:700;font-size:14.5px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--alba)}
+
+/* la mappa */
+.mapw{padding-block:clamp(10px,2vw,30px) clamp(50px,7vw,100px)}
+.mapw h1{font-size:clamp(46px,6.4vw,100px);margin:0 0 12px;max-width:14ch}
+.mapw .lead{font-size:clamp(17px,1.5vw,20px);max-width:52ch;margin:0 0 26px;color:#3d463f}
+.mg{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:clamp(16px,3vw,40px);align-items:start}
+.topo{position:relative;background:#ECE7D8;border-radius:12px;overflow:hidden;box-shadow:inset 0 0 0 1px #17221b1f}
+.topo svg{display:block;width:100%;height:auto}
+.topo .cl path{fill:none;stroke:var(--curva);stroke-width:1.1;stroke-dasharray:var(--l);stroke-dashoffset:var(--l);animation:draw 2.4s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pk{cursor:pointer}
+.pk circle.r{transition:r .2s}
+.pk:hover circle.r,.pk.on circle.r{r:15}
+.pk.on circle.r{fill:var(--alba)}
+.card{background:var(--faggio);color:#fff;border-radius:14px;overflow:hidden;position:sticky;top:18px}
+.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.card .in{padding:20px 22px 22px}
+.card small{display:block;font-weight:800;font-size:12.5px;color:#F3B58F;letter-spacing:.03em}
+.card h3{font-size:30px;margin:6px 0 10px}
+.card p{margin:0 0 14px;opacity:.85;font-size:15px}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.st div{background:#ffffff14;border-radius:8px;padding:9px 10px}
+.st b{display:block;font:400 22px/1 var(--d)}
+.st span{font-size:12px;opacity:.75}
+.zaino{font-size:14px;opacity:.9;margin-bottom:14px}
+.zaino b{display:block;font-size:12.5px;opacity:.75;margin-bottom:2px}
+.card .go{display:block;text-align:center;background:var(--alba);color:#fff;font-weight:800;padding:13px;border-radius:9px;text-decoration:none}
+.card .so{background:#ffffff26;color:#fff}
+
+/* il reel */
+.reel{background:var(--faggio);color:#fff;padding-block:clamp(64px,8vw,120px)}
+.rg{display:grid;grid-template-columns:minmax(260px,.55fr) minmax(0,1.45fr);gap:clamp(24px,5vw,80px);align-items:center}
+.phone{width:100%;background:#0d130f;border-radius:38px;padding:12px;aspect-ratio:9/19;max-width:300px;margin-inline:auto;box-shadow:0 40px 60px -30px #000c}
+.scr{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:#000}
+.scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s,transform 3s ease-out;transform:scale(1.08)}
+.scr img.on{opacity:1;transform:scale(1)}
+.scr .cap{position:absolute;left:14px;right:14px;bottom:60px;font:400 22px/1.1 var(--d);text-shadow:0 2px 14px #000}
+.scr .bars{position:absolute;left:12px;right:12px;top:12px;display:flex;gap:4px}
+.scr .bars i{flex:1;height:3px;background:#ffffff55;border-radius:2px;overflow:hidden}
+.scr .bars i b{display:block;height:100%;background:#fff;width:0}
+.reel h2{font-size:clamp(42px,5.4vw,84px);margin:0 0 14px}
+.reel p{opacity:.85;max-width:52ch}
+.shots{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.shots li{background:#ffffff12;border-radius:10px;padding:12px 14px;font-size:15px;border:1.5px solid transparent;transition:border-color .2s}
+.shots li.on{border-color:var(--alba)}
+.shots li span{display:block;font-size:12.5px;font-weight:800;color:#F3B58F}
+
+/* gruppi */
+.gr{padding-block:clamp(64px,8vw,120px)}
+.gg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.gr h2{font-size:clamp(42px,5.4vw,84px);margin:0 0 14px}
+.gr blockquote{margin:22px 0 0;font:400 clamp(22px,2.2vw,30px)/1.3 var(--d);border-left:4px solid var(--alba);padding-left:18px}
+.gr blockquote cite{display:block;font:700 14px/1.4 var(--s);font-style:normal;margin-top:10px;color:#5b6359}
+.gr img{width:100%;border-radius:14px;display:block;aspect-ratio:4/5;object-fit:cover}
+.foot{background:var(--ink);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85}
+.foot a{color:inherit}
+@media(max-width:980px){.mg,.rg,.gg,.foot__g{grid-template-columns:1fr}.card{position:static}}
+@media(max-width:520px){.shots{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.topo .cl path{animation:none;stroke-dashoffset:0}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Etta Walk Up" data-note="Anteprima preparata da Umbra per Etta Walk Up, a partire dal vostro annuncio per chi monti video e foto dei tour. Le uscite di dicembre, il viaggio a Tromsø, il nome e la filosofia vengono dal vostro sito e dal vostro Instagram; chilometri, dislivelli e mappa sono indicativi. Foto da Unsplash.">
+
+<header class="bar"><b><i></i>Etta Walk Up</b><a href="https://ettawalkup.it" target="_blank" rel="noopener">ettawalkup.it</a></header>
+
+<section class="mapw wrap" id="top">
+  <h1>Dicembre, in quota. Scegli la tua cima.</h1>
+  <p class="lead">Il calendario come una carta escursionistica: ogni uscita è un punto sulla mappa. Toccalo e vedi dove, quanto si cammina e cosa mettere nello zaino.</p>
+  <div class="mg">
+    <div class="topo"><svg id="topo" viewBox="0 0 800 560" role="img" aria-label="Mappa con le uscite di dicembre"></svg></div>
+    <aside class="card" aria-live="polite">
+      <img id="cI" src="img/gransasso.jpg" alt="">
+      <div class="in">
+        <small id="cD"></small>
+        <h3 id="cT"></h3>
+        <p id="cP"></p>
+        <div class="st"><div><b id="cK"></b><span>km, indicativi</span></div><div><b id="cH"></b><span>dislivello</span></div><div><b id="cL"></b><span>livello</span></div></div>
+        <div class="zaino"><b>NELLO ZAINO</b><span id="cZ"></span></div>
+        <a class="go" id="cG" href="https://ettawalkup.it" target="_blank" rel="noopener">Prenota il posto</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="reel">
+  <div class="wrap rg">
+    <div class="phone"><div class="scr" id="scr"><div class="bars" id="bars"></div><img src="img/gransasso.jpg" alt=""><img src="img/neve.jpg" alt=""><img src="img/ciaspole.jpg" alt=""><img src="img/gruppo.jpg" alt=""><img src="img/calascio.jpg" alt=""><div class="cap" id="cap"></div></div></div>
+    <div>
+      <h2>Ogni uscita, un reel di venti secondi.</h2>
+      <p>Chi cammina con voi gira col telefono cinque inquadrature semplici; il montaggio, la musica e il testo arrivano pronti la sera stessa, con le date della prossima uscita. Il reel qui accanto si ripete: guardate come scorre.</p>
+      <ol class="shots" id="shots">
+        <li><span>0–4 s</span>Il gruppo che parte, ancora al buio</li>
+        <li><span>4–8 s</span>Le ciaspole nella neve fresca</li>
+        <li><span>8–12 s</span>Primo piano sulle racchette, dall'alto</li>
+        <li><span>12–16 s</span>La fila che sale nel bosco</li>
+        <li><span>16–20 s</span>La vetta, e la data della prossima</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="gr">
+  <div class="wrap gg">
+    <div>
+      <h2>Un sentiero solo vostro.</h2>
+      <p>Team building ed escursioni private: scegliete le persone, il percorso lo pensa Diletta. Una pagina per le aziende, con le proposte per stagione e un modulo che chiede quanti siete, quando e che passo avete.</p>
+      <blockquote>«Si parte sconosciuti e si torna amici.»<cite>Diletta, guida escursionistica di Etta Walk Up</cite></blockquote>
+    </div>
+    <img src="img/gruppo.jpg" alt="Gruppo di escursionisti con le ciaspole" loading="lazy">
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Etta Walk Up, camminare verso su.</h2>
+    <p>Escursioni, weekend e viaggi in Abruzzo e oltre.<br><a href="https://ettawalkup.it">ettawalkup.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Le uscite si riempiono prima, e ogni uscita porta la prossima.</h2>
+    <ul>
+      <li><b>Il calendario sulla mappa</b>Chi guarda capisce dove, quanto e con che fatica, e prenota senza scrivere dieci messaggi.</li>
+      <li><b>Un reel per ogni giro</b>Cinque inquadrature dal telefono, montaggio e testo pronti la sera stessa.</li>
+      <li><b>Gruppi e aziende</b>Una pagina per i team building, con le proposte per stagione.</li>
+      <li><b>Da esterni</b>Voi camminate, social e sito li seguiamo noi.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Etta Walk Up. Dati dei percorsi indicativi, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* curve di livello attorno a tre rilievi */
+    function contours(){var out='',HS=[[250,205,190,1],[565,300,230,2],[430,130,150,3],[170,380,120,4],[640,450,110,5]];
+    HS.forEach(function(c){for(var k=0;k<9;k++){var R=c[2]*(1-k/10),d='';for(var a=0;a<=72;a++){var t=a/72*Math.PI*2,r=R*(1+.13*Math.sin(3*t+c[3])+.07*Math.sin(5*t+c[3]*2)+.04*Math.sin(9*t+k));var x=c[0]+Math.cos(t)*r,y=c[1]+Math.sin(t)*r*.72;d+=(a?' L':'M')+x.toFixed(1)+' '+y.toFixed(1)}
+      out+='<path d="'+d+'Z" style="--l:2400;animation-delay:'+(k*.1)+'s"'+(k%4===0?' stroke-width="2"':'')+'/>'}});return out}
+  var UP=[
+    {k:'terminillo',x:250,y:205,d:'Weekend 5–6 dicembre',t:'Terminillo in silenzio',p:'Versione di Natale, due giorni tra boschi innevati e rifugio, nel silenzio della montagna d\'inverno.',km:'12',hm:'650 m',lv:'Medio',z:'Ciaspole, ghette, thermos, frontale, strati caldi',img:'neve.jpg'},
+    {k:'camicia',x:565,y:300,d:'Domenica, all\'alba',t:'Monte Camicia all\'alba',p:'Partenza col buio per arrivare in vetta quando il sole accende il Gran Sasso.',km:'9',hm:'780 m',lv:'Impegnativo',z:'Frontale, ramponcini, giacca a vento, colazione da vetta',img:'gransasso.jpg'},
+    {k:'calascio',x:430,y:130,d:'Giornata, metà dicembre',t:'Rifugi e mercatini di Natale',p:'Un sentiero facile tra borghi e rocche, e il pomeriggio tra le luci dei mercatini.',km:'8',hm:'300 m',lv:'Facile',z:'Scarponi, borraccia, qualche euro per il vin brulé',img:'calascio.jpg'},
+    {k:'maiella',x:520,y:455,s:'Cammino della Maiella',d:'Cammino di 4 giorni',t:'Cammino di Etta della Maiella',p:'Sulle orme di Celestino V, quattro giorni nel cuore della montagna. Posti limitati.',km:'52',hm:'2.300 m',lv:'Medio',z:'Zaino da 35 litri, sacco lenzuolo, bastoncini',img:'ciaspole.jpg'},
+    {k:'gransasso',x:170,y:360,d:'Fine anno',t:'Gran Sasso Winter Experience',p:'Per chiudere l\'anno in quota, con la neve e il gruppo.',km:'10',hm:'600 m',lv:'Medio',z:'Ciaspole, ghette, guanti di ricambio',img:'gruppo.jpg'},
+    {k:'tromso',x:90,y:80,d:'30 dicembre – 5 gennaio',t:'Capodanno oltre il Circolo Polare',p:'Sette giorni a Tromsø tra aurora boreale, fiordi, husky, balene e cultura Sámi.',km:'—',hm:'—',lv:'Viaggio',z:'Tutto per il freddo artico',img:'neve.jpg',so:1}
+  ];
+  var cur='terminillo';
+  function topo(){var o='<rect width="800" height="560" fill="#ECE7D8"/><g class="cl">'+contours()+'</g>';
+    o+='<path d="M90 80 C160 150 200 190 250 205 S380 140 430 130 S520 260 565 300 S560 420 520 455 M250 205 C220 260 190 320 170 360" fill="none" stroke="#C8362C" stroke-width="2.5" stroke-dasharray="7 7" opacity=".75"/>';
+    UP.forEach(function(u){o+='<g class="pk'+(u.k===cur?' on':'')+'" data-k="'+u.k+'" tabindex="0" role="button" aria-label="'+u.t+'"><circle class="r" cx="'+u.x+'" cy="'+u.y+'" r="11" fill="'+(u.so?'#8A8F86':'#22402F')+'" stroke="#FBFBF8" stroke-width="3"/><text x="'+(u.x+18)+'" y="'+(u.y+5)+'" font-family="Young,Georgia" font-size="16" fill="#17221B">'+(u.s||u.t)+'</text></g>'});
+    o+='<g transform="translate(60 500)"><circle r="28" fill="none" stroke="#17221B" stroke-opacity=".4"/><path d="M0 -24 L6 0 L0 24 L-6 0Z" fill="#17221B" opacity=".6"/><text y="-32" text-anchor="middle" font-size="12" font-weight="800" font-family="Hanken">N</text></g>';
+    $('topo').innerHTML=o}
+  function card(){var u=UP.filter(function(x){return x.k===cur})[0];
+    $('cI').src='img/'+u.img;$('cD').textContent=u.d.toUpperCase();$('cT').textContent=u.t;$('cP').textContent=u.p;$('cK').textContent=u.km;$('cH').textContent=u.hm;$('cL').textContent=u.lv;$('cZ').textContent=u.z;
+    $('cG').textContent=u.so?'Posti esauriti, lista d\'attesa':'Prenota il posto';$('cG').classList.toggle('so',!!u.so)}
+  function pick(e){var g=e.target.closest('.pk');if(!g)return;cur=g.dataset.k;[].forEach.call(document.querySelectorAll('.pk'),function(x){x.classList.toggle('on',x===g)});card()}
+  $('topo').addEventListener('click',pick);$('topo').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(e)}});
+  topo();card();
+  /* il reel */
+  var imgs=[].slice.call(document.querySelectorAll('#scr img')),li=[].slice.call(document.querySelectorAll('#shots li')),CAP=['Si parte col buio','La neve fresca','Passo dopo passo','Insieme, nel bosco','In vetta. Prossima: 5 dicembre'],i=-1,t0=0;
+  $('bars').innerHTML=imgs.map(function(){return '<i><b></b></i>'}).join('');var bars=[].slice.call(document.querySelectorAll('#bars b'));
+  function step(){i=(i+1)%imgs.length;imgs.forEach(function(m,k){m.classList.toggle('on',k===i)});li.forEach(function(l,k){l.classList.toggle('on',k===i)});$('cap').textContent=CAP[i];bars.forEach(function(b,k){b.style.width=k<i?'100%':'0'});t0=performance.now()}
+  function loop(now){if(i>=0){bars[i].style.width=Math.min(100,(now-t0)/40)+'%';if(now-t0>4000)step()}requestAnimationFrame(loop)}
+  step();if(!U.reduce)requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

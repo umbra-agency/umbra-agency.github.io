@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Il Salone di Marco · Trova la mano giusta per i tuoi capelli</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Bodoni;src:url(../lib/fonts/bodoni-moda-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:Bodoni;src:url(../lib/fonts/bodoni-moda-italic.woff2) format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:Tight;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* il salone: specchi, rame del colore, il rosa cipria dei mantelli, il nero delle poltrone */
+  --cipria:#F4EAE5; --rame:#A8693F; --rame2:#D9A27A; --espresso:#221817; --latte:#FFFBF8; --ink:#1A1414;
+  --d:Bodoni,Didot,Georgia,serif; --s:Tight,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--cipria)}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:.98;letter-spacing:-.02em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--rame);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px var(--pad);max-width:1320px;margin-inline:auto}
+.bar b{font:italic 500 24px/1 var(--d)}
+.bar a{font-weight:700;font-size:14.5px;color:var(--latte);background:var(--espresso);padding:10px 15px;border-radius:99px;text-decoration:none}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(20px,4vw,60px);align-items:end;padding-block:clamp(16px,3vw,40px) clamp(56px,7vw,100px)}
+.hero h1{font-size:clamp(52px,7.4vw,124px);margin:0 0 18px}
+.hero h1 i{color:var(--rame)}
+.hero p{font-size:clamp(17px,1.5vw,20px);max-width:46ch;color:#4a3d3a;margin:0}
+.col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.col img{width:100%;display:block;object-fit:cover;border-radius:999px 999px 14px 14px;aspect-ratio:3/4.4}
+.col img:nth-child(2){margin-top:60px;border-radius:14px 14px 999px 999px}
+
+/* trova la mano */
+.find{background:var(--espresso);color:var(--latte);padding-block:clamp(64px,8vw,120px)}
+.find h2{font-size:clamp(46px,6vw,96px);margin:0 0 12px}
+.find .lead{max-width:54ch;opacity:.82;margin:0 0 28px}
+.q{display:grid;gap:14px;margin-bottom:28px}
+.q div b{display:block;font-size:13.5px;font-weight:700;color:var(--rame2);margin-bottom:8px}
+.ch{display:flex;flex-wrap:wrap;gap:8px}
+.ch button{border:1.5px solid #fffbf833;background:none;border-radius:99px;padding:9px 15px;cursor:pointer;font-weight:600}
+.ch button[aria-pressed=true]{background:var(--latte);color:var(--ink);border-color:var(--latte)}
+.res{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(16px,3vw,40px);background:#ffffff0d;border-radius:18px;padding:clamp(18px,3vw,34px);align-items:center}
+.mono{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--rame2),var(--rame) 60%,#6e3f22);display:grid;place-items:center;font:italic 500 clamp(80px,10vw,150px)/1 var(--d);color:var(--latte);max-width:320px;width:100%;margin-inline:auto;box-shadow:0 30px 50px -24px #000}
+.res small{display:block;font-weight:800;font-size:12.5px;color:var(--rame2);letter-spacing:.03em}
+.res h3{font-size:clamp(40px,4.6vw,70px);margin:6px 0 6px}
+.res .role{font:italic 400 22px/1.2 var(--d);margin:0 0 12px;opacity:.9}
+.res p{opacity:.82;margin:0 0 18px;max-width:46ch}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.slots button{border:1.5px solid #fffbf844;background:none;border-radius:10px;padding:9px 13px;cursor:pointer;font-weight:700;font-variant-numeric:tabular-nums}
+.slots button[aria-pressed=true]{background:var(--rame);border-color:var(--rame)}
+.book{display:inline-block;background:var(--latte);color:var(--ink);text-decoration:none;font-weight:800;padding:14px 20px;border-radius:99px}
+
+/* storie */
+.st{padding-block:clamp(64px,8vw,120px)}
+.stg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:clamp(24px,5vw,80px);align-items:center}
+.st h2{font-size:clamp(46px,6vw,96px);margin:0 0 14px}
+.st p{max-width:50ch;color:#4a3d3a}
+.tpl{display:grid;gap:8px;margin-top:20px}
+.tpl button{display:flex;justify-content:space-between;align-items:center;text-align:left;border:1.5px solid #1a141422;background:var(--latte);border-radius:12px;padding:13px 16px;cursor:pointer;font-weight:600}
+.tpl button span{font-size:13px;color:#7b6c68;font-weight:500}
+.tpl button[aria-pressed=true]{border-color:var(--espresso);box-shadow:0 0 0 1.5px var(--espresso)}
+.ph{width:min(100%,300px);margin-inline:auto;aspect-ratio:9/18.5;background:#111;border-radius:40px;padding:11px;box-shadow:0 40px 60px -28px #22181799}
+.scr{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:var(--espresso);color:#fff}
+.scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.88}
+.scr .ov{position:absolute;inset:0;background:linear-gradient(180deg,#0006,transparent 30%,transparent 55%,#000b)}
+.scr .hd{position:absolute;top:16px;left:14px;right:14px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700}
+.scr .hd i{width:26px;height:26px;border-radius:50%;background:var(--rame);display:grid;place-items:center;font:italic 500 14px/1 var(--d)}
+.scr .tx{position:absolute;left:16px;right:16px;bottom:24px}
+.scr .tx b{display:block;font:italic 500 28px/1.02 var(--d);margin-bottom:8px}
+.scr .tx span{display:inline-block;background:var(--latte);color:var(--ink);font-weight:800;font-size:13px;padding:7px 11px;border-radius:99px}
+.scr .split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.scr .split img{position:static;height:100%}
+.scr .split em{position:absolute;top:56px;font-style:normal;font-weight:800;font-size:11px;background:#000a;padding:4px 8px;border-radius:99px}
+
+/* medaglia */
+.md{background:var(--latte);padding-block:clamp(64px,8vw,120px)}
+.mdg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.md h2{font-size:clamp(44px,5.6vw,88px);margin:0 0 14px}
+.md p{max-width:46ch;color:#4a3d3a}
+.cardx{perspective:900px}
+.cc{aspect-ratio:1.586;border-radius:20px;padding:26px;color:#2a2422;background:linear-gradient(135deg,#f6f6f4,#c9c9c6 45%,#efefec 55%,#b4b4b0);box-shadow:0 40px 60px -30px #0007;transform:rotateY(-14deg) rotateX(8deg);transition:transform .4s;display:flex;flex-direction:column;justify-content:space-between;max-width:440px;margin-inline:auto}
+.cc:hover{transform:rotateY(0) rotateX(0)}
+.cc b{font:italic 500 30px/1 var(--d)}
+.cc strong{font:500 54px/1 var(--d)}
+.cc span{font-size:14px;font-weight:700}
+.calc{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap}
+.calc input{width:100%;max-width:320px;accent-color:var(--rame)}
+.calc output{font:500 30px/1 var(--d)}
+.foot{background:var(--espresso);color:var(--latte);padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85;font-size:15.5px}
+.foot a{color:inherit}
+@media(max-width:980px){.hero,.res,.stg,.mdg,.foot__g{grid-template-columns:1fr}.mono{max-width:200px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Il Salone di Marco" data-note="Anteprima preparata da Umbra per Il Salone di Marco, a partire dal vostro annuncio per la reception e le storie social. Team, specialità, storia dal 2007, carta Silver e contatti vengono dal vostro sito; gli orari liberi e i modelli di storia sono di esempio. Foto da Unsplash.">
+
+<header class="bar"><b>Il Salone di Marco</b><a href="tel:+39028253679">02 825 3679</a></header>
+
+<main class="wrap hero" id="top">
+  <div>
+    <h1>Nove mani, <i>una</i> è quella giusta per te.</h1>
+    <p>Dal giugno 2007 a Rozzano, dai backstage delle sfilate milanesi alla poltrona di tutti i giorni. Rispondi a due domande: ti diciamo chi ti fa uscire perfetta e quando è libero.</p>
+  </div>
+  <div class="col"><img src="img/lungo.jpg" alt="Capelli lunghi biondi con riflessi"><img src="img/piega.jpg" alt="Piega con il ferro"></div>
+</main>
+
+<section class="find">
+  <div class="wrap">
+    <h2>Chi ti fa i capelli?</h2>
+    <p class="lead">La domanda che la reception sente dieci volte al giorno. Qui la risposta arriva da sola, con il primo orario libero.</p>
+    <div class="q">
+      <div><b>I tuoi capelli</b><div class="ch" id="q1" role="group" aria-label="Lunghezza"><button data-v="corti">Corti</button><button data-v="medi" aria-pressed="true">Medi</button><button data-v="lunghi">Lunghi</button><button data-v="uomo">Uomo</button></div></div>
+      <div><b>Cosa vuoi fare</b><div class="ch" id="q2" role="group" aria-label="Obiettivo"><button data-v="taglio">Cambiare taglio</button><button data-v="colore" aria-pressed="true">Schiarire o colore</button><button data-v="liscio">Lisci e disciplinati</button><button data-v="sposa">Un evento o la sposa</button><button data-v="alternativo">Un look fuori dagli schemi</button></div></div>
+    </div>
+    <div class="res" aria-live="polite">
+      <div class="mono" id="mono">L</div>
+      <div>
+        <small>TI CONSIGLIAMO</small>
+        <h3 id="rN"></h3>
+        <p class="role" id="rR"></p>
+        <p id="rP"></p>
+        <div class="slots" id="slots" role="group" aria-label="Orari liberi"></div>
+        <a class="book" id="book" href="https://www.treatwell.it/salone/il-salone-di-marco-rozzano/" target="_blank" rel="noopener">Prenota online</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="st">
+  <div class="wrap stg">
+    <div>
+      <h2>Le storie del giorno, pronte all'apertura.</h2>
+      <p>Chi sta in reception non deve inventarsi niente: ogni mattina arrivano cinque storie già impaginate, con i posti liberi veri e le foto del giorno prima. Si sceglie, si pubblica, si torna al telefono.</p>
+      <div class="tpl" id="tpl" role="group" aria-label="Modello di storia">
+        <button data-k="liberi" aria-pressed="true">Posti liberi oggi <span>alle 9:00</span></button>
+        <button data-k="primadopo" aria-pressed="false">Prima e dopo <span>a metà mattina</span></button>
+        <button data-k="team" aria-pressed="false">Chi c'è oggi <span>a pranzo</span></button>
+        <button data-k="medaglia" aria-pressed="false">La medaglia <span>nel pomeriggio</span></button>
+        <button data-k="voce" aria-pressed="false">Dicono di noi <span>la sera</span></button>
+      </div>
+    </div>
+    <div class="ph"><div class="scr" id="story"></div></div>
+  </div>
+</section>
+
+<section class="md">
+  <div class="wrap mdg">
+    <div class="cardx"><div class="cc"><b>Il Salone di Marco</b><div><span>MEDAGLIA</span><br><strong id="mdN">Silver</strong></div><span id="mdV">Ricarica 300 € · 45 € in regalo</span></div></div>
+    <div>
+      <h2>Regalati una medaglia.</h2>
+      <p>La carta ricaricabile per i trattamenti preferiti: più ricarichi, più credito vi regalano. Sposta il cursore per vedere quanto vale; la versione Silver è quella del vostro sito, le altre cifre sono un esempio.</p>
+      <div class="calc"><input type="range" id="rk" min="300" max="1000" step="50" value="300" aria-label="Ricarica"><output id="rkO"></output></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Il Salone di Marco</h2>
+    <p>Via Europa 96, Rozzano (MI)<br>Parrucchiere donna e uomo</p>
+    <p><a href="tel:+39028253679">02 825 3679</a><br><a href="https://ilsalonedimarco.com">ilsalonedimarco.com</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Meno telefonate in reception, più poltrone piene.</h2>
+    <ul>
+      <li><b>La mano giusta, subito</b>Due domande e il cliente sa chi lo segue e quando è libero.</li>
+      <li><b>Storie già pronte</b>Ogni mattina cinque storie con i posti veri della giornata.</li>
+      <li><b>Le medaglie online</b>Ricariche e regali da comprare anche da casa, a Natale soprattutto.</li>
+      <li><b>Da esterni</b>Contenuti e pubblicazione li seguiamo noi, la reception pensa ai clienti.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Il Salone di Marco. Orari d'esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var T={Marco:['Fondatore e hair director','Specializzato nei tagli corti da donna: il consulente del tuo stile, che accoglie ogni cliente come a casa.'],
+    Lucia:['Balayage e tagli corti','Esperta di tagli corti e balayage back comb, con un occhio attento alla consulenza.'],
+    Stefania:['Capelli lunghi e colore','Tagli lunghi, colori e sfumature: trasforma ogni chioma con creatività tecnica.'],
+    Alessandro:['Barber e acconciature da sposa','Tagli uomo e donna, maestro delle acconciature femminili e da sposa.'],
+    Federica:['Air touch e lisci','Air touch, nanoplastia, stirature e pieghe wave.'],
+    Alex:['Barber e stili alternativi','Mullet, stile barber e look maschili, con carattere.'],
+    Morena:['Tecnica e stile','Permanenti, decolorazioni, tagli sartoriali e pieghe stilistiche.'],
+    Emy:['Colore e styling','Pieghe perfette, tagli corti e tecnica balayage.'],
+    Jack:['Tagli creativi','Tagli stilistici e alternativi, per uomo e donna.']};
+  var a={q1:'medi',q2:'colore'};
+  function pick(){var l=a.q1,g=a.q2;
+    if(l==='uomo')return g==='alternativo'?'Alex':g==='taglio'?'Jack':'Alessandro';
+    if(g==='sposa')return 'Alessandro';if(g==='liscio')return 'Federica';if(g==='alternativo')return 'Jack';
+    if(g==='colore')return l==='lunghi'?'Stefania':l==='corti'?'Lucia':'Emy';
+    return l==='corti'?'Marco':l==='lunghi'?'Stefania':'Morena'}
+  function rnd(n){var x=Math.sin(n*77.3)*1e4;return x-Math.floor(x)}
+  var slot=null;
+  function res(){var n=pick(),t=T[n],seed=n.length*7+a.q1.length,sl=[];
+    for(var i=0;i<4;i++){var h=9+Math.floor(rnd(seed+i)*9),m=rnd(seed*3+i)>.5?'30':'00';sl.push((i<2?'Oggi ':'Domani ')+h+':'+m)}
+    sl.sort();slot=sl[0];$('mono').textContent=n.charAt(0);$('rN').textContent=n;$('rR').textContent=t[0];$('rP').textContent=t[1];
+    $('slots').innerHTML=sl.map(function(s,i){return '<button aria-pressed="'+(i===0)+'">'+s+'</button>'}).join('');book()}
+  function book(){$('book').textContent='Prenota '+slot.toLowerCase()+' con '+$('rN').textContent}
+  ['q1','q2'].forEach(function(id){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;a[id]=b.dataset.v;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});res()})});
+  $('slots').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;slot=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});book()});
+  res();
+  /* storie */
+  var HD='<div class="hd"><i>M</i>ilsalonedimarco · ora</div>';
+  var S={liberi:'<img src="img/lavaggio.jpg" alt=""><div class="ov"></div>'+HD+'<div class="tx"><b>Oggi c\'è posto: 11:30 con Lucia, 16:00 con Federica</b><span>Scrivici per prenotare</span></div>',
+    primadopo:'<div class="split"><img src="img/barber.jpg" alt=""><img src="img/lungo.jpg" alt=""></div><div class="ov"></div>'+HD+'<div class="tx"><b>Prima e dopo: balayage di Stefania</b><span>Swipe per vedere</span></div>',
+    team:'<img src="img/piega.jpg" alt=""><div class="ov"></div>'+HD+'<div class="tx"><b>Oggi in salone: Marco, Lucia, Alessandro, Federica</b><span>Il team di oggi</span></div>',
+    medaglia:'<div class="ov" style="background:linear-gradient(135deg,#f6f6f4,#c9c9c6 45%,#efefec 55%,#b4b4b0)"></div>'+HD.replace('#fff','#222')+'<div class="tx" style="color:#221817"><b>Ricarica 300 €, ne ricevi 45 in regalo</b><span style="background:#221817;color:#fff">Medaglia Silver</span></div>',
+    voce:'<img src="img/lungo.jpg" alt=""><div class="ov" style="background:#221817cc"></div>'+HD+'<div class="tx"><b>«Scoperti prima del Covid e mai più lasciati.»</b><span>Alessia, colore</span></div>'};
+  function story(k){$('story').innerHTML=S[k]}
+  $('tpl').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});story(b.dataset.k)});
+  story('liberi');
+  /* medaglia */
+  function md(){var v=+$('rk').value,g=v>=800?['Platinum',.25]:v>=500?['Gold',.2]:['Silver',.15],bon=Math.round(v*g[1]/5)*5;
+    $('mdN').textContent=g[0];$('mdV').textContent='Ricarica '+v+' € · '+bon+' € in regalo';$('rkO').textContent=(v+bon)+' € di trattamenti'}
+  $('rk').addEventListener('input',md);md();
+})();
+</script>
+</body>
+</html>
