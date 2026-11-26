@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>2R Foto Eventi · Le foto del saggio, la sera stessa</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Bodoni;src:url(../lib/fonts/bodoni-moda-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:Bodoni;src:url(../lib/fonts/bodoni-moda-italic.woff2) format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:Hanken;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* palazzetto e piscina: la pedana blu della ritmica, il nastro corallo, il cloro, il gesso, l'oro della medaglia */
+  --gesso:#F4F4F1; --ink:#17182A; --pedana:#2944A8; --pedana2:#1C2F7A; --nastro:#EE5A4B; --cloro:#36B2C4; --oro:#D6A73A; --mut:#5F6274;
+  --d:Bodoni,Didot,serif; --s:Hanken,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--gesso)}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:.98;letter-spacing:-.02em;text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:400}
+:focus-visible{outline:3px solid var(--nastro);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:var(--mut)}
+.bar b{font:italic 600 28px/1 var(--d);color:var(--ink)}
+.bar b span{color:var(--nastro)}
+.hero{overflow:hidden}
+.hero h1{font-size:clamp(50px,7.4vw,126px);max-width:14ch;margin-top:clamp(10px,3vw,40px)}
+.hero h1 em{color:var(--pedana)}
+.hero .lead{max-width:54ch;margin-top:22px;font-size:clamp(16.5px,1.4vw,19px);color:#3d4052}
+.film{margin-top:clamp(34px,5vw,64px);background:var(--ink);padding:18px 0;position:relative}
+.film::before,.film::after{content:"";position:absolute;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,transparent 0 14px,#F4F4F1 14px 26px)}
+.film::before{top:4px}.film::after{bottom:4px}
+.track{display:flex;gap:10px;width:max-content;animation:roll 60s linear infinite}
+@keyframes roll{to{transform:translateX(-50%)}}
+.fr{width:clamp(180px,18vw,250px);aspect-ratio:4/5;border-radius:2px;overflow:hidden;position:relative;flex:0 0 auto}
+.fr svg{width:100%;height:100%}
+.fr span{position:absolute;left:8px;bottom:6px;font:700 11px/1 var(--s);color:#fff;background:#0007;padding:4px 6px;border-radius:4px}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(42px,5vw,80px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* ricerca */
+.find{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.find label{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--mut)}
+.find label{min-width:0}.find select,.find input{width:100%;min-width:0;border:1.5px solid #17182a2e;border-radius:12px;padding:12px;background:#fff;font-size:16px;color:var(--ink)}
+.res{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:clamp(16px,3vw,36px);align-items:start}
+.ph{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ph button{border:0;padding:0;cursor:pointer;aspect-ratio:4/5;border-radius:6px;overflow:hidden;position:relative;background:#ddd}
+.ph button svg{width:100%;height:100%}
+.ph button i{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font:700 13px/1 var(--s);font-style:normal;color:var(--ink);box-shadow:0 2px 8px #0004}
+.ph button[aria-pressed=true]{outline:4px solid var(--nastro);outline-offset:-4px}
+.ph button[aria-pressed=true] i{background:var(--nastro);color:#fff}
+.ph button b{position:absolute;left:8px;bottom:8px;font:700 11px/1 var(--s);color:#fff;background:#0008;padding:4px 6px;border-radius:4px}
+.cart{background:#fff;border-radius:20px;padding:20px;display:grid;gap:12px;position:sticky;top:16px;box-shadow:inset 0 0 0 1px #17182a14}
+.cart h3{font-size:30px}
+.cart .ln2{display:flex;justify-content:space-between;font-size:15px;border-bottom:1px solid #17182a14;padding-bottom:8px}
+.cart .tot{display:flex;justify-content:space-between;align-items:baseline}
+.cart .tot b{font:600 48px/1 var(--d)}
+.cart label{display:flex;gap:10px;align-items:center;font-weight:600;cursor:pointer}
+.cart input{width:18px;height:18px;accent-color:var(--nastro)}
+.cart small{color:var(--mut)}
+.cart .pay{background:var(--ink);color:#fff;border:0;border-radius:12px;padding:13px;font-weight:700;cursor:pointer}
+.list{display:grid;grid-template-columns:repeat(4,auto);gap:6px 16px;justify-content:start;font-size:14px;color:var(--mut);margin-top:12px}
+.list b{color:var(--ink)}
+
+/* società */
+.so{background:var(--pedana2);color:#EEF1FB}
+.so .sh p{color:#B9C3EA}
+.year{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;align-items:end;height:200px;margin-bottom:10px}
+.year div{background:#ffffff1f;border-radius:6px 6px 0 0;position:relative;transition:background .3s;cursor:pointer}
+.year div.pk{background:var(--nastro)}
+.year div:hover,.year div.on{background:var(--oro)}
+.mon{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;font-size:12.5px;color:#B9C3EA;text-align:center}
+.yd{margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,40px)}
+.yd .tx b{display:block;font:500 34px/1.05 var(--d);color:#fff;margin-bottom:8px}
+.yd .tx p{color:#CFD6F2}
+.form{background:#fff;color:var(--ink);border-radius:20px;padding:20px;display:grid;gap:10px}
+.form label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--mut)}
+.form input,.form select{border:1.5px solid #17182a2e;border-radius:10px;padding:10px 12px;font-size:16px;background:#fff}
+.form .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}.form label{min-width:0}.form input,.form select{width:100%;min-width:0}
+.form a{background:var(--nastro);color:#fff;text-decoration:none;text-align:center;border-radius:12px;padding:12px;font-weight:700}
+.form p{font-size:14px;color:var(--mut)}
+
+@media (max-width:900px){.sh,.res,.yd{grid-template-columns:1fr}.find{grid-template-columns:1fr 1fr}.find label:last-child{grid-column:1/-1}.cart{position:static}.ph{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.ph{grid-template-columns:1fr 1fr}.bar>span{display:none}.list{grid-template-columns:auto auto}.year{height:150px}.mon span{font-size:10px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per 2R Foto Eventi" data-note="Anteprima preparata da Umbra per 2R Foto Eventi di Roma, a partire dal vostro annuncio per fotografi e venditori nei fine settimana. Discipline e prezzi (7 € una foto, 12 € due, 15 € tre, 40 € la squadra) sono quelli del vostro sito; gare, società e nomi sono esempi, le illustrazioni tengono il posto delle vostre foto.">
+
+<header class="hero">
+  <div class="bar"><b>2R <span>Foto</span> Eventi</b><span>Danza · ritmica · nuoto e sincronizzato · Roma</span></div>
+  <div class="wrap">
+    <h1><span class="ln"><span class="li" style="--i:0">Il saggio finisce alle 18.</span></span><span class="ln"><span class="li" style="--i:1"><em>Alle 21 le foto</em></span></span><span class="ln"><span class="li" style="--i:2"><em>sono già vendute.</em></span></span></h1>
+    <p class="lead fx" style="--i:3">Cercate fotografi e venditori per i fine settimana. Il venditore allo stand vende le foto che la mamma vede lì; questa pagina vende tutte le altre, la sera, dal divano, con i vostri prezzi. Anche ai nonni che al palazzetto non c'erano.</p>
+  </div>
+  <div class="film fx" style="--i:4" aria-hidden="true"><div class="track" id="trk"></div></div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Trova le foto <em>di tua figlia.</em></h2>
+      <p>Il genitore sceglie la gara, il turno e il numero di uscita che ha sentito allo speaker. Gli escono solo le sue foto. Sceglie, e il prezzo migliore con i vostri pacchetti si calcola da solo.</p>
+    </div>
+    <div class="find">
+      <label>Gara<select id="ev"></select></label>
+      <label>Turno<select id="tu"></select></label>
+      <label>Numero di uscita<input id="nu" type="number" min="1" max="60" value="14" inputmode="numeric"></label>
+    </div>
+    <div class="res">
+      <div><div class="ph" id="ph"></div><div class="list"><span>1 foto <b>7 €</b></span><span>2 foto <b>12 €</b></span><span>3 foto <b>15 €</b></span><span>la squadra <b>40 €</b></span></div></div>
+      <div class="cart" aria-live="polite">
+        <h3 id="cN">Atleta n. 14</h3>
+        <div id="cL"></div>
+        <label><input type="checkbox" id="tm"> Aggiungi la foto della squadra</label>
+        <div class="tot"><small id="cS">3 foto scelte</small><b id="cT">15 €</b></div>
+        <button class="pay" type="button" id="pay">Paga e scarica</button>
+        <small>Si paga con la carta dal telefono e le foto arrivano in alta risoluzione per email.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec so">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Per le società: <em>la stagione intera.</em></h2>
+      <p>Saggi di Natale, gare regionali, trofei in piscina, saggio di fine anno. Ogni società sa le sue date da settembre: se le trova già in calendario con voi, il fotografo è prenotato prima che chiami un altro.</p>
+    </div>
+    <div class="year" id="yr"></div>
+    <div class="mon" id="mo"></div>
+    <div class="yd">
+      <div class="tx" aria-live="polite"><b id="yT">Dicembre: i saggi di Natale</b><p id="yP"></p></div>
+      <div class="form">
+        <div class="row"><label>Società<input id="fs" value="ASD Ritmica Esempio" autocomplete="off"></label><label>Disciplina<select id="fd"><option>Ginnastica ritmica</option><option>Danza classica</option><option>Nuoto</option><option>Nuoto sincronizzato</option></select></label></div>
+        <div class="row"><label>Data<input id="fdt" type="date" value="2026-12-13"></label><label>Atlete in pedana<input id="fa" type="number" value="60" min="1" inputmode="numeric"></label></div>
+        <p id="fP"></p>
+        <a id="fM" href="#">Prenota il fotografo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Voi scattate. La vendita continua anche quando il palazzetto chiude.</h2>
+    <ul>
+      <li><b>Galleria per gara</b>Gara, turno e numero di uscita: ogni famiglia trova solo le sue foto.</li>
+      <li><b>I vostri prezzi</b>7, 12, 15 € e 40 € la squadra, con il pacchetto migliore calcolato da solo.</li>
+      <li><b>Calendario delle società</b>Le date di tutta la stagione, con la richiesta del fotografo in un minuto.</li>
+      <li><b>Da esterni</b>Lo mettiamo in piedi e lo seguiamo noi; voi caricate le foto a fine gara.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per 2R Foto Eventi. Gare, società e nomi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* figure: pedana, palco, vasca */
+  function fig(kind,v,bib){v=v||0;var sk='#F2D3BE',lw=11;
+    function L(a,b,c){return '<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="'+(c||'#17182A')+'" stroke-width="'+lw+'" stroke-linecap="round"/>'}
+    var j=(v%3-1)*6,bg,s='';
+    if(kind==='rit'){bg='<rect width="200" height="250" fill="#2944A8"/><rect y="200" width="200" height="50" fill="#1C2F7A"/>';
+      var h=[100+j,70],n=[100+j,92],hp=[100+j,150];s='<path d="M'+(160+j)+' 64 C 190 '+(30+v*8)+', 120 '+(10+v*5)+', 150 '+(40)+' S 60 20, 40 70 S 70 140, 20 150" fill="none" stroke="#EE5A4B" stroke-width="5"/>'+L(n,hp,'#EE5A4B')+L(n,[55+j,55])+L(n,[160+j,64])+L(hp,[40+j,190])+L(hp,[170+j,170-v*4])+'<circle cx="'+h[0]+'" cy="'+h[1]+'" r="15" fill="'+sk+'"/>'}
+    else if(kind==='dan'){bg='<rect width="200" height="250" fill="#3A2340"/><ellipse cx="100" cy="40" rx="90" ry="50" fill="#ffffff18"/><rect y="215" width="200" height="35" fill="#5B3A28"/>';
+      var hp2=[96+j,140];s=L([90+j,92],hp2,'#F4F4F1')+L([90+j,98],[60,40+v*4])+L([90+j,98],[150,92])+L(hp2,[96+j,214])+L(hp2,[180,118-v*5])+'<ellipse cx="'+hp2[0]+'" cy="'+hp2[1]+'" rx="40" ry="10" fill="#F4F4F1" opacity=".9"/><circle cx="'+(86+j)+'" cy="74" r="14" fill="'+sk+'"/>'}
+    else if(kind==='sin'){bg='<rect width="200" height="250" fill="#E9F6F8"/><rect y="150" width="200" height="100" fill="#36B2C4"/>';
+      s=L([90+j,150],[88+j,60-v*3],'#17182A')+L([110+j,150],[112+j,60-v*3],'#17182A')+'<path d="M84 '+(56-v*3)+' l-6 -14 M116 '+(56-v*3)+' l6 -14" stroke="#17182A" stroke-width="7" stroke-linecap="round"/><path d="M0 152 Q25 142 50 152 T100 152 T150 152 T200 152" fill="none" stroke="#fff" stroke-width="4"/>'}
+    else{bg='<rect width="200" height="250" fill="#1E7F95"/><rect y="0" width="200" height="250" fill="url(#w'+v+')"/>';
+      s='<defs><linearGradient id="w'+v+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BC6D6"/><stop offset="1" stop-color="#1E6F86"/></linearGradient></defs><path d="M30 '+(120+j)+' Q100 '+(40+j)+' 170 '+(120+j)+'" fill="none" stroke="'+sk+'" stroke-width="11" stroke-linecap="round"/><circle cx="100" cy="'+(118+j)+'" r="15" fill="#EE5A4B"/><path d="M0 140 Q25 128 50 140 T100 140 T150 140 T200 140" fill="none" stroke="#ffffffaa" stroke-width="4"/>'}
+    return '<svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+bg+s+(bib?'<rect x="136" y="12" width="52" height="30" rx="4" fill="#fff"/><text x="162" y="34" text-anchor="middle" font-family="Hanken" font-weight="800" font-size="18" fill="#17182A">'+bib+'</text>':'')+'</svg>'}
+  /* pellicola */
+  var K=['rit','dan','sin','nuo'],F=['Ritmica · nastro','Danza · saggio','Sincronizzato','Nuoto · 50 farfalla'],tr='';
+  for(var r=0;r<2;r++)for(var i=0;i<10;i++){var k=K[i%4];tr+='<div class="fr">'+fig(k,i)+'<span>'+F[i%4]+'</span></div>'}
+  $('trk').innerHTML=tr;if(U.reduce)$('trk').style.animation='none';
+
+  /* ricerca */
+  var EV=[{n:'Saggio di Natale · Danza classica',d:'sab 13 dicembre',k:'dan',t:['Propedeutica','Primo corso','Corso avanzato']},{n:'Gara regionale · Ginnastica ritmica',d:'dom 14 dicembre',k:'rit',t:['Allieve, cerchio','Allieve, nastro','Junior, palla','Senior, clavette']},{n:'Trofeo di Natale · Nuoto sincronizzato',d:'sab 20 dicembre',k:'sin',t:['Esordienti','Ragazze','Junior']},{n:'Meeting di Natale · Nuoto',d:'dom 21 dicembre',k:'nuo',t:['50 farfalla','100 stile libero','200 misti']}];
+  $('ev').innerHTML=EV.map(function(e,i){return '<option value="'+i+'"'+(i===1?' selected':'')+'>'+e.n+', '+e.d+'</option>'}).join('');
+  function tu(){var e=EV[+$('ev').value];$('tu').innerHTML=e.t.map(function(t,i){return '<option value="'+i+'">'+t+'</option>'}).join('')}
+  var sel={};
+  function photos(){var e=EV[+$('ev').value],n=Math.max(1,Math.min(60,+$('nu').value||1)),h='';sel={0:1,2:1,5:1};
+    for(var i=0;i<8;i++)h+='<button type="button" data-i="'+i+'" aria-pressed="'+!!sel[i]+'">'+fig(e.k,i+n,n)+'<i>'+(sel[i]?'✓':'+')+'</i><b>'+e.t[+$('tu').value]+' · '+(i+1)+'/8</b></button>';
+    $('ph').innerHTML=h;$('cN').textContent='Atleta n. '+n;cart()}
+  function best(n){var c=[0],w=[[]];for(var i=1;i<=n;i++){var o=[[1,7],[2,12],[3,15]].filter(function(p){return p[0]<=i}).map(function(p){return [c[i-p[0]]+p[1],w[i-p[0]].concat([p])]}).sort(function(a,b){return a[0]-b[0]})[0];c[i]=o[0];w[i]=o[1]}return [c[n],w[n]]}
+  function cart(){var n=Object.keys(sel).length,b=best(n),tm=$('tm').checked,g={};b[1].forEach(function(p){g[p[0]]=(g[p[0]]||0)+1});
+    var L=Object.keys(g).sort().reverse().map(function(k){return '<div class="ln2"><span>'+(g[k]>1?g[k]+' × ':'')+'pacchetto '+k+(k==1?' foto':' foto')+'</span><span>'+(g[k]*[0,7,12,15][k])+' €</span></div>'}).join('');
+    if(tm)L+='<div class="ln2"><span>Foto della squadra</span><span>40 €</span></div>';
+    $('cL').innerHTML=L||'<div class="ln2"><span>Nessuna foto scelta</span><span>0 €</span></div>';
+    $('cT').textContent=(b[0]+(tm?40:0))+' €';$('cS').textContent=n+(n===1?' foto scelta':' foto scelte')}
+  $('ph').onclick=function(e){var b=e.target.closest('button');if(!b)return;var i=b.dataset.i;if(sel[i])delete sel[i];else sel[i]=1;b.setAttribute('aria-pressed',!!sel[i]);b.querySelector('i').textContent=sel[i]?'✓':'+';cart()};
+  $('ev').onchange=function(){tu();photos()};$('tu').onchange=photos;$('nu').addEventListener('input',photos);$('tm').onchange=cart;
+  $('pay').onclick=function(){this.textContent='Fatto: le foto arrivano per email';var t=this;setTimeout(function(){t.textContent='Paga e scarica'},2600)};
+  tu();photos();
+
+  /* stagione */
+  var MO=['set','ott','nov','dic','gen','feb','mar','apr','mag','giu'],H=[.25,.3,.45,1,.5,.6,.75,.7,.85,1],
+      TX=[['Settembre: si riparte','Le società fissano il calendario. È il momento di presentarsi con le date già in pagina.'],['Ottobre: prime prove','Gare di inizio stagione e stage. Pochi eventi, ottimi per farsi conoscere dalle società nuove.'],['Novembre: le iscrizioni','Le società chiudono le date dei saggi di Natale: chi prenota adesso il fotografo lo blocca per dicembre.'],['Dicembre: i saggi di Natale','Il mese pieno: saggi di danza, trofei di Natale in piscina, gare regionali di ritmica, spesso tre eventi nello stesso weekend.'],['Gennaio: si ricomincia','Campionati di categoria e prime gare dell\'anno nuovo.'],['Febbraio: gare regionali','Ritmica e nuoto entrano nel vivo: un fotografo per gara e la galleria la sera stessa.'],['Marzo: fasi regionali','Weekend pieni di gare: la pagina vende anche quelle che il venditore non riesce a seguire.'],['Aprile: trofei di primavera','Trofei e meeting, molte famiglie in tribuna, molti nonni a casa.'],['Maggio: finali e coppe','Le finali regionali e le coppe di società: le foto più comprate dell\'anno.'],['Giugno: saggi di fine anno','Il secondo picco: tutti i saggi di danza in due settimane, la foto di gruppo per ogni corso.']];
+  $('yr').innerHTML=H.map(function(h,i){return '<div data-i="'+i+'" class="'+(h>=.85?'pk':'')+(i===3?' on':'')+'" style="height:'+(h*100)+'%" role="button" tabindex="0" aria-label="'+TX[i][0]+'"></div>'}).join('');
+  $('mo').innerHTML=MO.map(function(m){return '<span>'+m+'</span>'}).join('');
+  function yr(i){[].forEach.call($('yr').children,function(d){d.classList.toggle('on',+d.dataset.i===i)});$('yT').textContent=TX[i][0];$('yP').textContent=TX[i][1]}
+  $('yr').onclick=function(e){var d=e.target.closest('[data-i]');if(d)yr(+d.dataset.i)};
+  $('yr').onkeydown=function(e){var d=e.target.closest('[data-i]');if(d&&(e.key==='Enter'||e.key===' ')){e.preventDefault();yr(+d.dataset.i)}};
+  yr(3);
+  function fm(){var s=$('fs').value||'La vostra società',d=$('fd').value,dt=$('fdt').value,a=+$('fa').value||0;
+    $('fP').textContent='La sera stessa il link della galleria arriva alle famiglie di '+a+' atlete. Voi date il link, noi prepariamo la pagina della gara.';
+    var b='Buongiorno, siamo '+s+'. Vorremmo il fotografo per '+d.toLowerCase()+' il '+dt.split('-').reverse().join('/')+', con circa '+a+' atlete in gara.';
+    $('fM').href='mailto:info@2rfotoeventi.it?subject='+encodeURIComponent('Fotografo per '+s)+'&body='+encodeURIComponent(b)}
+  ['fs','fd','fdt','fa'].forEach(function(i){$(i).addEventListener('input',fm)});fm();
+})();
+</script>
+</body>
+</html>

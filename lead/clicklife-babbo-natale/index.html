@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ClickLife · Il Villaggio di Babbo Natale, nel telefono</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Abril;src:url(../lib/fonts/abril-fatface-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Onest;src:url(../lib/fonts/onest-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* la notte di dicembre sullo Stretto, le lucine calde, il rosso del cappotto, la carta lucida delle foto */
+  --notte:#1A2042; --notte2:#11162F; --luce:#FFCC6A; --rosso:#D23A3F; --pino:#1F4A3B; --neve:#F6F7FB; --ink:#141729; --mut:#5E6378;
+  --d:Abril,Georgia,serif; --s:Onest,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--neve)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:-.005em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--luce);outline-offset:3px}
+.wrap{max-width:1260px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:radial-gradient(ellipse at 70% 30%,#2A3366,var(--notte) 60%);color:#EEF0FA;overflow:hidden;position:relative}
+.lights{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none}
+.lights i{position:absolute;top:22px;width:9px;height:12px;border-radius:50% 50% 45% 45%;background:var(--luce);box-shadow:0 0 14px 3px #FFCC6A88;animation:tw 2.6s infinite alternate}
+.lights i:nth-child(3n){background:#FF7D7D;box-shadow:0 0 14px 3px #ff7d7d88;animation-delay:.7s}
+.lights i:nth-child(4n){animation-delay:1.3s}
+@keyframes tw{to{opacity:.35}}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:58px var(--pad) 0;max-width:1260px;margin-inline:auto;font-size:14px;color:#B9BEDA}
+.bar b{font:400 28px/1 var(--d);color:#fff}
+.cd{background:#ffffff14;border-radius:999px;padding:7px 14px;color:#fff;white-space:nowrap}
+.cd b{font:inherit;font-weight:700;color:var(--luce)}
+.hg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(26px,4vw,60px) clamp(60px,8vw,110px)}
+.hero h1{font-size:clamp(44px,5.6vw,90px)}
+.hero h1 span.r{color:var(--luce)}
+.hero p{max-width:46ch;margin-top:22px;font-size:clamp(16.5px,1.4vw,19px);color:#CDD1EA}
+.stack{position:relative;height:clamp(360px,40vw,500px)}
+.pol{position:absolute;width:min(62%,300px);background:#fff;padding:12px 12px 46px;border-radius:4px;box-shadow:0 30px 40px -24px #0009;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.pol svg{width:100%;height:auto;display:block;aspect-ratio:1;filter:grayscale(1) brightness(1.9) blur(4px);transition:filter 4.5s ease}
+.pol.dev svg{filter:none}
+.pol figcaption{position:absolute;left:14px;right:14px;bottom:12px;font:600 14px/1.2 var(--s);color:#3a3d50;display:flex;justify-content:space-between}
+.pol figcaption span{color:var(--rosso)}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(40px,4.8vw,74px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* turni */
+.bk{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(18px,3vw,40px);align-items:start}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.cal .wd{font-size:12px;font-weight:700;color:var(--mut);text-align:center;padding-bottom:4px}
+.cal button{height:clamp(44px,4.4vw,60px);border:0;border-radius:10px;background:#fff;cursor:pointer;display:grid;place-items:center;align-content:center;gap:2px;font-weight:700;font-size:15px;position:relative;box-shadow:inset 0 0 0 1px #14172914}
+.cal button small{font-size:10px;font-weight:600;color:var(--mut)}
+.cal button.l2{background:#FFF1D2}.cal button.l3{background:#FFD9C9}
+.cal button.l3 small{color:var(--rosso)}
+.cal button[aria-pressed=true]{background:var(--notte);color:#fff;box-shadow:none}
+.cal button[aria-pressed=true] small{color:var(--luce)}
+.cal .mo{grid-column:1/-1;font:400 22px/1 var(--d);padding:10px 0 4px}
+.side{display:grid;gap:14px}
+.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.slots button{border:1.5px solid #14172926;background:#fff;border-radius:10px;padding:9px 4px;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer}
+.slots button:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.slots button[aria-pressed=true]{background:var(--rosso);border-color:var(--rosso);color:#fff}
+.side input{border:1.5px solid #14172933;border-radius:12px;padding:11px 13px;font-size:16px;width:100%}
+.tk{background:var(--notte);color:#EEF0FA;border-radius:18px;display:grid;grid-template-columns:1fr auto;overflow:hidden}
+.tk div{padding:16px 18px}
+.tk small{display:block;color:#AEB3D3;font-size:12.5px}
+.tk b{font:400 26px/1.05 var(--d);color:#fff}
+.tk .cut{border-left:2px dashed #ffffff40;display:grid;place-items:center;padding:16px;font:700 13px/1.2 var(--s);color:var(--luce);text-align:center}
+.lbl{font-weight:700;font-size:13px;color:var(--mut)}
+
+/* galleria */
+.gl{background:var(--notte2);color:#EEF0FA}
+.gl .sh p{color:#AEB3D3}
+.gg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,60px);align-items:start}
+.phone{background:#000;border-radius:38px;padding:12px;max-width:330px;width:100%;justify-self:center;box-shadow:0 0 0 2px #ffffff22}
+.scr{background:#fff;color:var(--ink);border-radius:28px;overflow:hidden;padding:16px 12px}
+.scr h3{font:400 21px/1.1 var(--d)}
+.scr p{font-size:12.5px;color:var(--mut);margin:4px 0 10px}
+.th{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.th button{border:0;padding:0;border-radius:8px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1}
+.th button svg{width:100%;height:100%}
+.th button::after{content:"";position:absolute;top:6px;right:6px;width:18px;height:18px;border-radius:50%;border:2px solid #fff;background:#0004}
+.th button[aria-pressed=true]::after{background:var(--rosso);box-shadow:inset 0 0 0 3px #fff}
+.th button[aria-pressed=true]{outline:3px solid var(--rosso);outline-offset:-3px}
+.packs{display:grid;gap:8px}
+.packs label{display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;background:#ffffff0d;border-radius:14px;padding:14px 16px;cursor:pointer;border:1.5px solid transparent}
+.packs label:has(input:checked){border-color:var(--luce);background:#ffffff16}
+.packs input{accent-color:var(--rosso);width:18px;height:18px}
+.packs b{display:block}
+.packs small{color:#AEB3D3}
+.packs em{font-style:normal;font-weight:700;color:var(--luce);white-space:nowrap}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;border-top:1px solid #ffffff26;padding-top:16px}
+.tot b{font:400 clamp(40px,4vw,60px)/1 var(--d);color:#fff}
+.tot span{color:#AEB3D3;max-width:30ch;font-size:14px}
+
+/* giornata */
+.dy{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);counter-reset:n}
+.dy li{border-top:3px solid var(--notte);padding-top:14px}
+.dy li b{display:block;font:400 26px/1.1 var(--d);margin-bottom:8px}
+.dy li b::before{counter-increment:n;content:counter(n) ". ";color:var(--rosso)}
+.dy li span{color:var(--mut);font-size:15px}
+.pv{margin-top:34px;background:#fff;border-radius:18px;padding:18px 20px;border-left:5px solid var(--pino);max-width:760px}
+.pv b{display:block;margin-bottom:4px}
+
+@media (max-width:900px){.hg,.sh,.bk,.gg{grid-template-columns:1fr}.dy{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.dy{grid-template-columns:1fr}.slots{grid-template-columns:repeat(3,minmax(0,1fr))}.bar>span:first-of-type{display:none}.cal button small{display:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per ClickLife" data-note="Anteprima preparata da Umbra per ClickLife, a partire dal vostro annuncio per i fotografi del Villaggio di Babbo Natale di Messina, dal 6 dicembre 2026 al 6 gennaio 2027. Orari dei turni, pacchetti e prezzi sono esempi da sostituire con i vostri; le illustrazioni tengono il posto delle vostre foto.">
+
+<header class="hero">
+  <div class="lights" id="lights" aria-hidden="true"></div>
+  <div class="bar"><b>ClickLife</b><span>Villaggio di Babbo Natale · Messina</span><span class="cd" id="cd">Si apre il 6 dicembre</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">Il sorriso dura</span></span><span class="ln"><span class="li" style="--i:1">un secondo.</span></span><span class="ln"><span class="li r" style="--i:2">La foto, un anno.</span></span></h1>
+      <p class="fx" style="--i:3">Dal 6 dicembre al 6 gennaio passano migliaia di famiglie davanti a Babbo Natale. Con questa pagina prenotano il turno, la sera trovano le foto nel telefono e scelgono cosa stampare. Niente fila al banco, niente foto che restano nella scheda.</p>
+    </div>
+    <div class="stack fx" style="--i:3" id="stack" aria-label="Foto d'esempio che si sviluppano"></div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Il turno con Babbo Natale.</h2>
+      <p>I sabati, l'8 dicembre e la vigilia sono i giorni della fila. Se le famiglie prenotano un turno di dieci minuti, i vostri fotografi lavorano senza calca e sapete già quante persone arrivano ogni ora.</p>
+    </div>
+    <div class="bk">
+      <div class="cal" id="cal"></div>
+      <div class="side">
+        <span class="lbl" id="dl">Sabato 13 dicembre · turni liberi</span>
+        <div class="slots" id="sl"></div>
+        <label class="lbl" for="fn">Cognome della famiglia</label>
+        <input id="fn" value="Famiglia Lombardo" maxlength="28" autocomplete="off">
+        <div class="tk" aria-live="polite"><div><small>Il vostro turno</small><b id="tT">sab 13 dic, 17:20</b><small id="tN">Famiglia Lombardo · 2 bambini</small></div><div class="cut" id="tC">CL<br>1320</div></div>
+        <p class="lbl" style="font-weight:500">Il codice arriva su WhatsApp col promemoria il giorno prima. Lo stesso codice apre la galleria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gl">
+  <div class="wrap">
+    <div class="sh">
+      <h2>La sera stessa, nel telefono.</h2>
+      <p>Con il codice del turno la famiglia apre la sua galleria privata, sceglie le foto e il pacchetto. Le stampe le ritira al villaggio o le riceve a casa. Il totale si aggiorna da solo.</p>
+    </div>
+    <div class="gg">
+      <div class="phone"><div class="scr"><h3>Famiglia Lombardo</h3><p>Turno CL-1320 · 9 foto · tocca per scegliere</p><div class="th" id="th"></div></div></div>
+      <div>
+        <div class="packs" id="pk"></div>
+        <div class="tot"><span id="tS">3 foto scelte, stampa 15×20 e digitale</span><b id="tV">36 €</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Una giornata al villaggio.</h2>
+      <p>Il fotografo pensa solo agli scatti. Tutto il resto lo fa la pagina, dal promemoria alla stampa.</p>
+    </div>
+    <ol class="dy">
+      <li><b>Prenotano</b><span>Scelgono giorno e turno da casa, ricevono il codice su WhatsApp.</span></li>
+      <li><b>Arrivano</b><span>Mostrano il codice all'ingresso del set: dieci minuti, nessuna fila.</span></li>
+      <li><b>Scattate</b><span>Le foto del turno finiscono nella galleria con lo stesso codice.</span></li>
+      <li><b>Scelgono</b><span>La sera sul divano: digitali subito, stampe al villaggio o a casa.</span></li>
+    </ol>
+    <div class="pv"><b>E le foto dei bambini restano private.</b>Ogni galleria si apre solo con il codice della famiglia. Sui vostri social va solo chi lo chiede, con il consenso firmato dei genitori.</div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>I fotografi li scegliete voi. Il resto lo mettiamo in piedi prima del 6.</h2>
+    <ul>
+      <li><b>Prenotazione dei turni</b>Calendario dal 6 dicembre al 6 gennaio, con i posti per ora e il promemoria su WhatsApp.</li>
+      <li><b>Galleria per famiglia</b>Un codice per turno, foto private, pacchetti e pagamento dal telefono.</li>
+      <li><b>Social del villaggio</b>La foto del giorno e i turni liberi del weekend, solo con il consenso delle famiglie.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto per tutto il mese, anche a Natale.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per ClickLife. Orari, pacchetti e prezzi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* lucine */
+  var lh='';for(var i=0;i<26;i++)lh+='<i style="left:'+(i*4+1.5)+'%;top:'+(14+Math.sin(i*.9)*8)+'px;animation-delay:'+(i%5*.4)+'s"></i>';$('lights').innerHTML=lh;
+  /* conto alla rovescia */
+  var op=new Date(2026,11,6),now=new Date(),dd=Math.ceil((op-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+  if(dd>1)$('cd').innerHTML='Mancano <b>'+dd+' giorni</b> al 6 dicembre';else if(dd===1)$('cd').innerHTML='<b>Domani</b> si apre il villaggio';else if(now<new Date(2027,0,7))$('cd').innerHTML='Il villaggio è <b>aperto</b>';
+  /* scene illustrate, al posto delle foto */
+  function scene(v,h){var bg=['#7A2B2E','#24493C','#3B3F78','#8A5A2E','#2C5D73','#6B2F55'][v%6],hh=h||0;
+    var tree='<path d="M150 40 L196 120 L176 120 L206 170 L94 170 L124 120 L104 120Z" fill="#2E6B4E"/><rect x="142" y="170" width="16" height="18" fill="#5a3a22"/>';
+    var lights='<circle cx="130" cy="140" r="4" fill="#FFCC6A"/><circle cx="168" cy="110" r="4" fill="#FF7D7D"/><circle cx="160" cy="150" r="4" fill="#FFCC6A"/><circle cx="140" cy="95" r="4" fill="#9FD3FF"/>';
+    var santa='<rect x="22" y="96" width="92" height="96" rx="20" fill="#9E2229"/><circle cx="68" cy="88" r="20" fill="#F1C7A8"/><path d="M46 92 Q68 140 90 92 Q86 120 68 124 Q50 120 46 92Z" fill="#fff"/><path d="M48 80 Q68 50 92 76 L100 60" fill="#D23A3F" stroke="#D23A3F" stroke-width="10" stroke-linecap="round"/><circle cx="102" cy="58" r="7" fill="#fff"/><rect x="40" y="130" width="56" height="54" rx="10" fill="#D23A3F"/><rect x="40" y="146" width="56" height="7" fill="#1a1a1a"/>';
+    var kid=function(x,c,s){s=s||1;return '<g transform="translate('+x+' 0) scale('+s+')" style="transform-box:fill-box"><circle cx="0" cy="128" r="13" fill="#F3D2B8"/><path d="M-14 124 Q0 104 14 124Z" fill="'+c+'"/><rect x="-14" y="142" width="28" height="44" rx="10" fill="'+c+'"/></g>'};
+    var floor='<rect x="0" y="188" width="300" height="112" fill="#00000030"/>';
+    var gifts='<rect x="196" y="164" width="30" height="24" fill="#FFCC6A"/><rect x="209" y="164" width="5" height="24" fill="#D23A3F"/><rect x="230" y="172" width="22" height="16" fill="#9FD3FF"/>';
+    var c=v%3===0?santa+kid(140,'#4C7BD9')+tree.replace(/150/g,'240').replace(/196|176|206|94|124|104|142|158/g,function(n){return +n+90})+gifts:
+          v%3===1?tree+lights+kid(70,'#E8A23A')+kid(110,'#7BC5A8',.85)+kid(230,'#C24D7A')+gifts:
+          santa+kid(150,'#C24D7A')+kid(190,'#4C7BD9',.8)+'<circle cx="250" cy="70" r="16" fill="#FFF3C9" opacity=".8"/>';
+    var snow='';for(var k=0;k<14;k++)snow+='<circle cx="'+((k*53+v*31)%300)+'" cy="'+((k*37+v*17)%180)+'" r="'+(1.5+k%3)+'" fill="#fff" opacity=".7"/>';
+    return '<svg viewBox="0 0 300 300" aria-hidden="true" style="filter:hue-rotate('+hh+'deg)"><rect width="300" height="300" fill="'+bg+'"/>'+floor+c+snow+'</svg>'}
+  /* polaroid */
+  var stack=$('stack'),cap=[['Turno 16:40','CL-1164'],['Turno 17:20','CL-1320'],['Turno 18:00','CL-1802'],['Turno 18:30','CL-1855']],pi=0,pols=[];
+  function print(){var f=document.createElement('figure');f.className='pol';var c=cap[pi%cap.length];f.innerHTML=scene(pi)+'<figcaption>'+c[0]+'<span>'+c[1]+'</span></figcaption>';
+    var r=[-7,5,-2,8][pi%4];f.style.transform='translate(-10%,-120%) rotate('+r+'deg)';f.style.left=(12+(pi%3)*14)+'%';f.style.top=(4+(pi%2)*16)+'%';stack.appendChild(f);pols.push(f);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){f.style.transform='rotate('+r+'deg)';setTimeout(function(){f.classList.add('dev')},500)})});
+    if(pols.length>3)stack.removeChild(pols.shift());pi++}
+  print();setTimeout(print,700);setTimeout(print,1400);
+  if(!U.reduce)setInterval(print,4600);else pols.forEach(function(p){p.classList.add('dev')});
+
+  /* calendario */
+  var GG=['lun','mar','mer','gio','ven','sab','dom'],GL=['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'];
+  var days=[];for(var d=new Date(2026,11,6);d<=new Date(2027,0,6);d=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1))days.push(d);
+  function lvl(d){var w=d.getDay(),n=d.getDate(),m=d.getMonth();if((m===11&&(n===8||n===24||n===26))||(m===0&&(n===6||n===1))||w===6||w===0)return 3;if(m===11&&n>=20||m===0)return 2;return 1}
+  var h=GG.map(function(g){return '<span class="wd">'+g+'</span>'}).join(''),lastM=-1;
+  days.forEach(function(d,i){if(d.getMonth()!==lastM){if(lastM>=0||1){h+='<span class="mo">'+(d.getMonth()===11?'Dicembre 2026':'Gennaio 2027')+'</span>';var off=(d.getDay()+6)%7;for(var k=0;k<off;k++)h+='<span></span>'}lastM=d.getMonth()}
+    var l=lvl(d);h+='<button type="button" class="l'+l+'" data-i="'+i+'" aria-pressed="false" aria-label="'+GL[d.getDay()]+' '+d.getDate()+'">'+d.getDate()+'<small>'+(l===3?'quasi pieno':l===2?'si riempie':'libero')+'</small></button>'});
+  $('cal').innerHTML=h;
+  var sel=7,slot='17:20';
+  function rnd(s){var x=Math.sin(s)*1e4;return x-Math.floor(x)}
+  function slots(){var d=days[sel],l=lvl(d),out='',T=[];for(var m=16*60;m<20*60;m+=10)T.push(m);
+    var free=0;T.forEach(function(m){var t=Math.floor(m/60)+':'+('0'+m%60).slice(-2),busy=rnd(sel*97+m)<[0,.25,.55,.82][l];if(!busy)free++;if(busy&&t===slot)slot='';
+      out+='<button type="button" '+(busy?'disabled':'')+' data-t="'+t+'" aria-pressed="false">'+t+'</button>'});
+    $('sl').innerHTML=out;if(!slot){var f=$('sl').querySelector('button:not(:disabled)');slot=f?f.dataset.t:''}
+    [].forEach.call($('sl').children,function(b){b.setAttribute('aria-pressed',b.dataset.t===slot)});
+    $('dl').textContent=GL[d.getDay()].replace(/^./,function(c){return c.toUpperCase()})+' '+d.getDate()+(d.getMonth()===11?' dicembre':' gennaio')+' · '+free+' turni liberi su '+T.length;
+    [].forEach.call($('cal').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',+b.dataset.i===sel)});tk()}
+  function tk(){var d=days[sel],n=$('fn').value.trim()||'Famiglia';$('tT').textContent=GG[(d.getDay()+6)%7]+' '+d.getDate()+(d.getMonth()===11?' dic':' gen')+(slot?', '+slot:'');$('tN').textContent=n+' · 2 bambini';
+    var code=(d.getDate()<10?'0':'')+d.getDate()+(slot||'00:00').replace(':','').slice(0,3);$('tC').innerHTML='CL<br>'+code}
+  $('cal').onclick=function(e){var b=e.target.closest('button');if(!b)return;sel=+b.dataset.i;slots()};
+  $('sl').onclick=function(e){var b=e.target.closest('button');if(!b||b.disabled)return;slot=b.dataset.t;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});tk()};
+  $('fn').addEventListener('input',tk);slots();
+
+  /* galleria e pacchetti */
+  var th='';for(var k=0;k<9;k++)th+='<button type="button" aria-pressed="'+(k<3)+'" aria-label="Foto '+(k+1)+'">'+scene(k+1,(k*23)%60)+'</button>';$('th').innerHTML=th;
+  var PK=[['dig','Solo digitali','in alta risoluzione, subito nel telefono',5,'a foto'],['st','Stampa 15×20 e digitale','ritiro al villaggio o spedizione',12,'a foto'],['all','Tutte le foto del turno','tutte le digitali, anche quelle non scelte',29,'il turno'],['cal','Calendario 2027','dodici mesi con le foto scelte',24,'aggiunta']];
+  $('pk').innerHTML=PK.map(function(p,i){return '<label><input type="radio" name="pk" value="'+p[0]+'" '+(i===1?'checked':'')+'><span><b>'+p[1]+'</b><small>'+p[2]+'</small></span><em>'+p[3]+' € '+p[4]+'</em></label>'}).join('');
+  function tot(){var n=$('th').querySelectorAll('[aria-pressed=true]').length,k=$('pk').querySelector('input:checked').value,v,t;
+    if(k==='dig'){v=n*5;t=n+' foto scelte, digitali'}else if(k==='st'){v=n*12;t=n+' foto scelte, stampa 15×20 e digitale'}else if(k==='all'){v=29;t='Tutte le 9 foto del turno, digitali'}else{v=24+n*5;t='Calendario 2027 e '+n+' digitali'}
+    $('tV').textContent=v+' €';$('tS').textContent=n?t:'Scegliete almeno una foto'}
+  $('th').onclick=function(e){var b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');tot()};
+  $('pk').onchange=tot;tot();
+})();
+</script>
+</body>
+</html>

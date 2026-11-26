@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Non Solo Copie · La tesi, senza domande al banco</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Caslon;src:url(../lib/fonts/libre-caslon-display-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:ISans;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:ISans;src:url(../lib/fonts/instrument-sans-italic.woff2) format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
+:root{
+  /* via Altinate: la carta da 100 grammi, l'inchiostro blu, la doratura a caldo, la matita rossa del relatore */
+  --carta:#F3F4F1; --inch:#1B2440; --inch2:#2A3560; --oro:#C9A14A; --matita:#B3261E; --grigio:#D9DBD5; --ink:#161A26; --mut:#5E6372;
+  --d:Caslon,Georgia,serif; --s:ISans,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:var(--mut);border-bottom:1px solid #161a2614}
+.bar b{font:400 26px/1 var(--d);color:var(--ink)}
+.bar .st{white-space:nowrap}
+.bar .st b{font:700 14px/1 var(--s);color:var(--ink)}
+.hg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,5vw,80px);align-items:center;padding-block:clamp(36px,6vw,90px)}
+.hero h1{font-size:clamp(50px,6.6vw,108px)}
+.hero h1 i{font-style:normal;color:var(--matita)}
+.hero .lead{max-width:50ch;margin-top:22px;font-size:clamp(16.5px,1.35vw,18.5px);color:#3B4052}
+.hero label{display:grid;gap:6px;margin-top:26px;max-width:420px;font-size:13px;font-weight:700;color:var(--mut)}
+.hero input{border:1.5px solid #161a2633;border-radius:10px;padding:12px 14px;background:#fff;font-size:17px}
+.fin{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.fin button{display:flex;align-items:center;gap:7px;border:1.5px solid #161a2622;background:#fff;border-radius:999px;padding:6px 12px 6px 6px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink)}
+.fin button i{width:20px;height:20px;border-radius:50%}
+.fin button[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+/* il libro */
+.book{perspective:1400px;display:grid;place-items:center}
+.cov{width:min(100%,380px);aspect-ratio:21/29.7;border-radius:3px 8px 8px 3px;position:relative;transform:rotateY(-18deg) rotateX(4deg);transform-style:preserve-3d;transition:background 1s;box-shadow:26px 30px 50px -20px #0007,inset 14px 0 0 #00000030,inset 16px 0 0 #ffffff14;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(22px,3vw,40px) clamp(20px,3vw,36px) clamp(22px,3vw,36px) clamp(34px,4vw,52px);text-align:center;color:var(--oro);animation:sway 9s ease-in-out infinite alternate}
+@keyframes sway{to{transform:rotateY(-8deg) rotateX(2deg)}}
+.cov::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--tx,none);mix-blend-mode:overlay;opacity:.6;pointer-events:none}
+.cov .un{font:400 clamp(12px,1.1vw,15px)/1.35 var(--d);letter-spacing:.08em}
+.cov .md{align-self:center;display:grid;gap:clamp(10px,1.4vw,18px)}
+.cov .md small{font:400 clamp(11px,.95vw,13px)/1.3 var(--s);letter-spacing:.12em;opacity:.85}
+.cov .md b{font:400 clamp(22px,2.4vw,34px)/1.12 var(--d);text-shadow:0 1px 0 #0003;overflow-wrap:anywhere}
+.cov .md hr{width:40%;margin:0 auto;border:0;border-top:1px solid currentColor;opacity:.7}
+.cov .aa{font:400 clamp(11px,.95vw,13px)/1.3 var(--s);letter-spacing:.08em;opacity:.85}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(42px,5vw,80px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* scadenze */
+.dl{background:var(--inch);color:#E9ECF6}
+.dl .sh p{color:#B7BEDA}
+.dg{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(18px,3vw,44px);align-items:start}
+.dg label{display:grid;gap:6px;font-size:13px;font-weight:700;color:#B7BEDA}
+.dg input{border:0;border-radius:10px;padding:13px 14px;font-size:18px;background:#fff;color:var(--ink);width:100%;min-width:0}
+.dg .hint{font-size:14px;color:#B7BEDA;margin-top:12px}
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:15px;height:2px;background:#ffffff26}
+.tl div{position:relative;padding-top:38px}
+.tl div::before{content:"";position:absolute;top:8px;left:0;width:16px;height:16px;border-radius:50%;background:var(--inch);border:3px solid var(--oro)}
+.tl div.last::before{background:var(--oro)}
+.tl small{display:block;font-size:12.5px;color:#B7BEDA;font-weight:700}
+.tl b{display:block;font:400 clamp(24px,2.4vw,34px)/1.05 var(--d);color:#fff;margin:4px 0}
+.tl span{font-size:14px;color:#CDD2E6}
+.ics{display:inline-block;margin-top:24px;background:var(--oro);color:var(--inch);font-weight:700;text-decoration:none;border-radius:10px;padding:12px 16px}
+
+/* banco */
+.bc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:start}
+.chat{background:#fff;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px;height:clamp(360px,38vw,460px);overflow:auto;box-shadow:inset 0 0 0 1px #161a2614}
+.mm{max-width:86%;padding:10px 14px;border-radius:16px;font-size:15px;line-height:1.5;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.mm.u{align-self:flex-end;background:var(--inch);color:#fff;border-bottom-right-radius:4px}
+.mm.a{align-self:flex-start;background:var(--carta);border-bottom-left-radius:4px}
+.mm.a b{display:block;font-size:12px;color:var(--mut);margin-bottom:2px}
+.qs{display:flex;flex-wrap:wrap;gap:8px;align-content:start}
+.qs button{border:1.5px solid #161a2626;background:#fff;border-radius:999px;padding:9px 14px;cursor:pointer;font-size:15px;font-weight:600;color:var(--ink)}
+.qs button:hover{border-color:var(--ink)}
+.qs button:disabled{opacity:.4;cursor:default}
+.saved{margin-top:20px;border-top:1px solid #161a2620;padding-top:14px;display:flex;align-items:baseline;gap:12px}
+.saved b{font:400 54px/1 var(--d);color:var(--matita)}
+.saved span{color:var(--mut);max-width:34ch}
+
+/* dopo */
+.af{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);counter-reset:s}
+.af div{border-top:1px solid #161a2633;padding-top:14px}
+.af small{font-weight:700;color:var(--matita);font-size:13px}
+.af h3{font-size:clamp(26px,2.4vw,36px);margin:6px 0 8px}
+.af p{color:var(--mut);font-size:15px}
+
+@media (max-width:900px){.hg,.sh,.dg,.bc{grid-template-columns:1fr}.tl{grid-template-columns:1fr 1fr;row-gap:22px}.tl::before{display:none}.af{grid-template-columns:1fr 1fr}.book{order:-1}}
+@media (max-width:520px){.af{grid-template-columns:1fr}.bar>span:not(.st){display:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Non Solo Copie" data-note="Anteprima preparata da Umbra per Non Solo Copie di Padova, a partire dal vostro annuncio per una persona al banco e alle stampanti. Servizi, finiture, tempi di consegna e recensioni sono quelli del vostro sito; le scadenze sono un esempio di calcolo e i colori delle copertine sono indicativi.">
+
+<header class="hero">
+  <div class="bar"><b>Non Solo Copie</b><span>Via Altinate 99, Padova</span><span class="st"><b>4,8</b> su 5 · 81 recensioni sulla tesi</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">Cinque minuti</span></span><span class="ln"><span class="li" style="--i:1">per ordinarla.</span></span><span class="ln"><span class="li" style="--i:2"><i>Una vita</i></span></span><span class="ln"><span class="li" style="--i:3"><i>sulla mensola.</i></span></span></h1>
+      <p class="lead fx" style="--i:4">Il vostro sito fa già l'ordine della tesi in cinque minuti. Qui ci aggiungiamo le due cose che fanno risparmiare ore al banco: un assistente che risponde da solo alle domande di sempre e un promemoria che dice allo studente entro quando ordinare.</p>
+      <label class="fx" style="--i:5">Il nome sulla copertina<input id="nm" value="Giulia Bertin" maxlength="32" autocomplete="off"></label>
+      <div class="fin fx" style="--i:5" id="fin" role="group" aria-label="Finitura della copertina"></div>
+    </div>
+    <div class="book fx" style="--i:3"><div class="cov" id="cov">
+      <p class="un">UNIVERSITÀ DEGLI STUDI<br>DI PADOVA</p>
+      <div class="md"><small>TESI DI LAUREA</small><hr><b id="cN">Giulia Bertin</b><hr></div>
+      <p class="aa">ANNO ACCADEMICO 2025/2026</p>
+    </div></div>
+  </div>
+</header>
+
+<section class="sec dl">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Entro quando la ordino?</h2>
+      <p>È la domanda che arriva al banco tre giorni prima della laurea. Lo studente scrive la data, la pagina gli dice l'ultimo giorno utile e gli mette il promemoria in calendario. Voi lavorate senza urgenze.</p>
+    </div>
+    <div class="dg">
+      <div><label>La mia laurea è il<input type="date" id="dd"></label><p class="hint">Calcolo d'esempio: consegna in 24/48 ore, più due giorni lavorativi di margine per controllare l'anteprima.</p></div>
+      <div><div class="tl" id="tl"></div><a class="ics" id="ics" href="#" download="ordina-la-tesi.ics">Aggiungi il promemoria al calendario</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Le domande di sempre, senza fila.</h2>
+      <p>La nuova persona al banco deve imparare le stampanti, non ripetere cinquanta volte al giorno i tempi di consegna. Toccate una domanda: le risposte vengono dal vostro sito.</p>
+    </div>
+    <div class="bc">
+      <div class="chat" id="ch" aria-live="polite"><div class="mm a"><b>Non Solo Copie</b>Ciao! Sono l'assistente del negozio. Chiedimi pure della tua tesi.</div></div>
+      <div><div class="qs" id="qs"></div><div class="saved"><b id="sv">0</b><span>domande a cui il banco non ha dovuto rispondere oggi. In un giorno di sessione sono decine.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>E dopo la tesi, torna.</h2><p>Chi stampa la tesi da voi ha bisogno di altre tre cose nello stesso mese. Basta ricordarglielo al momento giusto.</p></div>
+    <div class="af">
+      <div><small>una settimana prima</small><h3>La tesi</h3><p>Rilegatura rigida, flessibile o cartoncino, con l'anteprima sfogliabile e il CD serigrafato.</p></div>
+      <div><small>tre giorni prima</small><h3>Il papiro</h3><p>Per gli amici che preparano la festa: il messaggio arriva a chi ha ordinato la tesi.</p></div>
+      <div><small>il giorno dopo</small><h3>Le foto in grande</h3><p>Poster, tela e forex della proclamazione, in grande formato.</p></div>
+      <div><small>a dicembre</small><h3>Calendari e tazze</h3><p>Le foto della laurea su calendario e tazza, per i regali ai parenti.</p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il banco stampa. Le domande le gestisce il sito.</h2>
+    <ul>
+      <li><b>Assistente sul sito</b>Risponde su tempi, ritiro, finiture e carta con le vostre informazioni, e passa al negozio solo i casi veri.</li>
+      <li><b>Promemoria di laurea</b>La data dello studente diventa un'ultima data utile e un evento nel suo calendario.</li>
+      <li><b>Messaggi dopo la tesi</b>Papiro, grande formato e regali, mandati al momento giusto a chi ha già ordinato.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto, insieme alle campagne delle sessioni di laurea.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Non Solo Copie. Date e nomi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* copertina */
+  var FIN=[['Similpelle blu','#1F2A4F',''],['Similpelle nero','#17171A',''],['Tessuto bordeaux','#5C1626','repeating-linear-gradient(45deg,#fff2 0 1px,transparent 1px 4px),repeating-linear-gradient(-45deg,#0002 0 1px,transparent 1px 4px)'],['Morbipel verde','#1F3F33','radial-gradient(#fff1 1px,transparent 1.5px) 0 0/5px 5px'],['Nuvolato grigio','#5A5F66','radial-gradient(ellipse at 30% 30%,#fff3,transparent 40%),radial-gradient(ellipse at 70% 60%,#0003,transparent 45%)'],['Pastello avorio','#E7DFC9','']];
+  var cur=0;
+  $('fin').innerHTML=FIN.map(function(f,i){return '<button type="button" aria-pressed="'+(i===cur)+'"><i style="background:'+f[1]+'"></i>'+f[0]+'</button>'}).join('');
+  function cov(){var f=FIN[cur],c=$('cov');c.style.background=f[1];c.style.setProperty('--tx',f[2]||'none');c.style.color=f[1]==='#E7DFC9'?'#8A6A2A':'#C9A14A'}
+  $('fin').onclick=function(e){var b=e.target.closest('button');if(!b)return;cur=[].indexOf.call(this.children,b);[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});cov()};
+  $('nm').addEventListener('input',function(){$('cN').textContent=this.value.trim()||'Il tuo nome'});cov();
+  if(U.reduce)$('cov').style.animation='none';
+
+  /* scadenze */
+  var GG=['dom','lun','mar','mer','gio','ven','sab'],MM=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  function back(d,n){d=new Date(d);while(n>0){d.setDate(d.getDate()-1);if(d.getDay()!==0&&d.getDay()!==6)n--}return d}
+  function f(d){return GG[d.getDay()]+' '+d.getDate()+' '+MM[d.getMonth()]}
+  function iso(d){return d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)}
+  var t=new Date();t.setDate(t.getDate()+24);$('dd').value=t.toISOString().slice(0,10);
+  function dl(){var v=$('dd').value;if(!v)return;var L=new Date(v+'T12:00'),o=back(L,5),r=back(L,2),sp=back(L,3);
+    var S=[['Ultimo giorno per ordinare','con consegna a casa',o,'Carichi il file, scegli la copertina, controlli l\'anteprima.'],['Spedizione','24/48 ore',sp,'Arriva a casa. Se preferisci, la ritiri in Via Altinate.'],['Ultimo ritiro comodo','in negozio',r,'Senza fila: l\'ordine è già pronto al banco.'],['Laurea','',L,'Tesi sotto il braccio, papiro in arrivo.']];
+    $('tl').innerHTML=S.map(function(s,i){return '<div class="'+(i===3?'last':'')+'"><small>'+s[0]+(s[1]?' · '+s[1]:'')+'</small><b>'+f(s[2])+'</b><span>'+s[3]+'</span></div>'}).join('');
+    var ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Umbra//Non Solo Copie//IT\r\nBEGIN:VEVENT\r\nUID:tesi-'+iso(o)+'@nonsolocopie\r\nDTSTAMP:'+iso(new Date())+'T090000Z\r\nDTSTART;VALUE=DATE:'+iso(o)+'\r\nSUMMARY:Ordina la tesi da Non Solo Copie\r\nDESCRIPTION:Ultimo giorno utile per riceverla a casa prima della laurea del '+f(L)+'.\r\nEND:VEVENT\r\nEND:VCALENDAR';
+    $('ics').href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics)}
+  $('dd').addEventListener('input',dl);dl();
+
+  /* assistente */
+  var QA=[['Quanto ci mette?','Ordini dal sito in cinque minuti. La ricevi a casa in 24/48 ore, oppure la ritiri in negozio in Via Altinate 99 senza fare la fila.'],
+    ['Posso vederla prima di pagare?','Sì. Prima di chiudere l\'ordine ti mostriamo un\'anteprima sfogliabile della tesi, così controlli impaginazione e rilegatura.'],
+    ['Che copertina scelgo?','Puoi scegliere cartoncino, copertina flessibile o rigida. Le finiture sono Similpelle, Morbipel, Morbipel liscio, Tessuto, Quarzo, Metallizzato, Nuvolato e Pastello. Nel configuratore le provi tutte con il tuo frontespizio, anche senza caricare il file.'],
+    ['Le pagine a colori?','Ti mostriamo le pagine del tuo file che contengono colore e scegli tu, una per una, quali stampare a colori.'],
+    ['Che carta usate?','Carta da 80 g, da 100 g oppure riciclata da 80 g. Puoi stampare solo fronte o fronte e retro.'],
+    ['Serve il CD?','Se ti serve, aggiungi la versione digitale della tesi su CD serigrafato direttamente nell\'ordine.'],
+    ['Fate anche il papiro?','Sì, papiro di laurea e grande formato: poster, forex, roll-up, banner e tela. Passa in negozio o scrivici per i tempi.']];
+  var n=0;$('qs').innerHTML=QA.map(function(q,i){return '<button type="button" data-i="'+i+'">'+q[0]+'</button>'}).join('');
+  $('qs').onclick=function(e){var b=e.target.closest('button');if(!b||b.disabled)return;b.disabled=true;var q=QA[+b.dataset.i],ch=$('ch');
+    var u=document.createElement('div');u.className='mm u';u.textContent=q[0];ch.appendChild(u);ch.scrollTop=ch.scrollHeight;
+    setTimeout(function(){var a=document.createElement('div');a.className='mm a';a.innerHTML='<b>Non Solo Copie</b>';a.appendChild(document.createTextNode(q[1]));ch.appendChild(a);ch.scrollTop=ch.scrollHeight;n++;$('sv').textContent=n},U.reduce?0:650)};
+  var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){io.disconnect();setTimeout(function(){$('qs').children[0].click()},700)}},{threshold:.4});io.observe($('ch'));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mioni Pezzato · Trent'anni per arrivare, due minuti per regalarla</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Cormorant;src:url(../lib/fonts/cormorant-garamond-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:Cormorant;src:url(../lib/fonts/cormorant-garamond-italic.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap}
+@font-face{font-family:Hanken;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* acqua termale verde minerale, fango, vapore, ottone dei corrimano, la notte sopra le vasche */
+  --acqua:#5C9A92; --acqua2:#2F5F5A; --fango:#6E6157; --vapore:#F3F5F4; --ottone:#B38E55; --notte:#18201F; --ink:#1A2322; --mut:#5C6866;
+  --d:Cormorant,Georgia,serif; --s:Hanken,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--vapore)}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:.98;letter-spacing:-.01em;text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:400}
+:focus-visible{outline:3px solid var(--ottone);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px var(--pad);font-size:14px;color:#C9D8D5}
+.bar b{font:italic 500 28px/1 var(--d);color:#fff}
+
+/* viaggio dell'acqua */
+.trip{position:relative;height:360vh;background:var(--notte);color:#E8EFEE}
+.pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center;gap:clamp(16px,3vw,40px);padding:80px var(--pad) 40px;max-width:1440px;margin-inline:auto}
+.beat{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.beat.on{opacity:1;transform:none}
+.beats{position:relative;height:clamp(300px,44vh,420px)}
+.beat h1,.beat h2{font-size:clamp(38px,4.2vw,68px);max-width:14ch}
+.beat p{margin-top:16px;color:#B9C9C6;max-width:42ch}
+.beat em{color:#9ED1C8}
+.cnt{display:grid;grid-template-columns:repeat(3,auto);gap:clamp(14px,3vw,40px);justify-content:start;margin-top:22px}
+.cnt small{display:block;font-size:12.5px;color:#8FA39F}
+.cnt b{font:500 clamp(34px,3.6vw,56px)/1 var(--d);font-variant-numeric:tabular-nums;color:#fff}
+.sect svg{width:100%;height:auto;max-height:78vh}
+.hint{position:absolute;left:var(--pad);bottom:22px;font-size:13px;color:#8FA39F}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(46px,5.4vw,86px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* buono */
+.vg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,60px);align-items:start}
+.ctl{display:grid;gap:16px}
+.lb{display:block;font-size:13px;font-weight:700;color:var(--mut);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1.5px solid #1a232226;background:#fff;border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:600;font-size:14px;color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--acqua2);border-color:var(--acqua2);color:#fff}
+.ctl input[type=text],.ctl textarea{width:100%;border:1.5px solid #1a232226;border-radius:12px;padding:11px 13px;background:#fff;font-size:16px;font-family:var(--s);resize:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.val{display:flex;align-items:center;gap:12px}.val input{flex:1;accent-color:var(--acqua2)}.val b{font:500 30px/1 var(--d);min-width:80px;text-align:right}
+.card{aspect-ratio:1.6;border-radius:18px;position:relative;overflow:hidden;color:#fff;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(18px,2.6vw,30px);box-shadow:0 40px 60px -40px #0008;transition:background 1s}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 30%,#0007);pointer-events:none}
+.card>*{position:relative;z-index:1}
+.card .tp{display:flex;justify-content:space-between;font:italic 500 22px/1 var(--d)}
+.card .tp small{font:600 12px/1 var(--s);letter-spacing:.04em;opacity:.9;font-style:normal}
+.card .md{align-self:end}
+.card .md b{display:block;font:500 clamp(28px,3vw,46px)/1 var(--d)}
+.card .md p{font:italic 400 clamp(17px,1.5vw,21px)/1.35 var(--d);max-width:34ch;margin-top:6px;opacity:.95}
+.card .ft{display:flex;justify-content:space-between;font-size:13px;margin-top:14px;opacity:.9}
+.xm{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;background:#fff;border-radius:14px;padding:14px 16px}
+.xm b{font:500 34px/1 var(--d);color:var(--acqua2)}
+.xm a{background:var(--acqua2);color:#fff;text-decoration:none;border-radius:10px;padding:11px 15px;font-weight:700}
+
+/* lingue */
+.ln4{background:#fff}
+.lg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:start}
+.post{background:var(--notte);color:#E8EFEE;border-radius:22px;padding:22px;min-height:230px}
+.post .tg{display:flex;gap:6px;margin-bottom:18px}
+.post .tg button{border:1px solid #ffffff33;background:none;color:#E8EFEE;border-radius:8px;padding:6px 11px;cursor:pointer;font-weight:700}
+.post .tg button[aria-pressed=true]{background:#fff;color:var(--notte)}
+.post p{font:400 clamp(21px,1.9vw,27px)/1.35 var(--d)}
+.post small{display:block;margin-top:16px;color:#8FA39F}
+.dec{display:grid;gap:0}
+.dec li{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px 0;border-top:1px solid #1a23221f}
+.dec li b{font:500 24px/1.1 var(--d);color:var(--acqua2)}
+.dec li span{color:var(--mut);font-size:15px}
+
+@media (max-width:900px){
+  .trip{height:300vh}
+  .pin{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-items:start;padding-top:76px}
+  .beats{height:200px}
+  .sect{align-self:end}
+  .sect svg{max-height:46vh}
+  .sh,.vg,.lg{grid-template-columns:1fr}
+}
+@media (max-width:520px){.bar>span{display:none}.cnt{grid-template-columns:repeat(3,auto);gap:16px}.beat h1,.beat h2{font-size:36px}.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.trip{height:auto}.pin{position:relative;height:auto}.beat{position:relative;opacity:1;transform:none;margin-bottom:24px}.beats{height:auto}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Mioni Pezzato" data-note="Anteprima preparata da Umbra per il Mioni Pezzato Thermal Resort di Abano Terme, in vista dei buoni regalo di Natale. Il viaggio dell'acqua (80 km in circa 30 anni, circa 80 °C), le sedici vasche, il pozzo in giardino e le tipologie di buono vengono dal vostro sito; il disegno è una semplificazione e i testi dei post sono proposte.">
+
+<div class="bar"><b>Mioni Pezzato</b><span>Thermal Resort 4 stelle S · Abano Terme</span></div>
+
+<section class="trip" id="trip">
+  <div class="pin">
+    <div>
+      <div class="beats">
+        <div class="beat on" data-a="0" data-z=".24"><h1><span class="ln"><span class="li" style="--i:0">Quest'acqua</span></span><span class="ln"><span class="li" style="--i:1"><em>è caduta come pioggia</em></span></span><span class="ln"><span class="li" style="--i:2"><em>nel 1996.</em></span></span></h1></div>
+        <div class="beat" data-a=".24" data-z=".56"><h2>Ha viaggiato <em>80 km sottoterra,</em> scaldandosi.</h2><p>Tra le rocce ha preso i sali minerali che la rendono unica. Un viaggio di circa trent'anni.</p></div>
+        <div class="beat" data-a=".56" data-z=".84"><h2>Esce a circa 80 °C, <em>dal pozzo in giardino.</em></h2><p>All'ombra di un faggio, nel giardino del resort, dove tutto è cominciato. Poi riempie sedici vasche.</p></div>
+        <div class="beat" data-a=".84" data-z="1.01"><h2>Ci ha messo trent'anni. <em>Regalarla richiede due minuti.</em></h2><p>Mancano pochi giorni a Natale e i vostri buoni regalo si comprano online. Questa è la storia che li vende.</p></div>
+      </div>
+      <div class="cnt fx" style="--i:3" aria-live="off"><div><small>Anno</small><b id="cY">1996</b></div><div><small>Chilometri</small><b id="cK">0</b></div><div><small>Temperatura</small><b id="cT">12 °C</b></div></div>
+    </div>
+    <div class="sect fx" style="--i:2">
+      <svg viewBox="0 0 800 560" role="img" aria-label="Sezione semplificata: la pioggia sui monti scende sottoterra e risale ad Abano">
+        <defs><linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3533"/><stop offset="1" stop-color="#3E2E26"/></linearGradient><linearGradient id="hot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7FB7D9"/><stop offset=".6" stop-color="#5C9A92"/><stop offset="1" stop-color="#E6A15A"/></linearGradient></defs>
+        <path d="M0 210 L60 150 L110 180 L170 90 L230 160 L290 120 L360 210 L800 230 L800 560 L0 560Z" fill="url(#gr)"/>
+        <path d="M0 210 L60 150 L110 180 L170 90 L230 160 L290 120 L360 210 L800 230" fill="none" stroke="#4E615D" stroke-width="2"/>
+        <path d="M0 300 Q400 330 800 300 M0 380 Q400 420 800 390 M0 460 Q400 500 800 470" fill="none" stroke="#ffffff10" stroke-width="2"/>
+        <g id="rain" stroke="#9ED1EA" stroke-width="2" stroke-linecap="round" opacity=".7"></g>
+        <path id="wp" d="M170 100 C 190 240, 230 420, 420 470 S 680 420, 690 236" fill="none" stroke="#ffffff1a" stroke-width="10" stroke-linecap="round"/>
+        <path id="wd" d="M170 100 C 190 240, 230 420, 420 470 S 680 420, 690 236" fill="none" stroke="url(#hot)" stroke-width="5" stroke-linecap="round"/>
+        <circle id="drop" r="9" fill="#9ED1EA"/>
+        <g transform="translate(690 230)"><rect x="-22" y="-6" width="44" height="14" rx="3" fill="#8C8178"/><rect x="-26" y="-12" width="52" height="8" rx="3" fill="#A69B90"/>
+          <path id="steam" d="M-8 -16 q-8 -14 0 -26 q8 -12 0 -26 M8 -18 q-8 -14 0 -26 q8 -12 0 -26" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0"/></g>
+        <g transform="translate(740 232)"><rect x="-4" y="-70" width="8" height="70" fill="#4A3A2E"/><circle cx="0" cy="-86" r="34" fill="#3D5A3A"/><circle cx="-22" cy="-70" r="22" fill="#47684A"/><circle cx="20" cy="-68" r="24" fill="#355135"/></g>
+        <text x="170" y="74" text-anchor="middle" font-family="Hanken" font-size="14" fill="#8FA39F">Prealpi</text>
+        <text x="690" y="270" text-anchor="middle" font-family="Hanken" font-size="14" fill="#C9D8D5">Abano Terme</text>
+        <text x="420" y="510" text-anchor="middle" font-family="Hanken" font-size="13" fill="#8FA39F">80 km, circa 30 anni</text>
+      </svg>
+    </div>
+    <p class="hint">Scorrete: l'acqua fa il suo viaggio.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Il buono, <em>composto in un minuto.</em></h2>
+      <p>Sul vostro sito si sceglie la tipologia, si scrive un messaggio, si sceglie l'immagine e il buono arriva per email. A dicembre basta mostrarlo così, già pronto, a chi non sa cosa regalare.</p>
+    </div>
+    <div class="vg">
+      <div class="ctl">
+        <div><span class="lb">Cosa regalate</span><div class="chips" id="ty"></div></div>
+        <div id="vv" class="val" hidden><input type="range" id="vI" min="50" max="500" step="10" value="150" aria-label="Valore del buono"><b id="vO">150 €</b></div>
+        <div class="two"><label><span class="lb">Per</span><input type="text" id="to" value="Anna e Marco" maxlength="28"></label><label><span class="lb">Da parte di</span><input type="text" id="fr" value="Giulia" maxlength="24"></label></div>
+        <label><span class="lb">Messaggio</span><textarea id="ms" rows="3" maxlength="140">Un giorno solo per voi, nell'acqua calda. Buon Natale!</textarea></label>
+        <div><span class="lb">Immagine</span><div class="chips" id="im"></div></div>
+      </div>
+      <div>
+        <div class="card" id="cd" aria-live="polite">
+          <div class="tp">Mioni Pezzato<small>BUONO REGALO</small></div>
+          <div class="md"><b id="cdT">Terme per due, un giorno</b><p id="cdM"></p></div>
+          <div class="ft"><span id="cdP">Per Anna e Marco, da Giulia</span><span id="cdC">MP-24C8</span></div>
+        </div>
+        <div class="xm"><span>Mancano <b id="xd">29</b> giorni a Natale. Si regala fino alla sera del 24.</span><a href="https://www.hotelmionipezzato.com/buono-regalo" target="_blank" rel="noopener">Vai ai buoni</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec ln4">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Un post, <em>quattro lingue.</em></h2>
+      <p>Il vostro sito parla italiano, tedesco, inglese e francese. I post di dicembre possono fare lo stesso: lo scriviamo una volta e lo pubblichiamo per chi vi ha già scelto da Monaco, Vienna, Londra o Lione.</p>
+    </div>
+    <div class="lg">
+      <div class="post"><div class="tg" id="lt"></div><p id="lp"></p><small id="ls"></small></div>
+      <ol class="dec">
+        <li><b>1–7 dic</b><span>La storia dell'acqua: il video del pozzo in giardino, con il buono per due.</span></li>
+        <li><b>8–14 dic</b><span>Buoni per le aziende: un giorno alle terme come regalo ai collaboratori.</span></li>
+        <li><b>15–21 dic</b><span>Signature Specials e soggiorni di 2 o 3 notti per chi vuole partire a gennaio.</span></li>
+        <li><b>22–24 dic</b><span>L'ultimo minuto: «arriva per email in due minuti». Il post che vende di più.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>L'acqua ci ha messo trent'anni. A dicembre ci pensiamo noi.</h2>
+    <ul>
+      <li><b>Campagna dei buoni regalo</b>Dal racconto dell'acqua all'ultimo minuto del 24, con i link alla vostra pagina dei buoni.</li>
+      <li><b>Quattro lingue</b>Gli stessi contenuti in italiano, tedesco, inglese e francese, per chi torna ogni anno.</li>
+      <li><b>Video del resort</b>Il pozzo, le vasche, il fango: brevi, girati bene, montati da noi.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto, senza toccare prenotazioni e sistema dei buoni.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Mioni Pezzato. Testi e codici d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* pioggia */
+  var rh='';for(var i=0;i<22;i++){var x=60+i*14+(i%3)*5,y=10+(i*37)%60;rh+='<line x1="'+x+'" y1="'+y+'" x2="'+(x-4)+'" y2="'+(y+14)+'"/>'}$('rain').innerHTML=rh;
+  var wd=$('wd'),L=wd.getTotalLength();wd.style.strokeDasharray=L;wd.style.strokeDashoffset=L;
+  var beats=[].slice.call(document.querySelectorAll('.beat'));
+  function set(t){wd.style.strokeDashoffset=L*(1-t);var p=wd.getPointAtLength(L*t);$('drop').setAttribute('cx',p.x);$('drop').setAttribute('cy',p.y);
+    var temp=12+68*U.ease(t);$('drop').setAttribute('fill','rgb('+Math.round(158+72*t)+','+Math.round(209-48*t)+','+Math.round(234-144*t)+')');
+    $('cY').textContent=Math.round(1996+30*t);$('cK').textContent=Math.round(80*t);$('cT').textContent=Math.round(temp)+' °C';
+    $('steam').setAttribute('opacity',U.map(t,.8,.95));$('rain').setAttribute('opacity',.7*(1-U.map(t,.05,.2)));
+    beats.forEach(function(b){b.classList.toggle('on',t>=+b.dataset.a&&t<+b.dataset.z)})}
+  if(U.reduce){set(1);beats.forEach(function(b){b.classList.add('on')})}else U.pin($('trip'),function(t){set(U.clamp(t*1.05,0,1))});
+  set(0);
+
+  /* buono */
+  var TY=[['day','Terme per due, un giorno'],['n2','Soggiorno di 2 notti'],['n3','Soggiorno di 3 notti'],['tr','Trattamento wellness'],['val','Buono valore']],ty='day';
+  var IM={'Piscine':'radial-gradient(ellipse at 30% 20%,#BFE3DB,transparent 50%),linear-gradient(160deg,#6FB0A6,#2F5F5A)','Giardino termale':'radial-gradient(circle at 70% 30%,#E9E2B8,transparent 40%),linear-gradient(160deg,#6E8F5C,#2E4A35)','Fango':'radial-gradient(ellipse at 40% 70%,#9C8676,transparent 55%),linear-gradient(160deg,#8A7766,#43372F)','Ristorante 1915':'radial-gradient(circle at 75% 25%,#F2C98B,transparent 35%),linear-gradient(160deg,#5A3E35,#1E1A19)'},im='Piscine';
+  $('ty').innerHTML=TY.map(function(t){return '<button type="button" data-k="'+t[0]+'" aria-pressed="'+(t[0]===ty)+'">'+t[1]+'</button>'}).join('');
+  $('im').innerHTML=Object.keys(IM).map(function(k){return '<button type="button" aria-pressed="'+(k===im)+'">'+k+'</button>'}).join('');
+  $('ty').onclick=function(e){var b=e.target.closest('button');if(!b)return;ty=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});cd()};
+  $('im').onclick=function(e){var b=e.target.closest('button');if(!b)return;im=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});cd()};
+  var code='MP-'+Math.random().toString(36).slice(2,6).toUpperCase();
+  function cd(){$('vv').hidden=ty!=='val';var T=TY.filter(function(t){return t[0]===ty})[0][1];if(ty==='val')T='Buono da '+$('vI').value+' €';$('vO').textContent=$('vI').value+' €';
+    $('cdT').textContent=T;$('cdM').textContent='«'+($('ms').value.trim()||'…')+'»';$('cdP').textContent='Per '+($('to').value.trim()||'…')+', da '+($('fr').value.trim()||'…');$('cdC').textContent=code;$('cd').style.background=IM[im]}
+  ['to','fr','ms','vI'].forEach(function(i){$(i).addEventListener('input',cd)});cd();
+  var now=new Date(),xm=new Date(now.getFullYear(),11,25),dd=Math.ceil((xm-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);$('xd').textContent=dd>0?dd:'0';
+
+  /* lingue */
+  var LG={IT:['Sedici vasche di acqua termale, il fango, il giardino. Regalate una giornata alle terme di Abano: il buono arriva per email in due minuti, anche la sera della vigilia.','#termeabano #buonoregalo #natale'],
+    DE:['Sechzehn Thermalbecken, Fango und unser Garten. Schenken Sie einen Thermentag in Abano: Der Gutschein kommt in zwei Minuten per E-Mail, sogar noch an Heiligabend.','#abanoterme #gutschein #weihnachten'],
+    EN:['Sixteen thermal pools, mud and our garden. Give a spa day in Abano: the voucher arrives by email in two minutes, even on Christmas Eve.','#abanoterme #giftvoucher #christmas'],
+    FR:['Seize bassins d\'eau thermale, la boue et notre jardin. Offrez une journée thermale à Abano : le bon cadeau arrive par e-mail en deux minutes, même le soir du réveillon.','#abanoterme #boncadeau #noel']},lg='IT';
+  $('lt').innerHTML=Object.keys(LG).map(function(k){return '<button type="button" aria-pressed="'+(k===lg)+'">'+k+'</button>'}).join('');
+  function lp(){$('lp').textContent=LG[lg][0];$('ls').textContent=LG[lg][1]}
+  $('lt').onclick=function(e){var b=e.target.closest('button');if(!b)return;lg=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});lp()};lp();
+})();
+</script>
+</body>
+</html>

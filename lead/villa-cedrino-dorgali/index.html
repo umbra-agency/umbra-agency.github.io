@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Villa Cedrino · Una settimana a Dorgali, già organizzata</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Marcellus;src:url(../lib/fonts/marcellus-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Familjen;src:url(../lib/fonts/familjen-grotesk-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* Supramonte e Cedrino: il calcare chiaro, il ginepro, l'acqua giada del lago, il mirto */
+  --calcare:#ECEBE6; --calc2:#D8D6CE; --ginepro:#2E473A; --giada:#3E7E72; --mirto:#563754; --sole:#E2B04A; --ink:#1B2320; --mut:#5B6560;
+  --d:Marcellus,Georgia,serif; --s:Familjen,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--calcare)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.02;letter-spacing:0;text-wrap:balance}
+:focus-visible{outline:3px solid var(--sole);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{position:relative;min-height:min(92vh,880px);display:grid;grid-template-rows:auto 1fr;overflow:hidden;background:linear-gradient(180deg,#9CC3C9 0%,#E9DCC4 58%,#ECEBE6 100%)}
+.land{position:absolute;inset:0;pointer-events:none}
+.land svg{position:absolute;left:-4%;width:108%;max-width:none;bottom:0;height:70%;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.bar{position:relative;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px var(--pad);max-width:1280px;width:100%;margin-inline:auto;font-size:14px;color:#2B3A34}
+.bar b{font:400 26px/1 var(--d);color:var(--ink)}
+.hc{position:relative;width:100%;align-self:start;padding-top:clamp(20px,5vw,70px)}
+.hero h1{font-size:clamp(46px,6.4vw,104px);max-width:12ch;color:var(--ink)}
+.hero .lead{max-width:46ch;margin-top:20px;font-size:clamp(16.5px,1.35vw,18.5px);color:#2B3A34}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(40px,4.8vw,76px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* settimana */
+.ctl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:end;margin-bottom:22px}
+.lb{display:block;font-size:13px;font-weight:700;color:var(--mut);margin-bottom:8px}
+.nt{display:flex;align-items:baseline;gap:10px}
+.nt b{font:400 44px/1 var(--d)}
+.nt input{flex:1;accent-color:var(--giada)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1.5px solid #1b232026;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:14.5px;color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--ginepro);color:#fff;border-color:var(--ginepro)}
+.days{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:10px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}
+.dy{background:#fff;border-radius:18px;padding:16px;display:grid;gap:10px;align-content:start;scroll-snap-align:start;animation:dy .5s ease both}
+@keyframes dy{from{opacity:0;transform:translateY(8px)}}
+.dy h3{font-size:24px;display:flex;justify-content:space-between;align-items:baseline}
+.dy h3 small{font:600 12.5px/1 var(--s);color:var(--mut)}
+.dy p{font-size:14.5px;line-height:1.45;padding-left:12px;border-left:3px solid var(--calc2)}
+.dy p b{display:block;font-size:11.5px;color:var(--mut);font-weight:700}
+.dy p.m{border-color:var(--sole)}.dy p.p{border-color:var(--giada)}.dy p.s{border-color:var(--mirto)}
+.req{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--ginepro);color:#E7EEE9;border-radius:18px;padding:16px 20px}
+.req a{background:var(--sole);color:var(--ink);text-decoration:none;font-weight:700;border-radius:12px;padding:12px 16px;white-space:nowrap}
+
+/* diretto */
+.dr{background:var(--mirto);color:#F1E9F0}
+.dr .sh p{color:#D9C6D6}
+.dg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,4vw,60px);align-items:center}
+.sl{display:grid;gap:6px;margin-bottom:18px}
+.sl div{display:flex;justify-content:space-between;font-size:15px}
+.sl div b{font-variant-numeric:tabular-nums}
+.sl input{accent-color:var(--sole);width:100%}
+.out{text-align:left}
+.out small{display:block;color:#D9C6D6}
+.out b{display:block;font:400 clamp(60px,8vw,128px)/1 var(--d);color:#fff;font-variant-numeric:tabular-nums}
+.out p{margin-top:10px;color:#D9C6D6;max-width:40ch}
+
+@media (max-width:900px){.sh,.ctl,.dg{grid-template-columns:1fr}.req{grid-template-columns:1fr}}
+@media (max-width:520px){.bar>span{display:none}.hero{min-height:760px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Villa Cedrino" data-note="Anteprima preparata da Umbra per l'Hotel Villa Cedrino di Dorgali, in vista della stagione 2027. Servizi ed escursioni (kayak sul Cedrino, Supramonte, jeep, cavallo, gommoni nel Golfo di Orosei, piscina e jacuzzi vista lago, Wine Bar Café) sono quelli del vostro sito; programma, mete citate, commissioni e tariffe sono esempi da adattare.">
+
+<header class="hero">
+  <div class="land" id="land" aria-hidden="true">
+    <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice" data-k="10"><path d="M0 330 L120 250 L210 290 L330 170 L420 230 L520 140 L640 220 L760 120 L880 210 L1000 150 L1120 240 L1260 160 L1380 230 L1500 180 L1600 220 L1600 700 L0 700Z" fill="#C9CDC6"/></svg>
+    <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice" data-k="18"><path d="M0 400 L160 330 L280 370 L420 290 L560 360 L700 300 L860 380 L1020 310 L1180 370 L1320 320 L1460 360 L1600 330 L1600 700 L0 700Z" fill="#A9B4A8"/><path d="M420 290 L470 330 L440 340Z M1020 310 L1070 350 L1030 352Z" fill="#ffffff55"/></svg>
+    <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice" data-k="26"><path d="M0 500 Q300 450 620 488 T1200 470 T1600 480 L1600 700 L0 700Z" fill="#6E8B79"/></svg>
+    <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMax slice" data-k="34"><path d="M0 560 Q400 535 800 548 T1600 540 L1600 610 Q1200 600 800 606 T0 604Z" fill="#3E7E72"/><path d="M200 570 Q420 562 640 570 M900 575 Q1100 566 1300 574" stroke="#ffffff66" stroke-width="3" fill="none"/><g fill="#2E473A"><path d="M90 610 L120 520 L150 610Z"/><path d="M140 612 L160 556 L180 612Z"/><path d="M1380 606 L1412 506 L1444 606Z"/><path d="M1440 608 L1462 550 L1484 608Z"/></g><g transform="translate(-260 0)"><rect x="1040" y="505" width="120" height="48" fill="#EDE6D8"/><path d="M1030 508 L1100 478 L1170 508Z" fill="#B66A4A"/><rect x="1060" y="520" width="14" height="16" fill="#3E7E72"/><rect x="1090" y="520" width="14" height="16" fill="#3E7E72"/><rect x="1120" y="520" width="14" height="16" fill="#3E7E72"/></g><rect x="0" y="604" width="1600" height="96" fill="#ECEBE6"/></svg>
+  </div>
+  <div class="bar"><b>Villa Cedrino</b><span>Dorgali · sul lago Cedrino · Golfo di Orosei</span></div>
+  <div class="wrap hc">
+    <h1><span class="ln"><span class="li" style="--i:0">Una settimana</span></span><span class="ln"><span class="li" style="--i:1">a Dorgali,</span></span><span class="ln"><span class="li" style="--i:2">già organizzata.</span></span></h1>
+    <p class="lead fx" style="--i:3">In fondo al vostro sito c'è scritto che la stagione 2027 si prepara adesso. Questa pagina è fatta per le prenotazioni dirette: chi guarda sceglie quanto resta e cosa ama, e si ritrova la settimana pronta con le vostre escursioni, tra il Supramonte e il mare.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Componi la tua settimana.</h2>
+      <p>Mare, Supramonte, lago o solo lentezza. Ogni scelta riempie le giornate con quello che l'hotel organizza davvero: il kayak sul Cedrino, il gommone nel Golfo, la jeep, il cavallo, la jacuzzi vista lago la sera.</p>
+    </div>
+    <div class="ctl">
+      <div><span class="lb">Notti</span><div class="nt"><b id="nN">5</b><input type="range" id="nI" min="3" max="7" value="5" aria-label="Notti"></div></div>
+      <div><span class="lb">Cosa ami</span><div class="chips" id="lk"></div></div>
+      <div><span class="lb">Quando</span><div class="chips" id="mo"></div></div>
+    </div>
+    <div class="days" id="dd"></div>
+    <div class="req"><span id="rs">5 notti a giugno, tra mare e Supramonte. La richiesta arriva all'hotel con il programma già scritto.</span><a id="ra" href="#">Richiedi questa settimana</a></div>
+  </div>
+</section>
+
+<section class="sec dr">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Ogni notte diretta resta a voi.</h2>
+      <p>Una parte delle notti arriva dai portali, con la loro commissione. Se anche solo una parte in più arriva dal vostro sito, la differenza a fine stagione si vede. Muovete i cursori.</p>
+    </div>
+    <div class="dg">
+      <div>
+        <div class="sl"><div><span>Notti vendute in stagione</span><b id="o1">2.400</b></div><input type="range" id="i1" min="500" max="6000" step="100" value="2400" aria-label="Notti vendute"></div>
+        <div class="sl"><div><span>Tariffa media a notte</span><b id="o2">140 €</b></div><input type="range" id="i2" min="70" max="300" step="5" value="140" aria-label="Tariffa media"></div>
+        <div class="sl"><div><span>Notti che passano al sito</span><b id="o3">15%</b></div><input type="range" id="i3" min="5" max="40" step="1" value="15" aria-label="Quota spostata sul sito"></div>
+        <div class="sl"><div><span>Commissione dei portali</span><b id="o4">18%</b></div><input type="range" id="i4" min="10" max="25" step="1" value="18" aria-label="Commissione"></div>
+      </div>
+      <div class="out" aria-live="polite"><small>Commissioni risparmiate in stagione</small><b id="sv">9.072 €</b><p id="sp"></p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>La stagione la preparate voi. Le prenotazioni dirette le portiamo noi.</h2>
+    <ul>
+      <li><b>Settimane già pronte</b>Programmi per mare, Supramonte e lago con le vostre escursioni, in italiano e in inglese.</li>
+      <li><b>Richieste complete</b>Date, persone e programma arrivano all'hotel per email, senza commissioni.</li>
+      <li><b>Campagne di primavera</b>Annunci e contenuti da febbraio, quando si decidono le vacanze estive.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto, collegati al gestionale che usate già.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per l'Hotel Villa Cedrino. Programmi e cifre d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* parallasse */
+  var ls=[].slice.call(document.querySelectorAll('#land svg'));
+  if(!U.reduce){addEventListener('pointermove',function(e){var x=e.clientX/innerWidth-.5;ls.forEach(function(s){s.style.transform='translateX('+(-x*s.dataset.k)+'px)'})});
+    U.onScroll(function(y){ls.forEach(function(s){s.style.translate='0 '+(y*s.dataset.k/200)+'px'})})}
+  /* settimana */
+  var A={mare:[['Gommone nel Golfo di Orosei','verso Cala Luna e Cala Mariolu, con pranzo a bordo'],['Spiaggia di Cala Gonone','e un bagno dove l\'acqua diventa turchese'],['Cale del Golfo in gommone','Cala Biriola e Cala Sisine, a ritmo vostro']],
+    supramonte:[['Trekking nel Supramonte','verso la Gola di Gorropu, con guida'],['In jeep nel Supramonte','nelle zone dove a piedi non si arriva'],['Trekking tra monte e mare','sui sentieri a picco sul Golfo'],['Arrampicata','sul calcare del Supramonte, anche per chi inizia']],
+    lago:[['Kayak sul Cedrino all\'alba','con il lago ancora fermo'],['A cavallo lungo il lago','tra ginepri e oleandri'],['In mountain bike','sulle strade bianche intorno a Dorgali']],
+    lento:[['Piscina vista lago','e un pranzo leggero in terrazza'],['Tè del pomeriggio','nel giardino dell\'hotel'],['Wellness','e niente sveglia']]};
+  var EVE=[['Jacuzzi in terrazza','al tramonto, vista lago'],['Aperitivo al Wine Bar Café','calici di Cannonau e tagliere'],['Cena al ristorante','aperto anche agli ospiti esterni'],['Cocktail al Lounge Bar','sotto le stelle del Supramonte']];
+  var LK={mare:'Mare',supramonte:'Supramonte',lago:'Lago',lento:'Lentezza'},on={mare:1,supramonte:1},MO=['Maggio','Giugno','Luglio','Settembre','Ottobre'],mo='Giugno';
+  $('lk').innerHTML=Object.keys(LK).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+!!on[k]+'">'+LK[k]+'</button>'}).join('');
+  $('mo').innerHTML=MO.map(function(m){return '<button type="button" aria-pressed="'+(m===mo)+'">'+m+'</button>'}).join('');
+  $('lk').onclick=function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k;if(on[k]&&Object.keys(on).length>1)delete on[k];else on[k]=1;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',!!on[x.dataset.k])});wk()};
+  $('mo').onclick=function(e){var b=e.target.closest('button');if(!b)return;mo=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});wk()};
+  $('nI').addEventListener('input',wk);
+  function wk(){var n=+$('nI').value,ks=Object.keys(on),pool=[],i,h='',G=['Giorno 1','Giorno 2','Giorno 3','Giorno 4','Giorno 5','Giorno 6','Giorno 7','Giorno 8'];$('nN').textContent=n;
+    ks.forEach(function(k){A[k].forEach(function(a){pool.push(a)})});
+    var hot=mo==='Luglio',dayAct=[];for(i=0;i<n-1;i++)dayAct.push(pool[i%pool.length]);
+    function P(c,lab,a){return '<p class="'+c+'"><b>'+lab+'</b>'+a[0]+', '+a[1]+'</p>'}
+    h+='<div class="dy"><h3>Arrivo<small>'+G[0]+'</small></h3>'+P('m','Pomeriggio',['Transfer dal porto o dall\'aeroporto','organizzato dall\'hotel'])+P('s','Sera',EVE[0])+'</div>';
+    for(i=1;i<n;i++){var a=dayAct[i-1],b=on.lento?A.lento[i%3]:(on.lago?A.lago[i%3]:['Piscina vista lago','per il pomeriggio']);
+      if(hot&&/Trekking|Arrampicata/.test(a[0]))a=[a[0],a[1]+', partenza presto per il caldo'];
+      h+='<div class="dy" style="animation-delay:'+(i*60)+'ms"><h3>'+(['','Due','Tre','Quattro','Cinque','Sei','Sette'][i]||i+1)+'<small>'+G[i]+'</small></h3>'+P('m','Mattina',a)+P('p','Pomeriggio',b)+P('s','Sera',EVE[(i)%EVE.length])+'</div>'}
+    h+='<div class="dy" style="animation-delay:'+(n*60)+'ms"><h3>Partenza<small>'+G[n]+'</small></h3>'+P('m','Mattina',on.lago?A.lago[0]:['Colazione lenta','in terrazza sul lago'])+P('p','Poi',['Transfer','al porto o all\'aeroporto'])+'</div>';
+    $('dd').innerHTML=h;
+    var lab=ks.map(function(k){return LK[k].toLowerCase()}),txt=lab.length>1?lab.slice(0,-1).join(', ')+' e '+lab[lab.length-1]:lab[0];
+    $('rs').textContent=n+' notti a '+mo.toLowerCase()+', tra '+txt+'. La richiesta arriva all\'hotel con il programma già scritto.';
+    var body='Buongiorno, vorremmo soggiornare da voi '+n+' notti a '+mo.toLowerCase()+' 2027, in due.\nCi piacerebbe questo programma: '+txt+'.\nDate preferite: \nNome: ';
+    $('ra').href='mailto:info@hotelvillacedrino.com?subject='+encodeURIComponent('Richiesta soggiorno '+mo+' 2027, '+n+' notti')+'&body='+encodeURIComponent(body)}
+  wk();
+  /* diretto */
+  function sv(){var N=+$('i1').value,T=+$('i2').value,Q=+$('i3').value,C=+$('i4').value,v=N*Q/100*T*C/100;
+    $('o1').textContent=N.toLocaleString('it-IT');$('o2').textContent=T+' €';$('o3').textContent=Q+'%';$('o4').textContent=C+'%';
+    $('sv').textContent=Math.round(v).toLocaleString('it-IT')+' €';$('sp').textContent=Math.round(N*Q/100).toLocaleString('it-IT')+' notti prenotate dal vostro sito invece che dai portali, a '+T+' € l\'una. Numeri d\'esempio: con i vostri dati veri lo calcoliamo insieme.'}
+  ['i1','i2','i3','i4'].forEach(function(i){$(i).addEventListener('input',sv)});sv();
+})();
+</script>
+</body>
+</html>

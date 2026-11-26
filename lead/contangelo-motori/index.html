@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Contangelo Motori · La pratica pronta prima della firma</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Syne;src:url(../lib/fonts/syne-normal.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:Schibsted;src:url(../lib/fonts/schibsted-grotesk-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{
+  /* l'asfalto della Atellana, la carta delle pratiche, l'arancio dei cartellini prezzo, il verde dell'approvata */
+  --asf:#141B2B; --asf2:#1F2840; --carta:#F2F2EE; --arancio:#FF6B2C; --acciaio:#8B95A8; --ok:#33C47A; --ink:#121826; --mut:#5B6273;
+  --d:Syne,system-ui,sans-serif; --s:Schibsted,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--d);font-weight:700;line-height:1;letter-spacing:-.03em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--arancio);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--asf);color:#EEF0F5}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:var(--acciaio)}
+.bar b{font:800 20px/1 var(--d);color:#fff;letter-spacing:.01em}
+.bar b span{color:var(--arancio)}
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(16px,3vw,40px) clamp(56px,7vw,100px)}
+.hero h1{font-size:clamp(36px,4.1vw,68px)}.hero .hg{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+.hero h1 .o{color:var(--arancio)}
+.hero .lead{max-width:48ch;margin-top:22px;font-size:clamp(16.5px,1.35vw,18.5px);color:#C3C9D6}
+.gauge{background:var(--asf2);border-radius:24px;padding:clamp(16px,2.4vw,28px);display:grid;gap:14px}
+.gauge svg{width:100%;height:auto}
+.gauge .val{text-align:center;margin-top:-13%}
+.gauge .val b{display:block;font:700 clamp(42px,4.4vw,64px)/1 var(--d);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.gauge .val small{color:var(--acciaio)}
+.sl{display:grid;gap:4px}
+.sl div{display:flex;justify-content:space-between;font-size:14px;color:#C3C9D6}
+.sl div b{color:#fff;font-variant-numeric:tabular-nums}
+.sl input{width:100%;accent-color:var(--arancio)}
+.mesi{display:flex;flex-wrap:wrap;gap:6px}
+.mesi button{border:1px solid #ffffff30;background:none;color:#EEF0F5;border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:600}
+.mesi button[aria-pressed=true]{background:var(--arancio);border-color:var(--arancio);color:var(--asf)}
+.gauge .fine{font-size:12.5px;color:var(--acciaio)}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(38px,4.6vw,72px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* permuta */
+.pm{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(18px,3vw,40px);align-items:start}
+.fg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.fg .w{grid-column:1/-1}
+.fg label,.fg .lb{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--mut);min-width:0}
+.fg input[type=text],.fg select{border:1.5px solid #12182633;border-radius:12px;padding:11px 12px;background:#fff;font-size:16px;width:100%;min-width:0;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1.5px solid #12182626;background:#fff;border-radius:10px;padding:7px 11px;cursor:pointer;font-weight:600;font-size:14px;color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--asf);color:#fff;border-color:var(--asf)}
+.shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.shots button{aspect-ratio:4/3;border:1.5px dashed #12182640;border-radius:10px;background:#fff;cursor:pointer;font-size:12.5px;font-weight:700;color:var(--mut);display:grid;place-items:center;align-content:center;gap:2px}
+.shots button[aria-pressed=true]{border-style:solid;border-color:var(--ok);background:#E6F7EE;color:#1d7a4a}
+.card{background:#fff;border-radius:20px;padding:20px;display:grid;gap:12px;position:sticky;top:16px;box-shadow:inset 0 0 0 1px #12182614}
+.card h3{font-size:26px}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px}
+.card dt{color:var(--mut);font-weight:600}
+.card dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+.card a{background:var(--ok);color:#06331c;font-weight:800;text-decoration:none;text-align:center;padding:13px;border-radius:12px}
+.card .miss{font-size:13.5px;color:var(--arancio);font-weight:700}
+
+/* documenti */
+.dc{background:#fff}
+.dg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(18px,3vw,40px);align-items:start}
+.chk{display:grid;gap:8px;margin-top:14px}
+.chk button{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;text-align:left;border:1.5px solid #12182620;background:var(--carta);border-radius:14px;padding:12px 14px;cursor:pointer;font-size:15px;color:var(--ink)}
+.chk button i{width:26px;height:26px;border-radius:8px;border:2px solid #12182640;display:grid;place-items:center;font-style:normal;font-weight:800;color:#fff}
+.chk button small{color:var(--mut);font-size:12.5px}
+.chk button[aria-pressed=true]{background:#E6F7EE;border-color:#33C47A66}
+.chk button[aria-pressed=true] i{background:var(--ok);border-color:var(--ok)}
+.prog{height:8px;background:#12182614;border-radius:4px;overflow:hidden;margin-top:12px}
+.prog i{display:block;height:100%;background:var(--ok);transition:width .5s}
+.kb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.col{background:var(--carta);border-radius:16px;padding:10px;min-height:290px;display:flex;flex-direction:column;gap:8px}
+.col h3{font:700 14px/1.2 var(--s);letter-spacing:0;padding:4px 4px 6px;display:flex;justify-content:space-between;color:var(--mut)}
+.pr{background:#fff;border-radius:12px;padding:10px;font-size:13.5px;box-shadow:0 1px 0 #1218261a;line-height:1.35}
+.pr b{display:block;font-size:14px}
+.pr small{color:var(--mut)}
+.pr.me{background:var(--asf);color:#fff;box-shadow:0 0 0 2px var(--arancio)}
+.pr.me small{color:#C3C9D6}
+
+/* social */
+.rl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.4vw,28px)}
+.rl div{border-top:3px solid var(--asf);padding-top:14px}
+.rl h3{font-size:clamp(22px,2vw,28px);margin-bottom:8px}
+.rl p{color:var(--mut);font-size:15px}
+.rl small{display:block;margin-top:8px;font-weight:700;color:var(--arancio)}
+
+@media (max-width:900px){.hg,.sh,.pm,.dg{grid-template-columns:1fr}.card{position:static}.kb{grid-template-columns:1fr 1fr}.rl{grid-template-columns:1fr}}
+@media (max-width:520px){.fg{grid-template-columns:1fr}.shots{grid-template-columns:1fr 1fr}.bar>span{display:none}.col{min-height:0}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Contangelo Motori" data-note="Anteprima preparata da Umbra per Contangelo Motori di Arzano, a partire dal vostro annuncio per social, amministrazione e finanziamenti. Il WhatsApp e i campi della permuta (marca, modello, allestimento) sono quelli che usate voi; tasso, rate, elenco dei documenti e nomi delle pratiche sono esempi: i documenti li decide la finanziaria.">
+
+<header class="hero">
+  <div class="bar"><b>CONTANGELO <span>MOTORI</span></b><span>Plurimarche · Via Atellana 25, Arzano</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">La rata,</span></span><span class="ln"><span class="li" style="--i:1">prima della visita.</span></span><span class="ln"><span class="li o" style="--i:2">La pratica,</span></span><span class="ln"><span class="li o" style="--i:3">prima della firma.</span></span></h1>
+      <p class="lead fx" style="--i:4">Cercate tre persone: social, amministrazione, finanziamenti. Questa pagina toglie lavoro alle ultime due. Il cliente calcola la rata da casa, manda la permuta già compilata e carica i documenti del finanziamento. In ufficio arrivano pratiche complete.</p>
+    </div>
+    <div class="gauge fx" style="--i:3">
+      <svg viewBox="0 0 300 170" aria-hidden="true">
+        <path d="M30 150 A120 120 0 0 1 270 150" fill="none" stroke="#2C3652" stroke-width="22" stroke-linecap="round"/>
+        <path id="arc" d="M30 150 A120 120 0 0 1 270 150" fill="none" stroke="#FF6B2C" stroke-width="22" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
+        <g id="tk"></g>
+      </svg>
+      <div class="val" aria-live="polite"><b id="rata">298 €</b><small id="rs">al mese, per 60 mesi</small></div>
+      <div class="sl"><div><span>Prezzo dell'auto</span><b id="pO">18.900 €</b></div><input type="range" id="pr" min="6000" max="45000" step="100" value="18900" aria-label="Prezzo dell'auto"></div>
+      <div class="sl"><div><span>Anticipo o permuta</span><b id="aO">3.000 €</b></div><input type="range" id="an" min="0" max="15000" step="250" value="3000" aria-label="Anticipo"></div>
+      <div class="mesi" id="ms" role="group" aria-label="Durata"></div>
+      <p class="fine">Esempio con TAN fisso 7,99%: la rata vera la dà la finanziaria dopo l'istruttoria.</p>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>La permuta in 60 secondi.</h2>
+      <p>Oggi chiedete al cliente marca, modello e allestimento in chat, poi l'anno, poi i chilometri, poi le foto. Qui li compila tutti insieme e su WhatsApp vi arriva una scheda sola, già leggibile.</p>
+    </div>
+    <div class="pm">
+      <div class="fg">
+        <div class="lb w">Marca<div class="chips" id="mk"></div></div>
+        <label>Modello<input type="text" id="mo" value="Golf" autocomplete="off"></label>
+        <label>Allestimento<input type="text" id="al" value="1.6 TDI Highline" autocomplete="off"></label>
+        <label>Anno<select id="yr"></select></label>
+        <label>Chilometri<select id="km"><option>meno di 50.000</option><option>50.000 – 100.000</option><option selected>100.000 – 150.000</option><option>150.000 – 200.000</option><option>oltre 200.000</option></select></label>
+        <div class="lb">Alimentazione<div class="chips" id="fu"></div></div>
+        <div class="lb">Condizioni<div class="chips" id="co"></div></div>
+        <div class="lb w">Foto (tocca per simulare il caricamento)<div class="shots" id="sh"></div></div>
+      </div>
+      <div class="card" aria-live="polite">
+        <h3>Scheda permuta</h3>
+        <dl id="sc"></dl>
+        <p class="miss" id="mi"></p>
+        <a id="wa" href="#" target="_blank" rel="noopener">Invia su WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dc">
+  <div class="wrap">
+    <div class="sh">
+      <h2>I documenti arrivano da casa.</h2>
+      <p>Il cliente sceglie se è dipendente, pensionato o autonomo e vede solo i documenti che servono a lui. Li fotografa col telefono. In ufficio la sua pratica si sposta da sola nella colonna giusta.</p>
+    </div>
+    <div class="dg">
+      <div>
+        <div class="chips" id="pf"></div>
+        <div class="chk" id="ck"></div>
+        <div class="prog"><i id="pg"></i></div>
+      </div>
+      <div class="kb" id="kb"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>E i social, da esterni.</h2>
+      <p>La terza figura che cercate. Ogni auto che entra in piazzale diventa contenuto; voi girate trenta secondi col telefono, il resto lo montiamo noi.</p>
+    </div>
+    <div class="rl">
+      <div><h3>L'auto del giorno</h3><p>Giro completo in 20 secondi, rata d'esempio in sovrimpressione, link alla scheda.</p><small>lun · mer · ven</small></div>
+      <div><h3>La consegna</h3><p>Le chiavi in mano al cliente, con il suo permesso. La prova che qui le auto si vendono davvero.</p><small>a ogni consegna</small></div>
+      <div><h3>Domande da piazzale</h3><p>«Posso finanziare senza anticipo?», «Quanto vale la mia permuta?». Risposte brevi, che portano alla pagina.</p><small>una a settimana</small></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Le pratiche arrivano complete. I social li seguiamo noi.</h2>
+    <ul>
+      <li><b>Rata e permuta online</b>Calcolo della rata d'esempio e scheda permuta con tutti i campi che chiedete, su WhatsApp.</li>
+      <li><b>Documenti dal telefono</b>Elenco giusto per ogni cliente e pratiche già ordinate per l'ufficio finanziamenti.</li>
+      <li><b>Social del piazzale</b>Reel delle auto e delle consegne dai vostri video, tre volte a settimana.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto, collegati al vostro WhatsApp e alla vostra app.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Contangelo Motori. Tassi, rate e nomi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function eur(v){return Math.round(v).toLocaleString('it-IT')+' €'}
+  /* tacche */
+  var tk='';for(var i=0;i<=8;i++){var a=Math.PI*(1-i/8),x=150+Math.cos(a)*96,y=150-Math.sin(a)*96;tk+='<text x="'+x.toFixed(1)+'" y="'+(y+4).toFixed(1)+'" text-anchor="middle" font-family="Schibsted" font-size="10" fill="#8B95A8">'+(i*100)+'</text>'}$('tk').innerHTML=tk;
+  var n=60;$('ms').innerHTML=[24,36,48,60,72,84].map(function(m){return '<button type="button" data-m="'+m+'" aria-pressed="'+(m===n)+'">'+m+' mesi</button>'}).join('');
+  $('ms').onclick=function(e){var b=e.target.closest('button');if(!b)return;n=+b.dataset.m;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});rata()};
+  var shown=0,raf;
+  function rata(){var p=+$('pr').value,a=Math.min(+$('an').value,p-1000),c=p-a,r=.0799/12,m=c*r/(1-Math.pow(1+r,-n));
+    $('pO').textContent=eur(p);$('aO').textContent=eur(a);$('rs').textContent='al mese, per '+n+' mesi';
+    var from=shown,t0=performance.now();cancelAnimationFrame(raf);
+    (function st(now){var f=U.reduce?1:Math.min(1,(now-t0)/600),v=from+(m-from)*U.out(f);shown=v;$('rata').textContent=eur(v);$('arc').setAttribute('stroke-dasharray',Math.min(100,v/8).toFixed(1)+' 100');if(f<1)raf=requestAnimationFrame(st)})(t0)}
+  $('pr').addEventListener('input',rata);$('an').addEventListener('input',rata);setTimeout(rata,U.reduce?0:1500);
+
+  /* permuta */
+  var S={mk:'Volkswagen',fu:'Diesel',co:'Buone',sh:{}};
+  function chips(id,arr,key){$(id).innerHTML=arr.map(function(x){return '<button type="button" aria-pressed="'+(S[key]===x)+'">'+x+'</button>'}).join('');
+    $(id).onclick=function(e){var b=e.target.closest('button');if(!b)return;S[key]=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});pm()}}
+  chips('mk',['Fiat','Volkswagen','Ford','Toyota','Peugeot','Renault','Opel','Alfa Romeo','Audi','BMW','Mercedes','Altra'],'mk');
+  chips('fu',['Benzina','Diesel','GPL','Ibrida','Elettrica'],'fu');
+  chips('co',['Ottime','Buone','Da sistemare'],'co');
+  var yh='';for(var y=2025;y>=2006;y--)yh+='<option'+(y===2017?' selected':'')+'>'+y+'</option>';$('yr').innerHTML=yh;
+  var SH=['Fronte','Retro','Interni','Cruscotto con i km'];$('sh').innerHTML=SH.map(function(s,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i<2)+'">'+s+'<span>'+(i<2?'caricata':'+ foto')+'</span></button>'}).join('');S.sh={0:1,1:1};
+  $('sh').onclick=function(e){var b=e.target.closest('button');if(!b)return;var i=b.dataset.i;if(S.sh[i])delete S.sh[i];else S.sh[i]=1;b.setAttribute('aria-pressed',!!S.sh[i]);b.lastChild.textContent=S.sh[i]?'caricata':'+ foto';pm()};
+  function pm(){var mo=$('mo').value.trim(),al=$('al').value.trim(),f=Object.keys(S.sh).length;
+    var R=[['Marca',S.mk],['Modello',mo||'—'],['Allestimento',al||'—'],['Anno',$('yr').value],['Km',$('km').value],['Alimentazione',S.fu],['Condizioni',S.co],['Foto',f+' su 4']];
+    $('sc').innerHTML='';R.forEach(function(r){var dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=r[0];dd.textContent=r[1];$('sc').appendChild(dt);$('sc').appendChild(dd)});
+    var miss=[];if(!mo)miss.push('modello');if(!al)miss.push('allestimento');if(f<4)miss.push((4-f)+(4-f>1?' foto':' foto'));
+    $('mi').textContent=miss.length?'Manca: '+miss.join(', ')+'. Si può inviare lo stesso.':'Scheda completa.';
+    var msg='Buongiorno Contangelo Motori, vorrei una valutazione per la permuta.\nMARCA: '+S.mk+'\nMODELLO: '+(mo||'-')+'\nALLESTIMENTO: '+(al||'-')+'\nANNO: '+$('yr').value+'\nKM: '+$('km').value+'\nALIMENTAZIONE: '+S.fu+'\nCONDIZIONI: '+S.co+'\nFOTO: '+f+' allegate';
+    $('wa').href='https://wa.me/393476368489?text='+encodeURIComponent(msg)}
+  ['mo','al'].forEach(function(i){$(i).addEventListener('input',pm)});['yr','km'].forEach(function(i){$(i).addEventListener('change',pm)});pm();
+
+  /* documenti */
+  var DOC={Dipendente:[['Carta d\'identità','fronte e retro'],['Codice fiscale','o tessera sanitaria'],['Ultime due buste paga',''],['IBAN del conto','per l\'addebito della rata'],['Patente','se richiesta']],
+           Pensionato:[['Carta d\'identità','fronte e retro'],['Codice fiscale','o tessera sanitaria'],['Ultimo cedolino della pensione',''],['IBAN del conto','per l\'addebito della rata']],
+           Autonomo:[['Carta d\'identità','fronte e retro'],['Codice fiscale','o tessera sanitaria'],['Ultima dichiarazione dei redditi','con ricevuta di presentazione'],['Visura camerale','se avete una ditta'],['IBAN del conto','per l\'addebito della rata']]};
+  var prof='Dipendente',done={0:1,1:1};
+  $('pf').innerHTML=Object.keys(DOC).map(function(k){return '<button type="button" aria-pressed="'+(k===prof)+'">'+k+'</button>'}).join('');
+  $('pf').onclick=function(e){var b=e.target.closest('button');if(!b)return;prof=b.textContent;done={0:1};[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});dc()};
+  var KB=[['Documenti mancanti',[['Sig. Esposito','Panda 1.2 · 36 mesi']]],['Pronta da inviare',[['Sig.ra De Luca','Clio · 60 mesi']]],['In finanziaria',[['Sig. Russo','Tucson · 72 mesi'],['Sig. Ferrara','500X · 48 mesi']]],['Approvata, consegna',[['Sig.ra Romano','T-Roc · 60 mesi']]]];
+  function dc(){var L=DOC[prof],n=0;
+    $('ck').innerHTML=L.map(function(d,i){if(done[i])n++;return '<button type="button" data-i="'+i+'" aria-pressed="'+!!done[i]+'"><i>'+(done[i]?'✓':'')+'</i><span>'+d[0]+(d[1]?'<br><small>'+d[1]+'</small>':'')+'</span><small>'+(done[i]?'caricato':'foto')+'</small></button>'}).join('');
+    $('pg').style.width=(n/L.length*100)+'%';var col=n===L.length?1:0;
+    $('kb').innerHTML=KB.map(function(c,j){var cards=c[1].map(function(p){return '<div class="pr"><b>'+p[0]+'</b><small>'+p[1]+'</small></div>'}).join('');
+      if(j===col)cards='<div class="pr me"><b>Il vostro cliente</b><small>Golf · '+n+' su '+L.length+' documenti</small></div>'+cards;
+      return '<div class="col"><h3>'+c[0]+'<span>'+(c[1].length+(j===col?1:0))+'</span></h3>'+cards+'</div>'}).join('')}
+  $('ck').onclick=function(e){var b=e.target.closest('button');if(!b)return;var i=b.dataset.i;if(done[i])delete done[i];else done[i]=1;dc()};dc();
+})();
+</script>
+</body>
+</html>

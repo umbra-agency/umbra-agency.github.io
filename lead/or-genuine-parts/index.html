@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>OR Genuine Parts · 8.000 codici, quattro lingue</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:BigS;src:url(../lib/fonts/big-shoulders-display-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:ISans;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* il magazzino di Ragusa: cemento, scaffali blu, cartellini arancio, carta delle bolle */
+  --cem:#DFE0DB; --cem2:#C9CBC4; --ink:#13161A; --blu:#1E4FA0; --blu2:#163A78; --arancio:#F06A1C; --carta:#F6F6F3; --mut:#5B6068;
+  --d:BigS,Impact,sans-serif; --s:ISans,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:.92;letter-spacing:-.005em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--arancio);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--ink);color:#EDEEF0;overflow:hidden}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:#9AA0A9}
+.bar b{font:800 26px/1 var(--d);color:#fff;letter-spacing:.02em}
+.bar b span{color:var(--arancio)}
+.hg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,60px);align-items:center;padding-block:clamp(16px,3vw,40px) clamp(56px,7vw,100px)}
+.hero h1{font-size:clamp(48px,5.4vw,92px)}
+.hero h1 .o{color:var(--arancio)}
+.hero .lead{max-width:46ch;margin-top:20px;font-size:clamp(16.5px,1.35vw,18.5px);color:#BFC4CB}
+.kp{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:28px}
+.kp b{display:block;font:800 clamp(34px,3.2vw,52px)/1 var(--d);color:#fff}
+.kp small{color:#9AA0A9;font-size:13px}
+.wh{position:relative;background:#1B1F25;border-radius:16px;padding:12px}
+.wh canvas{width:100%;height:auto;display:block;border-radius:8px}
+.wh .lg{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:#9AA0A9;padding:10px 4px 0}
+.wh .lg i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--arancio);margin-right:6px;vertical-align:-1px}
+.tick{position:absolute;right:20px;top:20px;display:grid;gap:6px;justify-items:end;pointer-events:none}
+.tick span{background:#fff;color:var(--ink);font:700 12.5px/1 var(--s);padding:6px 8px;border-radius:6px;animation:tk 3.2s ease forwards}
+@keyframes tk{0%{opacity:0;transform:translateY(-6px)}12%,80%{opacity:1;transform:none}100%{opacity:0}}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(46px,5.6vw,92px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* modulo in 4 lingue */
+.qg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(18px,3vw,40px);align-items:start}
+.site{background:#fff;border-radius:20px;overflow:hidden;box-shadow:inset 0 0 0 1px #13161a14}
+.site .top{background:var(--blu2);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.site .top b{font:800 22px/1 var(--d);letter-spacing:.02em}
+.lng{display:flex;gap:4px}
+.lng button{border:1px solid #ffffff40;background:none;color:#fff;border-radius:8px;padding:5px 10px;cursor:pointer;font-weight:700;font-size:13px}
+.lng button[aria-pressed=true]{background:#fff;color:var(--blu2)}
+.site h3{font-size:clamp(30px,3vw,44px);padding:20px 20px 0}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px 20px 20px}
+.fm label{display:grid;gap:5px;font-size:13px;font-weight:700;color:var(--mut);min-width:0}
+.fm input,.fm select{border:1.5px solid #13161a2e;border-radius:10px;padding:10px 12px;font-size:16px;background:#fff;width:100%;min-width:0;color:var(--ink)}
+.fm button{grid-column:1/-1;background:var(--arancio);color:#fff;border:0;border-radius:12px;padding:13px;font-weight:700;font-size:16px;cursor:pointer}
+.in{background:var(--cem);border-radius:20px;padding:20px;display:grid;gap:12px;position:sticky;top:16px}
+.in h3{font-size:30px}
+.in .mail{background:#fff;border-radius:14px;padding:14px 16px;font-size:14.5px;display:grid;gap:4px}
+.in .mail b{font-size:15px}
+.in .mail small{color:var(--mut)}
+.in .tr{font-size:13.5px;color:var(--mut)}
+.in .tr b{color:var(--blu)}
+
+/* mercati */
+.mk{background:var(--blu2);color:#E8EDF7}
+.mk .sh p{color:#B5C3E2}
+.mg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(18px,3vw,40px);align-items:start}
+.ml{display:grid;gap:6px}
+.ml button{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;text-align:left;border:1px solid #ffffff26;background:none;color:#E8EDF7;border-radius:14px;padding:12px 14px;cursor:pointer;font-size:15px}
+.ml button b{font:800 26px/1 var(--d)}
+.ml button small{color:#B5C3E2}
+.ml button[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
+.ml button[aria-pressed=true] small{color:var(--mut)}
+.md{background:#fff;color:var(--ink);border-radius:20px;padding:22px;display:grid;gap:16px}
+.md h3{font-size:clamp(30px,3vw,42px)}
+.md .row{display:grid;grid-template-columns:150px 1fr;gap:12px;border-top:1px solid #13161a1a;padding-top:12px;font-size:15px}
+.md .row b{font-size:13px;color:var(--mut)}
+.md .kw{display:flex;flex-wrap:wrap;gap:6px}
+.md .kw span{background:var(--cem);border-radius:8px;padding:4px 9px;font-size:14px}
+
+@media (max-width:900px){.hg,.sh,.qg,.mg{grid-template-columns:1fr}.in{position:static}}
+@media (max-width:520px){.fm{grid-template-columns:1fr}.bar>span{display:none}.md .row{grid-template-columns:1fr;gap:4px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per OR Genuine Parts" data-note="Anteprima preparata da Umbra per OR Genuine Parts (Officine Riparti) di Ragusa, a partire dal vostro annuncio per una figura export con inglese, spagnolo e francese. Magazzino, codici e marchi sono quelli del vostro sito; mercati, ricerche, aziende e codici d'esempio sono proposte da verificare insieme.">
+
+<header class="hero">
+  <div class="bar"><b>OR <span>GENUINE</span> PARTS</b><span>Officine Riparti · Ragusa · solo ricambi originali</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">8.000 codici</span></span><span class="ln"><span class="li" style="--i:1">originali.</span></span><span class="ln"><span class="li o" style="--i:2">Ora in quattro</span></span><span class="ln"><span class="li o" style="--i:3">lingue.</span></span></h1>
+      <p class="lead fx" style="--i:4">Cercate una persona per l'export, con inglese, spagnolo e francese. Il giorno che arriva, il sito parla ancora solo italiano. Ecco cosa le serve dal primo giorno: pagine in quattro lingue e richieste dall'estero che arrivano in ufficio già tradotte.</p>
+      <div class="kp fx" style="--i:5"><div><b>5.000 m²</b><small>di magazzino</small></div><div><b>8.000+</b><small>codici disponibili</small></div><div><b>22</b><small>marchi originali</small></div></div>
+    </div>
+    <div class="wh fx" style="--i:3" aria-label="Il magazzino visto dall'alto, con le richieste dall'estero">
+      <canvas id="cv" width="760" height="520"></canvas>
+      <div class="tick" id="tk"></div>
+      <div class="lg"><span><i></i>codice richiesto dall'estero</span><span id="cnt">0 richieste oggi</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>L'officina scrive nella sua lingua. Voi leggete in italiano.</h2>
+      <p>Un'officina di Valencia o di Tunisi compila la richiesta in spagnolo o in francese, con marca, codice OE e quantità. In ufficio arriva una scheda in italiano, con la lingua in cui rispondere.</p>
+    </div>
+    <div class="qg">
+      <div class="site">
+        <div class="top"><b>OR GENUINE PARTS</b><div class="lng" id="lg" role="group" aria-label="Lingua del sito"></div></div>
+        <h3 id="sH"></h3>
+        <form class="fm" id="fm" onsubmit="return false">
+          <label><span id="l1"></span><select id="f1"></select></label>
+          <label><span id="l2"></span><input id="f2" value="51810942" autocomplete="off"></label>
+          <label><span id="l3"></span><input id="f3" type="number" value="4" min="1" inputmode="numeric"></label>
+          <label><span id="l4"></span><select id="f4"></select></label>
+          <label><span id="l5"></span><input id="f5" value="Talleres Ejemplo" autocomplete="off"></label>
+          <label><span id="l6"></span><input id="f6" value="compras@ejemplo.es" autocomplete="off"></label>
+          <button type="button" id="go"></button>
+        </form>
+      </div>
+      <div class="in" aria-live="polite">
+        <h3>In ufficio arriva così</h3>
+        <div class="mail" id="ml"></div>
+        <p class="tr" id="tr"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec mk">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Da dove cominciare.</h2>
+      <p>Cinque mercati da provare, ognuno con la sua lingua, le ricerche che fanno le officine e quello che serve per spedire. Scegliete un paese.</p>
+    </div>
+    <div class="mg">
+      <div class="ml" id="mk"></div>
+      <div class="md" id="md" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>La nuova persona tratta con i clienti. Le pagine e le richieste le prepariamo noi.</h2>
+    <ul>
+      <li><b>Sito in quattro lingue</b>Italiano, inglese, spagnolo e francese, con le pagine per marchio e per paese.</li>
+      <li><b>Richieste tradotte</b>Marca, codice OE, quantità e paese arrivano in ufficio in italiano, con la lingua di risposta.</li>
+      <li><b>Campagne per paese</b>Annunci sulle ricerche delle officine, mercato per mercato, a budget controllato.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto, accanto a chi assumete per l'export.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per OR Genuine Parts. Mercati, codici e aziende d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* magazzino */
+  var cv=$('cv'),cx=cv.getContext('2d'),W=760,H=520,cells=[],R=14,C=0;
+  var cols=Math.floor((W-40)/9),rows=R*6,rings=[];
+  for(var r=0;r<R;r++){for(var s=0;s<6;s++){var y=24+r*34+s*4.6;for(var c=0;c<cols;c++){var x=20+c*9+Math.floor(c/20)*0;if(c%21===20)continue;cells.push([x,y,0])}}}
+  function draw(){cx.fillStyle='#1B1F25';cx.fillRect(0,0,W,H);
+    for(var i=0;i<cells.length;i++){var e=cells[i];cx.fillStyle=e[2]>0?'rgba(255,'+Math.round(106+60*Math.min(1,e[2]-.6>0?e[2]-.6:0))+',28,'+Math.min(1,e[2])+')':((i*7)%11<3?'#24324A':'#2B3A57');if(e[2]>0){cx.fillRect(e[0]-1,e[1]-2,9,7.4);e[2]-=.006}else cx.fillRect(e[0],e[1],7,3.4)}
+    rings.forEach(function(g){cx.strokeStyle='rgba(240,106,28,'+g[3]+')';cx.lineWidth=2;cx.beginPath();cx.arc(g[0],g[1],g[2],0,7);cx.stroke();g[2]+=.9;g[3]-=.012});rings=rings.filter(function(g){return g[3]>0});
+    cx.fillStyle='#ffffff10';for(var r2=0;r2<R;r2++)cx.fillRect(12,24+r2*34+28,W-24,4);
+    cx.fillStyle='#9AA0A9';cx.font='600 12px ISans, sans-serif';cx.fillText('Corsia A',20,16);cx.fillText('Corsia N',20,H-6)}
+  var CO=['ES','FR','MT','TN','GR','PT','BE','MA'],MK=['Fiat','Peugeot','Renault','Toyota','Jeep','Hyundai','Ford','Citroën','Kia','Dacia'],N=0;
+  function pick(){var k=Math.floor(Math.random()*cells.length);for(var j=0;j<6;j++){var e=cells[(k+j)%cells.length];e[2]=1.6}var c0=cells[k];rings.push([c0[0]+20,c0[1]+2,4,.9]);N++;$('cnt').textContent=N+(N===1?' richiesta oggi':' richieste oggi');
+    var t=document.createElement('span');t.textContent=CO[N%CO.length]+' · '+MK[(N*3)%MK.length]+' · '+(2+N%6)+' pz';$('tk').prepend(t);while($('tk').children.length>4)$('tk').lastChild.remove()}
+  function loop(){draw();if(!U.reduce)requestAnimationFrame(loop)}
+  loop();if(!U.reduce){setTimeout(function(){pick();setInterval(pick,1100)},1400)}else{for(var q=0;q<30;q++)pick();draw()}
+
+  /* modulo */
+  var BR=['Fiat','Alfa Romeo','Lancia','Jeep','Ford','Renault','Dacia','Nissan','Hyundai','Kia','Citroën','Peugeot','DS','Opel','Volkswagen','Audi','SEAT','Škoda','Jaguar','Land Rover','Toyota','Mitsubishi'];
+  var T={it:{h:'Ricambi originali, dal magazzino di Ragusa.',l:['Marca','Codice OE o telaio','Quantità','Paese','Officina o azienda','Email'],b:'Chiedi un preventivo',c:['Italia','Spagna','Francia','Malta','Tunisia','Grecia'],n:'italiano'},
+         en:{h:'Genuine parts, shipped from our warehouse in Sicily.',l:['Brand','OE part number or VIN','Quantity','Country','Workshop or company','Email'],b:'Request a quote',c:['Italy','Spain','France','Malta','Tunisia','Greece'],n:'inglese'},
+         es:{h:'Recambios originales, desde nuestro almacén en Sicilia.',l:['Marca','Referencia OE o bastidor','Cantidad','País','Taller o empresa','Correo electrónico'],b:'Pedir presupuesto',c:['Italia','España','Francia','Malta','Túnez','Grecia'],n:'spagnolo'},
+         fr:{h:'Pièces d\'origine, depuis notre entrepôt en Sicile.',l:['Marque','Référence OE ou VIN','Quantité','Pays','Garage ou société','E-mail'],b:'Demander un devis',c:['Italie','Espagne','France','Malte','Tunisie','Grèce'],n:'francese'}};
+  var IT=T.it.c,lang='es',ci=1,bi=0;
+  $('lg').innerHTML=['it','en','es','fr'].map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===lang)+'">'+k.toUpperCase()+'</button>'}).join('');
+  $('f1').innerHTML=BR.map(function(b,i){return '<option value="'+i+'">'+b+'</option>'}).join('');
+  $('lg').onclick=function(e){var b=e.target.closest('button');if(!b)return;lang=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});
+    if(lang==='fr'&&ci===1){ci=4;$('f5').value='Garage Exemple';$('f6').value='achats@exemple.tn'}else if(lang==='en'&&ci===1){ci=3;$('f5').value='Example Garage Ltd';$('f6').value='parts@example.com.mt'}else if(lang==='es'){ci=1;$('f5').value='Talleres Ejemplo';$('f6').value='compras@ejemplo.es'}else if(lang==='it'){ci=0;$('f5').value='Autofficina Esempio';$('f6').value='ricambi@esempio.it'}
+    ui()};
+  function ui(){var t=T[lang];$('sH').textContent=t.h;t.l.forEach(function(l,i){$('l'+(i+1)).textContent=l});$('go').textContent=t.b;
+    $('f4').innerHTML=t.c.map(function(c,i){return '<option value="'+i+'"'+(i===ci?' selected':'')+'>'+c+'</option>'}).join('');mail()}
+  function mail(){ci=+$('f4').value;bi=+$('f1').value;var t=T[lang],q=+$('f3').value||1,code=$('f2').value.trim()||'—',co=$('f5').value.trim()||'—',em=$('f6').value.trim()||'—';
+    $('ml').innerHTML='';var add=function(tag,txt){var e=document.createElement(tag);e.textContent=txt;$('ml').appendChild(e)};
+    add('small','Nuova richiesta di preventivo · da '+IT[ci]);add('b',co);add('span','Marca: '+BR[bi]);add('span','Codice OE o telaio: '+code);add('span','Quantità: '+q+' pezzi');add('span','Email: '+em);
+    $('tr').innerHTML='Il cliente ha scritto in <b>'+t.n+'</b>: rispondete in '+t.n+'. '+(ci===0?'':ci===4?'Fuori dall\'Unione europea: serve la dichiarazione doganale di esportazione.':'Dentro l\'Unione europea: controllate la partita IVA su VIES.')}
+  ['f1','f2','f3','f4','f5','f6'].forEach(function(i){$(i).addEventListener('input',mail);$(i).addEventListener('change',mail)});
+  $('go').onclick=function(){var b=this,o=b.textContent;b.textContent='✓';setTimeout(function(){b.textContent=o},1400)};
+  ui();
+
+  /* mercati */
+  var M=[['MT','Malta','inglese','Genuine parts for Maltese workshops, from Sicily.',['genuine Fiat parts Malta','Toyota spare parts wholesale','original car parts supplier'],'A meno di due ore di traghetto da Pozzallo: consegne rapide anche per i ricambisti.','Unione europea: fattura non imponibile verso partita IVA verificata su VIES.'],
+    ['ES','Spagna','spagnolo','Recambios originales para talleres en España.',['recambios originales Peugeot','recambios Fiat originales mayorista','piezas originales Citroën'],'Un mercato grande, con molte officine indipendenti che cercano originale a buon prezzo.','Unione europea: fattura non imponibile verso partita IVA verificata su VIES.'],
+    ['FR','Francia','francese','Pièces d\'origine pour garages et carrosseries.',['pièces d\'origine Renault grossiste','pièces détachées Dacia d\'origine','pièces Peugeot d\'origine'],'Renault, Dacia, Peugeot, Citroën e DS: i marchi più diffusi sono già a magazzino.','Unione europea: fattura non imponibile verso partita IVA verificata su VIES.'],
+    ['TN','Tunisia','francese','Pièces d\'origine Fiat, Peugeot et Renault, depuis la Sicile.',['pièces d\'origine Fiat Tunisie','pièces Peugeot d\'origine Tunisie','fournisseur pièces auto Italie'],'Parco auto con molti marchi europei e collegamenti via mare dalla Sicilia.','Fuori dall\'Unione europea: dichiarazione doganale di esportazione e, dove serve, certificato EUR.1 per l\'origine.'],
+    ['GR','Grecia','inglese','Genuine parts for Greek workshops and fleets.',['genuine Toyota parts Greece','Hyundai original parts supplier','Kia genuine parts wholesale'],'Flotte di noleggio nelle isole: ricambi originali per chi deve rimettere le auto su strada in fretta.','Unione europea: fattura non imponibile verso partita IVA verificata su VIES.']],mi=0;
+  $('mk').innerHTML=M.map(function(m,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===mi)+'"><b>'+m[0]+'</b><span>'+m[1]+'<br><small>in '+m[2]+'</small></span><small>→</small></button>'}).join('');
+  $('mk').onclick=function(e){var b=e.target.closest('button');if(!b)return;mi=+b.dataset.i;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});md()};
+  function md(){var m=M[mi];$('md').innerHTML='<h3></h3><div class="row"><b>Lingua</b><span></span></div><div class="row"><b>Cosa cercano</b><div class="kw"></div></div><div class="row"><b>Perché</b><span></span></div><div class="row"><b>Per spedire</b><span></span></div>';
+    var d=$('md');d.querySelector('h3').textContent='«'+m[3]+'»';var sp=d.querySelectorAll('.row span');sp[0].textContent=m[2].replace(/^./,function(c){return c.toUpperCase()});sp[1].textContent=m[5];sp[2].textContent=m[6];
+    d.querySelector('.kw').innerHTML=m[4].map(function(k){return '<span></span>'}).join('');[].forEach.call(d.querySelectorAll('.kw span'),function(s,i){s.textContent=m[4][i]})}
+  md();
+})();
+</script>
+</body>
+</html>

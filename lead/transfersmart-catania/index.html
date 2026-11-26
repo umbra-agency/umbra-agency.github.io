@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TransferSmart · Il nome è già in sala arrivi</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Sora;src:url(../lib/fonts/sora-normal.woff2) format("woff2");font-weight:100 800;font-display:swap}
+@font-face{font-family:IT;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* Catania: pietra lavica, calce dei palazzi, il giallo dei tabelloni, lo Ionio */
+  --lava:#1E1D22; --lava2:#2B2A31; --calce:#F1F0EC; --pietra:#D9D7D1; --ambra:#F3B638; --ionio:#2F6FA8; --ink:#1A1A1F; --mut:#666670;
+  --d:Sora,system-ui,sans-serif; --s:IT,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--calce)}
+h1,h2,h3{font-family:var(--d);font-weight:600;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--ambra);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--lava);color:#EDEDEF;padding-bottom:clamp(50px,7vw,96px)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:#A9A9B2}
+.bar b{font:600 21px/1 var(--d);color:#fff;letter-spacing:-.03em}
+.bar b span{color:var(--ambra)}
+.bar a{color:#fff;text-decoration:none;border:1px solid #ffffff33;border-radius:999px;padding:8px 14px;white-space:nowrap}
+.hero h1{font-size:clamp(42px,6.6vw,104px);max-width:13ch;margin-top:clamp(20px,4vw,54px)}
+.hero h1 .dim{color:#8D8D98}
+.hero .lead{max-width:56ch;margin-top:22px;font-size:clamp(16.5px,1.4vw,19px);color:#C9C9D1}
+
+/* tabellone */
+.board{margin-top:clamp(30px,4.5vw,56px);background:#111114;border-radius:14px;padding:clamp(12px,1.6vw,20px);box-shadow:inset 0 0 0 1px #ffffff12}
+.bh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:2px 4px 12px;font-family:var(--d);font-size:14px;color:#8D8D98}
+.bh b{color:var(--ambra);font-weight:600;font-size:15px}
+.bh time{font-variant-numeric:tabular-nums;color:#EDEDEF}
+.grid{display:grid;grid-template-columns:5fr 9fr 12fr 10fr 10fr;gap:6px 14px;font-family:var(--d);font-weight:600}
+.grid .th{font-size:11.5px;color:#6E6E78;font-weight:500;padding:0 2px}
+.row{display:contents}
+.cells{display:flex;gap:2px;min-width:0;overflow:hidden}
+.cells i{flex:0 0 auto;width:clamp(13px,1.25vw,19px);height:clamp(22px,2vw,30px);display:grid;place-items:center;background:#1D1D22;border-radius:3px;font-style:normal;font-size:clamp(12px,1.15vw,17px);color:#F4F4F6;position:relative}
+.cells i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#00000080}
+.cells.st i{color:var(--ambra)}
+.cells.ok i{color:#7BD88F}
+
+/* sezioni */
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(36px,4.6vw,70px)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* preventivo */
+.q{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(20px,3vw,40px);align-items:start}
+.ctl{display:grid;gap:22px}
+.lb{display:block;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1.5px solid #1a1a1f26;background:#fff;border-radius:10px;padding:8px 12px;cursor:pointer;font-weight:600;font-size:14.5px}
+.seg button[aria-pressed=true]{background:var(--lava);color:#fff;border-color:var(--lava)}
+.cars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cars button{border:1.5px solid #1a1a1f26;background:#fff;border-radius:14px;padding:12px;text-align:left;cursor:pointer;display:grid;gap:2px}
+.cars button b{font:600 17px/1.1 var(--d);letter-spacing:-.02em}
+.cars button small{color:var(--mut);font-size:13px}
+.cars button svg{width:100%;height:30px;margin-bottom:6px}
+.cars button[aria-pressed=true]{border-color:var(--ionio);box-shadow:inset 0 0 0 1.5px var(--ionio)}
+.pax{display:flex;align-items:center;gap:12px}
+.pax button{width:40px;height:40px;border-radius:50%;border:1.5px solid #1a1a1f33;background:#fff;font-size:20px;cursor:pointer}
+.pax output{font:600 28px/1 var(--d);min-width:34px;text-align:center}
+.pax small{color:var(--mut)}
+.club{display:flex;gap:10px;align-items:center;cursor:pointer;font-weight:600}
+.club input{width:20px;height:20px;accent-color:var(--ionio)}
+.mapc{background:var(--lava);border-radius:22px;padding:clamp(14px,2vw,24px);color:#EDEDEF;display:grid;gap:14px}
+.mapc svg{width:100%;height:auto}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end}
+.res div{border-top:1px solid #ffffff22;padding-top:10px}
+.res small{display:block;font-size:12.5px;color:#9A9AA4}
+.res b{font:600 clamp(24px,2.6vw,36px)/1 var(--d);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.res .pr b{color:var(--ambra)}
+.go{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.go a{background:var(--ambra);color:var(--lava);font-weight:700;text-decoration:none;padding:12px 18px;border-radius:12px}
+.go .lng{display:flex;gap:4px}
+.go .lng button{border:1px solid #ffffff33;background:none;color:#EDEDEF;border-radius:8px;padding:6px 10px;cursor:pointer;font-weight:600}
+.go .lng button[aria-pressed=true]{background:#fff;color:var(--lava)}
+.msg{font-size:14px;color:#BEBEC6;background:#ffffff0d;border-radius:12px;padding:12px 14px;white-space:pre-line}
+
+/* cartello */
+.sg{background:var(--pietra)}
+.sgg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,56px);align-items:center}
+.sgg label{display:grid;gap:6px;font-weight:600;font-size:14px;margin-bottom:14px}
+.sgg input{border:1.5px solid #1a1a1f33;border-radius:12px;padding:12px 14px;background:#fff;font-size:17px}
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:18px;align-items:center}
+.sign{background:#fff;border-radius:10px;aspect-ratio:4/3;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(14px,2vw,22px);box-shadow:0 30px 40px -28px #0007;transform:rotate(-1.5deg)}
+.sign .tp{display:flex;justify-content:space-between;font:600 14px/1 var(--d);letter-spacing:-.02em}
+.sign .tp span{color:var(--ionio)}
+.sign .nm{display:grid;place-items:center;text-align:center;font:600 clamp(28px,3.6vw,52px)/1 var(--d);letter-spacing:-.04em;overflow-wrap:anywhere}
+.sign .ft{font-size:13px;color:var(--mut);display:flex;justify-content:space-between}
+.wa{background:#E7F3E5;border-radius:18px 18px 18px 4px;padding:14px 16px;font-size:14.5px;line-height:1.5;box-shadow:0 10px 30px -20px #0006}
+.wa small{display:block;color:#5d7a58;font-size:12px;margin-top:6px;text-align:right}
+
+/* piano */
+.pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px)}
+.pl h3{font-size:clamp(24px,2.2vw,32px);margin-bottom:12px}
+.pl ol{display:grid;gap:6px;font-size:15px}
+.pl ol li{border-bottom:1px solid #1a1a1f1a;padding-bottom:6px;display:flex;justify-content:space-between;gap:10px}
+.pl ol li span{color:var(--mut);white-space:nowrap}
+.pl p{color:var(--mut);font-size:15px}
+.big{font:600 clamp(54px,6vw,90px)/1 var(--d);letter-spacing:-.05em;color:var(--ionio);margin-bottom:6px}
+
+@media (max-width:900px){
+  .sh,.q,.sgg,.pl{grid-template-columns:1fr}
+  .grid{grid-template-columns:5fr 9fr 11fr}
+  .grid .c4,.grid .c5{display:none}
+  .stage{grid-template-columns:1fr}
+}
+@media (max-width:520px){.cars{grid-template-columns:1fr}.res{grid-template-columns:1fr 1fr}.res .pr{grid-column:1/-1}.bar>span{display:none}.grid{grid-template-columns:auto auto minmax(0,1fr);gap:5px 8px}.cells i{width:10px;height:20px;font-size:11px}.cells{gap:1.5px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per TransferSmart" data-note="Anteprima preparata da Umbra per TransferSmart NCC di Catania, a partire dal vostro annuncio per nuovi autisti dal 2027. Flotta, contatti e Club Card sono quelli del vostro sito; distanze e tempi sono indicativi, prezzi, nomi e orari sono esempi da sostituire con il vostro listino.">
+
+<header class="hero">
+  <div class="bar"><b>Transfer<span>Smart</span></b><span>NCC Catania · 24 ore su 24 · prezzi fissi</span><a href="https://wa.me/393933896149">WhatsApp</a></div>
+  <div class="wrap">
+    <h1><span class="ln"><span class="li" style="--i:0">Il volo atterra.</span></span><span class="ln"><span class="li dim" style="--i:1">Il nome è già</span></span><span class="ln"><span class="li dim" style="--i:2">in sala arrivi.</span></span></h1>
+    <p class="lead fx" style="--i:3">Ampliate la flotta per il 2027: ogni auto in più ha bisogno di corse prenotate. Questa è la pagina che le porta, in italiano e in inglese, con il prezzo fisso prima di salire e la prenotazione su WhatsApp.</p>
+    <div class="board fx" style="--i:4" aria-label="Arrivi di oggi a Catania Fontanarossa, esempio">
+      <div class="bh"><b>Arrivi · Catania Fontanarossa</b><time id="clk">10:00</time></div>
+      <div class="grid" id="brd">
+        <span class="th">Ora</span><span class="th">Da</span><span class="th">Passeggero</span><span class="th c4">Per</span><span class="th c5">Autista</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Il prezzo, prima di salire.</h2>
+      <p>Chi atterra a Catania cerca tre cose: quanto costa, quanto ci mette, se l'auto c'è. Qui le vede in un colpo, per ogni destinazione e per ognuna delle vostre tre auto. Poi scrive su WhatsApp e il messaggio è già completo.</p>
+    </div>
+    <div class="q">
+      <div class="ctl">
+        <div><span class="lb">Partenza</span><div class="seg" id="from"></div></div>
+        <div><span class="lb">Destinazione</span><div class="seg" id="to"></div></div>
+        <div><span class="lb">Auto</span><div class="cars" id="car"></div></div>
+        <div><span class="lb">Passeggeri</span><div class="pax"><button type="button" id="pm" aria-label="Un passeggero in meno">−</button><output id="pn">2</output><button type="button" id="pp" aria-label="Un passeggero in più">+</button><small id="ph"></small></div></div>
+        <label class="club"><input type="checkbox" id="cc"> Ho la Club Card TransferSmart (−15%)</label>
+      </div>
+      <div class="mapc">
+        <svg viewBox="0 0 700 445" role="img" aria-label="Mappa della Sicilia con il percorso">
+          <path d="M670 20 L650 40 L622 80 L598 126 L586 160 L574 187 L558 215 L566 250 L584 283 L598 324 L583 345 L568 367 L572 395 L570 420 L540 418 L510 412 L470 392 L426 369 L390 326 L360 322 L328 316 L290 296 L250 273 L205 248 L156 215 L105 198 L58 177 L26 139 L30 110 L40 84 L62 60 L86 43 L100 64 L116 81 L150 78 L180 64 L212 58 L245 82 L280 94 L312 86 L344 78 L380 66 L420 60 L456 54 L490 48 L530 30 L560 24 L588 20 L630 16 Z" fill="#2B2A31" stroke="#3B3A42" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M539 150 l12 -14 l12 14 z" fill="#3B3A42"/>
+          <path id="rt" d="" fill="none" stroke="#F3B638" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7"/>
+          <g id="pts"></g>
+        </svg>
+        <div class="res">
+          <div><small id="lK">Distanza</small><b id="km">66 km</b></div>
+          <div><small id="lT">Tempo</small><b id="tm">55 min</b></div>
+          <div class="pr"><small id="lP">Prezzo fisso</small><b id="pz">100 €</b></div>
+        </div>
+        <p class="msg" id="msg"></p>
+        <div class="go"><div class="lng" role="group" aria-label="Lingua"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="en" aria-pressed="false">EN</button></div><a id="wa" href="#" target="_blank" rel="noopener">Prenota su WhatsApp</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sg">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Il cartello lo prepara la pagina.</h2>
+      <p>Appena arriva la prenotazione, il cliente riceve la conferma col nome dell'autista e l'autista ha il cartello pronto da mostrare. Scrivete un nome e provate.</p>
+    </div>
+    <div class="sgg">
+      <div>
+        <label>Nome sul cartello<input id="sn" value="Fam. Weber" maxlength="26" autocomplete="off"></label>
+        <label>Volo in arrivo alle<input id="st" value="11:10" maxlength="5" inputmode="numeric" autocomplete="off"></label>
+        <label>Autista<input id="sa" value="Salvo" maxlength="16" autocomplete="off"></label>
+      </div>
+      <div class="stage">
+        <div class="sign" aria-live="polite"><div class="tp"><span>TransferSmart</span><b id="sT">11:10</b></div><div class="nm" id="sN">Fam. Weber</div><div class="ft"><span>Catania Fontanarossa</span><span>Sala arrivi</span></div></div>
+        <div class="wa" id="sW"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Il 2027, in tre mosse.</h2>
+      <p>Le auto nuove si ripagano se lavorano tutti i giorni. Per riempirle servono le pagine giuste, la pubblicità quando cercano e le recensioni dopo ogni corsa.</p>
+    </div>
+    <div class="pl">
+      <div>
+        <p class="big">24</p>
+        <h3>Pagine per destinazione</h3>
+        <ol>
+          <li>Aeroporto → Taormina<span>IT · EN</span></li>
+          <li>Aeroporto → Siracusa e Ortigia<span>IT · EN</span></li>
+          <li>Aeroporto → Noto, Modica, Ragusa<span>IT · EN</span></li>
+          <li>Aeroporto → Etna, Rifugio Sapienza<span>IT · EN</span></li>
+          <li>Aeroporto → Cefalù e Palermo<span>IT · EN</span></li>
+          <li>e le altre, una per tratta<span>12 × 2</span></li>
+        </ol>
+      </div>
+      <div>
+        <p class="big">1</p>
+        <h3>Annuncio, quando cercano</h3>
+        <p>Chi scrive «NCC Catania aeroporto» o «Catania airport transfer Taormina» ha già il biglietto in mano. L'annuncio porta dritto alla tratta giusta, col prezzo fisso in vista.</p>
+      </div>
+      <div>
+        <p class="big">+1</p>
+        <h3>Recensione per corsa</h3>
+        <p>A fine corsa il cliente riceve un messaggio con il link per la recensione su Google e, dalla seconda, lo sconto della Club Card. Chi torna in Sicilia vi richiama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Gli autisti guidano. Le prenotazioni le portiamo noi.</h2>
+    <ul>
+      <li><b>Pagina prezzi e prenotazioni</b>Tratte, auto e prezzi fissi del vostro listino, con il messaggio WhatsApp già completo.</li>
+      <li><b>Italiano e inglese</b>Ogni tratta in due lingue, per chi atterra da Londra, Monaco o Parigi.</li>
+      <li><b>Google e recensioni</b>Annunci sulle tratte che rendono e richiesta di recensione dopo ogni corsa.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto: voi aggiornate solo prezzi e disponibilità.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per TransferSmart. Prezzi, nomi e orari d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* tabellone */
+  var R=[['10:05','MILANO','SIG.RA BIANCHI','TAORMINA','SALVO'],['10:20','ROMA','FAM. RUSSO','SIRACUSA','ALFIO'],['10:45','LONDRA','MR TAYLOR','NOTO','CARMELO'],['11:10','MONACO','FAM. WEBER','CEFALU','SALVO'],['11:30','PARIGI','MME LAURENT','ETNA','ALFIO'],['11:55','BOLOGNA','DOTT. GRECO','CATANIA','CARMELO'],['12:15','BERLINO','HERR KLEIN','MODICA','NINO'],['12:40','TORINO','FAM. ESPOSITO','ACIREALE','NINO']];
+  var W=[5,8,13,8,7],brd=$('brd'),rows=[],AB='ABCDEFGHILMNOPRSTUVZ0123456789';
+  for(var r=0;r<5;r++){var cs=[];for(var c=0;c<5;c++){var s=document.createElement('span');s.className='cells'+(c===4?' ok':'')+(c>=3?' c'+(c+1):'');var h='';for(var k=0;k<W[c];k++)h+='<i></i>';s.innerHTML=h;brd.appendChild(s);cs.push(s)}rows.push(cs)}
+  function put(cell,txt,anim){var is=cell.children,t=(txt+'                ').slice(0,is.length);
+    [].forEach.call(is,function(el,k){var ch=t[k];if(!anim||U.reduce){el.textContent=ch;return}var n=4+Math.floor(Math.random()*7),j=0;var iv=setInterval(function(){j++;if(j>=n){clearInterval(iv);el.textContent=ch;return}el.textContent=ch===' '&&j>n-2?' ':AB[Math.floor(Math.random()*AB.length)]},55+k*4)})}
+  var off=0;
+  function fill(anim){for(var r=0;r<5;r++){var d=R[(r+off)%R.length];for(var c=0;c<5;c++)put(rows[r][c],d[c],anim)}$('clk').textContent=R[off%R.length][0].replace(/:(\d)\d/,function(m,a){return ':'+a+'0'})}
+  fill(false);setTimeout(function(){fill(true)},1700);
+  if(!U.reduce)setInterval(function(){off++;fill(true)},7000);
+
+  /* preventivo */
+  var P={cta:[553,223],cat:[557,214],acr:[573,187],tao:[597,126],etn:[540,164],sir:[597,323],not:[554,369],rag:[486,360],mod:[492,378],pia:[414,244],agr:[255,263],cef:[344,79],pal:[212,59],mes:[651,40]};
+  var D={cat:['Catania centro','Catania centre',7,15],acr:['Acireale','Acireale',30,30],tao:['Taormina','Taormina',66,55],etn:['Etna · Rif. Sapienza','Etna · Rifugio Sapienza',50,60],sir:['Siracusa','Syracuse',60,50],not:['Noto','Noto',85,70],rag:['Ragusa','Ragusa',100,85],mod:['Modica','Modica',110,90],pia:['Piazza Armerina','Piazza Armerina',95,75],agr:['Agrigento','Agrigento',165,120],cef:['Cefalù','Cefalù',185,125],pal:['Palermo','Palermo',210,140],mes:['Messina','Messina',100,75]};
+  var F={cta:['Aeroporto','Airport'],port:['Porto','Port'],stz:['Stazione','Station']};
+  var C={std:['Standard','5 posti · diesel',1,4],van:['VAN','7 posti',1.35,7],lux:['Luxury','5 posti · berlina',1.7,4]};
+  var st={from:'cta',to:'tao',car:'std',pax:2,cc:false,l:'it'};
+  function seg(el,O,key,lab){el.innerHTML=Object.keys(O).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(st[key]===k)+'">'+lab(O[k])+'</button>'}).join('');
+    el.onclick=function(e){var b=e.target.closest('button');if(!b)return;st[key]=b.dataset.k;[].forEach.call(el.children,function(x){x.setAttribute('aria-pressed',x===b)});draw()}}
+  seg($('from'),F,'from',function(o){return o[0]});
+  seg($('to'),D,'to',function(o){return o[0]});
+  var carSvg='<svg viewBox="0 0 120 30" aria-hidden="true"><path d="M8 22 L14 13 Q18 8 26 8 L80 8 Q90 8 98 14 L110 18 Q114 19 114 22 L114 24 L8 24 Z" fill="#1E1D22"/><circle cx="30" cy="24" r="5" fill="#F1F0EC" stroke="#1E1D22" stroke-width="3"/><circle cx="92" cy="24" r="5" fill="#F1F0EC" stroke="#1E1D22" stroke-width="3"/></svg>';
+  var vanSvg='<svg viewBox="0 0 120 30" aria-hidden="true"><path d="M8 24 L8 10 Q8 4 16 4 L84 4 Q92 4 98 11 L112 18 Q114 19 114 22 L114 24 Z" fill="#1E1D22"/><circle cx="30" cy="24" r="5" fill="#F1F0EC" stroke="#1E1D22" stroke-width="3"/><circle cx="92" cy="24" r="5" fill="#F1F0EC" stroke="#1E1D22" stroke-width="3"/></svg>';
+  $('car').innerHTML=Object.keys(C).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(st.car===k)+'">'+(k==='van'?vanSvg:carSvg)+'<b>'+C[k][0]+'</b><small>'+C[k][1]+'</small></button>'}).join('');
+  $('car').onclick=function(e){var b=e.target.closest('button');if(!b)return;st.car=b.dataset.k;if(st.pax>C[st.car][3])st.pax=C[st.car][3];draw()};
+  $('pm').onclick=function(){st.pax=Math.max(1,st.pax-1);draw()};
+  $('pp').onclick=function(){st.pax=Math.min(7,st.pax+1);if(st.pax>C[st.car][3])st.car='van';draw()};
+  $('cc').onchange=function(){st.cc=this.checked;draw()};
+  [].forEach.call(document.querySelectorAll('.lng button'),function(b){b.onclick=function(){st.l=b.dataset.l;[].forEach.call(b.parentNode.children,function(x){x.setAttribute('aria-pressed',x===b)});draw()}});
+  var g=$('pts');
+  Object.keys(D).forEach(function(k){var p=P[k];g.insertAdjacentHTML('beforeend','<g data-k="'+k+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="4" fill="#8D8D98"/><text x="'+(p[0]+(p[0]>600?-8:8))+'" y="'+(p[1]+4)+'" font-family="Sora" font-size="13" fill="#A9A9B2" text-anchor="'+(p[0]>600?'end':'start')+'">'+D[k][0].split(' ·')[0]+'</text></g>')});
+  g.insertAdjacentHTML('beforeend','<circle cx="553" cy="223" r="7" fill="#F3B638"/><text x="545" y="244" font-family="Sora" font-size="12" font-weight="600" fill="#F3B638" text-anchor="end">CTA</text>');
+  function r5(v){return Math.round(v/5)*5}
+  function draw(){
+    var d=D[st.to],c=C[st.car],a=P.cta,b=P[st.to],extra=st.from==='cta'?0:-4;
+    var km=Math.max(3,d[2]+extra),mn=Math.max(10,d[3]+(st.from==='cta'?0:-5));
+    var pz=Math.max(35,r5((25+km*1.15)*c[2]));if(st.cc)pz=r5(pz*.85);
+    var mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,dx=b[0]-a[0],dy=b[1]-a[1],L=Math.max(1,Math.hypot(dx,dy)),cx=mx-dy/L*Math.min(60,L*.25),cy=my+dx/L*Math.min(60,L*.25);
+    $('rt').setAttribute('d','M'+a[0]+' '+a[1]+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+b[0]+' '+b[1]);
+    [].forEach.call(g.querySelectorAll('g[data-k]'),function(n){var on=n.dataset.k===st.to;n.firstChild.setAttribute('fill',on?'#F3B638':'#8D8D98');n.firstChild.setAttribute('r',on?6:4);n.lastChild.setAttribute('fill',on?'#fff':'#A9A9B2')});
+    [].forEach.call($('car').children,function(x){x.setAttribute('aria-pressed',x.dataset.k===st.car)});
+    $('pn').textContent=st.pax;var en=st.l==='en';
+    $('ph').textContent=en?('up to '+c[3]+' in the '+c[0]):('fino a '+c[3]+' con la '+c[0]);
+    $('lK').textContent=en?'Distance':'Distanza';$('lT').textContent=en?'Time':'Tempo';$('lP').textContent=en?'Fixed price':'Prezzo fisso';
+    $('km').textContent=km+' km';$('tm').textContent=mn<60?mn+' min':Math.floor(mn/60)+' h '+(mn%60?(mn%60)+'′':'');$('pz').textContent=pz+' €';
+    var fr=F[st.from][en?1:0],to=d[en?1:0];
+    var m=en?('Hello TransferSmart, I would like to book a transfer.\nFrom: '+fr+' (Catania)\nTo: '+to+'\nCar: '+c[0]+', '+st.pax+(st.pax>1?' passengers':' passenger')+'\nFixed price shown: '+pz+' €'+(st.cc?' (Club Card)':'')+'\nFlight and arrival time: ')
+            :('Buongiorno TransferSmart, vorrei prenotare un transfer.\nDa: '+fr+' (Catania)\nA: '+to+'\nAuto: '+c[0]+', '+st.pax+(st.pax>1?' passeggeri':' passeggero')+'\nPrezzo fisso visto: '+pz+' €'+(st.cc?' (Club Card)':'')+'\nVolo e orario di arrivo: ');
+    $('msg').textContent=m;$('wa').textContent=en?'Book on WhatsApp':'Prenota su WhatsApp';
+    $('wa').href='https://wa.me/393933896149?text='+encodeURIComponent(m);
+  }
+  draw();
+
+  /* cartello */
+  function sg(){var n=$('sn').value.trim()||'Il vostro nome',t=$('st').value.trim()||'—',a=$('sa').value.trim()||'Salvo';
+    $('sN').textContent=n;$('sT').textContent=t;
+    $('sW').innerHTML='';var p=document.createElement('p');p.textContent='Buonasera '+n+', confermato il transfer di domani. Il volo è previsto alle '+t+': '+a+' vi aspetta in sala arrivi col cartello TransferSmart. Se il volo ritarda non vi preoccupate, lo seguiamo noi.';$('sW').appendChild(p);$('sW').insertAdjacentHTML('beforeend','<small>TransferSmart · 21:04 ✓✓</small>')}
+  ['sn','st','sa'].forEach(function(i){$(i).addEventListener('input',sg)});sg();
+})();
+</script>
+</body>
+</html>

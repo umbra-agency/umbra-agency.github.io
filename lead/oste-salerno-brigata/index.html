@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tre posti liberi in brigata · Salerno, centro storico</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:DMS;src:url(../lib/fonts/dm-serif-display-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:DMS;src:url(../lib/fonts/dm-serif-display-italic.woff2) format("woff2");font-style:italic;font-display:swap}
+@font-face{font-family:Space;src:url(../lib/fonts/space-grotesk-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+:root{
+  /* le maioliche di Vietri, a dieci minuti: blu cobalto, giallo limone, verde ramina, lo smalto bianco, il pomodoro */
+  --cob:#1F4FA3; --cob2:#173B7A; --lim:#F2C230; --ram:#2E8B57; --smalto:#FBFAF6; --pom:#D33F2F; --ink:#1A1B20; --mut:#5E616B;
+  --d:DMS,Georgia,serif; --s:Space,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--smalto)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+h1 em,h2 em{font-style:italic}
+:focus-visible{outline:3px solid var(--lim);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.tiles{height:46px;background:var(--smalto) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46' viewBox='0 0 46 46'%3E%3Crect width='46' height='46' fill='%23FBFAF6'/%3E%3Cpath d='M0 0h46v46H0z' fill='none' stroke='%231F4FA3' stroke-width='2'/%3E%3Ccircle cx='23' cy='23' r='9' fill='%23F2C230'/%3E%3Cpath d='M23 4c4 6 4 8 0 10c-4-2-4-4 0-10zM23 42c4-6 4-8 0-10c-4 2-4 4 0 10zM4 23c6-4 8-4 10 0c-2 4-4 4-10 0zM42 23c-6-4-8-4-10 0c2 4 4 4 10 0z' fill='%232E8B57'/%3E%3Cpath d='M0 0l8 8M46 0l-8 8M0 46l8-8M46 46l-8-8' stroke='%231F4FA3' stroke-width='3'/%3E%3C/svg%3E") repeat-x;background-size:46px 46px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:var(--mut)}
+.bar b{font:italic 400 26px/1 var(--d);color:var(--cob2)}
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;padding-block:clamp(20px,4vw,56px) clamp(60px,8vw,110px)}
+.hero h1{font-size:clamp(44px,5.2vw,86px);color:var(--cob2)}
+.hero h1 em{color:var(--pom)}
+.hero .lead{max-width:48ch;margin-top:22px;font-size:clamp(16.5px,1.35vw,18.5px);color:#3B3E48}
+.kit{background:#fff;border:2px solid var(--cob);border-radius:18px;padding:clamp(12px,2vw,20px);box-shadow:8px 8px 0 var(--cob)}
+.kit svg{width:100%;height:auto}
+.kit text{font-family:Space;font-size:13px}
+.kit .st{cursor:pointer}
+.kit .st rect{transition:fill .3s}
+.kit .free rect{fill:#FDF3CC;stroke:var(--pom);stroke-dasharray:6 5;animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{fill:#F2C230}}
+.kit .st.on rect{fill:var(--lim)!important;stroke:var(--cob2);stroke-dasharray:none}
+.kd{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline;border-top:2px dotted #1F4FA355;margin-top:10px;padding-top:12px;min-height:84px}
+.kd b{font:400 26px/1.1 var(--d);color:var(--cob2);grid-column:1/-1}
+.kd span{font-size:14.5px;color:var(--mut);grid-column:1/-1}
+
+.sec{padding-block:clamp(60px,8vw,116px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px 48px;align-items:end;margin-bottom:clamp(26px,4vw,46px)}
+.sh h2{font-size:clamp(42px,5vw,80px);color:var(--cob2)}
+.sh p{max-width:52ch;color:var(--mut)}
+
+/* offerta */
+.of{background:var(--cob);color:#fff}
+.of .sh h2{color:#fff}.of .sh p{color:#C9D6F0}
+.og{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:2px solid #ffffff55}
+.og div{aspect-ratio:1.35;padding:clamp(16px,2.4vw,28px);border:1px solid #ffffff33;display:grid;align-content:space-between;position:relative}
+.og div:nth-child(odd){background:#ffffff0a}
+.og b{font:400 clamp(30px,3.4vw,52px)/1 var(--d)}
+.og div:first-child b{color:var(--lim)}
+.og span{color:#DCE5F7;font-size:15px;max-width:30ch}
+.og i{position:absolute;top:14px;right:14px;width:18px;height:18px;border-radius:50%;background:var(--lim);box-shadow:0 0 0 5px #ffffff22}
+.og div:nth-child(3n+2) i{background:var(--ram)}.og div:nth-child(3n) i{background:var(--pom)}
+
+/* candidatura */
+.cg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(18px,3vw,44px);align-items:start}
+.fm{display:grid;gap:16px}
+.lb{display:block;font-size:13px;font-weight:700;color:var(--mut);margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:2px solid #1F4FA333;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:14.5px;color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--cob);border-color:var(--cob);color:#fff}
+.yr{display:flex;align-items:center;gap:14px}.yr input{flex:1;accent-color:var(--cob)}.yr b{font:400 40px/1 var(--d);color:var(--cob2);min-width:96px}
+.fm input[type=text]{width:100%;border:2px solid #1F4FA333;border-radius:12px;padding:11px 13px;background:#fff;font-size:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sw{display:flex;gap:10px;align-items:center;font-weight:600;cursor:pointer}
+.sw input{width:20px;height:20px;accent-color:var(--ram)}
+.mail{background:#fff;border:2px solid var(--cob);border-radius:18px;overflow:hidden;position:sticky;top:16px}
+.mail .hd{background:var(--cob);color:#fff;padding:12px 16px;font-size:14px;display:grid;gap:2px}
+.mail .hd b{font-weight:700}
+.mail pre{margin:0;padding:16px;white-space:pre-wrap;font:400 15px/1.55 var(--s)}
+.mail a{display:block;margin:0 16px 16px;text-align:center;background:var(--pom);color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:12px}
+.mail small{display:block;padding:0 16px 16px;color:var(--mut);font-size:13px}
+
+/* dove */
+.dv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.dv div{border-top:4px solid var(--cob);padding-top:14px}
+.dv div:nth-child(2){border-color:var(--lim)}.dv div:nth-child(3){border-color:var(--ram)}.dv div:nth-child(4){border-color:var(--pom)}
+.dv h3{font-size:28px;color:var(--cob2);margin-bottom:8px}
+.dv p{color:var(--mut);font-size:15px}
+
+@media (max-width:900px){.hg,.sh,.cg{grid-template-columns:1fr}.og{grid-template-columns:1fr 1fr}.dv{grid-template-columns:1fr 1fr}.mail{position:static}}
+@media (max-width:520px){.og{grid-template-columns:1fr}.og div{aspect-ratio:auto;min-height:150px}.dv{grid-template-columns:1fr}.two{grid-template-columns:1fr}.bar>span{display:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per il vostro ristorante" data-note="Anteprima preparata da Umbra a partire dal vostro annuncio per 3 chef de partie nel centro storico di Salerno. Stipendio, riposo, orario, alloggio, contratto e cucina sono quelli dell'annuncio; la pianta della cucina e le partite sono un esempio da adattare alla vostra brigata.">
+
+<div class="tiles" aria-hidden="true"></div>
+<header class="hero">
+  <div class="bar"><b>Cucina · centro storico di Salerno</b><span>a due passi dal lungomare</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">Tre posti liberi</span></span><span class="ln"><span class="li" style="--i:1">in brigata.</span></span><span class="ln"><span class="li" style="--i:2"><em>Il martedì,</em></span></span><span class="ln"><span class="li" style="--i:3"><em>sempre a casa.</em></span></span></h1>
+      <p class="lead fx" style="--i:4">Un buon chef de partie legge decine di annunci a settimana e sceglie quello che gli dice tutto subito. Questa è la pagina che glielo dice: la cucina, la brigata, lo stipendio, il riposo. E la candidatura si fa in due minuti dal telefono.</p>
+    </div>
+    <div class="kit fx" style="--i:3">
+      <svg viewBox="0 0 520 330" role="img" aria-label="Pianta della cucina d'esempio, con tre partite libere">
+        <rect x="10" y="10" width="500" height="310" rx="10" fill="#FBFAF6" stroke="#1F4FA3" stroke-width="2"/>
+        <rect x="30" y="140" width="460" height="44" rx="6" fill="#E6ECF7"/><text x="260" y="167" text-anchor="middle" fill="#173B7A" font-weight="700">Il passe</text>
+        <g id="sts"></g>
+        <text x="260" y="312" text-anchor="middle" fill="#5E616B" font-size="11.5">Esempio di brigata · toccate una partita</text>
+      </svg>
+      <div class="kd" aria-live="polite"><b id="kT">Primi · posto libero</b><span id="kS"></span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec of">
+  <div class="wrap">
+    <div class="sh">
+      <h2>Quello che offrite, <em>detto chiaro.</em></h2>
+      <p>Sono le righe del vostro annuncio, messe dove un cuoco le vede in tre secondi. Lo stipendio prima di tutto: è la prima cosa che cerca, e voi lo scrivete. Molti non lo fanno.</p>
+    </div>
+    <div class="og">
+      <div><i></i><b>2.000 – 2.400 €</b><span>netti al mese, in base all'esperienza e al ruolo</span></div>
+      <div><i></i><b>Martedì libero</b><span>riposo fisso, ogni settimana</span></div>
+      <div><i></i><b>Orario spezzato</b><span>pranzo e cena, con la pausa nel pomeriggio</span></div>
+      <div><i></i><b>Alloggio</b><span>condiviso, se venite da fuori Salerno</span></div>
+      <div><i></i><b>Contratto</b><span>massima flessibilità: valutate ogni formula</span></div>
+      <div><i></i><b>Cucina campana</b><span>tradizionale, con spunti di rivisitazione contemporanea</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <h2>La candidatura, <em>in due minuti.</em></h2>
+      <p>Niente curriculum da impaginare: il cuoco sceglie la partita, gli anni di esperienza, dove lavora ora e un link alle foto dei piatti. A voi arriva un'email ordinata, con l'oggetto che avete chiesto.</p>
+    </div>
+    <div class="cg">
+      <div class="fm">
+        <div><span class="lb">Partita</span><div class="chips" id="pt"></div></div>
+        <div><span class="lb">Anni in cucina</span><div class="yr"><input type="range" id="an" min="4" max="20" value="6" aria-label="Anni di esperienza"><b id="aO">6 anni</b></div></div>
+        <div class="two"><label><span class="lb">Nome</span><input type="text" id="nm" value="Antonio" maxlength="30"></label><label><span class="lb">Dove lavori ora</span><input type="text" id="dv" value="Ristorante in Costiera" maxlength="40"></label></div>
+        <label><span class="lb">Link alle foto dei tuoi piatti</span><input type="text" id="ig" value="instagram.com/..." maxlength="60"></label>
+        <div><span class="lb">Disponibile da</span><div class="chips" id="dp"></div></div>
+        <label class="sw"><input type="checkbox" id="al" checked> Mi serve l'alloggio</label>
+      </div>
+      <div class="mail" aria-live="polite">
+        <div class="hd"><span>A: <b>oste.salerno@gmail.com</b></span><span id="ob"></span></div>
+        <pre id="bd"></pre>
+        <a id="mt" href="#">Invia la candidatura</a>
+        <small>Si apre l'email del telefono, già scritta. Il curriculum si può allegare, non è obbligatorio.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><h2>Dove la facciamo girare.</h2><p>Una pagina sola, linkata ovunque. Così ogni candidatura arriva nello stesso modo, e sapete da dove è arrivata.</p></div>
+    <div class="dv">
+      <div><h3>Instagram</h3><p>Il video del passe in servizio e la storia con il link. I cuochi si cercano lì.</p></div>
+      <div><h3>Gruppi di cuochi</h3><p>I gruppi Facebook di lavoro in cucina in Campania, con il link al posto del testo lungo.</p></div>
+      <div><h3>Portali</h3><p>Indeed, InfoJobs e Subito, con lo stesso stipendio e lo stesso link.</p></div>
+      <div><h3>Scuole</h3><p>Gli istituti alberghieri della provincia, per chi esce con qualche anno di stagioni alle spalle.</p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Voi cercate i cuochi giusti. La pagina e la diffusione le seguiamo noi.</h2>
+    <ul>
+      <li><b>Pagina «Lavora con noi»</b>Cucina, brigata, stipendio e riposo, chiari, con la candidatura dal telefono.</li>
+      <li><b>Candidature ordinate</b>Partita, anni, foto dei piatti e alloggio in ogni email, con l'oggetto che volete.</li>
+      <li><b>Diffusione</b>Instagram, gruppi, portali e scuole, tutti verso la stessa pagina.</li>
+      <li><b>Da esterni</b>Lo seguiamo noi da remoto: voi fate solo i colloqui.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra. Pianta della cucina e nomi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var ST=[['Chef',210,40,100,60,0,'Firma i piatti e chiama le comande al passe.'],['Sous chef',330,40,100,60,0,'Tiene la linea quando lo chef è in sala o al mercato.'],
+    ['Antipasti',30,210,100,70,1,'Crudi, fritture e antipasti di mare. Posto libero.'],['Primi',150,210,100,70,1,'Paste fresche e secche, ragù, sughi di mare. Posto libero.'],['Secondi',270,210,100,70,1,'Carne e pesce alla griglia e in forno. Posto libero.'],['Pasticceria',390,210,100,70,0,'Dolci della tradizione campana e del giorno.'],
+    ['Lavaggio',30,40,100,60,0,'']];
+  var cur=3;
+  function draw(){$('sts').innerHTML=ST.map(function(s,i){return '<g class="st'+(s[5]?' free':'')+(i===cur?' on':'')+'" data-i="'+i+'" tabindex="0" role="button" aria-label="'+s[0]+'"><rect x="'+s[1]+'" y="'+s[2]+'" width="'+s[3]+'" height="'+s[4]+'" rx="8" fill="'+(s[5]?'#FDF3CC':'#fff')+'" stroke="#1F4FA3" stroke-width="2"/><text x="'+(s[1]+s[3]/2)+'" y="'+(s[2]+s[4]/2-(s[5]?2:-4))+'" text-anchor="middle" fill="#173B7A" font-weight="700">'+s[0]+'</text>'+(s[5]?'<text x="'+(s[1]+s[3]/2)+'" y="'+(s[2]+s[4]/2+16)+'" text-anchor="middle" fill="#D33F2F" font-size="11.5" font-weight="700">posto libero</text>':'')+'</g>'}).join('');
+    var s=ST[cur];$('kT').textContent=s[0]+(s[5]?' · posto libero':'');$('kS').textContent=s[6]||'La brigata che vi aiuta a reggere il servizio.'}
+  $('sts').addEventListener('click',function(e){var g=e.target.closest('[data-i]');if(!g)return;cur=+g.dataset.i;draw()});
+  $('sts').addEventListener('keydown',function(e){var g=e.target.closest('[data-i]');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();cur=+g.dataset.i;draw()}});
+  draw();
+  if(!U.reduce){var fr=[2,3,4],k=0,auto=setInterval(function(){cur=fr[k++%3];draw()},3200);$('sts').addEventListener('click',function(){clearInterval(auto)},{once:true})}
+  /* candidatura */
+  var P=['Antipasti','Primi','Secondi','Indifferente'],pt='Primi',D=['Subito','Da gennaio','Da febbraio','Da marzo'],dp='Da gennaio';
+  function ch(id,arr,get,set){$(id).innerHTML=arr.map(function(x){return '<button type="button" aria-pressed="'+(x===get())+'">'+x+'</button>'}).join('');
+    $(id).onclick=function(e){var b=e.target.closest('button');if(!b)return;set(b.textContent);[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});ml()}}
+  ch('pt',P,function(){return pt},function(v){pt=v});ch('dp',D,function(){return dp},function(v){dp=v});
+  function ml(){var a=+$('an').value,nm=$('nm').value.trim()||'—';$('aO').textContent=a+' anni';
+    var ob='Candidatura Chef de Partie · '+pt+' · '+a+' anni';$('ob').textContent='Oggetto: '+ob;
+    var b='Buongiorno,\nmi chiamo '+nm+' e mi candido come chef de partie'+(pt==='Indifferente'?'':' ai '+pt.toLowerCase())+'.\n\nAnni in cucina: '+a+'\nDove lavoro ora: '+($('dv').value.trim()||'—')+'\nFoto dei miei piatti: '+($('ig').value.trim()||'—')+'\nDisponibile: '+dp.toLowerCase()+'\nAlloggio: '+($('al').checked?'mi serve':'non mi serve')+'\n\nGrazie, '+nm;
+    $('bd').textContent=b;$('mt').href='mailto:oste.salerno@gmail.com?subject='+encodeURIComponent(ob)+'&body='+encodeURIComponent(b)}
+  ['an','nm','dv','ig'].forEach(function(i){$(i).addEventListener('input',ml)});$('al').onchange=ml;ml();
+})();
+</script>
+</body>
+</html>
