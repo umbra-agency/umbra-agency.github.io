@@ -114,6 +114,21 @@ h1 i,h2 i{font:italic 400 1.06em/1 var(--i);letter-spacing:-.02em}
 .book p b{display:block;font:800 clamp(17px,1.5vw,21px)/1.2 var(--s);letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .book a{flex:none;background:var(--coral);color:#fff;text-decoration:none;font:800 16px/1 var(--s);padding:15px 20px;border-radius:14px;white-space:nowrap}
 @media(max-width:760px){.book{margin-left:0;bottom:60px}.book p span{display:none}body{padding-bottom:140px}}
+
+/* ---------- il piano dell'estate ---------- */
+.plan{background:var(--deep);color:#fff;padding:clamp(70px,9vw,130px) var(--pad)}
+.plan h2{font-size:clamp(42px,5.6vw,90px);margin:0 0 12px;max-width:15ch}
+.plan>p{font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin:0 0 clamp(28px,4vw,50px);opacity:.88}
+.mesi{display:grid;grid-template-columns:repeat(9,1fr);border-top:2px solid #ffffff59}
+.mesi button{border:0;background:none;color:inherit;text-align:left;padding:14px 10px 12px 0;cursor:pointer;font-weight:700;font-size:15px;opacity:.55;border-top:4px solid transparent;margin-top:-3px}
+.mesi button[aria-pressed=true]{opacity:1;border-color:var(--coral)}
+.mm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2.4vw,34px);margin-top:26px}
+.mm div{background:#ffffff12;border-radius:14px;padding:20px}
+.mm small{display:block;font-weight:700;font-size:13px;color:var(--aqua);margin-bottom:8px;letter-spacing:.02em}
+.mm b{display:block;font:italic 400 clamp(24px,2.4vw,34px)/1.05 var(--i);margin-bottom:10px}
+.mm ul{margin:0;padding-left:18px;font-size:15px;opacity:.9}
+.mm li{margin-bottom:6px}
+@media(max-width:860px){.mesi{grid-template-columns:repeat(5,1fr)}.mm{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.home img{transform:none}}
 </style>
 </head>
@@ -191,6 +206,13 @@ h1 i,h2 i{font:italic 400 1.06em/1 var(--i);letter-spacing:-.02em}
       <li>Bilocale, Villaggio Chiusurelle<b>118.000 €</b></li>
     </ul>
   </div>
+</section>
+
+<section class="plan" id="piano">
+  <h2>L'estate 2027 si prepara d'inverno.</h2>
+  <p>Mese per mese: quando aprire le prenotazioni, su quali località spingere le campagne Google e cosa pubblicare. Scegliete un mese.</p>
+  <div class="mesi" id="mesi" role="group" aria-label="Mese"></div>
+  <div class="mm" aria-live="polite"><div><small>Prenotazioni</small><b id="m1"></b><ul id="m1l"></ul></div><div><small>Google Ads</small><b id="m2"></b><ul id="m2l"></ul></div><div><small>Social</small><b id="m3"></b><ul id="m3l"></ul></div></div>
 </section>
 
 <footer class="foot">
@@ -271,6 +293,19 @@ h1 i,h2 i{font:italic 400 1.06em/1 var(--i);letter-spacing:-.02em}
   draw();
   setTimeout(function(){var b=strip.querySelector('[aria-pressed=true]');if(b)strip.scrollLeft=b.offsetLeft-strip.clientWidth/2+b.offsetWidth/2},50);
 })();
+(function(){var $=function(i){return document.getElementById(i)};
+  var M={Gen:[['Si apre il calendario 2027','Tutte le settimane online','Prezzi «da» per ogni casa'],['Chi pianifica in anticipo','«case vacanza Porto Cesareo 2027»','«affitto settimanale Salento agosto»'],['Il conto alla rovescia','Le case, una a settimana','Il mare d\'inverno, per ricordarlo']],
+    Feb:[['Le famiglie scelgono','Settimane di agosto in evidenza','Richieste su WhatsApp in un messaggio'],['Agosto, prima che finisca','«Torre Lapillo agosto»','«villa con giardino Porto Cesareo»'],['Le case da dentro','Video di Villa Ginepro','La Casetta Salentina per le coppie']],
+    Mar:[['Pasqua e ponti','Weekend lunghi di aprile e maggio','Offerta per chi prenota due settimane'],['Ponti di primavera','«weekend Porto Cesareo ponte»','«casa vacanza Salento maggio»'],['Le spiagge vicine','Punta Prosciutto, Torre Lapillo','Come arrivare, dove parcheggiare']],
+    Apr:[['Giugno e settembre','Le settimane più convenienti','Pacchetti per lavoratori in smart working'],['Giugno e settembre','«Salento settembre affitto»','«casa al mare giugno Lecce»'],['Settembre è il mare migliore','Acqua calda, spiagge tranquille','Le recensioni degli ospiti']],
+    Mag:[['Le ultime di luglio','Settimane rimaste in evidenza','Lista d\'attesa per agosto'],['Last minute di luglio','«casa vacanze luglio Porto Cesareo»','«appartamento Torre Lapillo luglio»'],['Le case pronte','Pulizie, giardino, biancheria','Il primo bagno della stagione']],
+    Giu:[['Pieno','Solo date libere, aggiornate ogni giorno','Richieste smistate in automatico'],['Campagne sulle date libere','Solo settimane ancora disponibili','Budget spostato ogni lunedì'],['La stagione è iniziata','Storie degli ospiti, con il loro permesso','Il tramonto di Porto Cesareo']],
+    Lug:[['Agosto e settembre','Le ultime settimane libere','Sconto per chi resta due settimane'],['Settembre','«settembre al mare Salento»','«casa vacanze settembre Porto Cesareo»'],['Il mare a mezzogiorno','Reel dalle spiagge','Le case da vicino']],
+    Ago:[['Settembre e 2028','Si raccolgono i contatti per l\'anno dopo','Prelazione per chi torna'],['Ferme','Le case sono piene: si risparmia','Si prepara la stagione 2028'],['Il pieno','Recensioni e foto degli ospiti','Il ferragosto in Salento']],
+    Set:[['Il 2028 si apre','Prelazione agli ospiti del 2027','Le nuove case dei proprietari'],['Proprietari','«affidare casa vacanza Porto Cesareo»','«gestione affitti brevi Salento»'],['Grazie','La stagione in un minuto','Appuntamento al 2028']]};
+  var cur='Feb';$('mesi').innerHTML=Object.keys(M).map(function(k){return '<button aria-pressed="'+(k==cur)+'">'+k+'</button>'}).join('');
+  function d(){var m=M[cur];[1,2,3].forEach(function(i){$('m'+i).textContent=m[i-1][0];$('m'+i+'l').innerHTML=m[i-1].slice(1).map(function(x){return '<li>'+x+'</li>'}).join('')})}
+  $('mesi').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});d()});d()})();
 </script>
 </body>
 </html>
