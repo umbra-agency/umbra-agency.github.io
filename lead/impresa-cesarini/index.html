@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Impresa Cesarini · La ristrutturazione dentro una sfera</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Marcellus;src:url(../lib/fonts/marcellus-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Sora;src:url(../lib/fonts/sora-normal.woff2) format("woff2");font-weight:100 800;font-display:swap}
+:root{
+  /* il peperino di Viterbo, la calce, il vetro della sfera, il verde delle persiane del centro */
+  --pep:#5F5B55; --pep2:#3B3834; --calce:#F4F2EE; --tufo:#D8C7A8; --vetro:#2F6F8F; --vetro2:#BFD9E6; --verde:#1F4D3F; --riga:#3b38341f;
+  --m:Marcellus,Georgia,serif; --s:Sora,system-ui,sans-serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 16px/1.6 var(--s);color:var(--pep2);background:var(--calce)}
+h1,h2,h3{font-family:var(--m);font-weight:400;line-height:1.02;letter-spacing:.005em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--vetro);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1360px;margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:99px;padding:14px 20px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer}
+.btn--v{background:var(--verde);color:#fff}
+.btn--l{background:#fff;color:var(--pep2);box-shadow:inset 0 0 0 1px #3b383440}
+
+/* ---------- la sfera ---------- */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;overflow:hidden;background:radial-gradient(80% 70% at 75% 45%,#fff 0,var(--calce) 60%)}
+.bar{position:absolute;inset:0 0 auto;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad)}
+.bar b{font:400 26px/1 var(--m);letter-spacing:.06em}
+.bar span{font-size:13.5px;font-weight:600}
+.hero__t{padding:110px var(--pad) 60px;position:relative;z-index:2}
+.hero__t small{display:block;font-weight:700;font-size:13px;letter-spacing:.1em;color:var(--vetro);margin-bottom:16px}
+.hero__t h1{font-size:clamp(46px,6vw,98px);margin:0 0 20px}
+.hero__t h1 em{font-style:normal;color:var(--vetro)}
+.hero__t p{font-size:clamp(16.5px,1.4vw,19px);max-width:44ch;margin:0 0 26px}
+.hero__t .row{display:flex;gap:10px;flex-wrap:wrap}
+.sf{position:relative;width:min(640px,46vw);aspect-ratio:1;justify-self:center}
+.sf svg{width:100%;height:100%;display:block;overflow:visible}
+
+/* ---------- garanzie ---------- */
+.gar{background:var(--pep2);color:var(--calce);padding-block:clamp(40px,5vw,70px)}
+.gar__g{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2vw,30px)}
+.gar b{display:block;font:400 clamp(22px,2vw,30px)/1.1 var(--m);margin-bottom:6px;color:#fff}
+.gar span{font-size:14px;opacity:.8}
+
+/* ---------- il calendario ---------- */
+.cal{padding-block:clamp(70px,9vw,130px)}
+.cal__h{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(30px,4vw,50px)}
+.cal h2{font-size:clamp(42px,5.4vw,86px);margin:0}
+.cal__h p{margin:0;font-size:clamp(16.5px,1.4vw,19px);max-width:52ch}
+.cal__ctl{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:clamp(14px,2vw,30px);margin-bottom:24px;align-items:end}
+.cal__ctl label,.cal__ctl .l{display:block;font-weight:700;font-size:13.5px;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid #3b383440;background:#fff;border-radius:99px;padding:9px 14px;font-weight:600;font-size:14.5px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--vetro);color:#fff;border-color:var(--vetro)}
+.mq output{font:400 34px/1 var(--m);display:block;margin-bottom:4px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:none;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--pep)}
+input[type=range]::-moz-range-track{height:3px;background:var(--pep)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--vetro);border:4px solid var(--calce);box-shadow:0 0 0 1px var(--vetro);margin-top:-10px;cursor:grab}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--vetro);border:4px solid var(--calce);box-shadow:0 0 0 1px var(--vetro);cursor:grab}
+select{width:100%;padding:11px 12px;border:1px solid #3b383440;border-radius:6px;background:#fff;font-weight:600}
+.gantt{background:#fff;border-radius:8px;padding:clamp(14px,2vw,24px);box-shadow:0 30px 60px -45px #0006;overflow-x:auto}
+.gr{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:14px;min-width:640px;padding:7px 0;border-bottom:1px solid var(--riga);font-size:14.5px}
+.gr b{font-weight:600}
+.gr .tr{position:relative;height:24px}
+.gr .tr i{position:absolute;top:2px;height:20px;border-radius:4px;background:var(--vetro2);transition:left .5s cubic-bezier(.2,.7,.2,1),width .5s cubic-bezier(.2,.7,.2,1)}
+.gr .tr i.k{background:var(--vetro)}
+.gr .tr i span{position:absolute;left:8px;top:2px;font-size:12px;font-weight:700;color:var(--pep2);white-space:nowrap}
+.gr .tr i.k span{color:#fff}
+.gr.ax{border-bottom:0;font-size:12px;color:var(--pep)}
+.gr.ax .tr{height:18px}
+.gr.ax .tr em{position:absolute;top:0;font-style:normal;transform:translateX(-50%)}
+.cons{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px;padding:20px 22px;border-radius:8px;background:var(--verde);color:#fff}
+.cons b{display:block;font:400 clamp(26px,2.6vw,38px)/1.1 var(--m)}
+.cons span{font-size:14px;opacity:.85}
+.nota{font-size:13px;opacity:.7;margin-top:10px}
+
+/* ---------- dove vi trovano ---------- */
+.can{background:var(--tufo);padding-block:clamp(70px,9vw,130px)}
+.can h2{font-size:clamp(42px,5.4vw,86px);margin:0 0 14px;max-width:16ch}
+.can .lead{font-size:clamp(16.5px,1.4vw,19px);max-width:58ch;margin:0 0 clamp(30px,4vw,50px)}
+.cols{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.col{background:var(--calce);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.col h3{font-size:24px;margin:0}
+.col small{font-size:12.5px;font-weight:700;color:var(--vetro)}
+.col ul{list-style:none;margin:0;padding:0;font-size:14px}
+.col li{padding:8px 0;border-top:1px solid var(--riga)}
+.yt{aspect-ratio:16/9;border-radius:4px;background:#000 url(img/cantiere.jpg) center/cover;position:relative}
+.yt::after{content:"";position:absolute;left:50%;top:50%;width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;transform:translate(-40%,-50%)}
+.fb{border:1px solid var(--riga);border-radius:6px;overflow:hidden;background:#fff;font-size:12.5px}
+.fb div{padding:8px 10px}
+.fb img{width:100%;aspect-ratio:1.4;object-fit:cover;display:block}
+.fb b{display:block;font-size:13px}
+.lead2{background:#fff;border-radius:8px;margin-top:22px;display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;padding:18px 22px}
+.lead2 i{font-style:normal;width:46px;height:46px;border-radius:50%;background:var(--vetro);color:#fff;display:grid;place-items:center;font:400 20px/1 var(--m)}
+.lead2 b{display:block;font-size:15.5px}
+.lead2 span{font-size:14px;opacity:.75}
+.lead2 em{font-style:normal;font-weight:700;font-size:13px;background:var(--verde);color:#fff;padding:7px 10px;border-radius:99px;white-space:nowrap}
+
+/* ---------- famiglia ---------- */
+.fam{padding-block:clamp(70px,9vw,130px)}
+.fam__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.fam h2{font-size:clamp(42px,5vw,80px);margin:0 0 18px}
+.fam p{font-size:clamp(16.5px,1.4vw,19px);margin:0 0 14px;max-width:50ch}
+.pd{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px;--x:50%}
+.pd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pd img+img{clip-path:inset(0 0 0 var(--x))}
+.pd input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.pd span{position:absolute;bottom:12px;font-weight:700;font-size:13px;background:#fffd;padding:6px 10px;border-radius:99px;pointer-events:none}
+.pd .l{left:12px}.pd .r{right:12px}
+.pd i{position:absolute;top:0;bottom:0;left:var(--x);width:2px;background:#fff;pointer-events:none}
+
+.foot{background:var(--pep2);color:var(--calce);padding-block:clamp(40px,6vw,80px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(34px,4.2vw,64px);margin:0}
+.foot p{margin:0;font-size:15px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:1050px){
+  .cols{grid-template-columns:1fr 1fr}
+  .gar__g{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .sf{width:min(420px,86vw);margin-bottom:40px}
+  .hero__t{padding-bottom:20px}
+  .cal__h,.cal__ctl,.fam__g{grid-template-columns:1fr}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .cols{grid-template-columns:1fr}
+  .bar span{display:none}
+  .lead2{grid-template-columns:auto 1fr}
+  .lead2 em{grid-column:1/-1;justify-self:start}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Impresa Cesarini" data-note="Anteprima preparata da Umbra per Impresa Cesarini, a partire dal vostro annuncio per il marketing. Metodo Sfera, garanzie, storia e contatti vengono dal vostro sito; il calendario è un esempio e i tempi veri escono dal sopralluogo. Foto di esempio.">
+
+<section class="hero" id="top">
+  <header class="bar"><b>CESARINI</b><span>Ristrutturazioni a Viterbo, dal 1966</span></header>
+  <div class="hero__t">
+    <small>METODO SFERA</small>
+    <h1>Tempi e costi certi. <em>Altrimenti paghiamo noi.</em></h1>
+    <p>Una ristrutturazione chiavi in mano vista da dentro una sfera di cristallo: i problemi si vedono prima, la casa si consegna nel giorno promesso.</p>
+    <div class="row"><a class="btn btn--v" href="#calendario" data-go>Guarda il calendario del cantiere</a><a class="btn btn--l" href="tel:+390761250172">0761 250172</a></div>
+  </div>
+  <div class="sf"><svg id="sf" viewBox="-320 -320 640 640" aria-label="Una sfera di vetro con dentro la pianta di un appartamento"></svg></div>
+</section>
+
+<section class="gar">
+  <div class="wrap gar__g">
+    <div><b>Zero pensieri</b><span>Solo il piacere di abitare.</span></div>
+    <div><b>Unico interlocutore</b><span>Verso di voi, il Comune e le maestranze.</span></div>
+    <div><b>Unica soluzione</b><span>Edilizia, impianti elettrici, idraulica, interior design.</span></div>
+    <div><b>Certezza nei tempi</b><span>La data esatta di consegna, garantita.</span></div>
+    <div><b>Costi senza sorprese</b><span>Preventivi chiari e trasparenti.</span></div>
+  </div>
+</section>
+
+<section class="cal" id="calendario">
+  <div class="wrap">
+    <div class="cal__h">
+      <h2>Il calendario del vostro cantiere, prima ancora di cominciare.</h2>
+      <p>È il cuore di Sfera: ogni fase pianificata, ogni fornitore coordinato, la data di consegna scritta. Scegliete cosa rifare e quanto è grande la casa, e guardate come si muove il calendario.</p>
+    </div>
+    <div class="cal__ctl">
+      <div><span class="l">Cosa rifate</span><div class="chips" id="int" role="group" aria-label="Interventi"></div></div>
+      <div class="mq"><label for="mq">Metri quadri</label><output id="mqO"></output><input id="mq" type="range" min="40" max="200" step="5" value="90"></div>
+      <div><label for="st">Inizio lavori</label><select id="st"></select></div>
+    </div>
+    <div class="gantt" id="gantt" aria-live="polite"></div>
+    <div class="cons"><div><span>Consegna chiavi in mano</span><b id="cons"></b></div><a class="btn btn--l" href="mailto:cesarini@cesarini.eu" style="background:#fff">Chiedi il sopralluogo</a></div>
+    <p class="nota">Calendario di esempio, con durate indicative. Quello vero, con la data garantita, esce dal sopralluogo e dal progetto Sfera.</p>
+  </div>
+</section>
+
+<section class="can">
+  <div class="wrap">
+    <h2>Dove vi trova chi deve ristrutturare.</h2>
+    <p class="lead">Il vostro annuncio chiede strategie e canali online e offline, campagne Facebook, lead generation, email, YouTube, landing page, blog e SEO. Ecco come li faremmo lavorare insieme, con un messaggio solo: Sfera.</p>
+    <div class="cols">
+      <div class="col"><small>Facebook e Instagram</small><h3>Campagne su Viterbo e provincia</h3><div class="fb"><div><b>Impresa Cesarini</b>Sponsorizzato</div><img src="img/dopo.jpg" alt="" loading="lazy"><div>La data di consegna? Ve la scriviamo prima di cominciare.</div></div><ul><li>Chi cerca casa da ristrutturare</li><li>Chi ha appena comprato</li></ul></div>
+      <div class="col"><small>YouTube</small><h3>Un cantiere Sfera, in sette puntate</h3><div class="yt"></div><ul><li>1 · Il sopralluogo</li><li>2 · Il calendario scritto</li><li>3 · Gli impianti, prima che spariscano</li><li>7 · La consegna, nel giorno promesso</li></ul></div>
+      <div class="col"><small>Blog e SEO</small><h3>Le risposte che cercano</h3><ul><li>Quanto dura ristrutturare un appartamento a Viterbo</li><li>Bagno nuovo: cosa si decide prima</li><li>Chiavi in mano: cosa vuol dire davvero</li><li>Come si legge un preventivo</li></ul></div>
+      <div class="col"><small>Landing page</small><h3>Sopralluogo e calendario</h3><ul><li>Una pagina per ogni campagna</li><li>Il calendario di esempio, come qui sopra</li><li>La garanzia «altrimenti paghiamo noi» in alto</li></ul></div>
+      <div class="col"><small>Email</small><h3>Dopo la richiesta</h3><ul><li>Giorno 0 · conferma del sopralluogo</li><li>Giorno 2 · cos'è Sfera, in due minuti</li><li>Giorno 7 · un cantiere finito, prima e dopo</li><li>Giorno 14 · la vostra data è ancora libera</li></ul></div>
+    </div>
+    <div class="lead2"><i>L</i><div><b>Laura B., appartamento di 85 m² a Viterbo</b><span>Arriva dalla campagna Facebook · vuole rifare bagno e impianti · ha già scelto la cucina</span></div><em>Da richiamare oggi</em></div>
+  </div>
+</section>
+
+<section class="fam">
+  <div class="wrap fam__g">
+    <div>
+      <h2>Fondata nel 1966 da papà Contaldo.</h2>
+      <p>Il sapere imparato in cantiere da nostro padre, unito alla domotica e ai materiali ecosostenibili. Ogni casa trattata come se, alla fine dei lavori, dovessimo abitarci noi.</p>
+      <p>Trecento pagine di schede, azioni e riflessioni dentro Sfera: è per questo che la data di consegna si può garantire.</p>
+    </div>
+    <div class="pd" id="pd" style="--x:50%"><img src="img/cantiere.jpg" alt="Un appartamento durante i lavori"><img src="img/soggiorno.jpg" alt="Lo stesso tipo di ambiente, finito"><i></i><span class="l">Durante</span><span class="r">Dopo</span><input type="range" min="0" max="100" value="50" aria-label="Sposta per confrontare durante e dopo"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Ristrutturazioni chiavi in mano, facili e garantite.</h2>
+    <p>Impresa Cesarini<br>Strada Montarone 2, Viterbo</p>
+    <p>Tel <a href="tel:+390761250172">0761 250172</a> · Cell <a href="tel:+393483677481">348 3677481</a><br><a href="mailto:cesarini@cesarini.eu">cesarini@cesarini.eu</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il reparto marketing che chiede l'annuncio, senza aspettare di formarlo.</h2>
+    <ul>
+      <li><b>Un messaggio solo</b>Sfera e la garanzia sui tempi in ogni canale: annunci, video, articoli, pagine ed email.</li>
+      <li><b>Contatti già filtrati</b>Chi chiede il sopralluogo arriva con metri quadri, lavori e tempi: chi richiama sa già cosa dire.</li>
+      <li><b>La serie su YouTube</b>Un cantiere raccontato in sette puntate: girate dalla squadra col telefono, montate da noi.</li>
+      <li><b>Numeri ogni mese</b>Quanti contatti, da dove, quanti sopralluoghi e quanti contratti: e cosa correggiamo.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Impresa Cesarini. Calendario e contatti di esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+/* ---------- la sfera di cristallo ---------- */
+(function(){
+  var svg=document.getElementById('sf'),mx=0,my=0,cx=0,cy=0;
+  /* pianta di un appartamento */
+  var plan='<g id="pl" stroke="#2F6F8F" stroke-width="3" fill="none" stroke-linecap="square">'+
+    '<rect x="-230" y="-170" width="460" height="340"/>'+
+    '<path d="M-230 -20 H-60 M-60 -170 V30 M-60 70 V170 M60 -170 V-60 M60 -20 V40 H230 M-140 -20 V170 M140 40 V170"/>'+
+    '<path d="M-110 -20 a40 40 0 0 1 40 -40" stroke-width="1.5"/><path d="M60 -60 a36 36 0 0 0 36 36" stroke-width="1.5"/>'+
+    '<rect x="-215" y="-155" width="70" height="34" stroke-width="1.5"/><rect x="-215" y="-110" width="40" height="60" stroke-width="1.5"/>'+
+    '<rect x="80" y="-150" width="130" height="80" rx="8" stroke-width="1.5"/><circle cx="-100" cy="110" r="26" stroke-width="1.5"/><rect x="160" y="70" width="56" height="86" stroke-width="1.5"/>'+
+    '<path d="M-40 -150 H40 M-40 -130 H40" stroke-width="1.5"/></g>'+
+    '<g font-family="Sora" font-size="13" font-weight="700" fill="#2F6F8F"><text x="-210" y="-60">bagno</text><text x="-30" y="-100">ingresso</text><text x="90" y="-40">cucina</text><text x="-20" y="120">soggiorno</text><text x="-210" y="150">camera</text><text x="150" y="160">camera</text></g>';
+  svg.innerHTML='<defs><radialGradient id="g1" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".55" stop-color="#E6F1F6" stop-opacity=".55"/><stop offset=".85" stop-color="#9CC3D6" stop-opacity=".45"/><stop offset="1" stop-color="#2F6F8F" stop-opacity=".55"/></radialGradient>'+
+    '<radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset=".72" stop-color="#2F6F8F" stop-opacity="0"/><stop offset="1" stop-color="#2F6F8F" stop-opacity=".35"/></radialGradient>'+
+    '<clipPath id="cp"><circle r="270"/></clipPath><filter id="bl"><feGaussianBlur stdDeviation="18"/></filter></defs>'+
+    '<ellipse cx="0" cy="300" rx="220" ry="26" fill="#3b3834" opacity=".18" filter="url(#bl)"/>'+
+    '<circle r="270" fill="#F7FAFB"/>'+
+    '<g clip-path="url(#cp)"><g id="mv">'+plan+'</g></g>'+
+    '<circle r="270" fill="url(#g2)"/><circle r="270" fill="url(#g1)" opacity=".55"/>'+
+    '<ellipse cx="-110" cy="-150" rx="90" ry="46" fill="#fff" opacity=".7" transform="rotate(-32 -110 -150)"/>'+
+    '<ellipse cx="150" cy="170" rx="40" ry="16" fill="#fff" opacity=".35" transform="rotate(-38 150 170)"/>'+
+    '<circle r="270" fill="none" stroke="#2F6F8F" stroke-opacity=".35" stroke-width="2"/>';
+  var mv=svg.querySelector('#mv'),t0=performance.now();
+  if(U.fine)addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+  (function f(n){var t=(n-t0)/1000;cx+=(mx-cx)*.06;cy+=(my-cy)*.06;var r=U.reduce?0:Math.sin(t*.25)*6;
+    mv.setAttribute('transform','translate('+(cx*-60)+' '+(cy*-50)+') rotate('+r+') scale('+(1.02+Math.abs(cx)*.08)+')');requestAnimationFrame(f)})(t0);
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();U.scrollTo(document.querySelector(a.getAttribute('href')),0)})});
+})();
+
+/* ---------- il calendario ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var I=[['bagno','Bagno'],['cucina','Cucina'],['imp','Impianti'],['pav','Pavimenti'],['inf','Infissi']],on={bagno:1,cucina:1,imp:1,pav:1,inf:0};
+  $('int').innerHTML=I.map(function(x){return '<button aria-pressed="'+(!!on[x[0]])+'" data-k="'+x[0]+'">'+x[1]+'</button>'}).join('');
+  var M=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'],G=['dom','lun','mar','mer','gio','ven','sab'];
+  var starts=[];var d=new Date(2027,0,11);for(var i=0;i<8;i++){starts.push(new Date(d));d.setDate(d.getDate()+14)}
+  $('st').innerHTML=starts.map(function(s,i){return '<option value="'+i+'">lunedì '+s.getDate()+' '+M[s.getMonth()]+' '+s.getFullYear()+'</option>'}).join('');
+  function addWork(date,n){var x=new Date(date);while(n>0){x.setDate(x.getDate()+1);var w=x.getDay();if(w!=0&&w!=6)n--}return x}
+  function draw(){var mq=+$('mq').value,big=mq>110?1:0,ph=[];
+    $('mqO').textContent=mq+' m²';
+    ph.push(['Progetto Sfera e permessi',10,1]);
+    ph.push(['Demolizioni',4+big*2+(mq>150?2:0),0]);
+    if(on.imp)ph.push(['Impianti elettrici e idraulici',7+big*3,0]);
+    if(on.inf)ph.push(['Infissi',3,0]);
+    if(on.pav)ph.push(['Massetti',5+big*2,0]);
+    if(on.bagno)ph.push(['Bagno',9,0]);
+    if(on.pav)ph.push(['Pavimenti e rivestimenti',6+big*3,0]);
+    ph.push(['Tinteggiatura',4+big*2,0]);
+    if(on.cucina)ph.push(['Montaggio cucina, fornitore coordinato',2,0]);
+    ph.push(['Pulizia e consegna',2,1]);
+    var tot=0,starts2=[];ph.forEach(function(p,i){var s=tot;if(p[0]=='Bagno'&&on.imp){s=Math.max(0,tot-4)}starts2.push(s);tot=Math.max(tot,s+p[1])});
+    var h='<div class="gr ax"><span></span><div class="tr">';for(var w=0;w<=tot;w+=5)h+='<em style="left:'+(w/tot*100)+'%">sett. '+(w/5+1)+'</em>';h+='</div></div>';
+    ph.forEach(function(p,i){h+='<div class="gr"><b>'+p[0]+'</b><div class="tr"><i class="'+(p[2]?'k':'')+'" style="left:'+(starts2[i]/tot*100)+'%;width:'+Math.max(2.5,p[1]/tot*100)+'%"><span>'+p[1]+' gg</span></i></div></div>'});
+    $('gantt').innerHTML=h;
+    var s=starts[+$('st').value],c=addWork(s,tot);$('cons').textContent=G[c.getDay()]+' '+c.getDate()+' '+M[c.getMonth()]+' '+c.getFullYear()+' · '+tot+' giorni lavorativi';
+  }
+  $('int').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;on[b.dataset.k]=on[b.dataset.k]?0:1;b.setAttribute('aria-pressed',!!on[b.dataset.k]);draw()});
+  $('mq').addEventListener('input',draw);$('st').addEventListener('change',draw);
+  draw();
+  var pd=$('pd');pd.querySelector('input').addEventListener('input',function(){pd.style.setProperty('--x',this.value+'%')});
+})();
+</script>
+</body>
+</html>
