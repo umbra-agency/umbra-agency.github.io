@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CiaoMi · Dormi, resta, lavora, festeggia. Milano, tra Niguarda e Bicocca</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Bric;src:url(../lib/fonts/bricolage-grotesque-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:Hank;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* Milano che saluta: il giallo dei tram, il rosso dei mattoni, il verde del parco, il blu della notte */
+  --tram:#FFD21F; --brick:#E4442C; --park:#17845A; --night:#141B4D; --ink:#151515; --paper:#FFFDF4; --sky:#CFE4FF;
+  --d:Bric,system-ui,sans-serif; --s:Hank,system-ui,sans-serif; --pad:clamp(18px,4.6vw,72px);
+}
+html{scroll-padding-top:70px}
+body{font:400 17.5px/1.55 var(--s);color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--d);font-weight:700;letter-spacing:-.035em;line-height:.95;text-wrap:balance}
+.wrap{padding-inline:var(--pad)}
+::selection{background:var(--ink);color:var(--tram)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+.bar{position:fixed;inset:0 0 auto;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);pointer-events:none}
+.bar>*{pointer-events:auto}
+.logo{display:inline-flex;align-items:center;gap:2px;font:700 22px/1 var(--d);letter-spacing:-.04em;text-decoration:none}
+.logo span{position:relative;background:var(--ink);color:var(--tram);padding:7px 10px 8px;border-radius:12px 12px 12px 3px}
+.logo b{padding-left:5px}
+.bar a.cta{background:var(--ink);color:var(--paper);text-decoration:none;font:600 15px/1 var(--d);padding:12px 18px;border-radius:30px}
+
+/* 1 · il saluto */
+.hello{min-height:100vh;min-height:100svh;background:var(--tram);display:grid;grid-template-rows:1fr auto;padding-top:90px}
+.hello__m{align-self:center;padding-inline:var(--pad)}
+.hello h1{font-size:clamp(64px,15.5vw,290px);font-weight:800;letter-spacing:-.06em;display:flex;flex-wrap:wrap;align-items:flex-end;gap:.06em .12em}
+.bub{position:relative;display:inline-grid;background:var(--ink);color:var(--tram);padding:.1em .2em .16em;border-radius:.24em .24em .24em .05em;overflow:hidden;min-width:2.3em;transition:min-width .5s cubic-bezier(.16,1,.3,1)}
+.bub i{font-style:normal;grid-area:1/1;white-space:nowrap;transition:transform .55s cubic-bezier(.16,1,.3,1),opacity .4s}
+.bub i.out{transform:translateY(-110%);opacity:0}
+.bub i.in{transform:translateY(110%);opacity:0}
+.hello p{margin-top:clamp(18px,2.4vw,34px);max-width:30ch;font:500 clamp(20px,2.1vw,30px)/1.2 var(--d);letter-spacing:-.02em}
+.doors{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--ink)}
+.doors a{position:relative;display:block;padding:clamp(16px,2vw,28px) var(--pad) clamp(18px,2.4vw,34px);text-decoration:none;border-right:3px solid var(--ink);overflow:hidden;isolation:isolate}
+.doors a:last-child{border-right:0}
+.doors a::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--c);transform:translateY(101%);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.doors a:hover::before,.doors a:focus-visible::before{transform:none}
+.doors a:hover{color:var(--paper)}
+.doors b{display:block;font:800 clamp(26px,3.6vw,60px)/1 var(--d);letter-spacing:-.04em}
+.doors span{display:block;margin-top:6px;font-size:15px}
+@media(max-width:820px){.doors{grid-template-columns:1fr 1fr}.doors a:nth-child(2){border-right:0}.doors a:nth-child(-n+2){border-bottom:3px solid var(--ink)}}
+
+/* 2 · la casa in 24 ore */
+.day{background:var(--paper);padding-block:clamp(70px,9vw,140px) clamp(50px,6vw,90px)}
+.day__h{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px clamp(30px,6vw,100px);align-items:end}
+.day h2{font-size:clamp(44px,7.4vw,128px)}
+.day__h p{max-width:38ch}
+.house{margin-top:clamp(30px,4vw,60px);border:3px solid var(--ink);border-radius:22px;overflow:hidden;background:var(--sky)}
+.house svg{width:100%;height:auto}
+.house .ppl circle{transition:transform 1.5s cubic-bezier(.5,0,.2,1),opacity .8s}
+.house .win{transition:fill .8s}
+.house .zone{transition:fill .8s}
+.house text{font:600 15px var(--d);fill:var(--ink)}
+.clock{display:grid;grid-template-columns:auto 1fr auto;gap:14px clamp(14px,2.4vw,34px);align-items:center;padding:16px clamp(14px,2.4vw,30px) 18px;border-top:3px solid var(--ink);background:var(--paper)}
+.clock output{font:800 clamp(38px,4.6vw,72px)/1 var(--d);letter-spacing:-.05em;font-variant-numeric:tabular-nums;min-width:3.1em}
+.clock button{width:48px;height:48px;border-radius:50%;border:3px solid var(--ink);background:var(--tram);cursor:pointer;font:700 15px var(--d)}
+.rail{position:relative;height:44px}
+.rail::before{content:"";position:absolute;left:0;right:0;top:50%;height:10px;transform:translateY(-50%);border-block:3px solid var(--ink);background:repeating-linear-gradient(90deg,transparent 0 16px,var(--ink) 16px 19px)}
+.rail input{position:absolute;inset:0;width:100%;height:100%;margin:0;appearance:none;-webkit-appearance:none;background:none;cursor:grab}
+.rail input::-webkit-slider-thumb{-webkit-appearance:none;width:74px;height:36px;border:3px solid var(--ink);border-radius:9px 9px 6px 6px;background:var(--tram) linear-gradient(90deg,transparent 8px,#fff 8px 20px,transparent 20px 26px,#fff 26px 46px,transparent 46px 52px,#fff 52px 64px,transparent 64px) 0 6px/100% 13px no-repeat}
+.rail input::-moz-range-thumb{width:68px;height:30px;border:3px solid var(--ink);border-radius:9px 9px 6px 6px;background:var(--tram) linear-gradient(90deg,transparent 8px,#fff 8px 20px,transparent 20px 26px,#fff 26px 46px,transparent 46px 52px,#fff 52px 62px,transparent 62px) 0 6px/100% 12px no-repeat}
+.clock p{grid-column:1/-1;font:500 clamp(18px,1.8vw,24px)/1.3 var(--d);letter-spacing:-.015em;min-height:2.6em}
+@media(max-width:820px){.day__h{grid-template-columns:1fr}.clock{grid-template-columns:auto 1fr}.clock button{grid-column:2;justify-self:end;grid-row:1}.rail{grid-column:1/-1}}
+
+/* 3 · quattro porte */
+.door{position:relative;padding-block:clamp(80px,10vw,160px);color:var(--fg,var(--ink));background:var(--bg)}
+.door h2{font-size:clamp(50px,9.4vw,170px);font-weight:800}
+.door__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(30px,6vw,100px);align-items:start;margin-top:clamp(30px,5vw,70px)}
+.door__g>p,.door__g>div>p.big{font:500 clamp(21px,2.1vw,30px)/1.25 var(--d);letter-spacing:-.02em;max-width:24ch}
+.door figure{border:3px solid currentColor;border-radius:22px;overflow:hidden;aspect-ratio:4/3;transform:rotate(calc((var(--p,.5) - .5)*-5deg))}
+.door figure img{width:100%;height:100%;object-fit:cover}
+.facts{border-top:3px solid currentColor}
+.facts li{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:3px solid currentColor;font:600 clamp(18px,1.7vw,23px)/1.2 var(--d);letter-spacing:-.02em}
+.facts li span{font:400 16px/1.35 var(--s);letter-spacing:0;text-align:right;max-width:24ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chips button{border:3px solid currentColor;background:none;color:inherit;border-radius:40px;padding:11px 18px;font:600 17px/1 var(--d);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.chips button[aria-pressed=true]{background:var(--fg,var(--ink));color:var(--bg)}
+.chips button:active{transform:scale(.95)}
+.say{margin-top:26px;font:700 clamp(28px,3.4vw,54px)/1.02 var(--d);letter-spacing:-.04em;max-width:16ch;min-height:3.1em}
+.months{display:flex;align-items:center;gap:16px;margin-top:22px;font:600 18px var(--d)}
+.months input{flex:1;accent-color:currentColor;height:30px}
+.go{display:inline-block;margin-top:26px;border:3px solid currentColor;border-radius:40px;padding:15px 24px;font:700 18px/1 var(--d);text-decoration:none;cursor:pointer;background:var(--fg,var(--ink));color:var(--bg)}
+.done{margin-top:12px;font-size:15px;min-height:1.6em;opacity:.85}
+.d1{--bg:var(--sky)}
+.d2{--bg:var(--park);--fg:#F4FFF8}
+.d3{--bg:var(--paper)}
+.d4{--bg:var(--brick);--fg:#FFF6EE;overflow:hidden}
+#conf{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.week{border-top:3px solid var(--ink)}
+.week li{display:grid;grid-template-columns:5.2em minmax(0,1fr) auto;gap:8px 20px;align-items:baseline;padding:14px 0;border-bottom:3px solid var(--ink)}
+.week b{font:800 clamp(20px,2vw,28px)/1 var(--d);letter-spacing:-.03em}
+.week span{font:600 clamp(18px,1.8vw,24px)/1.2 var(--d);letter-spacing:-.02em}
+.week i{font-style:normal;font-size:15px;white-space:nowrap}
+.week li:hover{background:var(--tram)}
+.fine{margin-top:14px;font-size:14.5px;opacity:.75}
+@media(max-width:860px){.door__g{grid-template-columns:1fr}.week li{grid-template-columns:4.4em 1fr}.week i{grid-column:2}}
+
+/* 4 · l'identità, in tavola */
+.id{background:var(--ink);color:var(--paper);padding-block:clamp(80px,10vw,160px)}
+.id h2{font-size:clamp(44px,7.4vw,128px)}
+.id h2+p{margin-top:20px;max-width:44ch;color:#CFCBBF}
+.board{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:clamp(36px,5vw,70px)}
+.t{border-radius:20px;padding:clamp(18px,2vw,28px);min-height:210px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.t small{font:600 14px/1.2 var(--d);opacity:.8}
+.t1{grid-column:span 6;background:var(--tram);color:var(--ink)}
+.t1 .logo{font-size:clamp(48px,7vw,110px);align-self:flex-start}
+.t1 .logo span{padding:.12em .2em .16em;border-radius:.26em .26em .26em .06em}
+.t2{grid-column:span 6;display:grid;grid-template-columns:repeat(4,1fr);padding:0;gap:0}
+.t2 div{padding:18px;display:flex;flex-direction:column;justify-content:flex-end;font:600 14.5px/1.25 var(--d)}
+.t3{grid-column:span 4;background:var(--paper);color:var(--ink)}
+.t3 b{font:800 clamp(60px,7vw,110px)/.85 var(--d);letter-spacing:-.06em}
+.t4{grid-column:span 4;background:var(--sky);color:var(--ink)}
+.sign{align-self:center;display:grid;place-items:center;width:min(100%,220px);aspect-ratio:1.5;border:3px solid var(--ink);border-radius:16px;background:var(--paper);font:800 clamp(30px,3vw,44px)/1 var(--d);letter-spacing:-.04em;box-shadow:6px 6px 0 var(--ink)}
+.t5{grid-column:span 4;padding:0;min-height:260px}
+.t5 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.t5 p{position:absolute;left:16px;bottom:16px;right:16px;font:800 clamp(26px,2.6vw,40px)/1 var(--d);letter-spacing:-.04em;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+@media(max-width:900px){.t1,.t2,.t3,.t4,.t5{grid-column:1/-1}}
+
+.end{background:var(--tram);padding:clamp(70px,9vw,140px) 0 40px}
+.end h2{font-size:clamp(50px,11vw,210px);font-weight:800;letter-spacing:-.06em}
+.end__g{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 40px;margin-top:clamp(40px,6vw,80px);border-top:3px solid var(--ink);padding-top:22px;font-size:16px}
+.end__g b{display:block;font:700 19px/1.3 var(--d)}
+@media(prefers-reduced-motion:reduce){.house .ppl circle,.bub i{transition:none}.door figure{transform:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per CiaoMi" data-note="Anteprima preparata da Umbra per CiaoMi. Indirizzo, camere, sale e servizi vengono dal vostro sito. Logo, colori e palinsesto sono una proposta; le foto sono di esempio.">
+
+<header class="bar"><a class="logo" href="#top" aria-label="CiaoMi"><span>Ciao</span><b>Mi.</b></a><a class="cta" href="#porte">Prenota</a></header>
+
+<section class="hello" id="top">
+  <div class="hello__m">
+    <h1><span class="bub" id="bub" aria-label="Ciao"><i>Ciao,</i></span><span>Mi.</span></h1>
+    <p>Chiunque tu sia e qualsiasi sia la tua storia, qui sei benvenuto. Una casa a Milano, tra Niguarda e Bicocca.</p>
+  </div>
+  <nav class="doors" aria-label="Cosa cerchi">
+    <a href="#dormi" style="--c:var(--night)"><b>Dormi</b><span>una notte o una settimana</span></a>
+    <a href="#resta" style="--c:var(--park)"><b>Resta</b><span>un mese o un anno</span></a>
+    <a href="#lavora" style="--c:var(--ink)"><b>Lavora</b><span>studio, sale, corsi</span></a>
+    <a href="#festeggia" style="--c:var(--brick)"><b>Festeggia</b><span>la tua festa, da noi</span></a>
+  </nav>
+</section>
+
+<section class="day wrap" id="casa">
+  <div class="day__h">
+    <h2>Una casa sola, accesa tutto il giorno.</h2>
+    <p>Diciannove camere, due sale, una sala studio, le terrazze e un parco privato. Sposta il tram lungo la giornata e guarda chi c'è.</p>
+  </div>
+  <div class="house">
+    <svg id="house" viewBox="0 0 1200 600" role="img" aria-label="CiaoMi durante la giornata: gli spazi si animano a seconda dell'ora"></svg>
+    <div class="clock">
+      <output id="hh" for="hr">7:30</output>
+      <div class="rail"><input id="hr" type="range" min="6" max="24" step=".25" value="7.5" aria-label="Ora del giorno"></div>
+      <button type="button" id="play" aria-label="Ferma la giornata">❚❚</button>
+      <p id="cap" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<div id="porte">
+<section class="door d1" id="dormi" data-p>
+  <div class="wrap">
+    <h2>Dormi.</h2>
+    <div class="door__g">
+      <div>
+        <p class="big">Camere singole e doppie, ognuna con il suo bagno e una grande finestra sul parco.</p>
+        <ul class="facts" style="margin-top:28px">
+          <li>Bagno privato<span>con box doccia, in ogni camera</span></li>
+          <li>Scrivania e poltrona<span>per chi a Milano viene a fare qualcosa</span></li>
+          <li>Entri quando arrivi<span>self check-in, anche di sera</span></li>
+          <li>Con il cane o il gatto<span>la struttura è pet friendly</span></li>
+          <li>Wi-fi e spazi comuni<span>sala relax, sala pranzo, terrazze, parco</span></li>
+        </ul>
+        <a class="go" href="#top" data-go="Richiesta di soggiorno pronta.">Vedi le date libere</a><p class="done" aria-live="polite"></p>
+      </div>
+      <figure><img src="img/room.jpg" alt="Una camera luminosa con il letto fatto" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="door d2" id="resta" data-p data-dark>
+  <div class="wrap">
+    <h2>Resta.</h2>
+    <div class="door__g">
+      <div>
+        <p class="big">Un'area di CiaoMi è per chi a Milano si ferma. Dicci perché vieni.</p>
+        <div class="chips" id="why" role="group" aria-label="Perché vieni a Milano">
+          <button type="button" aria-pressed="true" data-t="Studi a Milano: una camera tua, la sala studio sotto, compagni di casa per l'anno.">Studio</button>
+          <button type="button" aria-pressed="false" data-t="Lavori a Milano: arrivi con la valigia, il resto c'è già.">Lavoro</button>
+          <button type="button" aria-pressed="false" data-t="Hai una persona cara ricoverata: le stai vicino, senza pensare ad altro.">Una persona in ospedale</button>
+          <button type="button" aria-pressed="false" data-t="Sei tra due case: un posto sereno mentre trovi quella giusta.">Tra due case</button>
+        </div>
+        <p class="say" id="whyT"></p>
+        <label class="months">Per <output id="moN">6 mesi</output><input id="mo" type="range" min="1" max="12" value="6" aria-label="Quanti mesi"></label>
+        <a class="go" href="#top" data-go="Richiesta long stay pronta.">Chiedi la retta mensile</a><p class="done" aria-live="polite"></p>
+      </div>
+      <figure><img src="img/park.jpg" alt="Alberi e panchine in un parco" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="door d3" id="lavora" data-p>
+  <div class="wrap">
+    <h2>Lavora, impara.</h2>
+    <div class="door__g">
+      <div>
+        <p class="big">Due sale polivalenti per corsi, riunioni e presentazioni, e una sala studio aperta a chi abita qui.</p>
+        <figure style="margin-top:28px"><img src="img/chairs.jpg" alt="Sedie colorate in una sala" loading="lazy"></figure>
+      </div>
+      <div>
+        <ul class="week" aria-label="Una settimana a CiaoMi">
+          <li><b>Lun</b><span>Colazione lunga per chi arriva</span><i>sala pranzo, 8–10</i></li>
+          <li><b>Mar</b><span>Scambio di lingue: italiano, inglese, spagnolo</span><i>sala relax, 19</i></li>
+          <li><b>Mer</b><span>Sala 1 alle associazioni del quartiere</span><i>dalle 18</i></li>
+          <li><b>Gio</b><span>Coworking aperto a Niguarda e Bicocca</span><i>sala studio, 9–18</i></li>
+          <li><b>Ven</b><span>Aperitivo in terrazza</span><i>dalle 18.30</i></li>
+          <li><b>Sab</b><span>Feste e compleanni</span><i>sala 2</i></li>
+          <li><b>Dom</b><span>Yoga nel parco, poi brunch</span><i>parco, 10</i></li>
+        </ul>
+        <p class="fine">Il palinsesto è una proposta: è così che una struttura diventa un posto del quartiere.</p>
+        <a class="go" href="#top" data-go="Richiesta per la sala pronta.">Prenota una sala</a><p class="done" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="door d4" id="festeggia" data-p data-dark>
+  <canvas id="conf" aria-hidden="true"></canvas>
+  <div class="wrap" style="position:relative">
+    <h2>Festeggia.</h2>
+    <div class="door__g">
+      <div>
+        <p class="big">Le sale si allestiscono come vuoi tu. Che festa è?</p>
+        <div class="chips" id="party" role="group" aria-label="Che festa è">
+          <button type="button" aria-pressed="false">Compleanno</button><button type="button" aria-pressed="false">Laurea</button><button type="button" aria-pressed="false">Battesimo</button><button type="button" aria-pressed="false">Anniversario</button><button type="button" aria-pressed="false">Festa aziendale</button>
+        </div>
+        <p class="say" id="partyT">Scegli, e la sala si prepara.</p>
+        <a class="go" href="#top" data-go="Richiesta per la festa pronta.">Chiedi la disponibilità</a><p class="done" aria-live="polite"></p>
+      </div>
+      <figure><img src="img/balloons.jpg" alt="Palloncini colorati visti dal basso" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+</div>
+
+<section class="id" data-dark>
+  <div class="wrap">
+    <h2>Un'identità che si riconosce dalla strada.</h2>
+    <p>Per diventare un posto del quartiere serve un segno semplice, da mettere su una porta, una chiave, un post. Questa è la proposta.</p>
+    <div class="board">
+      <div class="t t1"><small>Il marchio: un fumetto che saluta</small><div class="logo"><span>Ciao</span><b>Mi.</b></div></div>
+      <div class="t t2"><div style="background:var(--tram);color:var(--ink)">Giallo tram</div><div style="background:var(--brick)">Rosso mattone</div><div style="background:var(--park)">Verde parco</div><div style="background:var(--night)">Blu notte</div></div>
+      <div class="t t3"><small>Il carattere: Bricolage Grotesque</small><b>Aa Ciao</b></div>
+      <div class="t t4"><small>La segnaletica</small><div class="sign">Sala 2 →</div></div>
+      <div class="t t5"><img src="img/tram.jpg" alt="Un tram giallo di Milano" loading="lazy"><p>Si arriva così.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="end">
+  <div class="wrap">
+    <h2>Ci vediamo in via Adriatico.</h2>
+    <div class="end__g">
+      <p><b>Dove</b>Via Adriatico 8, 20162 Milano</p>
+      <p><b>Cosa</b>Short e long stay, sale, feste</p>
+      <p><b>Codici</b>CIR 015146-CAF-00065, CIN IT015146B73QMPKF57</p>
+    </div>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il polo che volete diventare dal 1° gennaio, già disegnato.</h2>
+    <ul>
+      <li><b>Un'identità forte</b>Marchio, colori, carattere e segnaletica: una sola voce dal sito alla porta della sala.</li>
+      <li><b>Quattro ingressi, quattro incassi</b>Notti, long stay, sale e feste si prenotano ciascuno dal suo percorso, senza passare dai portali.</li>
+      <li><b>Spazi sempre attivi</b>Il palinsesto settimanale riempie le sale e porta in struttura il quartiere.</li>
+      <li><b>Pronto per i social</b>Ogni pezzo dell'identità nasce già nel formato di un post o di una storia.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per CiaoMi. Foto di esempio da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},NS='http://www.w3.org/2000/svg';
+
+  /* il fumetto saluta in tante lingue */
+  (function(){var W=['Ciao,','Hola,','Salut,','Hello,','Olá,','Hallo,','Hej,','Merhaba,','Ahoj,','Ciao,'],b=$('bub'),k=0;if(U.reduce)return;
+    setInterval(function(){var old=b.querySelector('i'),n=document.createElement('i');k=(k+1)%W.length;n.textContent=W[k];n.className='in';b.appendChild(n);b.setAttribute('aria-label',W[k]);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){old.className='out';n.className=''})});setTimeout(function(){old.remove()},600)},2100)})();
+
+  /* la casa in 24 ore */
+  (function(){
+    var svg=$('house'),hr=$('hr'),hh=$('hh'),cap=$('cap'),play=$('play');
+    function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+    var sky=el('rect',{x:0,y:0,width:1200,height:600,fill:'#CFE4FF'}),sun=el('circle',{r:34,fill:'#FFD21F',stroke:'#151515','stroke-width':3}),moon=el('circle',{r:24,fill:'#FFFDF4',stroke:'#151515','stroke-width':3,opacity:0});
+    var stars=el('g',{opacity:0});for(var i=0;i<26;i++)el('circle',{cx:30+((i*197)%1150),cy:20+((i*89)%150),r:2,fill:'#FFFDF4'},stars);
+    /* parco */
+    el('rect',{x:0,y:520,width:1200,height:80,fill:'#17845A',stroke:'#151515','stroke-width':3});
+    [[70,430,46],[150,455,34],[1130,450,40],[215,470,26]].forEach(function(t){el('rect',{x:t[0]-5,y:t[1],width:10,height:520-t[1],fill:'#151515'});el('circle',{cx:t[0],cy:t[1],r:t[2],fill:'#1FA06D',stroke:'#151515','stroke-width':3})});
+    el('rect',{x:100,y:505,width:54,height:7,rx:3,fill:'#151515'});
+    /* edificio */
+    el('rect',{x:270,y:150,width:660,height:370,fill:'#E4442C',stroke:'#151515','stroke-width':3});
+    el('rect',{x:930,y:400,width:170,height:120,fill:'#E4442C',stroke:'#151515','stroke-width':3});
+    el('rect',{x:258,y:138,width:684,height:14,fill:'#151515'});
+    var wins=[];for(var f=0;f<2;f++)for(i=0;i<10;i++){if(f===1&&i===9)continue;wins.push(el('rect',{class:'win',x:292+i*64,y:176+f*108,width:40,height:62,rx:4,fill:'#CFE4FF',stroke:'#151515','stroke-width':3}))}
+    el('rect',{x:292+9*64,y:284,width:40,height:116,fill:'#151515'});
+    var Z={pranzo:[282,416,150,92,'Sala pranzo'],studio:[444,416,150,92,'Sala studio'],sala1:[606,416,150,92,'Sala 1'],sala2:[768,416,150,92,'Sala 2']},zr={};
+    var zt={};for(var z in Z){zr[z]=el('rect',{class:'zone',x:Z[z][0],y:Z[z][1],width:Z[z][2],height:Z[z][3],rx:6,fill:'#FFFDF4',stroke:'#151515','stroke-width':3});zt[z]=el('text',{x:Z[z][0]+10,y:Z[z][1]+22});zt[z].textContent=Z[z][4]}
+    if(innerWidth<700)svg.setAttribute('viewBox','225 100 890 500');
+    /* terrazza */
+    el('rect',{x:930,y:392,width:170,height:8,fill:'#151515'});
+    [[965,360],[1050,360]].forEach(function(u){el('rect',{x:u[0]-2,y:u[1],width:4,height:34,fill:'#151515'});el('path',{d:'M'+(u[0]-30)+' '+u[1]+' Q'+u[0]+' '+(u[1]-34)+' '+(u[0]+30)+' '+u[1]+'Z',fill:'#FFD21F',stroke:'#151515','stroke-width':3})});
+    var lights=el('g',{opacity:0});for(i=0;i<8;i++)el('circle',{cx:940+i*21,cy:338+Math.sin(i/7*Math.PI)*10,r:4,fill:'#FFD21F'},lights);
+    el('text',{x:944,y:428}).textContent='Terrazza';
+    /* persone */
+    var COL=['#FFD21F','#141B4D','#FFFDF4','#17845A','#151515','#CFE4FF'],N=22,ppl=el('g',{class:'ppl'}),P=[];
+    for(i=0;i<N;i++)P.push(el('circle',{r:9,cx:0,cy:0,fill:COL[i%COL.length],stroke:'#151515','stroke-width':3},ppl));
+    function spot(zone,k){if(Z[zone]){var q=Z[zone];return[q[0]+22+(k%5)*27,q[1]+46+Math.floor(k/5)*24]}
+      if(zone==='terrazza')return[948+(k%6)*27,378-Math.floor(k/6)*22];
+      if(zone==='parco')return[60+((k*71)%190),548+((k*37)%34)];
+      if(zone==='via')return[1260,560];return null}
+    var PH=[[6,{rooms:22},'Tutti dormono. Le finestre danno sul parco, e il parco è silenzioso.'],
+      [7.5,{pranzo:10,rooms:8,via:4},'Colazione in sala pranzo. Chi lavora presto è già uscito.'],
+      [9.5,{studio:6,sala1:8,via:8},'In sala studio si prepara un esame. In sala 1 comincia un corso.'],
+      [13,{pranzo:9,parco:6,studio:3,via:4},'Si pranza in struttura, o sull\'erba.'],
+      [16,{sala1:9,studio:6,parco:4,via:3},'Pomeriggio di formazione in sala 1. Nel parco, i cani degli ospiti.'],
+      [19,{terrazza:10,parco:4,pranzo:4,rooms:4},'Aperitivo in terrazza, con chi abita qui e chi abita vicino.'],
+      [21.5,{sala2:14,terrazza:4,rooms:4},'In sala 2 c\'è una festa di laurea.'],
+      [23.5,{rooms:22},'Le luci si spengono una alla volta. Buonanotte, Mi.']];
+    var SK=[[6,[246,201,168]],[8,[191,223,255]],[13,[169,211,255]],[17.5,[255,217,160]],[19.5,[233,142,107]],[21,[30,42,90]],[24,[14,20,48]]];
+    function skyAt(h){for(var k=0;k<SK.length-1;k++)if(h<=SK[k+1][0]){var a=SK[k],b=SK[k+1],f=(h-a[0])/(b[0]-a[0]);return 'rgb('+a[1].map(function(v,j){return Math.round(v+(b[1][j]-v)*f)}).join(',')+')'}return 'rgb(14,20,48)'}
+    var last=-1;
+    function set(h){var m=Math.round((h%1)*60);hh.textContent=Math.floor(h)%24+':'+(m<10?'0':'')+m;sky.setAttribute('fill',skyAt(h));
+      var u=U.clamp((h-6)/13.5,0,1);sun.setAttribute('cx',120+u*980);sun.setAttribute('cy',150-Math.sin(u*Math.PI)*105+(u>=1?200:0));sun.setAttribute('opacity',h<19.6?1:0);
+      var dark=U.map(h,19.5,21);moon.setAttribute('opacity',dark);moon.setAttribute('cx',1040);moon.setAttribute('cy',80);stars.setAttribute('opacity',dark);lights.setAttribute('opacity',U.map(h,18,19));
+      var k=0;while(k<PH.length-1&&h>=PH[k+1][0])k++;var d=PH[k][1],night=h>=18.5||h<7.2;
+      var lit=d.rooms?Math.round(Math.min(d.rooms,19)*(h>=23.5?U.clamp((24.2-h)/.7,0,1):h<7.2?U.map(h,6,7.2)*.6:1)):0;
+      wins.forEach(function(w,j){w.setAttribute('fill',night&&((j*7)%19)<lit?'#FFD21F':h>=20.5?'#2A356F':'#CFE4FF')});
+      for(var z in zr){zr[z].setAttribute('fill',d[z]?(h>=18?'#FFD21F':'#FFFDF4'):(h>=20.5?'#2A356F':'#F1ECDD'));zt[z].style.fill=!d[z]&&h>=20.5?'#CFE4FF':'#151515'}
+      if(k!==last){last=k;cap.textContent=PH[k][2];var i=0;for(var zone in d)for(var q=0;q<d[zone];q++,i++){var s=spot(zone,q),c=P[i];if(s){c.style.transform='translate('+s[0]+'px,'+s[1]+'px)';c.style.opacity=zone==='via'?0:1}else{c.style.opacity=0}}}}
+    var playing=!U.reduce,vis=false,t0=0;
+    function tick(now){if(playing&&vis){var dt=Math.min(.1,(now-t0)/1000);var h=+hr.value+dt*.7;if(h>24)h=6;hr.value=h;set(h)}t0=now;requestAnimationFrame(tick)}
+    function stop(){playing=false;play.textContent='▶';play.setAttribute('aria-label','Fai scorrere la giornata')}
+    hr.addEventListener('input',function(){stop();set(+hr.value)});
+    play.onclick=function(){if(playing)stop();else{playing=true;play.textContent='❚❚';play.setAttribute('aria-label','Ferma la giornata')}};
+    new IntersectionObserver(function(e){vis=e[0].isIntersecting},{threshold:.3}).observe(svg);
+    if(!playing)stop();set(+hr.value);requestAnimationFrame(tick)})();
+
+  /* resta: perché vieni, per quanto */
+  (function(){var why=$('why'),t=$('whyT'),mo=$('mo'),n=$('moN');
+    function pick(b){why.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});t.textContent=b.dataset.t}
+    why.addEventListener('click',function(e){var b=e.target.closest('button');if(b)pick(b)});pick(why.querySelector('button'));
+    mo.addEventListener('input',function(){n.textContent=mo.value==='1'?'1 mese':mo.value==='12'?'un anno':mo.value+' mesi'})})();
+
+  /* festeggia: coriandoli nei colori della casa */
+  (function(){var cv=$('conf'),cx=cv.getContext('2d'),ps=[],raf=0,C=['#FFD21F','#FFFDF4','#141B4D','#17845A','#CFE4FF'],party=$('party'),t=$('partyT');
+    var T={'Compleanno':'Torta, candeline, e nessuno che deve riordinare casa.','Laurea':'Corona d\'alloro all\'ingresso, brindisi in terrazza.','Battesimo':'Una sala luminosa, il parco per i bambini.','Anniversario':'La vostra canzone, le persone giuste.','Festa aziendale':'Dopo il lavoro, senza uscire dal quartiere.'};
+    function size(){var d=Math.min(2,devicePixelRatio||1);cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;return d}
+    function burst(){if(U.reduce)return;var d=size(),w=cv.width,h=cv.height;for(var i=0;i<150;i++)ps.push({x:w*(.1+Math.random()*.8),y:-20*d-Math.random()*h*.3,vx:(Math.random()-.5)*3*d,vy:(2+Math.random()*4)*d,s:(6+Math.random()*9)*d,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:C[i%C.length],k:i%3});
+      cancelAnimationFrame(raf);(function f(){cx.clearRect(0,0,w,h);ps=ps.filter(function(p){return p.y<h+40});ps.forEach(function(p){p.x+=p.vx+Math.sin(p.y/60+p.r)*1.2;p.y+=p.vy;p.r+=p.vr;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;if(p.k===0){cx.beginPath();cx.arc(0,0,p.s/2,0,7);cx.fill()}else cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()});if(ps.length)raf=requestAnimationFrame(f)})()}
+    party.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;party.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});t.textContent=T[b.textContent];burst()})})();
+
+  /* in questa anteprima le richieste non partono */
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();a.nextElementSibling.textContent=a.dataset.go+' In questa anteprima non parte nulla: nel sito vero arriva alla reception.'},true)});
+})();
+</script>
+</body>
+</html>
