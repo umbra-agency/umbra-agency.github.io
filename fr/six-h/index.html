@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0b0e">
+<title>Le Six H · Livret d&#x27;accueil</title>
+<meta property="og:title" content="Le Six H · votre livret d&#x27;accueil est prêt">
+<meta property="og:description" content="Livret d'accueil en 4 langues, préparé par Umbra.">
+<meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2Ffb701dad-54c2-4e42-a006-257bac449ef7%2F43MGAB1670.jpg&amp;w=1600&amp;output=webp&amp;q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Gloock:wght@400&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="../config.js"></script>
+<style>
+:root{--bg:#f6f1ea;--ink:#2b1f1d;--ink2:#4d3d39;--acc:#8c2f39;--soft:#efe1dc;--card:#fffdfa;--line:rgba(0,0,0,.09);--mut:#7d7a72;--r:16px;--fh:'Gloock';--fb:'Instrument Sans';--emst:normal;--ease:cubic-bezier(.2,.7,.1,1);--sb:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb),system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,.ser{font-family:var(--fh),Georgia,serif;font-weight:400;letter-spacing:-.005em}
+em{font-style:var(--emst,italic)}
+.ico{display:inline-flex;width:22px;height:22px;flex:none}
+.ico svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.rv{opacity:0;transform:translate3d(0,34px,0);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+.pr{overflow:hidden;clip-path:inset(10% 6% 10% 6% round 22px);transition:clip-path 1.3s var(--ease)}
+.pr img{transform:scale(1.12);transition:transform 1.6s var(--ease)}
+.pr.vis{clip-path:inset(0 0 0 0 round var(--pr-r,0px))}
+.pr.vis img{transform:scale(1)}
+.ex{display:inline-block;font:600 9.5px/1 var(--fb),sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);border:1px solid currentColor;padding:4px 6px 3px;border-radius:99px;vertical-align:middle;margin-left:8px;opacity:.85;white-space:nowrap}
+/* barre haute */
+#bar{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0);z-index:70}
+.demo{position:fixed;top:max(12px,env(safe-area-inset-top));left:12px;z-index:45;font:600 10.5px/1 var(--fb),sans-serif;letter-spacing:.16em;text-transform:uppercase;background:rgba(11,11,14,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#ececf1;padding:10px 12px;border-radius:99px;display:flex;gap:7px;align-items:center}
+.demo i{width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 65% 40%,#0b0b0e 45%,transparent 47%),#d9dbe4}
+.lang{position:fixed;top:max(12px,env(safe-area-inset-top));right:12px;z-index:45;display:flex;gap:2px;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:99px;padding:4px;box-shadow:0 6px 24px rgba(0,0,0,.14)}
+.lang button{border:0;background:transparent;font:700 11.5px/1 var(--fb),sans-serif;letter-spacing:.06em;padding:8px 9px;border-radius:99px;color:#2a2a2e;cursor:pointer;transition:background .3s,color .3s}
+.lang button.on{background:#111114;color:#fff}
+.tip{position:fixed;top:calc(max(12px,env(safe-area-inset-top)) + 46px);right:14px;z-index:45;background:#111114;color:#f1f1f4;font:600 12px/1.3 var(--fb),sans-serif;padding:9px 12px;border-radius:12px;max-width:210px;opacity:0;transform:translateY(-6px);transition:all .5s var(--ease);pointer-events:none}
+.tip:before{content:"";position:absolute;top:-5px;right:22px;width:10px;height:10px;background:#111114;transform:rotate(45deg)}
+.tip.on{opacity:1;transform:none}
+/* intro Umbra */
+#intro{position:fixed;inset:0;z-index:100;background:#060608;color:#e9e9ef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .8s ease,visibility .8s}
+#intro.off{opacity:0;visibility:hidden}
+.ecl{width:78px;height:78px;border-radius:50%;position:relative;background:#d9dbe4;box-shadow:0 0 50px 8px rgba(205,210,230,.22);animation:eg 2.2s var(--ease) both}
+.ecl:after{content:"";position:absolute;inset:0;border-radius:50%;background:#060608;transform:translate(14px,-8px);animation:em 2.2s var(--ease) both}
+@keyframes eg{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@keyframes em{from{transform:translate(70px,-30px)}to{transform:translate(14px,-8px)}}
+#intro small{letter-spacing:.38em;text-transform:uppercase;font-size:10.5px;color:#8e90a0}
+#intro b{font-family:var(--fh),serif;font-weight:400;font-size:25px;line-height:1.25;text-align:center;padding:0 30px;max-width:520px;opacity:0;animation:fi 1s .5s var(--ease) forwards}
+@keyframes fi{to{opacity:1}}
+/* blocs de contenu (communs) */
+.blk{padding:26px 0;border-top:1px solid var(--line)}
+.blk:first-child{border-top:0}
+.bh{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.bh .ico{width:40px;height:40px;padding:9px;border-radius:50%;background:var(--soft);color:var(--acc)}
+.bh h3{font-size:23px;line-height:1.2}
+.blk p{color:var(--ink2)}
+.blk.al{background:var(--soft);border:0;border-radius:20px;padding:22px 20px;margin:10px 0}
+.blk.al .bh .ico{background:var(--card)}
+.ul{list-style:none}
+.ul li{position:relative;padding:9px 0 9px 22px;color:var(--ink2);border-bottom:1px dashed var(--line)}
+.ul li:last-child{border-bottom:0}
+.ul li:before{content:"";position:absolute;left:2px;top:19px;width:9px;height:1.5px;background:var(--acc)}
+.rows .r{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.rows .r:last-child{border-bottom:0}
+.rows .r b{font-weight:600}
+.rows .r span{color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--mut);margin-top:10px}
+.pois{display:grid;gap:2px}
+.poi{display:grid;grid-template-columns:74px 1fr 26px;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.poi:last-child{border-bottom:0}
+.poi .km{font-family:var(--fh),serif;font-size:38px;line-height:.9;color:var(--acc);text-align:right;font-variant-numeric:lining-nums}
+.poi .km small{display:block;font:600 10px/1.6 var(--fb),sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.poi b{display:block;font-family:var(--fh),serif;font-weight:400;font-size:21px;line-height:1.2}
+.poi small.d{display:block;font-size:14px;color:var(--ink2);line-height:1.45;margin-top:4px}
+.poi .go{width:26px;height:26px;color:var(--acc);transition:transform .3s}
+.poi:active .go{transform:translateX(4px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:11px 14px;font-size:14px;line-height:1.3}
+.chip b{display:block;font-family:var(--fh),serif;font-weight:400;font-size:18px}
+.chip span{color:var(--mut)}
+.sos{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.sos a{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 14px;transition:transform .2s}
+.sos a:active{transform:scale(.97)}
+.sos b{font-family:var(--fh),serif;font-size:28px;font-weight:400;color:var(--acc);line-height:1.1}
+.sos small{display:block;font-size:12.5px;color:var(--ink2);line-height:1.35}
+.chk label{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.chk label:last-of-type{border-bottom:0}
+.chk input{position:absolute;opacity:0;pointer-events:none}
+.chk .bx{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--acc);flex:none;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.chk .bx svg{width:14px;height:14px;stroke:#fff;stroke-width:2.4;fill:none;opacity:0;transform:scale(.5);transition:all .3s var(--ease)}
+.chk input:checked+.bx{background:var(--acc)}
+.chk input:checked+.bx svg{opacity:1;transform:none}
+.chk input:checked~span{color:var(--mut);text-decoration:line-through}
+.prog{display:flex;align-items:center;gap:10px;font:600 12px/1 var(--fb),sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:4px 0 6px}
+.prog i{flex:1;height:3px;background:var(--line);border-radius:3px;overflow:hidden;position:relative}
+.prog i:after{content:"";position:absolute;inset:0;background:var(--acc);transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .5s var(--ease)}
+.kick{font:600 11px/1.2 var(--fb),sans-serif;letter-spacing:.3em;text-transform:uppercase}
+.z{cursor:zoom-in}
+/* ess (essentiels) commun */
+.ess{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.es{border-radius:20px;padding:16px;position:relative;overflow:hidden}
+.es .ico{width:24px;height:24px;margin-bottom:18px}
+.es .l{font:600 10.5px/1 var(--fb),sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+.es .v{font-family:var(--fh),serif;font-size:22px;line-height:1.2;margin-top:7px;word-break:break-word}
+.es .s{font-size:12.5px;opacity:.7;margin-top:3px}
+.es .ex{margin:8px 0 0}
+.ess .es:nth-child(3),.ess .es:nth-child(4){grid-column:1/-1}
+.ess .es:nth-child(3) .v,.ess .es:nth-child(4) .v{font-size:24px}
+/* footer */
+footer{background:#0b0b0e;color:#cfd0d8;text-align:center;padding:80px 26px calc(150px + var(--sb))}
+footer .ecl{width:44px;height:44px;margin:0 auto 26px;animation:none;box-shadow:0 0 30px 4px rgba(205,210,230,.18)}
+footer .ecl:after{background:#0b0b0e;animation:none;transform:translate(8px,-5px)}
+footer .thx{font-family:var(--fh),serif;font-size:27px;line-height:1.3;color:#fff;max-width:520px;margin:0 auto 16px}
+footer small{font-size:12.5px;letter-spacing:.06em;color:#8d8f9e}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(6,6,8,.96);display:none;touch-action:pan-y}
+#lb.on{display:block}
+#lb .tr{display:flex;height:100%;transition:transform .45s var(--ease)}
+#lb figure{flex:0 0 100%;display:flex;align-items:center;justify-content:center;padding:60px 10px}
+#lb figure img{max-height:100%;max-width:100%;object-fit:contain;border-radius:6px}
+#lb .x{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:#111;font-size:22px;cursor:pointer;z-index:2}
+#lb .n{position:absolute;bottom:calc(22px + var(--sb));left:0;right:0;text-align:center;color:#aaa;font:600 12px/1 var(--fb),sans-serif;letter-spacing:.2em}
+
+/* =========================== MAS : immersif =========================== */
+.L-mas .hero{position:relative;height:100svh;min-height:560px;overflow:hidden;color:#fff;background:#1a1a1a}
+.L-mas .hero .bg{position:absolute;inset:-6% 0 0 0;will-change:transform}
+.L-mas .hero .bg img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-out both}
+@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1)}}@keyframes kb2{from{transform:scale(1.04)}to{transform:scale(1)}}.L-mas .hero .bg img.lo{animation-name:kb2}
+.L-mas .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.72) 100%)}
+.L-mas .hero .tx{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 24px calc(92px + var(--sb));max-width:820px;margin:0 auto}
+.L-mas .hero .kick{display:flex;align-items:center;gap:12px;opacity:0;animation:fi 1s 2.6s forwards}
+.L-mas .hero .kick:before{content:"";width:28px;height:1px;background:#fff}
+.L-mas .hero h1{font-size:clamp(50px,14vw,104px);line-height:.95;margin:16px 0 18px}
+.sp{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-right:.22em}
+.sp>span{display:inline-block;transform:translateY(105%);animation:up 1.2s var(--ease) forwards}
+@keyframes up{to{transform:none}}
+.L-mas .hero .meta{font-size:15px;letter-spacing:.04em;opacity:0;animation:fi 1s 3.1s forwards}
+.cue{position:absolute;left:50%;bottom:calc(22px + var(--sb));z-index:2;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font:600 9.5px/1 var(--fb),sans-serif;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.cue i{width:1px;height:40px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.cue i:after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:#fff;animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{to{top:100%}}
+.L-mas .wel{padding:96px 26px 70px;max-width:760px;margin:0 auto}
+.L-mas .wel .kick{color:var(--acc);margin-bottom:26px;display:flex;gap:12px;align-items:center}
+.L-mas .wel .kick:before{content:"";width:28px;height:1px;background:var(--acc)}
+.L-mas .big{font-family:var(--fh),serif;font-size:clamp(28px,7.4vw,44px);line-height:1.22;letter-spacing:-.01em}
+.L-mas .big .w{opacity:.14;transition:opacity .4s}
+.L-mas .big .w.on{opacity:1}
+.L-mas .essw{background:var(--ink);color:var(--bg);padding:56px 18px 60px}
+.L-mas .essw .in{max-width:760px;margin:0 auto}
+.L-mas .essw .kick{opacity:.6;margin:0 6px 20px}
+.L-mas .es{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.L-mas .es .ex{color:var(--bg)}
+.L-mas .chap{position:relative}
+.L-mas .pin{position:sticky;top:0;height:100svh;overflow:hidden;background:#222;z-index:0}
+.L-mas .pin img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;will-change:transform}.L-mas .pin img.lo{inset:-3% 0;height:106%}
+.L-mas .pin:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.1) 38%,rgba(0,0,0,0) 60%,rgba(0,0,0,.35) 100%)}
+.L-mas .plab{position:absolute;left:24px;right:24px;top:calc(84px + env(safe-area-inset-top));z-index:2;color:#fff}
+.L-mas .plab .no{font-family:var(--fh),serif;font-size:92px;line-height:.8;display:block;opacity:.95;-webkit-text-stroke:1px rgba(255,255,255,.9);color:transparent}
+.L-mas .plab h2{font-size:clamp(40px,11vw,74px);line-height:1;margin-top:6px}
+.L-mas .body{position:relative;z-index:2;margin-top:-30svh;background:var(--bg);border-radius:30px 30px 0 0;padding:34px 24px 54px;box-shadow:0 -24px 60px rgba(0,0,0,.22)}
+.L-mas .body .in{max-width:720px;margin:0 auto}
+.L-mas .body:before{content:"";display:block;width:42px;height:4px;border-radius:4px;background:var(--line);margin:-16px auto 18px}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:22px -24px 6px;padding:0 24px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip img{flex:0 0 76%;height:min(62vw,420px);object-fit:cover;border-radius:18px;scroll-snap-align:center}
+.L-mas .galw{padding:80px 12px 40px;max-width:980px;margin:0 auto}
+.L-mas .galw h2{font-size:clamp(40px,11vw,70px);line-height:1;margin:0 12px 30px}
+.L-mas .galw h2 em{color:var(--acc)}
+.mz{columns:2;column-gap:10px}
+.mz .pr{break-inside:avoid;margin-bottom:10px;--pr-r:14px}
+.mz img{width:100%;border-radius:14px}
+
+/* =========================== CARNET : app =========================== */
+.L-carnet{background:var(--bg)}
+.L-carnet .top{padding:calc(76px + env(safe-area-inset-top)) 0 10px;background:linear-gradient(180deg,var(--soft) 0%,var(--soft) 62%,var(--bg) 100%);overflow:hidden}
+.stack{position:relative;height:min(118vw,560px);max-width:520px;margin:0 auto}
+.stack .c{position:absolute;left:50%;top:6%;width:66%;aspect-ratio:3/4;margin-left:-33%;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(30,20,40,.28);transition:transform 1.4s var(--ease);background:#ccc}
+.stack .c img{width:100%;height:100%;object-fit:cover}
+.stack .c1{transform:rotate(0) translate(0,30px) scale(.9);z-index:1}
+.stack .c2{transform:rotate(0) translate(0,30px) scale(.9);z-index:2}
+.stack .c3{transform:rotate(0) translate(0,20px);z-index:3}
+.stack.vis .c1{transform:rotate(-9deg) translate(-27%,6%) scale(.86)}
+.stack.vis .c2{transform:rotate(8deg) translate(27%,8%) scale(.86)}
+.stack.vis .c3{transform:rotate(-1.5deg) translate(0,0)}
+.L-carnet .ttl{padding:6px 24px 0;max-width:640px;margin:0 auto;text-align:center}
+.L-carnet .ttl .kick{color:var(--acc)}
+.L-carnet .ttl h1{font-size:clamp(46px,13vw,84px);line-height:.98;margin:14px 0 10px}
+.L-carnet .ttl .meta{color:var(--mut);font-size:15px}
+.L-carnet .lead{font-size:18.5px;line-height:1.6;color:var(--ink2);padding:26px 24px 8px;max-width:640px;margin:0 auto}
+.pass{margin:22px 18px 0;max-width:600px;background:var(--card);border-radius:24px;box-shadow:0 20px 50px rgba(30,20,40,.12);position:relative}
+@media(min-width:640px){.pass{margin:22px auto 0}}
+.pass .tp{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:22px 20px 18px}
+.pass .tp div:last-child{text-align:right}
+.pass .tp .l{font:600 10px/1 var(--fb),sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.pass .tp .v{font-family:var(--fh),serif;font-size:28px;line-height:1.1;margin-top:6px}
+.pass .tp .mid{color:var(--acc);width:54px;height:24px}
+.pass .tp .mid svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.4}
+.pass .perf{height:0;border-top:2px dashed var(--line);margin:0 18px;position:relative}
+.pass .perf:before,.pass .perf:after{content:"";position:absolute;top:-13px;width:24px;height:24px;border-radius:50%;background:var(--bg)}
+.pass .perf:before{left:-30px}.pass .perf:after{right:-30px}
+.pass .bt{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.pass .bt>div{padding:16px 20px 20px;display:flex;gap:12px;align-items:center}
+.pass .bt>div+div{border-left:1px solid var(--line)}
+.pass .bt .ico{color:var(--acc)}
+.pass .bt .l{font:600 10px/1 var(--fb),sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.pass .bt .v{font-weight:600;font-size:14.5px;margin-top:5px;word-break:break-word;line-height:1.3}
+.pass .ex{margin:6px 0 0}
+.L-carnet .open{display:flex;margin:28px auto 6px;align-items:center;gap:10px;border:0;background:var(--ink);color:var(--bg);padding:16px 24px;border-radius:99px;font:700 14px/1 var(--fb),sans-serif;letter-spacing:.04em;cursor:pointer}
+.L-carnet .open .ico{width:18px;height:18px}
+.panes{padding:10px 0 0;min-height:100svh}
+.pane{display:none;padding:0 16px 40px;max-width:720px;margin:0 auto}
+.pane.on{display:block;animation:pin .55s var(--ease)}
+@keyframes pin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.pane.on.back{animation-name:pinb}
+@keyframes pinb{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+.pban{position:relative;border-radius:26px;overflow:hidden;height:min(108vw,460px);margin:6px 0 18px;color:#fff;--pr-r:26px}
+.pban img{width:100%;height:100%;object-fit:cover}
+.pban:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.62) 100%)}
+.pban .t{position:absolute;left:22px;right:22px;bottom:20px;z-index:2}
+.pban .t span{font:600 11px/1 var(--fb),sans-serif;letter-spacing:.26em;text-transform:uppercase;opacity:.85}
+.pban .t h2{font-size:clamp(36px,10vw,56px);line-height:1;margin-top:8px}
+.L-carnet .card{background:var(--card);border-radius:22px;padding:4px 20px;margin-bottom:10px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.L-carnet .card .blk{border-top:0}
+.L-carnet .card .blk.al{margin:14px -6px;padding:20px 18px}
+.car{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:14px -16px 10px;padding:0 16px;scrollbar-width:none}
+.car::-webkit-scrollbar{display:none}
+.car img{flex:0 0 72%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;scroll-snap-align:start}
+.L-carnet .gg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.L-carnet .gg .pr{--pr-r:18px}
+.L-carnet .gg img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:18px}
+.L-carnet .gg .pr:nth-child(3n+1){grid-column:1/-1}
+.L-carnet .gg .pr:nth-child(3n+1) img{aspect-ratio:16/11}
+.tabbar{position:fixed;left:10px;right:10px;bottom:calc(10px + var(--sb));z-index:50;background:rgba(18,16,22,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:24px;display:flex;padding:7px;gap:2px;max-width:560px;margin:0 auto;transform:translateY(140%);transition:transform .6s var(--ease);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.tabbar.on{transform:none}
+.tabbar button{flex:1;border:0;background:transparent;color:#a9a7b3;display:flex;flex-direction:column;align-items:center;gap:5px;padding:9px 2px 8px;border-radius:17px;font:600 9.5px/1 var(--fb),sans-serif;letter-spacing:.02em;cursor:pointer;transition:all .3s;min-width:0}
+.tabbar button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tabbar button .ico{width:21px;height:21px}
+.tabbar button.on{background:var(--acc);color:#fff}
+.L-carnet #pill{bottom:calc(96px + var(--sb))}
+.L-carnet #sheet{bottom:calc(86px + var(--sb))}
+
+/* =========================== RIVIERA : magazine =========================== */
+.L-riviera .cov{height:185svh;position:relative}
+.L-riviera .cst{position:sticky;top:0;height:100svh;overflow:hidden}
+.L-riviera .cfr{position:absolute;inset:0;overflow:hidden;will-change:clip-path;background:#1d2a33}
+.L-riviera .cfr img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.L-riviera .cfr:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.0) 40%,rgba(0,0,0,.55) 100%)}
+.L-riviera .ctop{position:absolute;top:calc(74px + env(safe-area-inset-top));left:0;right:0;text-align:center;z-index:1;color:var(--ink)}
+.L-riviera .ctop .kick{color:var(--acc)}
+.L-riviera .ctop .no{font-family:var(--fh),serif;font-size:15px;color:var(--mut);margin-top:8px}
+.L-riviera .ct{position:absolute;left:22px;right:22px;bottom:calc(38px + var(--sb));z-index:3;color:var(--ink);transition:color .5s}
+.L-riviera .ct.lt{color:#fff}
+.L-riviera .ct p:before{background:currentColor!important}
+.L-riviera .ct h1{font-size:clamp(48px,13.5vw,110px);line-height:.94}
+.L-riviera .ct p{margin-top:14px;font-size:15px;letter-spacing:.05em;display:flex;align-items:center;gap:10px}
+.L-riviera .ct p:before{content:"";width:26px;height:1px;background:#fff}
+.marq{background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;padding:18px 0;position:relative;z-index:2}
+.marq div{display:inline-block;animation:mq 32s linear infinite;font-family:var(--fh),serif;font-size:30px;line-height:1}
+.marq div span{margin:0 22px;opacity:.95}
+.marq div i{font-style:normal;color:var(--acc);margin:0 4px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.L-riviera .rwel{max-width:720px;margin:0 auto;padding:80px 24px 30px}
+.L-riviera .rwel .kick{color:var(--acc);margin-bottom:22px}
+.L-riviera .drop{font-size:19px;line-height:1.7;color:var(--ink2)}
+.L-riviera .drop:first-letter{font-family:var(--fh),serif;float:left;font-size:86px;line-height:.82;margin:6px 12px 0 0;color:var(--acc)}
+.etab{margin-top:40px;border-top:1px solid var(--ink)}
+.etab .r{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.etab .r .l{font:600 10.5px/1.4 var(--fb),sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.etab .r .v{font-family:var(--fh),serif;font-size:24px;line-height:1.2;word-break:break-word}
+.etab .r .v small{display:block;font-family:var(--fb),sans-serif;font-size:13px;color:var(--mut);margin-top:3px}
+.hs{position:relative;background:var(--bg)}
+.hsin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hsh{display:flex;justify-content:space-between;align-items:baseline;padding:0 24px 22px;max-width:1100px;width:100%;margin:0 auto}
+.hsh h2{font-size:clamp(34px,9vw,60px);line-height:1}
+.hsh h2 em{color:var(--acc)}
+.hsh .cnt{font:600 12px/1 var(--fb),sans-serif;letter-spacing:.2em;color:var(--mut);font-variant-numeric:tabular-nums}
+.track{display:flex;gap:14px;padding:0 24px;will-change:transform}
+.track figure{flex:0 0 78vw;max-width:560px}
+.track figure div{height:min(64svh,520px);border-radius:20px;overflow:hidden}
+.track img{width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+.track figcaption{font:600 11px/1 var(--fb),sans-serif;letter-spacing:.22em;color:var(--mut);margin-top:12px}
+.toc{max-width:760px;margin:0 auto;padding:40px 20px 70px}
+.toc>.kick{color:var(--acc);padding:0 4px 18px}
+.row{border-top:1px solid var(--ink)}
+.row:last-child{border-bottom:1px solid var(--ink)}
+.row>button{width:100%;display:grid;grid-template-columns:52px 1fr 34px;align-items:center;gap:8px;padding:24px 4px;background:transparent;border:0;text-align:left;cursor:pointer}
+.row .ix{font:600 12px/1 var(--fb),sans-serif;letter-spacing:.16em;color:var(--acc)}
+.row h2{font-size:clamp(30px,8.6vw,46px);line-height:1.05}
+.row .pl{width:34px;height:34px;border-radius:50%;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;transition:transform .5s var(--ease),background .3s}
+.row .pl:before{content:"+";font-size:20px;line-height:1}
+.row.on .pl{transform:rotate(45deg);background:var(--ink);color:var(--bg)}
+.row .rc{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.row.on .rc{grid-template-rows:1fr}
+.row .rci{overflow:hidden;padding:0 4px}
+.row .rci>.wrap{padding:0 0 26px}
+.row .rimg{height:min(60vw,360px);border-radius:18px;overflow:hidden;margin:0 0 8px}
+.row .rimg img{width:100%;height:100%;object-fit:cover}
+.night{background:var(--ink);color:var(--bg);padding:84px 22px 80px;position:relative;overflow:hidden}
+.night .in{max-width:720px;margin:0 auto;position:relative}
+.night .kick{color:var(--acc);opacity:.95}
+.night h2{font-size:clamp(40px,11vw,72px);line-height:1;margin:14px 0 34px}
+.night .poi{border-color:rgba(255,255,255,.12);grid-template-columns:84px 1fr 26px}
+.night .poi .km{color:var(--bg)}
+.night .poi .km small{color:rgba(255,255,255,.5)}
+.night .poi small.d{color:rgba(255,255,255,.66)}
+.night .poi .go{color:var(--acc)}
+.night .chip{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+.night .chip span{color:rgba(255,255,255,.6)}
+.night .note{color:rgba(255,255,255,.5)}
+.night .mkh{font-family:var(--fh),serif;font-size:26px;margin:44px 0 16px}
+.rgal{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:60px 12px 40px;max-width:1100px;margin:0 auto}
+.rgal .pr{--pr-r:16px}
+.rgal img{width:100%;height:100%;object-fit:cover;border-radius:16px}
+.rgal .pr:nth-child(5n+1){grid-column:span 6;aspect-ratio:16/10}
+.rgal .pr:nth-child(5n+2),.rgal .pr:nth-child(5n+3){grid-column:span 3;aspect-ratio:3/4}
+.rgal .pr:nth-child(5n+4),.rgal .pr:nth-child(5n+5){grid-column:span 3;aspect-ratio:1}
+
+/* =========================== couche Umbra : offre =========================== */
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:60;transform:translateY(130%);transition:transform .6s var(--ease);padding:0 10px calc(10px + var(--sb))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:#0b0b0e;color:#ececf1;border-radius:22px;padding:20px 20px 16px;box-shadow:0 -10px 50px rgba(0,0,0,.35)}
+#sheet h3{font-family:var(--fh),serif;font-weight:400;font-size:23px;line-height:1.2}
+#sheet p{font-size:14.5px;color:#b9bac6;margin:8px 0 14px}
+.btns{display:flex;gap:8px}
+.b1{flex:1;border:0;background:#ececf1;color:#0b0b0e;font:700 14px/1 var(--fb),sans-serif;padding:15px;border-radius:13px;cursor:pointer;text-align:center;text-decoration:none;display:block}
+.b2{border:1px solid #3a3a44;background:transparent;color:#ececf1;font:600 14px/1 var(--fb),sans-serif;padding:15px 16px;border-radius:13px;cursor:pointer}
+#pill{position:fixed;right:14px;bottom:calc(14px + var(--sb));z-index:55;border:0;background:#0b0b0e;color:#fff;font:700 13.5px/1 var(--fb),sans-serif;padding:15px 18px;border-radius:99px;box-shadow:0 10px 30px rgba(0,0,0,.3);cursor:pointer;display:flex;gap:9px;align-items:center;opacity:0;transform:translateY(20px);pointer-events:none;transition:all .5s var(--ease)}
+#pill i{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 65% 40%,#0b0b0e 45%,transparent 47%),#d9dbe4}
+#pill.on{opacity:1;transform:none;pointer-events:auto}
+#offer{position:fixed;inset:0;z-index:80;background:rgba(5,5,8,.55);display:none}
+#offer.on{display:block}
+#offer .pn{position:absolute;left:0;right:0;bottom:0;top:7svh;background:#0b0b0e;color:#ececf1;border-radius:24px 24px 0 0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:26px 20px 40px;animation:sup .55s var(--ease)}
+@keyframes sup{from{transform:translateY(60px);opacity:.4}to{transform:none;opacity:1}}
+#offer .x{position:sticky;top:0;float:right;background:#1c1c22;color:#fff;border:0;border-radius:99px;width:38px;height:38px;font-size:18px;cursor:pointer}
+#offer .pn>div{max-width:620px;margin:0 auto}
+#offer small.k{letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#8d8f9e}
+#offer h2{font-family:var(--fh),serif;font-weight:400;font-size:34px;line-height:1.1;margin:10px 0 8px}
+#offer .sub{color:#b9bac6;font-size:15px}
+.val{margin:22px 0 6px}
+.val div{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #22222a;font-size:15px;color:#d6d7de}
+.val div b{color:#fff}
+.val span{flex:none;width:26px;height:26px;border-radius:50%;background:#1c1c22;display:flex;align-items:center;justify-content:center;font-size:13px}
+.plans{display:grid;gap:12px;margin:22px 0}
+.plan{border:1px solid #2a2a33;border-radius:18px;padding:18px;position:relative;background:#111116}
+.plan.best{border-color:#d9dbe4;background:#15151b}
+.plan .tag{position:absolute;top:-10px;left:16px;background:#ececf1;color:#0b0b0e;font:700 10.5px/1 var(--fb),sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;border-radius:6px}
+.plan h4{font-family:var(--fh),serif;font-weight:400;font-size:22px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.plan h4 b{font-family:var(--fb),sans-serif;font-size:26px;font-weight:700;color:#fff}
+.plan ul{list-style:none;margin:10px 0 14px}
+.plan li{font-size:14px;color:#c9cad3;padding:5px 0 5px 22px;position:relative}
+.plan li:before{content:"✓";position:absolute;left:0;color:#d9dbe4}
+.steps{counter-reset:s;margin:10px 0 18px}
+.steps div{counter-increment:s;display:flex;gap:12px;padding:10px 0;font-size:15px;color:#d6d7de}
+.steps div:before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;border:1px solid #3a3a44;display:flex;align-items:center;justify-content:center;font-size:13px}
+.guar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0 22px}
+.guar div{background:#15151b;border-radius:12px;padding:12px;font-size:12.5px;color:#c9cad3;text-align:center;line-height:1.35}
+.guar b{display:block;color:#fff;font-size:14px;margin-bottom:4px}
+details{border-bottom:1px solid #22222a;padding:14px 0}
+summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none}
+summary::-webkit-details-marker{display:none}
+details p{color:#b9bac6;font-size:14.5px;margin-top:8px}
+.legal{font-size:12px;color:#7c7e8c;margin-top:26px;text-align:center}
+.legal a{color:#a9abb8;text-decoration:underline}
+h3.pt{font-family:var(--fh),serif;font-weight:400;font-size:22px;margin:26px 0 6px}
+
+/* =========================== blocs v3 : services, taxe, terroir, agenda =========================== */
+sup{font-size:.62em;line-height:0;vertical-align:.45em}
+.svc{display:grid}
+.sv{display:grid;grid-template-columns:40px 1fr auto 20px;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.sv:last-child{border-bottom:0}
+.sv>.ico{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--soft);color:var(--acc)}
+.sv .nm{min-width:0}
+.sv .nm b{display:block;font-weight:600;font-size:15.5px;line-height:1.3}
+.sv .nm small{display:block;font-size:13px;color:var(--mut);line-height:1.3;margin-top:1px}
+.sv .ds{text-align:right;white-space:nowrap}
+.sv .ds b{font-family:var(--fh),serif;font-weight:400;font-size:25px;line-height:1;font-variant-numeric:lining-nums}
+.sv .ds small{font-size:12px;color:var(--mut);margin-left:3px}
+.sv .go{display:flex;width:20px;height:20px;color:var(--acc);transition:transform .3s}
+.sv .go .ico{width:20px;height:20px}
+.sv:active .go{transform:translateX(4px)}
+.txhd{display:flex;align-items:flex-end;gap:10px 16px;flex-wrap:wrap;margin:6px 0 16px}
+.txn{font-family:var(--fh),serif;font-size:clamp(60px,16vw,88px);line-height:.84;color:var(--acc);letter-spacing:-.02em;font-variant-numeric:lining-nums;white-space:nowrap}
+.txn.sm{font-size:26px;line-height:1.1;letter-spacing:0;white-space:normal}
+.txu{font-size:15px;color:var(--ink2);line-height:1.35;max-width:13em;padding-bottom:4px}
+.txt .r b{font-weight:500;color:var(--ink2)}
+.txt .r.tot{border-top:1.5px solid var(--ink);border-bottom:0;margin-top:-1px}
+.txt .r.tot b,.txt .r.tot span{color:var(--ink);font-weight:700}
+.txm{display:grid;grid-template-columns:1fr 1fr;margin:14px 0 2px;border-top:1px solid var(--line)}
+.txm div{padding:11px 0;border-bottom:1px solid var(--line);min-width:0}
+.txm div:first-child{grid-column:1/-1}
+.txm div:nth-child(3){padding-left:14px;border-left:1px solid var(--line)}
+.txm dt{font-size:11.5px;color:var(--mut);line-height:1.3}
+.txm dd{font-size:14.5px;font-weight:600;line-height:1.35;margin-top:3px}
+.tax .txx,.tax .txw{font-size:14px;margin-top:12px;line-height:1.55}
+.tax .txx b{color:var(--ink);font-weight:600}
+.txof{font-size:13.5px;color:var(--mut);margin-top:12px;font-variant-numeric:tabular-nums}
+.txof span{font-weight:600;color:var(--ink2);margin-right:8px}
+.ter .tr{padding:15px 0;border-bottom:1px solid var(--line)}
+.ter .tr:last-child{border-bottom:0}
+.ter .th{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.ter .th b{font-family:var(--fh),serif;font-weight:400;font-size:22px;line-height:1.2}
+.ter .th span{font-size:13px;color:var(--acc);font-style:italic;text-align:right;flex:none;max-width:45%}
+.ter .tr p{font-size:15px;margin-top:4px;line-height:1.5}
+.ag{list-style:none;position:relative;margin-top:10px;padding-left:24px}
+.ag:before{content:"";position:absolute;left:4px;top:9px;bottom:14px;width:1px;background:var(--line)}
+.ag li{position:relative;padding:0 0 22px}
+.ag li:last-child{padding-bottom:4px}
+.ag li:before{content:"";position:absolute;left:-24px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--acc)}
+.ag .w{display:block;font-size:13px;font-weight:600;color:var(--acc)}
+.ag b{display:block;font-family:var(--fh),serif;font-weight:400;font-size:21px;line-height:1.25;margin-top:2px}
+.ag p{font-size:15px;margin-top:3px;color:var(--ink2);line-height:1.5}
+.night .ter .tr{border-color:rgba(255,255,255,.12)}
+.night .ter .tr p,.night .ag p{color:rgba(255,255,255,.66)}
+.night .ag:before{background:rgba(255,255,255,.2)}
+.sos b{white-space:nowrap}.sos b.lg{font-size:20px;line-height:1.5}
+@media(min-width:760px){.txm{grid-template-columns:1.3fr 1fr 1fr}.txm div:first-child{grid-column:auto}.txm div+div{padding-left:14px;border-left:1px solid var(--line)}}
+
+/* =========================== ATLAS : colonne photo + sommaire =========================== */
+.L-atlas{font-size:16.5px}
+.L-atlas .aside{display:none}
+.L-atlas .amain{padding:0 22px}
+.L-atlas .acph{height:74svh;margin:0 -22px;overflow:hidden;background:var(--soft)}
+.L-atlas .acph img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-out both}
+.L-atlas .actx{padding:40px 0 30px}
+.L-atlas .kick{font:italic 400 19px/1.2 var(--fh),serif;letter-spacing:0;text-transform:none;color:var(--acc)}
+.L-atlas h1{font-size:clamp(50px,13vw,96px);line-height:.95;letter-spacing:-.02em;margin:14px 0 14px}
+.L-atlas .aloc{color:var(--mut);font-size:15px}
+.L-atlas .alead{font-family:var(--fh),serif;font-size:clamp(21px,5.4vw,27px);line-height:1.45;margin:34px 0 34px;color:var(--ink)}
+.adl{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.adl div{padding:16px 0 18px;border-bottom:1px solid var(--line);min-width:0}
+.adl div:nth-child(2n){padding-left:18px;border-left:1px solid var(--line)}
+.adl dt{font-size:12.5px;color:var(--mut)}
+.adl dd{font-family:var(--fh),serif;font-size:22px;line-height:1.2;margin-top:6px;word-break:break-word}
+.adl dd small{display:block;font:13px/1.4 var(--fb),sans-serif;color:var(--mut);margin-top:3px}
+.adl .ex{margin:8px 0 0}
+.asec{padding:30px 0 30px;scroll-margin-top:112px}
+.aplate{margin:30px 0 34px;aspect-ratio:4/5;overflow:hidden;--pr-r:3px;border-radius:3px;background:var(--soft)}
+.aplate img{width:100%;height:100%;object-fit:cover}
+.ahd{margin-bottom:8px}
+.ahd .no{font:italic 400 20px/1 var(--fh),serif;color:var(--acc)}
+.ahd h2{font-size:clamp(42px,11vw,72px);line-height:1;letter-spacing:-.015em;margin-top:10px}
+.L-atlas .blk{padding:30px 0}
+.L-atlas .bh .ico{background:transparent;border:1px solid var(--line);color:var(--acc)}
+.L-atlas .bh h3{font-size:26px}
+.L-atlas .blk p{line-height:1.75}
+.L-atlas .blk.al{border-radius:4px;padding:24px 22px}
+.L-atlas .sv>.ico{background:transparent;border:1px solid var(--line);border-radius:50%}
+.L-atlas .chip,.L-atlas .sos a{border-radius:4px}
+.agal{columns:2;column-gap:10px;margin-top:26px}
+.agal .pr{break-inside:avoid;margin-bottom:10px;--pr-r:3px}
+.agal img{width:100%;border-radius:3px}
+.anav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:calc(max(12px,env(safe-area-inset-top)) + 46px) 14px 12px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transform:translateY(-102%);transition:transform .55s var(--ease)}
+.anav::-webkit-scrollbar{display:none}
+.anav.on{transform:none}
+.anav a{flex:none;display:flex;gap:7px;align-items:baseline;padding:8px 14px;border:1px solid var(--line);border-radius:99px;font-size:13.5px;white-space:nowrap;transition:background .35s,color .35s,border-color .35s}
+.anav a span{font:italic 13px/1 var(--fh),serif;color:var(--acc)}
+.anav a.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.anav a.on span{color:inherit;opacity:.7}
+@media(min-width:960px){
+ .L-atlas .aw{display:grid;grid-template-columns:44% 1fr}
+ .L-atlas .aside{display:block;position:sticky;top:0;height:100vh;align-self:start;overflow:hidden;background:#1b1b1b;color:#fff}
+ .aph,.ap{position:absolute;inset:0}
+ .ap{opacity:0;transition:opacity 1.3s var(--ease)}
+ .ap img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s var(--ease)}
+ .ap.on{opacity:1}.ap.on img{transform:scale(1)}
+ .aside:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 38%,rgba(0,0,0,.5) 56%,rgba(0,0,0,.8) 100%);pointer-events:none}
+ .aix{text-shadow:0 1px 12px rgba(0,0,0,.35)}
+ .aix{position:absolute;left:48px;right:48px;bottom:44px;z-index:2}
+ .anm{font-family:var(--fh),serif;font-size:24px;line-height:1.2;margin-bottom:20px;opacity:.96}
+ .aix ol{list-style:none;border-top:1px solid rgba(255,255,255,.28)}
+ .aix a{display:grid;grid-template-columns:42px 1fr 72px;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15px;opacity:.72;transition:opacity .4s}
+ .aix a:hover,.aix a:focus-visible,.aix a.on{opacity:1}
+ .aix a .n{font:italic 15px/1 var(--fh),serif}
+ .aix a i{height:1px;background:rgba(255,255,255,.28);position:relative;overflow:hidden}
+ .aix a i:after{content:"";position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(var(--p,0))}
+ .L-atlas .amain{padding:0 clamp(48px,7vw,124px)}
+ .L-atlas .amain>*{max-width:660px}
+ .L-atlas .acph,.aplate,.anav{display:none}
+ .L-atlas .acov{min-height:100vh;display:flex;align-items:center}
+ .L-atlas .actx{padding:120px 0 80px}
+ .asec{padding:120px 0 40px;border-top:1px solid var(--line)}
+ .asec:first-of-type{border-top:0}
+ .ahd{margin-bottom:22px}
+ .ahd h2{font-size:clamp(48px,4.6vw,76px)}
+ .L-atlas footer{position:relative;z-index:2}
+}
+
+/* =========================== GAZETTE : journal local / almanach =========================== */
+.L-gazette{font-size:16px}
+.gm,.gfr,.gsec{max-width:1280px;margin:0 auto;padding-left:18px;padding-right:18px}
+.gm{padding-top:calc(max(12px,env(safe-area-inset-top)) + 54px)}
+.gtop{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 18px;font-size:14px;font-variant:all-small-caps;letter-spacing:.05em;color:var(--ink2);padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.gtop span:first-child:first-letter{text-transform:uppercase}
+.gtit{text-align:center;padding:20px 0 18px;border-bottom:4px double var(--ink)}
+.gov{font:italic 400 clamp(20px,4.8vw,28px)/1.1 var(--fh),serif;color:var(--acc)}
+.gtit h1{font-size:clamp(46px,11.5vw,150px);line-height:.9;letter-spacing:-.025em;font-weight:500;margin:8px 0 12px;text-wrap:balance}
+.gsub{font:italic 400 17px/1.35 var(--fh),serif;color:var(--ink2);max-width:40em;margin:0 auto;text-wrap:balance}
+.grib{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--ink)}
+.gc{display:flex;gap:10px;align-items:flex-start;padding:12px 10px 13px 0;min-width:0}
+.gc:nth-child(2n){padding-left:12px;border-left:1px solid var(--line)}
+.gc:nth-child(n+3){border-top:1px solid var(--line)}
+.gc>.ico{width:20px;height:20px;color:var(--acc);margin-top:3px}
+.gc .l{display:block;font-size:13px;font-variant:all-small-caps;letter-spacing:.06em;color:var(--mut);line-height:1.2}
+.gc .v{display:block;font-family:var(--fh),serif;font-size:17px;line-height:1.2;overflow-wrap:anywhere}
+@media(min-width:760px){.gc .v{font-size:19px}}
+.gc .ex{margin:5px 0 0}
+.gfr{display:grid;gap:26px;padding-top:24px}
+.gpl{margin:0;--pr-r:0px}
+.gpl img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gpl figcaption{font:italic 13.5px/1.4 var(--fh),serif;color:var(--ink2);padding:7px 0 0;border-top:1px solid var(--ink);margin-top:6px}
+.gbig img{aspect-ratio:4/3.4}
+.gword h2{font-size:30px;line-height:1.1;padding-bottom:10px;border-bottom:1px solid var(--ink);margin-bottom:14px}
+.gdrop{font-size:17px;line-height:1.65;color:var(--ink2);text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.gdrop:first-letter{font-family:var(--fh),serif;float:left;font-size:74px;line-height:.8;margin:6px 10px 0 0;color:var(--ink)}
+.gtoc{margin-top:24px;border-top:4px double var(--ink);padding-top:10px}
+.gtl{font-size:15px;font-variant:all-small-caps;letter-spacing:.08em;color:var(--mut);margin-bottom:4px}
+.gtoc ol{list-style:none}
+.gtoc a{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px dotted color-mix(in srgb,var(--ink) 35%,transparent);font-family:var(--fh),serif;font-size:20px;line-height:1.25;transition:color .3s}
+.gtoc a:hover,.gtoc a:focus-visible{color:var(--acc)}
+.gtoc a span{flex:none;width:40px;font-style:italic;font-size:16px;color:var(--acc)}
+.gbox{border:3px double var(--ink);padding:14px 16px 16px;align-self:start}
+.gbt{text-align:center;font-family:var(--fh),serif;font-size:23px;line-height:1.1;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.gbr div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px dotted color-mix(in srgb,var(--ink) 35%,transparent)}
+.gbr span{font-size:13.5px;color:var(--ink2);line-height:1.3;min-width:0}
+.gbr b{font-family:var(--fh),serif;font-weight:500;font-size:20px;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.gbr b small{font-size:13px;color:var(--mut)}
+.gbs{font-size:15px;font-variant:all-small-caps;letter-spacing:.08em;color:var(--mut);margin:14px 0 6px}
+.gbn{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink)}
+.gbn a{padding:8px 8px 9px 0;border-bottom:1px solid var(--line)}
+.gbn a:nth-child(2n){padding-left:10px;border-left:1px solid var(--line)}
+.gbn b{display:block;font-family:var(--fh),serif;font-weight:500;font-size:27px;line-height:1.05;color:var(--acc)}
+.gbn small{display:block;font-size:12px;line-height:1.3;color:var(--ink2)}
+.gsec{padding-top:56px;scroll-margin-top:10px}
+.gsh{display:flex;align-items:baseline;gap:16px;border-top:4px double var(--ink);padding:14px 0 14px;border-bottom:1px solid var(--ink);margin-bottom:22px}
+.gno{font:italic 400 24px/1 var(--fh),serif;color:var(--acc);flex:none}
+.gsh h2{font-size:clamp(34px,8vw,64px);line-height:1;letter-spacing:-.015em;font-weight:500}
+.gcols .gpl{margin-bottom:24px;break-inside:avoid}
+.L-gazette .blk{padding:0 0 24px;border-top:0;break-inside:auto}
+.L-gazette .bh{border-top:1.5px solid var(--ink);padding-top:9px;margin-bottom:8px;break-after:avoid;break-inside:avoid}
+.L-gazette .gcols>.blk:first-child .bh,.L-gazette .gcols>.gpl+.blk .bh{border-top-width:1.5px}
+.L-gazette .bh .ico{display:none}
+.L-gazette .bh h3{font-size:23px;font-weight:500;line-height:1.15}
+.L-gazette .blk p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.L-gazette .blk .note{text-align:left;font-style:italic}
+.L-gazette .blk.al{background:transparent;border:1px solid var(--ink);border-radius:0;padding:14px 16px;margin:0 0 24px;break-inside:avoid}
+.L-gazette .blk.al .bh{border-top:0;padding-top:0}
+.L-gazette .btax,.L-gazette .sos{break-inside:avoid}
+.L-gazette .sos{grid-template-columns:1fr 1fr!important;gap:0;border-top:1px solid var(--ink)}
+.L-gazette .sos a{border:0;border-bottom:1px solid var(--line);padding:9px 10px 10px 0}
+.L-gazette .sos a:nth-child(2n){border-left:1px solid var(--line);padding-left:12px}
+.L-gazette .poi,.L-gazette .sv,.L-gazette .ul li,.L-gazette .rows .r,.L-gazette .tr,.L-gazette .ag li,.L-gazette .chk label{break-inside:avoid}
+.L-gazette .poi{grid-template-columns:58px 1fr 22px;gap:12px}
+.L-gazette .poi .km{font-size:32px}
+.L-gazette .chip,.L-gazette .sos a{border-radius:0;background:transparent}
+.L-gazette .sv>.ico{background:transparent;border:1px solid var(--line);border-radius:0}
+.L-gazette .txn{color:var(--ink)}
+.L-gazette .ag li:before{border-radius:0;transform:rotate(45deg) scale(.85)}
+.gpls{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}
+.gpls .gpl:first-child{grid-column:1/-1}
+.gpls .gpl:first-child img{aspect-ratio:16/9}
+.gpls img{aspect-ratio:4/5}
+.ggal{padding-bottom:70px}
+@media(min-width:760px){
+ .gm,.gfr,.gsec{padding-left:32px;padding-right:32px}
+ .grib{grid-template-columns:repeat(4,1fr)}
+ .gc:nth-child(n){border-top:0;padding-left:14px;border-left:1px solid var(--line)}
+ .gc:first-child{padding-left:0;border-left:0}
+ .gfr{grid-template-columns:1.25fr 1fr}
+ .gbig{grid-column:1/-1}
+ .gpls{grid-template-columns:repeat(3,1fr)}
+ .gpls .gpl:first-child{grid-column:span 2;grid-row:span 2}
+ .gpls .gpl:first-child img{aspect-ratio:auto;height:calc(100% - 34px)}
+}
+@media(min-width:960px){
+ .gcols{column-count:2;column-gap:44px;column-rule:1px solid var(--line)}
+}
+@media(min-width:1200px){
+ .gfr{grid-template-columns:1.4fr 1fr .78fr;gap:34px}
+ .gbig{grid-column:auto}
+ .gbig img{aspect-ratio:4/4.6}
+ .gcols{column-count:3;column-gap:40px}
+}
+@media (prefers-reduced-motion:reduce){.ap,.ap img,.anav{transition:none}}
+@media(min-width:760px){
+ .ess{grid-template-columns:repeat(4,1fr)}.ess .es:nth-child(3),.ess .es:nth-child(4){grid-column:auto}
+ .sos{grid-template-columns:repeat(3,1fr)}
+ .mz{columns:3}
+ .strip img{flex-basis:46%}
+ .car img{flex-basis:40%}
+ .track figure{flex-basis:44vw}
+}
+/* =========================== POSTALE : cartes postales & billets empilés =========================== */
+.hw{font-family:Caveat,'Segoe Print','Bradley Hand','Comic Sans MS',cursive;font-weight:600;letter-spacing:0;font-style:normal}
+.L-postale{background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .15 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.L-postale .phero{position:relative;min-height:100svh;padding:calc(max(12px,env(safe-area-inset-top)) + 74px) 18px 34px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.pdesk{position:relative;width:min(86vw,440px);aspect-ratio:4/5.4;will-change:transform}
+.pc{position:absolute;inset:0;background:#fff;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 34px 60px -26px rgba(40,25,10,.55)}
+.pc img{width:100%;height:100%;object-fit:cover}
+.pc.pb{padding:9px;transform:rotate(6deg) translate(5%,1%);animation:pdb 1.4s calc(var(--d) + .12s) var(--ease) both}
+.pc.pb img{filter:saturate(.7) brightness(.96)}
+.pc.pf{transform:rotate(-3deg);animation:pdf 1.5s var(--d) var(--ease) both}
+@keyframes pdf{from{opacity:0;transform:translate3d(0,60px,0) rotate(-11deg) scale(.92)}to{opacity:1;transform:rotate(-3deg)}}
+@keyframes pdb{from{opacity:0;transform:translate3d(0,80px,0) rotate(14deg) scale(.9)}to{opacity:1;transform:rotate(6deg) translate(5%,1%)}}
+.pc .ph{position:absolute;inset:9px;overflow:hidden;border-radius:1px;background:#222}
+.pc .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 48%,rgba(0,0,0,.66) 100%)}
+.pc .gr{position:absolute;left:26px;right:24px;bottom:24px;color:#fff;z-index:2}
+.pc .gr .hw{display:block;font-size:30px;line-height:1;transform:rotate(-4deg);transform-origin:0 100%;margin:0 0 10px 2px;opacity:0;animation:fi 1s calc(var(--d) + 1s) forwards}
+.pc .gr h1{font-size:clamp(40px,11vw,96px);line-height:.95;text-wrap:balance;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.pc .gr h1.l1{font-size:clamp(34px,9vw,78px)}.pc .gr h1.l2{font-size:clamp(29px,7.6vw,62px)}
+.pstamp{position:absolute;top:22px;right:22px;z-index:3;width:80px;height:100px;padding:6px;background:#fff;rotate:4deg;filter:drop-shadow(0 3px 5px rgba(0,0,0,.25));
+ -webkit-mask:radial-gradient(circle 3.4px at center,#0000 96%,#000) -5px -5px/10px 10px,linear-gradient(#000 0 0) content-box;mask:radial-gradient(circle 3.4px at center,#0000 96%,#000) -5px -5px/10px 10px,linear-gradient(#000 0 0) content-box;
+ animation:pst .7s calc(var(--d) + .85s) cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pst{from{opacity:0;transform:scale(1.5)}to{opacity:1;transform:none}}
+.pstamp .in{height:100%;background:var(--acc);color:#fff;display:flex;flex-direction:column;text-align:center;overflow:hidden}
+.pstamp .si{flex:1;min-height:0;position:relative;overflow:hidden}
+.pstamp .si img{filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply;opacity:.9}
+.pstamp .si:after{content:"";position:absolute;inset:0;background:var(--acc);mix-blend-mode:screen;opacity:.35}
+.pstamp b{display:block;font-family:var(--fh),serif;font-weight:500;line-height:1.02;padding:5px 3px 1px;overflow-wrap:anywhere}
+.pstamp small{display:block;font:700 7.5px/1.2 var(--fb),sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:0 3px 6px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmk{position:absolute;z-index:4;top:76px;right:86px;width:196px;color:rgba(255,255,255,.9);rotate:-9deg;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45));animation:ppm .5s calc(var(--d) + 1.25s) ease-out both}
+@keyframes ppm{from{opacity:0;transform:scale(1.25)}to{opacity:1;transform:none}}
+.pmk text{font-family:var(--fb),sans-serif}
+.pmeta{position:relative;z-index:2;margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;color:var(--ink2);opacity:0;animation:fi 1s calc(var(--d) + 1.4s) forwards}
+.pmeta .kick{color:var(--acc)}
+.pmeta span+span{font-family:var(--fh),serif;font-size:19px}
+.pcue{margin-top:22px;width:1px;height:42px;background:linear-gradient(var(--ink2),transparent);opacity:.4}
+/* verso de la carte */
+.pwel{padding:30px 14px 10px}
+.pback{position:relative;max-width:1080px;margin:0 auto;background:var(--card);padding:30px 24px 26px;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 30px 60px -32px rgba(40,25,10,.45)}
+.pback:before{content:"";position:absolute;inset:0;border:7px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--acc) 0 11px,transparent 11px 18px,var(--ink) 18px 29px,transparent 29px 36px) 7;opacity:.85;pointer-events:none;border-radius:3px}
+.pmsg .kick{color:var(--acc);margin-bottom:16px}
+.pmt{font-family:var(--fh),serif;font-size:clamp(23px,6.2vw,31px);line-height:1.36;color:var(--ink)}
+.psig{font-size:27px;line-height:1.1;color:var(--acc);margin-top:18px;rotate:-2deg;transform-origin:0 50%}
+.pdiv{height:0;border-top:1.5px dashed color-mix(in srgb,var(--ink) 22%,transparent);margin:24px 0 20px}
+.padr{position:relative}
+.padr .kick{color:var(--mut);margin-bottom:6px;font-size:10px}
+.pspot{float:right;width:70px;height:86px;border:1.5px dashed color-mix(in srgb,var(--ink) 28%,transparent);border-radius:2px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;margin:0 0 10px 14px}
+.pspot span{font:700 8px/1.2 var(--fb),sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);text-align:center;padding:0 4px}
+.padr .pl span{display:block;font-family:var(--fh),serif;font-size:20px;line-height:1.3;padding:9px 0 6px;border-bottom:1px solid color-mix(in srgb,var(--ink) 16%,transparent)}
+.padr .pl span:first-child{font-size:23px}
+/* billets */
+.ptks{display:grid;gap:12px;max-width:1080px;margin:22px auto 0}
+.ptkw{filter:drop-shadow(0 1px 1px rgba(0,0,0,.06)) drop-shadow(0 12px 18px rgba(40,25,10,.13))}
+.ptk{display:grid;grid-template-columns:58px 1fr;height:100%;background:var(--card);border-radius:10px;min-height:104px;
+ -webkit-mask:radial-gradient(circle 9px at 58px 0,#0000 96%,#000) top/100% 51% no-repeat,radial-gradient(circle 9px at 58px 100%,#0000 96%,#000) bottom/100% 51% no-repeat;mask:radial-gradient(circle 9px at 58px 0,#0000 96%,#000) top/100% 51% no-repeat,radial-gradient(circle 9px at 58px 100%,#0000 96%,#000) bottom/100% 51% no-repeat}
+.ptk .stb{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:10px;padding:16px 0 14px;border-right:1.5px dashed color-mix(in srgb,var(--ink) 20%,transparent);color:var(--acc);background:color-mix(in srgb,var(--soft) 55%,transparent)}
+.ptk .stb small{writing-mode:vertical-rl;transform:rotate(180deg);font:700 9.5px/1 var(--fb),sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.ptk .bd{padding:15px 16px 14px 18px;min-width:0}
+.ptk .l{font:700 10px/1.2 var(--fb),sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.ptk .v{font-family:var(--fh),serif;font-size:25px;line-height:1.15;margin-top:6px;overflow-wrap:anywhere;color:var(--ink);text-wrap:balance}
+.ptk .s{font-size:12.5px;color:var(--mut);margin-top:2px}
+.ptk .ex{margin:8px 0 0}
+/* itinéraire */
+.proute{max-width:1080px;margin:22px auto 0;background:var(--ink);color:var(--bg);border-radius:12px;padding:22px 24px 14px;
+ -webkit-mask:radial-gradient(circle 10px at 0 50%,#0000 96%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 50%,#0000 96%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 10px at 0 50%,#0000 96%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 50%,#0000 96%,#000) right/51% 100% no-repeat}
+.prh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1.5px dashed rgba(255,255,255,.22)}
+.prh .kick{opacity:.7;font-size:10.5px}
+.prh .hw{font-size:24px;line-height:1;color:color-mix(in srgb,var(--acc) 55%,#fff)}
+.proute ol{list-style:none;position:relative;padding:6px 0 0}
+.proute ol:before{content:"";position:absolute;left:5px;top:26px;bottom:26px;width:1.5px;background:rgba(255,255,255,.22)}
+.proute a{display:grid;grid-template-columns:12px 34px 1fr;gap:12px;align-items:center;padding:11px 0;font-size:16px;transition:opacity .3s}
+.proute a i{width:12px;height:12px;border-radius:50%;border:2px solid var(--acc);background:var(--ink);position:relative;z-index:1}
+.proute li:first-child a i,.proute li:last-child a i{background:var(--acc)}
+.proute a .n{font-family:var(--fh),serif;font-size:15px;opacity:.55}
+.proute a .t{font-family:var(--fh),serif;font-size:21px;line-height:1.2}
+/* pile de cartes */
+.pstk{position:relative;max-width:1200px;margin:0 auto;padding:22px 10px 70px}
+.panc{display:block;height:0}
+.pch{position:sticky;top:62px;margin-top:26px;background:var(--card);border-radius:10px;box-shadow:0 -1px 0 rgba(0,0,0,.03),0 -16px 36px -22px rgba(40,25,10,.42),0 26px 50px -34px rgba(40,25,10,.4);transform-origin:50% 0}
+.pch:after{content:"";position:absolute;inset:0;border-radius:inherit;background:#140f0a;opacity:calc(var(--c,0) * .2);pointer-events:none;z-index:5}
+.pchd{padding:22px 22px 14px}
+.pchd .pt{display:flex;align-items:center;gap:12px}
+.pno{font:700 10.5px/1 var(--fb),sans-serif;letter-spacing:.16em;color:#fff;background:var(--acc);padding:7px 9px 6px;border-radius:4px;white-space:nowrap}
+.pnv{font:700 10.5px/1.2 var(--fb),sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pmini{flex:none;width:58px;height:58px;border-radius:50%;border:1.5px solid color-mix(in srgb,var(--ink) 45%,transparent);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4.2px color-mix(in srgb,var(--ink) 35%,transparent);display:flex;flex-direction:column;align-items:center;justify-content:center;color:color-mix(in srgb,var(--ink) 62%,transparent);rotate:-12deg;text-align:center;line-height:1}
+.pmini b{font:700 13px/1 var(--fb),sans-serif;letter-spacing:.02em}
+.pmini small{font:700 6.5px/1.1 var(--fb),sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-top:3px;max-width:44px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pchd h2{font-size:clamp(36px,10vw,64px);line-height:1;margin-top:16px;text-wrap:balance}
+.pchd h2 em{color:var(--acc)}
+.pperf{height:12px;margin:0 22px;background:radial-gradient(circle 2px,color-mix(in srgb,var(--ink) 26%,transparent) 96%,transparent) 0 50%/10px 6px repeat-x}
+.pcb{padding:4px 22px 30px}
+.pside{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;margin:0 -22px;padding:20px 26px 16px;scroll-snap-type:x mandatory}
+.pside::-webkit-scrollbar{display:none}
+.pside.one{justify-content:center}
+.pola{flex:0 0 74%;scroll-snap-align:center;background:#fff;padding:9px 9px 0;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.1),0 16px 30px -16px rgba(40,25,10,.5)}
+.pside .pola:nth-child(1){rotate:-2deg}.pside .pola:nth-child(2){rotate:1.6deg}.pside .pola:nth-child(3){rotate:-1deg}
+.pola .pr{aspect-ratio:4/4.6;--pr-r:1px;background:#eee}
+.pola img{width:100%;height:100%;object-fit:cover}
+.pola figcaption{font-size:22px;line-height:1.05;padding:9px 4px 12px;color:#2c2a33;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.L-postale .blk{border-top:1.5px dashed color-mix(in srgb,var(--ink) 15%,transparent)}
+.L-postale .pbl>.blk:first-child{border-top:0}
+.L-postale .bh .ico{border-radius:10px}
+.L-postale .bh h3{font-size:24px}
+.L-postale .blk.al{background:transparent;border:1.5px dashed color-mix(in srgb,var(--acc) 70%,transparent);border-radius:12px;padding:20px 18px;margin:14px 0}
+.L-postale .blk.al .bh .ico{background:var(--soft)}
+.L-postale .sos{gap:10px}
+.L-postale .sos a{border:0;background:var(--soft);border-radius:9px;padding:14px 16px 13px;position:relative;
+ -webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 96%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 96%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 7px at 0 50%,#0000 96%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 96%,#000) right/51% 100% no-repeat}
+.L-postale .sos a:after{content:"";position:absolute;left:12px;right:12px;bottom:0;border-bottom:1.5px dashed color-mix(in srgb,var(--ink) 16%,transparent)}
+.L-postale .tax{background:var(--soft);border-radius:12px;padding:20px 20px 18px;margin-top:6px;
+ -webkit-mask:radial-gradient(circle 10px at 0 50%,#0000 96%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 50%,#0000 96%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 10px at 0 50%,#0000 96%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 50%,#0000 96%,#000) right/51% 100% no-repeat}
+.L-postale .tax .txhd{padding-bottom:16px;margin-bottom:4px;border-bottom:1.5px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
+.L-postale .tax .rows .r,.L-postale .tax .txm,.L-postale .tax .txm div{border-color:color-mix(in srgb,var(--ink) 12%,transparent)}
+.L-postale .chip{border-style:dashed}
+/* planches */
+.pgal{display:grid;grid-template-columns:1fr 1fr;gap:20px 14px;padding:22px 18px 34px}
+.pgal .pola{rotate:-1.6deg}.pgal .pola:nth-child(3n+2){rotate:1.8deg}.pgal .pola:nth-child(3n){rotate:-.6deg}.pgal .pola:nth-child(4n){rotate:2.4deg}
+.pgal .pola figcaption{font-size:19px}
+.pgal .pola:first-child{grid-column:span 2;rotate:-.8deg}.pgal .pola:first-child .pr{aspect-ratio:16/10}
+.L-postale footer{margin-top:0}
+@media(min-width:600px){.ptks{grid-template-columns:1fr 1fr}}
+@media(min-width:760px){
+ .L-postale .phero{padding:96px 40px 40px}
+ .pdesk{width:min(74vw,1040px,calc((100svh - 230px) * 1.5));aspect-ratio:3/2}
+ .pc.pf,.pc.pb{border-radius:4px}
+ .pc .ph{inset:12px}.pc.pb{padding:12px}
+ .pc .gr{left:44px;bottom:40px;right:200px}
+ .pc .gr .hw{font-size:40px}
+ .pstamp{top:30px;right:30px;width:100px;height:120px;padding:7px}
+ .pstamp b{font-size:1.15em}
+ .pstamp small{font-size:8.5px}
+ .pmk{top:100px;right:118px;width:280px}
+ .pwel{padding:40px 32px 10px}
+ .pback{display:grid;grid-template-columns:1.3fr auto 1fr;gap:0 44px;padding:52px 56px 46px}
+ .pdiv{border-top:0;border-left:1.5px dashed color-mix(in srgb,var(--ink) 22%,transparent);margin:0;width:0}
+ .padr{padding-top:4px}
+ .pspot{width:90px;height:110px;margin-bottom:26px}
+ .padr{display:flex;flex-direction:column}
+ .pspot{float:none;align-self:flex-end;margin:0 0 auto}
+ .padr .kick{margin-top:28px}
+ .pstk{padding:40px 32px 90px}
+ .pch{border-radius:12px}
+ .pchd{padding:36px 52px 18px}
+ .pmini{width:70px;height:70px}.pmini b{font-size:15px}
+ .pperf{margin:0 52px}
+ .pcb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;padding:26px 52px 56px}
+ .pside{display:block;overflow:visible;margin:0;padding:14px 10px 0;position:sticky;top:130px;align-self:start}
+ .pola{width:88%}
+ .pside .pola+.pola{width:64%;margin:-16% 0 0 auto;position:relative}
+ .pside .pola:nth-child(3){margin:-12% 0 0 6%;width:60%}
+ .pgal{grid-template-columns:repeat(3,1fr);gap:34px 28px;padding:30px 52px 56px}
+ .pgal .pola{width:auto}
+ .pgal .pola:first-child{grid-row:span 2;display:flex;flex-direction:column}.pgal .pola:first-child .pr{flex:1;aspect-ratio:auto;position:relative;min-height:0}.pgal .pola:first-child .pr img{position:absolute;inset:0}
+ .pgal .pola figcaption{font-size:22px}
+}
+@media(min-width:1100px){
+ .ptks{grid-template-columns:.95fr .85fr 1.3fr 1fr}
+ .ptk .v{font-size:22px}
+ .proute{padding:24px 34px 22px}
+ .proute ol{display:flex;padding-top:20px}
+ .proute ol:before{left:6px;right:6px;top:26px;bottom:auto;width:auto;height:1.5px}
+ .proute li{flex:1;min-width:0}
+ .proute a{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:0 10px 0 0}
+ .proute a .n{margin-top:4px}
+ .pgal{grid-template-columns:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){.pc.pf,.pc.pb,.pstamp,.pmk,.pmeta,.pc .gr .hw{animation:none;opacity:1}.pch{transform:none!important}}
+@media (prefers-reduced-motion:reduce){.rv,.pr,.pr img{transition:none;opacity:1;transform:none;clip-path:none}}
+</style>
+</head>
+<body class="L-riviera">
+<div id="intro"><div class="ecl"></div><small>Umbra</small><b id="introT"></b></div>
+<div id="bar"></div>
+<div class="demo"><i></i>Démo · Umbra</div>
+<div class="lang" id="lang"></div>
+<div class="tip" id="tip"></div>
+<main id="app"></main>
+<div id="lb"><button class="x" aria-label="Fermer">×</button><div class="tr"></div><div class="n"></div></div>
+<button id="pill"><i></i><span></span></button>
+<div id="sheet"><div class="in"><h3 id="shT"></h3><p id="shP"></p><div class="btns"><button class="b1" id="shGo">Voir les formules</button><button class="b2" id="shNo">Plus tard</button></div></div></div>
+<div id="offer"><div class="pn"><button class="x" aria-label="Fermer">×</button><div id="offerIn"></div></div></div>
+<script>
+var D={"s": "six-h", "n": "Le Six H", "c": "Andolsheim", "reg": "als", "zone": "vins-sud", "zl": "Route des Vins · Colmar", "z": {"fr": "au cœur du vignoble, entre Colmar et les villages fleuris de la Route des Vins", "en": "in the heart of the vineyards, between Colmar and the flower-decked villages of the Wine Route", "de": "mitten im Weinland, zwischen Colmar und den blumengeschmückten Dörfern der Weinstraße", "nl": "midden in de wijnstreek, tussen Colmar en de bloemrijke dorpjes van de Wijnroute"}, "lay": "riviera", "kind": "loc", "k": ["spa", "petit", "parking", "animaux"], "i": ["https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2Ffb701dad-54c2-4e42-a006-257bac449ef7%2F43MGAB1670.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F21b0e30a-2c11-4492-b028-4f70fca9a1be%2F45MGAB1652.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F444c6bcc-3a8d-4726-902d-b612c6d5d1df%2F46MGAB1651.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2Fa5afad12-1116-4863-818f-06c06639af86%2F42MGAB1665.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2Fb2957ff0-9edb-4697-9871-d64fde8b3ffd%2F34MGAB1666.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F8a361a02-5219-4bea-aa93-184b5d03c3be%2F39MGAB1662.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F5b055462-1404-4a26-aa2b-4949494ac4b6%2F40MGAB1656.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F28346fc3-a273-45ec-b8bc-72aef49ef45b%2FIMG_1704-2.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F23a7a2fe-1d9c-432f-8bd4-6032672a0407%2F26MGAB1643.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F8c7b46ba-e7dd-48a8-92a1-3d70a10183dd%2F27MGAB1647.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2Fec62fbaf-62ad-4600-b5ae-04f8e87c8704%2F28MGAB1710.jpg&w=1600&output=webp&q=80", "https://wsrv.nl/?url=https%3A%2F%2Fmedias.elloha.com%2Fcrop-2400x1400%2F6fe70551-5987-442d-ad2b-f7c70df6e6cf%2F31MGAB1067.jpg&w=1600&output=webp&q=80"], "sz": [[2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400], [2400, 1400]], "na": "au Six H", "nd": "du Six H", "cd": "d'Andolsheim", "tel": "+33607448675", "telf": "06 07 44 86 75", "poi": [{"lat": 48.074, "lon": 7.359, "km": 5, "t": {"fr": ["Colmar, la Petite Venise", "Canaux bordés de maisons colorées, quartier des Tanneurs et Koïfhus : à parcourir à pied ou en barque."], "en": ["Colmar’s Little Venice", "Canals lined with colourful houses, the Tanners’ quarter and the Koïfhus: explore on foot or by boat."], "de": ["Colmar, Klein-Venedig", "Kanäle mit bunten Häusern, Gerberviertel und Koïfhus: zu Fuß oder im flachen Kahn entdecken."], "nl": ["Colmar, Klein-Venetië", "Grachten met kleurrijke huizen, de Looierswijk en het Koïfhus: te voet of per bootje te verkennen."]}}, {"lat": 48.08, "lon": 7.355, "km": 6, "t": {"fr": ["Musée Unterlinden", "Dans un couvent du XIIIe siècle, le célèbre retable d’Issenheim de Grünewald, l’un des chefs-d’œuvre de l’art occidental."], "en": ["Unterlinden Museum", "In a 13th-century convent, Grünewald’s famous Isenheim Altarpiece, one of the masterpieces of Western art."], "de": ["Museum Unterlinden", "In einem Kloster aus dem 13. Jahrhundert: Grünewalds Isenheimer Altar, eines der Meisterwerke abendländischer Kunst."], "nl": ["Musée Unterlinden", "In een 13e-eeuws klooster hangt het beroemde Isenheimer altaar van Grünewald, een meesterwerk van de westerse kunst."]}}, {"lat": 48.043, "lon": 7.306, "km": 11, "t": {"fr": ["Eguisheim", "Village rond, en cercles concentriques autour de son château ; au-dessus veillent les trois donjons d’Husseren-les-Châteaux."], "en": ["Eguisheim", "A round village laid out in rings around its castle; above it stand the three keeps of Husseren-les-Châteaux."], "de": ["Eguisheim", "In Ringen um seine Burg angelegtes Dorf; darüber wachen die drei Bergfriede von Husseren-les-Châteaux."], "nl": ["Eguisheim", "Een rond dorp in concentrische cirkels rond zijn kasteel; erboven waken de drie donjons van Husseren-les-Châteaux."]}}, {"lat": 48.018, "lon": 7.528, "km": 12, "t": {"fr": ["Neuf-Brisach", "Ville fortifiée octogonale de Vauban, inscrite au patrimoine mondial de l’Unesco : faites le tour des remparts."], "en": ["Neuf-Brisach", "Vauban’s octagonal fortified town, a UNESCO World Heritage site: walk all the way round the ramparts."], "de": ["Neuf-Brisach", "Vaubans achteckige Festungsstadt, UNESCO-Welterbe: Ein Rundgang über die Wälle lohnt sich."], "nl": ["Neuf-Brisach", "De achthoekige vestingstad van Vauban, Unesco-werelderfgoed: wandel helemaal rond over de wallen."]}}, {"lat": 48.087, "lon": 7.278, "km": 13, "t": {"fr": ["Turckheim", "Trois portes, des maisons à colombages et un veilleur de nuit qui fait sa ronde en chantant, les soirs de mai à octobre."], "en": ["Turckheim", "Three gates, half-timbered houses and a night watchman who sings his rounds in the evenings from May to October."], "de": ["Turckheim", "Drei Tore, Fachwerkhäuser und ein Nachtwächter, der von Mai bis Oktober abends singend seine Runde dreht."], "nl": ["Turckheim", "Drie poorten, vakwerkhuizen en een nachtwaker die van mei tot oktober ’s avonds zingend zijn ronde loopt."]}}, {"lat": 48.055, "lon": 7.267, "km": 14, "t": {"fr": ["Château du Hohlandsbourg", "Grande forteresse de grès rose au-dessus de Wintzenheim, avec vue sur Colmar, la plaine et la Forêt-Noire."], "en": ["Hohlandsbourg Castle", "A huge pink sandstone fortress above Wintzenheim, overlooking Colmar, the plain and the Black Forest."], "de": ["Hohlandsburg", "Mächtige Burg aus rosa Sandstein über Wintzenheim, mit Blick auf Colmar, die Ebene und den Schwarzwald."], "nl": ["Kasteel Hohlandsbourg", "Grote vesting van roze zandsteen boven Wintzenheim, met uitzicht op Colmar, de vlakte en het Zwarte Woud."]}}, {"lat": 48.138, "lon": 7.263, "km": 15, "t": {"fr": ["Kaysersberg", "Pont fortifié sur la Weiss, château en surplomb et maison natale d’Albert Schweitzer ; marché de Noël très prisé."], "en": ["Kaysersberg", "A fortified bridge over the Weiss, a castle above town and Albert Schweitzer’s birthplace; a much-loved Christmas market."], "de": ["Kaysersberg", "Wehrbrücke über die Weiss, Burg über dem Städtchen und Albert Schweitzers Geburtshaus; beliebter Weihnachtsmarkt."], "nl": ["Kaysersberg", "Versterkte brug over de Weiss, een burcht boven het stadje en het geboortehuis van Albert Schweitzer; geliefde kerstmarkt."]}}], "mk": [{"c": "Colmar", "km": 6, "d": {"fr": "marché couvert du mardi au samedi, grand marché place Saint-Joseph le samedi matin", "en": "covered market Tuesday to Saturday, big market on Place Saint-Joseph on Saturday morning", "de": "Markthalle Dienstag bis Samstag, großer Markt auf der Place Saint-Joseph am Samstagvormittag", "nl": "overdekte markt dinsdag t/m zaterdag, grote markt op de Place Saint-Joseph op zaterdagochtend"}}, {"c": "Neuf-Brisach", "km": 12, "d": {"fr": "lundi matin", "en": "Monday morning", "de": "Montagvormittag", "nl": "maandagochtend"}}, {"c": "Turckheim", "km": 13, "d": {"fr": "vendredi matin", "en": "Friday morning", "de": "Freitagvormittag", "nl": "vrijdagochtend"}}], "ap": [["EuroAirport Basel-Mulhouse-Freiburg", 65], ["Strasbourg-Entzheim", 70]], "st": [["Colmar", 6], ["Sélestat", 25]], "sea": false, "tax": {"y": 2025, "cat": {"fr": "meublé de tourisme 4 étoiles", "en": "4-star holiday rental", "de": "Ferienunterkunft mit 4 Sternen", "nl": "vakantiewoning met 4 sterren"}, "unit": "€", "base": 1.0, "total": 1.1, "dep": 10.0, "reg": 0.0, "per": "01-01 - 31-12", "per2": null, "regime": "Réel", "com": "ANDOLSHEIM"}, "svc": [["bakery", "Alsapain", 0.5, 48.06381, 7.41571], ["charging_station", "", 1.2, 48.0714, 7.40744], ["supermarket", "Colruyt", 1.5, 48.07352, 7.40662], ["doctors", "", 1.7, 48.07497, 7.40661], ["fuel", "E. Leclerc", 2.0, 48.07613, 7.40374], ["pharmacy", "Pharmacie Schang", 3, 48.08123, 7.39264], ["atm", "Crédit Mutuel", 4, 48.08156, 7.38079], ["marketplace", "Marché couvert", 5, 48.07464, 7.3598]], "wifi": "SixH-Guest"};
+var T={"fr": {"kicker": "Livret d'accueil", "welcome_t": "Bienvenue", "welcome": "Bienvenue {na} ! Vous êtes {z}. Ce livret rassemble tout ce qu'il faut pour votre séjour : l'arrivée, la maison, nos adresses autour {cd} et les infos pratiques. Gardez-le sur votre téléphone.", "checkin": "Arrivée", "checkout": "Départ", "wifi": "Wi-Fi", "host": "Votre hôte", "from": "à partir de 16 h", "before": "avant 11 h", "net": "Réseau", "pwd": "Mot de passe", "call": "Appeler", "msg": "Écrire", "nav": ["Arriver", "La maison", "Autour", "Provence pratique", "Départ"], "c1": "Arriver", "car": "En voiture", "car_t": "L'adresse exacte et le plan d'accès vous sont envoyés avant l'arrivée. À la campagne le GPS peut se tromper : suivez nos indications pour les derniers kilomètres.", "train": "En train", "plane": "En avion", "approx": "distances approximatives par la route", "parking": "Stationnement", "park_yes": "Parking privé sur place, gratuit.", "park_no": "Où se garer : on vous l'indique avant l'arrivée.", "late": "Arrivée tardive ? Prévenez-nous, on s'organise (boîte à clés ou accueil).", "police_t": "Voyageurs étrangers : fiche de police", "police": "La loi française demande à chaque voyageur de nationalité étrangère de remplir une courte fiche à l'arrivée (nom, date et lieu de naissance, nationalité, adresse). Cela prend une minute, merci !", "c2": "La maison", "rules_t": "Les règles de la maison", "rules": ["Maison non-fumeur à l'intérieur.", "Calme après 22 h, pour le repos de tous.", "L'eau est précieuse en Provence : merci d'y faire attention, surtout l'été.", "Volets fermés aux heures chaudes : la maison reste fraîche."], "pets": "Animaux : sur demande.", "clim": "Climatisation : fenêtres fermées quand elle tourne, et on l'éteint en sortant.", "pool_t": "La piscine", "pool": ["Ouverte de 9 h à 20 h.", "Piscine non surveillée : les enfants restent sous la surveillance d'un adulte.", "Une douche avant la baignade, pas de verre autour du bassin."], "bf_t": "Petit-déjeuner", "bf": "Servi de 8 h 30 à 10 h, avec des produits de la région.", "table_t": "Table d'hôtes", "table": "Sur réservation, la veille.", "spa_t": "Spa", "spa": "Sur réservation, demandez-nous un créneau.", "trash_t": "Tri des déchets", "trash": "Emballages et papier dans le bac jaune, verre au point d'apport du village, le reste dans les ordures ménagères.", "c3": "Autour {cd}", "near_t": "À voir près d'ici", "market_t": "Les marchés", "market_n": "Jours de marché indicatifs, à vérifier sur place.", "maps": "Itinéraire", "c4": "Provence pratique", "heat_t": "Chaleur et soleil", "heat": "En été, buvez beaucoup d'eau, évitez l'effort entre 13 h et 17 h, chapeau et crème solaire.", "fire_t": "Massifs et risque d'incendie", "fire": "De juin à septembre, l'accès aux massifs forestiers peut être limité ou interdit selon le risque du jour. Avant une randonnée, consultez la carte de la préfecture.", "mistral_t": "Le mistral", "mistral": "Ce vent du nord peut souffler fort plusieurs jours : il rafraîchit, mais attention aux parasols et aux sorties en mer.", "mosq_t": "Moustiques", "mosq": "En Camargue, prévoyez un répulsif, surtout le soir.", "sea_t": "Mer", "sea": "Respectez les drapeaux de baignade. Secours en mer : 196.", "sos_t": "Urgences", "sos": [["112", "Urgences (toute l'Europe)"], ["15", "SAMU, urgence médicale"], ["18", "Pompiers"], ["17", "Police / gendarmerie"], ["114", "Urgences par SMS"], ["3237", "Pharmacie de garde"]], "tax_t": "Taxe de séjour", "tax": "Fixée par la commune, elle s'ajoute au prix de la nuitée (par adulte et par nuit) et nous la reversons à la commune.", "c5": "Départ", "out_t": "Avant de partir", "out": ["Clés laissées à l'endroit convenu", "Fenêtres et volets fermés", "Climatisation et lumières éteintes", "Vaisselle faite ou lancée", "Poubelles sorties", "Rien d'oublié : chargeurs, maillots, dans le frigo"], "thanks": "Merci d'avoir séjourné chez nous ! Un avis en ligne nous aide énormément.", "gallery": "En images", "ex": "à compléter", "made": "Livret préparé par Umbra pour {n}"}, "en": {"kicker": "Welcome guide", "welcome_t": "Welcome", "welcome": "Welcome to {n}! You are {z}. This guide has everything you need for your stay: getting here, the house, our favourite places around {c} and practical tips. Keep it on your phone.", "checkin": "Check-in", "checkout": "Check-out", "wifi": "Wi-Fi", "host": "Your host", "from": "from 4 pm", "before": "before 11 am", "net": "Network", "pwd": "Password", "call": "Call", "msg": "Message", "nav": ["Getting here", "The house", "Around", "Provence tips", "Check-out"], "c1": "Getting here", "car": "By car", "car_t": "We send you the exact address and directions before you arrive. In the countryside GPS can go wrong: follow our directions for the last few kilometres.", "train": "By train", "plane": "By plane", "approx": "approximate road distances", "parking": "Parking", "park_yes": "Free private parking on site.", "park_no": "Where to park: we'll tell you before you arrive.", "late": "Arriving late? Let us know and we'll arrange it (key box or welcome).", "police_t": "Foreign guests: police form", "police": "French law requires every guest who is not a French national to fill in a short form on arrival (name, date and place of birth, nationality, address). It takes one minute, thank you!", "c2": "The house", "rules_t": "House rules", "rules": ["No smoking inside the house.", "Quiet after 10 pm, so everyone can rest.", "Water is precious in Provence: please use it with care, especially in summer.", "Keep the shutters closed in the hot hours: the house stays cool."], "pets": "Pets: on request.", "clim": "Air conditioning: keep windows closed while it runs, and switch it off when you go out.", "pool_t": "The pool", "pool": ["Open from 9 am to 8 pm.", "The pool is unsupervised: children must be watched by an adult.", "Shower before swimming, no glass around the pool."], "bf_t": "Breakfast", "bf": "Served from 8:30 to 10 am, with local produce.", "table_t": "Table d'hôtes (dinner)", "table": "On request, the day before.", "spa_t": "Spa", "spa": "On request, ask us for a time slot.", "trash_t": "Recycling", "trash": "Packaging and paper in the yellow bin, glass at the village bottle bank, everything else in household waste.", "c3": "Around {c}", "near_t": "Worth seeing nearby", "market_t": "Markets", "market_n": "Market days are indicative, please check locally.", "maps": "Directions", "c4": "Provence tips", "heat_t": "Heat and sun", "heat": "In summer, drink plenty of water, avoid effort between 1 and 5 pm, wear a hat and sunscreen.", "fire_t": "Hills and wildfire risk", "fire": "From June to September, access to the forested hills may be restricted or closed depending on the daily risk. Check the prefecture's map before a hike.", "mistral_t": "The mistral", "mistral": "This north wind can blow hard for several days: refreshing, but watch out for parasols and boat trips.", "mosq_t": "Mosquitoes", "mosq": "In the Camargue, bring repellent, especially in the evening.", "sea_t": "The sea", "sea": "Follow the beach flags. Sea rescue: 196.", "sos_t": "Emergencies", "sos": [["112", "Emergency (all of Europe)"], ["15", "Medical emergency (SAMU)"], ["18", "Fire brigade"], ["17", "Police"], ["114", "Emergency by text"], ["3237", "Pharmacy on duty"]], "tax_t": "Tourist tax", "tax": "Set by the town, it is added to the nightly rate (per adult, per night) and we pay it to the town.", "c5": "Check-out", "out_t": "Before you leave", "out": ["Keys left in the agreed place", "Windows and shutters closed", "Air conditioning and lights off", "Dishes washed or in the dishwasher", "Rubbish taken out", "Nothing forgotten: chargers, swimsuits, the fridge"], "thanks": "Thank you for staying with us! An online review helps us enormously.", "gallery": "In pictures", "ex": "to fill in", "made": "Guide prepared by Umbra for {n}"}, "de": {"kicker": "Gästemappe", "welcome_t": "Willkommen", "welcome": "Willkommen in {n}! Sie sind {z}. Diese Mappe enthält alles für Ihren Aufenthalt: Anreise, das Haus, unsere Lieblingsorte rund um {c} und praktische Hinweise. Speichern Sie sie auf Ihrem Handy.", "checkin": "Anreise", "checkout": "Abreise", "wifi": "WLAN", "host": "Ihr Gastgeber", "from": "ab 16 Uhr", "before": "bis 11 Uhr", "net": "Netzwerk", "pwd": "Passwort", "call": "Anrufen", "msg": "Schreiben", "nav": ["Anreise", "Das Haus", "Umgebung", "Provence-Tipps", "Abreise"], "c1": "Anreise", "car": "Mit dem Auto", "car_t": "Die genaue Adresse und Anfahrt senden wir Ihnen vor der Ankunft. Auf dem Land irrt sich das Navi manchmal: Folgen Sie auf den letzten Kilometern unserer Beschreibung.", "train": "Mit dem Zug", "plane": "Mit dem Flugzeug", "approx": "ungefähre Entfernungen auf der Straße", "parking": "Parken", "park_yes": "Kostenloser privater Parkplatz vor Ort.", "park_no": "Wo Sie parken: Das sagen wir Ihnen vor der Ankunft.", "late": "Späte Ankunft? Sagen Sie uns Bescheid, wir organisieren das (Schlüsselbox oder Empfang).", "police_t": "Ausländische Gäste: Meldeschein", "police": "Das französische Gesetz verlangt, dass jeder Gast ohne französische Staatsangehörigkeit bei der Ankunft einen kurzen Meldeschein ausfüllt (Name, Geburtsdatum und -ort, Staatsangehörigkeit, Adresse). Das dauert eine Minute, danke!", "c2": "Das Haus", "rules_t": "Hausregeln", "rules": ["Im Haus wird nicht geraucht.", "Ab 22 Uhr Ruhe, damit sich alle erholen.", "Wasser ist in der Provence kostbar: Bitte sparsam damit umgehen, vor allem im Sommer.", "In den heißen Stunden die Fensterläden schließen: So bleibt das Haus kühl."], "pets": "Haustiere: auf Anfrage.", "clim": "Klimaanlage: Fenster geschlossen halten, solange sie läuft, und beim Hinausgehen ausschalten.", "pool_t": "Der Pool", "pool": ["Geöffnet von 9 bis 20 Uhr.", "Der Pool ist nicht beaufsichtigt: Kinder nur unter Aufsicht eines Erwachsenen.", "Vor dem Baden duschen, kein Glas am Becken."], "bf_t": "Frühstück", "bf": "Von 8:30 bis 10 Uhr, mit Produkten aus der Region.", "table_t": "Table d'hôtes (Abendessen)", "table": "Auf Anfrage, am Vortag.", "spa_t": "Spa", "spa": "Auf Anfrage, fragen Sie uns nach einem Termin.", "trash_t": "Mülltrennung", "trash": "Verpackungen und Papier in die gelbe Tonne, Glas zum Container im Dorf, der Rest in den Hausmüll.", "c3": "Rund um {c}", "near_t": "Sehenswert in der Nähe", "market_t": "Märkte", "market_n": "Markttage ohne Gewähr, bitte vor Ort prüfen.", "maps": "Route", "c4": "Provence-Tipps", "heat_t": "Hitze und Sonne", "heat": "Im Sommer viel trinken, zwischen 13 und 17 Uhr Anstrengung meiden, Hut und Sonnencreme.", "fire_t": "Wälder und Waldbrandgefahr", "fire": "Von Juni bis September kann der Zugang zu den Waldgebieten je nach Tagesrisiko eingeschränkt oder gesperrt sein. Vor einer Wanderung die Karte der Präfektur prüfen.", "mistral_t": "Der Mistral", "mistral": "Dieser Nordwind kann mehrere Tage kräftig wehen: erfrischend, aber Vorsicht mit Sonnenschirmen und Bootsausflügen.", "mosq_t": "Mücken", "mosq": "In der Camargue Mückenschutz mitnehmen, vor allem abends.", "sea_t": "Das Meer", "sea": "Beachten Sie die Badeflaggen. Seenotrettung: 196.", "sos_t": "Notfälle", "sos": [["112", "Notruf (ganz Europa)"], ["15", "Medizinischer Notfall (SAMU)"], ["18", "Feuerwehr"], ["17", "Polizei"], ["114", "Notruf per SMS"], ["3237", "Notdienst-Apotheke"]], "tax_t": "Kurtaxe", "tax": "Sie wird von der Gemeinde festgelegt, kommt zum Übernachtungspreis hinzu (pro Erwachsenem und Nacht) und wir führen sie an die Gemeinde ab.", "c5": "Abreise", "out_t": "Vor der Abreise", "out": ["Schlüssel am vereinbarten Ort", "Fenster und Läden geschlossen", "Klimaanlage und Licht aus", "Geschirr gespült oder in der Spülmaschine", "Müll hinausgebracht", "Nichts vergessen: Ladegeräte, Badesachen, Kühlschrank"], "thanks": "Danke für Ihren Aufenthalt! Eine Online-Bewertung hilft uns sehr.", "gallery": "In Bildern", "ex": "auszufüllen", "made": "Gästemappe von Umbra für {n}"}, "nl": {"kicker": "Welkomstgids", "welcome_t": "Welkom", "welcome": "Welkom in {n}! Je bent {z}. In deze gids vind je alles voor je verblijf: de aankomst, het huis, onze favoriete adressen rond {c} en praktische tips. Bewaar hem op je telefoon.", "checkin": "Aankomst", "checkout": "Vertrek", "wifi": "Wifi", "host": "Je gastheer", "from": "vanaf 16.00 uur", "before": "vóór 11.00 uur", "net": "Netwerk", "pwd": "Wachtwoord", "call": "Bellen", "msg": "Bericht", "nav": ["Aankomst", "Het huis", "Omgeving", "Provence-tips", "Vertrek"], "c1": "Aankomst", "car": "Met de auto", "car_t": "We sturen je het exacte adres en de routebeschrijving vóór je aankomst. Op het platteland kan de navigatie zich vergissen: volg voor de laatste kilometers onze aanwijzingen.", "train": "Met de trein", "plane": "Met het vliegtuig", "approx": "geschatte afstanden over de weg", "parking": "Parkeren", "park_yes": "Gratis privéparkeerplaats ter plaatse.", "park_no": "Waar je kunt parkeren, laten we je vóór aankomst weten.", "late": "Kom je laat aan? Laat het ons weten, dan regelen we het (sleutelkastje of ontvangst).", "police_t": "Buitenlandse gasten: politieformulier", "police": "De Franse wet verplicht elke gast zonder Franse nationaliteit om bij aankomst een kort formulier in te vullen (naam, geboortedatum en -plaats, nationaliteit, adres). Het duurt een minuutje, dank je!", "c2": "Het huis", "rules_t": "Huisregels", "rules": ["Binnen wordt niet gerookt.", "Rust na 22.00 uur, zodat iedereen kan uitrusten.", "Water is kostbaar in de Provence: ga er zuinig mee om, zeker in de zomer.", "Houd de luiken dicht tijdens de warmste uren: zo blijft het huis koel."], "pets": "Huisdieren: op aanvraag.", "clim": "Airco: houd de ramen dicht als hij aanstaat en zet hem uit als je weggaat.", "pool_t": "Het zwembad", "pool": ["Open van 9.00 tot 20.00 uur.", "Het zwembad is onbewaakt: kinderen alleen onder toezicht van een volwassene.", "Douche vóór het zwemmen, geen glas rond het bad."], "bf_t": "Ontbijt", "bf": "Geserveerd van 8.30 tot 10.00 uur, met streekproducten.", "table_t": "Table d'hôtes (diner)", "table": "Op aanvraag, de dag van tevoren.", "spa_t": "Spa", "spa": "Op aanvraag, vraag ons naar een tijdstip.", "trash_t": "Afval scheiden", "trash": "Verpakkingen en papier in de gele bak, glas naar de glasbak in het dorp, de rest bij het restafval.", "c3": "Rond {c}", "near_t": "De moeite waard in de buurt", "market_t": "Markten", "market_n": "Marktdagen zijn indicatief, check ze ter plaatse.", "maps": "Route", "c4": "Provence-tips", "heat_t": "Hitte en zon", "heat": "Drink in de zomer veel water, vermijd inspanning tussen 13.00 en 17.00 uur, draag een hoed en zonnebrand.", "fire_t": "Bossen en brandgevaar", "fire": "Van juni tot september kan de toegang tot de beboste heuvels beperkt of verboden zijn, afhankelijk van het risico van de dag. Bekijk vóór een wandeling de kaart van de prefectuur.", "mistral_t": "De mistral", "mistral": "Deze noordenwind kan dagenlang hard waaien: verfrissend, maar let op parasols en boottochtjes.", "mosq_t": "Muggen", "mosq": "Neem in de Camargue muggenspray mee, vooral 's avonds.", "sea_t": "De zee", "sea": "Respecteer de vlaggen op het strand. Redding op zee: 196.", "sos_t": "Noodgevallen", "sos": [["112", "Noodnummer (heel Europa)"], ["15", "Medische nood (SAMU)"], ["18", "Brandweer"], ["17", "Politie"], ["114", "Noodnummer via sms"], ["3237", "Apotheek van dienst"]], "tax_t": "Toeristenbelasting", "tax": "Vastgesteld door de gemeente, komt bij de prijs per nacht (per volwassene, per nacht) en wij dragen hem af aan de gemeente.", "c5": "Vertrek", "out_t": "Voor je vertrekt", "out": ["Sleutels op de afgesproken plek", "Ramen en luiken dicht", "Airco en lichten uit", "Afwas gedaan of in de vaatwasser", "Afval buiten gezet", "Niets vergeten: opladers, zwemkleding, de koelkast"], "thanks": "Bedankt voor je verblijf! Een online review helpt ons enorm.", "gallery": "In beeld", "ex": "in te vullen", "made": "Gids gemaakt door Umbra voor {n}"}};
+var R={"NAV4": {"fr": "Alsace pratique", "en": "Alsace essentials", "de": "Elsass praktisch", "nl": "Elzas praktisch"}, "RULES": {"fr": ["Dans le vignoble, on reste sur les chemins : les vignes sont privées, et on ne cueille pas le raisin, même en septembre.", "Calme après 22 h et le dimanche : les villages vivent ici à un rythme paisible, et les voix portent loin.", "Chauffage : fenêtres fermées quand il tourne, et un degré de moins quand vous partez pour la journée.", "Maison non-fumeur ; chaussures de randonnée et bottes de neige restent à l’entrée."], "en": ["In the vineyards, stay on the paths: the vines are private, so please don’t pick the grapes, even in September.", "Quiet after 10 pm and on Sundays: village life here runs at a gentle pace, and voices carry.", "Heating: keep the windows shut while it’s on, and turn it down a notch when you head out for the day.", "No smoking in the house; hiking boots and snow boots stay by the door."], "de": ["In den Weinbergen bitte auf den Wegen bleiben: Die Reben sind Privatbesitz, Trauben werden nicht gepflückt – auch nicht im September.", "Ab 22 Uhr und sonntags ist Ruhe: Die Dörfer leben hier gemächlich, und Stimmen tragen weit.", "Heizung: Fenster geschlossen halten, solange sie läuft, und für einen Tagesausflug ein Grad herunterdrehen.", "Im Haus wird nicht geraucht; Wanderschuhe und Schneestiefel bleiben am Eingang."], "nl": ["Blijf in de wijngaarden op de paden: de wijnstokken zijn privébezit, dus pluk geen druiven, ook niet in september.", "Rust na 22.00 uur en op zondag: het dorpsleven verloopt hier rustig, en stemmen dragen ver.", "Verwarming: ramen dicht zolang die aanstaat, en een graadje lager als je de hele dag op pad gaat.", "Binnen wordt niet gerookt; wandel- en sneeuwschoenen blijven bij de ingang."]}, "HOUSE": {"fr": [{"ic": "fire", "h": "Chaud l’hiver, frais l’été", "p": "Les hivers alsaciens sont frais. <b>Le poêle à bois : on vous montre son fonctionnement à l’arrivée.<\/b> Uniquement le bois fourni, jamais sans surveillance, cendres froides dans le seau métallique. L’été, volets mi-clos le jour et fenêtres ouvertes le soir."}, {"ic": "leaf", "h": "Eau et fosse septique", "p": "L’eau du robinet est potable, sauf indication contraire de notre part. Si la maison est sur <b>fosse septique<\/b>, seul le papier toilette va dans les WC : lingettes, cotons et protections à la poubelle, merci !"}, {"ic": "check", "h": "Électricité", "p": "On vous montre le tableau électrique à l’arrivée. En cas de coupure, relevez d’abord le disjoncteur. Évitez de faire tourner en même temps four, lave-linge et radiateur d’appoint."}, {"ic": "bin", "h": "Le tri, ici", "ul": ["Bac ou sac jaune : tous les emballages et papiers, films, pots et barquettes compris (depuis 2023)", "Verre : aux conteneurs du village, de préférence en journée", "Épluchures et restes : composteur ou bac à biodéchets selon la commune (tri obligatoire depuis 2024)", "Ordures ménagères : dans beaucoup de communes alsaciennes, le bac est facturé à la levée ou au poids, alors bien trier aide vraiment votre hôte"]}, {"ic": "sos", "h": "Sécurité", "p": "La maison est équipée d’un <b>détecteur de fumée<\/b> : ne le débranchez pas, et prévenez-nous s’il bipe. On vous montre l’extincteur à l’arrivée. En cas d’urgence : 112."}, {"ic": "home", "h": "Voisins et village", "p": "Les villages alsaciens se couchent tôt et tiennent au <b>repos du dimanche<\/b> : pas de bruit dehors après 22 h. Les cloches de l’église rythment la journée, parfois dès le matin : c’est le charme du village."}], "en": [{"ic": "fire", "h": "Warm in winter, cool in summer", "p": "Alsatian winters are chilly. <b>The wood stove: we’ll show you how it works when you arrive.<\/b> Use only the wood provided, never leave it unattended, and put cold ashes in the metal bucket. In summer, half-close the shutters by day and open the windows at night."}, {"ic": "leaf", "h": "Water and septic tank", "p": "Tap water is safe to drink unless we tell you otherwise. If the house has a <b>septic tank<\/b>, only toilet paper goes down the toilet: wipes, cotton pads and sanitary products in the bin, please!"}, {"ic": "check", "h": "Electricity", "p": "We’ll show you the fuse box when you arrive. If the power goes off, first flip the main switch back up. Try not to run the oven, washing machine and an extra heater at the same time."}, {"ic": "bin", "h": "Recycling here", "ul": ["Yellow bin or bag: all packaging and paper, including films, pots and trays (since 2023)", "Glass: in the village bottle banks, ideally during the day", "Peelings and food scraps: compost bin or food-waste bin, depending on the village (sorting compulsory since 2024)", "General waste: many Alsatian villages charge per collection or by weight, so careful sorting really helps your host"]}, {"ic": "sos", "h": "Safety", "p": "The house has a <b>smoke detector<\/b>: please don’t disconnect it, and let us know if it beeps. We’ll show you the fire extinguisher when you arrive. In an emergency: 112."}, {"ic": "home", "h": "Neighbours and village life", "p": "Alsatian villages go to bed early and value their <b>quiet Sundays<\/b>: no noise outdoors after 10 pm. Church bells mark the hours, sometimes from early morning: part of village charm."}], "de": [{"ic": "fire", "h": "Warm im Winter, kühl im Sommer", "p": "Die Winter im Elsass sind frisch. <b>Den Holzofen erklären wir Ihnen bei der Ankunft.<\/b> Bitte nur das bereitgestellte Holz verwenden, das Feuer nie unbeaufsichtigt lassen und kalte Asche in den Metalleimer geben. Im Sommer tagsüber die Läden halb schließen und abends lüften."}, {"ic": "leaf", "h": "Wasser und Klärgrube", "p": "Das Leitungswasser ist trinkbar, sofern wir nichts anderes sagen. Hat das Haus eine <b>Klärgrube<\/b>, gehört nur Toilettenpapier in die Toilette: Feuchttücher, Watte und Hygieneartikel bitte in den Müll!"}, {"ic": "check", "h": "Strom", "p": "Den Sicherungskasten zeigen wir Ihnen bei der Ankunft. Fällt der Strom aus, zuerst den Hauptschalter wieder hochklappen. Backofen, Waschmaschine und Heizlüfter möglichst nicht gleichzeitig laufen lassen."}, {"ic": "bin", "h": "Mülltrennung vor Ort", "ul": ["Gelbe Tonne oder gelber Sack: alle Verpackungen und Papier, auch Folien, Becher und Schalen (seit 2023)", "Glas: in die Container im Dorf, am besten tagsüber", "Schalen und Essensreste: Kompost oder Biotonne, je nach Gemeinde (Trennung seit 2024 Pflicht)", "Restmüll: Viele elsässische Gemeinden berechnen pro Leerung oder nach Gewicht – gutes Trennen hilft Ihren Gastgebern wirklich"]}, {"ic": "sos", "h": "Sicherheit", "p": "Das Haus hat einen <b>Rauchmelder<\/b>: bitte nicht abklemmen, und sagen Sie uns Bescheid, wenn er piept. Den Feuerlöscher zeigen wir Ihnen bei der Ankunft. Im Notfall: 112."}, {"ic": "home", "h": "Nachbarn und Dorfleben", "p": "Elsässische Dörfer gehen früh schlafen und halten die <b>Sonntagsruhe<\/b> hoch: draußen ab 22 Uhr bitte leise. Die Kirchenglocken schlagen die Stunden, manchmal schon früh am Morgen: Das gehört zum Dorf."}], "nl": [{"ic": "fire", "h": "Warm in de winter, koel in de zomer", "p": "De winters in de Elzas zijn fris. <b>De houtkachel: we leggen bij aankomst uit hoe die werkt.<\/b> Gebruik alleen het hout dat klaarligt, laat het vuur nooit onbeheerd en doe koude as in de metalen emmer. In de zomer overdag de luiken half dicht en ’s avonds de ramen open."}, {"ic": "leaf", "h": "Water en septische put", "p": "Het kraanwater is drinkbaar, tenzij we iets anders zeggen. Heeft het huis een <b>septische put<\/b>, dan mag alleen wc-papier in de wc: doekjes, watjes en maandverband graag in de vuilnisbak!"}, {"ic": "check", "h": "Elektriciteit", "p": "We laten je bij aankomst de meterkast zien. Valt de stroom uit, zet dan eerst de hoofdschakelaar terug. Laat oven, wasmachine en een extra kacheltje liever niet tegelijk draaien."}, {"ic": "bin", "h": "Afval scheiden", "ul": ["Gele bak of zak: alle verpakkingen en papier, ook folie, bekers en bakjes (sinds 2023)", "Glas: in de glasbakken van het dorp, bij voorkeur overdag", "Schillen en etensresten: composthoop of gft-bak, afhankelijk van de gemeente (scheiden verplicht sinds 2024)", "Restafval: veel Elzasser gemeenten rekenen per lediging of per kilo, dus goed scheiden helpt je gastheer echt"]}, {"ic": "sos", "h": "Veiligheid", "p": "Het huis heeft een <b>rookmelder<\/b>: koppel die niet los, en laat het ons weten als hij piept. We laten je bij aankomst de brandblusser zien. Bij nood: 112."}, {"ic": "home", "h": "Buren en dorpsleven", "p": "Elzasser dorpen gaan vroeg slapen en hechten aan de <b>zondagsrust<\/b>: buiten geen lawaai na 22.00 uur. De kerkklokken slaan de uren, soms al vroeg in de ochtend: dat hoort bij het dorp."}]}, "PRAT": {"fr": [{"ic": "sun", "h": "Le temps qu’il fait", "p": "Climat semi-continental : <b>hivers froids<\/b>, souvent enneigés sur les crêtes, étés chauds et orageux. Colmar compte parmi les villes les plus sèches de France. En montagne, le temps change vite : une veste toujours dans le sac."}, {"ic": "car", "h": "Routes de montagne l’hiver", "al": 1, "p": "Du <b>1er novembre au 31 mars<\/b>, pneus hiver ou chaînes (ou chaussettes) obligatoires dans les communes de montagne signalées par un panneau. Certains cols et tronçons de la Route des Crêtes sont fermés l’hiver."}, {"ic": "park", "h": "Strasbourg en voiture", "p": "L’Eurométropole de Strasbourg applique une <b>zone à faibles émissions<\/b> : vérifiez les règles en vigueur et la vignette Crit’Air avant de venir. Le plus simple : un parking-relais (P+R) et le tram jusqu’au centre."}, {"ic": "cup", "h": "Dégustations et volant", "al": 1, "p": "Dans les caves, utiliser le crachoir n’a rien d’impoli. Limite : <b>0,5 g/l<\/b> d’alcool dans le sang, 0,2 g/l pour les jeunes conducteurs. Prévoyez un conducteur sobre, ou le vélo : la Véloroute du Vignoble longe toute la Route des Vins."}, {"ic": "bug", "h": "Forêts : tiques et chasse", "p": "Après une balade en forêt ou dans les hautes herbes, <b>vérifiez l’absence de tiques<\/b>. De l’automne à l’hiver, respectez les panneaux « chasse en cours » et restez sur les sentiers balisés par le Club vosgien. Champignons : faites-les vérifier en pharmacie."}, {"ic": "sos", "h": "Santé", "p": "Pharmacie de garde : <b>3237<\/b>. Urgence médicale : 15 ou 112. Si vous venez de l’étranger, pensez à votre carte européenne d’assurance maladie."}, {"ic": "plate", "h": "Restaurants et réservations", "p": "Hors saison, beaucoup de winstubs ferment un ou deux jours par semaine, souvent le lundi ou le mardi. En décembre et le week-end, <b>réservez votre table<\/b> : les marchés de Noël attirent beaucoup de monde."}, {"ic": "coins", "h": "Frontières et jours fériés", "p": "Allemagne et Suisse sont à deux pas : carte d’identité sur vous, francs suisses et vignette autoroutière en Suisse. Outre-Rhin, les magasins ferment le dimanche. En Alsace, le <b>Vendredi saint et le 26 décembre<\/b> sont fériés. Sur les marchés, un peu de monnaie est bienvenue."}], "en": [{"ic": "sun", "h": "The weather", "p": "A semi-continental climate: <b>cold winters<\/b>, often snowy on the ridges, and hot, stormy summers. Colmar is one of the driest towns in France. In the mountains the weather turns fast: always pack a jacket."}, {"ic": "car", "h": "Mountain roads in winter", "al": 1, "p": "From <b>1 November to 31 March<\/b>, winter tyres or chains (or snow socks) are compulsory in mountain communes marked by a sign. Some passes and stretches of the Route des Crêtes close in winter."}, {"ic": "park", "h": "Driving into Strasbourg", "p": "Greater Strasbourg has a <b>low-emission zone<\/b>: check the current rules and the Crit’Air sticker you need before you come. Easiest option: a park-and-ride (P+R) and the tram into the centre."}, {"ic": "cup", "h": "Wine tasting and driving", "al": 1, "p": "In the cellars, using the spittoon is perfectly polite. The limit is <b>0.5 g/l<\/b> of alcohol in the blood, 0.2 g/l for new drivers. Pick a sober driver, or cycle: the Véloroute du Vignoble follows the whole Wine Route."}, {"ic": "bug", "h": "Forests: ticks and hunting", "p": "After a walk in the woods or long grass, <b>check yourself for ticks<\/b>. From autumn into winter, respect the ‘chasse en cours’ (hunt in progress) signs and stick to the Club Vosgien’s waymarked trails. Mushrooms: have them checked at a pharmacy."}, {"ic": "sos", "h": "Health", "p": "Pharmacy on duty: <b>3237<\/b>. Medical emergency: 15 or 112. If you’re visiting from abroad, bring your European Health Insurance Card."}, {"ic": "plate", "h": "Restaurants and bookings", "p": "Off season, many winstubs close one or two days a week, often Monday or Tuesday. In December and at weekends, <b>book your table<\/b>: the Christmas markets draw big crowds."}, {"ic": "coins", "h": "Borders and holidays", "p": "Germany and Switzerland are right next door: carry your ID, and in Switzerland you’ll need francs and a motorway vignette. Across the Rhine, shops close on Sundays. In Alsace, <b>Good Friday and 26 December<\/b> are public holidays. Bring some cash for the markets."}], "de": [{"ic": "sun", "h": "Das Wetter", "p": "Halbkontinentales Klima: <b>kalte Winter<\/b>, auf den Kämmen oft mit Schnee, und heiße, gewitterreiche Sommer. Colmar gehört zu den trockensten Städten Frankreichs. In den Bergen schlägt das Wetter schnell um: immer eine Jacke dabeihaben."}, {"ic": "car", "h": "Bergstraßen im Winter", "al": 1, "p": "Vom <b>1. November bis 31. März<\/b> sind in ausgeschilderten Berggemeinden Winterreifen oder Schneeketten (bzw. Schneesocken) Pflicht. Einige Pässe und Abschnitte der Route des Crêtes sind im Winter gesperrt."}, {"ic": "park", "h": "Mit dem Auto nach Straßburg", "p": "Die Eurometropole Straßburg hat eine <b>Umweltzone (ZFE)<\/b>: Prüfen Sie vorab die geltenden Regeln und die nötige Crit’Air-Vignette. Am einfachsten: Park-and-Ride (P+R) und mit der Tram ins Zentrum."}, {"ic": "cup", "h": "Weinprobe und Autofahren", "al": 1, "p": "In den Weinkellern ist das Ausspucken ganz normal. Die Grenze liegt bei <b>0,5 Promille<\/b>, für Fahranfänger bei 0,2. Bestimmen Sie einen Fahrer, der nicht trinkt, oder nehmen Sie das Rad: Die Véloroute du Vignoble folgt der ganzen Weinstraße."}, {"ic": "bug", "h": "Wald: Zecken und Jagd", "p": "Nach Spaziergängen im Wald oder hohen Gras <b>auf Zecken absuchen<\/b>. Von Herbst bis Winter die Schilder „chasse en cours“ (Jagd im Gange) beachten und auf den vom Club Vosgien markierten Wegen bleiben. Pilze in der Apotheke prüfen lassen."}, {"ic": "sos", "h": "Gesundheit", "p": "Notdienst-Apotheke: <b>3237<\/b>. Medizinischer Notfall: 15 oder 112. Bringen Sie Ihre Europäische Krankenversicherungskarte mit."}, {"ic": "plate", "h": "Restaurants und Reservierung", "p": "Außerhalb der Saison haben viele Winstubs ein oder zwei Ruhetage, oft Montag oder Dienstag. Im Dezember und am Wochenende <b>unbedingt reservieren<\/b>: Die Weihnachtsmärkte ziehen viele Besucher an."}, {"ic": "coins", "h": "Grenzen und Feiertage", "p": "Deutschland und die Schweiz liegen vor der Tür: Ausweis dabeihaben; in der Schweiz braucht man Franken und eine Autobahnvignette. In Deutschland sind die Geschäfte sonntags zu. Im Elsass sind <b>Karfreitag und der 26. Dezember<\/b> Feiertage. Für die Märkte etwas Bargeld einstecken."}], "nl": [{"ic": "sun", "h": "Het weer", "p": "Een half-landklimaat: <b>koude winters<\/b>, op de kammen vaak met sneeuw, en warme zomers met onweer. Colmar is een van de droogste steden van Frankrijk. In de bergen slaat het weer snel om: neem altijd een jas mee."}, {"ic": "car", "h": "Bergwegen in de winter", "al": 1, "p": "Van <b>1 november tot 31 maart<\/b> zijn winterbanden of sneeuwkettingen (of sneeuwsokken) verplicht in berggemeenten die met een bord zijn aangeduid. Sommige passen en delen van de Route des Crêtes zijn ’s winters dicht."}, {"ic": "park", "h": "Met de auto naar Straatsburg", "p": "Groot-Straatsburg heeft een <b>milieuzone (ZFE)<\/b>: check vooraf de geldende regels en de Crit’Air-vignet die je nodig hebt. Het makkelijkst: een P+R-parkeerplaats en de tram naar het centrum."}, {"ic": "cup", "h": "Wijnproeven en rijden", "al": 1, "p": "In de wijnkelders is het spuugbakje heel gewoon. De limiet is <b>0,5 promille<\/b>, 0,2 voor beginnende bestuurders. Spreek een Bob af, of pak de fiets: de Véloroute du Vignoble volgt de hele Wijnroute."}, {"ic": "bug", "h": "Bossen: teken en jacht", "p": "Controleer jezelf na een wandeling in het bos of hoog gras <b>op teken<\/b>. Respecteer van de herfst tot in de winter de borden ‘chasse en cours’ (jacht bezig) en blijf op de door de Club Vosgien gemarkeerde paden. Paddenstoelen: laat ze controleren bij de apotheek."}, {"ic": "sos", "h": "Gezondheid", "p": "Apotheek van dienst: <b>3237<\/b>. Medische nood: 15 of 112. Neem je Europese ziekteverzekeringskaart mee."}, {"ic": "plate", "h": "Restaurants en reserveren", "p": "Buiten het seizoen sluiten veel winstubs een of twee dagen per week, vaak maandag of dinsdag. Reserveer in december en in het weekend <b>altijd een tafel<\/b>: de kerstmarkten trekken veel bezoekers."}, {"ic": "coins", "h": "Grenzen en feestdagen", "p": "Duitsland en Zwitserland liggen om de hoek: neem je ID mee; in Zwitserland heb je franken en een tolvignet nodig. In Duitsland zijn de winkels op zondag dicht. In de Elzas zijn <b>Goede Vrijdag en 26 december<\/b> feestdagen. Neem wat contant geld mee voor de markten."}]}, "TERROIR": {"fr": [["Riesling & grands crus", "AOC Alsace et 51 AOC Alsace Grand Cru : riesling, pinot gris, gewurztraminer, muscat, à déguster chez le vigneron.", "Toute l’année ; vendanges en sept.–oct."], ["Crémant d’Alsace", "AOC, bulles fines élaborées selon la méthode traditionnelle : l’apéritif alsacien par excellence.", "Toute l’année"], ["Munster", "AOP, fromage à croûte lavée des vallées vosgiennes, servi avec du cumin et des pommes de terre en robe des champs.", "Meilleur de l’été à l’automne"], ["Choucroute d’Alsace", "IGP, chou fermenté servi avec saucisses, lard et viandes ; la choucroute nouvelle arrive à l’automne.", "Sept. – mars"], ["Flammekueche", "La tarte flambée : pâte fine, crème, oignons et lardons, cuite au feu de bois et partagée à table.", "Toute l’année, surtout le soir"], ["Baeckeoffe", "Trois viandes marinées au vin blanc et pommes de terre, mijotées longuement dans une terrine scellée.", "Automne – hiver"], ["Kougelhopf", "Brioche aux raisins et amandes en couronne, cuite dans un moule en terre de Soufflenheim : la reine du dimanche matin.", "Toute l’année"], ["Bredele", "Petits gâteaux de Noël (butterbredele, spritz, anis, étoiles à la cannelle) préparés en famille pendant l’Avent.", "Décembre"], ["Pain d’épices", "Spécialité de Gertwiller, au miel et aux épices, nature ou fourré ; incontournable à la Saint-Nicolas.", "Nov. – déc., et toute l’année"], ["Eaux-de-vie de fruits", "Kirsch, mirabelle, quetsch ou framboise, distillés dans les vallées ; en digestif, avec modération.", "Mirabelles en août – sept."], ["Bière d’Alsace", "L’Alsace est la grande région brassicole de France, des maisons historiques aux microbrasseries de village.", "Toute l’année ; bière de Noël en hiver"]], "en": [["Riesling & grands crus", "AOC Alsace and 51 AOC Alsace Grand Cru: riesling, pinot gris, gewurztraminer and muscat, best tasted at the winegrower’s.", "All year; harvest in Sept–Oct"], ["Crémant d’Alsace", "AOC sparkling wine made by the traditional method: the quintessential Alsatian aperitif.", "All year"], ["Munster", "AOP washed-rind cheese from the Vosges valleys, served with cumin seeds and jacket potatoes.", "Best summer to autumn"], ["Choucroute d’Alsace", "IGP fermented cabbage served with sausages, bacon and meats; the new season’s sauerkraut arrives in autumn.", "Sept – March"], ["Flammekueche", "Tarte flambée: thin dough topped with cream, onions and bacon, baked in a wood-fired oven and shared at the table.", "All year, mostly in the evening"], ["Baeckeoffe", "Three meats marinated in white wine, slow-baked with potatoes in a sealed earthenware dish.", "Autumn – winter"], ["Kougelhopf", "A crown-shaped brioche with raisins and almonds, baked in a Soufflenheim clay mould: the star of Sunday breakfast.", "All year"], ["Bredele", "Little Christmas biscuits (butter bredele, spritz, aniseed, cinnamon stars) baked by families throughout Advent.", "December"], ["Gingerbread", "Gertwiller’s speciality, made with honey and spices, plain or filled; a must for St Nicholas’ Day.", "Nov – Dec, and all year"], ["Fruit brandies", "Kirsch, mirabelle, quetsch plum or raspberry, distilled in the valleys; a digestif to enjoy in moderation.", "Mirabelles in Aug – Sept"], ["Alsace beer", "Alsace is France’s great brewing region, from historic breweries to village microbreweries.", "All year; Christmas beer in winter"]], "de": [["Riesling & Grands Crus", "AOC Alsace und 51 AOC Alsace Grand Cru: Riesling, Grauburgunder, Gewürztraminer und Muskateller, am besten direkt beim Winzer.", "Ganzjährig; Weinlese Sept.–Okt."], ["Crémant d’Alsace", "AOC-Schaumwein nach traditioneller Flaschengärung: der elsässische Aperitif schlechthin.", "Ganzjährig"], ["Munster", "AOP-Rotschmierkäse aus den Vogesentälern, serviert mit Kümmel und Pellkartoffeln.", "Am besten Sommer bis Herbst"], ["Choucroute d’Alsace", "IGP-Sauerkraut mit Würsten, Speck und Fleisch; das neue Kraut gibt es ab Herbst.", "Sept. – März"], ["Flammkuchen", "Hauchdünner Teig mit Schmand, Zwiebeln und Speck, im Holzofen gebacken und gemeinsam geteilt.", "Ganzjährig, vor allem abends"], ["Baeckeoffe", "Drei in Weißwein marinierte Fleischsorten mit Kartoffeln, lange in der verschlossenen Tonform geschmort.", "Herbst – Winter"], ["Gugelhupf", "Hefekranz mit Rosinen und Mandeln, gebacken in der Tonform aus Soufflenheim: der Star des Sonntagsfrühstücks.", "Ganzjährig"], ["Bredele", "Elsässische Weihnachtsplätzchen (Butterbredele, Spritzgebäck, Anisbredele, Zimtsterne), in der Adventszeit gebacken.", "Dezember"], ["Lebkuchen", "Spezialität aus Gertwiller, mit Honig und Gewürzen, pur oder gefüllt; zum Nikolaustag unverzichtbar.", "Nov. – Dez., und ganzjährig"], ["Obstbrände", "Kirsch, Mirabelle, Zwetschge oder Himbeere, in den Tälern gebrannt; als Digestif, in Maßen.", "Mirabellen Aug. – Sept."], ["Elsässer Bier", "Das Elsass ist Frankreichs große Brauregion, von traditionsreichen Brauereien bis zu kleinen Dorfbrauereien.", "Ganzjährig; Weihnachtsbier im Winter"]], "nl": [["Riesling & grands crus", "AOC Alsace en 51 AOC Alsace Grand Cru: riesling, pinot gris, gewurztraminer en muscat, het lekkerst bij de wijnboer zelf.", "Hele jaar; oogst in sept.–okt."], ["Crémant d’Alsace", "AOC-mousserende wijn volgens de traditionele methode: hét Elzasser aperitief.", "Hele jaar"], ["Munster", "AOP-kaas met gewassen korst uit de Vogezendalen, geserveerd met komijn en aardappelen in de schil.", "Op zijn best van zomer tot herfst"], ["Choucroute d’Alsace", "IGP-zuurkool met worstjes, spek en vlees; de nieuwe zuurkool komt in de herfst.", "Sept. – maart"], ["Flammekueche", "Tarte flambée: flinterdun deeg met room, ui en spekjes, gebakken in de houtoven en samen gedeeld.", "Hele jaar, vooral ’s avonds"], ["Baeckeoffe", "Drie soorten vlees gemarineerd in witte wijn, urenlang gegaard met aardappelen in een verzegelde stenen pot.", "Herfst – winter"], ["Kougelhopf", "Kroonvormige brioche met rozijnen en amandelen, gebakken in een aardewerken vorm uit Soufflenheim: de ster van het zondagsontbijt.", "Hele jaar"], ["Bredele", "Kleine kerstkoekjes (boterbredele, spritsen, anijs, kaneelsterren), door families gebakken tijdens de advent.", "December"], ["Peperkoek", "Specialiteit van Gertwiller, met honing en specerijen, puur of gevuld; onmisbaar op Sint-Nicolaas.", "Nov. – dec., en het hele jaar"], ["Fruitbrandewijn", "Kirsch, mirabel, kwets of framboos, gestookt in de dalen; als digestief, met mate.", "Mirabellen in aug. – sept."], ["Elzasser bier", "De Elzas is de grote bierregio van Frankrijk, van historische brouwerijen tot dorpsbrouwerijtjes.", "Hele jaar; kerstbier in de winter"]]}, "AGENDA": {"fr": [["Avant Pâques", "Marchés de Pâques", "Œufs peints, lapins en chocolat et agneaux en biscuit (lammele) à Colmar et dans d’autres villes."], ["Fin juin", "Mineral & Gem, Sainte-Marie-aux-Mines", "L’un des plus grands salons de minéraux et de pierres d’Europe, sur quatre jours."], ["Juillet – août", "Fêtes du vin", "Presque chaque village viticole fête son vin : dégustations, musique et tartes flambées au milieu des vignes."], ["Fin juil. – début août", "Foire aux Vins d’Alsace, Colmar", "Dix jours de dégustations, de concerts et de stands régionaux au parc des expositions."], ["Fin août", "Festival du Houblon, Haguenau", "Danses et musiques du monde entier envahissent les rues, autour de la tradition du houblon."], ["1er dimanche de sept.", "Pfifferdaj, Ribeauvillé", "La fête des Ménétriers : grand cortège historique, musiciens et fontaine où coule le vin."], ["Début sept.", "Foire européenne, Strasbourg", "La grande foire de la rentrée, avec un pays invité chaque année."], ["Sept. – oct.", "Vendanges et vin nouveau", "Dans les winstubs, on sert le vin nouveau, encore trouble et pétillant, avec une tarte à l’oignon."], ["Sept. – oct.", "Festival Musica, Strasbourg", "Festival international des musiques d’aujourd’hui, dans toute la ville."], ["6 décembre", "Saint-Nicolas", "Défilés dans les villes et villages, mannele briochés et pain d’épices pour les enfants."], ["Fin nov. – fin déc.", "Marchés de Noël", "Strasbourg, Colmar, Kaysersberg, Riquewihr, Eguisheim… venez en semaine plutôt que le week-end."]], "en": [["Before Easter", "Easter markets", "Painted eggs, chocolate bunnies and lamb-shaped sponge cakes (lammele) in Colmar and other towns."], ["Late June", "Mineral & Gem, Sainte-Marie-aux-Mines", "One of Europe’s biggest mineral and gemstone shows, over four days."], ["July – August", "Wine festivals", "Almost every wine village celebrates its wine: tastings, music and tartes flambées among the vines."], ["Late July – early Aug", "Alsace Wine Fair, Colmar", "Ten days of tastings, concerts and regional stalls at the exhibition grounds."], ["Late August", "Hop Festival, Haguenau", "Dancers and musicians from all over the world fill the streets, around the local hop tradition."], ["1st Sunday of Sept", "Pfifferdaj, Ribeauvillé", "The Minstrels’ Festival: a grand historical parade, musicians and a fountain flowing with wine."], ["Early Sept", "European Fair, Strasbourg", "The big back-to-school fair, with a different guest country every year."], ["Sept – Oct", "Harvest and new wine", "In the winstubs, new wine, still cloudy and fizzy, is served with onion tart."], ["Sept – Oct", "Musica Festival, Strasbourg", "An international festival of contemporary music, all over the city."], ["6 December", "St Nicholas’ Day", "Parades in towns and villages, brioche ‘mannele’ and gingerbread for the children."], ["Late Nov – late Dec", "Christmas markets", "Strasbourg, Colmar, Kaysersberg, Riquewihr, Eguisheim… come on a weekday rather than at the weekend."]], "de": [["Vor Ostern", "Ostermärkte", "Bemalte Eier, Schokoladenhasen und Osterlämmer aus Biskuit (Lammele) in Colmar und anderen Städten."], ["Ende Juni", "Mineral & Gem, Sainte-Marie-aux-Mines", "Eine der größten Mineralien- und Edelsteinbörsen Europas, vier Tage lang."], ["Juli – August", "Weinfeste", "Fast jedes Winzerdorf feiert seinen Wein: Verkostungen, Musik und Flammkuchen mitten in den Reben."], ["Ende Juli – Anfang Aug.", "Elsässische Weinmesse, Colmar", "Zehn Tage Weinproben, Konzerte und regionale Stände auf dem Messegelände."], ["Ende August", "Hopfenfest, Haguenau", "Tanz- und Musikgruppen aus aller Welt ziehen durch die Straßen, rund um die Hopfentradition."], ["1. Sonntag im Sept.", "Pfifferdaj, Ribeauvillé", "Das Pfeiferfest: großer historischer Umzug, Spielleute und ein Brunnen, aus dem Wein fließt."], ["Anfang Sept.", "Europäische Messe, Straßburg", "Die große Herbstmesse, jedes Jahr mit einem anderen Gastland."], ["Sept. – Okt.", "Weinlese und neuer Wein", "In den Winstubs gibt es neuen Wein, noch trüb und prickelnd, mit Zwiebelkuchen."], ["Sept. – Okt.", "Festival Musica, Straßburg", "Internationales Festival für zeitgenössische Musik in der ganzen Stadt."], ["6. Dezember", "Nikolaustag", "Umzüge in Städten und Dörfern, Mannele aus Hefeteig und Lebkuchen für die Kinder."], ["Ende Nov. – Ende Dez.", "Weihnachtsmärkte", "Straßburg, Colmar, Kaysersberg, Riquewihr, Eguisheim… besser unter der Woche als am Wochenende."]], "nl": [["Voor Pasen", "Paasmarkten", "Beschilderde eieren, chocoladehazen en lammetjes van biscuit (lammele) in Colmar en andere steden."], ["Eind juni", "Mineral & Gem, Sainte-Marie-aux-Mines", "Een van de grootste mineralen- en edelstenenbeurzen van Europa, vier dagen lang."], ["Juli – augustus", "Wijnfeesten", "Bijna elk wijndorp viert zijn wijn: proeverijen, muziek en tartes flambées tussen de wijnranken."], ["Eind juli – begin aug.", "Elzasser Wijnbeurs, Colmar", "Tien dagen proeverijen, concerten en regionale kraampjes op het beursterrein."], ["Eind augustus", "Hopfestival, Haguenau", "Dans- en muziekgroepen uit de hele wereld trekken door de straten, rond de hoptraditie."], ["1e zondag van sept.", "Pfifferdaj, Ribeauvillé", "Het feest van de speellieden: grote historische optocht, muzikanten en een fontein waar wijn uit stroomt."], ["Begin sept.", "Europese Beurs, Straatsburg", "De grote najaarsbeurs, elk jaar met een ander gastland."], ["Sept. – okt.", "Oogst en nieuwe wijn", "In de winstubs schenkt men nieuwe wijn, nog troebel en licht bruisend, met uientaart."], ["Sept. – okt.", "Festival Musica, Straatsburg", "Internationaal festival voor hedendaagse muziek, door de hele stad."], ["6 december", "Sint-Nicolaas", "Optochten in steden en dorpen, mannele van briochedeeg en peperkoek voor de kinderen."], ["Eind nov. – eind dec.", "Kerstmarkten", "Straatsburg, Colmar, Kaysersberg, Riquewihr, Eguisheim… kom liever doordeweeks dan in het weekend."]]}, "SOS_EXTRA": {"fr": [["03 83 22 50 50", "Centre antipoison (Nancy, Grand Est)"], ["3624", "SOS Médecins"]], "en": [["03 83 22 50 50", "Poison control centre (Nancy, Grand Est)"], ["3624", "SOS Médecins (doctor on call)"]], "de": [["03 83 22 50 50", "Giftnotruf (Nancy, Grand Est)"], ["3624", "SOS Médecins (ärztlicher Bereitschaftsdienst)"]], "nl": [["03 83 22 50 50", "Antigifcentrum (Nancy, Grand Est)"], ["3624", "SOS Médecins (huisartsenpost)"]]}};
+var CFG=window.HIR_FR||{};
+var L='fr';
+var X={
+ fr:{scroll:'Défiler',open:'Ouvrir le livret',tip:'Vos voyageurs lisent le livret dans leur langue',ess:'L\'essentiel',house:'La maison <em>en images</em>',see:'En images',home:'Accueil',photos:'Photos',km:'km',done:'fait',arr:'Arrivée',dep:'Départ',welcome:'Bienvenue',around:'Tout autour',mk:'Les marchés'},
+ en:{scroll:'Scroll',open:'Open the guide',tip:'Your guests read it in their language',ess:'The essentials',house:'The house <em>in pictures</em>',see:'In pictures',home:'Home',photos:'Photos',km:'km',done:'done',arr:'Check-in',dep:'Check-out',welcome:'Welcome',around:'All around',mk:'Markets'},
+ de:{scroll:'Scrollen',open:'Gästemappe öffnen',tip:'Ihre Gäste lesen sie in ihrer Sprache',ess:'Das Wichtigste',house:'Das Haus <em>in Bildern</em>',see:'In Bildern',home:'Start',photos:'Fotos',km:'km',done:'erledigt',arr:'Anreise',dep:'Abreise',welcome:'Willkommen',around:'Rundherum',mk:'Märkte'},
+ nl:{scroll:'Scrollen',open:'Gids openen',tip:'Uw gasten lezen het in hun eigen taal',ess:'Het belangrijkste',house:'Het huis <em>in beeld</em>',see:'In beeld',home:'Start',photos:'Foto\'s',km:'km',done:'klaar',arr:'Aankomst',dep:'Vertrek',welcome:'Welkom',around:'In de buurt',mk:'Markten'}};
+var X2={
+ fr:{incs:'Incluse',dlb:'Tarif en vigueur (délibération {y})',reel:'Au réel',forf_t:'Taxe forfaitaire',forf:'Dans cette commune, la taxe de séjour est forfaitaire : elle est due par l\'hébergeur pour le logement, et non par voyageur. Elle est déjà réglée par votre hôte, vous n\'avez rien à payer en plus.',offr:'Tarif officiel',and:'et ',inc:'Comprise dans votre séjour',svc_t:'Le quotidien à deux pas',svc_n:'Distances à vol d\'oiseau depuis la maison. Horaires à vérifier sur place.',sv:{bakery:'Boulangerie',supermarket:'Supermarché',convenience:'Épicerie',pharmacy:'Pharmacie',atm:'Distributeur de billets',marketplace:'Place du marché',fuel:'Station-service',charging_station:'Borne de recharge',doctors:'Médecin'},
+  ter_t:'Le goût du pays',ag_t:'Au fil de l\'année',pp:'par personne et par nuit',pct:'du prix de la nuitée par personne, plafonné',com:'Tarif communal',comp:'Taux communal',dep:'+ {n} % département',reg:'+ {n} % région',tot:'Total à payer',eff:'Taux effectif',yr:'Année',cat:'Catégorie',per:'Période',all:'toute l\'année',from_to:'du {a} au {b}',exo:'Exonérés',exl:['les moins de 18 ans','les saisonniers employés dans la commune','les personnes en hébergement d\'urgence'],who:'Votre hôte la perçoit avec le séjour et la reverse à la commune. Réservé sur une plateforme ? Elle est souvent déjà comprise dans le prix.',
+  mo:['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],idx:'Sommaire',gz:'La Gazette',ed:'Édition en quatre langues',word:'Le mot de l\'hôte',fig:'Chiffres utiles',pl:'Planche',stn:'Gare',apt:'Aéroport',urg:'Urgences',toc:'Au sommaire',night:'/ nuit',gal:'Les planches'},
+ en:{incs:'Included',dlb:'Rate in force (council decision {y})',reel:'Per guest',forf_t:'Flat-rate tax',forf:'In this commune the tourist tax is a flat rate: the host pays it for the property, not per guest. It is already settled by your host, so there is nothing extra to pay.',offr:'Official rate',and:'and ',inc:'Included in your stay',svc_t:'Everyday essentials nearby',svc_n:'Straight-line distances from the house. Check opening hours locally.',sv:{bakery:'Bakery',supermarket:'Supermarket',convenience:'Grocery shop',pharmacy:'Pharmacy',atm:'Cash machine',marketplace:'Market square',fuel:'Petrol station',charging_station:'EV charging point',doctors:'Doctor'},
+  ter_t:'A taste of the region',ag_t:'Through the year',pp:'per person, per night',pct:'of the nightly price per person, capped',com:'Municipal rate',comp:'Municipal rate',dep:'+ {n}% département levy',reg:'+ {n}% regional levy',tot:'Total to pay',eff:'Effective rate',yr:'Year',cat:'Category',per:'Period',all:'all year round',from_to:'from {a} to {b}',exo:'Exempt',exl:['under-18s','seasonal workers employed in the commune','people in emergency housing'],who:'Your host collects it with your stay and pays it to the commune. Booked through a platform? It is often already included in the price.',
+  mo:['January','February','March','April','May','June','July','August','September','October','November','December'],idx:'Contents',gz:'The Gazette',ed:'Published in four languages',word:'A word from your host',fig:'Useful numbers',pl:'Plate',stn:'Station',apt:'Airport',urg:'Emergencies',toc:'In this issue',night:'/ night',gal:'The plates'},
+ de:{incs:'Inklusive',dlb:'Geltender Tarif (Gemeinderatsbeschluss {y})',reel:'Pro Gast',forf_t:'Pauschale Kurtaxe',forf:'In dieser Gemeinde wird die Kurtaxe pauschal erhoben: Sie gilt für die Unterkunft, nicht pro Gast. Ihr Gastgeber hat sie bereits bezahlt, für Sie fällt nichts zusätzlich an.',offr:'Offizieller Tarif',and:'und ',inc:'Im Aufenthalt enthalten',svc_t:'Alles für den Alltag, ganz nah',svc_n:'Luftlinie ab dem Haus. Öffnungszeiten bitte vor Ort prüfen.',sv:{bakery:'Bäckerei',supermarket:'Supermarkt',convenience:'Lebensmittelladen',pharmacy:'Apotheke',atm:'Geldautomat',marketplace:'Marktplatz',fuel:'Tankstelle',charging_station:'E-Ladestation',doctors:'Arztpraxis'},
+  ter_t:'Der Geschmack der Region',ag_t:'Im Lauf des Jahres',pp:'pro Person und Nacht',pct:'des Übernachtungspreises pro Person, mit Obergrenze',com:'Gemeindetarif',comp:'Gemeindesatz',dep:'+ {n} % Département-Zuschlag',reg:'+ {n} % Regionalzuschlag',tot:'Gesamtbetrag',eff:'Effektiver Satz',yr:'Jahr',cat:'Kategorie',per:'Zeitraum',all:'ganzjährig',from_to:'vom {a} bis {b}',exo:'Befreit',exl:['Kinder und Jugendliche unter 18 Jahren','in der Gemeinde beschäftigte Saisonkräfte','Personen in Notunterkünften'],who:'Ihr Gastgeber erhebt sie mit dem Aufenthalt und führt sie an die Gemeinde ab. Über eine Plattform gebucht? Dann ist sie oft schon im Preis enthalten.',
+  mo:['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],idx:'Inhalt',gz:'Die Hauszeitung',ed:'Ausgabe in vier Sprachen',word:'Ein Wort vom Gastgeber',fig:'Nützliche Zahlen',pl:'Tafel',stn:'Bahnhof',apt:'Flughafen',urg:'Notrufe',toc:'In dieser Ausgabe',night:'/ Nacht',gal:'Die Bildtafeln'},
+ nl:{incs:'Inbegrepen',dlb:'Geldend tarief (raadsbesluit {y})',reel:'Per gast',forf_t:'Forfaitaire toeristenbelasting',forf:'In deze gemeente is de toeristenbelasting forfaitair: de verhuurder betaalt ze voor de accommodatie, niet per gast. Uw gastheer heeft ze al voldaan, u hoeft niets extra te betalen.',offr:'Officieel tarief',and:'en ',inc:'Inbegrepen in uw verblijf',svc_t:'Dagelijkse boodschappen dichtbij',svc_n:'Afstanden hemelsbreed vanaf het huis. Controleer de openingstijden ter plaatse.',sv:{bakery:'Bakker',supermarket:'Supermarkt',convenience:'Buurtwinkel',pharmacy:'Apotheek',atm:'Geldautomaat',marketplace:'Marktplein',fuel:'Tankstation',charging_station:'Laadpaal',doctors:'Huisarts'},
+  ter_t:'De smaak van de streek',ag_t:'Door het jaar heen',pp:'per persoon per nacht',pct:'van de overnachtingsprijs per persoon, met een maximum',com:'Gemeentelijk tarief',comp:'Gemeentelijk percentage',dep:'+ {n}% departementale toeslag',reg:'+ {n}% regionale toeslag',tot:'Totaal te betalen',eff:'Effectief tarief',yr:'Jaar',cat:'Categorie',per:'Periode',all:'het hele jaar',from_to:'van {a} tot en met {b}',exo:'Vrijgesteld',exl:['jongeren onder de 18','seizoenswerkers die in de gemeente werken','mensen in noodopvang'],who:'Uw gastheer int ze bij het verblijf en draagt ze af aan de gemeente. Geboekt via een platform? Dan zit ze vaak al in de prijs.',
+  mo:['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'],idx:'Inhoud',gz:'De Huiskrant',ed:'Editie in vier talen',word:'Een woord van uw gastheer',fig:'Handige cijfers',pl:'Plaat',stn:'Station',apt:'Luchthaven',urg:'Noodnummers',toc:'In dit nummer',night:'/ nacht',gal:'De platen'}
+};
+['fr','en','de','nl'].forEach(function(l){for(var k in X2[l])X[l][k]=X2[l][k]});
+var IC={
+ key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3M14 9l2 2"/>',
+ out:'<path d="M14 3h5v18h-5M10 17l5-5-5-5M15 12H3"/>',
+ wifi:'<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8"/>',
+ phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+ car:'<path d="M3 13l2-5a2 2 0 0 1 2-1.3h10a2 2 0 0 1 2 1.3l2 5v5h-3v-2H6v2H3z"/><circle cx="7.5" cy="13.5" r=".6"/><circle cx="16.5" cy="13.5" r=".6"/>',
+ train:'<rect x="6" y="3" width="12" height="13" rx="3"/><path d="M6 10h12M9 19l-2 2M15 19l2 2"/><circle cx="9" cy="13" r=".6"/><circle cx="15" cy="13" r=".6"/>',
+ plane:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',
+ park:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/>',
+ id:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M6 16c.8-1.6 2-2.4 3-2.4s2.2.8 3 2.4M14 10h4M14 13h4"/>',
+ home:'<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+ list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r=".8"/><circle cx="4.5" cy="12" r=".8"/><circle cx="4.5" cy="18" r=".8"/>',
+ pool:'<path d="M2 16c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 20c2 0 2-1.5 4-1.5s2 1.5 4 1.5 2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M8 13V5a2 2 0 0 1 4 0M14 13V5"/>',
+ cup:'<path d="M4 8h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6zM17 9h1.5a2.5 2.5 0 0 1 0 5H17M8 3v2M12 3v2"/>',
+ plate:'<circle cx="12" cy="12" r="6"/><path d="M3 4v6a2 2 0 0 0 2 2v8M21 4c-1.5 0-2.5 2-2.5 5s1 3 2.5 3v8"/>',
+ leaf:'<path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15zM5 19l7-7"/>',
+ bin:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+ fire:'<path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"/>',
+ wind:'<path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/>',
+ bug:'<circle cx="12" cy="13" r="5"/><path d="M12 8V5M7 13H3M21 13h-4M8 9L5 6M16 9l3-3M8 17l-3 3M16 17l3 3"/>',
+ sea:'<path d="M2 8c2 0 2-1.5 4-1.5S8 8 10 8s2-1.5 4-1.5S16 8 18 8s2-1.5 4-1.5M2 13c2 0 2-1.5 4-1.5S8 13 10 13s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/>',
+ sos:'<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',
+ coins:'<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3 3 7 3s7-1.3 7-3v-6"/>',
+ check:'<path d="M5 12l5 5 9-10"/>',
+ pin:'<path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+ arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ down:'<path d="M12 5v14M6 13l6 6 6-6"/>',
+ cam:'<path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/>',
+ basket:'<path d="M3 9h18l-2 11H5zM8 9l4-6 4 6M9 13v4M15 13v4"/>',
+ sunrise:'<path d="M3 18h18M6 18a6 6 0 0 1 12 0M12 4v4M5 9l2 2M19 9l-2 2"/>',
+ bakery:'<path d="M4 14c0-5 3.6-8 8-8s8 3 8 8v3H4zM9 7.5l1.5 5M15 7.5l-1.5 5M12 6v6"/>',
+ supermarket:'<path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/>',
+ convenience:'<path d="M4 9l1.5-5h13L20 9M4 9h16v11H4zM4 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3M10 20v-5h4v5"/>',
+ pharmacy:'<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M12 8v8M8 12h8"/>',
+ atm:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h3"/>',
+ marketplace:'<path d="M3 9l2-5h14l2 5M3 9c0 1.4 1 2.5 2.5 2.5S8 10.4 8 9c0 1.4 1 2.5 2.5 2.5S13 10.4 13 9c0 1.4 1 2.5 2.5 2.5S18 10.4 18 9c0 1.4 1 2.5 2.5 2.5M5 11.5V20h14v-8.5"/>',
+ fuel:'<path d="M5 20V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v15M3.5 20h12M5 10h9M14 8l3 2.5V17a1.5 1.5 0 0 0 3 0V9l-2.5-2.5"/>',
+ charging_station:'<path d="M13 3L6 13h5l-1 8 7-10h-5z"/>',
+ doctors:'<path d="M6 3v5a4 4 0 0 0 8 0V3M10 12v3a5 5 0 0 0 10 0v-1"/><circle cx="20" cy="12" r="1.6"/>',
+ cart:'<path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/>',
+ grape:'<circle cx="9" cy="10" r="2.3"/><circle cx="14" cy="10" r="2.3"/><circle cx="11.5" cy="14" r="2.3"/><circle cx="7" cy="14" r="2.3"/><circle cx="16" cy="14" r="2.3"/><circle cx="9.5" cy="18" r="2.3"/><circle cx="14" cy="18" r="2.3"/><path d="M11.5 7.5V3M11.5 4.5c1.5-1.2 3.5-1.3 5-.5"/>',
+ cal:'<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'
+};
+function ic(k){return '<span class="ico"><svg viewBox="0 0 24 24">'+(IC[k]||'')+'</svg></span>'}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function f(s){return s.replace(/\{na\}/g,D.na).replace(/\{nd\}/g,D.nd).replace(/\{cd\}/g,D.cd).replace(/\{n\}/g,D.n).replace(/\{c\}/g,D.c).replace(/\{z\}/g,D.z[L])}
+function hasK(k){return D.k.indexOf(k)>=0}
+function maps(lat,lon){return 'https://www.google.com/maps/search/?api=1&query='+lat+','+lon}
+function exb(){return '<span class="ex">'+T[L].ex+'</span>'}
+var IMGS=D.i.slice();
+function I(k){return IMGS.length?IMGS[k%IMGS.length]:''}
+var SZ=D.sz||null;function lo(k){if(!SZ||!IMGS.length)return '';var z=SZ[k%IMGS.length];return z&&Math.min(z[0],z[1])<1000?' lo':''}
+function img(k,cls,eager){var u=I(k);return u?'<img class="z'+(cls?' '+cls:'')+lo(k)+'" '+(eager?'fetchpriority="high"':'loading="lazy"')+' decoding="async" src="'+u+'" alt="">':''}
+function split(s){return esc(s).split(' ').map(function(w,i){return '<span class="sp"><span style="animation-delay:'+(2.35+i*.12)+'s">'+w+'</span></span>'}).join('')}
+
+/* ---- contenu ---- */
+function RR(k){return (R&&R[k]&&R[k][L])||null}
+function dec(v,n){var s=(+v).toFixed(n);return L==='en'?s:s.replace('.',',')}
+function num(v){var n=Math.abs(v-Math.round(v))<1e-9?0:Math.abs(v*10-Math.round(v*10))<1e-9?1:2;return dec(v,n)}
+function eur(v){return L==='en'?'€'+dec(v,2):dec(v,2)+' €'}
+function pc(v){return num(v)+(L==='en'?'%':' %')}
+function fkm(k){k=+k;if(k<1)return '<b>'+Math.max(50,Math.round(k*20)*50)+'</b><small>m</small>';return '<b>'+(k<10?dec(k,1):Math.round(k))+'</b><small>km</small>'}
+function roman(n){return ['','I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV'][n]||n}
+function fday(d,m){var x=X[L],mo=x.mo[m-1];if(L==='fr')return (d===1?'1<sup>er</sup>':d)+' '+mo;if(L==='de')return d+'. '+mo;if(L==='en')return d+' '+mo;return d+' '+mo}
+function fper(p){if(!p)return '';var m=String(p).match(/(\d{1,2})-(\d{1,2})\s*-\s*(\d{1,2})-(\d{1,2})/);if(!m)return esc(p);var a=[+m[1],+m[2]],b=[+m[3],+m[4]];if(a[0]===1&&a[1]===1&&b[0]===31&&b[1]===12)return X[L].all;return X[L].from_to.replace('{a}',fday(a[0],a[1])).replace('{b}',fday(b[0],b[1]))}
+function CH(){
+ var t=T[L],x=X[L],c=[];
+ c.push({id:'arr',ic:'car',nav:t.nav[0],h:t.c1,b:[
+  {ic:'car',h:t.car,p:t.car_t},
+  {ic:'train',h:t.train,rows:D.st.map(function(s){return [s[0],'≈ '+s[1]+' km']})},
+  {ic:'plane',h:t.plane,rows:D.ap.map(function(s){return [s[0],'≈ '+s[1]+' km']}),note:t.approx},
+  {ic:'park',h:t.parking,p:(hasK('parking')?t.park_yes:t.park_no)+' '+t.late},
+  {ic:'id',h:t.police_t,p:t.police,al:1}]});
+ var m=[{ic:'list',h:t.rules_t,ul:(RR('RULES')||t.rules).concat(hasK('animaux')?[t.pets]:[]).concat(hasK('climatis')?[t.clim]:[])}];
+ if(D.kind==='ch'||hasK('petit'))m.push({ic:'cup',h:t.bf_t,p:t.bf,ex:1});
+ if(hasK('table'))m.push({ic:'plate',h:t.table_t,p:t.table,ex:1});
+ if(hasK('piscine'))m.push({ic:'pool',h:t.pool_t,ul:t.pool,ex:1});
+ if(hasK('spa'))m.push({ic:'leaf',h:t.spa_t,p:t.spa,ex:1});
+ var hb=RR('HOUSE')||[];
+ m=m.concat(hb);
+ if(D.svc&&D.svc.length)m.push({ic:'cart',h:x.svc_t,svc:1,note:x.svc_n});
+ var sorted=hb.some(function(b){return b.ic==='bin'||/tri|déchet|poubelle|recycl|abfall|afval|waste/i.test(b.h)});
+ if(!sorted)m.push({ic:'bin',h:t.trash_t,p:t.trash});
+ c.push({id:'mai',ic:'home',nav:t.nav[1],h:t.c2,b:m,strip:1});
+ var a=[{ic:'pin',h:t.near_t,poi:1}];
+ if(D.mk.length)a.push({ic:'basket',h:t.market_t,mk:1,note:t.market_n});
+ var te=RR('TERROIR');if(te&&te.length)a.push({ic:'grape',h:x.ter_t,terroir:te});
+ var ag=RR('AGENDA');if(ag&&ag.length)a.push({ic:'cal',h:x.ag_t,agenda:ag});
+ c.push({id:'aut',ic:'pin',nav:t.nav[2],h:f(t.c3),b:a});
+ var pr=RR('PRAT'),p=[];
+ if(pr)p=pr.slice();else{p=[{ic:'sun',h:t.heat_t,p:t.heat},{ic:'fire',h:t.fire_t,p:t.fire,al:1},{ic:'wind',h:t.mistral_t,p:t.mistral}];if(D.zone==='camargue')p.push({ic:'bug',h:t.mosq_t,p:t.mosq})}
+ if(D.sea)p.push({ic:'sea',h:t.sea_t,p:t.sea});
+ p.push({ic:'sos',h:t.sos_t,sos:1});
+ p.push(D.tax?{ic:'coins',h:t.tax_t,tax:1}:{ic:'coins',h:t.tax_t,p:t.tax});
+ var n4=RR('NAV4');
+ c.push({id:'pra',ic:'sun',nav:n4||t.nav[3],h:n4||t.c4,b:p});
+ c.push({id:'dep',ic:'out',nav:t.nav[4],h:t.c5,b:[{ic:'check',h:t.out_t,chk:1}]});
+ return c;
+}
+function SOS(){return T[L].sos.concat(RR('SOS_EXTRA')||[])}
+function poiH(){var t=T[L];return '<div class="pois">'+D.poi.map(function(x){var q=x.t[L];return '<a class="poi rv" href="'+maps(x.lat,x.lon)+'" target="_blank" rel="noopener"><span class="km">'+x.km+'<small>km</small></span><span><b>'+esc(q[0])+'</b><small class="d">'+esc(q[1])+'</small></span><span class="go">'+ic('arrow')+'</span></a>'}).join('')+'</div>'}
+function mkH(){return '<div class="chips">'+D.mk.map(function(m){return '<div class="chip"><b>'+esc(m.c)+'</b><span>'+esc(m.d[L])+' · '+m.km+' km</span></div>'}).join('')+'</div>'}
+function svcH(){var x=X[L];return '<div class="svc">'+D.svc.map(function(v){var lab=x.sv[v[0]]||v[0],nm=v[1]?esc(v[1]):'';return '<a class="sv" href="'+maps(v[3],v[4])+'" target="_blank" rel="noopener">'+ic(IC[v[0]]?v[0]:'pin')+'<span class="nm"><b>'+(nm||lab)+'</b>'+(nm?'<small>'+lab+'</small>':'')+'</span><span class="ds">'+fkm(v[2])+'</span><span class="go">'+ic('arrow')+'</span></a>'}).join('')+'</div>'}
+function taxH(){
+ var x=X[L],q=D.tax,pct=q.unit==='%',forf=/forf/i.test(q.regime||''),h='<div class="tax">';
+ var big=pct?pc(q.base):eur(q.total||q.base),tot=pct?pc(q.total||q.base):big;
+ var rows=[[pct?x.comp:x.com,pct?pc(q.base):eur(q.base)]];
+ if(q.dep)rows.push([x.dep.replace('{n}',num(q.dep)),pct?pc(q.base*q.dep/100):eur(q.base*q.dep/100)]);
+ if(q.reg)rows.push([x.reg.replace('{n}',num(q.reg)),pct?pc(q.base*q.reg/100):eur(q.base*q.reg/100)]);
+ var per=fper(q.per)+(q.per2?' '+x.and+fper(q.per2):'');
+ if(forf){
+  h+='<div class="txhd"><span class="txn sm">'+x.inc+'</span></div><p>'+x.forf+'</p>';
+  h+='<div class="txof"><span>'+x.offr+'</span>'+rows.map(function(r){return r[1]}).join(' + ')+(rows.length>1?' = '+(pct?pc(q.total):eur(q.total)):'')+'</div>';
+ }else{
+  h+='<div class="txhd"><span class="txn">'+big+'</span><span class="txu">'+(pct?x.pct:x.pp)+'</span></div>';
+  h+='<div class="rows txt">'+rows.map(function(r){return '<div class="r"><b>'+r[0]+'</b><span>'+r[1]+'</span></div>'}).join('')+(rows.length>1?'<div class="r tot"><b>'+(pct?x.eff:x.tot)+'</b><span>'+tot+'</span></div>':'')+'</div>';
+ }
+ h+='<dl class="txm"><div><dt>'+x.cat+'</dt><dd>'+esc((q.cat&&(q.cat[L]||q.cat.fr))||'')+'</dd></div><div><dt>'+x.per+'</dt><dd>'+per+'</dd></div><div><dt>'+x.dlb.split(' (')[0]+'</dt><dd>'+x.dlb.replace(/^.*\((.*)\)$/,'$1').replace('{y}',q.y)+'</dd></div></dl>';
+ if(!forf)h+='<p class="txx"><b>'+x.exo+' :</b> '+x.exl.join(', ')+'.</p><p class="txw">'+x.who+'</p>';
+ return h+'</div>';
+}
+function terH(a){return '<div class="ter">'+a.map(function(r){return '<div class="tr"><div class="th"><b>'+esc(r[0])+'</b>'+(r[2]?'<span>'+esc(r[2])+'</span>':'')+'</div><p>'+esc(r[1])+'</p></div>'}).join('')+'</div>'}
+function agH(a){return '<ol class="ag">'+a.map(function(r){return '<li><span class="w">'+esc(r[0])+'</span><b>'+esc(r[1])+'</b>'+(r[2]?'<p>'+esc(r[2])+'</p>':'')+'</li>'}).join('')+'</ol>'}
+function blk(b){
+ var t=T[L],h='<div class="blk rv'+(b.al?' al':'')+(b.tax?' btax':'')+(b.svc?' bsvc':'')+'"><div class="bh">'+(b.ic?ic(b.ic):'')+'<h3>'+b.h+(b.ex?exb():'')+'</h3></div>';
+ if(b.p)h+='<p>'+b.p+'</p>';
+ if(b.ul)h+='<ul class="ul">'+b.ul.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+ if(b.rows)h+='<div class="rows">'+b.rows.map(function(r){return '<div class="r"><b>'+esc(r[0])+'</b><span>'+r[1]+'</span></div>'}).join('')+'</div>';
+ if(b.poi)h+=poiH();
+ if(b.mk)h+=mkH();
+ if(b.svc)h+=svcH();
+ if(b.tax)h+=taxH();
+ if(b.terroir)h+=terH(b.terroir);
+ if(b.agenda)h+=agH(b.agenda);
+ if(b.sos)h+='<div class="sos">'+SOS().map(function(s){return '<a href="tel:'+String(s[0]).replace(/\s/g,'')+'"><b'+(String(s[0]).length>5?' class="lg"':'')+'>'+esc(s[0])+'</b><small>'+esc(s[1])+'</small></a>'}).join('')+'</div>';
+ if(b.chk)h+='<div class="prog"><span id="pc">0/'+t.out.length+'</span><i id="pb"></i></div><div class="chk">'+t.out.map(function(x,i){return '<label><input type="checkbox" data-i="'+i+'"><span class="bx"><svg viewBox="0 0 24 24">'+IC.check+'</svg></span><span>'+x+'</span></label>'}).join('')+'</div>';
+ if(b.note)h+='<p class="note">'+b.note+'</p>';
+ return h+'</div>';
+}
+function ESS(){var t=T[L];return [
+ {ic:'key',l:t.checkin,v:t.from,ex:1},
+ {ic:'out',l:t.checkout,v:t.before,ex:1},
+ {ic:'wifi',l:t.wifi,v:esc(D.wifi),s:t.pwd+' ••••••',ex:1},
+ {ic:'phone',l:t.host,v:D.tel?'<a href="tel:'+esc(D.tel)+'">'+esc(D.telf)+'</a>':'…',ex:!D.tel}]}
+function essH(){return '<div class="ess">'+ESS().map(function(e,i){return '<div class="es rv d'+(i%4+1)+'">'+ic(e.ic)+'<div class="l">'+e.l+'</div><div class="v">'+e.v+'</div>'+(e.s?'<div class="s">'+e.s+'</div>':'')+(e.ex?exb():'')+'</div>'}).join('')+'</div>'}
+function foot(){var t=T[L];return '<footer><div class="ecl"></div><div class="thx rv">'+t.thanks+'</div><small>'+f(t.made)+'</small></footer>'}
+
+/* ---- MAS : immersif, chapitres plein écran ---- */
+function rMas(){
+ var t=T[L],x=X[L],ch=CH(),h='';
+ h+='<header class="hero"><div class="bg" id="hbg">'+img(0,'',1)+'</div><div class="tx"><div class="kick">'+t.kicker+' · '+esc(D.zl)+'</div><h1>'+split(D.n)+'</h1><p class="meta">'+esc(D.c)+'</p></div><div class="cue"><i></i>'+x.scroll+'</div></header>';
+ h+='<section class="wel"><div class="kick">'+t.welcome_t+'</div><p class="big" id="big">'+esc(f(t.welcome)).split(' ').map(function(w){return '<span class="w">'+w+'</span>'}).join(' ')+'</p></section>';
+ h+='<section class="essw"><div class="in"><div class="kick">'+x.ess+'</div>'+essH()+'</div></section>';
+ ch.forEach(function(c,i){
+  h+='<section class="chap" id="'+c.id+'"><div class="pin">'+img(i+1,'par')+'<div class="plab"><span class="no">0'+(i+1)+'</span><h2>'+c.h+'</h2></div></div><div class="body"><div class="in">'+c.b.map(blk).join('');
+  if(c.strip&&IMGS.length>6)h+='<div class="strip">'+[6,7,8,9].filter(function(k){return k<IMGS.length}).map(function(k){return img(k)}).join('')+'</div>';
+  h+='</div></div></section>';
+ });
+ h+='<section class="galw"><h2 class="rv">'+x.house+'</h2><div class="mz">'+IMGS.map(function(u,k){return '<div class="pr">'+img(k)+'</div>'}).join('')+'</div></section>';
+ return h+foot();
+}
+/* ---- CARNET : appli, onglets en bas ---- */
+var TAB=0;
+function rCarnet(){
+ var t=T[L],x=X[L],ch=CH(),e=ESS(),h='';
+ h+='<header class="top"><div class="stack" id="stack"><div class="c c1">'+img(1,'',1)+'</div><div class="c c2">'+img(2,'',1)+'</div><div class="c c3">'+img(0,'',1)+'</div></div>';
+ h+='<div class="ttl"><div class="kick">'+t.kicker+' · '+esc(D.zl)+'</div><h1>'+esc(D.n)+'</h1><p class="meta">'+esc(D.c)+'</p></div>';
+ h+='<p class="lead rv">'+f(t.welcome)+'</p>';
+ h+='<div class="pass rv"><div class="tp"><div><div class="l">'+x.arr+'</div><div class="v">'+t.from+'</div>'+exb()+'</div><div class="mid"><svg viewBox="0 0 54 24"><path d="M2 12h50M44 5l8 7-8 7"/></svg></div><div><div class="l">'+x.dep+'</div><div class="v">'+t.before+'</div>'+exb()+'</div></div><div class="perf"></div><div class="bt"><div>'+ic('wifi')+'<div><div class="l">'+t.wifi+'</div><div class="v">'+esc(D.wifi)+'</div><div class="s" style="font-size:12px;color:var(--mut)">'+t.pwd+' ••••••</div></div></div><div>'+ic('phone')+'<div><div class="l">'+t.host+'</div><div class="v">'+e[3].v+'</div>'+(e[3].ex?exb():'')+'</div></div></div></div>';
+ h+='<button class="open" id="openB">'+x.open+ic('down')+'</button></header>';
+ h+='<div class="panes" id="panes">';
+ ch.forEach(function(c,i){
+  h+='<section class="pane'+(i===TAB?' on':'')+'" data-p="'+i+'"><div class="pban pr">'+img(i+3)+'<div class="t"><span>0'+(i+1)+' / 0'+(ch.length+1)+'</span><h2>'+c.h+'</h2></div></div><div class="card">'+c.b.map(blk).join('')+'</div>';
+  if(c.strip&&IMGS.length>4)h+='<div class="car">'+IMGS.slice(1).map(function(u,k){return img(k+1)}).join('')+'</div>';
+  h+='</section>';
+ });
+ h+='<section class="pane'+(TAB===ch.length?' on':'')+'" data-p="'+ch.length+'"><div class="pban pr">'+img(ch.length+3)+'<div class="t"><span>0'+(ch.length+1)+' / 0'+(ch.length+1)+'</span><h2>'+x.see+'</h2></div></div><div class="gg">'+IMGS.map(function(u,k){return '<div class="pr">'+img(k)+'</div>'}).join('')+'</div></section>';
+ h+='</div>';
+ h+='<nav class="tabbar" id="tabbar">'+ch.map(function(c,i){return '<button data-t="'+i+'"'+(i===TAB?' class="on"':'')+'>'+ic(c.ic)+'<span>'+c.nav+'</span></button>'}).join('')+'<button data-t="'+ch.length+'"'+(TAB===ch.length?' class="on"':'')+'>'+ic('cam')+'<span>'+x.photos+'</span></button></nav>';
+ return h+foot();
+}
+/* ---- RIVIERA : magazine, couverture qui s'ouvre ---- */
+function rRiviera(){
+ var t=T[L],x=X[L],ch=CH(),h='';
+ var aut=ch.filter(function(c){return c.id==='aut'})[0];
+ var rest=ch.filter(function(c){return c.id!=='aut'});
+ h+='<header class="cov" id="cov"><div class="cst"><div class="ctop" id="ctop"><div class="kick">'+t.kicker+'</div><div class="no">N° '+(new Date().getFullYear()+1)+' · '+esc(D.zl)+'</div></div><div class="cfr" id="cfr">'+img(0,'',1)+'</div><div class="ct"><h1>'+split(D.n)+'</h1><p>'+esc(D.c)+'</p></div></div></header>';
+ var mq=[x.welcome,esc(D.c),'Welcome',esc(D.zl),'Willkommen','Welkom'];var ms=mq.map(function(w){return '<span>'+w+'</span><i>✦</i>'}).join('');
+ h+='<div class="marq"><div>'+ms+ms+ms+ms+'</div></div>';
+ h+='<section class="rwel"><div class="kick rv">'+t.welcome_t+'</div><p class="drop rv">'+f(t.welcome)+'</p><div class="etab">'+ESS().map(function(e){return '<div class="r rv"><div class="l">'+e.l+'</div><div class="v">'+e.v+(e.s?'<small>'+e.s+'</small>':'')+(e.ex?exb():'')+'</div></div>'}).join('')+'</div></section>';
+ var hs=IMGS.slice(1,9);
+ if(hs.length>2){h+='<section class="hs" id="hs"><div class="hsin"><div class="hsh"><h2>'+x.house+'</h2><span class="cnt" id="hcnt">01 / '+('0'+hs.length).slice(-2)+'</span></div><div class="track" id="track">'+hs.map(function(u,k){return '<figure><div>'+img(k+1)+'</div><figcaption>'+('0'+(k+1)).slice(-2)+'</figcaption></figure>'}).join('')+'</div></div></section>'}
+ h+='<section class="toc"><div class="kick rv">'+x.ess+'</div>';
+ rest.forEach(function(c,i){
+  h+='<article class="row'+(i===0?' on':'')+'"><button><span class="ix">0'+(i+1)+'</span><h2>'+c.h+'</h2><span class="pl"></span></button><div class="rc"><div class="rci"><div class="wrap">'+(i<3?'<div class="rimg">'+img(i+3)+'</div>':'')+c.b.map(blk).join('')+'</div></div></div></article>';
+ });
+ h+='</section>';
+ h+='<section class="night"><div class="in"><div class="kick">'+x.around+'</div><h2 class="rv">'+aut.h+'</h2>'+poiH()+(D.mk.length?'<div class="mkh rv">'+t.market_t+'</div>'+mkH()+'<p class="note">'+t.market_n+'</p>':'')+aut.b.filter(function(b){return b.terroir||b.agenda}).map(function(b){return '<div class="mkh rv">'+b.h+'</div>'+(b.terroir?terH(b.terroir):agH(b.agenda))}).join('')+'</div></section>';
+ h+='<section class="rgal">'+IMGS.map(function(u,k){return '<div class="pr">'+img(k)+'</div>'}).join('')+'</section>';
+ return h+foot();
+}
+
+/* ---- ATLAS : colonne photo fixe + sommaire (bureau), chapitres et planches (mobile) ---- */
+function rAtlas(){
+ var t=T[L],x=X[L],ch=CH(),h='',n=IMGS.length;
+ var secs=ch.concat([{id:'gal',nav:x.photos,h:x.see,gal:1}]);
+ function pk(i){return n?i%n:0}
+ h+='<div class="aw"><aside class="aside" id="aside"><div class="aph">'+[0].concat(secs.map(function(s,i){return i+1})).map(function(i){return '<div class="ap'+(i===0?' on':'')+'" data-i="'+i+'">'+img(pk(i),'',i===0)+'</div>'}).join('')+'</div>';
+ h+='<div class="aix"><p class="anm">'+esc(D.n)+'</p><ol>'+secs.map(function(s,i){return '<li><a href="#'+s.id+'" data-go="'+s.id+'" data-i="'+(i+1)+'"><span class="n">'+roman(i+1)+'</span><span class="t">'+s.nav+'</span><i></i></a></li>'}).join('')+'</ol></div></aside>';
+ h+='<div class="amain"><header class="acov" id="acov"><div class="acph">'+img(0,'',1)+'</div><div class="actx"><p class="kick">'+t.kicker+'</p><h1>'+esc(D.n)+'</h1><p class="aloc">'+esc(D.c)+', '+esc(D.zl)+'</p><p class="alead rv">'+f(t.welcome)+'</p>';
+ h+='<dl class="adl rv">'+ESS().map(function(e){return '<div><dt>'+e.l+'</dt><dd>'+e.v+(e.s?'<small>'+e.s+'</small>':'')+(e.ex?exb():'')+'</dd></div>'}).join('')+'</dl></div></header>';
+ secs.forEach(function(c,i){
+  h+='<section class="asec" id="'+c.id+'" data-i="'+(i+1)+'"><figure class="aplate pr">'+img(pk(i+1))+'</figure><header class="ahd rv"><span class="no">'+roman(i+1)+'</span><h2>'+c.h+'</h2></header>';
+  if(c.gal)h+='<div class="agal">'+IMGS.map(function(u,k){return '<div class="pr">'+img(k)+'</div>'}).join('')+'</div>';
+  else h+=c.b.map(blk).join('');
+  h+='</section>';
+ });
+ h+='</div></div>';
+ h+='<nav class="anav" id="anav" aria-label="'+x.idx+'">'+secs.map(function(s,i){return '<a href="#'+s.id+'" data-go="'+s.id+'" data-i="'+(i+1)+'"><span>'+roman(i+1)+'</span>'+s.nav+'</a>'}).join('')+'</nav>';
+ return h+foot();
+}
+/* ---- GAZETTE : journal local / almanach ---- */
+function rGazette(){
+ var t=T[L],x=X[L],ch=CH(),h='',n=IMGS.length,pl=1;
+ var dt='';try{dt=new Date().toLocaleDateString(L==='en'?'en-GB':L,{weekday:'long',day:'numeric',month:'long',year:'numeric'})}catch(e){}
+ h+='<header class="gm"><div class="gtop"><span>'+esc(D.c)+', '+dt+'</span><span class="gedi">'+x.ed+'</span></div>';
+ h+='<div class="gtit"><p class="gov">'+x.gz+'</p><h1>'+esc(D.n)+'</h1><p class="gsub">'+t.kicker+', '+esc(D.z[L])+'</p></div>';
+ h+='<div class="grib">'+ESS().map(function(e){return '<div class="gc">'+ic(e.ic)+'<div><span class="l">'+e.l+'</span><span class="v">'+e.v+'</span>'+(e.ex?exb():'')+'</div></div>'}).join('')+'</div></header>';
+ // une
+ h+='<section class="gfr"><figure class="gpl gbig pr">'+img(0,'',1)+'<figcaption>'+x.pl+' '+roman(pl++)+'. '+esc(D.n)+', '+esc(D.c)+'</figcaption></figure>';
+ h+='<div class="gword rv"><h2>'+x.word+'</h2><p class="gdrop">'+f(t.welcome)+'</p>';
+ h+='<div class="gtoc"><p class="gtl">'+x.toc+'</p><ol>'+ch.map(function(c,i){return '<li><a href="#'+c.id+'" data-go="'+c.id+'"><span>§&#8239;'+roman(i+1)+'</span>'+c.h+'</a></li>'}).join('')+'</ol></div></div>';
+ h+=figBox()+'</section>';
+ ch.forEach(function(c,i){
+  h+='<section class="gsec" id="'+c.id+'"><header class="gsh rv"><span class="gno">§&#8239;'+roman(i+1)+'</span><h2>'+c.h+'</h2></header><div class="gcols">';
+  if(n>1&&i<n-1)h+='<figure class="gpl pr">'+img((i+1)%n)+'<figcaption>'+x.pl+' '+roman(pl++)+'. '+c.nav+'</figcaption></figure>';
+  h+=c.b.map(blk).join('')+'</div></section>';
+ });
+ var rest=IMGS.map(function(u,k){return k}).slice(Math.min(n,ch.length+1));
+ var gal=rest.length>=2?rest:IMGS.map(function(u,k){return k});
+ h+='<section class="gsec ggal"><header class="gsh rv"><span class="gno">§&#8239;'+roman(ch.length+1)+'</span><h2>'+x.gal+'</h2></header><div class="gpls">'+gal.map(function(k){return '<figure class="gpl pr">'+img(k)+'<figcaption>'+x.pl+' '+roman(pl++)+'</figcaption></figure>'}).join('')+'</div></section>';
+ return h+foot();
+}
+function figBox(){
+ var t=T[L],x=X[L],r=[];
+ if(D.tax){var q=D.tax,forf=/forf/i.test(q.regime||'');r.push([t.tax_t,forf?x.incs:(q.unit==='%'?pc(q.base)+' <small>'+x.night+'</small>':eur(q.total||q.base)+' <small>'+x.night+'</small>')])}
+ if(D.st&&D.st[0])r.push([x.stn+' · '+esc(D.st[0][0]),'≈ '+D.st[0][1]+' km']);
+ if(D.ap&&D.ap[0])r.push([x.apt+' · '+esc(D.ap[0][0]),'≈ '+D.ap[0][1]+' km']);
+ (D.svc||[]).slice(0,3).forEach(function(v){r.push([x.sv[v[0]]||v[0],fkm(v[2]).replace(/<\/?b>|<\/?small>/g,' ').replace(/\s+/g,' ').trim()])});
+ var sos=SOS().slice(0,4);
+ return '<aside class="gbox rv"><p class="gbt">'+x.fig+'</p><div class="gbr">'+r.map(function(a){return '<div><span>'+a[0]+'</span><b>'+a[1]+'</b></div>'}).join('')+'</div><p class="gbs">'+x.urg+'</p><div class="gbn">'+sos.map(function(s){return '<a href="tel:'+String(s[0]).replace(/\s/g,'')+'"><b>'+esc(s[0])+'</b><small>'+esc(s[1])+'</small></a>'}).join('')+'</div></aside>';
+}
+
+/* ---- POSTALE : cartes postales et billets qui s'empilent ---- */
+var X3={fr:{greet:'Bienvenue&nbsp;!',sig:'À très bientôt&nbsp;!',air:'Par avion',to:'Pour nos voyageurs',fra:'France',route:'Votre itinéraire'},
+ en:{greet:'Welcome!',sig:'See you very soon!',air:'By air mail',to:'For our guests',fra:'France',route:'Your itinerary'},
+ de:{greet:'Willkommen!',sig:'Bis ganz bald!',air:'Luftpost',to:'Für unsere Gäste',fra:'Frankreich',route:'Ihre Reiseroute'},
+ nl:{greet:'Welkom!',sig:'Tot heel gauw!',air:'Per luchtpost',to:'Voor onze gasten',fra:'Frankrijk',route:'Uw reisroute'}};
+['fr','en','de','nl'].forEach(function(l){for(var k in X3[l])X[l][k]=X3[l][k]});
+if(D.lay==='postale'&&!document.getElementById('fcav')){var lk=document.createElement('link');lk.rel='stylesheet';lk.href='https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap';document.head.appendChild(lk)}
+function pmark(id){
+ var dt=new Date(),yr=dt.getFullYear(),s=(D.c+' · '+D.zl+' · ').toUpperCase();if(s.length>30)s=(D.c+' · ').toUpperCase();var rep=s;while(rep.length<24)rep+=s;
+ var w='';for(var k=0;k<5;k++){var y=27+k*14;w+='<path d="M0,'+y+' q8.5,-6 17,0 t17,0 t17,0 t17,0 t17,0 t17,0 t17,0 t17,0"/>'}
+ return '<svg class="pmk" viewBox="0 0 250 110" aria-hidden="true"><defs><path id="'+id+'" d="M190,55 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">'+w+'<circle cx="190" cy="55" r="51"/><circle cx="190" cy="55" r="31" stroke-width="1.3"/></g>'+
+  '<text font-size="9.4" font-weight="700" letter-spacing="1" fill="currentColor"><textPath href="#'+id+'" textLength="248" lengthAdjust="spacing">'+esc(rep)+'</textPath></text>'+
+  '<text x="190" y="57" text-anchor="middle" font-size="19" font-weight="700" fill="currentColor">'+yr+'</text><text x="190" y="72" text-anchor="middle" font-size="9" font-weight="700" letter-spacing="1.5" fill="currentColor">'+dt.getDate()+' · '+roman(dt.getMonth()+1)+'</text></svg>'}
+function rPostale(){
+ var t=T[L],x=X[L],ch=CH(),h='',n=IMGS.length,yr=new Date().getFullYear();
+ var secs=ch.concat([{id:'gal',ic:'cam',nav:x.photos,h:x.see,gal:1}]);
+ function pk(i){return n?i%n:0}
+ var nl=String(D.n).length,hc=nl>26?' class="l2"':nl>16?' class="l1"':'';
+ var cl=String(D.c).length,cs=cl<=7?17:cl<=11?14:cl<=16?11.5:10;
+ h+='<header class="phero" style="--d:'+(IN?2.4:.1)+'s"><div class="pdesk" id="pdesk">';
+ if(n>1)h+='<div class="pc pb">'+img(pk(1))+'</div>';
+ h+='<div class="pc pf"><div class="ph">'+img(0,'',1)+'</div><div class="gr"><span class="hw">'+x.greet+'</span><h1'+hc+'>'+esc(D.n)+'</h1></div>';
+ h+='<div class="pstamp"><div class="in">'+(n>2?'<div class="si">'+img(pk(2))+'</div>':'<div class="si"></div>')+'<b style="font-size:'+cs+'px">'+esc(D.c)+'</b><small>'+esc(D.zl)+'</small></div></div>'+pmark('pmc0')+'</div></div>';
+ h+='<div class="pmeta"><span class="kick">'+t.kicker+'</span><span>'+esc(D.c)+' · '+esc(D.zl)+'</span></div><div class="pcue"></div></header>';
+ // verso
+ h+='<section class="pwel"><div class="pback rv"><div class="pmsg"><p class="kick">'+t.welcome_t+'</p><p class="pmt">'+f(t.welcome)+'</p><p class="hw psig">'+x.sig+'</p></div><div class="pdiv"></div>';
+ h+='<div class="padr"><div class="pspot"><span>'+x.air+'</span></div><p class="kick">'+x.to+'</p><div class="pl"><span>'+esc(D.n)+'</span><span>'+esc(D.c)+'</span><span>'+esc(D.zl)+' · '+x.fra+'</span></div></div></div>';
+ h+='<div class="ptks">'+ESS().map(function(e,i){return '<div class="ptkw rv d'+(i+1)+'"><div class="ptk"><div class="stb">'+ic(e.ic)+'<small>N° 0'+(i+1)+'</small></div><div class="bd"><div class="l">'+e.l+'</div><div class="v">'+e.v+'</div>'+(e.s?'<div class="s">'+e.s+'</div>':'')+(e.ex?exb():'')+'</div></div></div>'}).join('')+'</div>';
+ h+='<nav class="proute rv" aria-label="'+x.idx+'"><div class="prh"><span class="kick">'+x.route+'</span><span class="hw">'+esc(D.c)+'</span></div><ol>'+secs.map(function(s,i){return '<li><a href="#'+s.id+'" data-go="'+s.id+'"><i></i><span class="n">'+roman(i+1)+'</span><span class="t">'+s.nav+'</span></a></li>'}).join('')+'</ol></nav></section>';
+ // pile
+ h+='<div class="pstk" id="pstk">';
+ secs.forEach(function(c,i){
+  h+='<a class="panc" id="'+c.id+'" aria-hidden="true" tabindex="-1"></a><section class="pch" data-i="'+i+'"><header class="pchd"><div class="pt"><span class="pno">N° '+('0'+(i+1)).slice(-2)+'</span><span class="pnv">'+c.nav+'</span><span class="pmini"><b>'+yr+'</b><small>'+esc(D.c)+'</small></span></div><h2>'+c.h+'</h2></header><div class="pperf"></div>';
+  if(c.gal){h+='<div class="pgal">'+IMGS.map(function(u,k){return '<figure class="pola rv d'+(k%4+1)+'"><div class="pr">'+img(k)+'</div><figcaption class="hw">'+(k===0?esc(D.n):'N° '+(k+1)+' · '+esc(D.c))+'</figcaption></figure>'}).join('')+'</div>'}
+  else{
+   var ph=[pk(i+2)];if(c.strip&&n>6)ph.push(pk(7));if(c.strip&&n>8)ph.push(pk(8));if(c.id==='aut'&&n>9)ph.push(pk(9));
+   var cap=[c.nav,esc(D.c),esc(D.zl)];
+   h+='<div class="pcb"><div class="pside'+(ph.length<2?' one':'')+'">'+ph.map(function(k,j){return '<figure class="pola rv"><div class="pr">'+img(k)+'</div><figcaption class="hw">'+cap[j]+'</figcaption></figure>'}).join('')+'</div><div class="pbl">'+c.b.map(blk).join('')+'</div></div>';
+  }
+  h+='</section>';
+ });
+ h+='</div>';
+ return h+foot();
+}
+function pstick(){
+ if(!EL.pch||!EL.pch.length)return;var vh=window.innerHeight,base=window.innerWidth<760?62:84;EL.pdh=document.documentElement.scrollHeight;
+ EL.pch.forEach(function(c,i){var t0=base+i*12,hh=c.offsetHeight,tp=Math.min(t0,vh-hh-14);c.style.top=tp+'px';c._t=tp;c.style.transformOrigin=tp<t0?'50% 100%':'50% 0'});
+}
+
+/* ---- rendu + comportements ---- */
+var io,EL={};
+function render(){
+ var sy=window.scrollY;
+ var h=D.lay==='mas'?rMas():D.lay==='carnet'?rCarnet():D.lay==='atlas'?rAtlas():D.lay==='gazette'?rGazette():D.lay==='postale'?rPostale():rRiviera();
+ document.getElementById('app').innerHTML=h;
+ document.documentElement.lang=L;
+ bind();
+ window.scrollTo(0,sy);
+ onScroll();
+}
+function bind(){
+ if(io)io.disconnect();
+ io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+ document.querySelectorAll('.rv,.pr').forEach(function(n){io.observe(n)});
+ document.querySelectorAll('img').forEach(function(im){im.onerror=function(){var p=im.closest('.pr,.c,figure,.rimg');if(p&&!p.classList.contains('pban'))p.style.display='none';else im.style.visibility='hidden'}});
+ document.querySelectorAll('img.z').forEach(function(im){im.addEventListener('click',function(){openLb(im.getAttribute('src'))})});
+ EL={big:document.getElementById('big'),words:[].slice.call(document.querySelectorAll('#big .w')),hbg:document.getElementById('hbg'),pins:[].slice.call(document.querySelectorAll('.chap')),tabbar:document.getElementById('tabbar'),cov:document.getElementById('cov'),cfr:document.getElementById('cfr'),ctop:document.getElementById('ctop'),ct:document.querySelector('.ct'),hs:document.getElementById('hs'),track:document.getElementById('track'),hcnt:document.getElementById('hcnt'),panes:document.getElementById('panes')};
+ if(EL.hs&&EL.track){var tw=EL.track.scrollWidth;EL.hsx=Math.max(0,tw-window.innerWidth);EL.hs.style.height=(window.innerHeight+EL.hsx)+'px'}
+ EL.aside=document.getElementById('aside');EL.acov=document.getElementById('acov');EL.anav=document.getElementById('anav');EL.asecs=[].slice.call(document.querySelectorAll('.asec'));EL.aph=[].slice.call(document.querySelectorAll('.ap'));EL.aix=[].slice.call(document.querySelectorAll('.aix a'));EL.ach=[].slice.call(document.querySelectorAll('.anav a'));EL.act=-1;
+ document.querySelectorAll('a[data-go]').forEach(function(a){a.onclick=function(e){var el=document.getElementById(a.getAttribute('data-go'));if(!el)return;e.preventDefault();var off=window.innerWidth<960&&EL.anav?112:(D.lay==='gazette'?24:D.lay==='postale'?(window.innerWidth<760?40:60):0);window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'})}});
+ EL.pch=[].slice.call(document.querySelectorAll('.pch'));EL.pdesk=document.getElementById('pdesk');if(EL.pch.length){pstick();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(pstick)}
+ var st=document.getElementById('stack');if(st)setTimeout(function(){st.classList.add('vis')},IN?2500:150);
+ document.querySelectorAll('.row>button').forEach(function(b){b.onclick=function(){b.parentNode.classList.toggle('on')}});
+ document.querySelectorAll('.tabbar button').forEach(function(b){b.onclick=function(){go(+b.getAttribute('data-t'))}});
+ var ob=document.getElementById('openB');if(ob)ob.onclick=function(){go(0)};
+ if(EL.panes){var sx=0,sy2=0;EL.panes.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy2=e.touches[0].clientY},{passive:true});EL.panes.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy2;if(Math.abs(dx)>70&&Math.abs(dy)<45){var n=document.querySelectorAll('.pane').length;var k=TAB+(dx<0?1:-1);if(k>=0&&k<n)go(k,dx>0)}},{passive:true})}
+ var s={};try{s=JSON.parse(localStorage.getItem('hirchk-'+D.s)||'{}')}catch(e){}
+ var cbs=[].slice.call(document.querySelectorAll('.chk input'));
+ function upd(){var n=cbs.filter(function(c){return c.checked}).length;var pc=document.getElementById('pc'),pb=document.getElementById('pb');if(pc)pc.textContent=n+'/'+cbs.length;if(pb)pb.style.setProperty('--p',cbs.length?n/cbs.length:0)}
+ cbs.forEach(function(c){c.checked=!!s[c.dataset.i];c.onchange=function(){s[c.dataset.i]=c.checked;try{localStorage.setItem('hirchk-'+D.s,JSON.stringify(s))}catch(e){}upd()}});upd();
+}
+function go(k,back){
+ TAB=k;
+ document.querySelectorAll('.pane').forEach(function(p){var on=+p.getAttribute('data-p')===k;p.classList.toggle('on',on);p.classList.toggle('back',on&&!!back);if(on)p.querySelectorAll('.rv,.pr').forEach(function(n){io.observe(n)})});
+ document.querySelectorAll('.tabbar button').forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-t')===k)});
+ var top=EL.panes.getBoundingClientRect().top+window.scrollY-8;window.scrollTo({top:top,behavior:'smooth'});
+}
+var raf=0;
+function onScroll(){if(!raf)raf=requestAnimationFrame(tick)}
+function cl(v){return v<0?0:v>1?1:v}
+function tick(){
+ raf=0;var y=window.scrollY,vh=window.innerHeight,dh=document.documentElement.scrollHeight;
+ document.getElementById('bar').style.transform='scaleX('+cl(y/Math.max(1,dh-vh))+')';
+ if(EL.hbg&&y<vh*1.2){EL.hbg.style.transform='translate3d(0,'+(y*.38)+'px,0)'}
+ if(EL.big){var r=EL.big.getBoundingClientRect();var p=cl((vh*.92-r.top)/(r.height+vh*.35));var n=Math.round(p*EL.words.length*1.15);for(var i=0;i<EL.words.length;i++)EL.words[i].classList.toggle('on',i<n)}
+ if(EL.pins.length){EL.pins.forEach(function(c){var r=c.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;var p=cl(-r.top/Math.max(1,r.height));var im=c.querySelector('.pin img');if(im){var lo=im.classList.contains('lo');im.style.transform='translate3d(0,'+(p*(lo?-3:-6))+'%,0) scale('+(lo?1:1+p*.04)+')'}})}
+ if(EL.tabbar){var tp=EL.panes.getBoundingClientRect().top;EL.tabbar.classList.toggle('on',tp<vh*.85)}
+ if(EL.cov){var p2=cl(y/(vh*.85));var a=(1-p2);EL.cfr.style.clipPath='inset('+(a*(vh*.24))+'px '+(a*22)+'px '+(a*(vh*.27))+'px '+(a*22)+'px round '+(a*26)+'px)';var im2=EL.cfr.querySelector('img');if(im2)im2.style.transform='scale('+(1.08-p2*.08)+')';EL.ctop.style.opacity=1-p2*1.6;EL.ct.classList.toggle('lt',p2>.42)}
+ if(EL.hs&&EL.track){var r3=EL.hs.getBoundingClientRect();var p3=cl(-r3.top/Math.max(1,EL.hsx));EL.track.style.transform='translate3d('+(-p3*EL.hsx)+'px,0,0)';var nfig=EL.track.children.length;if(EL.hcnt)EL.hcnt.textContent=('0'+(1+Math.min(nfig-1,Math.floor(p3*nfig)))).slice(-2)+' / '+('0'+nfig).slice(-2)}
+ if(EL.asecs&&EL.asecs.length){var act=0;EL.asecs.forEach(function(sc,i){var r4=sc.getBoundingClientRect();if(r4.top<vh*.5)act=i+1;var pp=cl((vh*.5-r4.top)/Math.max(1,r4.height));if(EL.aix[i])EL.aix[i].style.setProperty('--p',pp)});
+  if(act!==EL.act){EL.act=act;EL.aph.forEach(function(a){a.classList.toggle('on',+a.getAttribute('data-i')===act)});EL.aix.forEach(function(a){a.classList.toggle('on',+a.getAttribute('data-i')===act)});EL.ach.forEach(function(a){var on=+a.getAttribute('data-i')===act;a.classList.toggle('on',on);if(on&&EL.anav.classList.contains('on'))EL.anav.scrollTo({left:a.offsetLeft-20,behavior:'smooth'})})}
+  if(EL.anav&&EL.acov)EL.anav.classList.toggle('on',EL.acov.getBoundingClientRect().bottom<90)}
+ if(EL.pdesk&&y<vh*1.3)EL.pdesk.style.transform='translate3d(0,'+(y*.2)+'px,0) rotate('+(-y*.005)+'deg)';
+ if(EL.pch&&EL.pch.length){if(Math.abs(dh-EL.pdh)>4)pstick();for(var j=0;j<EL.pch.length;j++){var pc0=EL.pch[j],nx=EL.pch[j+1],pp0=0;if(nx){var nt=nx.getBoundingClientRect().top;pp0=cl((vh-nt)/Math.max(1,vh-Math.max(0,nx._t)))}pc0.style.transform=pp0>0?'scale('+(1-pp0*.05).toFixed(4)+')':'';pc0.style.setProperty('--c',pp0.toFixed(3))}}
+ if(!SH&&y>(dh-vh)*.3){SH=1;showSheet()}
+ var she=document.getElementById('sheet'),ofe=document.getElementById('offer');if(y>vh*.8&&she&&ofe&&!she.classList.contains('on')&&!ofe.classList.contains('on'))pill.classList.add('on')
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',function(){bind();onScroll()});
+/* lightbox */
+var LBI=0,LBS=[];
+function openLb(u){LBS=[].slice.call(document.querySelectorAll('img.z')).map(function(i){return i.getAttribute('src')}).filter(function(v,i,a){return v&&a.indexOf(v)===i});LBI=Math.max(0,LBS.indexOf(u));var lb=document.getElementById('lb');lb.querySelector('.tr').innerHTML=LBS.map(function(s){return '<figure><img src="'+s+'" alt=""></figure>'}).join('');lb.classList.add('on');lbGo()}
+function lbGo(){var lb=document.getElementById('lb');lb.querySelector('.tr').style.transform='translateX('+(-LBI*100)+'%)';lb.querySelector('.n').textContent=(LBI+1)+' / '+LBS.length}
+(function(){var lb=document.getElementById('lb'),sx=0;lb.querySelector('.x').onclick=function(){lb.classList.remove('on')};lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){LBI=Math.min(LBS.length-1,Math.max(0,LBI+(dx<0?1:-1)));lbGo()}else if(e.target.tagName!=='IMG'&&e.target.className!=='x'){lb.classList.remove('on')}});lb.addEventListener('click',function(e){if(e.target.tagName==='FIGURE')lb.classList.remove('on')})})();
+/* langues */
+(function(){var b=document.getElementById('lang');['fr','en','de','nl'].forEach(function(l){var x=document.createElement('button');x.textContent=l.toUpperCase();if(l===L)x.className='on';x.onclick=function(){L=l;b.querySelectorAll('button').forEach(function(y){y.classList.toggle('on',y===x)});render();setPill()};b.appendChild(x)})})();
+/* intro */
+var IN=1;
+document.getElementById('introT').textContent='Livret d\'accueil préparé pour '+D.n;
+function introOff(){document.getElementById('intro').classList.add('off');IN=0;var tp=document.getElementById('tip');tp.textContent=X.fr.tip;setTimeout(function(){tp.classList.add('on')},900);setTimeout(function(){tp.classList.remove('on')},5200)}
+setTimeout(introOff,2300);
+document.getElementById('intro').onclick=introOff;
+/* tri des photos : on écarte celles qui ne chargent pas ou trop petites, la première paysage devient la couverture */
+(function(){
+ if(D.sz&&D.sz.length===D.i.length){setTimeout(render,0);return}
+ var n=D.i.length,done=0,res=[],fin=false;
+ function finish(){if(fin)return;fin=true;if(res.length>=3){res.sort(function(a,b){return a.k-b.k});var land=res.filter(function(r){return r.w>=r.h*1.2&&r.w>=900});var first=D.hero!=null?res.filter(function(r){return r.k===D.hero})[0]:null;first=first||land[0]||res[0];IMGS=[first.u].concat(res.filter(function(r){return r!==first}).map(function(r){return r.u}))}render()}
+ if(!n){finish();return}
+ D.i.forEach(function(u,k){var im=new Image();im.referrerPolicy='no-referrer';var ok=false;im.onload=function(){if(im.naturalWidth>=600||im.naturalHeight>=600)res.push({u:u,w:im.naturalWidth,h:im.naturalHeight,k:k});done++;if(done===n)finish()};im.onerror=function(){done++;if(done===n)finish()};im.src=u});
+ setTimeout(finish,2200);
+})();
+/* offre Umbra */
+var PL=[
+ {k:'s97',p:97,n:'Livret',li:['Votre livret complété avec vos infos : Wi-Fi, horaires, accès, vos bonnes adresses','En français, anglais, allemand et néerlandais','Un lien à vie et son QR code','1 révision incluse']},
+ {k:'s147',p:147,n:'Livret + Kit En Règle',best:1,li:['Tout le livret','Fiche de police prête à imprimer, en 4 langues','Check-list 2027 : numéro d\'enregistrement, téléservice national, taxe de séjour, affichages','12 messages types pour vos voyageurs (avant, pendant et après le séjour), en 4 langues','3 révisions incluses']},
+ {k:'s197',p:197,n:'Pack Saison',li:['Tout le Kit En Règle','2 langues en plus : espagnol et italien','Un livret par chambre ou logement (jusqu\'à 5)','Affiches QR prêtes à imprimer','Mises à jour illimitées pendant 12 mois']}
+];
+function buy(pl){var s=(CFG.stripe||{})[pl.k];if(s){return s+(s.indexOf('?')>0?'&':'?')+'client_reference_id=FR-'+D.s}var m=CFG.mail||'matteo@umbragency.it';return 'mailto:'+m+'?subject='+encodeURIComponent('Livret d\'accueil – '+D.n+' – formule '+pl.p+' €')+'&body='+encodeURIComponent('Bonjour,\n\nJe souhaite la formule « '+pl.n+' » ('+pl.p+' €) pour '+D.n+'.\n\nRéf. FR-'+D.s+'\n')}
+document.getElementById('offerIn').innerHTML='<small class="k">Umbra · pour '+esc(D.n)+'</small><h2>Votre livret d\'accueil, prêt en 3 jours.</h2><p class="sub">Fait avec les photos de votre site. Paiement unique, sans abonnement.</p>'+
+ '<div class="val"><div><span>1</span><p><b>Moins de messages.</b> Arrivée, Wi-Fi, parking, piscine, poubelles : tout est dans le livret, avant même que vos voyageurs posent la question.</p></div><div><span>2</span><p><b>En 4 langues.</b> Vos voyageurs anglais, allemands et néerlandais comprennent tout, fiche de police comprise.</p></div><div><span>3</span><p><b>Un lien et un QR code.</b> À envoyer avec la confirmation de réservation ou à poser dans la chambre.</p></div></div>'+
+ '<div class="plans">'+PL.map(function(p){return '<div class="plan'+(p.best?' best':'')+'">'+(p.best?'<span class="tag">Recommandé</span>':'')+'<h4>'+p.n+'<b>'+p.p+' €</b></h4><ul>'+p.li.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><a class="b1" target="_blank" rel="noopener" href="'+buy(p)+'">Choisir · '+p.p+' €</a></div>'}).join('')+'</div>'+
+ '<h3 class="pt">Comment ça marche</h3><div class="steps"><div>Vous choisissez votre formule et vous payez en ligne, par carte.</div><div>Sous 24 h, on vous envoie un court questionnaire : Wi-Fi, horaires, accès, vos adresses préférées.</div><div>Votre livret final arrive en 3 jours ouvrés, avec son lien et son QR code.</div></div>'+
+ '<div class="guar"><div><b>30 jours</b>satisfait ou remboursé</div><div><b>3 jours</b>ouvrés pour la livraison</div><div><b>0 abonnement</b>hébergement inclus</div></div>'+
+ '<h3 class="pt">Questions fréquentes</h3>'+
+ '<details><summary>Je dois installer quelque chose ?</summary><p>Non. C\'est une page web : vos voyageurs l\'ouvrent avec un lien ou en scannant le QR code, sans application.</p></details>'+
+ '<details><summary>Et si je veux le modifier plus tard ?</summary><p>Les révisions incluses servent à ça. Ensuite, écrivez-nous et on s\'en occupe.</p></details>'+
+ '<details><summary>Vous utilisez mes photos ?</summary><p>Pour cette démo, oui : celles de votre site. Pour le livret final, vous choisissez, les mêmes ou d\'autres.</p></details>'+
+ '<details><summary>Et les données de mes voyageurs ?</summary><p>Le livret ne collecte aucune donnée. Le Kit vous donne les modèles et la check-list ; les démarches officielles restent à votre nom.</p></details>'+
+ '<details><summary>Qui êtes-vous ?</summary><p>Umbra, un studio web indépendant basé en Italie. Vous recevez une facture.</p></details>'+
+ '<p class="legal">Umbra Agency · Rovigo (Italie) · P. IVA 01694380294 · <a href="../conditions/" target="_blank">Conditions</a><br>Démo préparée avec les informations publiques '+esc(D.nd)+'.</p>';
+var pill=document.getElementById('pill'),SH=0;
+function setPill(){pill.querySelector('span').textContent='Ce livret · dès 97 €'}setPill();
+document.getElementById('shT').textContent='Ce livret est prêt pour '+D.n+'.';
+document.getElementById('shP').textContent='Vos voyageurs l\'ouvrent sur leur téléphone, dans leur langue. On le complète avec vos infos, et il est à vous.';
+function showSheet(){document.getElementById('sheet').classList.add('on');pill.classList.remove('on')}
+function openO(){document.getElementById('offer').classList.add('on');document.getElementById('sheet').classList.remove('on')}
+function closeS(){document.getElementById('sheet').classList.remove('on');pill.classList.add('on')}
+setTimeout(function(){if(!SH){SH=1;showSheet()}},16000);
+
+document.getElementById('shGo').onclick=openO;document.getElementById('shNo').onclick=closeS;pill.onclick=openO;
+document.querySelector('#offer .x').onclick=function(){document.getElementById('offer').classList.remove('on');pill.classList.add('on')};
+document.getElementById('offer').onclick=function(e){if(e.target.id==='offer'){this.classList.remove('on');pill.classList.add('on')}};
+</script>
+</body>
+</html>
