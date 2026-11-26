@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>In Teatro Camogli · In scena dalle 7 a chiusura</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Abril;src:url(../lib/fonts/abril-fatface-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:InterT;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:InterT;src:url(../lib/fonts/inter-tight-italic.woff2) format("woff2");font-weight:300 800;font-style:italic;font-display:swap}
+:root{
+  /* le facciate di Camogli: ocra, rosso, il verde delle persiane, il mare del golfo, la carta delle locandine */
+  --ocra:#E2A23B; --rosso:#B5452D; --pers:#3F6B4E; --mare:#1F4E79; --carta:#F3EAD8; --ink:#1D1B1A;
+  --a:Abril,Georgia,serif; --t:InterT,system-ui,sans-serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 16.5px/1.55 var(--t);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--a);font-weight:400;line-height:.95;letter-spacing:0;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rosso);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1360px;margin-inline:auto}
+[data-t]{transition:opacity .25s}
+.sw [data-t]{opacity:0}
+
+/* ---------- testata ---------- */
+.bar{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px var(--pad);transition:background .3s,color .3s;color:#fff}
+.scrolled .bar{background:#f3ead8f2;color:var(--ink);box-shadow:0 1px 0 #1d1b1a1a}
+.bar b{font:400 24px/1 var(--a)}
+.lang{display:flex;gap:4px;border:1px solid currentColor;border-radius:99px;padding:3px}
+.lang button{border:0;background:none;border-radius:99px;padding:7px 11px;font-weight:700;font-size:13.5px;cursor:pointer;color:inherit}
+.lang button[aria-pressed=true]{background:#fff;color:var(--ink)}
+.scrolled .lang button[aria-pressed=true]{background:var(--ink);color:var(--carta)}
+
+/* ---------- apertura ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.06 - var(--p,0)*.06))}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#1d1b1ae6 0,#1d1b1a40 50%,#1d1b1a59 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(36px,7vh,80px)}
+.hero small{display:block;font-weight:700;font-size:14px;letter-spacing:.02em;margin-bottom:14px}
+.hero h1{font-size:clamp(76px,14vw,230px);margin:0;letter-spacing:-.01em}
+.hero h1 span{display:block;font:italic 300 .28em/1 var(--t);letter-spacing:0;margin-top:.2em}
+.hero p{font-size:clamp(17px,1.6vw,22px);max-width:40ch;margin:20px 0 0;opacity:.92}
+.hero__f{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:0;border-radius:99px;padding:14px 20px;font-weight:700;font-size:15px;cursor:pointer}
+.btn--r{background:var(--rosso);color:#fff}
+.btn--w{background:#fff;color:var(--ink)}
+
+/* ---------- la locandina ---------- */
+.loc{padding-block:clamp(70px,9vw,130px)}
+.loc__g{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.poster{background:#FBF5E8;color:var(--ink);padding:clamp(26px,3.6vw,52px) clamp(22px,3vw,44px);box-shadow:0 40px 60px -40px #1d1b1a80;text-align:center;position:relative;transform:rotate(-1.2deg);border:1px solid #1d1b1a26}
+.poster::before,.poster::after{content:"";position:absolute;width:44px;height:16px;background:#f2e2b8d9;top:-8px}
+.poster::before{left:20px;transform:rotate(-8deg)}.poster::after{right:20px;transform:rotate(6deg)}
+.poster small{display:block;font-weight:800;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--rosso)}
+.poster h2{font-size:clamp(46px,5.4vw,84px);margin:12px 0 6px}
+.poster .sub{font:italic 400 18px/1.3 var(--t);margin-bottom:22px}
+.poster ol{list-style:none;margin:0;padding:0;border-top:3px double var(--ink)}
+.poster li{display:grid;grid-template-columns:70px 1fr;gap:10px;align-items:baseline;padding:13px 4px;border-bottom:1px solid #1d1b1a2e;text-align:left}
+.poster li time{font-weight:800;font-size:13.5px;color:var(--rosso)}
+.poster li b{display:block;font:400 clamp(24px,2.3vw,32px)/1.05 var(--a)}
+.poster li span{display:block;font-size:14.5px;opacity:.75;margin-top:2px}
+.poster .ft{margin-top:20px;font-weight:700;font-size:13.5px;letter-spacing:.06em}
+.loc h2.big{font-size:clamp(46px,5.8vw,92px);margin:0 0 18px}
+.loc p{font-size:clamp(17px,1.4vw,19px);max-width:50ch;margin:0 0 16px}
+.loc figure{margin:22px 0 0}
+.loc figure img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+
+/* ---------- prenota ---------- */
+.pren{background:var(--mare);color:#fff;padding-block:clamp(70px,9vw,130px)}
+.pren h2{font-size:clamp(46px,6vw,96px);margin:0 0 14px;max-width:14ch}
+.pren .lead{font-size:clamp(17px,1.4vw,19px);max-width:52ch;margin:0 0 clamp(28px,4vw,50px);opacity:.88}
+.pren__g{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:clamp(20px,3vw,48px);align-items:start}
+.pianta{background:#173d61;border-radius:6px;padding:18px}
+.pianta svg{display:block;width:100%;height:auto}
+.tav{cursor:pointer}
+.tav rect,.tav circle{fill:#F3EAD8;transition:fill .25s}
+.tav text{font:700 13px var(--t);fill:var(--ink);pointer-events:none}
+.tav.occ rect,.tav.occ circle{fill:#4d6a86}
+.tav.occ{cursor:not-allowed}
+.tav.sel rect,.tav.sel circle{fill:var(--ocra)}
+.tav:focus-visible rect,.tav:focus-visible circle{stroke:#fff;stroke-width:3}
+.leg{display:flex;gap:18px;font-size:13.5px;margin-top:12px;opacity:.85}
+.leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.f h3{font-size:28px;margin:0 0 6px}
+.f .grp{margin:18px 0}
+.f label{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{border:1px solid #ffffff59;background:none;border-radius:99px;padding:9px 13px;font-weight:700;font-size:14.5px;cursor:pointer;color:#fff}
+.chips button[aria-pressed=true]{background:#fff;color:var(--mare);border-color:#fff}
+.ris{background:#fff;color:var(--ink);border-radius:6px;padding:18px;margin-top:18px}
+.ris b{display:block;font:400 24px/1.1 var(--a);margin-bottom:6px}
+.ris p{margin:0 0 12px;font-size:15px}
+
+/* ---------- non tutti sanno che ---------- */
+.ntsc{padding-block:clamp(70px,9vw,130px)}
+.ntsc h2{font-size:clamp(46px,6vw,96px);margin:0 0 14px;max-width:15ch}
+.ntsc .lead{font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin:0 0 clamp(28px,4vw,50px)}
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,18px)}
+.post{aspect-ratio:4/5;position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,26px)}
+.post small{font-weight:800;font-size:clamp(10px,.9vw,12.5px);letter-spacing:.16em;text-transform:uppercase}
+.post b{display:block;font:400 clamp(19px,2.2vw,34px)/1.02 var(--a)}
+.post span{display:block;margin-top:8px;font-size:clamp(11.5px,1vw,14.5px);opacity:.9}
+.post img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.post.ph{z-index:0}
+.post.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#1d1b1ad9,#1d1b1a1a 60%);z-index:-1}
+
+.rev{background:var(--ocra);padding-block:clamp(50px,7vw,100px)}
+.rev__g{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.rev b{font:400 clamp(90px,12vw,190px)/.85 var(--a)}
+.rev p{font-size:clamp(19px,2vw,28px);line-height:1.3;margin:0;max-width:34ch}
+.rev small{display:block;font-size:14.5px;margin-top:12px;font-weight:700}
+
+.foot{background:var(--ink);color:var(--carta);padding-block:clamp(40px,6vw,80px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(40px,5vw,76px);margin:0}
+.foot p{margin:0;font-size:15.5px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:960px){
+  .loc__g,.pren__g{grid-template-columns:1fr}
+  .feed{grid-template-columns:1fr 1fr}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .bar b{font-size:19px}
+  .lang button{padding:6px 8px;font-size:12.5px}
+  .rev__g{grid-template-columns:1fr}
+  .post b{font-size:17px}
+  .post{padding:12px}
+}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per In Teatro Camogli" data-note="Anteprima preparata da Umbra per In Teatro Camogli. Indirizzo, orari, contatti, lingue del menù e prenotazione vengono dal vostro sito; la pianta dei tavoli, le traduzioni e i post sono una proposta. Foto di esempio.">
+
+<header class="bar">
+  <b>In Teatro</b>
+  <div class="lang" id="lang" role="group" aria-label="Lingua"><button aria-pressed="true" data-l="it"><span>IT</span></button><button aria-pressed="false" data-l="en"><span>EN</span></button><button aria-pressed="false" data-l="fr"><span>FR</span></button><button aria-pressed="false" data-l="de"><span>DE</span></button></div>
+</header>
+
+<section class="hero" id="top" data-p>
+  <img src="img/camogli.jpg" alt="Camogli dal mare, con le case colorate e la chiesa">
+  <div class="wrap">
+    <small data-t="h_s"></small>
+    <h1>In Teatro<span data-t="h_t"></span></h1>
+    <p data-t="h_p"></p>
+    <div class="hero__f"><a class="btn btn--r" href="#prenota" data-go data-t="b_pren"></a><a class="btn btn--w" href="#scena" data-go data-t="b_menu"></a></div>
+  </div>
+</section>
+
+<section class="loc" id="scena">
+  <div class="wrap loc__g">
+    <div class="poster">
+      <small data-t="p_s"></small>
+      <h2>In Teatro</h2>
+      <div class="sub" data-t="p_sub"></div>
+      <ol>
+        <li><time>07:00</time><div><b data-t="a1"></b><span data-t="a1s"></span></div></li>
+        <li><time>12:00</time><div><b data-t="a2"></b><span data-t="a2s"></span></div></li>
+        <li><time>12:30</time><div><b data-t="a3"></b><span data-t="a3s"></span></div></li>
+        <li><time>18:00</time><div><b data-t="a4"></b><span data-t="a4s"></span></div></li>
+        <li><time>22:00</time><div><b data-t="a5"></b><span data-t="a5s"></span></div></li>
+      </ol>
+      <div class="ft">Piazza Giacomo Matteotti 3 · Camogli</div>
+    </div>
+    <div>
+      <h2 class="big" data-t="l_h"></h2>
+      <p data-t="l_p1"></p>
+      <p data-t="l_p2"></p>
+      <figure><img src="img/focaccia.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="pren" id="prenota">
+  <div class="wrap">
+    <h2 data-t="r_h"></h2>
+    <p class="lead" data-t="r_p"></p>
+    <div class="pren__g">
+      <div>
+        <div class="pianta"><svg id="pianta" viewBox="0 0 640 420" role="group" aria-label="Pianta dei tavoli"></svg></div>
+        <div class="leg"><span><i style="background:#F3EAD8"></i><span data-t="lg1"></span></span><span><i style="background:#4d6a86"></i><span data-t="lg2"></span></span><span><i style="background:var(--ocra)"></i><span data-t="lg3"></span></span></div>
+      </div>
+      <div class="f" aria-live="polite">
+        <h3 data-t="f_h"></h3>
+        <div class="grp"><label data-t="f_q"></label><div class="chips" id="qd"></div></div>
+        <div class="grp"><label data-t="f_o"></label><div class="chips" id="ora"></div></div>
+        <div class="grp"><label data-t="f_p"></label><div class="chips" id="pers"></div></div>
+        <div class="ris"><b id="rB"></b><p id="rP"></p><a class="btn btn--r" href="https://www.pro20.net/bfrm?form=04HQDgdD" target="_blank" rel="noopener" data-t="f_go"></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ntsc">
+  <div class="wrap">
+    <h2 data-t="n_h"></h2>
+    <p class="lead" data-t="n_p"></p>
+    <div class="feed" id="feed"></div>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="wrap rev__g"><b>4,4</b><div><p data-t="v_p"></p><small data-t="v_s"></small></div></div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2 data-t="ft_h"></h2>
+    <p>Piazza Giacomo Matteotti 3<br>16032 Camogli (GE)</p>
+    <p><a href="tel:+393534785536">353 4785536</a><br><a href="mailto:inteatro@inteatrocamogli.it">inteatro@inteatrocamogli.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>A Camogli si parlano quattro lingue. Il vostro sito può parlarle tutte.</h2>
+    <ul>
+      <li><b>Un sito in quattro lingue</b>Italiano, inglese, francese e tedesco come i vostri menù, con un tocco: il turista legge tutto nella sua lingua.</li>
+      <li><b>La prenotazione col tavolo</b>Dehors o sala, ora e persone: la richiesta arriva al vostro sistema di prenotazione già completa.</li>
+      <li><b>La rubrica «Non tutti sanno che»</b>La frase della vostra pagina Instagram diventa una serie fissa, con un post a settimana.</li>
+      <li><b>La sala resta alla sala</b>Social e comunicazione li seguiamo noi da fuori: chi lavora ai tavoli manda solo foto e video dal telefono.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per In Teatro Camogli. Foto di esempio da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var T={
+    it:{h_s:'Camogli · Piazza Matteotti',h_t:'uno stile di vita, dalle 7 a chiusura',h_p:'Colazione, pranzo, aperitivo e dopocena nello stesso posto, in piazza a due passi dal mare. Aperti tutti i giorni dalle 7.',b_pren:'Prenota un tavolo',b_menu:'Il programma di oggi',
+      p_s:'Oggi in scena',p_sub:'tutti i giorni, a ingresso libero',a1:'La colazione',a1s:'Il primo caffè della piazza',a2:'La focaccia al formaggio',a2s:'Quella di qui, appena uscita dal forno',a3:'Il pranzo',a3s:'Cucina genovese, pizze e i nostri Palchetti',a4:'L\'aperitivo',a4s:'In dehors, con la piazza che si riempie',a5:'Il dopocena',a5s:'Fino a chiusura',
+      l_h:'Non tutti sanno che a Camogli c\'è In Teatro.',l_p1:'Un locale aperto a tutti, dalla colazione al dopocena, con un dehors in piazza e una cucina che tiene alla tradizione.',l_p2:'Il menù è in quattro lingue, perché a Camogli il tavolo accanto parla inglese, francese o tedesco. Da oggi, anche il sito.',
+      r_h:'Scegliete il vostro tavolo.',r_p:'Dehors in piazza o sala: toccate un tavolo libero, scegliete quando e in quanti. La richiesta arriva alla prenotazione con tutto già scritto.',lg1:'Libero',lg2:'Occupato',lg3:'Il vostro',
+      f_h:'La vostra richiesta',f_q:'Quando',f_o:'A che ora',f_p:'Quante persone',f_go:'Conferma la prenotazione',dehors:'Dehors in piazza',sala:'In sala',tav:'Tavolo',per:'persone',pick:'Toccate un tavolo libero nella pianta.',
+      q:['Oggi','Domani','Sabato'],n_h:'Non tutti sanno che…',n_p:'La frase della vostra pagina diventa una rubrica: un post a settimana su quello che succede in piazza, in cucina e a Camogli.',
+      posts:[['Non tutti sanno che','apriamo alle 7, tutti i giorni.','Il primo caffè della piazza'],['Non tutti sanno che','la focaccia al formaggio è di Recco, ma qui la facciamo nostra.','Ogni giorno, a mezzogiorno'],['Non tutti sanno che','il nostro menù parla quattro lingue.','Italiano, English, Français, Deutsch'],['Non tutti sanno che','dal dehors si vede tutta la piazza.','Per l\'aperitivo'],['Non tutti sanno che','i Palchetti si ordinano solo qui.','Chiedete in sala'],['Non tutti sanno che','si può prenotare online in un minuto.','Link in bio']],
+      v_p:'Su Tripadvisor chi è venuto parla del dehors all\'aperto e della scelta di pizze e focacce.',v_s:'4,4 su 5, con 54 recensioni',ft_h:'Ci vediamo in piazza.'},
+    en:{h_s:'Camogli · Piazza Matteotti',h_t:'a way of life, from 7am until closing',h_p:'Breakfast, lunch, aperitivo and after-dinner in one place, on the square a few steps from the sea. Open every day from 7am.',b_pren:'Book a table',b_menu:'Today\'s programme',
+      p_s:'On stage today',p_sub:'every day, all welcome',a1:'Breakfast',a1s:'The first coffee on the square',a2:'Focaccia al formaggio',a2s:'The local one, fresh from the oven',a3:'Lunch',a3s:'Genoese cooking, pizza and our Palchetti',a4:'Aperitivo',a4s:'Outside, as the square fills up',a5:'After dinner',a5s:'Until closing',
+      l_h:'Not everyone knows In Teatro is in Camogli.',l_p1:'A place open to everyone, from breakfast to after-dinner, with tables on the square and a kitchen that keeps to tradition.',l_p2:'The menu comes in four languages, because in Camogli the next table speaks English, French or German. From today, so does the website.',
+      r_h:'Choose your table.',r_p:'Outside on the square or inside: tap a free table, choose when and how many. Your request reaches the booking system with everything filled in.',lg1:'Free',lg2:'Taken',lg3:'Yours',
+      f_h:'Your request',f_q:'When',f_o:'What time',f_p:'How many',f_go:'Confirm the booking',dehors:'Outside on the square',sala:'Inside',tav:'Table',per:'people',pick:'Tap a free table on the plan.',
+      q:['Today','Tomorrow','Saturday'],n_h:'Not everyone knows…',n_p:'The line from your Instagram page becomes a series: one post a week about the square, the kitchen and Camogli.',
+      posts:[['Not everyone knows','we open at 7, every day.','The first coffee on the square'],['Not everyone knows','focaccia al formaggio comes from Recco, but we make it ours.','Every day at noon'],['Not everyone knows','our menu speaks four languages.','Italiano, English, Français, Deutsch'],['Not everyone knows','you can see the whole square from our tables.','For aperitivo'],['Not everyone knows','you can only order Palchetti here.','Ask our staff'],['Not everyone knows','you can book online in a minute.','Link in bio']],
+      v_p:'On Tripadvisor, guests mention the outdoor tables and the choice of pizza and focaccia.',v_s:'4.4 out of 5, from 54 reviews',ft_h:'See you on the square.'},
+    fr:{h_s:'Camogli · Piazza Matteotti',h_t:'un art de vivre, de 7 h à la fermeture',h_p:'Petit-déjeuner, déjeuner, apéritif et fin de soirée au même endroit, sur la place à deux pas de la mer. Ouvert tous les jours dès 7 h.',b_pren:'Réserver une table',b_menu:'Le programme du jour',
+      p_s:'Aujourd\'hui à l\'affiche',p_sub:'tous les jours, entrée libre',a1:'Le petit-déjeuner',a1s:'Le premier café de la place',a2:'La focaccia al formaggio',a2s:'Celle d\'ici, tout juste sortie du four',a3:'Le déjeuner',a3s:'Cuisine génoise, pizzas et nos Palchetti',a4:'L\'apéritif',a4s:'En terrasse, quand la place se remplit',a5:'Après le dîner',a5s:'Jusqu\'à la fermeture',
+      l_h:'Tout le monde ne sait pas qu\'In Teatro est à Camogli.',l_p1:'Un lieu ouvert à tous, du petit-déjeuner à la fin de soirée, avec une terrasse sur la place et une cuisine fidèle à la tradition.',l_p2:'Le menu existe en quatre langues, car à Camogli la table d\'à côté parle anglais, français ou allemand. Désormais, le site aussi.',
+      r_h:'Choisissez votre table.',r_p:'En terrasse ou en salle : touchez une table libre, choisissez quand et combien. La demande arrive à la réservation déjà remplie.',lg1:'Libre',lg2:'Occupée',lg3:'La vôtre',
+      f_h:'Votre demande',f_q:'Quand',f_o:'À quelle heure',f_p:'Combien de personnes',f_go:'Confirmer la réservation',dehors:'En terrasse sur la place',sala:'En salle',tav:'Table',per:'personnes',pick:'Touchez une table libre sur le plan.',
+      q:['Aujourd\'hui','Demain','Samedi'],n_h:'Tout le monde ne sait pas que…',n_p:'La phrase de votre page Instagram devient une rubrique : un post par semaine sur la place, la cuisine et Camogli.',
+      posts:[['Tout le monde ne sait pas que','nous ouvrons à 7 h, tous les jours.','Le premier café de la place'],['Tout le monde ne sait pas que','la focaccia al formaggio vient de Recco, mais ici elle est à nous.','Tous les jours à midi'],['Tout le monde ne sait pas que','notre menu parle quatre langues.','Italiano, English, Français, Deutsch'],['Tout le monde ne sait pas que','de la terrasse on voit toute la place.','Pour l\'apéritif'],['Tout le monde ne sait pas que','les Palchetti ne se commandent qu\'ici.','Demandez en salle'],['Tout le monde ne sait pas que','on peut réserver en ligne en une minute.','Lien en bio']],
+      v_p:'Sur Tripadvisor, les clients parlent de la terrasse et du choix de pizzas et de focacce.',v_s:'4,4 sur 5, avec 54 avis',ft_h:'On se retrouve sur la place.'},
+    de:{h_s:'Camogli · Piazza Matteotti',h_t:'ein Lebensgefühl, von 7 Uhr bis Feierabend',h_p:'Frühstück, Mittagessen, Aperitivo und Absacker an einem Ort, auf der Piazza nur ein paar Schritte vom Meer. Täglich ab 7 Uhr geöffnet.',b_pren:'Tisch reservieren',b_menu:'Das heutige Programm',
+      p_s:'Heute auf dem Spielplan',p_sub:'täglich, für alle offen',a1:'Das Frühstück',a1s:'Der erste Kaffee auf der Piazza',a2:'Focaccia al formaggio',a2s:'Die von hier, frisch aus dem Ofen',a3:'Das Mittagessen',a3s:'Genueser Küche, Pizza und unsere Palchetti',a4:'Der Aperitivo',a4s:'Draußen, wenn sich die Piazza füllt',a5:'Nach dem Abendessen',a5s:'Bis zum Schluss',
+      l_h:'Nicht jeder weiß, dass es in Camogli das In Teatro gibt.',l_p1:'Ein Lokal für alle, vom Frühstück bis spät am Abend, mit Tischen auf der Piazza und einer Küche, die die Tradition pflegt.',l_p2:'Die Speisekarte gibt es in vier Sprachen, denn in Camogli spricht der Nachbartisch Englisch, Französisch oder Deutsch. Ab heute auch die Website.',
+      r_h:'Wählen Sie Ihren Tisch.',r_p:'Draußen auf der Piazza oder drinnen: Tippen Sie auf einen freien Tisch, wählen Sie Zeit und Personen. Die Anfrage kommt vollständig beim Reservierungssystem an.',lg1:'Frei',lg2:'Besetzt',lg3:'Ihrer',
+      f_h:'Ihre Anfrage',f_q:'Wann',f_o:'Uhrzeit',f_p:'Personen',f_go:'Reservierung bestätigen',dehors:'Draußen auf der Piazza',sala:'Im Saal',tav:'Tisch',per:'Personen',pick:'Tippen Sie auf einen freien Tisch im Plan.',
+      q:['Heute','Morgen','Samstag'],n_h:'Nicht jeder weiß…',n_p:'Der Satz von Ihrer Instagram-Seite wird zur Serie: ein Post pro Woche über die Piazza, die Küche und Camogli.',
+      posts:[['Nicht jeder weiß','dass wir jeden Tag um 7 Uhr öffnen.','Der erste Kaffee auf der Piazza'],['Nicht jeder weiß','dass die Focaccia al formaggio aus Recco kommt, wir sie aber zu unserer machen.','Jeden Tag um zwölf'],['Nicht jeder weiß','dass unsere Karte vier Sprachen spricht.','Italiano, English, Français, Deutsch'],['Nicht jeder weiß','dass man von unseren Tischen die ganze Piazza sieht.','Zum Aperitivo'],['Nicht jeder weiß','dass es Palchetti nur hier gibt.','Fragen Sie im Saal'],['Nicht jeder weiß','dass man in einer Minute online reservieren kann.','Link in Bio']],
+      v_p:'Auf Tripadvisor erwähnen Gäste die Tische im Freien und die Auswahl an Pizza und Focaccia.',v_s:'4,4 von 5, bei 54 Bewertungen',ft_h:'Wir sehen uns auf der Piazza.'}
+  };
+  var L='it',sel=null,qd=0,ora=2,pers=1;
+  var ORE=['12:30','13:00','13:30','19:30','20:00','20:30','21:00'],PERS=[2,3,4,5,6,8];
+  /* pianta: dehors in alto (piazza), sala in basso */
+  var TV=[[1,'d',70,70,'r'],[2,'d',170,70,'r'],[3,'d',270,70,'c'],[4,'d',370,70,'r'],[5,'d',470,70,'c'],[6,'d',570,70,'r'],[7,'d',120,150,'c'],[8,'d',240,150,'r'],[9,'d',360,150,'c'],[10,'d',490,150,'r'],
+          [11,'s',90,290,'r'],[12,'s',200,290,'c'],[13,'s',310,290,'r'],[14,'s',430,290,'r'],[15,'s',550,290,'c'],[16,'s',140,370,'r'],[17,'s',270,370,'r'],[18,'s',420,370,'c']];
+  var OCC=[2,5,8,12,14,17];
+  function pianta(){var h='<rect x="0" y="0" width="640" height="210" fill="#1f4e79" rx="4"/><text x="16" y="200" font-family="InterT" font-size="12" font-weight="700" fill="#ffffff99" letter-spacing="2">'+T[L].dehors.toUpperCase()+'</text>'+
+      '<rect x="0" y="230" width="640" height="190" fill="#11304f" rx="4"/><text x="16" y="410" font-family="InterT" font-size="12" font-weight="700" fill="#ffffff99" letter-spacing="2">'+T[L].sala.toUpperCase()+'</text>'+
+      '<path d="M20 222 H620" stroke="#ffffff55" stroke-dasharray="4 6"/>';
+    TV.forEach(function(t){var occ=OCC.indexOf(t[0])>=0,s=sel==t[0];h+='<g class="tav'+(occ?' occ':'')+(s?' sel':'')+'" data-n="'+t[0]+'" tabindex="'+(occ?-1:0)+'" role="button" aria-label="'+T[L].tav+' '+t[0]+'" aria-pressed="'+s+'">'+(t[4]=='c'?'<circle cx="'+t[2]+'" cy="'+t[3]+'" r="26"/>':'<rect x="'+(t[2]-30)+'" y="'+(t[3]-22)+'" width="60" height="44" rx="5"/>')+'<text x="'+t[2]+'" y="'+(t[3]+5)+'" text-anchor="middle">'+t[0]+'</text></g>'});
+    $('pianta').innerHTML=h}
+  function chips(id,arr,cur){$(id).innerHTML=arr.map(function(x,i){return '<button aria-pressed="'+(i==cur)+'" data-i="'+i+'">'+x+'</button>'}).join('')}
+  function ris(){var t=T[L];if(!sel){$('rB').textContent=t.pick;$('rP').textContent='';return}var tv=TV.filter(function(x){return x[0]==sel})[0];
+    $('rB').textContent=t.tav+' '+sel+' · '+(tv[1]=='d'?t.dehors:t.sala);$('rP').textContent=t.q[qd]+', '+ORE[ora]+' · '+PERS[pers]+' '+t.per}
+  function feed(){var p=T[L].posts,bg=[['#B5452D'],['img/focaccia.jpg'],['#3F6B4E'],['img/colori.jpg'],['#E2A23B'],['img/sera.jpg']];
+    $('feed').innerHTML=p.map(function(x,i){var b=bg[i][0],img=b.indexOf('img/')==0;return '<div class="post'+(img?' ph':'')+'" style="'+(img?'':'background:'+b)+'">'+(img?'<img src="'+b+'" alt="" loading="lazy">':'')+'<small>'+x[0]+'…</small><div><b>'+x[1]+'</b><span>'+x[2]+'</span></div></div>'}).join('')}
+  function apply(){var t=T[L];document.documentElement.lang=L;
+    document.querySelectorAll('[data-t]').forEach(function(e){var k=e.getAttribute('data-t');if(t[k]!=null)e.textContent=t[k]});
+    chips('qd',t.q,qd);chips('ora',ORE,ora);chips('pers',PERS,pers);pianta();ris();feed()}
+  $('lang').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.dataset.l==L)return;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});
+    document.body.classList.add('sw');setTimeout(function(){L=b.dataset.l;apply();document.body.classList.remove('sw')},U.reduce?0:220)});
+  $('pianta').addEventListener('click',function(e){var g=e.target.closest('.tav');if(!g||g.classList.contains('occ'))return;sel=+g.dataset.n;pianta();ris()});
+  $('pianta').addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' '){var g=e.target.closest('.tav');if(g&&!g.classList.contains('occ')){e.preventDefault();sel=+g.dataset.n;pianta();ris();var n=$('pianta').querySelector('[data-n="'+sel+'"]');if(n)n.focus()}}});
+  ['qd','ora','pers'].forEach(function(id){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i;if(id=='qd')qd=i;else if(id=='ora')ora=i;else pers=i;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});ris()})});
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();U.scrollTo(document.querySelector(a.getAttribute('href')),-60)})});
+  apply();
+})();
+</script>
+</body>
+</html>
