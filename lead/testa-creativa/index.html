@@ -111,7 +111,32 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .foot p{margin:0;font-size:15.5px;line-height:1.6;opacity:.85}
 .foot a{color:inherit;font-weight:700}
 
+
+/* ---------- cosa stampiamo oggi ---------- */
+.cs{padding-block:clamp(60px,8vw,120px);background:var(--banco)}
+.cs h2{font-size:clamp(36px,4.8vw,76px);margin:0 0 12px;max-width:16ch}
+.cs .lead{max-width:54ch;margin:0 0 26px;font-size:clamp(17px,1.5vw,20px)}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.cats button{border:1.5px solid #1b142033;background:#fff;border-radius:99px;padding:10px 16px;font-weight:700;cursor:pointer}
+.cats button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cs__g{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(20px,3vw,48px);align-items:center}
+.mock{aspect-ratio:4/3;border-radius:18px;background:#fff;display:grid;place-items:center;overflow:hidden;position:relative}
+.mock svg{width:86%;height:86%}
+.cs__t h3{font-size:clamp(28px,3vw,44px);margin:0 0 10px}
+.cs__t p{margin:0 0 14px;font-size:16.5px}
+.cs__t ul{margin:0;padding-left:18px}
+.cs__t li{margin-bottom:6px}
+/* ---------- sedi ---------- */
+.sedi{background:var(--muro);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.sedi__g{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(16px,3vw,40px);align-items:end}
+.sedi h2{font-size:clamp(36px,4.4vw,68px);margin:0}
+.sedi .sd{border-top:2px solid var(--c2);padding-top:14px;font-size:16px}
+.sedi .sd b{display:block;font-size:24px;letter-spacing:-.03em;margin-bottom:6px}
+.rv{display:flex;align-items:baseline;gap:14px;margin-top:clamp(30px,4vw,50px)}
+.rv b{font:600 italic clamp(70px,9vw,140px)/1 var(--n);color:#fff;text-shadow:0 0 30px var(--c2)}
+.rv span{font-size:17px;opacity:.85}
 @media (max-width:920px){
+  .cs__g,.sedi__g{grid-template-columns:1fr}
   .ctl{grid-template-columns:1fr}
   .kit__g{grid-template-columns:1fr}
   .conto{position:relative;top:auto}
@@ -179,6 +204,29 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   </div>
 </footer>
 
+
+<section class="cs">
+  <div class="wrap">
+    <h2>Cosa stampiamo oggi?</h2>
+    <p class="lead">Le categorie del vostro negozio, con il nome che avete scritto in alto già sopra. Un tocco e si cambia prodotto.</p>
+    <div class="cats" id="cats" role="group" aria-label="Categoria"></div>
+    <div class="cs__g">
+      <div class="mock" id="mock" aria-live="polite"></div>
+      <div class="cs__t"><h3 id="csT"></h3><p id="csP"></p><ul id="csL"></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sedi">
+  <div class="wrap">
+    <div class="sedi__g">
+      <h2>Due sedi, un laboratorio.</h2>
+      <div class="sd"><b>Pagani</b>III Traversa De Gasperi 18<br>84016 Pagani (SA)</div>
+      <div class="sd"><b>Nocera Inferiore</b>Via A. Barbarulo 100<br>Nocera Inferiore (SA)</div>
+    </div>
+    <div class="rv"><b>5,0</b><span>su Facebook, con 43 recensioni. Oltre 7.000 persone vi seguono su Instagram.</span></div>
+  </div>
+</section>
 <aside class="u-end">
   <div class="u-end__in">
     <div class="u-end__m"><i></i>umbra</div>
@@ -235,6 +283,22 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   grp($('ev'),function(i,b){ev=b.textContent});grp($('sw'),function(i){col=i});
   $('nm').addEventListener('input',function(){upd(false)});$('inv').addEventListener('input',function(){upd(false)});
   upd(true);
+})();
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var C={
+    'Adesivi':['Adesivi con il nome','Fustellati sulla forma, per bomboniere, barattoli e regali.',['Fustella su misura','Carta lucida o trasparente','Da 10 pezzi in su'],function(n){return '<circle cx="200" cy="150" r="110" fill="var(--c2)"/><circle cx="200" cy="150" r="96" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="6 6"/><text x="200" y="165" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="46" fill="#fff">'+n+'</text>'}],
+    'Banner':['Il banner della festa','Da appendere dietro la torta o all\'ingresso del locale.',['Più misure, anche grandi','Occhielli o asta','Pronto in pochi giorni'],function(n){return '<path d="M30 70 L370 70 L370 210 L30 210Z" fill="var(--c2)"/><circle cx="44" cy="84" r="6" fill="#fff"/><circle cx="356" cy="84" r="6" fill="#fff"/><text x="200" y="128" text-anchor="middle" font-family="Bric" font-weight="700" font-size="22" fill="#fff" letter-spacing="3">BUON COMPLEANNO</text><text x="200" y="182" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="52" fill="#fff">'+n+'</text>'}],
+    'Abbigliamento':['La maglietta del gruppo','Per la festa, la squadra o l\'addio al nubilato.',['Stampa fronte e retro','Tutte le taglie','Da un pezzo solo'],function(n){return '<path d="M120 60 L160 44 Q200 70 240 44 L280 60 L330 110 L295 140 L280 128 L280 260 L120 260 L120 128 L105 140 L70 110Z" fill="#fff" stroke="#1b142026" stroke-width="2"/><text x="200" y="150" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="40" fill="var(--c2)">'+n+'</text><text x="200" y="182" text-anchor="middle" font-family="Bric" font-weight="700" font-size="14" fill="#1b1420" letter-spacing="3">TEAM '+n.toUpperCase()+'</text>'}],
+    'Gadget':['Il gadget per gli invitati','Tazze, borracce, portachiavi: il ricordo che resta.',['Anche in piccole quantità','Il nome o il logo','Confezione regalo'],function(n){return '<path d="M130 80 h120 v150 q0 20 -20 20 h-80 q-20 0 -20 -20z" fill="#fff" stroke="#1b142026" stroke-width="2"/><path d="M250 110 q50 0 50 40 q0 40 -50 40" fill="none" stroke="#1b142026" stroke-width="10"/><rect x="130" y="80" width="120" height="16" fill="var(--c)"/><text x="190" y="170" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="34" fill="var(--c2)">'+n+'</text>'}],
+    'Carta da parati':['La parete della cameretta','Con il nome, i colori e il disegno che volete voi.',['Su misura della parete','Posa facile','Materiale lavabile'],function(n){var h='<rect x="30" y="30" width="340" height="240" fill="#fff"/>';for(var i=0;i<6;i++)for(var j=0;j<4;j++)h+='<circle cx="'+(60+i*58)+'" cy="'+(60+j*60)+'" r="8" fill="var(--c)" opacity=".7"/>';return h+'<rect x="80" y="120" width="240" height="60" rx="30" fill="#fff"/><text x="200" y="162" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="600" font-size="40" fill="var(--c2)">'+n+'</text>'}]
+  };
+  var cur='Banner';
+  $('cats').innerHTML=Object.keys(C).map(function(k){return '<button aria-pressed="'+(k==cur)+'">'+k+'</button>'}).join('');
+  function nm(){return ($('nm').value.trim()||'Sofia').replace(/[<>&"]/g,'')}
+  function draw(){var c=C[cur];$('mock').innerHTML='<svg viewBox="0 0 400 300" aria-hidden="true">'+c[3](nm())+'</svg>';$('csT').textContent=c[0];$('csP').textContent=c[1];$('csL').innerHTML=c[2].map(function(x){return '<li>'+x+'</li>'}).join('')}
+  $('cats').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});draw()});
+  $('nm').addEventListener('input',draw);draw();
 })();
 </script>
 </body>
