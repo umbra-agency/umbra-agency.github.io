@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Fabbricati in vendita a Ponte San Nicolò · Dal modulo alla visita</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Schib;src:url(../lib/fonts/schibsted-grotesk-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{
+  /* un cantiere finito: cemento chiaro, grafite, il verde del «fatto», l'ambra dell'«in attesa» */
+  --cem:#ECEAE4; --lastra:#FFFFFF; --graf:#1B1E22; --mid:#6A6F76; --ok:#1F9D57; --wait:#E0A21A; --blu:#2D6CDF; --riga:#1b1e2222;
+  --s:Schib,system-ui,sans-serif; --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace; --pad:clamp(16px,3.6vw,52px);
+}
+body{font:400 16.5px/1.5 var(--s);color:var(--graf);background:var(--cem)}
+h1,h2,h3{font-family:var(--s);font-weight:800;letter-spacing:-.045em;line-height:.96;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blu);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1400px;margin-inline:auto}
+
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px}
+.bar b{font-weight:800;font-size:18px;letter-spacing:-.03em}
+.bar b::before{content:"";display:inline-block;width:14px;height:14px;background:var(--graf);margin-right:9px;vertical-align:-1px}
+.bar span{font-size:14px;color:var(--mid)}
+.hero h1{font-size:clamp(36px,4.5vw,70px);margin:clamp(6px,1.4vw,18px) 0 12px;max-width:20ch}
+.hero p{font-size:clamp(17px,1.5vw,20px);max-width:56ch;margin:0 0 clamp(26px,3.4vw,44px)}
+
+/* il simulatore */
+.sim{display:grid;grid-template-columns:minmax(280px,340px) minmax(0,1fr) minmax(0,1.1fr);gap:clamp(14px,2vw,28px);align-items:start;padding-bottom:clamp(50px,7vw,100px)}
+.col>h2{font-size:15px;letter-spacing:-.01em;font-weight:700;margin:0 0 10px;color:var(--mid)}
+.col>h2 b{color:var(--graf)}
+.pan{background:var(--lastra);border-radius:10px;padding:20px;box-shadow:0 1px 0 var(--riga),0 24px 40px -34px #0006}
+/* la pagina della campagna */
+.lp__img{height:120px;border-radius:6px;background:linear-gradient(180deg,#b9c4cf 0 55%,#8d949b 55% 100%);position:relative;overflow:hidden;margin-bottom:16px}
+.lp__img::before{content:"";position:absolute;left:8%;right:8%;bottom:22%;height:46%;background:linear-gradient(90deg,#f3f1ec 0 62%,#dcd8cf 62%);clip-path:polygon(0 22%,31% 0,62% 22%,100% 22%,100% 100%,0 100%)}
+.lp__img::after{content:"";position:absolute;left:14%;bottom:22%;width:42%;height:22%;background:repeating-linear-gradient(90deg,#1b1e22 0 14%,transparent 14% 20%)}
+.lp h3{font-size:25px;margin:0 0 6px}
+.lp p{margin:0 0 14px;font-size:14.5px;color:var(--mid)}
+.lp label{display:block;font-size:13.5px;font-weight:600;margin:10px 0 5px}
+.lp input{width:100%;padding:12px 13px;border:1.5px solid #1b1e2240;border-radius:6px;background:#fff;font-size:16px}
+.tipi{display:flex;gap:6px;flex-wrap:wrap}
+.tipi button{border:1.5px solid #1b1e2240;background:#fff;border-radius:99px;padding:7px 12px;font-size:14px;font-weight:600;cursor:pointer}
+.tipi button[aria-pressed=true]{background:var(--graf);color:#fff;border-color:var(--graf)}
+.lp .go{display:block;width:100%;margin-top:16px;border:0;border-radius:6px;background:var(--blu);color:#fff;font-weight:800;font-size:16.5px;padding:15px;cursor:pointer}
+.lp .go[disabled]{background:#9aa1a9;cursor:default}
+.lp small{display:block;text-align:center;font-size:12.5px;color:var(--mid);margin-top:10px}
+.src{display:flex;gap:6px;margin-bottom:12px}
+.src button{flex:1;border:1.5px solid #1b1e2230;background:none;border-radius:6px;padding:7px 4px;font-size:13px;font-weight:700;cursor:pointer}
+.src button[aria-pressed=true]{border-color:var(--blu);color:var(--blu);background:#2d6cdf12}
+
+/* cosa succede dopo */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:15px;top:14px;bottom:30px;width:2px;background:var(--riga)}
+.tl::after{content:"";position:absolute;left:15px;top:14px;width:2px;height:calc(var(--k,0)*1%);max-height:calc(100% - 44px);background:var(--ok);transition:height .6s}
+.st{display:grid;grid-template-columns:32px 1fr;gap:0 14px;padding-bottom:18px;opacity:.38;transition:opacity .4s}
+.st.on{opacity:1}
+.st>i{width:32px;height:32px;border-radius:50%;background:var(--cem);border:2px solid #1b1e2233;position:relative;z-index:1;display:grid;place-items:center;font:700 12px/1 var(--mono);font-style:normal;transition:all .4s}
+.st.on>i{background:var(--ok);border-color:var(--ok);color:#fff}
+.st.wait>i{background:var(--wait);border-color:var(--wait);color:#fff}
+.st h3{font-size:19px;letter-spacing:-.03em;margin:4px 0 2px}
+.st time{font:500 12.5px/1 var(--mono);color:var(--mid)}
+.st .art{grid-column:2;max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.2,.7,.2,1)}
+.st.on .art{max-height:420px}
+.mail{background:var(--lastra);border-radius:8px;padding:14px 16px;margin-top:10px;font-size:14.5px;box-shadow:0 1px 0 var(--riga)}
+.mail b{display:block;font-size:15.5px}
+.mail span{display:block;color:var(--mid);font-size:13px;margin-bottom:8px}
+.pdf{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--riga);border-radius:6px;padding:7px 11px;margin-top:10px;font-weight:700;font-size:13.5px}
+.pdf::before{content:"PDF";font:700 10px/1 var(--mono);background:#D3382B;color:#fff;padding:4px 5px;border-radius:3px}
+.wa{background:#E7F6EC;border-radius:4px 12px 12px 12px;padding:11px 13px;margin-top:10px;font-size:14.5px;max-width:420px}
+.wa.me{background:var(--lastra);border-radius:12px 4px 12px 12px;margin-left:auto;width:fit-content;box-shadow:0 1px 0 var(--riga)}
+.slots{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.slots button{border:1.5px solid var(--ok);color:var(--ok);background:#fff;border-radius:99px;padding:8px 12px;font-weight:700;font-size:14px;cursor:pointer}
+.slots button[disabled]{opacity:.4;cursor:default}
+.slots button.sel{background:var(--ok);color:#fff;opacity:1}
+
+/* il registro */
+.reg{padding:6px 0 0;overflow:hidden}
+.reg table{width:100%;border-collapse:collapse;font-size:14.5px}
+.reg th{text-align:left;font-size:12.5px;font-weight:700;color:var(--mid);padding:12px 14px 8px}
+.reg td{padding:11px 14px;border-top:1px solid var(--riga);vertical-align:top}
+.reg td:first-child{font-weight:700}
+.reg td small{display:block;font-weight:500;color:var(--mid);font-size:12.5px}
+.reg tr.new td{animation:nuovo 1.6s ease-out}
+@keyframes nuovo{from{background:#1f9d5733}}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:4px 9px;border-radius:99px;background:#1b1e2212;white-space:nowrap}
+.chip.g{background:#1f9d5722;color:#12703b}.chip.a{background:#e0a21a2e;color:#8a5e00}.chip.b{background:#2d6cdf1f;color:#1d4fb0}
+.reg p{margin:0;padding:12px 14px 14px;font-size:12.5px;color:var(--mid);border-top:1px solid var(--riga)}
+
+/* dall'annuncio */
+.map{background:var(--graf);color:#fff;padding-block:clamp(56px,8vw,120px)}
+.map h2{font-size:clamp(36px,5vw,76px);margin:0 0 clamp(26px,4vw,50px);max-width:18ch}
+.map table{width:100%;border-collapse:collapse}
+.map th{text-align:left;font-size:13.5px;font-weight:700;opacity:.6;padding:0 0 10px}
+.map td{padding:18px 20px 18px 0;border-top:1px solid #ffffff2e;font-size:clamp(16px,1.5vw,19px);vertical-align:top;width:50%}
+.map td:first-child{opacity:.7}
+.map td b{display:block;font-size:clamp(19px,1.9vw,25px);letter-spacing:-.03em;margin-bottom:3px}
+
+@media (max-width:1100px){
+  .sim{grid-template-columns:minmax(280px,340px) minmax(0,1fr)}
+  .col--r{grid-column:1/-1}
+}
+@media (max-width:720px){
+  .bar span{display:none}
+  .sim{grid-template-columns:1fr}
+  .reg th:nth-child(2),.reg td:nth-child(2){display:none}
+  .map td{display:block;width:auto;padding:6px 0 16px}
+  .map td:first-child{border-top:1px solid #ffffff2e;padding:16px 0 0}
+  .map td+td{border-top:0}
+  .map thead{display:none}
+}
+@media (prefers-reduced-motion:reduce){.st .art{transition:none}.reg tr.new td{animation:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per la vendita dei fabbricati di Ponte San Nicolò" data-note="Anteprima preparata da Umbra a partire dal vostro annuncio su Subito: moduli da Google e Meta Ads, email con brochure in PDF, WhatsApp automatico, visita. Nomi, contatti e orari qui dentro sono di esempio e da questa pagina non parte nessun messaggio.">
+
+<div class="wrap">
+  <header class="bar"><b>Fabbricati in vendita</b><span>Ponte San Nicolò (PD) · campagna Google Ads e Meta Ads</span></header>
+
+  <section class="hero" id="top">
+    <h1>Dal modulo alla visita, senza che nessuno debba ricordarselo.</h1>
+    <p>Provate voi: compilate il modulo come farebbe un interessato. Brochure, WhatsApp e appuntamento partono da soli, e il contatto finisce nel registro.</p>
+  </section>
+
+  <section class="sim">
+    <div class="col">
+      <h2><b>1.</b> La pagina della campagna</h2>
+      <div class="pan lp">
+        <div class="src" role="group" aria-label="Da dove arriva il contatto"><button aria-pressed="true" data-s="Google Ads">da Google Ads</button><button aria-pressed="false" data-s="Meta Ads">da Meta Ads</button></div>
+        <div class="lp__img" aria-hidden="true"></div>
+        <h3>Ricevi la brochure del fabbricato</h3>
+        <p>Planimetrie, superfici e prezzo, in un PDF.</p>
+        <label for="nome">Il tuo nome</label>
+        <input id="nome" placeholder="Es. Marco" autocomplete="off" maxlength="24">
+        <label>Come lo useresti?</label>
+        <div class="tipi" id="tipi" role="group" aria-label="Uso previsto"><button aria-pressed="true">Per la mia attività</button><button aria-pressed="false">Come investimento</button></div>
+        <button class="go" id="go">Mandami la brochure</button>
+        <small id="lpN">Nessun dato viene inviato: è una simulazione.</small>
+      </div>
+    </div>
+
+    <div class="col">
+      <h2><b>2.</b> Cosa succede dopo</h2>
+      <ol class="tl" id="tl">
+        <li class="st" data-k="0"><i>1</i><div><h3>Il contatto entra nel registro</h3><time>subito</time></div><div class="art"></div></li>
+        <li class="st" data-k="1"><i>2</i><div><h3>Parte l'email con la brochure</h3><time>dopo 5 secondi</time></div>
+          <div class="art"><div class="mail"><b id="mS"></b><span>da: vendite · a: <span id="mA" style="display:inline"></span></span><div id="mT"></div><div class="pdf">Brochure-fabbricato.pdf</div></div></div></li>
+        <li class="st" data-k="2"><i>3</i><div><h3>Arriva il WhatsApp</h3><time>dopo 20 secondi</time></div>
+          <div class="art"><div class="wa" id="w1"></div><div class="slots" id="slots"></div></div></li>
+        <li class="st" data-k="3"><i>4</i><div><h3>L'interessato sceglie quando venire</h3><time id="t4">in attesa della risposta</time></div>
+          <div class="art"><div class="wa me" id="w2"></div><div class="wa" id="w3"></div></div></li>
+        <li class="st" data-k="4"><i>5</i><div><h3>La visita è in agenda</h3><time id="t5">con promemoria il giorno prima</time></div><div class="art"></div></li>
+      </ol>
+    </div>
+
+    <div class="col col--r">
+      <h2><b>3.</b> Il registro dei contatti</h2>
+      <div class="pan reg">
+        <table>
+          <thead><tr><th>Contatto</th><th>Arriva da</th><th>A che punto è</th></tr></thead>
+          <tbody id="tb">
+            <tr><td>Giorgio M.<small>ieri, 18:42</small></td><td><span class="chip b">Meta Ads</span></td><td><span class="chip g">Visita fissata: ven 4 dic, 15:00</span></td></tr>
+            <tr><td>Elena R.<small>ieri, 11:05</small></td><td><span class="chip b">Google Ads</span></td><td><span class="chip a">WhatsApp inviato, in attesa</span></td></tr>
+            <tr><td>Officina T.<small>mar 24 nov</small></td><td><span class="chip b">Google Ads</span></td><td><span class="chip g">Visita fatta</span></td></tr>
+            <tr><td>Paolo S.<small>lun 23 nov</small></td><td><span class="chip b">Meta Ads</span></td><td><span class="chip">Brochure letta, non interessato</span></td></tr>
+          </tbody>
+        </table>
+        <p>Contatti di esempio. Nel registro vero ogni riga si apre su email, WhatsApp e note della visita.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="map">
+  <div class="wrap">
+    <h2>Il vostro annuncio, riga per riga.</h2>
+    <table>
+      <thead><tr><th>Quello che oggi chiedete a una persona</th><th>Quello che fa il sistema</th></tr></thead>
+      <tbody>
+        <tr><td>Monitorare i moduli di contatto arrivati da Google Ads e Meta Ads</td><td><b>Un registro solo</b>Ogni modulo entra da sé, con la campagna da cui arriva.</td></tr>
+        <tr><td>Inviare l'email con la brochure in PDF</td><td><b>Parte in cinque secondi</b>Con il nome dell'interessato, anche di notte e la domenica.</td></tr>
+        <tr><td>Mandare il messaggio WhatsApp ai nuovi contatti</td><td><b>Parte in venti secondi</b>E propone già tre orari per vedere il fabbricato.</td></tr>
+        <tr><td>Fissare la visita con chi è interessato</td><td><b>La sceglie il contatto</b>L'appuntamento va in agenda, con il promemoria il giorno prima.</td></tr>
+        <tr><td>Foto, video e aggiornamento dei social</td><td><b>Una pagina per ogni fabbricato</b>È lì che puntano le campagne, ed è da lì che escono i post.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Chi chiede la brochure alle 23 viene richiamato da un sistema, non dimenticato fino a lunedì.</h2>
+    <ul>
+      <li><b>La pagina della campagna</b>Una pagina per fabbricato con modulo, foto e planimetrie: quella su cui atterrano Google Ads e Meta Ads.</li>
+      <li><b>Email e WhatsApp automatici</b>Brochure in PDF e messaggio con il nome, entro venti secondi da ogni nuovo modulo.</li>
+      <li><b>Le visite in agenda</b>L'interessato sceglie tra gli orari che decidete voi. A voi resta solo andarci.</li>
+      <li><b>Il registro</b>Sapete in ogni momento quanti contatti porta ogni campagna e a che punto è ciascuno.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra sul vostro annuncio di Ponte San Nicolò. Dati di esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var src='Google Ads',steps=[].slice.call(document.querySelectorAll('.st')),tl=$('tl'),row=null,tm=[],nome='';
+  function pick(group,cb){group.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(group.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x==b)});if(cb)cb(b)})}
+  pick(document.querySelector('.src'),function(b){src=b.dataset.s});pick($('tipi'));
+  function esc(s){return s.replace(/[<>&]/g,'')}
+  function on(k,wait){steps[k].classList.add('on');steps[k].classList.toggle('wait',!!wait);tl.style.setProperty('--k',Math.min(100,k*25))}
+  function chip(c,t){if(row)row.cells[2].innerHTML='<span class="chip '+c+'">'+t+'</span>'}
+  function later(f,ms){tm.push(setTimeout(f,U.reduce?0:ms))}
+  function reset(){tm.forEach(clearTimeout);tm=[];steps.forEach(function(s){s.classList.remove('on','wait')});tl.style.setProperty('--k',0);if(row){row.remove();row=null}$('w2').textContent='';$('w3').textContent='';$('t4').textContent='in attesa della risposta';$('t5').textContent='con promemoria il giorno prima'}
+  $('go').addEventListener('click',function(){
+    reset();nome=esc($('nome').value.trim())||'Marco';var ora=new Date(),hh=('0'+ora.getHours()).slice(-2)+':'+('0'+ora.getMinutes()).slice(-2);
+    this.textContent='Rifai la prova';$('lpN').textContent='Fatto. Guardate a destra cosa succede.';
+    /* 1: registro */
+    row=document.createElement('tr');row.className='new';row.innerHTML='<td>'+nome+'<small>adesso, '+hh+'</small></td><td><span class="chip b">'+src+'</span></td><td><span class="chip a">Nuovo contatto</span></td>';$('tb').insertBefore(row,$('tb').firstChild);on(0);
+    /* 2: email */
+    $('mS').textContent='La brochure che ha chiesto, '+nome;$('mA').textContent=nome;$('mT').textContent='Buongiorno '+nome+', in allegato trova la brochure con planimetrie, superfici e prezzo. Tra poco le scriviamo anche su WhatsApp per fissare una visita.';
+    later(function(){on(1);chip('a','Brochure inviata')},1100);
+    /* 3: WhatsApp */
+    $('w1').textContent='Buongiorno '+nome+', le abbiamo appena mandato la brochure del fabbricato di Ponte San Nicolò. Vuole venire a vederlo? Scelga lei quando:';
+    $('slots').innerHTML=['gio 3 dic, 10:30','ven 4 dic, 15:00','sab 5 dic, 9:30'].map(function(s){return '<button>'+s+'</button>'}).join('');
+    later(function(){on(2);on(3,true);chip('a','WhatsApp inviato, in attesa')},2600);
+    if(innerWidth<721)later(function(){U.scrollTo(tl,-70)},300);
+  });
+  $('slots').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;var s=b.textContent;
+    [].forEach.call(this.children,function(x){x.disabled=true});b.classList.add('sel');
+    $('w2').textContent=s.charAt(0).toUpperCase()+s.slice(1)+' va bene.';$('w3').textContent='Perfetto '+nome+', l\'aspettiamo '+s+'. Il giorno prima le ricordiamo l\'appuntamento con l\'indirizzo.';
+    on(3);$('t4').textContent='ha risposto: '+s;later(function(){on(4);$('t5').textContent=s+', promemoria il giorno prima';chip('g','Visita fissata: '+s);tl.style.setProperty('--k',100)},900)});
+})();
+</script>
+</body>
+</html>
