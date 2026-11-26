@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Opera in the Kitchen · Cooking, dinner and live opera in Chianti</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Bodoni;src:url(../lib/fonts/bodoni-moda-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:Bodoni;src:url(../lib/fonts/bodoni-moda-italic.woff2) format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:Isans;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* a playbill: velvet, footlights, programme paper */
+  --velvet:#6E0F18; --wing:#1B0507; --paper:#F1E7D3; --ink:#1C1311; --gilt:#C5A04C; --smoke:#8D7F78;
+  --d:Bodoni,"Bodoni MT",Didot,serif; --s:Isans,system-ui,sans-serif; --pad:clamp(20px,5vw,84px);
+}
+html{scroll-padding-top:64px;background:var(--wing)}
+body{font:400 17px/1.6 var(--s);color:var(--ink);background:var(--paper)}
+::selection{background:var(--velvet);color:var(--paper)}
+a{text-underline-offset:4px}
+.wrap{padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--d);font-weight:500;letter-spacing:-.012em;text-wrap:balance}
+
+/* top line */
+.top{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px var(--pad);color:var(--paper);mix-blend-mode:difference;font-size:15px}
+.top b{font:italic 500 22px/1 var(--d);letter-spacing:0}
+.top nav{display:flex;gap:clamp(14px,2.4vw,34px)}
+.top a{text-decoration:none}.top a:hover{text-decoration:underline}
+@media(max-width:760px){.top nav a:not(:last-child){display:none}}
+
+/* 1 · the proscenium */
+.stage{position:relative;height:270vh;background:#000}
+.stage__st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--paper)}
+.stage__ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.16 - var(--t,0)*.12));filter:brightness(calc(.35 + var(--t,0)*.5)) saturate(1.05)}
+.stage__st::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 100%,transparent 30%,rgba(10,2,3,.78));pointer-events:none}
+#curtain{position:absolute;inset:0;width:100%;height:100%;z-index:2}
+.bill,.reveal{position:absolute;inset:0;z-index:3;display:grid;place-content:center;justify-items:center;text-align:center;padding:90px var(--pad) 70px}
+.bill{opacity:calc(1 - var(--t,0)*4.2);transform:translateY(calc(var(--t,0)*-60px))}
+.bill small{font:italic 400 clamp(18px,1.6vw,22px)/1 var(--d);color:#F1D9B0}
+.bill h1{margin-top:22px;font-size:clamp(54px,10.4vw,176px);line-height:.88;font-weight:500;text-shadow:0 2px 0 rgba(0,0,0,.25),0 30px 60px rgba(0,0,0,.45)}
+.bill h1 em{display:block;font-size:.36em;line-height:1.5;font-weight:400}
+.bill p{margin-top:26px;max-width:36ch;font-size:clamp(17px,1.35vw,20px);color:#F4E6CF}
+.rule{display:flex;align-items:center;gap:14px;margin-top:30px;color:var(--gilt);font:italic 400 17px/1 var(--d)}
+.rule::before,.rule::after{content:"";width:clamp(40px,8vw,120px);height:1px;background:currentColor}
+.raise{margin-top:34px;background:none;border:1px solid rgba(241,231,211,.6);color:var(--paper);padding:14px 26px;font:500 16px/1 var(--s);cursor:pointer;transition:background .4s,color .4s}
+.raise:hover{background:var(--paper);color:var(--velvet)}
+.raise:focus-visible{outline:2px solid var(--gilt);outline-offset:4px}
+.reveal{place-content:end start;justify-items:start;text-align:left;opacity:calc((var(--t,0) - .52)*5);pointer-events:none}
+.reveal h2{font-size:clamp(38px,6vw,104px);line-height:.96;max-width:13ch}
+.reveal h2 i{color:#F3C98C}
+.reveal p{margin-top:20px;max-width:44ch;font-size:clamp(17px,1.3vw,20px);color:#F1E2CB}
+
+/* 2 · the programme */
+.prog{position:relative;padding-block:clamp(90px,12vw,180px) clamp(60px,8vw,120px)}
+.prog__h{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px clamp(30px,6vw,110px);align-items:end}
+.prog__h h2{font-size:clamp(46px,7.4vw,128px);line-height:.92}
+.prog__h h2 i{color:var(--velvet)}
+.prog__h p{max-width:40ch;color:#4A3B36}
+.acts{margin-top:clamp(50px,8vw,120px);border-top:1px solid var(--ink)}
+.act{position:relative;display:grid;grid-template-columns:minmax(120px,.5fr) minmax(0,1.1fr) minmax(0,1fr);gap:20px clamp(24px,4vw,70px);padding:clamp(34px,5vw,70px) 0;border-bottom:1px solid var(--ink);align-items:start}
+.act__n{font:italic 400 clamp(64px,9vw,150px)/.8 var(--d);color:var(--velvet)}
+.act__n small{display:block;margin-top:16px;font:500 15px/1.3 var(--s);color:var(--smoke);font-style:normal;font-variant-numeric:tabular-nums}
+.act h3{font-size:clamp(32px,3.6vw,56px);line-height:1}
+.act p{margin-top:16px;max-width:42ch;color:#3E302B}
+.act ul{margin-top:18px;font:italic 400 clamp(18px,1.5vw,21px)/1.5 var(--d);color:var(--velvet)}
+.act figure{overflow:hidden;aspect-ratio:4/3;clip-path:inset(0 calc((1 - min(1,var(--p,0)*2.4))*100%) 0 0)}
+.act figure img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.25 - var(--p,0)*.25))}
+.act--pre .act__n,.act--post .act__n{font-size:clamp(30px,3.4vw,52px);line-height:1}
+.prog__note{margin-top:20px;font-size:14.5px;color:var(--smoke)}
+@media(max-width:900px){.prog__h{grid-template-columns:1fr}.act{grid-template-columns:1fr}.act__n small{display:inline;margin-left:12px}}
+
+/* 3 · encore: what guests say */
+.encore{position:relative;background:#0C0506;color:var(--paper);overflow:hidden}
+.encore img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transform:scale(calc(1.1 + var(--p,0)*.12))}
+.encore__in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(30px,6vw,110px);align-items:end;padding:clamp(110px,16vw,240px) var(--pad)}
+.score{font:500 clamp(96px,22vw,380px)/.78 var(--d);letter-spacing:-.04em;font-variant-numeric:lining-nums}
+.score sup{font-size:.2em;letter-spacing:0;vertical-align:top;margin-left:.2em;font-style:italic;font-weight:400;color:#F3C98C}
+.encore p{max-width:36ch;color:#EAD9C2}
+.encore blockquote{font:italic 400 clamp(26px,2.8vw,44px)/1.2 var(--d);max-width:18ch}
+.encore cite{display:block;margin-top:14px;font:400 14.5px/1.4 var(--s);font-style:normal;color:#C9B8A4}
+@media(max-width:900px){.encore__in{grid-template-columns:1fr}}
+
+/* 4 · set the table: the group request */
+.groups{padding-block:clamp(90px,12vw,180px)}
+.groups h2{font-size:clamp(46px,7vw,120px);line-height:.92;max-width:11ch}
+.groups h2 i{color:var(--velvet)}
+.groups__lede{margin-top:22px;max-width:46ch;color:#4A3B36}
+.plan{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:30px clamp(24px,4vw,64px);margin-top:clamp(40px,6vw,80px);align-items:start}
+.room{position:sticky;top:84px;background:#2A1512;border-radius:3px;padding:clamp(14px,2vw,26px);box-shadow:inset 0 0 120px rgba(0,0,0,.55)}
+.room svg{width:100%;height:auto;overflow:visible}
+.room .tb{fill:#E9DCC5}
+.room .rn{fill:var(--velvet)}
+.room .pl{fill:#FBF6EC;stroke:#CDBFA6;stroke-width:1;transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,1.5,.4,1) both}
+.room .ch{fill:#6A4632;transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,1.5,.4,1) both}
+.room .cd{fill:#FFD98A;animation:flick 2.4s ease-in-out infinite}
+.room .gl{fill:#FFC766;opacity:.16;animation:flick 2.4s ease-in-out infinite}
+@keyframes pop{from{transform:scale(0)}}
+@keyframes flick{50%{opacity:.6}}
+.room figcaption{display:flex;justify-content:space-between;gap:20px;margin-top:12px;color:#CDBBA6;font-size:14px}
+.ask{display:grid;gap:0}
+.ask label.r,.ask fieldset{border:0;border-top:1px solid var(--ink);margin:0;padding:16px 0}
+.ask label.r{display:block}
+.ask legend,.ask label.r>span{display:block;width:100%;font-size:14.5px;color:var(--smoke);margin-bottom:8px;padding:0}
+.ask legend{float:left}.ask legend+.opt{clear:both}
+.guests{display:flex;align-items:baseline;gap:14px}
+.guests output{font:500 clamp(54px,5vw,84px)/.9 var(--d);min-width:1.4em;font-variant-numeric:tabular-nums;color:var(--velvet)}
+.guests input{flex:1;accent-color:var(--velvet);height:28px}
+.ask select{width:100%;border:0;border-bottom:1px solid var(--smoke);background:none;padding:6px 0;font:500 clamp(22px,2vw,28px)/1.2 var(--d);border-radius:0}
+.ask select:focus-visible,.ask input:focus-visible{outline:2px solid var(--velvet);outline-offset:3px}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:6px 0;cursor:pointer}
+.opt input{appearance:none;flex:none;width:18px;height:18px;margin:4px 0 0;border:1px solid var(--ink);transition:background .3s}
+.opt input:checked{background:var(--velvet) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4 9.5l3.2 3L14 5.5' fill='none' stroke='%23F1E7D3' stroke-width='1.8'/%3E%3C/svg%3E")}
+.card{margin-top:22px;background:#FBF6EC;border:1px solid var(--ink);padding:26px 26px 22px;position:relative}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid var(--gilt);pointer-events:none}
+.card small{font:italic 400 16px/1 var(--d);color:var(--velvet)}
+.card h3{margin-top:10px;font-size:clamp(28px,2.6vw,38px);line-height:1.04}
+.card ul{margin-top:14px;font-size:15.5px}
+.card li{padding:5px 0;border-top:1px dotted #B9A98F}
+.send{display:inline-block;margin-top:20px;background:var(--velvet);color:var(--paper);text-decoration:none;padding:15px 24px;font-weight:500;transition:background .3s}
+.send:hover{background:var(--ink)}
+.ask__fine{margin-top:12px;font-size:14px;color:var(--smoke)}
+@media(max-width:980px){.plan{grid-template-columns:1fr}.room{position:static}}
+
+/* 5 · travel advisors */
+.trade{background:var(--velvet);color:var(--paper);padding:clamp(90px,11vw,160px) 0}
+.trade__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px clamp(30px,6vw,110px)}
+.trade h2{font-size:clamp(42px,5.6vw,92px);line-height:.95;max-width:10ch}
+.trade h2+p{margin-top:22px;max-width:40ch;color:#F0D8CC}
+.trade dl{border-top:1px solid rgba(241,231,211,.4)}
+.trade dl div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:18px;padding:20px 0;border-bottom:1px solid rgba(241,231,211,.4)}
+.trade dt{font:italic 400 clamp(22px,2vw,28px)/1.15 var(--d)}
+.trade dd{color:#F0D8CC}
+.way{margin-top:clamp(50px,7vw,90px)}
+.way svg{width:100%;height:auto;overflow:visible}
+.way path{fill:none;stroke:rgba(241,231,211,.5);stroke-width:1.5;stroke-dasharray:3 7}
+.way path.go{stroke:var(--paper);stroke-dasharray:none;stroke-width:2}
+.way circle{fill:var(--paper)}
+.way text{fill:var(--paper);font:italic 400 22px var(--d)}
+.way text.sm{font:400 13.5px var(--s);fill:#F0D8CC}
+@media(max-width:700px){.way{display:none}}
+@media(max-width:900px){.trade__g{grid-template-columns:1fr}.trade dl div{grid-template-columns:1fr;gap:4px}}
+
+/* 6 · stay the night */
+.stay{position:relative;min-height:92vh;display:grid;align-items:end;color:var(--paper);overflow:hidden;background:#000}
+.stay img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.02 + var(--p,0)*.14));filter:brightness(.72)}
+.stay div{position:relative;padding:clamp(60px,9vw,130px) var(--pad)}
+.stay h2{font-size:clamp(46px,7.6vw,132px);line-height:.9;max-width:9ch}
+.stay p{margin-top:20px;max-width:40ch;font-size:clamp(17px,1.3vw,20px)}
+
+/* 7 · contact */
+.fin{background:var(--wing);color:var(--paper);padding:clamp(80px,10vw,150px) 0 60px}
+.fin h2{font-size:clamp(19px,5.2vw,96px);line-height:1.05;overflow-wrap:anywhere}
+.fin h2 a{text-decoration-thickness:2px;text-decoration-color:var(--gilt)}
+.fin__g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px 40px;margin-top:clamp(50px,7vw,90px);border-top:1px solid rgba(241,231,211,.25);padding-top:26px;color:#D8C6B4;font-size:15.5px}
+.fin__g b{display:block;color:var(--paper);font:italic 400 20px/1.3 var(--d);margin-bottom:6px}
+@media(prefers-reduced-motion:reduce){.room .pl,.room .ch,.room .cd,.room .gl{animation:none}.act figure{clip-path:none}.act figure img,.stage__ph{transform:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Lulu" data-note="Anteprima preparata da Umbra per Opera in the Kitchen. I testi vengono dal vostro sito e dalle recensioni pubbliche. Foto, orari e disposizione dei tavoli sono di esempio: al loro posto vanno i vostri.">
+
+<header class="top"><b>Opera in the Kitchen</b><nav><a href="#evening">The evening</a><a href="#groups">Groups</a><a href="#advisors">Travel advisors</a><a href="#groups">Request a date</a></nav></header>
+
+<section class="stage" id="top" data-dark>
+  <div class="stage__st">
+    <img class="stage__ph" src="img/table.jpg" alt="A long candlelit dinner table">
+    <canvas id="curtain" aria-hidden="true"></canvas>
+    <div class="bill">
+      <small>Chianti, between Florence and Siena</small>
+      <h1>Opera <em>in the</em> Kitchen</h1>
+      <p>A cooking class, a dinner and a live opera recital, in a villa from the 1600s.</p>
+      <span class="rule">an evening in three acts</span>
+      <button class="raise" type="button" id="raise">Raise the curtain</button>
+    </div>
+    <div class="reveal">
+      <h2>You cook. You dine. <i>Then someone sings.</i></h2>
+      <p>The great Italian arias, sung by professional artists a few steps from your chair, after a dinner you made with your own hands.</p>
+    </div>
+  </div>
+</section>
+
+<section class="prog wrap" id="evening">
+  <div class="prog__h">
+    <h2>An evening in <i>three acts.</i></h2>
+    <p>Lulu learned these recipes from her grandmother. In 2018 she put them together with the other thing she loves, and Opera in the Kitchen began. This is how the evening runs.</p>
+  </div>
+  <div class="acts">
+    <article class="act act--pre" data-p>
+      <div class="act__n">Overture<small>around 5 pm</small></div>
+      <div><h3>The road into Chianti</h3><p>Our driver meets you in Florence, at Via Senese 2, and the city gives way to cypress and vines. At the villa there is a glass waiting, and a walk through the vegetable garden and the vineyard.</p></div>
+      <figure><img src="img/villa.jpg" alt="A stone villa among Tuscan hills" loading="lazy"></figure>
+    </article>
+    <article class="act" data-p>
+      <div class="act__n">I<small>The Kitchen</small></div>
+      <div><h3>Flour on your hands</h3><p>The kitchen is in the old barn, with its stone trough still in place. Everyone cooks: you make the pasta from scratch, the way Lulu's grandmother did, and the rest of a full Tuscan menu with it.</p><ul><li>Fresh pasta, rolled by hand</li><li>Vegetables from the garden</li></ul></div>
+      <figure><img src="img/hands.jpg" alt="Hands rolling pasta dough on a floured table" loading="lazy"></figure>
+    </article>
+    <article class="act" data-p>
+      <div class="act__n">II<small>The Table</small></div>
+      <div><h3>What you made, served</h3><p>You sit down to the dinner you cooked, with the villa's own wine and the extra-virgin olive oil Lulu's family has pressed for three generations.</p><ul><li>Extra-virgin olive oil, pressed by the family</li><li>Panna cotta with fresh fruit and limoncello</li></ul></div>
+      <figure><img src="img/oil.jpg" alt="Olive oil poured beside bread and olives" loading="lazy"></figure>
+    </article>
+    <article class="act" data-p>
+      <div class="act__n">III<small>The Aria</small></div>
+      <div><h3>And then, the voice</h3><p>No stage and no rows of seats. Professional singers perform the best-loved arias of Italian opera in the room where you have just eaten. Bring a handkerchief.</p></div>
+      <figure><img src="img/toast.jpg" alt="Guests raising glasses at the end of dinner" loading="lazy"></figure>
+    </article>
+    <article class="act act--post" data-p>
+      <div class="act__n">Curtain<small>about three and a half hours later</small></div>
+      <div><h3>Back to Florence, or upstairs</h3><p>The driver takes you back to the city. Or you stay: the villa has rooms, and breakfast is quieter than dinner was.</p></div>
+      <figure><img src="img/vine.jpg" alt="Vineyards in Chianti in the evening light" loading="lazy"></figure>
+    </article>
+  </div>
+  <p class="prog__note">Timings are indicative and change with the season.</p>
+</section>
+
+<section class="encore" data-dark data-p>
+  <img src="img/candles.jpg" alt="" loading="lazy">
+  <div class="encore__in">
+    <div><p class="score">4.94<sup>out of 5</sup></p><p>From more than 550 guest reviews on Airbnb Experiences. Families, honeymooners, groups of friends: they come for the pasta and write about the singing.</p></div>
+    <blockquote>“Wonderful evening blending cooking and opera!”<cite>A guest on TripAdvisor, October 2025</cite></blockquote>
+  </div>
+</section>
+
+<section class="groups wrap" id="groups">
+  <h2>Set the table <i>for your group.</i></h2>
+  <p class="groups__lede">Family reunions, incentive trips, wedding parties, choirs. Tell us who is coming and we will write the evening around you. The request reaches Lulu already filled in.</p>
+  <div class="plan">
+    <figure class="room">
+      <svg id="room" viewBox="0 0 1000 440" role="img" aria-label="Table plan for your group"></svg>
+      <figcaption><span id="roomCap"></span><span>Sample layout of the dining room</span></figcaption>
+    </figure>
+    <form class="ask" id="ask" onsubmit="return false">
+      <label class="r"><span>How many guests</span><div class="guests"><output id="gN" for="gR">16</output><input id="gR" type="range" min="6" max="40" value="16" aria-label="Number of guests"></div></label>
+      <label class="r"><span>The occasion</span><select id="gO"><option>A family celebration</option><option>A company incentive trip</option><option>A wedding party</option><option>A trip with friends</option><option>A choir or school group</option></select></label>
+      <label class="r"><span>When</span><select id="gM"><option>Spring 2027</option><option>Summer 2027</option><option>Autumn 2027</option><option>Winter 2026–27</option><option>We are flexible</option></select></label>
+      <fieldset><legend>Add to the evening</legend>
+        <label class="opt"><input type="checkbox" value="Private evening, the villa only for us" checked>The villa only for us</label>
+        <label class="opt"><input type="checkbox" value="Transfer from Florence and back" checked>Transfer from Florence and back</label>
+        <label class="opt"><input type="checkbox" value="Overnight stay at the villa">Overnight stay at the villa</label>
+        <label class="opt"><input type="checkbox" value="Vegetarian or gluten-free menu for some guests">Vegetarian or gluten-free menu</label>
+        <label class="opt"><input type="checkbox" value="An aria dedicated to someone at the table">An aria dedicated to someone at the table</label>
+      </fieldset>
+      <div class="card" aria-live="polite"><small>Your evening</small><h3 id="cH"></h3><ul id="cL"></ul></div>
+      <div><a class="send" id="gGo" href="#">Request this evening</a></div>
+      <p class="ask__fine">Opens an email to Lulu with everything above. She answers with dates and the group rate.</p>
+    </form>
+  </div>
+</section>
+
+<section class="trade" id="advisors" data-dark>
+  <div class="wrap trade__g">
+    <div>
+      <h2>For travel advisors and tour operators.</h2>
+      <p>If you design Tuscany for other people, this is the night they talk about when they get home. We make it easy to sell.</p>
+    </div>
+    <dl>
+      <div><dt>Net rates and commission</dt><dd>A rate sheet for agencies, tour operators and DMCs, sent on request with your first enquiry.</dd></div>
+      <div><dt>A few seats or the whole villa</dt><dd>Shared evenings for couples and families, or the place reserved for your group alone.</dd></div>
+      <div><dt>Door to door</dt><dd>Pick-up and return in Florence with our driver, or directions for yours.</dd></div>
+      <div><dt>Every diet, known in advance</dt><dd>Send us the list with the booking and each guest finds the right plate at the table.</dd></div>
+    </dl>
+  </div>
+  <div class="wrap way" data-p>
+    <svg viewBox="0 0 1100 170" aria-label="The villa is between Florence and Siena">
+      <path d="M40 120 C 260 20, 420 150, 560 80 S 900 20, 1060 110"/>
+      <path class="go" id="wayGo" d="M40 120 C 260 20, 420 150, 560 80"/>
+      <circle cx="40" cy="120" r="6"/><circle cx="560" cy="80" r="10"/><circle cx="1060" cy="110" r="6"/>
+      <text x="40" y="156">Florence</text><text x="560" y="48" text-anchor="middle">Opera in the Kitchen</text><text class="sm" x="560" y="112" text-anchor="middle">Strada Morrocco 36, Tavarnelle Val di Pesa</text><text x="1060" y="146" text-anchor="end">Siena</text>
+    </svg>
+  </div>
+</section>
+
+<section class="stay" data-dark data-p>
+  <img src="img/kitchen.jpg" alt="A rustic Tuscan kitchen with copper pans" loading="lazy">
+  <div><h2>Stay the night.</h2><p>Complete the experience with an overnight stay at the villa: wake up in Chianti, with the kitchen still smelling of last night.</p></div>
+</section>
+
+<footer class="fin" data-dark>
+  <div class="wrap">
+    <h2>Write to Lulu:<br><a href="mailto:operainthekitchen@gmail.com">operainthekitchen@gmail.com</a></h2>
+    <div class="fin__g">
+      <p><b>Where</b>Strada Morrocco 36, Tavarnelle Val di Pesa, Florence</p>
+      <p><b>When</b>Evenings all year round. Lunch classes on request.</p>
+      <p><b>Languages</b>English and Italian</p>
+      <p><b>Since</b>2018, by Lucrezia “Lulu” Cannito</p>
+    </div>
+  </div>
+</footer>
+
+<aside class="u-end" lang="it">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Un sito che vi porta gruppi interi, non solo coppie.</h2>
+    <ul>
+      <li><b>La richiesta dei gruppi arriva già scritta</b>Persone, occasione, periodo, extra: Lulu riceve tutto in una mail e risponde con data e prezzo.</li>
+      <li><b>Una pagina per agenzie e tour operator</b>È quello che serve a chi deve proporvi negli Stati Uniti: cosa è incluso, come si arriva, a chi scrivere.</li>
+      <li><b>Prenotazioni dirette</b>Chi vi trova su Airbnb o Musement vi cerca poi su Google: qui prenota da voi, senza commissione.</li>
+      <li><b>In inglese, pensato per il telefono</b>Con il pernottamento in villa in evidenza, che oggi sul sito si vede poco.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Opera in the Kitchen. Foto di esempio da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+
+  /* the curtain: two velvet drapes, drawn aside as you scroll */
+  var cur=U.shader($('curtain'),[
+    'uniform float uO;',
+    'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
+    'void main(){vec2 uv=gl_FragCoord.xy/u_res;float y=uv.y;float sd=uv.x<.5?-1.:1.;float x=abs(uv.x-.5)*2.;',
+    ' float tie=.36;float bow=y>tie?mix(1.,.2,smoothstep(tie,1.,y)):mix(1.,.8,smoothstep(tie,0.,y));',
+    ' float o=uO*uO*(3.-2.*uO);float edge=o*.9*bow+.004*sin(u_time*.6+y*6.+sd)*(1.-o);',
+    ' float m=smoothstep(edge-.003,edge+.003,x);',
+    ' float w=(x-edge)/max(.03,1.-edge);float pull=o*bow;',
+    ' float f=sin(w*(11.+pull*3.)*6.2832+sin(y*2.6+sd*1.3)*.7+sin(y*9.)*.12+u_time*.18*(1.-o));',
+    ' float s=pow(.5+.5*f,1.35);',
+    ' vec3 c=mix(vec3(.13,.008,.022),vec3(.6,.055,.09),s);c+=vec3(.3,.1,.07)*pow(s,7.)*.55;',
+    ' c*=mix(1.2,.5,y);c*=.93+.07*h(gl_FragCoord.xy);',
+    ' c*=mix(.5,1.,smoothstep(0.,.06,x-edge));',
+    ' float hem=smoothstep(.034,.03,y)*smoothstep(.012,.016,y);c=mix(c,vec3(.8,.64,.3)*(.65+.35*s),hem*.9);',
+    ' c*=smoothstep(.0,.012,y)*.6+.4;',
+    ' float shd=(1.-m)*smoothstep(.16,0.,edge-x)*.5*step(.004,o);',
+    ' vec3 col=c*m;float a=max(m,shd);',
+    ' float sc=.9+.04*abs(sin(uv.x*3.14159*5.));float val=smoothstep(sc-.002,sc+.002,y);',
+    ' float vf=.5+.5*sin(uv.x*140.+sin(y*30.)*.8);vec3 vc=mix(vec3(.15,.01,.025),vec3(.5,.045,.075),vf)*(.6+.4*smoothstep(1.,.9,y))*(.93+.07*h(gl_FragCoord.xy));',
+    ' float trim=smoothstep(sc+.012,sc+.008,y)*val;vc=mix(vc,vec3(.8,.64,.3)*(.7+.3*vf),trim);',
+    ' float vsh=(1.-val)*smoothstep(sc-.07,sc,y)*.45;',
+    ' col=mix(col,vc,val);a=max(max(a,val),vsh*(1.-a)+a);',
+    ' gl_FragColor=vec4(col,a);}'].join('\n'),{alpha:true,dpr:2,uniforms:{uO:0}});
+  var stage=$('top');
+  U.pin(stage,function(t){if(cur)cur.set('uO',U.map(t,.03,.62))});
+  $('raise').onclick=function(){U.scrollTo(stage.offsetTop+(stage.offsetHeight-innerHeight)*.82)};
+  if(!cur)document.querySelector('.bill').style.background='linear-gradient(#6E0F18,#2A0508)';
+
+  /* the road from Florence draws itself */
+  var go=$('wayGo'),gl=go.getTotalLength();go.style.strokeDasharray=gl;go.style.strokeDashoffset=gl;
+  U.onScroll(function(){var p=parseFloat(getComputedStyle(go.closest('[data-p]')).getPropertyValue('--p'))||0;go.style.strokeDashoffset=(gl*(1-U.ease(U.map(p,.18,.5)))).toFixed(1)});
+
+  /* set the table */
+  var NS='http://www.w3.org/2000/svg',room=$('room'),gR=$('gR'),gN=$('gN'),ask=$('ask');
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);room.appendChild(e);return e}
+  function geo(seats){var ends=seats>=6?2:0,side=seats-ends,top=Math.ceil(side/2);return{ends:ends,top:top,bot:side-top,L:Math.max(top,1)*78+40}}
+  function table(seats,cy,k0){var g=geo(seats),L=g.L,x0=500-L/2,W=96,i,x,d=0;
+    el('rect',{class:'tb',x:x0,y:cy-W/2,width:L,height:W,rx:5});el('rect',{class:'rn',x:x0,y:cy-11,width:L,height:22});
+    function seat(px,py,v){var c=el('rect',{class:'ch',x:px-(v?11:19),y:py-(v?19:11),width:v?22:38,height:v?38:22,rx:7});c.style.animationDelay=((k0+d++)*22)+'ms'}
+    function plate(px,py){var p=el('circle',{class:'pl',cx:px,cy:py,r:15});p.style.animationDelay=((k0+d)*22+60)+'ms'}
+    for(i=0;i<g.top;i++){x=x0+20+(L-40)/g.top*(i+.5);seat(x,cy-W/2-17,0);plate(x,cy-W/2+24)}
+    for(i=0;i<g.bot;i++){x=x0+20+(L-40)/Math.max(g.bot,1)*(i+.5);seat(x,cy+W/2+17,0);plate(x,cy+W/2-24)}
+    if(g.ends){seat(x0-17,cy,1);plate(x0+24,cy);seat(x0+L+17,cy,1);plate(x0+L-24,cy)}
+    var nc=Math.max(2,Math.round(L/170));for(i=0;i<nc;i++){x=x0+L/(nc+1)*(i+1);var gg=el('circle',{class:'gl',cx:x,cy:cy,r:30}),c2=el('circle',{class:'cd',cx:x,cy:cy,r:3.6});gg.style.animationDelay=c2.style.animationDelay=(i*.37)+'s'}
+    return d}
+  function build(){var n=+gR.value;gN.textContent=n;while(room.firstChild)room.removeChild(room.firstChild);
+    var T=n<=16?1:n<=30?2:3,per=Math.ceil(n/T),left=n,k=0,gap=190,H=(T-1)*gap+190,Lm=geo(Math.min(per,n)).L+150;
+    room.setAttribute('viewBox',(500-Lm/2)+' '+(-H/2)+' '+Lm+' '+H);
+    for(var t=0;t<T;t++){var sN=Math.min(per,left);left-=sN;k+=table(sN,(t-(T-1)/2)*gap,k)}
+    $('roomCap').textContent=n+' guests, '+(T===1?'one long table':T===2?'two tables':'three tables');card()}
+  function card(){var n=+gR.value,o=$('gO').value,m=$('gM').value,ex=[].map.call(ask.querySelectorAll('.opt input:checked'),function(i){return i.value});
+    $('cH').textContent=o+' for '+n;var ul=$('cL');ul.innerHTML='';
+    ['Cooking class, dinner and live opera',m].concat(ex).forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li)});
+    $('gGo').href='mailto:operainthekitchen@gmail.com?subject='+encodeURIComponent('Group request: '+n+' guests, '+m)+'&body='+encodeURIComponent('Dear Lulu,\n\nwe would like to request an evening at Opera in the Kitchen.\n\nGuests: '+n+'\nOccasion: '+o+'\nWhen: '+m+'\n'+ex.map(function(e){return '- '+e}).join('\n')+'\n\nCould you send us available dates and the group rate?\n\nThank you')}
+  gR.addEventListener('input',build);ask.addEventListener('change',card);build();
+})();
+</script>
+</body>
+</html>
