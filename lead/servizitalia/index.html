@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Servizitalia · Un congresso, un'identità, tutti i formati</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Schib;src:url(../lib/fonts/schibsted-grotesk-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:Caslon;src:url(../lib/fonts/libre-caslon-display-normal.woff2) format("woff2");font-display:swap}
+:root{
+  /* la segreteria di un congresso: carta del programma, blu istituzionale, il giallo del cordino del badge */
+  --carta:#F3F1EA; --ink:#14182A; --blu:#1D3A8A; --giallo:#F2C230; --grigio:#8A8F9C; --linea:#D9D6CC;
+  --s:Schib,system-ui,sans-serif; --c:Caslon,Georgia,serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--c);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blu);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px var(--pad);max-width:1320px;margin-inline:auto}
+.bar b{font:800 19px/1 var(--s);letter-spacing:-.02em}
+.bar b span{color:var(--blu)}
+.bar small{font-size:14px;color:var(--grigio)}
+
+/* ---------- hero: il badge ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,70px);align-items:center;padding-block:clamp(20px,4vw,60px) clamp(60px,8vw,110px)}
+.hero h1{font-size:clamp(46px,6.2vw,96px);margin:0 0 18px}
+.hero .lead{font-size:clamp(17px,1.5vw,20px);max-width:48ch;margin:0 0 28px;color:#3b4050}
+.f{display:grid;gap:6px;margin-bottom:16px}
+.f label{font-size:14px;font-weight:700}
+.f input{border:1.5px solid var(--linea);background:#fff;border-radius:6px;padding:13px 14px;font-size:17px;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1.5px solid var(--linea);background:#fff;border-radius:99px;padding:8px 13px;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chips button i{width:16px;height:16px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1px #0002}
+.chips button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.badgebox{position:relative;display:flex;justify-content:center;padding-top:10px}
+.badgebox svg{width:min(100%,420px);height:auto;transform-origin:50% 0;animation:swing 2.6s cubic-bezier(.3,.7,.3,1) 1 both;filter:drop-shadow(0 30px 34px #14182a33)}
+@keyframes swing{0%{transform:rotate(9deg)}35%{transform:rotate(-5deg)}60%{transform:rotate(2.5deg)}80%{transform:rotate(-1deg)}100%{transform:rotate(0)}}
+
+/* ---------- i formati ---------- */
+.fmt{background:#fff;padding-block:clamp(64px,8vw,120px);border-block:1px solid var(--linea)}
+.fmt h2{font-size:clamp(40px,5vw,78px);margin:0 0 12px;max-width:16ch}
+.fmt .lead{max-width:56ch;color:#3b4050;margin:0 0 clamp(28px,4vw,48px);font-size:clamp(17px,1.4vw,19px)}
+.tav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(0,auto);gap:clamp(10px,1.6vw,20px);align-items:end}
+.it{display:flex;flex-direction:column;gap:8px;min-width:0}
+.it svg{width:100%;height:auto;display:block;border-radius:4px;box-shadow:0 14px 28px -18px #14182a66,0 0 0 1px #14182a14;background:#fff}
+.it span{font-size:13.5px;font-weight:700}
+.it small{display:block;font-weight:400;color:var(--grigio)}
+.c2{grid-column:span 2}.c3{grid-column:span 3}.c1{grid-column:span 1}
+
+/* ---------- le settimane ---------- */
+.set{padding-block:clamp(64px,8vw,120px)}
+.set__g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px)}
+.set h2{font-size:clamp(40px,5vw,76px);margin:0 0 14px}
+.set .side{position:sticky;top:30px;align-self:start}
+.set .side p{color:#3b4050;max-width:40ch}
+.cnt{display:flex;align-items:baseline;gap:12px;margin-top:26px}
+.cnt b{font:400 clamp(80px,10vw,150px)/.85 var(--c);color:var(--blu);font-variant-numeric:tabular-nums}
+.cnt span{font-weight:700;font-size:15px;max-width:12ch;line-height:1.25}
+.tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--linea)}
+.tl li{position:relative;padding:0 0 38px 30px;opacity:.38;transition:opacity .4s}
+.tl li.on{opacity:1}
+.tl li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--carta);border:2px solid var(--blu)}
+.tl li.on::before{background:var(--giallo);border-color:var(--ink)}
+.tl small{font-weight:800;font-size:13px;color:var(--blu);letter-spacing:.02em}
+.tl h3{font-size:clamp(26px,2.4vw,34px);margin:4px 0 8px}
+.tl p{margin:0 0 10px;color:#3b4050;max-width:52ch}
+.tl ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.tl ul li{all:unset;font-size:13.5px;font-weight:600;background:#fff;border:1px solid var(--linea);border-radius:99px;padding:5px 11px}
+
+/* ---------- aree ---------- */
+.aree{background:var(--ink);color:#fff;padding-block:clamp(64px,8vw,120px)}
+.aree h2{font-size:clamp(40px,5vw,76px);margin:0 0 30px;max-width:18ch}
+.ag{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;background:#ffffff26;border:2px solid #ffffff26}
+.ag div{background:var(--ink);padding:24px 22px 26px;min-height:220px;display:flex;flex-direction:column;gap:10px}
+.ag b{font:400 28px/1.05 var(--c)}
+.ag p{margin:0;font-size:15px;opacity:.8}
+.ag em{font-style:normal;margin-top:auto;font-size:13px;font-weight:700;color:var(--giallo)}
+.foot{padding-block:clamp(40px,5vw,70px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(32px,3.6vw,52px);margin:0}
+.foot p{margin:0;font-size:15.5px;line-height:1.6}
+.foot a{color:inherit}
+@media(max-width:1000px){.hero,.set__g{grid-template-columns:1fr}.set .side{position:static}.tav{grid-template-columns:repeat(4,minmax(0,1fr))}.ag{grid-template-columns:1fr 1fr}.foot__g{grid-template-columns:1fr}}
+@media(max-width:620px){.tav{grid-template-columns:repeat(2,minmax(0,1fr))}.c3,.c2{grid-column:1/-1}.two{grid-template-columns:1fr}.bar small{display:none}.ag{grid-template-columns:1fr}.ag div{min-height:0}}
+@media(prefers-reduced-motion:reduce){.badgebox svg{animation:none}.tl li{opacity:1}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Servizitalia" data-note="Anteprima preparata da Umbra per Servizitalia, a partire dal vostro annuncio per la grafica dei congressi. Aree, anni di attività, ID provider ECM e contatti vengono dal vostro sito; il congresso, le date e i materiali sono un esempio da modificare.">
+
+<header class="bar"><b>Servizi<span>talia</span></b><small>Congressi · Provider ECM 5183 · Palermo, dal 1989</small></header>
+
+<main class="wrap hero" id="top">
+  <div>
+    <h1>Ogni congresso ha la sua faccia. Dal badge al backdrop.</h1>
+    <p class="lead">Scrivete il titolo del prossimo evento e scegliete colore e motivo: badge, programma, roll-up, segnaletica e post escono già coordinati.</p>
+    <div class="f"><label for="tit">Titolo del congresso</label><input id="tit" value="Congresso Regionale di Cardiologia" maxlength="60" autocomplete="off"></div>
+    <div class="two">
+      <div class="f"><label for="dt">Date</label><input id="dt" value="14–16 maggio 2027" maxlength="30" autocomplete="off"></div>
+      <div class="f"><label for="lu">Luogo</label><input id="lu" value="Palermo" maxlength="30" autocomplete="off"></div>
+    </div>
+    <div class="f"><label>Colore</label><div class="chips" id="pal" role="group" aria-label="Colore"></div></div>
+    <div class="f"><label>Motivo</label><div class="chips" id="mot" role="group" aria-label="Motivo"></div></div>
+  </div>
+  <div class="badgebox"><svg id="badge" viewBox="0 0 420 640" role="img" aria-label="Badge del congresso"></svg></div>
+</main>
+
+<section class="fmt">
+  <div class="wrap">
+    <h2>Un'identità, tutti i formati dell'evento.</h2>
+    <p class="lead">Cambiate titolo, colore o motivo qui sopra: ogni pezzo si aggiorna insieme. È il lavoro che oggi si rifà a mano per ogni congresso.</p>
+    <div class="tav" id="tav"></div>
+  </div>
+</section>
+
+<section class="set" id="set">
+  <div class="wrap set__g">
+    <div class="side">
+      <h2>Quattordici settimane, otto consegne.</h2>
+      <p>La grafica di un congresso non è un file solo: arriva a ondate, dal save the date ai questionari ECM. Scorrete: ogni consegna ha i suoi formati.</p>
+      <div class="cnt"><b id="wk">14</b><span>settimane al congresso</span></div>
+    </div>
+    <ol class="tl" id="tl">
+      <li data-w="14"><small>Settimana −14</small><h3>Save the date</h3><p>La prima uscita fissa l'identità: logo dell'evento, colori, motivo.</p><ul><li>Locandina</li><li>Email ai soci</li><li>Post e storia</li><li>Pagina evento</li></ul></li>
+      <li data-w="12"><small>Settimana −12</small><h3>Call for abstract</h3><p>Regole, scadenze e modulo di invio, chiari al primo colpo.</p><ul><li>Banner sito</li><li>Template abstract</li><li>Promemoria scadenza</li></ul></li>
+      <li data-w="10"><small>Settimana −10</small><h3>Programma preliminare</h3><p>Sessioni, relatori e sale in un'impaginazione che regge le modifiche.</p><ul><li>Programma PDF</li><li>Card dei relatori</li><li>Caroselli</li></ul></li>
+      <li data-w="8"><small>Settimana −8</small><h3>Iscrizioni e quota agevolata</h3><p>Una campagna breve per chi rimanda, con la data di scadenza ben visibile.</p><ul><li>Annunci social</li><li>Countdown</li><li>Newsletter</li></ul></li>
+      <li data-w="5"><small>Settimana −5</small><h3>Programma definitivo e abstract book</h3><p>Il documento più lungo, impaginato una volta e aggiornato senza ricominciare.</p><ul><li>Abstract book</li><li>Programma tascabile</li><li>File per la stampa</li></ul></li>
+      <li data-w="2"><small>Settimana −2</small><h3>Allestimento</h3><p>Tutto quello che si stampa grande, con misure e abbondanze già giuste.</p><ul><li>Roll-up</li><li>Backdrop</li><li>Segnaletica sale</li><li>Badge</li></ul></li>
+      <li data-w="0"><small>I giorni del congresso</small><h3>In diretta</h3><p>Foto delle sessioni e citazioni dei relatori, pubblicate in giornata.</p><ul><li>Storie live</li><li>Post del giorno</li><li>Slide di sala</li></ul></li>
+      <li data-w="0"><small>Dopo</small><h3>Crediti e ringraziamenti</h3><p>Il promemoria per questionari e crediti ECM, le foto, il save the date dell'anno dopo.</p><ul><li>Email ECM</li><li>Galleria</li><li>Video riassunto</li></ul></li>
+    </ol>
+  </div>
+</section>
+
+<section class="aree">
+  <div class="wrap">
+    <h2>Quattro aree, un solo interlocutore per l'evento.</h2>
+    <div class="ag">
+      <div><b>Congressi</b><p>Segreteria organizzativa e provider ECM accreditato Agenas.</p><em>Provider ECM n. 5183</em></div>
+      <div><b>Servizi tecnici e allestimenti</b><p>Tecnologia e produzioni per eventi, in sala e in streaming.</p><em>Audio, video, regia</em></div>
+      <div><b>Agenzia viaggi</b><p>Biglietteria e consulenza viaggi per relatori e partecipanti.</p><em>Voli, hotel, transfer</em></div>
+      <div><b>Catering &amp; banqueting</b><p>Ristorante e servizio catering per pause, pranzi e cene sociali.</p><em>Dal coffee break alla cena di gala</em></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Servizitalia, eventi e congressi dal 1989.</h2>
+    <p>Via Salvatore Puglisi 15<br>90143 Palermo</p>
+    <p><a href="tel:+390916250453">091 6250453</a><br><a href="mailto:info@servizitalia.it">info@servizitalia.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>La grafica di ogni congresso, coordinata e pronta in tempo.</h2>
+    <ul>
+      <li><b>Un sistema per evento</b>Colori, motivo e caratteri decisi una volta: ogni formato nuovo esce coerente.</li>
+      <li><b>Consegne a calendario</b>Dal save the date ai questionari ECM, con le scadenze del congresso già segnate.</li>
+      <li><b>File pronti per la stampa</b>Misure, abbondanze e profili colore giusti per roll-up, backdrop e programmi.</li>
+      <li><b>Lavoriamo da esterni</b>Accanto al vostro grafico, quando i congressi si sovrappongono.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Servizitalia. Il congresso è un esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P={mondello:['Mare di Mondello','#0E5C8C','#7FC8E0','#F7F4EA','#0B2235'],monreale:['Oro di Monreale','#7A1F2B','#D9A441','#FBF5E8','#2A0E12'],agrumi:['Agrumi','#1F6B3A','#F2C230','#FAF7EC','#0F2A1A'],notte:['Notte in sala','#1D3A8A','#F2C230','#F3F1EA','#0E1430'],corallo:['Corallo','#C2412E','#F4B9A4','#FFF7F2','#3A120B']};
+  var M={molecole:'Molecole',onde:'Onde',griglia:'Griglia',cerchi:'Cerchi'};
+  var s={p:'notte',m:'molecole'};
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function rnd(n){var x=Math.sin(n*91.7)*43758.5;return x-Math.floor(x)}
+  function seed(){var t=$('tit').value,h=7;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))%9973;return h}
+  /* il motivo, dentro un riquadro x,y,w,h */
+  function pat(x,y,w,h,k){
+    var c=P[s.p],sd=seed()+k,o='<g>';
+    if(s.m==='molecole'){var pts=[];for(var i=0;i<9;i++)pts.push([x+rnd(sd+i)*w,y+rnd(sd+i*3.1)*h]);
+      pts.forEach(function(a,i){var b=pts[(i+2)%pts.length];o+='<line x1="'+a[0].toFixed(1)+'" y1="'+a[1].toFixed(1)+'" x2="'+b[0].toFixed(1)+'" y2="'+b[1].toFixed(1)+'" stroke="'+c[2]+'" stroke-width="'+(Math.min(w,h)*.012).toFixed(2)+'" opacity=".8"/>'});
+      pts.forEach(function(a,i){o+='<circle cx="'+a[0].toFixed(1)+'" cy="'+a[1].toFixed(1)+'" r="'+(Math.min(w,h)*(.03+rnd(sd+i*7)*.05)).toFixed(1)+'" fill="'+(i%3?c[2]:c[3])+'"/>'})}
+    else if(s.m==='onde'){for(var j=0;j<7;j++){var yy=y+h*(.15+j*.12),a2=h*.06;o+='<path d="M'+x+' '+yy.toFixed(1)+' C'+(x+w*.25)+' '+(yy-a2).toFixed(1)+' '+(x+w*.5)+' '+(yy+a2).toFixed(1)+' '+(x+w*.75)+' '+yy.toFixed(1)+' S'+(x+w)+' '+(yy-a2).toFixed(1)+' '+(x+w)+' '+yy.toFixed(1)+'" fill="none" stroke="'+(j%2?c[2]:c[3])+'" stroke-width="'+(h*.018).toFixed(2)+'" opacity="'+(.5+j*.07).toFixed(2)+'"/>'}}
+    else if(s.m==='griglia'){var n=6,cw=w/n;for(var gx=0;gx<n;gx++)for(var gy=0;gy<Math.ceil(h/cw);gy++){var v=rnd(sd+gx*13+gy*7);if(v>.45)o+='<rect x="'+(x+gx*cw+cw*.08).toFixed(1)+'" y="'+(y+gy*cw+cw*.08).toFixed(1)+'" width="'+(cw*.84).toFixed(1)+'" height="'+(cw*.84).toFixed(1)+'" fill="'+(v>.8?c[2]:c[3])+'" opacity="'+(v>.8?1:.35)+'"/>'}}
+    else{for(var q=0;q<6;q++){var r=Math.min(w,h)*(.12+q*.13);o+='<circle cx="'+(x+w*.82).toFixed(1)+'" cy="'+(y+h*.2).toFixed(1)+'" r="'+r.toFixed(1)+'" fill="none" stroke="'+(q%2?c[2]:c[3])+'" stroke-width="'+(Math.min(w,h)*.03).toFixed(2)+'" opacity="'+(.9-q*.1).toFixed(2)+'"/>'}}
+    return o+'</g>'}
+  function clip(id,x,y,w,h){return '<clipPath id="'+id+'"><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'"/></clipPath>'}
+  /* testo spezzato su più righe */
+  function lines(t,max){var w=t.split(' '),out=[],cur='';w.forEach(function(x){if((cur+' '+x).trim().length>max&&cur){out.push(cur);cur=x}else cur=(cur+' '+x).trim()});if(cur)out.push(cur);return out}
+  function txt(t,x,y,size,max,fill,font,lh,anchor){return lines(t,max).map(function(l,i){return '<text x="'+x+'" y="'+(y+i*size*(lh||1.05)).toFixed(1)+'" font-size="'+size+'" fill="'+fill+'" font-family="'+(font||'Caslon,Georgia,serif')+'"'+(anchor?' text-anchor="'+anchor+'"':'')+'>'+esc(l)+'</text>'}).join('')}
+  var SS='Schib,system-ui,sans-serif';
+  function badge(){var c=P[s.p],t=$('tit').value||'Il vostro congresso';
+    return '<defs>'+clip('bc',40,150,340,200)+'</defs>'+
+    '<path d="M160 0 L195 130 M260 0 L225 130" stroke="'+c[2]+'" stroke-width="22" stroke-linecap="round"/>'+
+    '<rect x="186" y="118" width="48" height="34" rx="6" fill="#9aa0aa"/><rect x="196" y="128" width="28" height="10" rx="3" fill="#6d727c"/>'+
+    '<rect x="40" y="150" width="340" height="470" rx="18" fill="'+c[3]+'"/>'+
+    '<rect x="40" y="150" width="340" height="200" rx="18" fill="'+c[1]+'"/><rect x="40" y="320" width="340" height="30" fill="'+c[1]+'"/>'+
+    '<g clip-path="url(#bc)">'+pat(40,150,340,200,1)+'</g>'+
+    '<rect x="200" y="160" width="20" height="8" rx="4" fill="'+c[3]+'"/>'+
+    txt(t,64,392,30,20,c[4])+
+    txt(($('dt').value||'')+' · '+($('lu').value||''),64,500,15,40,c[1],SS)+
+    '<line x1="64" y1="525" x2="356" y2="525" stroke="'+c[4]+'" stroke-opacity=".15"/>'+
+    '<text x="64" y="562" font-size="22" font-family="'+SS+'" font-weight="800" fill="'+c[4]+'">Dott.ssa Giulia Ferrante</text>'+
+    '<text x="64" y="588" font-size="14" font-family="'+SS+'" fill="'+c[4]+'" opacity=".7">Relatrice · Sala Plenaria</text>'+
+    '<rect x="306" y="548" width="50" height="50" rx="4" fill="'+c[4]+'"/>'+[0,1,2,3,4,5,6,7,8].map(function(i){return rnd(seed()+i)>.4?'<rect x="'+(311+(i%3)*14)+'" y="'+(553+Math.floor(i/3)*14)+'" width="11" height="11" fill="'+c[3]+'"/>':''}).join('')}
+  function A(w,h,body){return '<svg viewBox="0 0 '+w+' '+h+'" aria-hidden="true">'+body+'</svg>'}
+  var K=0;function uid(){return 'k'+(++K)}
+  var F=[
+    ['c1','Programma','A5, 24 pagine',function(c,t){var id=uid();return A(148,210,'<defs>'+clip(id,0,0,148,120)+'</defs><rect width="148" height="210" fill="'+c[3]+'"/><rect width="148" height="120" fill="'+c[1]+'"/><g clip-path="url(#'+id+')">'+pat(0,0,148,120,2)+'</g>'+txt(t,12,140,13,16,c[4])+'<text x="12" y="196" font-size="7.5" font-family="'+SS+'" fill="'+c[1]+'">'+esc($('dt').value)+'</text>')}],
+    ['c1','Roll-up','85 × 200 cm',function(c,t){var id=uid();return A(85,200,'<defs>'+clip(id,0,95,85,105)+'</defs><rect width="85" height="200" fill="'+c[1]+'"/><g clip-path="url(#'+id+')">'+pat(0,95,85,105,3)+'</g>'+txt(t,8,24,9.5,13,c[3])+'<text x="8" y="80" font-size="5.5" font-family="'+SS+'" fill="'+c[2]+'">'+esc($('lu').value)+'</text>')}],
+    ['c3','Backdrop di sala','600 × 250 cm',function(c,t){var id=uid();return A(600,250,'<defs>'+clip(id,330,0,270,250)+'</defs><rect width="600" height="250" fill="'+c[4]+'"/><g clip-path="url(#'+id+')">'+pat(330,0,270,250,4)+'</g>'+txt(t,34,92,34,24,c[3])+'<text x="34" y="205" font-size="14" font-family="'+SS+'" fill="'+c[2]+'">'+esc($('dt').value+' · '+$('lu').value)+'</text><text x="34" y="228" font-size="10" font-family="'+SS+'" fill="'+c[3]+'" opacity=".6">Segreteria organizzativa e provider ECM: Servizitalia</text>')}],
+    ['c1','Post','1080 × 1080',function(c,t){var id=uid();return A(120,120,'<defs>'+clip(id,0,0,120,120)+'</defs><rect width="120" height="120" fill="'+c[1]+'"/><g clip-path="url(#'+id+')" opacity=".55">'+pat(0,0,120,120,5)+'</g><rect x="10" y="58" width="62" height="12" fill="'+c[2]+'"/><text x="14" y="67" font-size="7" font-weight="800" font-family="'+SS+'" fill="'+c[4]+'">ISCRIZIONI APERTE</text>'+txt(t,10,86,10,20,c[3]))}],
+    ['c1','Segnaletica','70 × 100 cm',function(c){return A(70,100,'<rect width="70" height="100" fill="'+c[3]+'"/><rect width="70" height="22" fill="'+c[1]+'"/><text x="6" y="14" font-size="6" font-weight="800" font-family="'+SS+'" fill="'+c[3]+'">'+esc($('lu').value.toUpperCase())+'</text>'+['Sala Plenaria →','← Sala Normanni','Segreteria ↓','Poster ↑'].map(function(r,i){return '<text x="6" y="'+(38+i*16)+'" font-size="7" font-family="Caslon,Georgia,serif" fill="'+c[4]+'">'+r+'</text><line x1="6" y1="'+(43+i*16)+'" x2="64" y2="'+(43+i*16)+'" stroke="'+c[4]+'" stroke-opacity=".15"/>'}).join(''))}],
+    ['c2','Testata della pagina evento','sito e app',function(c,t){var id=uid();return A(320,150,'<defs>'+clip(id,180,0,140,150)+'</defs><rect width="320" height="150" fill="'+c[3]+'"/><rect width="320" height="16" fill="'+c[4]+'"/><circle cx="10" cy="8" r="3" fill="'+c[2]+'"/><g clip-path="url(#'+id+')">'+pat(180,0,140,150,6)+'</g>'+txt(t,16,48,15,22,c[4])+'<rect x="16" y="112" width="70" height="20" rx="10" fill="'+c[1]+'"/><text x="51" y="125" font-size="7.5" text-anchor="middle" font-weight="700" font-family="'+SS+'" fill="'+c[3]+'">Iscriviti</text><rect x="92" y="112" width="70" height="20" rx="10" fill="none" stroke="'+c[1]+'"/><text x="127" y="125" font-size="7.5" text-anchor="middle" font-weight="700" font-family="'+SS+'" fill="'+c[1]+'">Programma</text>')}],
+    ['c2','Abstract book','A4, copertina',function(c,t){var id=uid();return A(210,150,'<defs>'+clip(id,0,0,105,150)+'</defs><rect width="210" height="150" fill="'+c[3]+'"/><rect width="105" height="150" fill="'+c[4]+'"/><g clip-path="url(#'+id+')">'+pat(0,0,105,150,7)+'</g><text x="117" y="30" font-size="7" font-weight="800" font-family="'+SS+'" fill="'+c[1]+'">ABSTRACT BOOK</text>'+txt(t,117,52,11,15,c[4])+'<text x="117" y="138" font-size="6.5" font-family="'+SS+'" fill="'+c[4]+'" opacity=".6">'+esc($('dt').value)+'</text>')}],
+    ['c2','Email del save the date','newsletter',function(c,t){var id=uid();return A(260,150,'<defs>'+clip(id,0,0,260,62)+'</defs><rect width="260" height="150" fill="#fff"/><rect width="260" height="62" fill="'+c[1]+'"/><g clip-path="url(#'+id+')" opacity=".6">'+pat(0,0,260,62,8)+'</g><text x="14" y="82" font-size="7" font-weight="800" font-family="'+SS+'" fill="'+c[1]+'">SAVE THE DATE</text>'+txt(t,14,98,12,30,c[4])+'<text x="14" y="134" font-size="7.5" font-family="'+SS+'" fill="'+c[4]+'" opacity=".7">'+esc($('dt').value+', '+$('lu').value)+'</text>')}]
+  ];
+  function draw(){var c=P[s.p],t=$('tit').value||'Il vostro congresso';K=0;
+    $('badge').innerHTML=badge();
+    $('tav').innerHTML=F.map(function(f){return '<div class="it '+f[0]+'">'+f[3](c,t)+'<span>'+f[1]+'<small>'+f[2]+'</small></span></div>'}).join('');
+  }
+  $('pal').innerHTML=Object.keys(P).map(function(k){return '<button data-k="'+k+'" aria-pressed="'+(k===s.p)+'"><i style="background:linear-gradient(135deg,'+P[k][1]+' 50%,'+P[k][2]+' 50%)"></i>'+P[k][0]+'</button>'}).join('');
+  $('mot').innerHTML=Object.keys(M).map(function(k){return '<button data-k="'+k+'" aria-pressed="'+(k===s.m)+'">'+M[k]+'</button>'}).join('');
+  function grp(id,key){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;s[key]=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});draw()})}
+  grp('pal','p');grp('mot','m');
+  ['tit','dt','lu'].forEach(function(i){$(i).addEventListener('input',draw)});
+  draw();
+  /* le settimane */
+  var li=[].slice.call(document.querySelectorAll('#tl>li'));
+  function upd(){var vh=innerHeight,cur=null;li.forEach(function(l){var r=l.getBoundingClientRect();var on=r.top<vh*.62;l.classList.toggle('on',on);if(on)cur=l});$('wk').textContent=cur?cur.dataset.w:'14'}
+  U.onScroll(upd);upd();
+})();
+</script>
+</body>
+</html>

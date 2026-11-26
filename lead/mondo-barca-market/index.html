@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mondo Barca Market · Media kit 2027</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Shoulders;src:url(../lib/fonts/big-shoulders-display-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Tight;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* banchina e carta patinata: blu notte, blu acqua, bianco scafo, l'arancio dei salvagente */
+  --notte:#0A2238; --acqua:#1A78B4; --scafo:#F7F8F6; --sale:#E7ECEE; --arancio:#F25C2A; --ink:#0D1A26;
+  --d:Shoulders,Impact,sans-serif; --t:Tight,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.5 var(--t);color:var(--ink);background:var(--scafo)}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:.92;letter-spacing:-.005em;text-transform:none;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--arancio);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.top{background:var(--notte);color:#fff}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px var(--pad);max-width:1320px;margin-inline:auto}
+.bar b{font:900 24px/1 var(--d);letter-spacing:.01em}
+.bar b i{font-style:normal;color:var(--arancio)}
+.lang{display:inline-flex;background:#ffffff1f;border-radius:99px;padding:3px}
+.lang button{border:0;background:none;color:#fff;border-radius:99px;padding:7px 13px;font-weight:800;font-size:13.5px;cursor:pointer}
+.lang button[aria-pressed=true]{background:#fff;color:var(--notte)}
+
+/* hero: la copertina */
+.hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,80px);align-items:center;padding-block:clamp(20px,4vw,50px) clamp(60px,8vw,110px)}
+.cover{position:relative;aspect-ratio:210/280;border-radius:3px;overflow:hidden;box-shadow:30px 40px 60px -30px #000c,0 0 0 1px #ffffff1a;transform:rotate(-2.2deg);background:#123}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0a223899 0%,transparent 28%,transparent 62%,#0a2238dd 100%)}
+.mast{position:absolute;left:5%;right:5%;top:3%;z-index:2;color:#fff}
+.mast b{display:block;font:900 clamp(44px,6.6vw,96px)/.8 var(--d);letter-spacing:-.01em}
+.mast span{display:flex;justify-content:space-between;font-size:12px;font-weight:700;margin-top:8px;border-top:2px solid #fff;padding-top:6px}
+.cl{position:absolute;left:5%;right:5%;bottom:4%;z-index:2;color:#fff;display:grid;gap:6px}
+.cl b{font:800 clamp(22px,2.6vw,36px)/.95 var(--d)}
+.cl small{font-size:13px;font-weight:600;opacity:.9}
+.cl em{font-style:normal;background:var(--arancio);font-weight:800;font-size:12px;padding:4px 8px;justify-self:start}
+.hero h1{font-size:clamp(54px,7.4vw,118px);margin:0 0 18px;color:#fff}
+.hero p{font-size:clamp(17px,1.5vw,20px);max-width:46ch;margin:0 0 26px;opacity:.86}
+.cta{display:inline-block;background:var(--arancio);color:#fff;text-decoration:none;font-weight:800;padding:15px 22px;border-radius:4px}
+.nums{display:flex;flex-wrap:wrap;gap:26px;margin-top:34px}
+.nums div b{display:block;font:800 44px/1 var(--d)}
+.nums div span{font-size:13.5px;opacity:.75;font-weight:600}
+
+/* formati */
+.fm{padding-block:clamp(64px,8vw,120px)}
+.fm h2{font-size:clamp(46px,6vw,92px);margin:0 0 12px;max-width:14ch}
+.fm .lead{max-width:56ch;margin:0 0 30px;font-size:clamp(17px,1.4vw,19px);color:#3a4652}
+.fm__g{display:grid;grid-template-columns:minmax(260px,.6fr) minmax(0,1.4fr);gap:clamp(18px,3vw,44px);align-items:start}
+.opts{display:grid;gap:6px}
+.opts button{display:grid;grid-template-columns:1fr auto;gap:2px 10px;text-align:left;border:1.5px solid #0d1a2622;background:#fff;border-radius:6px;padding:13px 15px;cursor:pointer}
+.opts button b{font-size:16px}
+.opts button small{grid-column:1/-1;font-size:13.5px;color:#55616c}
+.opts button span{font-size:12.5px;font-weight:800;color:var(--acqua)}
+.opts button[aria-pressed=true]{border-color:var(--notte);background:var(--notte);color:#fff}
+.opts button[aria-pressed=true] small{color:#ffffffbb}
+.opts button[aria-pressed=true] span{color:var(--arancio)}
+.stage{background:var(--sale);border-radius:10px;padding:clamp(16px,3vw,36px);position:sticky;top:20px}
+.stage svg{width:100%;height:auto;display:block}
+.spec{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:14.5px}
+.spec b{display:block;font-size:12px;color:#55616c;font-weight:700}
+
+/* calendario */
+.cal{background:var(--notte);color:#fff;padding-block:clamp(64px,8vw,120px);overflow:hidden}
+.cal h2{font-size:clamp(46px,6vw,92px);margin:0 0 12px;max-width:16ch}
+.cal .lead{max-width:56ch;margin:0 0 34px;opacity:.85;font-size:clamp(17px,1.4vw,19px)}
+.strip{display:grid;grid-template-columns:repeat(12,minmax(150px,1fr));gap:10px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory}
+.iss{scroll-snap-align:start;background:#ffffff0f;border:1px solid #ffffff1f;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;min-height:230px}
+.iss b{font:800 30px/1 var(--d)}
+.iss small{font-size:12.5px;opacity:.7}
+.iss .fair{margin-top:auto;background:var(--arancio);border-radius:5px;padding:8px 10px;font-size:13.5px;font-weight:700;line-height:1.3}
+.iss .fair i{display:block;font-style:normal;font-weight:500;font-size:12px;opacity:.9}
+.iss.hot{border-color:var(--arancio)}
+
+/* proposta */
+.pr{padding-block:clamp(64px,8vw,120px)}
+.pr__g{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:start}
+.pr h2{font-size:clamp(46px,6vw,92px);margin:0 0 14px}
+.pr .lead{max-width:46ch;color:#3a4652;margin:0 0 24px}
+.f{display:grid;gap:6px;margin-bottom:14px}
+.f label{font-weight:700;font-size:14px}
+.f input,.f select{border:1.5px solid #0d1a2633;border-radius:6px;padding:12px 13px;background:#fff;font-size:16px;width:100%}
+.mail{background:#fff;border-radius:10px;box-shadow:0 30px 60px -30px #0a223866,0 0 0 1px #0d1a2614;overflow:hidden}
+.mail header{padding:14px 18px;border-bottom:1px solid #0d1a261a;font-size:14px;display:grid;gap:2px}
+.mail header span{color:#55616c}
+.mail pre{margin:0;padding:20px;font:15.5px/1.6 var(--t);white-space:pre-wrap}
+.mail footer{display:flex;gap:8px;padding:0 20px 20px}
+.mail button{border:0;background:var(--notte);color:#fff;font-weight:800;padding:12px 16px;border-radius:5px;cursor:pointer}
+.rub{background:var(--sale);padding-block:clamp(50px,6vw,90px)}
+.rub h2{font-size:clamp(38px,4.6vw,66px);margin:0 0 20px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{background:#fff;border-radius:99px;padding:8px 14px;font-weight:700;font-size:14.5px}
+.foot{background:var(--notte);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(36px,4vw,60px);margin:0}
+.foot p{margin:0;opacity:.85}
+.foot a{color:inherit}
+@media(max-width:960px){.hero,.fm__g,.pr__g,.foot__g{grid-template-columns:1fr}.stage{position:static}.cover{max-width:420px}}
+@media(max-width:560px){.bar b{font-size:20px}.nums{gap:18px}.nums div b{font-size:36px}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Mondo Barca Market" data-note="Anteprima preparata da Umbra per Mondo Barca Market, a partire dal vostro annuncio per lo sviluppo commerciale e la vendita degli spazi. Anno di fondazione, uscita del 1° del mese, rubriche, numeri di Instagram e Pescare Show 2027 vengono dalle vostre pagine; formati, misure, chiusure e le altre date sono di esempio. Foto da Unsplash.">
+
+<div class="top">
+<header class="bar"><b>MONDO BARCA <i>MARKET</i></b><div class="lang" role="group" aria-label="Lingua"><button data-l="it" aria-pressed="true">IT</button><button data-l="en" aria-pressed="false">EN</button></div></header>
+<main class="wrap hero" id="top">
+  <div class="cover" aria-hidden="true">
+    <img src="img/cover.jpg" alt="">
+    <div class="mast"><b>MONDO BARCA</b><span><i data-t="iss">Gennaio 2027</i><i>dal 1997</i></span></div>
+    <div class="cl"><em data-t="cl0">Prova in mare</em><b data-t="cl1">Il nuovo 50 piedi, tra potenza e silenzio</b><small data-t="cl2">Pescare Show 2027 · Antivegetativa senza errori · Porti dell'Adriatico</small></div>
+  </div>
+  <div>
+    <h1 data-t="h1">Il vostro marchio, letto da chi va per mare.</h1>
+    <p data-t="p1">Dal 1997 il punto di riferimento del diportista: in edicola il 1° di ogni mese, online ogni giorno. Il media kit 2027, da sfogliare e da mandare a un cliente estero in un clic.</p>
+    <a class="cta" href="#proposta" data-go data-t="cta">Preparate una proposta</a>
+    <div class="nums"><div><b>1997</b><span data-t="n1">in edicola da allora</span></div><div><b>12</b><span data-t="n2">uscite l'anno, il 1° del mese</span></div><div><b>7.160</b><span data-t="n3">follower su Instagram</span></div></div>
+  </div>
+</main>
+</div>
+
+<section class="fm wrap">
+  <h2 data-t="h2a">Dove compare il vostro marchio.</h2>
+  <p class="lead" data-t="pa">Scegliete un formato: vedete dove finisce, sulla rivista o sul portale. Misure e posizioni di esempio.</p>
+  <div class="fm__g">
+    <div class="opts" id="opts" role="group" aria-label="Formati"></div>
+    <div class="stage"><svg id="stg" viewBox="0 0 600 400" aria-hidden="true"></svg><div class="spec" id="spec"></div></div>
+  </div>
+</section>
+
+<section class="cal">
+  <div class="wrap">
+    <h2 data-t="h2b">Dodici uscite, i saloni dell'anno.</h2>
+    <p class="lead" data-t="pb">Chi espone a un salone vuole essere nel numero che esce prima. Il calendario 2027 con le chiusure materiali: Pescare Show è quello vero, le altre date sono indicative.</p>
+    <div class="strip" id="strip"></div>
+  </div>
+</section>
+
+<section class="pr" id="proposta">
+  <div class="wrap pr__g">
+    <div>
+      <h2 data-t="h2c">Una proposta in trenta secondi.</h2>
+      <p class="lead" data-t="pc">Chi vende gli spazi scrive ogni giorno a cantieri e aziende, anche all'estero. Qui la proposta si compone da sola, in italiano o in inglese.</p>
+      <div class="f"><label for="az" data-t="l1">Azienda</label><input id="az" value="Cantiere Navale Esempio" maxlength="40" autocomplete="off"></div>
+      <div class="f"><label for="ti" data-t="l2">Settore</label><select id="ti"></select></div>
+      <div class="f"><label for="sa" data-t="l3">Salone a cui partecipano</label><select id="sa"></select></div>
+    </div>
+    <div class="mail" aria-live="polite">
+      <header><span id="mTo"></span><b id="mSub"></b></header>
+      <pre id="mBody"></pre>
+      <footer><button id="cp" data-t="cp">Copia il testo</button></footer>
+    </div>
+  </div>
+</section>
+
+<section class="rub">
+  <div class="wrap">
+    <h2 data-t="h2d">Le rubriche accanto a cui uscite.</h2>
+    <div class="tags"><span>Prove e Ultime Novità</span><span>Designer &amp; Progettisti</span><span>Tecnica e Consigli</span><span>Avvocato a Bordo</span><span>Pesca</span><span>Il Mondo Sommerso</span><span>Porti</span><span>Viaggi in Barca</span><span>Trend &amp; Lifestyle</span><span>Chef in barca</span><span>Charter</span><span>Saloni nautici</span></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Mondo Barca Market</h2>
+    <p>Informazione e compravendita nautica<br><a href="mailto:info@mondobarcamarket.it">info@mondobarcamarket.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Gli spazi della rivista, venduti anche fuori dall'Italia.</h2>
+    <ul>
+      <li><b>Un media kit vivo</b>Formati, uscite e saloni in una pagina che si manda con un link, in italiano e in inglese.</li>
+      <li><b>Proposte in serie</b>Testi pronti per cantieri, accessori, charter e porti, da personalizzare in un minuto.</li>
+      <li><b>Social e portale</b>Le prove in mare diventano reel e post che portano lettori agli inserzionisti.</li>
+      <li><b>Da esterni</b>Lavoriamo accanto a chi segue i clienti, senza appesantire la redazione.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Mondo Barca Market. Formati e date di esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},L='it';
+  var T={
+    iss:['Gennaio 2027','January 2027'],cl0:['Prova in mare','Sea trial'],cl1:['Il nuovo 50 piedi, tra potenza e silenzio','The new 50-footer, power and silence'],cl2:['Pescare Show 2027 · Antivegetativa senza errori · Porti dell\'Adriatico','Pescare Show 2027 · Antifouling done right · Adriatic marinas'],
+    h1:['Il vostro marchio, letto da chi va per mare.','Your brand, read by people who go to sea.'],
+    p1:['Dal 1997 il punto di riferimento del diportista: in edicola il 1° di ogni mese, online ogni giorno. Il media kit 2027, da sfogliare e da mandare a un cliente estero in un clic.','Since 1997 the reference for Italian boaters: on newsstands on the 1st of every month, online every day. The 2027 media kit, ready to browse and to send to a client abroad in one click.'],
+    cta:['Preparate una proposta','Build a proposal'],n1:['in edicola da allora','on newsstands since'],n2:['uscite l\'anno, il 1° del mese','issues a year, on the 1st'],n3:['follower su Instagram','Instagram followers'],
+    h2a:['Dove compare il vostro marchio.','Where your brand appears.'],pa:['Scegliete un formato: vedete dove finisce, sulla rivista o sul portale. Misure e posizioni di esempio.','Pick a format and see where it goes, in print or online. Sizes and positions are examples.'],
+    h2b:['Dodici uscite, i saloni dell\'anno.','Twelve issues, the year\'s boat shows.'],pb:['Chi espone a un salone vuole essere nel numero che esce prima. Il calendario 2027 con le chiusure materiali: Pescare Show è quello vero, le altre date sono indicative.','Exhibitors want to be in the issue that comes out before the show. The 2027 calendar with material deadlines: Pescare Show is confirmed, the other dates are indicative.'],
+    h2c:['Una proposta in trenta secondi.','A proposal in thirty seconds.'],pc:['Chi vende gli spazi scrive ogni giorno a cantieri e aziende, anche all\'estero. Qui la proposta si compone da sola, in italiano o in inglese.','Whoever sells the space writes to shipyards and brands every day, abroad too. Here the proposal writes itself, in Italian or English.'],
+    l1:['Azienda','Company'],l2:['Settore','Sector'],l3:['Salone a cui partecipano','Boat show they attend'],cp:['Copia il testo','Copy text'],h2d:['Le rubriche accanto a cui uscite.','The sections you appear next to.']
+  };
+  var FMT=[
+    {k:'pag',n:['Pagina intera','Full page'],d:['La più vista, accanto alle prove in mare','The most seen, next to sea trials'],m:'210 × 280 mm',w:['Rivista','Print'],z:'p',r:[300,20,280,360]},
+    {k:'dop',n:['Doppia pagina','Double spread'],d:['Per i lanci e i nuovi modelli','For launches and new models'],m:'420 × 280 mm',w:['Rivista','Print'],z:'p',r:[20,20,560,360]},
+    {k:'mez',n:['Mezza pagina','Half page'],d:['Accessori, elettronica, servizi','Accessories, electronics, services'],m:'190 × 125 mm',w:['Rivista','Print'],z:'p',r:[300,200,280,180]},
+    {k:'adv',n:['Prova redazionale','Sponsored test'],d:['Due pagine nella rubrica Prove','Two pages in the Tests section'],m:'2 pagine + online',w:['Rivista e portale','Print and web'],z:'p',r:[20,20,560,360],adv:1},
+    {k:'ban',n:['Banner sul portale','Website banner'],d:['In testata, su tutte le news','Header, across all news'],m:'970 × 250 px',w:['Portale','Web'],z:'w',r:[40,62,520,70]},
+    {k:'ig',n:['Post e storia sponsorizzati','Sponsored post and story'],d:['Sul profilo da 7.160 follower','On a 7,160-follower profile'],m:'1080 × 1350 + storia',w:['Instagram','Instagram'],z:'s'},
+    {k:'nl',n:['Newsletter','Newsletter'],d:['Uno spazio nella mail ai lettori','A slot in the reader email'],m:'600 × 300 px',w:['Email','Email'],z:'n'}
+  ];
+  var cur='pag';
+  function pages(){var o='<rect x="18" y="18" width="564" height="364" fill="#0003" transform="translate(6 8)"/><rect x="20" y="20" width="280" height="360" fill="#fff"/><rect x="300" y="20" width="280" height="360" fill="#fbfbf9"/><line x1="300" y1="20" x2="300" y2="380" stroke="#0002" stroke-width="2"/>';
+    for(var i=0;i<14;i++){o+='<rect x="40" y="'+(120+i*16)+'" width="'+(i%5==4?150:240)+'" height="5" fill="#0d1a2626"/>'}
+    o+='<rect x="40" y="40" width="240" height="70" fill="#1A78B4" opacity=".25"/><text x="40" y="104" font-family="Shoulders" font-weight="800" font-size="22" fill="#0A2238">PROVE IN MARE</text>';
+    for(var j=0;j<12;j++){o+='<rect x="320" y="'+(50+j*16)+'" width="240" height="5" fill="#0d1a2626"/>'}return o}
+  function web(){return '<rect x="20" y="20" width="560" height="360" rx="10" fill="#fff"/><rect x="20" y="20" width="560" height="30" rx="10" fill="#0A2238"/><circle cx="36" cy="35" r="4" fill="#F25C2A"/><text x="52" y="40" font-size="12" fill="#fff" font-family="Shoulders" font-weight="800">MONDO BARCA MARKET</text>'+[0,1,2].map(function(i){return '<rect x="'+(40+i*178)+'" y="150" width="164" height="96" fill="#1A78B4" opacity="'+(.2+i*.1)+'"/><rect x="'+(40+i*178)+'" y="254" width="150" height="6" fill="#0d1a2633"/><rect x="'+(40+i*178)+'" y="266" width="110" height="6" fill="#0d1a2622"/>'}).join('')+'<rect x="40" y="290" width="520" height="6" fill="#0d1a261a"/><rect x="40" y="304" width="480" height="6" fill="#0d1a261a"/>'}
+  function hl(r,label){return '<rect x="'+r[0]+'" y="'+r[1]+'" width="'+r[2]+'" height="'+r[3]+'" fill="#F25C2A" opacity=".9"/><text x="'+(r[0]+r[2]/2)+'" y="'+(r[1]+r[3]/2+8)+'" text-anchor="middle" font-family="Shoulders" font-weight="800" font-size="'+Math.min(34,r[3]*.5)+'" fill="#fff">'+label+'</text>'}
+  function phone(){return '<rect x="200" y="14" width="200" height="372" rx="28" fill="#0D1A26"/><rect x="210" y="24" width="180" height="352" rx="20" fill="#fff"/><circle cx="232" cy="48" r="12" fill="#0A2238"/><text x="252" y="52" font-size="11" font-weight="700" font-family="Tight">mondobarcamarket</text><rect x="210" y="70" width="180" height="225" fill="#F25C2A"/><text x="300" y="175" text-anchor="middle" font-family="Shoulders" font-weight="800" font-size="30" fill="#fff">IL VOSTRO</text><text x="300" y="207" text-anchor="middle" font-family="Shoulders" font-weight="800" font-size="30" fill="#fff">MARCHIO</text><text x="222" y="318" font-size="11" font-weight="700" font-family="Tight">Sponsorizzato</text><rect x="222" y="330" width="150" height="6" fill="#0d1a2626"/><rect x="222" y="342" width="110" height="6" fill="#0d1a261a"/>'}
+  function news(){return '<rect x="120" y="14" width="360" height="372" rx="8" fill="#fff"/><rect x="120" y="14" width="360" height="56" rx="8" fill="#0A2238"/><text x="140" y="50" font-family="Shoulders" font-weight="800" font-size="22" fill="#fff">LE NOVITÀ DEL MESE</text>'+[0,1].map(function(i){return '<rect x="140" y="'+(90+i*66)+'" width="90" height="54" fill="#1A78B4" opacity=".3"/><rect x="242" y="'+(96+i*66)+'" width="210" height="7" fill="#0d1a2633"/><rect x="242" y="'+(110+i*66)+'" width="170" height="7" fill="#0d1a261f"/>'}).join('')+hl([140,232,320,96],'IL VOSTRO SPAZIO')+'<rect x="140" y="346" width="230" height="7" fill="#0d1a261a"/>'}
+  function stage(){var f=FMT.filter(function(x){return x.k===cur})[0],o='',lab=L==='it'?'IL VOSTRO MARCHIO':'YOUR BRAND';
+    if(f.z==='p'){o=pages();if(f.adv){o+='<rect x="20" y="20" width="560" height="360" fill="#0A2238" opacity=".08"/><rect x="40" y="40" width="240" height="160" fill="#F25C2A" opacity=".85"/><text x="160" y="128" text-anchor="middle" font-family="Shoulders" font-weight="800" font-size="24" fill="#fff">FOTO IN MARE</text><text x="320" y="64" font-family="Shoulders" font-weight="800" font-size="26" fill="#0A2238">'+(L==='it'?'LA PROVA':'THE TEST')+'</text><rect x="320" y="80" width="120" height="22" fill="#F25C2A"/><text x="326" y="96" font-size="12" font-weight="800" fill="#fff" font-family="Tight">'+(L==='it'?'Dati rilevati':'Measured data')+'</text>'}else o+=hl(f.r,lab)}
+    else if(f.z==='w'){o=web()+hl(f.r,lab)}else if(f.z==='s'){o=phone()}else o=news();
+    $('stg').innerHTML=o;
+    $('spec').innerHTML='<div><b>'+(L==='it'?'Dove':'Where')+'</b>'+f.w[L==='it'?0:1]+'</div><div><b>'+(L==='it'?'Misura':'Size')+'</b>'+f.m+'</div><div><b>'+(L==='it'?'Prezzo':'Rate')+'</b>'+(L==='it'?'dal listino 2027':'2027 rate card')+'</div>'}
+  function opts(){$('opts').innerHTML=FMT.map(function(f){var i=L==='it'?0:1;return '<button data-k="'+f.k+'" aria-pressed="'+(f.k===cur)+'"><b>'+f.n[i]+'</b><span>'+f.w[i]+'</span><small>'+f.d[i]+'</small></button>'}).join('')}
+  $('opts').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.k;opts();stage()});
+  var MESI=[['Gennaio','January'],['Febbraio','February'],['Marzo','March'],['Aprile','April'],['Maggio','May'],['Giugno','June'],['Luglio','July'],['Agosto','August'],['Settembre','September'],['Ottobre','October'],['Novembre','November'],['Dicembre','December']];
+  var FAIR={1:['Pescare Show, Rimini','12–14 febbraio 2027','12–14 February 2027'],2:['Saloni di primavera','date da confermare','dates tbc'],4:['Stagione charter','apertura','season opens'],8:['Salone Nautico, Genova','settembre','September'],9:['Saloni d\'autunno','date da confermare','dates tbc'],10:['METSTRADE, Amsterdam','novembre','November']};
+  function strip(){$('strip').innerHTML=MESI.map(function(m,i){var f=FAIR[i],prev=MESI[(i+11)%12][L==='it'?0:1];return '<div class="iss'+(f?' hot':'')+'"><small>'+(L==='it'?'Uscita 1° ':'Out on 1 ')+m[L==='it'?0:1].toLowerCase()+'</small><b>'+m[L==='it'?0:1]+'</b><small>'+(L==='it'?'Chiusura materiali: 10 ':'Material deadline: 10 ')+prev.toLowerCase()+'</small>'+(f?'<div class="fair">'+f[0]+'<i>'+(L==='it'?f[1]:f[2])+'</i></div>':'')+'</div>'}).join('')}
+  var TI=[['Cantiere','Shipyard','la vostra nuova gamma','your new range','una prova redazionale e una doppia pagina','a sponsored test and a double spread'],['Accessori ed elettronica','Accessories and electronics','i vostri prodotti di bordo','your on-board products','una mezza pagina per tre uscite e un banner','a half page across three issues and a banner'],['Charter','Charter','le vostre flotte per l\'estate','your summer fleet','una pagina nel numero di aprile e due post','a page in the April issue and two posts'],['Porto turistico','Marina','i vostri posti barca','your berths','una pagina nella rubrica Porti e la newsletter','a page in the Marinas section and the newsletter'],['Motori','Engines','i vostri motori','your engines','una pagina accanto alle prove e un banner','a page next to the sea trials and a banner']];
+  var SA=['Pescare Show, Rimini','Salone Nautico, Genova','METSTRADE, Amsterdam','Nessuno quest\'anno'];
+  function sel(){$('ti').innerHTML=TI.map(function(t,i){return '<option value="'+i+'">'+t[L==='it'?0:1]+'</option>'}).join('');$('sa').innerHTML=SA.map(function(t,i){return '<option value="'+i+'">'+(i===3&&L==='en'?'None this year':t)+'</option>'}).join('')}
+  function esc(t){return String(t).replace(/[<>&]/g,'')}
+  function mail(){var a=esc($('az').value||'—'),t=TI[+$('ti').value||0],s=+$('sa').value||0,it=L==='it',sa=SA[s];
+    $('mTo').textContent=(it?'A: ':'To: ')+a;
+    $('mSub').textContent=it?('Mondo Barca Market e '+a+': una proposta per il 2027'):('Mondo Barca Market x '+a+': a 2027 proposal');
+    var body=it?('Buongiorno,\nsono di Mondo Barca Market, la rivista di informazione nautica in edicola dal 1997, il 1° di ogni mese.\n\n'+(s<3?'Sarete al '+sa+': ':'')+'per far conoscere '+t[2]+' ai diportisti italiani pensavamo a '+t[4]+'.\n\nVi mando il media kit 2027 con formati e uscite: '+location.href.split('#')[0]+'\n\nPosso chiamarvi dieci minuti questa settimana?')
+      :('Hello,\nI am writing from Mondo Barca Market, the Italian boating magazine on newsstands since 1997, out on the 1st of every month.\n\n'+(s<3?'You will be at '+sa+': ':'')+'to introduce '+t[3]+' to Italian boaters we suggest '+t[5]+'.\n\nHere is our 2027 media kit with formats and issues: '+location.href.split('#')[0]+'\n\nCould we have a ten-minute call this week?');
+    $('mBody').textContent=body}
+  ['az','ti','sa'].forEach(function(i){$(i).addEventListener('input',mail);$(i).addEventListener('change',mail)});
+  $('cp').addEventListener('click',function(){try{navigator.clipboard.writeText($('mSub').textContent+'\n\n'+$('mBody').textContent)}catch(x){}var b=this,o=b.textContent;b.textContent=L==='it'?'Copiato':'Copied';setTimeout(function(){b.textContent=o},1400)});
+  function lang(l){L=l;document.documentElement.lang=l;[].forEach.call(document.querySelectorAll('[data-t]'),function(el){var v=T[el.dataset.t];if(v)el.textContent=v[l==='it'?0:1]});
+    [].forEach.call(document.querySelectorAll('.lang button'),function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    var ti=$('ti').value,sa=$('sa').value;opts();stage();strip();sel();$('ti').value=ti||0;$('sa').value=sa||0;mail()}
+  document.querySelector('.lang').addEventListener('click',function(e){var b=e.target.closest('button');if(b)lang(b.dataset.l)});
+  lang('it');
+})();
+</script>
+</body>
+</html>

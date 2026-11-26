@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Party On The Road · Scegli l'auto, disegniamo il giro di Roma</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Italiana;src:url(../lib/fonts/italiana-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:ISans;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* Roma la sera: travertino, sampietrini, il bordeaux degli interni in pelle, lo champagne delle cromature */
+  --trav:#EFE8DB; --pietra:#D6CBB8; --vino:#4A1226; --vino2:#2C0A16; --champ:#D8B979; --ink:#1B1214;
+  --d:Italiana,Georgia,serif; --s:ISans,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--trav)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:.005em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--champ);outline-offset:3px}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+
+.hero{position:relative;min-height:min(92svh,860px);color:#fff;display:flex;align-items:flex-end;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:pan 14s ease-out both}
+@keyframes pan{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#2c0a16f0 0%,#2c0a16b8 42%,#2c0a1622 78%),linear-gradient(180deg,#2c0a1688 0%,transparent 30%,#2c0a16cc 100%)}
+.hero h1,.hero p{text-shadow:0 2px 24px #2c0a16}
+.hero .wrap{position:relative;z-index:2;padding-bottom:clamp(40px,7vw,90px);width:100%}
+.top{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);color:#fff}
+.top b{font:400 26px/1 var(--d);letter-spacing:.04em}
+.top a{color:#fff;text-decoration:none;font-weight:700;border:1.5px solid #ffffff99;padding:9px 14px;border-radius:99px;font-size:14.5px}
+.hero h1{font-size:clamp(54px,8vw,132px);margin:0 0 16px;max-width:12ch}
+.hero p{font-size:clamp(17px,1.5vw,21px);max-width:48ch;margin:0;opacity:.92}
+.hero .rv{display:flex;gap:18px;margin-top:22px;font-size:14.5px;font-weight:600;flex-wrap:wrap}
+.hero .rv span{border-top:1px solid #ffffff66;padding-top:8px}
+
+/* evento + flotta */
+.ev{padding-block:clamp(60px,8vw,110px)}
+.ev h2{font-size:clamp(46px,6vw,96px);margin:0 0 10px}
+.ev .lead{max-width:54ch;margin:0 0 24px;color:#4b3d3f;font-size:clamp(17px,1.4vw,19px)}
+.evs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.evs button{border:1.5px solid #1b121433;background:none;border-radius:99px;padding:9px 16px;font-weight:600;cursor:pointer}
+.evs button[aria-pressed=true]{background:var(--vino);border-color:var(--vino);color:#fff}
+.fleet{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px}
+.car{scroll-snap-align:start;border:0;text-align:left;background:#fff;border-radius:14px;padding:0;overflow:hidden;cursor:pointer;box-shadow:0 0 0 1.5px #1b121418;transition:box-shadow .2s,transform .2s}
+.car[aria-pressed=true]{box-shadow:0 0 0 3px var(--vino);transform:translateY(-3px)}
+.car svg{display:block;width:100%;height:auto;background:var(--pietra)}
+.car div{padding:12px 14px 14px}
+.car b{display:block;font:400 26px/1.05 var(--d)}
+.car small{color:#6b5b5d;font-size:13.5px;font-weight:600}
+
+/* percorso */
+.rt{background:var(--vino2);color:#fff;padding-block:clamp(60px,8vw,110px)}
+.rt__g{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:clamp(18px,4vw,60px);align-items:start}
+.map{background:#3a0f1f;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 0 1px #ffffff1a}
+.map svg{display:block;width:100%;height:auto}
+.rt h2{font-size:clamp(42px,5vw,80px);margin:0 0 12px}
+.rt p{opacity:.85}
+.stops{list-style:none;margin:20px 0;padding:0;display:grid;gap:0}
+.stops li{display:grid;grid-template-columns:62px 1fr;gap:10px;padding:12px 0;border-top:1px solid #ffffff22}
+.stops time{font-weight:700;color:var(--champ)}
+.tog{display:flex;align-items:center;gap:12px;background:#ffffff12;border-radius:12px;padding:14px 16px;cursor:pointer}
+.tog input{width:22px;height:22px;accent-color:var(--champ)}
+.tog span{font-size:15px}
+.tog b{display:block}
+.ask{display:block;margin-top:16px;text-align:center;background:var(--champ);color:var(--ink);font-weight:700;padding:15px;border-radius:10px;text-decoration:none}
+
+/* scatti */
+.sh{padding-block:clamp(60px,8vw,110px)}
+.sh h2{font-size:clamp(44px,5.6vw,88px);margin:0 0 10px;max-width:16ch}
+.sh .lead{max-width:56ch;color:#4b3d3f;margin:0 0 30px}
+.shg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.shg figure{margin:0;position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:3/4}
+.shg figure.w{grid-column:span 2;aspect-ratio:auto}
+.shg img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.shg figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,#000c);color:#fff;font-size:14px}
+.shg figcaption b{display:block;font:400 24px/1.05 var(--d)}
+.list{columns:2;column-gap:40px;margin:30px 0 0;padding:0;list-style:none}
+.list li{break-inside:avoid;padding:10px 0;border-top:1px solid #1b121422;display:flex;gap:12px}
+.list li span{font-weight:700;color:var(--vino);min-width:48px}
+.foot{background:var(--ink);color:#fff;padding-block:clamp(40px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;align-items:end}
+.foot h2{font-size:clamp(36px,4vw,64px);margin:0}
+.foot p{margin:0;opacity:.85;font-size:15.5px}
+.foot a{color:inherit}
+@media(max-width:980px){.rt__g,.foot__g{grid-template-columns:1fr}.shg{grid-template-columns:1fr 1fr}.list{columns:1}}
+@media(max-width:520px){.shg figure.w{grid-column:1/-1}.top a{font-size:13px;padding:7px 11px}}
+@media(prefers-reduced-motion:reduce){.hero img{animation:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per Party On The Road" data-note="Anteprima preparata da Umbra per Party On The Road, a partire dal vostro annuncio per una fotografa e videomaker per gli eventi. Auto, servizi, chauffeur donna, regioni, recensioni e contatti vengono dal vostro sito; percorsi, orari e scaletta delle foto sono un esempio. Foto da Unsplash.">
+
+<header class="hero" id="top">
+  <img src="img/verde.jpg" alt="Auto d'epoca decorata con fiori per un matrimonio">
+  <div class="top"><b>PARTY ON THE ROAD</b><a href="tel:+393487351351">348 735 1351</a></div>
+  <div class="wrap">
+    <h1>Scegli l'auto. Il giro di Roma lo disegniamo noi.</h1>
+    <p>Oltre 150 auto d'epoca, di lusso e limousine per matrimoni, feste e tour della città. Qui si sceglie l'evento, l'auto e il percorso, e la richiesta arriva già completa.</p>
+    <div class="rv"><span>1054 recensioni su Google</span><span>Lazio, Marche, Umbria e Toscana</span><span>Unici nel Lazio con chauffeur donna</span></div>
+  </div>
+</header>
+
+<section class="ev wrap">
+  <h2>Per quale giorno?</h2>
+  <p class="lead">Ogni occasione ha le sue auto. Scegliete l'evento: la flotta si riordina e sotto compare il percorso per Roma.</p>
+  <div class="evs" id="evs" role="group" aria-label="Evento"></div>
+  <div class="fleet" id="fleet" role="group" aria-label="Auto"></div>
+</section>
+
+<section class="rt">
+  <div class="wrap rt__g">
+    <div class="map"><svg id="map" viewBox="0 0 700 520" role="img" aria-label="Percorso su una mappa stilizzata di Roma"></svg></div>
+    <div aria-live="polite">
+      <h2 id="rtT"></h2>
+      <p id="rtP"></p>
+      <ol class="stops" id="stops"></ol>
+      <label class="tog"><input type="checkbox" id="chf"><span><b>Chauffeur donna</b>Un tocco in più, che nel Lazio trovate solo qui</span></label>
+      <a class="ask" id="ask" target="_blank" rel="noopener">Chiedi disponibilità su WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="sh">
+  <div class="wrap">
+    <h2>Le foto che gli sposi chiedono dopo.</h2>
+    <p class="lead">L'auto è il momento più fotografato della giornata dopo la cerimonia. Ecco la scaletta che segue chi fotografa e gira per voi: ogni evento diventa anche un post, una storia e un reel per la vostra pagina.</p>
+    <div class="shg">
+      <figure class="w"><img src="img/bianca.jpg" alt="" loading="lazy"><figcaption><b>L'arrivo in chiesa</b>Portiera aperta, abito che scende, invitati sullo sfondo</figcaption></figure>
+      <figure><img src="img/fiocco.jpg" alt="" loading="lazy"><figcaption><b>Il fiocco</b>Dettaglio sul cofano</figcaption></figure>
+      <figure><img src="img/cinquecento.jpg" alt="" loading="lazy"><figcaption><b>La sosta</b>Una scalinata di Roma</figcaption></figure>
+      <figure><img src="img/epoca.jpg" alt="" loading="lazy"><figcaption><b>Cromature</b>Calandra e fari, per i reel</figcaption></figure>
+      <figure><img src="img/limo.jpg" alt="" loading="lazy"><figcaption><b>La sera</b>Limousine e luci della città</figcaption></figure>
+      <figure class="w"><img src="img/verde.jpg" alt="" loading="lazy"><figcaption><b>La partenza</b>Lattine, applausi, il saluto dal finestrino</figcaption></figure>
+    </div>
+    <ul class="list">
+      <li><span>00:00</span>L'auto che arriva sotto casa, ripresa dall'alto</li>
+      <li><span>00:04</span>Lo chauffeur che apre la portiera</li>
+      <li><span>00:08</span>Interni in pelle, mani sul volante d'epoca</li>
+      <li><span>00:12</span>Il primo sguardo degli sposi all'auto</li>
+      <li><span>00:18</span>Il passaggio davanti al monumento scelto</li>
+      <li><span>00:24</span>L'arrivo alla location, il brindisi accanto all'auto</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Party On The Road</h2>
+    <p>Via Pontina km 29,150<br>00071 Pomezia (RM)</p>
+    <p><a href="tel:+393487351351">348 735 1351</a><br><a href="mailto:info@partyontheroad.it">info@partyontheroad.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Ogni corsa, una richiesta completa e tre contenuti.</h2>
+    <ul>
+      <li><b>Richieste già pronte</b>Evento, auto, percorso e orari arrivano insieme su WhatsApp: si risponde con un preventivo, non con dieci domande.</li>
+      <li><b>Foto e video degli eventi</b>Una scaletta fissa per chi fotografa, così ogni matrimonio diventa post, storia e reel.</li>
+      <li><b>La flotta online</b>Le 150 auto ordinate per occasione, con le foto vere e le disponibilità.</li>
+      <li><b>Da esterni</b>Regia, montaggio e pubblicazione li seguiamo noi.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Party On The Road. Percorsi d'esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var CARS={
+    rolls:['Rolls Royce Bentley S1','Epoca, cerimonia','#E9E4DA','epoca'],bentley:['Bentley Continental Cabrio','Lusso scoperta','#2C3A4A','cabrio'],
+    aurelia:['Lancia Aurelia B20','Epoca, coupé','#7B2132','coupe'],porsche:['Porsche 356','Epoca, sportiva','#C9C2B4','coupe'],
+    sl:['Mercedes-Benz 280 SL','Epoca, scoperta','#E1DCCF','cabrio'],jaguar:['Jaguar XJ8','Berlina elegante','#1E2B26','berlina'],
+    limo:['Lincoln Limousine','Limousine','#F1F0EC','limo'],hummer:['Hummer H2 Limousine','Limousine','#15171A','limo'],
+    testa:['Ferrari Testarossa','Sportiva','#B3121D','sport'],corvette:['Chevrolet Corvette C4','Sportiva','#8E1219','sport'],
+    topolino:['Fiat Topolino','Simpatica','#7FA9B8','mini'],cinquecento:['Fiat 500 Abarth','Simpatica','#9CC3D3','mini'],bugatti:['Bugatti Type 35','Epoca, corsa','#22427A','sport']
+  };
+  var EV={
+    matrimonio:['Matrimonio',['rolls','sl','aurelia','bentley','jaguar','porsche'],'Dalla chiesa alla location, con la sosta per le foto',[['Basilica di Santa Sabina',[300,330]],['Giardino degli Aranci',[318,310],'sosta foto, 15 minuti'],['Colosseo',[420,280],'passaggio lento'],['Location del ricevimento',[620,140]]],['10:45','11:30','12:40','13:10']],
+    nubilato:['Addio al nubilato',['limo','hummer','cinquecento'],'Una sera in limousine tra le piazze',[['Piazza del Popolo',[300,90]],['Fontana di Trevi',[355,180],'brindisi a bordo'],['Piazza Navona',[285,210]],['Trastevere',[270,320]]],['21:00','21:30','22:10','22:45']],
+    compleanno:['Compleanno e diciottesimo',['hummer','limo','testa','corvette'],'L\'arrivo che tutti fotografano',[['Sotto casa',[120,420]],['Lungotevere',[250,260]],['Gianicolo',[200,250],'foto panoramica'],['Il locale',[480,200]]],['20:00','20:25','20:45','21:20']],
+    tour:['Tour privato di Roma',['bugatti','topolino','cinquecento','porsche'],'Roma vista da un\'auto d\'epoca, a passo d\'uomo',[['Piazza Venezia',[365,240]],['Colosseo',[420,280]],['Circo Massimo',[355,320]],['Pincio',[315,100],'tramonto']],['17:00','17:20','17:45','18:30']],
+    serenata:['Serenata',['rolls','aurelia','limo'],'Sotto la sua finestra, la sera prima',[['Ritiro dei musicisti',[540,380]],['Sotto casa della sposa',[160,170],'quaranta minuti'],['Rientro',[540,380]]],['21:00','21:40','22:30']]
+  };
+  var ev='matrimonio',car='rolls';
+  function svgCar(k){var c=CARS[k],col=c[2],t=c[3],o='<svg viewBox="0 0 300 150" aria-hidden="true"><rect width="300" height="150" fill="#D6CBB8"/><ellipse cx="150" cy="122" rx="128" ry="10" fill="#0002"/>';
+    if(t==='limo'){o+='<path d="M20 100 L30 74 L80 66 L240 66 L268 76 L282 100 Z" fill="'+col+'" stroke="#0003"/><rect x="86" y="72" width="150" height="16" rx="3" fill="#1b1214" opacity=".75"/>'}
+    else if(t==='mini'){o+='<path d="M70 104 Q74 60 120 52 Q170 46 200 62 Q232 76 236 104 Z" fill="'+col+'" stroke="#0003"/><path d="M110 60 Q150 48 190 64 L186 80 L108 80 Z" fill="#1b1214" opacity=".7"/>'}
+    else if(t==='sport'){o+='<path d="M26 104 L40 86 Q90 70 150 68 Q210 66 250 80 L280 98 L282 104 Z" fill="'+col+'" stroke="#0003"/><path d="M120 72 Q150 60 186 70 L176 82 L118 82 Z" fill="#1b1214" opacity=".7"/>'}
+    else if(t==='cabrio'){o+='<path d="M30 104 L36 84 Q60 76 110 74 L230 74 Q262 78 274 92 L276 104 Z" fill="'+col+'" stroke="#0003"/><path d="M120 74 L132 60 L136 74" stroke="#1b1214" stroke-width="3" fill="none"/>'}
+    else{o+='<path d="M26 104 L32 86 Q50 80 76 78 L100 56 Q150 46 196 56 L218 78 Q256 80 272 90 L276 104 Z" fill="'+col+'" stroke="#0003"/><path d="M106 60 Q150 52 192 60 L208 78 L96 78 Z" fill="#1b1214" opacity=".7"/>'}
+    o+='<circle cx="80" cy="106" r="17" fill="#1b1214"/><circle cx="80" cy="106" r="8" fill="#cfc6b4"/><circle cx="226" cy="106" r="17" fill="#1b1214"/><circle cx="226" cy="106" r="8" fill="#cfc6b4"/>';
+    if(t==='epoca'){o+='<path d="M60 92 Q80 70 100 90" stroke="'+col+'" stroke-width="12" fill="none"/><circle cx="262" cy="90" r="5" fill="#D8B979"/>'}
+    return o+'</svg>'}
+  $('evs').innerHTML=Object.keys(EV).map(function(k){return '<button data-k="'+k+'" aria-pressed="'+(k===ev)+'">'+EV[k][0]+'</button>'}).join('');
+  function fleet(){var list=EV[ev][1].concat(Object.keys(CARS).filter(function(k){return EV[ev][1].indexOf(k)<0}));
+    $('fleet').innerHTML=list.map(function(k,i){var c=CARS[k];return '<button class="car" data-k="'+k+'" aria-pressed="'+(k===car)+'"'+(i>=EV[ev][1].length?' style="opacity:.55"':'')+'>'+svgCar(k)+'<div><b>'+c[0]+'</b><small>'+c[1]+(i<EV[ev][1].length?' · consigliata':'')+'</small></div></button>'}).join('')}
+  function map(){var e=EV[ev],pts=e[3].map(function(s){return s[1]}),o='';
+    /* il Tevere e qualche strada */
+    o+='<path d="M210 0 C250 80 230 150 250 210 C270 270 230 300 250 360 C270 420 230 470 260 520" stroke="#6f2a40" stroke-width="22" fill="none" stroke-linecap="round"/>';
+    for(var i=0;i<14;i++){o+='<path d="M'+(i*55)+' 0 L'+(i*55-80)+' 520" stroke="#ffffff0d" stroke-width="2"/>';o+='<path d="M0 '+(i*42)+' L700 '+(i*42+60)+'" stroke="#ffffff0a" stroke-width="2"/>'}
+    [['Colosseo',420,280],['Fontana di Trevi',355,180],['San Pietro',140,200],['Pincio',315,100],['Circo Massimo',355,320],['Gianicolo',200,250]].forEach(function(l){o+='<circle cx="'+l[1]+'" cy="'+l[2]+'" r="4" fill="#ffffff55"/><text x="'+(l[1]+8)+'" y="'+(l[2]+4)+'" font-size="12" fill="#ffffff66" font-family="ISans">'+l[0]+'</text>'});
+    var d='M'+pts[0][0]+' '+pts[0][1];for(var j=1;j<pts.length;j++){var a=pts[j-1],b=pts[j],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2-40;d+=' Q'+mx+' '+my+' '+b[0]+' '+b[1]}
+    o+='<path id="route" d="'+d+'" stroke="#D8B979" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="2000" stroke-dashoffset="2000"><animate attributeName="stroke-dashoffset" from="2000" to="0" dur="2.4s" fill="freeze"/></path>';
+    pts.forEach(function(p,i){o+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="11" fill="#D8B979"/><text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#1B1214" font-family="ISans">'+(i+1)+'</text>'});
+    o+='<g><circle r="8" fill="#fff"/><animateMotion dur="2.4s" fill="freeze" path="'+d+'"/></g>';
+    $('map').innerHTML=o}
+  function side(){var e=EV[ev],c=CARS[car];$('rtT').textContent=c[0];$('rtP').textContent=e[2]+'.';
+    $('stops').innerHTML=e[3].map(function(s,i){return '<li><time>'+e[4][i]+'</time><span><b>'+s[0]+'</b>'+(s[2]?' · '+s[2]:'')+'</span></li>'}).join('');
+    var txt='Buongiorno Party On The Road, vorrei un preventivo per: '+e[0].toLowerCase()+', auto '+c[0]+'. Percorso: '+e[3].map(function(s){return s[0]}).join(' → ')+'.'+($('chf').checked?' Con chauffeur donna.':'')+' Data: ';
+    $('ask').href='https://wa.me/393487351351?text='+encodeURIComponent(txt)}
+  $('evs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;ev=b.dataset.k;car=EV[ev][1][0];[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});fleet();map();side()});
+  $('fleet').addEventListener('click',function(e){var b=e.target.closest('.car');if(!b)return;car=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});side()});
+  $('chf').addEventListener('change',side);
+  fleet();map();side();
+})();
+</script>
+</body>
+</html>
