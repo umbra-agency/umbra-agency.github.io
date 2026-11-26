@@ -124,6 +124,98 @@ button,input{font:inherit;color:inherit}
   .passi{grid-template-columns:1fr}
   .casse{grid-template-columns:1fr 1fr}
 }
+
+/* ---------- l'anno del banco ---------- */
+.anno{background:#1f2420;color:#f4f1e6;padding-block:clamp(64px,8vw,120px);overflow:hidden}
+.anno h2{font-size:clamp(42px,5.6vw,88px);margin:0 0 14px;max-width:14ch}
+.anno .lead{max-width:52ch;margin:0;font-size:clamp(17px,1.5vw,20px);opacity:.85}
+.filo{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:8px;margin:clamp(34px,5vw,60px) 0 clamp(26px,3vw,40px);padding-top:18px}
+.filo::before{content:"";position:absolute;left:-4%;right:-4%;top:6px;height:2px;background:#cbb98f;border-radius:2px;transform:rotate(-.4deg)}
+.cart{position:relative;border:0;background:var(--paglia);color:var(--ink);font:400 clamp(16px,1.5vw,21px)/1 var(--g);padding:16px 4px 12px;border-radius:3px 3px 6px 6px;cursor:pointer;transform-origin:50% -12px;transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .2s,color .2s;box-shadow:0 6px 0 -2px #0000004d}
+.cart::before{content:"";position:absolute;left:50%;top:-13px;width:1.5px;height:14px;background:#cbb98f}
+.cart::after{content:"";position:absolute;left:calc(50% - 4px);top:5px;width:8px;height:8px;border-radius:50%;background:#1f2420}
+.cart:hover{transform:rotate(-4deg)}
+.cart[aria-pressed=true]{background:var(--carne);color:#fff;transform:translateY(10px) rotate(3deg)}
+.anno__g{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:stretch}
+.lav{background:#7a5532;padding:14px;border-radius:6px;box-shadow:0 30px 50px -30px #000}
+.lav__in{background:radial-gradient(120% 90% at 30% 20%,#3a4540,#2a322e 60%,#222925);border-radius:3px;padding:clamp(22px,3vw,40px);height:100%;position:relative;overflow:hidden}
+.lav__in::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,#ffffff06 0 2px,transparent 2px 9px);pointer-events:none}
+.lav small{display:block;font-size:14px;font-weight:600;opacity:.65;margin-bottom:10px}
+.lav h3{font-size:clamp(36px,4.4vw,66px);margin:0 0 22px;color:#fffdf6}
+.lav ul{list-style:none;margin:0 0 26px;padding:0}
+.lav li{font:400 clamp(22px,2.2vw,31px)/1.2 var(--g);padding:9px 0 8px;border-bottom:1.5px dashed #f4f1e640}
+.lav li::before{content:"";display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--paglia);margin-right:14px;vertical-align:.12em}
+.lav blockquote{margin:0;padding:14px 16px;border-left:3px solid var(--paglia);background:#ffffff0d;font-size:16px;line-height:1.5}
+.lav blockquote b{display:block;font-size:13.5px;opacity:.7;margin-bottom:4px}
+.rio{background:#fffef9;color:var(--ink);border-radius:6px;padding:22px 20px;display:flex;flex-direction:column}
+.rio h3{font-size:clamp(26px,2.4vw,34px);margin:0 0 4px}
+.rio>p{margin:0 0 14px;font-size:15px;opacity:.75}
+.rio .r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:11px 0;border-top:1px dashed #1d1a1755;font:400 14px/1.4 var(--mono)}
+.rio .r b{text-transform:uppercase}
+.rio .r em{grid-column:1/-1;font-style:normal;font-size:12.5px;opacity:.7}
+.rio .t{display:flex;justify-content:space-between;font:700 16px/1 var(--mono);border-top:2px solid var(--ink);padding-top:12px;margin-top:auto}
+.rio button{margin-top:14px;border:0;background:var(--carne);color:#fff;font:700 16px/1 var(--h);padding:15px;border-radius:3px;cursor:pointer}
+.rio .ok{display:block;font-size:13px;text-align:center;margin-top:8px;opacity:.7;min-height:1.3em}
+
+/* ---------- il lunedì ---------- */
+.lun{padding-block:clamp(64px,8vw,120px)}
+.lun__g{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:start}
+.lun h2{font-size:clamp(40px,5vw,78px);margin:0 0 14px}
+.lun .lead{font-size:clamp(17px,1.5vw,20px);max-width:44ch;margin:0 0 22px}
+.lun dl{margin:0;display:grid;gap:14px}
+.lun dt{font:400 22px/1.1 var(--g)}
+.lun dd{margin:2px 0 0;font-size:15.5px;max-width:42ch}
+.sw{display:inline-flex;background:#fff;border:1.5px solid #1d1a1733;border-radius:99px;padding:4px;margin-bottom:14px}
+.sw button{border:0;background:none;border-radius:99px;padding:8px 16px;font-weight:700;font-size:14.5px;cursor:pointer}
+.sw button[aria-pressed=true]{background:var(--ink);color:#fff}
+.mail{background:#fff;border-radius:10px;box-shadow:0 30px 60px -30px #0006,0 0 0 1px #1d1a1714;overflow:hidden}
+.mail__h{padding:16px 20px;border-bottom:1px solid #1d1a171a;font-size:14px;display:grid;gap:3px}
+.mail__h span{opacity:.6}
+.mail__h b{font-size:17px}
+.mail__b{padding:clamp(20px,3vw,34px)}
+.mail__b h3{font-size:clamp(28px,3vw,42px);margin:0 0 10px}
+.mail__b p{margin:0 0 16px;font-size:15.5px}
+.mail table{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:18px}
+.mail td{padding:10px 0;border-bottom:1px solid #1d1a171a}
+.mail td:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mail td small{display:block;opacity:.6;font-size:12.5px}
+.mail .cta{display:block;width:100%;border:0;background:var(--bordo);color:#fff;font:700 16px/1 var(--h);padding:16px;border-radius:4px;cursor:pointer}
+.mail .tip{margin-top:18px;background:var(--piast);border-radius:6px;padding:14px 16px;font-size:15px}
+.mail .tip b{display:block;font:400 19px/1.15 var(--g);margin-bottom:4px;color:var(--carne)}
+.mail footer{padding:12px 20px;font-size:12.5px;opacity:.55;border-top:1px solid #1d1a171a}
+.wa{display:none;background:#e7ddd2;border-radius:24px;padding:22px 16px 26px;max-width:420px;margin-inline:auto;box-shadow:0 30px 60px -30px #0006}
+.wa__h{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;margin-bottom:16px}
+.wa__h i{width:34px;height:34px;border-radius:50%;background:var(--carne);display:grid;place-items:center;color:#fff;font:400 16px/1 var(--g);font-style:normal}
+.bub{background:#fff;border-radius:4px 14px 14px 14px;padding:12px 14px 8px;font-size:15px;line-height:1.45;max-width:90%;box-shadow:0 1px 0 #0001;white-space:pre-line}
+.bub small{display:block;text-align:right;font-size:11.5px;opacity:.5;margin-top:4px}
+.bub.me{background:#d9fdd3;margin:10px 0 0 auto;border-radius:14px 4px 14px 14px;max-width:60%}
+.lun[data-v=wa] .mail{display:none}
+.lun[data-v=wa] .wa{display:block}
+
+/* ---------- il corso ---------- */
+.crs{background:var(--paglia);padding-block:clamp(64px,8vw,120px)}
+.crs__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.crs h2{font-size:clamp(40px,5vw,78px);margin:0 0 14px}
+.crs .lead{font-size:clamp(17px,1.5vw,20px);max-width:46ch;margin:0 0 22px}
+.prg{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.prg li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px solid #1d1a1733;font-size:15.5px}
+.prg time{font:700 15px/1.45 var(--mono)}
+.tick{background:#fffef9;border-radius:8px;box-shadow:0 30px 50px -30px #0007;display:grid;grid-template-columns:minmax(0,1fr) 92px;overflow:hidden}
+.tick__m{padding:clamp(20px,3vw,32px)}
+.tick__s{background:var(--carne);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-left:3px dashed var(--paglia);text-align:center;padding:12px 6px}
+.tick__s b{font:400 44px/1 var(--g)}
+.tick__s span{font-size:12.5px;font-weight:600;line-height:1.2}
+.tick h3{font-size:clamp(26px,2.6vw,36px);margin:0 0 6px}
+.tick .meta{font-size:15px;margin:0 0 18px;opacity:.8}
+.tick label{display:block;font-size:13.5px;font-weight:700;margin:12px 0 5px}
+.tick select,.tick input{width:100%;padding:12px 13px;border:1.5px solid #1d1a1740;border-radius:4px;background:#fff;font-size:16px}
+.tick .go{margin-top:16px;width:100%;border:0;background:var(--ink);color:#fff;font:700 16px/1 var(--h);padding:15px;border-radius:4px;cursor:pointer}
+.tick .fatto{display:none;padding:18px 0 4px}
+.tick .fatto b{display:block;font:400 30px/1.05 var(--g);color:var(--prezz);margin-bottom:6px}
+.tick.ok form{display:none}
+.tick.ok .fatto{display:block}
+@media (max-width:1020px){.anno__g,.lun__g,.crs__g{grid-template-columns:1fr}.filo{grid-template-columns:repeat(6,minmax(0,1fr));row-gap:26px}}
+@media (max-width:640px){.cart{font-size:15px;padding:14px 2px 10px}.tick{grid-template-columns:minmax(0,1fr) 70px}.tick__s b{font-size:34px}.bub.me{max-width:75%}}
 @media (prefers-reduced-motion:reduce){.riga{animation:none}.vas svg{transition:none}}
 </style>
 </head>
@@ -192,6 +284,96 @@ button,input{font:inherit;color:inherit}
       <a href="#top"><b>5</b><span>Budella naturali e sintetiche</span></a>
       <a href="#top"><b>4</b><span>Mix funzionali</span></a>
       <a href="#top"><b>4</b><span>Marinate e salse</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="anno" id="anno">
+  <div class="wrap">
+    <h2>Ogni mese il banco cambia. La lista anche.</h2>
+    <p class="lead">Un calendario dell'anno per il macellaio: cosa chiedono i clienti, cosa scrivere sulla lavagna, cosa riordinare dal vostro listino. Scegli un mese.</p>
+    <div class="filo" id="filo" role="group" aria-label="Mese"></div>
+    <div class="anno__g">
+      <div class="lav"><div class="lav__in" aria-live="polite">
+        <small id="lavM"></small>
+        <h3 id="lavT"></h3>
+        <ul id="lavL"></ul>
+        <blockquote><b>Da scrivere sulla lavagna in vetrina</b><span id="lavC"></span></blockquote>
+      </div></div>
+      <div class="rio">
+        <h3>Da riordinare</h3>
+        <p id="rioP"></p>
+        <div id="rioL"></div>
+        <div class="t"><span>Totale</span><span id="rioT"></span></div>
+        <button id="rioB">Metti tutto in bolla</button>
+        <span class="ok" id="rioOk"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lun tiles" id="lun" data-v="mail">
+  <div class="wrap lun__g">
+    <div>
+      <h2>Il lunedì alle 7, la lista è già lì.</h2>
+      <p class="lead">Ogni settimana il macellaio riceve cosa gli servirà, segnato sul suo ultimo ordine. Un tocco e riordina, prima di restare senza budella il sabato mattina.</p>
+      <div class="sw" role="group" aria-label="Canale"><button data-v="mail" aria-pressed="true">Email</button><button data-v="wa" aria-pressed="false">WhatsApp</button></div>
+      <dl>
+        <dt>Segue il calendario</dt><dd>Il mese che hai scelto qui sopra decide cosa c'è nella lista e il consiglio della settimana.</dd>
+        <dt>Parte dall'ultimo ordine</dt><dd>Quantità già scritte come la volta scorsa: si cambia solo quello che serve.</dd>
+        <dt>Col nome del negozio</dt><dd>Lo stesso che hai scritto sopra, sulle etichette.</dd>
+      </dl>
+    </div>
+    <div>
+      <article class="mail" aria-live="polite">
+        <div class="mail__h"><span>Da: Fan Sapori · a: <i id="mTo"></i></span><b id="mOgg"></b></div>
+        <div class="mail__b">
+          <h3 id="mH"></h3>
+          <p id="mP"></p>
+          <table id="mT"></table>
+          <button class="cta" id="mB">Riordina come l'ultima volta</button>
+          <div class="tip"><b>Il consiglio della settimana</b><span id="mTip"></span></div>
+        </div>
+        <footer>Ricevi questa lista ogni lunedì. Per non riceverla più basta rispondere «stop».</footer>
+      </article>
+      <div class="wa" aria-live="polite">
+        <div class="wa__h"><i>F</i>Fan Sapori</div>
+        <div class="bub" id="waB"></div>
+        <div class="bub me">Sì, mandala<small>07:12 ✓✓</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="crs">
+  <div class="wrap crs__g">
+    <div>
+      <h2>Il corso al banco, con la sua pagina d'iscrizione.</h2>
+      <p class="lead">Quando portate un corso in una città, i macellai della zona si iscrivono da qui e ricevono il promemoria il giorno prima. Programma e date sono d'esempio.</p>
+      <ol class="prg">
+        <li><time>9:00</time><span>Si parte dalla carne di chi partecipa</span></li>
+        <li><time>9:30</time><span>Hamburger e salsiccia: dosi del premix e impasto</span></li>
+        <li><time>11:30</time><span>Panature a confronto, dalla Super Crock all'Assassina</span></li>
+        <li><time>13:00</time><span>Assaggio di tutto quello che si è preparato</span></li>
+        <li><time>14:30</time><span>Vaschetta, etichetta e shelf life</span></li>
+      </ol>
+    </div>
+    <div class="tick" id="tick">
+      <div class="tick__m">
+        <h3>Hamburger, salsiccia e impanati</h3>
+        <p class="meta" id="tMeta"></p>
+        <form id="tF">
+          <label for="tC">La città</label>
+          <select id="tC"><option>Francavilla Fontana</option><option>Matera</option><option>Bari</option><option>Lecce</option><option>Taranto</option></select>
+          <label for="tN">Il nome del negozio</label>
+          <input id="tN" required autocomplete="off">
+          <label for="tP">Quanti venite</label>
+          <select id="tP"><option>1</option><option>2</option><option>3</option></select>
+          <button class="go">Prenota i posti</button>
+        </form>
+        <div class="fatto" aria-live="polite"><b>Posti prenotati.</b><span id="tOk"></span></div>
+      </div>
+      <div class="tick__s"><b id="tPosti"></b><span>posti liberi su 14</span></div>
     </div>
   </div>
 </section>
@@ -267,6 +449,8 @@ button,input{font:inherit;color:inherit}
   }
   $('righe').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cart[b.dataset.k]=Math.max(0,(cart[b.dataset.k]||0)+(+b.dataset.d));bolla()});
   $('invia').addEventListener('click',function(){sent=true;this.textContent='Ordine pronto';$('nota').textContent='In questa anteprima non parte nulla: nella versione vera arriva a voi, completo.'});
+  window.__fsAdd=function(m){Object.keys(m).forEach(function(k){cart[k]=(cart[k]||0)+m[k]});bolla(Object.keys(m))};
+  window.__fsPR=PR;
   drawAll();bolla();
 })();
 
@@ -277,6 +461,58 @@ button,input{font:inherit;color:inherit}
     ['s1','s2','s3'].forEach(function(k){$(k).textContent=n});
     var h='';for(var i=0;i<60;i++)h+='<span>'+n.replace(/</g,'&lt;')+'</span>';$('cartaN').innerHTML=h}
   inp.addEventListener('input',upd);upd();
+})();
+/* ---------- l'anno del banco + il lunedì + il corso ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)},PR=window.__fsPR,eur=function(n){return n.toFixed(2).replace('.',',')};
+  var NM=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  /* [titolo, cosa chiedono, {prodotto:quantità}, lavagna, consiglio] */
+  var M=[
+    ['Il freddo vuole il sugo',['Polpette al sugo','Salsiccia fresca','Involtini per il ragù'],{realpan:1,premix:2,budella:1},'Le polpette della domenica, pronte dal sabato.','A gennaio si torna ai piatti lunghi: le polpette già pronte vanno via prima delle fettine.'],
+    ['Carnevale',['Cotolette','Polpette da friggere','Salsiccia'],{crock:3,realpan:1,premix:1},'Per Carnevale le cotolette sono già impanate.','Le impanate si vendono il venerdì per il sabato: preparale il giovedì sera.'],
+    ['Torna la primavera',['Involtini','Spiedini','Hamburger'],{pist:1,tropea:1,burger:2},'Sono tornati gli spiedini. Anche alla cipolla di Tropea.','Prima uscita della stagione: gli spiedini vanno in vetrina all\'altezza degli occhi.'],
+    ['Pasqua e Pasquetta',['Spiedini per la griglia','Salsiccia a punta di coltello','Bombette'],{tropea:2,premix:2,budella:2},'Pasquetta: la griglia la prepariamo noi.','Raccogli le prenotazioni di Pasquetta entro il giovedì: il sabato non c\'è tempo.'],
+    ['Si accendono i barbecue',['Hamburger','Spiedini','Bombette'],{burger:3,tropea:1},'Hamburger fatti qui, da cuocere stasera.','Il primo weekend caldo decide la stagione: fai assaggiare l\'hamburger cotto al banco.'],
+    ['La stagione della griglia',['Hamburger farciti','Bombette','Spiedini'],{burger:3,cheddar:1,tropea:2},'Hamburger al cheddar: solo il fine settimana.','A giugno il cliente vuole novità: un gusto nuovo ogni due settimane tiene viva la vetrina.'],
+    ['Le grigliate al mare',['Spiedini','Salsiccia','Hamburger'],{tropea:2,premix:2,burger:3},'Pronti per la grigliata, anche in vaschetta da viaggio.','Vaschette sigillate ed etichetta chiara: chi va al mare compra per due giorni.'],
+    ['Ferragosto',['Grigliata mista','Spiedini','Salsiccia'],{tropea:3,premix:3,budella:2},'Ferragosto: ordina la grigliata entro il 12.','Chiudi gli ordini di Ferragosto tre giorni prima: lavori sereno e non butti niente.'],
+    ['Si torna a scuola',['Cotolette','Polpette','Hamburger piccoli'],{crock:2,carbonara:1,realpan:1},'Cotolette pronte per i pranzi della settimana.','Le famiglie tornano alla routine: proponi la cotoletta già impanata del lunedì.'],
+    ['Le sere si accorciano',['Involtini','Polpette','Cotolette al cheddar'],{pist:1,realpan:1,cheddar:2},'Involtini al pistacchio: in forno in 25 minuti.','Scrivi i tempi di cottura sull\'etichetta: chi torna tardi dal lavoro sceglie quello.'],
+    ['Si insacca',['Salsiccia fresca','Salsiccia da stagionare','Polpette'],{premix:4,budella:3,realpan:1},'Salsiccia fatta a mano, anche su ordinazione.','Chi insacca in casa cerca budella e un consiglio: tieni il premix sul banco, non in magazzino.'],
+    ['Natale',['Involtini al pistacchio','Cotolette','Spiedini delle feste'],{pist:2,assassina:2,tropea:2},'Per la Vigilia e il pranzo di Natale: ordina entro il 20.','Apri le prenotazioni di Natale il primo dicembre e chiudile il 20: il 24 consegni e basta.']
+  ];
+  var GG=['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'];
+  function lun(m){var d=m==10?new Date(2026,10,30):new Date(m==11?2026:2027,m,1);while(d.getDay()!=1)d.setDate(d.getDate()+1);return 'lunedì '+d.getDate()+' '+NM[m]}
+  var cur=11,shop=function(){var v=($('nm')&&$('nm').value.trim())||'Macelleria da Mimmo';return v};
+  $('filo').innerHTML=NM.map(function(n,i){return '<button class="cart" aria-pressed="'+(i==cur)+'" aria-label="'+n+'">'+n.slice(0,3).replace(/^./,function(c){return c.toUpperCase()})+'</button>'}).join('');
+  function tot(q){var t=0;Object.keys(q).forEach(function(k){t+=PR[k][1]*q[k]});return t}
+  function draw(){
+    var m=M[cur],q=m[2],sh=shop(),day=lun(cur);
+    $('lavM').textContent='Al banco a '+NM[cur];$('lavT').textContent=m[0];
+    $('lavL').innerHTML=m[1].map(function(x){return '<li>'+x+'</li>'}).join('');$('lavC').textContent='«'+m[3]+'»';
+    $('rioP').textContent='Dal listino Fan Sapori, per una settimana di banco a '+NM[cur]+'.';
+    $('rioL').innerHTML=Object.keys(q).map(function(k){return '<div class="r"><b>'+PR[k][0]+'</b><span>'+eur(PR[k][1]*q[k])+'</span><em>'+q[k]+' × '+eur(PR[k][1])+' €</em></div>'}).join('');
+    $('rioT').textContent=eur(tot(q))+' €';$('rioOk').textContent='';
+    $('mTo').textContent=sh;$('mOgg').textContent=day.replace(/^./,'L')+' · '+m[0]+': la tua lista';
+    $('mH').textContent='Buongiorno '+sh+'.';
+    $('mP').textContent='Questa settimana al banco: '+m[1].join(', ').toLowerCase()+'. Ti abbiamo preparato la lista partendo dal tuo ultimo ordine.';
+    $('mT').innerHTML=Object.keys(q).map(function(k){return '<tr><td>'+PR[k][0]+'<small>come l\'ultima volta: '+q[k]+'</small></td><td>'+eur(PR[k][1]*q[k])+' €</td></tr>'}).join('')+'<tr><td><b>Totale</b><small>spedizione esclusa</small></td><td><b>'+eur(tot(q))+' €</b></td></tr>';
+    $('mB').textContent='Riordina come l\'ultima volta';$('mTip').textContent=m[4];
+    $('waB').innerHTML='Buongiorno '+sh.replace(/</g,'&lt;')+' 👋\nQuesta settimana: '+m[0]+'.\n\n'+Object.keys(q).map(function(k){return '• '+q[k]+' × '+PR[k][0]}).join('\n')+'\n\nTotale '+eur(tot(q))+' €. Rispondi «sì» e la mandiamo come l\'ultima volta.<small>07:00</small>';
+  }
+  $('filo').addEventListener('click',function(e){var b=e.target.closest('.cart');if(!b)return;cur=[].indexOf.call(this.children,b);[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});draw()});
+  function add(btn,ok){window.__fsAdd(M[cur][2]);ok()}
+  $('rioB').addEventListener('click',function(){add(this,function(){$('rioOk').innerHTML='Fatto: è nella bolla in cima. <a href="#top" style="color:inherit">Vai alla bolla</a>'})});
+  $('mB').addEventListener('click',function(){var b=this;add(b,function(){b.textContent='In bolla: la trovi in cima alla pagina'})});
+  if($('nm'))$('nm').addEventListener('input',draw);
+  var lv=$('lun');[].forEach.call(lv.querySelectorAll('.sw button'),function(b){b.addEventListener('click',function(){lv.dataset.v=b.dataset.v;[].forEach.call(lv.querySelectorAll('.sw button'),function(x){x.setAttribute('aria-pressed',x==b)})})});
+  draw();
+  /* il corso */
+  var C={'Francavilla Fontana':['sabato 23 gennaio 2027','nella sede Fan Sapori',5],'Matera':['sabato 6 febbraio 2027','in una macelleria ospite',8],'Bari':['sabato 20 febbraio 2027','in una macelleria ospite',3],'Lecce':['sabato 6 marzo 2027','in una macelleria ospite',11],'Taranto':['sabato 20 marzo 2027','in una macelleria ospite',9]};
+  function cr(){var c=C[$('tC').value];$('tMeta').textContent=c[0]+', '+$('tC').value+', '+c[1]+'. Data d\'esempio.';$('tPosti').textContent=c[2]}
+  $('tC').addEventListener('change',cr);$('tN').value=shop();cr();
+  $('tF').addEventListener('submit',function(e){e.preventDefault();var c=C[$('tC').value],n=+$('tP').value;c[2]=Math.max(0,c[2]-n);$('tPosti').textContent=c[2];
+    $('tOk').textContent=n+(n>1?' posti':' posto')+' per '+$('tN').value+' a '+$('tC').value+', '+c[0]+'. Il giorno prima arriva il promemoria su WhatsApp. In questa anteprima non parte nulla.';$('tick').classList.add('ok')});
 })();
 </script>
 </body>
