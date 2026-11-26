@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>MoMà Exclusive Beach · Una giornata, dalle 9 al tramonto</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Italiana;src:url(../lib/fonts/italiana-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Familjen;src:url(../lib/fonts/familjen-grotesk-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:Familjen;src:url(../lib/fonts/familjen-grotesk-italic.woff2) format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
+:root{
+  /* la sabbia fine di San Pietro in Bevagna, lo Ionio, l'ombra dei gazebo, lo spritz, il tramonto, la notte */
+  --sab:#EFE3CF; --sab2:#E3D2B5; --ionio:#1E7F9A; --ombra:#0F3B4A; --spritz:#EE6A3C; --tram:#F4A261; --notte:#13213A; --bianco:#FFFDF8;
+  --i:Italiana,Georgia,serif; --f:Familjen,system-ui,sans-serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 16.5px/1.55 var(--f);color:var(--ombra);background:var(--bianco)}
+h1,h2,h3{font-family:var(--i);font-weight:400;line-height:.98;letter-spacing:.005em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--spritz);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1360px;margin-inline:auto}
+
+/* ---------- la giornata ---------- */
+.day{position:relative;height:520vh}
+.day__st{position:sticky;top:0;height:100svh;overflow:hidden;color:#fff}
+.day svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.bar{position:absolute;inset:0 0 auto;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad)}
+.bar b{font:400 30px/1 var(--i);letter-spacing:.04em}
+.bar a{color:inherit;font-weight:600;font-size:14.5px;text-decoration:none;border:1px solid currentColor;padding:10px 16px;border-radius:99px}
+.mark{position:absolute;z-index:2;left:0;right:0;top:15vh;text-align:center;pointer-events:none}
+.mark h1{font-size:clamp(92px,17vw,280px);margin:0;letter-spacing:.02em;line-height:.85;mix-blend-mode:soft-light;color:#fff}
+.mark p{margin:12px 0 0;font:500 clamp(14px,1.2vw,17px)/1.3 var(--f);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.clock{position:absolute;z-index:3;left:var(--pad);bottom:clamp(22px,5vh,50px);width:min(440px,calc(100vw - 2*var(--pad)));padding:20px 24px 18px;border-radius:6px;background:#fffdf8d9;color:var(--ombra);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .6s,color .6s}
+.night .clock{background:#13213ab8;color:#fff}
+.clock time{display:block;font:400 clamp(52px,5.4vw,84px)/1 var(--i);font-variant-numeric:tabular-nums}
+.clock b{display:block;font:600 19px/1.25 var(--f);margin:8px 0 6px}
+.clock span{display:block;font-size:15.5px;opacity:.85;min-height:2.9em}
+.prog{position:absolute;z-index:3;right:var(--pad);bottom:clamp(22px,5vh,50px);padding:14px 18px;border-radius:6px;background:#fffdf8d9;color:var(--ombra);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .6s,color .6s;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.prog button{background:none;border:0;cursor:pointer;display:flex;gap:10px;align-items:center;font-size:13.5px;font-weight:600;opacity:.55;padding:2px 0;color:inherit}
+.prog button i{width:24px;height:1px;background:currentColor;transition:width .4s}
+.prog button.on{opacity:1}.prog button.on i{width:46px}
+.night .prog{background:#13213ab8;color:#fff}
+.mark{opacity:var(--mo,1)}
+
+/* ---------- identità ---------- */
+.id{padding-block:clamp(70px,9vw,130px);background:var(--bianco)}
+.id h2{font-size:clamp(50px,7vw,116px);margin:0 0 16px;max-width:12ch}
+.id .lead{font-size:clamp(17px,1.5vw,20px);max-width:54ch;margin:0 0 clamp(36px,5vw,70px)}
+.logo{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(16px,2.6vw,36px);align-items:stretch}
+.lg{border-radius:4px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(30px,5vw,70px) 20px;position:relative;overflow:hidden}
+.lg--a{background:var(--sab);min-height:420px}
+.lg--b{display:grid;grid-template-rows:1fr 1fr;gap:clamp(16px,2.6vw,36px);padding:0;background:none}
+.lg--b>div{border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.wm{font:400 clamp(84px,10vw,170px)/.8 var(--i);letter-spacing:.03em;position:relative}
+.wm .acc{position:relative;display:inline-block}
+.wm .acc::before{content:"";position:absolute;left:50%;top:-.16em;width:.3em;height:.3em;border-radius:50%;background:var(--spritz);transform:translateX(-20%)}
+.wm .acc span{color:transparent}
+.wm .acc::after{content:"a";position:absolute;left:0;top:0;color:currentColor}
+.lg small{display:block;font:600 13px/1 var(--f);letter-spacing:.32em;text-transform:uppercase;margin-top:16px}
+.lg .cap{position:absolute;left:16px;bottom:14px;font-size:12.5px;opacity:.6;text-align:left}
+.pal{display:grid;grid-template-columns:repeat(6,1fr);margin-top:clamp(16px,2.6vw,36px)}
+.pal div{aspect-ratio:1/1.2;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;font-size:13px;font-weight:600}
+.pal div b{display:block;font:400 24px/1 var(--i);margin-bottom:4px}
+.tipo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.6vw,36px);margin-top:clamp(16px,2.6vw,36px);border-top:1px solid var(--ombra);padding-top:22px}
+.tipo div b{display:block;font-size:13px;font-weight:700;margin-bottom:10px;opacity:.6}
+.tipo .t1{font:400 clamp(40px,4.6vw,72px)/1 var(--i)}
+.tipo .t2{font:400 clamp(20px,1.8vw,26px)/1.35 var(--f)}
+
+/* applicazioni */
+.app{background:var(--sab);padding-block:clamp(70px,9vw,130px)}
+.app h2{font-size:clamp(44px,5.8vw,92px);margin:0 0 clamp(30px,4vw,56px);max-width:14ch}
+.app__g{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);align-items:end}
+.ap figcaption{font-size:14px;margin-top:12px}
+.ap figcaption b{display:block;font:400 24px/1.05 var(--i)}
+.ap figure{margin:0}
+.menu{background:var(--bianco);aspect-ratio:3/4.3;padding:10% 9%;box-shadow:0 30px 40px -30px #0f3b4a80;display:flex;flex-direction:column;container-type:inline-size;transform:rotate(-1.5deg)}
+.menu b{font:400 15cqw/1 var(--i);text-align:center;letter-spacing:.04em}
+.menu small{text-align:center;font-size:4.4cqw;letter-spacing:.3em;text-transform:uppercase;margin:3cqw 0 8cqw;opacity:.7}
+.menu p{margin:0 0 4.5cqw;font-size:5.2cqw;line-height:1.25;display:flex;justify-content:space-between;gap:4cqw;border-bottom:1px dotted #0f3b4a55;padding-bottom:2cqw}
+.menu p i{font-style:italic;opacity:.75}
+.pass{aspect-ratio:3/4.3;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.pass div{width:84%;height:22%;border-radius:999px;background:var(--spritz);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 9%;container-type:inline-size;box-shadow:0 20px 30px -20px #0f3b4a99;transform:rotate(-8deg)}
+.pass b{font:400 15cqw/1 var(--i)}
+.pass span{font:700 6cqw/1.1 var(--f);text-align:right}
+.palo{aspect-ratio:3/4.3;position:relative;display:flex;justify-content:center;container-type:inline-size}
+.palo::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:5cqw;background:linear-gradient(90deg,#c8b28c,#efe3cf,#b89e74);transform:translateX(-50%)}
+.palo div{position:relative;margin-top:16%;width:56%;aspect-ratio:1;border-radius:50%;background:var(--ombra);color:var(--sab);display:grid;place-items:center;text-align:center;box-shadow:0 20px 30px -20px #000a}
+.palo div b{font:400 30cqw/1 var(--i);display:block}
+.palo div span{font:600 5cqw/1 var(--f);letter-spacing:.24em;text-transform:uppercase;display:block;margin-top:-5cqw}
+.story{aspect-ratio:9/16;background:linear-gradient(180deg,#F7B267 0%,#F4845F 45%,#3a3a6a 100%);border-radius:14px;color:#fff;padding:9%;display:flex;flex-direction:column;justify-content:space-between;container-type:inline-size;box-shadow:0 30px 40px -30px #0f3b4a99}
+.story small{font:600 5cqw/1 var(--f);letter-spacing:.2em;text-transform:uppercase}
+.story b{font:400 17cqw/.95 var(--i)}
+.story span{font-size:5.4cqw;opacity:.9}
+.story i{display:block;font-style:normal;background:#fff;color:var(--ombra);text-align:center;font:600 5.4cqw/1 var(--f);padding:5cqw;border-radius:99px}
+
+/* la stagione */
+.sea{padding-block:clamp(70px,9vw,130px);background:var(--bianco)}
+.sea h2{font-size:clamp(46px,6vw,96px);margin:0 0 14px;max-width:13ch}
+.sea .lead{font-size:clamp(17px,1.5vw,20px);max-width:54ch;margin:0 0 clamp(30px,4vw,50px)}
+.mesi{display:flex;gap:0;border-bottom:1px solid var(--ombra);margin-bottom:28px;overflow-x:auto}
+.mesi button{border:0;background:none;padding:12px 18px 14px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.mesi button[aria-pressed=true]{border-color:var(--spritz)}
+.sea__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.75fr);gap:clamp(24px,4vw,64px);align-items:start}
+.grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.pst{aspect-ratio:4/5;position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(10px,1.4vw,18px);animation:in .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes in{from{opacity:0;transform:scale(.96)}}
+.pst b{font:400 clamp(17px,2.1vw,30px)/.98 var(--i);position:relative}
+.pst span{font:600 clamp(10.5px,.95vw,13px)/1.2 var(--f);position:relative;margin-top:6px;opacity:.9}
+.pst::before{content:"";position:absolute;width:30%;aspect-ratio:1;border-radius:50%;right:12%;top:14%;background:var(--sun,#fff6)}
+.pst.lt{color:var(--ombra)}
+.plan h3{font-size:clamp(30px,3vw,44px);margin:0 0 10px}
+.plan p{margin:0 0 16px;font-size:16px}
+.plan ul{list-style:none;margin:0;padding:0}
+.plan li{padding:12px 0;border-top:1px solid #0f3b4a2b;font-size:15.5px;display:grid;grid-template-columns:92px 1fr;gap:10px}
+.plan li b{font-weight:700}
+
+/* due mattine */
+.how{background:var(--ombra);color:var(--sab);padding-block:clamp(70px,9vw,130px)}
+.how h2{font-size:clamp(44px,5.8vw,90px);margin:0 0 clamp(30px,4vw,56px);max-width:15ch}
+.how__g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,44px)}
+.how__g div{border-top:1px solid #efe3cf66;padding-top:18px;font-size:16px}
+.how__g b{display:block;font:400 32px/1.05 var(--i);margin-bottom:10px;color:#fff}
+.serv{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(40px,5vw,64px)}
+.serv span{border:1px solid #efe3cf55;border-radius:99px;padding:8px 14px;font-size:14.5px}
+
+.foot{background:var(--sab2);padding-block:clamp(40px,6vw,80px)}
+.foot__g{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(40px,5vw,76px);margin:0}
+.foot p{margin:0;font-size:15.5px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:1000px){
+  .logo,.sea__g{grid-template-columns:1fr}
+  .app__g{grid-template-columns:1fr 1fr}
+  .how__g{grid-template-columns:1fr}
+  .pal{grid-template-columns:repeat(3,1fr)}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .mark{top:13vh}
+  .prog{display:none}
+  .tipo{grid-template-columns:1fr}
+  .lg--a{min-height:300px}
+}
+@media (prefers-reduced-motion:reduce){.pst{animation:none}}
+</style>
+</head>
+<body data-umbra="un'anteprima per MoMà Exclusive Beach" data-note="Anteprima preparata da Umbra per MoMà Exclusive Beach. Servizi, indirizzo e contatti vengono dal vostro sito; il marchio, i colori, i materiali e il piano della stagione sono una proposta. La scena è disegnata.">
+
+<section class="day" id="top">
+  <div class="day__st" id="st">
+    <svg id="sc" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop id="s0" offset="0"/><stop id="s1" offset=".62"/><stop id="s2" offset="1"/></linearGradient>
+        <linearGradient id="mare" x1="0" y1="0" x2="0" y2="1"><stop id="m0" offset="0"/><stop id="m1" offset="1"/></linearGradient>
+        <linearGradient id="sabbia" x1="0" y1="0" x2="0" y2="1"><stop id="b0" offset="0"/><stop id="b1" offset="1"/></linearGradient>
+        <radialGradient id="alone"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="scia" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect width="1600" height="560" fill="url(#sky)"/>
+      <g id="stelle" opacity="0"></g>
+      <circle id="alo" r="240" fill="url(#alone)"/>
+      <circle id="sole" r="44"/>
+      <rect y="520" width="1600" height="200" fill="url(#mare)"/>
+      <path id="scia" d="M0 0" fill="url(#scia)"/>
+      <g id="onde" stroke="#fff" stroke-linecap="round" fill="none"></g>
+      <path d="M0 700 C300 684 520 694 800 688 C1100 682 1300 690 1600 682 V900 H0Z" fill="url(#sabbia)"/>
+      <path id="riva" d="M0 700 C300 684 520 694 800 688 C1100 682 1300 690 1600 682" stroke="#fff" stroke-width="3" fill="none" opacity=".55"/>
+      <g id="gaz"></g>
+      <g id="luci"></g>
+    </svg>
+    <header class="bar"><b>MoMà</b><a href="#identita" data-go>Il marchio</a></header>
+    <div class="mark"><h1>MoMà</h1><p>Exclusive Beach · San Pietro in Bevagna</p></div>
+    <div class="clock" aria-live="polite"><time id="ck">9:00</time><b id="cb"></b><span id="cs"></span></div>
+    <nav class="prog" id="prog" aria-label="Momenti della giornata"></nav>
+  </div>
+</section>
+
+<section class="id" id="identita">
+  <div class="wrap">
+    <h2>Un segno solo, dal mattino alla sera.</h2>
+    <p class="lead">Una proposta di identità per MoMà: l'accento della à diventa il sole sull'orizzonte. Funziona sul menu, sul palo dell'ombrellone, su una storia e su un braccialetto, senza cambiare mai.</p>
+    <div class="logo">
+      <div class="lg lg--a"><div class="wm">MoM<span class="acc"><span>a</span></span></div><small>Exclusive Beach</small><span class="cap">Il marchio principale, su sabbia</span></div>
+      <div class="lg--b">
+        <div style="background:var(--ombra);color:var(--sab)"><div class="wm" style="font-size:clamp(60px,6vw,104px)">MoM<span class="acc"><span>a</span></span></div><span class="cap" style="color:var(--sab);position:absolute;left:16px;bottom:14px;font-size:12.5px;opacity:.6">Su ombra, per la sera</span></div>
+        <div style="background:var(--spritz);color:#fff"><div class="wm" style="font-size:clamp(60px,6vw,104px)">M<span class="acc"><span>a</span></span></div><span class="cap" style="position:absolute;left:16px;bottom:14px;font-size:12.5px;opacity:.8">Il monogramma, per il profilo social</span></div>
+      </div>
+    </div>
+    <div class="pal">
+      <div style="background:var(--sab)"><b>Sabbia</b>#EFE3CF</div>
+      <div style="background:#5FB3C4;color:#fff"><b>Ionio basso</b>#5FB3C4</div>
+      <div style="background:var(--ionio);color:#fff"><b>Ionio</b>#1E7F9A</div>
+      <div style="background:var(--ombra);color:#fff"><b>Ombra</b>#0F3B4A</div>
+      <div style="background:var(--spritz);color:#fff"><b>Spritz</b>#EE6A3C</div>
+      <div style="background:var(--notte);color:#fff"><b>Notte</b>#13213A</div>
+    </div>
+    <div class="tipo">
+      <div><b>Per i titoli</b><div class="t1">Il tramonto ha un altro sapore.</div></div>
+      <div><b>Per i testi</b><div class="t2">Postazioni ben distanziate, lettini con i cuscini, servizio in spiaggia. Si ordina dal proprio posto e arriva tutto lì.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="app">
+  <div class="wrap">
+    <h2>Lo stesso segno, ovunque lo tocchi l'ospite.</h2>
+    <div class="app__g">
+      <figure class="ap"><div class="menu"><b>MoMà</b><small>Cocktail bar</small><p>Spritz della veranda<i>aperitivo</i></p><p>Calice di prosecco<i>al tramonto</i></p><p>Il drink del giorno<i>chiedete al bar</i></p><p>Vini del Salento<i>al calice</i></p></div><figcaption><b>Il menu del bar</b>Carta di cotone, una pagina sola.</figcaption></figure>
+      <figure class="ap"><div class="pass"><div><b>MoMà</b><span>Gazebo<br>Fila 1</span></div></div><figcaption><b>Il braccialetto</b>Per gli ospiti di gazebo e lettini.</figcaption></figure>
+      <figure class="ap"><div class="palo"><div><span><b>14</b>Fila 2</span></div></div><figcaption><b>Il numero dell'ombrellone</b>Si legge da lontano, anche col sole in faccia.</figcaption></figure>
+      <figure class="ap"><div class="story"><small>Stasera al MoMà</small><b>Il tramonto ha un altro sapore.</b><span>Aperitivo in veranda, vista mare.</span><i>Prenota il tavolo</i></div><figcaption><b>La storia delle 19</b>Ogni sera, lo stesso appuntamento.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sea">
+  <div class="wrap">
+    <h2>La stagione 2027, già scritta.</h2>
+    <p class="lead">Un piano editoriale che segue il lido: quando aprono le prenotazioni, quando si riempie, quando resta solo il tramonto. Scegliete un mese.</p>
+    <div class="mesi" id="mesi" role="group" aria-label="Mese della stagione"></div>
+    <div class="sea__g">
+      <div class="grid9" id="g9" aria-live="polite"></div>
+      <div class="plan"><h3 id="pT"></h3><p id="pP"></p><ul id="pL"></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <h2>Due mattine a settimana al lido. Il resto, da noi.</h2>
+    <div class="how__g">
+      <div><b>Al lido</b>Si gira con una lista precisa: le inquadrature della settimana, i piatti da fotografare, il tramonto da prendere. Mezza mattina basta.</div>
+      <div><b>Da noi</b>Montaggio, grafiche, testi e calendario. Tutto torna pronto da pubblicare, con il marchio MoMà su ogni pezzo.</div>
+      <div><b>Per la stampa</b>Menu, cartelli, braccialetti, inviti per le serate: gli stessi file, preparati per la tipografia.</div>
+    </div>
+    <div class="serv">
+      <span>Self ordering</span><span>Booking online</span><span>Ristorante sul mare</span><span>Cocktail bar in veranda</span><span>Gazebo</span><span>Valet parking</span><span>Parcheggio ombreggiato</span><span>Nursery</span><span>Accessibilità</span><span>Wi-Fi</span><span>Servizio salvataggio</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Via dei Rovi, San Pietro in Bevagna.</h2>
+    <p>MoMà Exclusive Beach<br>Via dei Rovi 123<br>San Pietro in Bevagna, Manduria (TA)</p>
+    <p>Tel e WhatsApp <a href="tel:+393245899102">324 5899102</a><br><a href="mailto:info@momaexclusivebeach.it">info@momaexclusivebeach.it</a><br>Bonadea S.r.l.</p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>L'identità, i social e la stampa, con un segno solo.</h2>
+    <ul>
+      <li><b>L'identità visiva</b>Marchio, colori e caratteri pensati per il lido, con le regole per usarli su tutto.</li>
+      <li><b>Il calendario della stagione</b>Da aprile a settembre, post e storie scritti in anticipo e montati sul girato della settimana.</li>
+      <li><b>La lista per le riprese</b>Due mattine al lido con una lista precisa: chi gira sa cosa prendere, noi pensiamo al resto.</li>
+      <li><b>I materiali stampati</b>Menu, numeri degli ombrelloni, braccialetti e inviti, pronti per la tipografia.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per MoMà Exclusive Beach. Marchio e colori sono una proposta.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+/* ---------- la giornata: dalle 9 al tramonto, poi la notte ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)},NS='http://www.w3.org/2000/svg';
+  /* ora, cielo alto, cielo basso, orizzonte, mare alto, mare basso, sabbia, sole, testo scuro? */
+  var K=[
+    [9,  '#6FB8DD','#BFE3F0','#E8F4F2','#3BA6BE','#1E7F9A','#F3E7D2','#FFF8E6',1],
+    [13, '#3E9DD6','#A9DCF2','#E3F3F7','#2E9EB9','#16708A','#F7EBD6','#FFFFFF',1],
+    [17, '#5F8FC9','#E9C99A','#F6DDB2','#3B8FA8','#1A5F78','#EBD7B5','#FFE7B5',1],
+    [19.5,'#3B4E8C','#E98A5F','#F7B267','#7A6E8E','#2C4C6A','#D9B993','#FFB36B',0],
+    [20.6,'#1C2A55','#7E4A6E','#C8644E','#3D3E62','#1A2A48','#9E8670','#E8603C',0],
+    [22, '#0A1430','#13213A','#24325A','#18233F','#0B1428','#4F4A55','#F4E9C8',0]
+  ];
+  var MOM=[
+    [9,'Si apre la spiaggia.','Lettini con i cuscini, postazioni distanziate, la sabbia ancora fresca.'],
+    [11,'Si ordina dal proprio posto.','Con il self ordering il caffè arriva sotto l\'ombrellone.'],
+    [13,'Pranzo sul mare.','La cucina rivisita la tradizione mediterranea, a pochi passi dall\'acqua.'],
+    [17,'Il gazebo è il posto più fresco.','Si sta all\'ombra, con lo Ionio davanti e la luce che cambia.'],
+    [19.5,'Aperitivo in veranda.','Vini, prosecchi e cocktail, con vista sul mare.'],
+    [20.6,'Il tramonto ha un altro sapore.','Il momento per cui si torna. E per cui si condivide una storia.'],
+    [22,'Le luci della veranda.','La giornata finisce con le luci accese sulla spiaggia.']
+  ];
+  function hx(h){h=parseInt(h.slice(1),16);return [h>>16&255,h>>8&255,h&255]}
+  function mix(a,b,t){a=hx(a);b=hx(b);return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(',')+')'}
+  /* gazebo e ombrelloni, in prospettiva */
+  var g='',i;
+  for(i=0;i<9;i++){var x=110+i*172,s=1;g+='<g transform="translate('+x+' 760)"><path class="gz-sh" d="M-60 18 L60 18 L90 34 L-30 34Z" fill="#000" opacity=".12"/><path d="M-66 -70 L0 -96 L66 -70Z" fill="#FFFDF8"/><path d="M-66 -70 L66 -70 L66 -62 L-66 -62Z" fill="#EFE3CF"/><rect x="-62" y="-62" width="4" height="80" fill="#C9B48F"/><rect x="58" y="-62" width="4" height="80" fill="#C9B48F"/><path d="M-58 -62 Q-48 -10 -54 18 L-40 18 Q-44 -20 -52 -62Z" fill="#FFFDF8" opacity=".85"/><rect x="-36" y="0" width="70" height="10" rx="5" fill="#FFFDF8"/><rect x="-36" y="-4" width="22" height="8" rx="4" fill="#EE6A3C" opacity=".85"/></g>'}
+  for(i=0;i<12;i++){var x2=60+i*136,y2=842+(i%2)*14;g+='<g transform="translate('+x2+' '+y2+')"><path d="M-38 -52 Q0 -74 38 -52Z" fill="'+(i%3==0?'#EE6A3C':'#0F3B4A')+'"/><rect x="-1.5" y="-56" width="3" height="56" fill="#8a7a62"/><path class="gz-sh" d="M-30 2 L40 2 L54 10 L-16 10Z" fill="#000" opacity=".1"/></g>'}
+  $('gaz').innerHTML=g;
+  var sh=[].slice.call(document.querySelectorAll('.gz-sh'));
+  var on='';for(i=0;i<16;i++)on+='<path d="M'+(i*100+20)+' '+(540+(i%4)*36)+' h'+(30+(i%3)*24)+'" stroke-width="'+(1.2+(i%3)*.5)+'" opacity=".5"/>';$('onde').innerHTML=on;
+  var st='';for(i=0;i<70;i++){st+='<circle cx="'+(Math.random()*1600)+'" cy="'+(Math.random()*420)+'" r="'+(Math.random()*1.4+.4)+'" fill="#fff"/>'}$('stelle').innerHTML=st;
+  var lu='';for(i=0;i<22;i++){lu+='<circle cx="'+(40+i*72)+'" cy="'+(664+Math.sin(i)*4)+'" r="3.4" fill="#FFD9A0"/>'}$('luci').innerHTML=lu;
+  var nav=$('prog');nav.innerHTML=MOM.map(function(m,k){var h=Math.floor(m[0]),mm=Math.round((m[0]-h)*60);return '<button data-k="'+k+'"><i></i>'+h+':'+(mm<10?'0':'')+mm+'</button>'}).join('');
+  var btns=[].slice.call(nav.children),last=-1,day=document.getElementById('top');
+  function paint(h){
+    var k=0;while(k<K.length-2&&h>K[k+1][0])k++;var a=K[k],b=K[k+1],t=U.clamp((h-a[0])/(b[0]-a[0]),0,1);
+    $('s0').setAttribute('stop-color',mix(a[1],b[1],t));$('s1').setAttribute('stop-color',mix(a[2],b[2],t));$('s2').setAttribute('stop-color',mix(a[3],b[3],t));
+    $('m0').setAttribute('stop-color',mix(a[4],b[4],t));$('m1').setAttribute('stop-color',mix(a[5],b[5],t));
+    var sa=mix(a[6],b[6],t);$('b0').setAttribute('stop-color',sa);$('b1').setAttribute('stop-color',mix(a[6],'#000000',.12));
+    /* il sole: arco da sinistra in alto al tramonto a destra, sull'orizzonte */
+    var u=U.clamp((h-9)/(20.6-9),0,1),vis=Math.min(1600,900*innerWidth/innerHeight),sx=800-vis/2+vis*(.14+.72*u),sy=520-410*Math.cos(u*Math.PI/2)+(h>20.6?(h-20.6)*90:0),sc=mix(a[7],b[7],t);
+    $('sole').setAttribute('cx',sx);$('sole').setAttribute('cy',sy);$('sole').setAttribute('fill',sc);$('sole').setAttribute('r',h>19?44+(h-19)*10:44);
+    $('alo').setAttribute('cx',sx);$('alo').setAttribute('cy',sy);$('alo').setAttribute('opacity',h>21?0:1);
+    $('sole').setAttribute('opacity',h>21.3?0:1);
+    var w=40+u*60;$('scia').setAttribute('d','M'+(sx-w/2)+' 521 L'+(sx+w/2)+' 521 L'+(sx+w*1.6)+' 700 L'+(sx-w*1.6)+' 700Z');$('scia').setAttribute('opacity',h>21?0:(.25+u*.5));
+    $('stelle').setAttribute('opacity',U.clamp((h-20.4)/1.2,0,1));$('luci').setAttribute('opacity',U.clamp((h-19.6)/1,0,1));
+    /* le ombre ruotano col sole */
+    var sk=(u-.5)*-70;sh.forEach(function(p){p.setAttribute('transform','skewX('+sk+')');p.setAttribute('opacity',(.14*(1-U.clamp((h-19.5)/1.2,0,1))).toFixed(3))});
+    var hh=Math.floor(h),mm=Math.floor((h-hh)*60/5)*5;$('ck').textContent=hh+':'+(mm<10?'0':'')+mm;
+    var m=0;for(var j=0;j<MOM.length;j++)if(h>=MOM[j][0]-.01)m=j;
+    if(m!=last){last=m;$('cb').textContent=MOM[m][1];$('cs').textContent=MOM[m][2];btns.forEach(function(x,q){x.classList.toggle('on',q==m)})}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){var m=MOM[+b.dataset.k][0],t=(m-9)/13,r=day.getBoundingClientRect(),top=r.top+scrollY;scrollTo({top:top+t*(day.offsetHeight-innerHeight),behavior:U.reduce?'auto':'smooth'})})});
+  var stg=$('st');
+  U.pin(day,function(t){paint(9+t*13);stg.style.setProperty('--mo',Math.max(1-U.clamp(t/.08,0,1),U.clamp((t-.9)/.08,0,1)));stg.classList.toggle('night',t>.72)});paint(9);
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();U.scrollTo(document.querySelector(a.getAttribute('href')),0)})});
+})();
+
+/* ---------- la stagione ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var S={
+    'Aprile':{t:'Si aprono le prenotazioni.',p:'Il lido è ancora chiuso, ma è il mese in cui si decide l\'estate. Si parla a chi è già venuto e a chi cerca un posto tranquillo.',
+      l:[['Lunedì','Post: «Le prenotazioni 2027 sono aperte»'],['Giovedì','Carosello: gazebo, lettini e servizio in spiaggia'],['Sabato','Storia: il conto alla rovescia all\'apertura']],
+      g:[['Le prenotazioni sono aperte.','Stagione 2027','#5FB3C4','#1E7F9A'],['Gazebo, fila 1.','Il posto più fresco','#EFE3CF','#E3D2B5',1],['Manca poco.','Apertura a maggio','#EE6A3C','#F4A261'],['Self ordering.','Dal lettino al bar','#1E7F9A','#0F3B4A'],['Valet parking.','Lasciate le chiavi a noi','#EFE3CF','#D9C4A0',1],['Il mare di San Pietro.','Sabbia finissima','#6FB8DD','#BFE3F0',1],['Nursery.','Anche per i più piccoli','#F4A261','#EE6A3C'],['Il menu cambia.','Novità in cucina','#0F3B4A','#13213A'],['Ci vediamo in spiaggia.','MoMà 2027','#5FB3C4','#EFE3CF',1]]},
+    'Giugno':{t:'Il lido si accende.',p:'Prime settimane di sole: si mostra la giornata tipo, dal caffè sotto l\'ombrellone all\'aperitivo.',
+      l:[['Lunedì','Reel: una giornata al MoMà in 20 secondi'],['Mercoledì','Post: il piatto della settimana'],['Venerdì','Storia: «stasera aperitivo in veranda»']],
+      g:[['Il primo bagno.','Giugno al MoMà','#3BA6BE','#1E7F9A'],['Piatto della settimana.','Dal mare','#EFE3CF','#F7EBD6',1],['Ore 9:00.','La spiaggia apre','#BFE3F0','#6FB8DD',1],['Aperitivo in veranda.','Ogni sera','#E98A5F','#3B4E8C'],['Lettini con i cuscini.','Postazioni distanziate','#F3E7D2','#E3D2B5',1],['Il caffè arriva qui.','Self ordering','#1E7F9A','#0F3B4A'],['Weekend al MoMà.','Prenota il gazebo','#EE6A3C','#F4A261'],['Spritz della veranda.','Il nostro','#F4A261','#EE6A3C'],['Il tramonto.','Un altro sapore','#7E4A6E','#13213A']]},
+    'Agosto':{t:'Pieno, e si vede.',p:'Il mese in cui non serve vendere posti ma raccontare l\'esperienza: ogni contenuto lavora per settembre e per la stagione dopo.',
+      l:[['Ogni giorno','Storia delle 19: il tramonto dalla veranda'],['Martedì','Reel: dietro le quinte della cucina'],['Domenica','Post: le recensioni degli ospiti']],
+      g:[['Tutto esaurito.','Grazie','#0F3B4A','#13213A'],['Ore 13:00.','Pranzo sul mare','#F7EBD6','#EFE3CF',1],['Dietro le quinte.','La cucina','#EE6A3C','#C8644E'],['Il gazebo, al mattino.','Agosto','#A9DCF2','#3E9DD6',1],['«Gestito benissimo».','Dalle vostre recensioni','#EFE3CF','#E3D2B5',1],['Ore 20:36.','Il tramonto di oggi','#C8644E','#1C2A55'],['Il mare a mezzogiorno.','Ionio','#2E9EB9','#16708A'],['Le luci della veranda.','Dopocena','#13213A','#0A1430'],['Ci vediamo a settembre.','Il mare più bello','#F4A261','#EE6A3C']]},
+    'Settembre':{t:'Il mese più bello.',p:'Meno gente, acqua calda, tramonti presto: si parla a chi ama il mare tranquillo, e si chiude la stagione dando appuntamento all\'anno dopo.',
+      l:[['Lunedì','Post: «settembre, il mare migliore»'],['Giovedì','Reel: la spiaggia vuota al mattino'],['Fine mese','Post: grazie e arrivederci al 2027']],
+      g:[['Settembre.','Il mare migliore','#5FB3C4','#1E7F9A'],['Acqua calda.','Spiaggia tranquilla','#EFE3CF','#E3D2B5',1],['Ore 19:40.','Il tramonto arriva prima','#E98A5F','#7E4A6E'],['La spiaggia al mattino.','Solo per voi','#BFE3F0','#6FB8DD',1],['Ultimo aperitivo.','In veranda','#EE6A3C','#C8644E'],['Grazie.','Stagione 2027','#0F3B4A','#13213A'],['Il menu di fine estate.','In cucina','#F7EBD6','#EFE3CF',1],['Arrivederci.','Al 2028','#F4A261','#EE6A3C'],['MoMà.','Exclusive Beach','#13213A','#0A1430']]}
+  };
+  var cur='Giugno';
+  $('mesi').innerHTML=Object.keys(S).map(function(k){return '<button aria-pressed="'+(k==cur)+'">'+k+'</button>'}).join('');
+  function draw(){var s=S[cur];
+    $('g9').innerHTML=s.g.map(function(p,i){return '<div class="pst'+(p[4]?' lt':'')+'" style="background:linear-gradient(180deg,'+p[2]+','+p[3]+');--sun:'+(p[4]?'#EE6A3C33':'#ffffff33')+';animation-delay:'+(i*50)+'ms"><b>'+p[0]+'</b><span>'+p[1]+'</span></div>'}).join('');
+    $('pT').textContent=s.t;$('pP').textContent=s.p;$('pL').innerHTML=s.l.map(function(l){return '<li><b>'+l[0]+'</b><span>'+l[1]+'</span></li>'}).join('')}
+  $('mesi').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});draw()});
+  draw();
+})();
+</script>
+</body>
+</html>
