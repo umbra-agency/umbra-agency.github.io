@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>DeCouture · Cinofilia sartoriale, su misura del tuo cane</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Syne;src:url(../lib/fonts/syne-normal.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:InterT;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* il prato di Cavriè, la panna del cartellino sartoriale, il nero del barboncino, la pallina da tennis */
+  --prato:#2E5E3E; --prato2:#244B31; --panna:#F5F1E8; --ink:#171614; --palla:#D7E34A; --gesso:#E7E1D4; --riga:#17161420;
+  --y:Syne,system-ui,sans-serif; --t:InterT,system-ui,sans-serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 16.5px/1.55 var(--t);color:var(--ink);background:var(--panna)}
+h1,h2,h3{font-family:var(--y);font-weight:800;line-height:.95;letter-spacing:-.03em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--palla);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1380px;margin-inline:auto}
+
+/* ---------- apertura ---------- */
+.hero{position:relative;min-height:100svh;color:#fff;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(340px,.9fr);align-items:end;gap:clamp(20px,3vw,40px);padding:0 var(--pad) clamp(30px,6vh,60px);overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#171614d9 0,#17161466 50%,#17161426 100%),linear-gradient(0deg,#171614b3,transparent 50%)}
+.bar{position:absolute;inset:0 0 auto;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad)}
+.bar b{font:800 24px/1 var(--y);letter-spacing:-.02em}
+.bar a{color:var(--ink);background:var(--palla);font-weight:700;font-size:14.5px;padding:10px 16px;border-radius:99px;text-decoration:none}
+.hero__t{position:relative;z-index:2;padding-bottom:10px}
+.hero__t small{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.08em;border:1px solid #ffffff80;border-radius:99px;padding:6px 12px;margin-bottom:18px}
+.hero__t h1{font-size:clamp(50px,6.2vw,108px);margin:0 0 18px}
+.hero__t p{font-size:clamp(17px,1.5vw,20px);max-width:42ch;margin:0;opacity:.92}
+
+/* il cartellino del sarto */
+.tag{position:relative;z-index:2;background:var(--panna);color:var(--ink);border-radius:16px;padding:22px 22px 20px;box-shadow:0 40px 60px -30px #000a}
+.tag::before{content:"";position:absolute;top:18px;right:18px;width:14px;height:14px;border-radius:50%;background:var(--ink);box-shadow:inset 0 0 0 4px var(--panna),0 0 0 2px var(--ink)}
+.tag h3{font-size:24px;margin:0 0 4px}
+.tag>p{margin:0 0 12px;font-size:14px;opacity:.7}
+.q{padding:10px 0;border-top:1px dashed #17161440}
+.q label,.q .l{display:block;font-weight:700;font-size:13px;margin-bottom:7px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chips button{border:1.5px solid #17161430;background:#fff;border-radius:99px;padding:7px 11px;font-weight:600;font-size:13.5px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--palla);border-color:var(--ink)}
+.res{margin-top:12px;background:var(--prato);color:#fff;border-radius:12px;padding:16px}
+.res b{display:block;font:800 21px/1.05 var(--y);margin-bottom:8px}
+.res ul{list-style:none;margin:0;padding:0;font-size:14.5px}
+.res li{display:flex;gap:8px;padding:4px 0}
+.res li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--palla);margin-top:6px;flex:none}
+
+/* ---------- i servizi ---------- */
+.srv{padding-block:clamp(70px,9vw,130px)}
+.srv h2{font-size:clamp(46px,6vw,100px);margin:0 0 clamp(30px,4vw,56px);max-width:12ch}
+.srv__g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sv{background:#fff;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;min-height:200px;transition:transform .3s,background .3s}
+.sv.hi{background:var(--palla);transform:translateY(-4px)}
+.sv i{font-style:normal;font:800 13px/1 var(--y);opacity:.5}
+.sv b{font:800 26px/1 var(--y);letter-spacing:-.02em}
+.sv span{font-size:14.5px;opacity:.8}
+.sv.img{padding:0;overflow:hidden;position:relative;color:#fff}
+.sv.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sv.img div{position:relative;margin-top:auto;padding:20px;background:linear-gradient(0deg,#171614cc,transparent)}
+
+/* ---------- aziende e partner ---------- */
+.b2b{background:var(--prato);color:var(--panna);padding-block:clamp(70px,9vw,130px)}
+.b2b h2{font-size:clamp(44px,5.8vw,96px);margin:0 0 14px;max-width:14ch}
+.b2b .lead{font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin:0 0 clamp(30px,4vw,50px);opacity:.9}
+.b2b__g{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3vw,48px);align-items:start}
+.pt{display:grid;gap:8px}
+.pt button{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;text-align:left;border:0;border-radius:14px;background:#ffffff14;padding:14px 16px;cursor:pointer;color:inherit}
+.pt button svg{width:44px;height:44px}
+.pt button b{display:block;font:800 20px/1.05 var(--y)}
+.pt button span{font-size:13.5px;opacity:.8}
+.pt button[aria-pressed=true]{background:var(--palla);color:var(--ink)}
+.pt label{display:block;font-weight:700;font-size:13.5px;margin:14px 0 6px}
+.pt input{width:100%;padding:12px 14px;border:0;border-radius:10px;font-size:16px;color:var(--ink)}
+.doc{background:var(--panna);color:var(--ink);border-radius:6px;padding:clamp(22px,3vw,40px);box-shadow:0 40px 60px -30px #0008;position:relative}
+.doc small{font-weight:700;font-size:12.5px;letter-spacing:.08em;opacity:.6}
+.doc h3{font-size:clamp(28px,3vw,42px);margin:8px 0 6px}
+.doc .who{font-size:15px;margin-bottom:18px}
+.doc .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:2px solid var(--ink);padding-top:14px}
+.doc h4{font:800 15px/1 var(--y);margin:0 0 8px}
+.doc ul{margin:0;padding-left:18px;font-size:14.5px}
+.doc li{margin-bottom:6px}
+.doc .ft{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;margin-top:20px;padding-top:14px;border-top:1px solid var(--riga);font-size:13.5px}
+.doc .ft a{background:var(--ink);color:var(--palla);font-weight:700;text-decoration:none;padding:11px 16px;border-radius:99px}
+.stamp{position:absolute;right:22px;top:22px;width:84px;height:84px;border-radius:50%;border:2px solid var(--prato);color:var(--prato);display:grid;place-items:center;text-align:center;font:800 11px/1.15 var(--y);transform:rotate(12deg);opacity:.8}
+
+/* ---------- le sedi ---------- */
+.sedi{padding-block:clamp(70px,9vw,120px)}
+.sedi h2{font-size:clamp(40px,5vw,80px);margin:0 0 clamp(26px,3.6vw,46px)}
+.sedi__g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sd{background:var(--gesso);border-radius:16px;padding:22px}
+.sd b{display:block;font:800 28px/1 var(--y);margin-bottom:8px}
+.sd span{font-size:15px}
+.team{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(30px,4vw,50px)}
+.team span{background:#fff;border-radius:99px;padding:8px 14px;font-size:14px}
+.team span b{font-weight:800}
+
+.foot{background:var(--ink);color:var(--panna);padding-block:clamp(40px,6vw,80px)}
+.foot__g{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(40px,5vw,76px);margin:0}
+.foot p{margin:0;font-size:15px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:1000px){
+  .hero{grid-template-columns:minmax(0,1fr);padding-top:100px}
+  .hero__t h1{font-size:clamp(46px,12vw,90px)}
+  .srv__g{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sv b{font-size:20px;overflow-wrap:anywhere}
+  .b2b__g{grid-template-columns:1fr}
+  .sedi__g,.foot__g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .doc .cols{grid-template-columns:1fr}
+  .srv h2,.b2b h2,.sedi h2,.foot h2{font-size:clamp(28px,8vw,60px);overflow-wrap:anywhere}
+  .doc h3{font-size:26px}
+  .stamp{display:none}
+}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per DeCouture" data-note="Anteprima preparata da Umbra per DeCouture, a partire dal vostro annuncio per lo sviluppo commerciale. Servizi, sedi e team vengono dal vostro sito; il programma su misura e le proposte di convenzione sono esempi. Foto di esempio.">
+
+<section class="hero" id="top">
+  <img src="img/corsa.jpg" alt="Un cane bianco che corre sul prato">
+  <header class="bar"><b>DeCouture</b><a href="tel:+393498911741">349 891 1741</a></header>
+  <div class="hero__t">
+    <small>DOG WELLNESS RESORT · TREVISO</small>
+    <h1>Cinofilia sartoriale.</h1>
+    <p>Prima di tutto prendiamo le misure al tuo cane: taglia, età, energia, carattere. Poi gli cuciamo addosso la settimana giusta.</p>
+  </div>
+  <div class="tag" aria-live="polite">
+    <h3>Le misure del tuo cane</h3>
+    <p>Quattro domande, come dal sarto.</p>
+    <div class="q"><span class="l">Taglia</span><div class="chips" id="qa"><button aria-pressed="false">Piccola</button><button aria-pressed="true">Media</button><button aria-pressed="false">Grande</button></div></div>
+    <div class="q"><span class="l">Età</span><div class="chips" id="qb"><button aria-pressed="false">Cucciolo</button><button aria-pressed="true">Adulto</button><button aria-pressed="false">Anziano</button></div></div>
+    <div class="q"><span class="l">Energia</span><div class="chips" id="qc"><button aria-pressed="false">Tranquillo</button><button aria-pressed="false">Giusta</button><button aria-pressed="true">Inesauribile</button></div></div>
+    <div class="q"><span class="l">Mentre sei al lavoro</span><div class="chips" id="qd"><button aria-pressed="true">Resta solo</button><button aria-pressed="false">È con qualcuno</button></div></div>
+    <div class="res"><b id="rB"></b><ul id="rL"></ul></div>
+  </div>
+</section>
+
+<section class="srv">
+  <div class="wrap">
+    <h2>Tutto quello che serve, a misura di cane.</h2>
+    <div class="srv__g" id="srv"></div>
+  </div>
+</section>
+
+<section class="b2b">
+  <div class="wrap">
+    <h2>Le convenzioni che porta lo sviluppo commerciale.</h2>
+    <p class="lead">Il vostro annuncio cerca chi acquisisca clienti e costruisca partnership con aziende e professionisti. Ecco lo strumento con cui lo farebbe: scegliete il tipo di partner, scrivete il nome, e la proposta è pronta da mandare.</p>
+    <div class="b2b__g">
+      <div class="pt">
+        <div class="pt" id="pt" role="group" aria-label="Tipo di partner"></div>
+        <label for="az">Nome del partner</label><input id="az" value="Pasticceria Dolce Sile" maxlength="40" autocomplete="off">
+      </div>
+      <article class="doc" aria-live="polite"><div class="stamp">DeCouture<br>proposta<br>2027</div><small>PROPOSTA DI CONVENZIONE</small><h3 id="dT"></h3><div class="who" id="dW"></div><div class="cols"><div><h4>Cosa offre DeCouture</h4><ul id="dA"></ul></div><div><h4>Cosa fa il partner</h4><ul id="dB"></ul></div></div><div class="ft"><span>DeCouture · Cinofilia sartoriale</span><a href="mailto:giulio@decouture-dogresort.it">Fissa un incontro</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sedi">
+  <div class="wrap">
+    <h2>Tre sedi alle porte di Treviso.</h2>
+    <div class="sedi__g">
+      <div class="sd"><b>Cavriè</b><span>San Biagio di Callalta, immersa nel verde: il resort.</span></div>
+      <div class="sd"><b>Treviso</b><span>Via Redipuglia 6, la casa a misura di cane alle porte della città.</span></div>
+      <div class="sd"><b>Olmi</b><span>La terza sede, con i servizi di tutti i giorni.</span></div>
+    </div>
+    <div class="team">
+      <span><b>Giulio</b> · fondatore, allevatore di barboni, educatore e toelettatore</span><span><b>Laura</b> · pensione e asilo</span><span><b>Marina</b> · doga e fitness per anziani</span><span><b>Elias</b> · educatore, cani con disabilità</span><span><b>Elena</b> · dog dance</span><span><b>Jessica</b> · digital strategist</span><span><b>Martina</b> · ospiti, eventi e social</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Dal 2018, a misura di cane.</h2>
+    <p>DeCouture · Centro cinofilo e ASD<br>Cavriè, Treviso e Olmi</p>
+    <p><a href="tel:+393498911741">349 891 1741</a><br><a href="https://www.decouture-dogresort.it">decouture-dogresort.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Gli strumenti dello sviluppo commerciale, pronti dal primo giorno.</h2>
+    <ul>
+      <li><b>Il programma su misura</b>Il cliente risponde a quattro domande e trova il suo pacchetto: meno spiegazioni al telefono, più prenotazioni.</li>
+      <li><b>Proposte di convenzione in un minuto</b>Aziende, veterinari, hotel e negozi: per ognuno una proposta chiara, con il nome del partner già scritto.</li>
+      <li><b>Una pagina per ogni partner</b>Chi arriva da una convenzione trova la sua pagina e il suo vantaggio, e voi sapete da dove arriva.</li>
+      <li><b>Contenuti che il vostro team può usare</b>Grafiche e testi nello stile DeCouture, pronti per Jessica e Martina.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per DeCouture. Proposte di esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* i servizi dal vostro sito */
+  var S=[['asilo','Asilo diurno','Giornate insieme agli altri cani, mentre sei al lavoro.'],['pens','Pensione','Il resort quando parti, nel verde di Cavriè.'],['pisc','Piscina','Nuoto e gioco in acqua, per muscoli e testa.'],['edu','Educazione','Capire come il tuo cane vede il mondo, e rispettarlo.'],['doga','Doga','Yoga a sei zampe, e fitness per i cani anziani.'],['dance','Dog dance','Tricks e giochi per una mente giovane.'],['taxi','DogTaxi','Lo andiamo a prendere e lo riportiamo a casa.'],['toel','Toelettatura','Le mani di chi alleva barboni da anni.']];
+  var IMG={pisc:'img/piscina.jpg',asilo:'img/prato.jpg',toel:'img/ritratto.jpg'};
+  $('srv').innerHTML=S.map(function(s,i){return IMG[s[0]]?'<div class="sv img" data-k="'+s[0]+'"><img src="'+IMG[s[0]]+'" alt="" loading="lazy"><div><i>0'+(i+1)+'</i><b style="display:block;margin:6px 0">'+s[1]+'</b><span>'+s[2]+'</span></div></div>':'<div class="sv" data-k="'+s[0]+'"><i>0'+(i+1)+'</i><b>'+s[1]+'</b><span>'+s[2]+'</span></div>'}).join('');
+  var st={a:1,b:1,c:2,d:0};
+  function plan(){var L=[],t;
+    if(st.d==0)L.push(['asilo',st.c==2?'Asilo diurno, 3 giorni a settimana':'Asilo diurno, 2 giorni a settimana']);
+    if(st.d==0)L.push(['taxi','DogTaxi andata e ritorno nei giorni di asilo']);
+    if(st.b==2){L.push(['doga','Doga e fitness dolce, una volta a settimana']);L.push(['pisc','Piscina leggera per le articolazioni'])}
+    else if(st.c==2){L.push(['pisc','Piscina, una sessione a settimana']);L.push(['dance','Dog dance per scaricare la testa'])}
+    else L.push(['dance','Dog dance per giocare insieme']);
+    if(st.b==0)L.push(['edu','Percorso di educazione per cuccioli']);
+    if(st.a==2||st.a==1)L.push(['toel','Toelettatura ogni sei settimane']);else L.push(['toel','Toelettatura ogni quattro settimane']);
+    t=['Il programma','Il guardaroba','La settimana'][st.c]+' su misura';
+    $('rB').textContent=t+' per un cane '+['piccolo','di taglia media','grande'][st.a]+(st.b==2?', anziano':st.b==0?', cucciolo':'');
+    $('rL').innerHTML=L.map(function(x){return '<li>'+x[1]+'</li>'}).join('');
+    var ks=L.map(function(x){return x[0]});document.querySelectorAll('.sv').forEach(function(e){e.classList.toggle('hi',ks.indexOf(e.dataset.k)>=0&&!e.classList.contains('img'))});
+  }
+  [['qa','a'],['qb','b'],['qc','c'],['qd','d']].forEach(function(q){$(q[0]).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});st[q[1]]=[].indexOf.call(this.children,b);plan()})});
+  plan();
+
+  /* le convenzioni */
+  var P=[
+    ['az','Azienda','Welfare per chi lavora con un cane a casa','<circle cx="22" cy="22" r="20" fill="#D7E34A"/><rect x="12" y="14" width="20" height="18" fill="#171614"/><path d="M16 19h4M24 19h4M16 25h4M24 25h4" stroke="#D7E34A" stroke-width="2"/>',
+      ['Asilo diurno con posti riservati ai dipendenti','DogTaxi nei giorni di lavoro','Una giornata «porte aperte» in sede per le famiglie','Condizioni dedicate, rinnovabili ogni anno'],['Inserisce DeCouture nel piano welfare','Lo comunica ai dipendenti con il nostro materiale','Ci segnala nuove assunzioni con un cane']],
+    ['vet','Veterinario','Educazione e riabilitazione su indicazione','<circle cx="22" cy="22" r="20" fill="#D7E34A"/><path d="M22 12v20M12 22h20" stroke="#171614" stroke-width="6"/>',
+      ['Percorsi di educazione per cani paurosi o reattivi','Piscina e fitness per il recupero','Un referente per ogni paziente inviato','Aggiornamento sul percorso, con il permesso del proprietario'],['Consiglia DeCouture quando serve','Espone il nostro materiale in sala d\'attesa','Partecipa a una serata informativa all\'anno']],
+    ['hot','Hotel pet friendly','La pensione per gli ospiti che arrivano col cane','<circle cx="22" cy="22" r="20" fill="#D7E34A"/><path d="M12 30V16l10-5 10 5v14z" fill="#171614"/><rect x="19" y="22" width="6" height="8" fill="#D7E34A"/>',
+      ['Pensione e asilo per le giornate in città','DogTaxi dall\'hotel al resort','Una pagina dedicata agli ospiti dell\'hotel'],['Propone DeCouture al momento della prenotazione','Inserisce il servizio nella sua pagina pet friendly','Ci segnala gli ospiti in arrivo']],
+    ['neg','Negozio e locale','Clienti in comune, vantaggi in comune','<circle cx="22" cy="22" r="20" fill="#D7E34A"/><path d="M11 18h22l-2 12H13z" fill="#171614"/><path d="M16 18a6 6 0 0 1 12 0" stroke="#171614" stroke-width="3" fill="none"/>',
+      ['Un vantaggio per i clienti del negozio','Eventi in negozio con i nostri educatori','Una vetrina a rotazione nelle sedi DeCouture'],['Un vantaggio per i nostri clienti','Il nostro materiale alla cassa','Un evento insieme ogni stagione']]
+  ];
+  var cur=2;
+  $('pt').innerHTML=P.map(function(p,i){return '<button aria-pressed="'+(i==cur)+'" data-i="'+i+'"><svg viewBox="0 0 44 44" aria-hidden="true">'+p[4-1+0]+'</svg><div><b>'+p[1]+'</b><span>'+p[2]+'</span></div></button>'}).join('');
+  function doc(){var p=P[cur],az=($('az').value.trim()||'Il vostro nome').replace(/[<>&"]/g,'');$('dT').textContent='DeCouture × '+az;$('dW').textContent='Convenzione '+p[1].toLowerCase()+' · '+p[2];
+    $('dA').innerHTML=p[4].map(function(x){return '<li>'+x+'</li>'}).join('');$('dB').innerHTML=p[5].map(function(x){return '<li>'+x+'</li>'}).join('')}
+  $('pt').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=+b.dataset.i;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});
+    $('az').value=['Officine Riunite Treviso','Clinica Veterinaria del Sile','Hotel Le Mura','Pasticceria Dolce Sile'][cur];doc()});
+  $('az').addEventListener('input',doc);
+  $('az').value='Hotel Le Mura';doc();
+})();
+</script>
+</body>
+</html>
