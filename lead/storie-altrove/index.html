@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Storie Altrove · Le candidature arrivano già come esperienze</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:ISerif;src:url(../lib/fonts/instrument-serif-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:ISerif;src:url(../lib/fonts/instrument-serif-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Space;src:url(../lib/fonts/space-grotesk-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+:root{
+  /* Torino d'inverno: notte sui portici, l'ocra dei tram, la ceralacca di una busta, nebbia sul Po */
+  --notte:#191B31; --notte2:#24274A; --neb:#E7E6EE; --ocra:#D6A03C; --cera:#9C2E3A; --ink:#15162A; --mut:#5E6077;
+  --d:ISerif,Georgia,serif; --s:Space,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--neb)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+h1 em,h2 em{font-style:italic}
+:focus-visible{outline:3px solid var(--ocra);outline-offset:3px}
+.wrap{max-width:1260px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--notte);color:#ECEAF6;min-height:92svh;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
+.bar{display:flex;justify-content:space-between;padding:20px var(--pad);font-size:14px;color:#A8A9C8;max-width:1260px;margin-inline:auto;width:100%}
+.bar b{font:400 24px/1 var(--d);color:#fff}.bar b i{font-style:italic;color:var(--ocra)}
+.hero .c{align-self:center;max-width:1260px;margin-inline:auto;width:100%;padding:0 var(--pad)}
+.hero h1{font-size:clamp(60px,9.4vw,170px);max-width:12ch}
+.hero h1 em{color:var(--ocra)}
+.hero p{max-width:50ch;margin-top:24px;font-size:clamp(17px,1.4vw,19.5px);color:#C9C9E0}
+.cd{display:flex;align-items:baseline;gap:14px;padding:22px var(--pad) 30px;max-width:1260px;margin-inline:auto;width:100%;border-top:1px solid #ffffff1c}
+.cd b{font:400 64px/1 var(--d);color:#fff}
+.cd span{color:#A8A9C8;font-size:15px}
+.rail{position:absolute;right:-40px;top:20%;width:46%;height:60%;pointer-events:none;opacity:.6}
+.rail path{stroke-dasharray:6 10;animation:rl 9s linear infinite}
+@keyframes rl{to{stroke-dashoffset:-320}}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(44px,5.8vw,92px)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* modulo */
+.fg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:start}
+.fm{display:grid;gap:16px}
+.fm label{display:grid;gap:6px;font-size:13.5px;font-weight:600}
+.fm label small{font-weight:400;color:var(--mut)}
+.fm input,.fm textarea,.fm select{border:0;border-bottom:1.5px solid #15162a55;background:transparent;padding:8px 2px;font-size:16px;font-weight:400;border-radius:0}
+.fm textarea{resize:vertical;min-height:84px;line-height:1.5}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rng{display:grid;gap:6px}
+.rng output{font:400 30px/1 var(--d)}
+.rng input{accent-color:var(--cera);border:0}
+.card{position:sticky;top:20px;background:#fff;border-radius:4px;padding:clamp(20px,3vw,34px);box-shadow:0 30px 50px -36px #15162a99;display:grid;gap:14px}
+.card .stamp{position:absolute;right:22px;top:-18px;width:62px;height:62px;border-radius:50%;background:var(--cera);color:#fff;display:grid;place-items:center;font:italic 400 15px/1 var(--d);transform:rotate(-12deg);box-shadow:0 6px 14px -6px #0006}
+.card small{font-size:12.5px;color:var(--mut)}
+.card h3{font-size:clamp(30px,3vw,44px)}
+.card .who{font:italic 400 19px/1.4 var(--d);color:#3a3b55}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-block:1px solid #15162a1f;padding-block:12px}
+.facts b{display:block;font:400 24px/1.1 var(--d)}
+.facts span{font-size:12.5px;color:var(--mut)}
+.card .what{font-size:15.5px;white-space:pre-line}
+.rules{display:flex;gap:6px;flex-wrap:wrap}
+.rules span{font-size:12.5px;padding:5px 10px;border-radius:999px;background:#e9f3ec;color:#285b3b}
+.rules span.no{background:#f7e3e5;color:var(--cera)}
+.send{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.send a{background:var(--notte);color:#fff;text-decoration:none;padding:12px 18px;border-radius:999px;font-weight:600;font-size:15px}
+.send a[aria-disabled=true]{opacity:.35;pointer-events:none}
+
+/* stagione */
+.sea{background:var(--notte2);color:#ECEAF6}
+.sea .sh p{color:#B4B5D2}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid #ffffff26}
+.st{padding:18px 16px 0 0;cursor:pointer;border:0;background:none;color:inherit;text-align:left;display:grid;gap:10px;align-content:start;opacity:.55;transition:opacity .3s}
+.st[aria-pressed=true]{opacity:1}
+.st b{font:400 40px/1 var(--d)}
+.st span{font-size:14.5px}
+.dots{display:flex;flex-wrap:wrap;gap:4px;min-height:14px}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--ocra);transition:transform .4s,opacity .4s}
+.dots i.off{opacity:.15;transform:scale(.6)}
+.sd{margin-top:26px;font:italic 400 clamp(22px,2.2vw,30px)/1.3 var(--d);max-width:44ch;min-height:3.9em;color:#fff}
+
+/* tavolo */
+.tf{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.tf button{border:1.5px solid #15162a33;background:none;border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:14px}
+.tf button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tf output{margin-left:auto;font-size:14px;font-weight:600}
+.tab{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pr{background:#fff;border-radius:4px;padding:16px;display:grid;gap:8px;align-content:start;border-top:4px solid transparent;transition:border-color .3s,opacity .3s}
+.pr.hide{display:none}
+.pr.sel{border-top-color:var(--ocra)}
+.pr h3{font-size:25px}
+.pr p{font-size:14.5px;color:#3a3b55}
+.pr .m{display:flex;justify-content:space-between;font-size:13px;color:var(--mut)}
+.pr button{justify-self:start;border:1.5px solid var(--ink);background:none;border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:13.5px}
+.pr.sel button{background:var(--ocra);border-color:var(--ocra)}
+
+@media (max-width:900px){
+  .sh,.fg{grid-template-columns:1fr}
+  .card{position:relative;top:0}
+  .steps{grid-template-columns:1fr;border:0}
+  .st{grid-template-columns:70px 1fr;border-top:1px solid #ffffff26;padding:14px 0}
+  .st .dots{grid-column:2}
+  .tab{grid-template-columns:1fr}
+  .rail{display:none}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Storie Altrove" data-note="Anteprima preparata da Umbra per Storie Altrove, a partire dal vostro annuncio. Stagione, regole, scadenza e indirizzo per le candidature vengono dal vostro sito; i candidati e le esperienze del tavolo sono inventati per l'esempio.">
+
+<header class="hero">
+  <svg class="rail" viewBox="0 0 600 400" fill="none" aria-hidden="true"><path d="M0 330 C140 330 180 120 320 120 S520 260 600 60" stroke="#D6A03C" stroke-width="2"/><path d="M0 350 C140 350 190 140 330 140 S530 280 600 80" stroke="#D6A03C" stroke-width="1" opacity=".5"/></svg>
+  <div class="bar"><b>Storie<i>Altrove</i></b><span>Stagione invernale 2026–2027</span></div>
+  <div class="c">
+    <h1><span class="ln"><span class="li" style="--i:0">Un'esperienza</span></span><span class="ln"><span class="li" style="--i:1">che <em>non esiste</em></span></span><span class="ln"><span class="li" style="--i:2">ancora.</span></span></h1>
+    <p class="fx" style="--i:3">Chiedete a chi si candida cinque righe su di sé e dieci sull'esperienza che vorrebbe far vivere. Qui quelle quindici righe diventano una scheda leggibile in trenta secondi, controllata sulle vostre regole prima ancora di partire.</p>
+  </div>
+  <div class="cd fx" style="--i:4"><b id="cd">14</b><span id="cdl">giorni alla chiusura delle candidature, il 10 dicembre</span></div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>La candidatura, <em>già impaginata</em></h2><p>Chi scrive vede subito la sua idea come la vedrà il committente. Durata e notti vengono controllate con le regole della stagione; la mail parte con l'oggetto giusto.</p></div>
+    <div class="fg">
+      <form class="fm" id="fm" onsubmit="return false">
+        <label>Chi sei <small>cinque righe, non di più</small><textarea id="fWho" rows="3">Lavoro in un teatro di quartiere, scrivo racconti brevi e cammino molto.</textarea></label>
+        <label>Titolo dell'esperienza<input id="fT" value="La città dei portoni chiusi"></label>
+        <div class="row2">
+          <label>Dove<input id="fW" value="Torino, Borgo Po e Vanchiglia"></label>
+          <label>Genere<select id="fG"><option>Racconto a piedi</option><option>Teatro</option><option>Cucina</option><option>Musica</option><option>Gioco</option><option>Natura</option></select></label>
+        </div>
+        <label>Che cosa succede <small>dieci righe al massimo</small><textarea id="fX" rows="4">Un portinaio apre tre cortili che di solito restano chiusi. In ognuno qualcuno racconta cosa ci è successo. Nell'ultimo, una cena fredda e una lettera da aprire a casa.</textarea></label>
+        <div class="row2">
+          <div class="rng"><label for="fD">Quanto dura</label><output id="oD"></output><input type="range" id="fD" min="1" max="14" value="4"></div>
+          <div class="rng"><label for="fC">Quanto costa, più o meno</label><output id="oC"></output><input type="range" id="fC" min="50" max="1500" step="50" value="420"></div>
+        </div>
+        <label style="display:flex;gap:10px;align-items:center;font-weight:400"><input type="checkbox" id="fN" style="accent-color:var(--cera)">Prevede un pernottamento</label>
+      </form>
+      <article class="card" aria-live="polite">
+        <span class="stamp">10/12</span>
+        <small id="cG"></small>
+        <h3 id="cT"></h3>
+        <p class="who" id="cW"></p>
+        <div class="facts"><div><b id="cD"></b><span>durata</span></div><div><b id="cC"></b><span>budget stimato</span></div><div><b id="cP"></b><span>dove</span></div></div>
+        <p class="what" id="cX"></p>
+        <div class="rules" id="cR"></div>
+        <div class="send"><small>A candidature@storiealtrove.it</small><a id="cM" href="#">Invia con il curriculum</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sea">
+  <div class="wrap">
+    <div class="sh"><h2>Si parte in cinque, <em>si arriva in una</em></h2><p>Il calendario della stagione, mese per mese. Chi si candida vede da subito quanto è stretto il percorso, e quanto vale arrivare in fondo.</p></div>
+    <div class="steps" id="steps" role="group" aria-label="Mesi della stagione"></div>
+    <p class="sd" id="sd" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>Il tavolo <em>del committente</em></h2><p>Tutte le schede nello stesso formato, filtrabili per genere. Fino a dieci colloqui in videochiamata: il contatore lo ricorda mentre si sceglie.</p></div>
+    <div class="tf" id="tf" role="group" aria-label="Filtra per genere"><button type="button" data-g="" aria-pressed="true">Tutte</button><button type="button" data-g="Racconto a piedi" aria-pressed="false">A piedi</button><button type="button" data-g="Teatro" aria-pressed="false">Teatro</button><button type="button" data-g="Cucina" aria-pressed="false">Cucina</button><button type="button" data-g="Musica" aria-pressed="false">Musica</button><output id="sel">0 su 10 colloqui</output></div>
+    <div class="tab" id="tab"></div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Meno curriculum da leggere, più idee da confrontare.</h2>
+    <ul>
+      <li><b>Candidatura guidata</b>Le quindici righe che chiedete, in una scheda che si controlla da sola sulle regole.</li>
+      <li><b>Tavolo di selezione</b>Tutte le proposte nello stesso formato, filtri e shortlist fino a dieci colloqui.</li>
+      <li><b>Le storie dopo</b>Ogni esperienza vissuta diventa una pagina da raccontare, per la prossima stagione.</li>
+      <li><b>Da esterni</b>Costruiamo e seguiamo noi gli strumenti; le scelte restano vostre.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Storie Altrove. Candidati d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var dl=Math.ceil((new Date(2026,11,10,23,59)-new Date())/864e5);
+  if(dl>0){$('cd').textContent=dl;$('cdl').textContent=(dl===1?'giorno':'giorni')+' alla chiusura delle candidature, il 10 dicembre'}else{$('cd').textContent='Chiuse';$('cdl').textContent='le candidature della stagione invernale'}
+  function dur(v){return v<=1?'1 ora':v<12?v+' ore':v===12?'una giornata':'più di un giorno'}
+  function card(){var d=+$('fD').value,c=+$('fC').value,n=$('fN').checked;
+    $('oD').textContent=dur(d);$('oC').textContent=c.toLocaleString('it-IT')+' €';
+    $('cG').textContent=$('fG').value+' · prima esperienza, Torino';$('cT').textContent=$('fT').value||'Titolo';
+    $('cW').textContent=$('fWho').value;$('cD').textContent=dur(d);$('cC').textContent=c.toLocaleString('it-IT')+' €';$('cP').textContent=($('fW').value.split(',')[0]||'—');
+    $('cX').textContent=$('fX').value;
+    var okD=d>=2&&d<=12,okN=!n,okL=$('fX').value.length<=900;
+    var R=[[okD,okD?'Durata tra due ore e una giornata':'La durata va da due ore a una giornata'],[okN,okN?'Senza pernottamento':'Niente pernottamenti in questa stagione'],[okL,okL?'Nelle dieci righe':'Oltre le dieci righe']];
+    $('cR').innerHTML=R.map(function(r){return '<span class="'+(r[0]?'':'no')+'">'+r[1]+'</span>'}).join('');
+    var ok=okD&&okN&&okL,m=$('cM');m.setAttribute('aria-disabled',!ok);m.textContent=ok?'Invia con il curriculum':'Sistema prima i punti in rosso';
+    var body='Chi sono:\n'+$('fWho').value+'\n\nL\'esperienza: '+$('fT').value+'\nDove: '+$('fW').value+'\nChe cosa succede: '+$('fX').value+'\nDurata: '+dur(d)+'\nCosto stimato: '+c+' €\n\nAllego il curriculum.';
+    m.href='mailto:candidature@storiealtrove.it?subject='+encodeURIComponent('Candidatura Experience Designer – '+($('fT').value||''))+'&body='+encodeURIComponent(body)}
+  $('fm').addEventListener('input',card);card();
+  var ST=[['Nov','Candidature fino al 10 dicembre',10,'Ognuno manda chi è, un\'esperienza in dieci righe e il curriculum, anche breve.'],['Dic','Selezione e primo incarico',5,'Fino a dieci colloqui in videochiamata. In cinque ricevono lo stesso primo incarico: un\'esperienza breve, a Torino.'],['Gen','Secondo incarico',3,'In tre: fase di progetto presentata da remoto, poi la fase dal vivo.'],['Feb','Terzo incarico',2,'In due, sempre progetto e dal vivo. Ogni incarico è pagato, le idee restano di chi le ha avute.'],['Mar','L\'ultima esperienza',1,'Chi arriva in fondo chiude la stagione. Nel 2027 si può continuare, circa un\'esperienza al mese.']];
+  var cur=0;
+  $('steps').innerHTML=ST.map(function(s,i){var d='';for(var k=0;k<10;k++)d+='<i class="'+(k<s[2]?'':'off')+'"></i>';return '<button type="button" class="st" data-i="'+i+'" aria-pressed="'+(i===0)+'"><b>'+s[0]+'</b><span>'+s[1]+'</span><span class="dots">'+d+'</span></button>'}).join('');
+  function step(i){cur=i;[].forEach.call($('steps').children,function(x,j){x.setAttribute('aria-pressed',j===i)});$('sd').textContent=ST[i][3]}
+  $('steps').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;step(+b.dataset.i);clearInterval(tm)});
+  step(0);var tm=U.reduce?0:setInterval(function(){step((cur+1)%ST.length)},3200);
+  var P=[['La città dei portoni chiusi','Racconto a piedi','4 ore','420 €','Tre cortili aperti da un portinaio, tre racconti, una lettera da aprire a casa.'],['Prova generale','Teatro','3 ore','600 €','Il committente entra in una prova vera, con un piccolo ruolo da imparare in un\'ora.'],['La spesa di mia nonna','Cucina','5 ore','280 €','Porta Palazzo con una lista scritta a mano del 1962, poi si cucina quello che si trova.'],['Il disco sbagliato','Musica','3 ore','350 €','Un negozio di vinili, un disco scelto a caso, la band che lo suonava, ritrovata.'],['Ultimo tram','Racconto a piedi','6 ore','190 €','La linea più lunga di Torino fino al capolinea, scendendo dove dice uno sconosciuto.'],['Cena al buio a Vanchiglia','Cucina','4 ore','520 €','Una cena in una casa privata, il menù svelato piatto per piatto da chi l\'ha cucinato.']];
+  var S={},g='';
+  function tab(){var n=Object.keys(S).length;$('sel').textContent=n+' su 10 colloqui';
+    $('tab').innerHTML=P.map(function(p,i){return '<article class="pr'+(g&&p[1]!==g?' hide':'')+(S[i]?' sel':'')+'"><div class="m"><span>'+p[1]+'</span><span>'+p[2]+' · '+p[3]+'</span></div><h3>'+p[0]+'</h3><p>'+p[4]+'</p><button type="button" data-i="'+i+'">'+(S[i]?'In shortlist':'Al colloquio')+'</button></article>'}).join('')}
+  $('tab').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=b.dataset.i;if(S[i])delete S[i];else if(Object.keys(S).length<10)S[i]=1;tab()});
+  $('tf').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g=b.dataset.g;[].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b)});tab()});
+  S[0]=1;S[2]=1;tab();
+})();
+</script>
+</body>
+</html>

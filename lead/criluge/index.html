@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Criluge · Una redazione telco che non perde un segnale</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:News;src:url(../lib/fonts/newsreader-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:News;src:url(../lib/fonts/newsreader-italic.woff2) format("woff2");font-weight:200 800;font-style:italic;font-display:swap}
+@font-face{font-family:Schib;src:url(../lib/fonts/schibsted-grotesk-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{
+  /* rete: blu del segnale, verde della copertura, ambra degli avvisi, il bianco freddo di un display */
+  --bg:#EDF1F4; --card:#FBFCFD; --blu:#1C3FA8; --blu2:#0F235E; --cop:#1F9D68; --amb:#E99A2C; --ink:#0E1621; --mut:#5A6675;
+  --d:News,Georgia,serif; --s:Schib,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--amb);outline-offset:3px}
+.wrap{max-width:1300px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--blu2);color:#E8EDFA;padding:0 0 clamp(56px,8vw,110px);position:relative;overflow:hidden}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);max-width:1300px;margin-inline:auto;font-size:14px;color:#AEB9DA}
+.bar b{display:flex;align-items:flex-end;gap:10px;font:700 22px/1 var(--s);color:#fff;letter-spacing:-.01em}
+.sig{display:flex;align-items:flex-end;gap:3px;height:20px}
+.sig i{width:5px;background:#fff;border-radius:1px;animation:sg 2.4s infinite ease-in-out;animation-delay:calc(var(--k)*.18s)}
+@keyframes sg{0%,100%{opacity:1}50%{opacity:.25}}
+.hg{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,80px);align-items:end;padding-top:clamp(20px,4vw,60px)}
+.hero h1{font-size:clamp(48px,6.6vw,112px);font-weight:400}
+.hero h1 em{font-style:italic;color:#9FB6FF}
+.hero p{font-size:clamp(17px,1.4vw,19.5px);color:#C9D3F0;max-width:46ch}
+.yrs{display:flex;gap:26px;margin-top:26px}
+.yrs b{display:block;font:400 40px/1 var(--d);color:#fff}
+.yrs span{font-size:13.5px;color:#AEB9DA}
+.waves{position:absolute;right:-120px;top:-120px;width:620px;height:620px;opacity:.18;pointer-events:none}
+
+/* radar */
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(38px,4.8vw,74px)}
+.sh p{color:var(--mut);max-width:54ch}
+.rad{display:grid;grid-template-columns:minmax(270px,.8fr) minmax(0,1.2fr);gap:clamp(14px,2.4vw,30px);align-items:start}
+.feed{background:var(--card);border-radius:12px;padding:8px;display:grid;gap:4px;border:1px solid #0e16211a}
+.feed .hd{display:flex;justify-content:space-between;padding:8px 10px;font-size:13px;color:var(--mut)}
+.feed .hd span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cop);margin-right:6px;animation:sg 1.6s infinite}
+.feed button{display:grid;grid-template-columns:58px 1fr;gap:10px;text-align:left;border:0;background:none;padding:11px 10px;border-radius:8px;cursor:pointer;font-size:15px;line-height:1.35}
+.feed button small{font-size:12.5px;color:var(--mut);font-variant-numeric:tabular-nums}
+.feed button em{display:block;font-style:normal;font-size:12px;font-weight:700;margin-top:4px}
+.feed button[aria-pressed=true]{background:#E2E8FA}
+.feed button.new{animation:nw 1.4s ease}
+@keyframes nw{from{background:#FFF1D9}}
+.k-p{color:var(--amb)}.k-r{color:var(--cop)}.k-n{color:var(--blu)}
+.draft{background:var(--card);border-radius:12px;border:1px solid #0e16211a;overflow:hidden}
+.dh{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 18px;background:#E2E8FA;font-size:13.5px}
+.dh b{color:var(--blu)}
+.db{padding:clamp(16px,2.4vw,28px)}
+.db .kick{font-size:13px;font-weight:700;color:var(--blu);margin-bottom:8px}
+.db h3{font-size:clamp(26px,2.8vw,40px);margin-bottom:10px}
+.db .sum{font:italic 400 19px/1.45 var(--d);color:#2c3644;margin-bottom:16px}
+.box{border-left:4px solid var(--cop);background:#EAF6F0;padding:12px 14px;border-radius:0 8px 8px 0;font-size:15px;margin-bottom:16px}
+.box b{display:block;font-size:13px;margin-bottom:4px}
+.chk{display:grid;gap:6px;margin-bottom:16px}
+.chk label{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer}
+.chk input{accent-color:var(--cop);margin-top:4px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+.meta span{background:var(--bg);border-radius:999px;padding:5px 10px}
+.pub{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px}
+.pub button{border:0;border-radius:8px;padding:10px 16px;font-weight:700;cursor:pointer;background:#cfd6e3;color:#55606d}
+.pub button.ok{background:var(--blu);color:#fff}
+
+/* piano due testate */
+.plan{background:var(--card)}
+.tb{display:flex;gap:6px;margin-bottom:16px}
+.tb button{border:1.5px solid #0e162126;background:none;border-radius:999px;padding:8px 15px;font-weight:700;cursor:pointer}
+.tb button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.day{background:var(--bg);border-radius:10px;padding:12px;min-height:250px;display:grid;align-content:start;gap:8px}
+.day>b{font:500 22px/1 var(--d)}
+.slot{background:#fff;border-radius:8px;padding:9px 10px;font-size:13.5px;line-height:1.35;border-top:3px solid var(--blu)}
+.slot small{display:block;font-size:11.5px;font-weight:700;color:var(--mut);margin-bottom:3px}
+.slot.g{border-color:var(--cop)}.slot.c{border-color:var(--amb)}.slot.a{border-color:#8B5CF6}
+.lgd{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:13px;color:var(--mut)}
+.lgd i{display:inline-block;width:12px;height:3px;margin-right:6px;vertical-align:middle}
+
+/* prova d'ingresso */
+.test{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,60px);align-items:start}
+.rub{background:var(--card);border-radius:12px;padding:18px;border:1px solid #0e16211a;display:grid;gap:14px}
+.rub .r{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;font-size:15px}
+.rub input{grid-column:1/-1;accent-color:var(--blu);width:100%}
+.rub output{font-weight:800;color:var(--blu)}
+.score{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #0e16211a;padding-top:12px}
+.score b{font:400 54px/1 var(--d)}
+.score span{font-size:14.5px;font-weight:700}
+
+/* media kit */
+.kit{background:var(--blu2);color:#E8EDFA}
+.kit .sh p{color:#B9C5E6}
+.kg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.kc{border:1.5px solid #ffffff2a;border-radius:12px;padding:18px;cursor:pointer;background:none;color:inherit;text-align:left;display:grid;gap:8px;align-content:start}
+.kc b{font:400 26px/1.05 var(--d);color:#fff}
+.kc span{font-size:14.5px;color:#C9D3F0}
+.kc[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
+.kc[aria-pressed=true] b{color:var(--blu2)}.kc[aria-pressed=true] span{color:#3a4656}
+.brief{margin-top:16px;background:#ffffff10;border-radius:12px;padding:16px 18px;font-size:15.5px;white-space:pre-line}
+
+@media (max-width:900px){
+  .hg,.sh,.rad,.test{grid-template-columns:1fr}
+  .cal{grid-template-columns:1fr 1fr}
+  .day{min-height:0}
+  .kg{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Criluge" data-note="Anteprima preparata da Umbra per Criluge, a partire dal vostro annuncio per articolista e web editor. Storia, testate e contatti vengono dal vostro sito; i segnali del radar, gli operatori e gli articoli sono esempi, senza nomi reali.">
+
+<header class="hero">
+  <svg class="waves" viewBox="0 0 600 600" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><circle cx="300" cy="300" r="60"/><circle cx="300" cy="300" r="120"/><circle cx="300" cy="300" r="180"/><circle cx="300" cy="300" r="240"/><circle cx="300" cy="300" r="295"/></svg>
+  <div class="bar"><b><span class="sig" aria-hidden="true"><i style="--k:0;height:6px"></i><i style="--k:1;height:10px"></i><i style="--k:2;height:15px"></i><i style="--k:3;height:20px"></i></span>Criluge</b><span>Via San Filippo Neri 26, Catania</span></div>
+  <div class="wrap hg">
+    <h1><span class="ln"><span class="li" style="--i:0">Le offerte cambiano</span></span><span class="ln"><span class="li" style="--i:1">ogni settimana.</span></span><span class="ln"><span class="li" style="--i:2"><em>La redazione regge.</em></span></span></h1>
+    <div>
+      <p class="fx" style="--i:3">MondoMobileWeb e SpazioPlay vivono di velocità e di precisione. Cercate un articolista: questo è il banco su cui lavorerebbe. Ogni segnale diventa una bozza con le fonti da verificare, ogni bozza ha il suo posto nel piano.</p>
+      <div class="yrs fx" style="--i:4"><div><b>1999</b><span>online dal 19 ottobre</span></div><div><b>2017</b><span>nasce la società</span></div><div><b>2</b><span>testate nel network</span></div></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>Dal segnale alla bozza, in un clic</h2><p>Comunicati, listini, condizioni contrattuali: il radar li raccoglie, la bozza parte già con titolo, sommario, box «cosa cambia per chi è già cliente» e la lista delle fonti da controllare prima di pubblicare.</p></div>
+    <div class="rad">
+      <div class="feed" id="feed" role="group" aria-label="Segnali dal mercato"><div class="hd"><span>Radar attivo</span>esempi</div></div>
+      <article class="draft" aria-live="polite">
+        <div class="dh"><b id="dT">MondoMobileWeb</b><span id="dS"></span></div>
+        <div class="db">
+          <div class="kick" id="dK"></div>
+          <h3 id="dH"></h3>
+          <p class="sum" id="dU"></p>
+          <div class="box"><b>Cosa cambia per chi è già cliente</b><span id="dB"></span></div>
+          <div class="chk" id="dC"></div>
+          <div class="meta" id="dM"></div>
+          <div class="pub"><span id="dP"></span><button type="button" id="go">Verifica le fonti</button></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec plan">
+  <div class="wrap">
+    <div class="sh"><h2>Una settimana, due testate</h2><p>Notizie quando il mercato si muove, guide e confronti per chi cerca su Google, approfondimenti per la community. Un piano scritto il venerdì, con chi scrive cosa.</p></div>
+    <div class="tb" id="tb" role="group" aria-label="Testata"><button type="button" data-t="mmw" aria-pressed="true">MondoMobileWeb</button><button type="button" data-t="sp" aria-pressed="false">SpazioPlay</button></div>
+    <div class="cal" id="cal"></div>
+    <div class="lgd"><span><i style="background:var(--blu)"></i>Notizia</span><span><i style="background:var(--cop)"></i>Guida</span><span><i style="background:var(--amb)"></i>Confronto</span><span><i style="background:#8B5CF6"></i>Approfondimento</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap test">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:16px"><h2>Gli articoli di prova, valutati uguale</h2><p>Chiedete a ogni candidato un articolo di prova. Una griglia comune rende il confronto rapido e giusto: quattro criteri, un punteggio, una nota da rimandare.</p></div>
+    </div>
+    <div class="rub" id="rub">
+      <div class="r"><span>Accuratezza dei dati</span><output>4</output><input type="range" min="1" max="5" value="4" aria-label="Accuratezza dei dati"></div>
+      <div class="r"><span>Fonti citate e verificabili</span><output>3</output><input type="range" min="1" max="5" value="3" aria-label="Fonti citate"></div>
+      <div class="r"><span>Chiarezza per chi non è del settore</span><output>5</output><input type="range" min="1" max="5" value="5" aria-label="Chiarezza"></div>
+      <div class="r"><span>Titolo e struttura per la ricerca</span><output>3</output><input type="range" min="1" max="5" value="3" aria-label="Titolo e struttura"></div>
+      <div class="score"><b id="sc">75</b><span id="sv"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec kit">
+  <div class="wrap">
+    <div class="sh"><h2>Il listino per operatori e MVNO</h2><p>Accanto alle testate, Criluge vende pubblicità e consulenza Telco. Un media kit che si compone da solo rende la richiesta di un operatore una risposta in giornata.</p></div>
+    <div class="kg" id="kg">
+      <button type="button" class="kc" data-k="art" aria-pressed="true"><b>Articolo sponsorizzato</b><span>Scritto dalla redazione, segnalato come tale, sulla testata giusta.</span></button>
+      <button type="button" class="kc" data-k="ban" aria-pressed="false"><b>Banner di sezione</b><span>Offerte e confronti, dove il lettore sta già scegliendo.</span></button>
+      <button type="button" class="kc" data-k="com" aria-pressed="false"><b>Community</b><span>Domande e risposte con l'operatore, moderate dalla redazione.</span></button>
+      <button type="button" class="kc" data-k="con" aria-pressed="true"><b>Consulenza MVNO</b><span>Analisi di mercato e posizionamento per chi entra nel settore.</span></button>
+    </div>
+    <div class="brief" id="brief"></div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Più veloci sulle notizie, più precisi sulle fonti.</h2>
+    <ul>
+      <li><b>Radar e bozze</b>Segnali dal mercato raccolti ogni giorno e trasformati in bozze con fonti da verificare.</li>
+      <li><b>Piano editoriale</b>Due testate, un calendario condiviso, chi scrive cosa.</li>
+      <li><b>Media kit vivo</b>Un listino per operatori che si compone online e arriva già in forma di proposta.</li>
+      <li><b>Da esterni</b>Strumenti e flussi li costruiamo noi; la penna resta della vostra redazione.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Criluge. Segnali e articoli d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var S=[
+    {o:'08:12',k:'p',kl:'Prezzo',t:'mmw',x:'L\'operatore A ritocca il canone di una tariffa per i già clienti',h:'Operatore A, aumento di canone per i già clienti: chi è coinvolto e come recedere',u:'La rimodulazione riguarda una sola tariffa e parte dal mese prossimo. Chi non accetta può cambiare senza penali entro la data indicata nella comunicazione.',b:'Il canone sale dal rinnovo successivo alla data di efficacia. Si può recedere o passare ad altro operatore senza costi entro i termini indicati.',f:['Comunicazione ufficiale dell\'operatore','Condizioni contrattuali aggiornate (PDF)','Data di efficacia e termini di recesso','Confronto con la tariffa precedente'],m:['rimodulazione','diritto di recesso','operatore-a-aumento-canone'],p:'Oggi 10:00 · Notizia'},
+    {o:'09:40',k:'r',kl:'Rete',t:'mmw',x:'Un MVNO annuncia il passaggio a una nuova rete di appoggio',h:'MVNO B cambia rete: cosa succede alla copertura e alle SIM attive',u:'Il cambio di rete avverrà per gruppi di clienti. Numeri e credito restano uguali; può servire una SIM nuova.',b:'Possibile sostituzione della SIM, senza costi secondo l\'annuncio. Da verificare le date per zona.',f:['Comunicato stampa del MVNO','FAQ ufficiale sulla migrazione','Mappa di copertura della nuova rete','Tempi per gruppi di clienti'],m:['mvno','copertura 5G','mvno-b-cambio-rete'],p:'Oggi 12:30 · Notizia'},
+    {o:'11:05',k:'n',kl:'Nuova offerta',t:'mmw',x:'Operatore C lancia un\'offerta solo online con giga illimitati',h:'Giga illimitati solo online: la nuova offerta dell\'Operatore C, costi e vincoli',u:'L\'offerta si attiva solo dal sito e ha un costo di attivazione. Tutti i vincoli, dal primo rinnovo all\'eventuale promo.',b:'Non riguarda i già clienti, salvo cambio piano. Controllare costi di attivazione e durata della promozione.',f:['Pagina offerta e trasparenza tariffaria','Costo di attivazione e SIM','Durata della promozione','Uso all\'estero e roaming UE'],m:['offerte mobile','giga illimitati','operatore-c-offerta-online'],p:'Domani 09:00 · Notizia + Confronto'},
+    {o:'14:22',k:'n',kl:'Streaming',t:'sp',x:'Una piattaforma streaming cambia i piani con pubblicità',h:'Piani con pubblicità: cosa cambia sulla piattaforma D e quanto si risparmia',u:'Il nuovo piano costa meno ma inserisce spot. Cosa resta escluso, su quanti schermi si guarda, quando parte.',b:'Gli abbonamenti attivi restano invariati fino a comunicazione. Nessun passaggio automatico al piano con pubblicità.',f:['Annuncio ufficiale della piattaforma','Pagina prezzi aggiornata','Date di partenza in Italia','Cataloghi esclusi dal piano'],m:['streaming','abbonamenti','piattaforma-d-piano-pubblicita'],p:'Oggi 16:00 · SpazioPlay'}
+  ];
+  var cur=0,ok=0;
+  $('feed').insertAdjacentHTML('beforeend',S.map(function(s,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===0)+'"><small>'+s.o+'</small><span>'+s.x+'<em class="k-'+s.k+'">'+s.kl+'</em></span></button>'}).join(''));
+  function dr(){var s=S[cur];$('dT').textContent=s.t==='mmw'?'MondoMobileWeb':'SpazioPlay';$('dS').textContent='Bozza · segnale delle '+s.o;
+    $('dK').textContent=s.kl;$('dH').textContent=s.h;$('dU').textContent=s.u;$('dB').textContent=s.b;
+    $('dC').innerHTML=s.f.map(function(f,i){return '<label><input type="checkbox" data-i="'+i+'">'+f+'</label>'}).join('');
+    $('dM').innerHTML=s.m.map(function(x,i){return '<span>'+(i===2?'/'+x:'#'+x)+'</span>'}).join('');
+    ok=0;st()}
+  function st(){var n=S[cur].f.length;$('dP').textContent='Fonti verificate: '+ok+' su '+n+' · '+S[cur].p;var b=$('go');b.className=ok===n?'ok':'';b.textContent=ok===n?'Pronta per l\'editor':'Verifica le fonti'}
+  $('dC').addEventListener('change',function(){ok=this.querySelectorAll('input:checked').length;st()});
+  $('feed').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=+b.dataset.i;[].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b)});dr()});
+  $('go').addEventListener('click',function(){var c=$('dC').querySelectorAll('input');[].forEach.call(c,function(x){x.checked=true});ok=c.length;st()});
+  dr();
+  /* piano */
+  var P={mmw:[['Lun',[['n','Rimodulazioni della settimana'],['g','Come recedere senza penali']]],['Mar',[['c','Offerte fibra sotto i 25 €'],['n','Novità MVNO']]],['Mer',[['g','eSIM: attivarla in 5 minuti'],['a','Il 5G in Sicilia, zona per zona']]],['Gio',[['n','Notizie dal mercato'],['c','Le 10 offerte mobile del mese']]],['Ven',[['a','Domande della community'],['g','Portabilità: i tempi reali']]]],
+         sp:[['Lun',[['n','Uscite streaming della settimana'],['c','Piani con pubblicità a confronto']]],['Mar',[['g','Smart TV: le app da installare'],['n','Serie in arrivo']]],['Mer',[['a','Il calcio in TV: chi trasmette cosa'],['g','Condividere l\'abbonamento']]],['Gio',[['n','Novità delle piattaforme'],['c','Quanto costa vedere tutto']]],['Ven',[['a','La classifica dei lettori'],['g','Weekend: cosa guardare']]]]};
+  var L={n:'Notizia',g:'Guida',c:'Confronto',a:'Approfondimento'},W=['Redattore 1','Redattore 2','Nuovo articolista'];
+  function cal(t){$('cal').innerHTML=P[t].map(function(d,di){return '<div class="day"><b>'+d[0]+'</b>'+d[1].map(function(s,si){return '<div class="slot '+s[0]+'"><small>'+L[s[0]]+' · '+W[(di+si)%3]+'</small>'+s[1]+'</div>'}).join('')+'</div>'}).join('')}
+  $('tb').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});cal(b.dataset.t)});cal('mmw');
+  /* griglia */
+  function rub(){var r=$('rub').querySelectorAll('.r'),t=0;[].forEach.call(r,function(x){var v=+x.querySelector('input').value;x.querySelector('output').textContent=v;t+=v});var p=Math.round(t/20*100);$('sc').textContent=p;$('sv').textContent=p>=80?'Al colloquio':p>=60?'Seconda prova su una notizia vera':'Ringraziare e archiviare'}
+  $('rub').addEventListener('input',rub);rub();
+  /* kit */
+  var K={art:'un articolo sponsorizzato su MondoMobileWeb',ban:'banner nelle sezioni Offerte e Confronti',com:'uno spazio domande e risposte nella community',con:'una consulenza di posizionamento sul mercato MVNO'};
+  function kit(){var on=[].filter.call($('kg').children,function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return K[x.dataset.k]});
+    $('brief').textContent=on.length?'Proposta per l\'operatore:\n— '+on.join('\n— ')+'\n\nTempi, prezzi e calendario si aggiungono dal vostro listino. La proposta parte come PDF con il logo Criluge.':'Scegli almeno un formato.'}
+  $('kg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');kit()});kit();
+})();
+</script>
+</body>
+</html>

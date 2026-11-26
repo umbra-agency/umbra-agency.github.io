@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Eureka Infissi · La finestra giusta, prima di entrare in showroom</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Young;src:url(../lib/fonts/young-serif-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Instr;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* Trapani: sale delle saline, mare dello Stagnone, tufo, tramonto su Marettimo */
+  --sale:#F2F4F3; --mare:#123A52; --cielo:#BFD7E4; --tufo:#C9B48D; --tram:#E1962B; --ink:#16212A;
+  --d:Young,Georgia,serif; --s:Instr,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.6 var(--s);color:var(--ink);background:var(--sale)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.04;letter-spacing:-.015em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--tram);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:18px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px}
+.bar b{font:400 24px/1 var(--d);color:var(--mare)}
+.bar a{text-decoration:none;color:var(--mare);font-weight:600}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,64px);align-items:center;max-width:1280px;margin-inline:auto;padding:clamp(10px,2vw,30px) var(--pad) clamp(50px,7vw,96px)}
+.hero h1{font-size:clamp(46px,6.4vw,104px);color:var(--mare);margin-bottom:22px}
+.hero p{max-width:46ch;font-size:clamp(17px,1.45vw,20px)}
+.hero figure{margin:0;position:relative;aspect-ratio:4/5;border-radius:220px 220px 8px 8px;overflow:hidden;background:var(--cielo)}
+.hero figure img{width:100%;height:100%;object-fit:cover}
+.hero figure figcaption{position:absolute;left:16px;bottom:16px;right:16px;background:#ffffffe0;border-radius:6px;padding:10px 12px;font-size:13.5px}
+.since{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}
+.since div{border-top:2px solid var(--mare);padding-top:10px;min-width:120px}
+.since b{display:block;font:400 34px/1 var(--d);color:var(--mare)}
+.since span{font-size:14px}
+
+/* la finestra */
+.win{background:var(--mare);color:#EAF1F5;padding-block:clamp(56px,8vw,110px)}
+.win h2{font-size:clamp(36px,4.6vw,70px);max-width:18ch;margin-bottom:14px}
+.win .lead{max-width:58ch;color:#C3D4DE;margin-bottom:clamp(26px,4vw,44px)}
+.wg{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:clamp(18px,3vw,40px);align-items:start}
+.room{border-radius:10px;overflow:hidden;background:#0d2c3f}
+.room svg{width:100%;height:auto}
+.panel{display:grid;gap:20px}
+.panel h3{font:600 13.5px/1 var(--s);color:#C3D4DE;margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1.5px solid #ffffff40;background:none;color:#fff;border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:600;font-size:14.5px}
+.seg button[aria-pressed=true]{background:#fff;color:var(--mare);border-color:#fff}
+.hour{display:grid;gap:8px}
+.hour output{font:400 40px/1 var(--d);color:var(--tram)}
+.hour input{accent-color:var(--tram);width:100%}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.spec div{background:#ffffff12;border-radius:8px;padding:12px}
+.spec b{display:block;font:400 28px/1 var(--d);color:#fff;margin-bottom:4px}
+.spec span{font-size:13px;color:#C3D4DE}
+.say{font-size:15px;color:#EAF1F5;border-left:3px solid var(--tram);padding-left:12px}
+.fine{font-size:12.5px;color:#9FB6C4}
+
+/* dal sopralluogo alla posa */
+.steps{padding-block:clamp(56px,8vw,110px)}
+.steps h2{font-size:clamp(36px,4.6vw,70px);color:var(--mare);max-width:16ch;margin-bottom:12px}
+.steps .lead{max-width:58ch;margin-bottom:clamp(26px,4vw,48px)}
+.line{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.line::before{content:"";position:absolute;left:0;right:0;top:21px;height:2px;background:var(--tufo)}
+.st{position:relative;padding-right:18px}
+.st i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--sale);border:2px solid var(--mare);font:400 19px/1 var(--d);font-style:normal;color:var(--mare);margin-bottom:16px;position:relative}
+.st h3{font-size:24px;color:var(--mare);margin-bottom:6px}
+.st p{font-size:15px}
+.st em{display:block;margin-top:10px;font-style:normal;font-size:13.5px;background:#fff;border-radius:6px;padding:8px 10px;border:1px solid #16212a1a}
+
+/* canali */
+.ch{background:#E6ECEE;padding-block:clamp(56px,8vw,110px)}
+.cg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,60px);align-items:start}
+.ch h2{font-size:clamp(34px,4.2vw,62px);color:var(--mare);margin-bottom:14px}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button{border:0;background:#fff;border-radius:6px;padding:9px 14px;font-weight:600;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--mare);color:#fff}
+.post{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 0 #16212a14;display:grid;gap:12px}
+.post .hd{display:flex;gap:10px;align-items:center;font-size:14px}
+.post .hd i{width:38px;height:38px;border-radius:50%;background:var(--mare);display:grid;place-items:center;color:#fff;font:400 18px/1 var(--d);font-style:normal}
+.post .hd small{display:block;color:#5d6b74;font-size:12.5px}
+.post .bd{white-space:pre-line;font-size:15.5px}
+.post .ph{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.post .ph div{aspect-ratio:4/3;border-radius:6px;position:relative;overflow:hidden;background:var(--cielo);display:flex;align-items:flex-end;padding:8px;font-size:12.5px;font-weight:600}
+.post .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.post .ph span{position:relative;background:#fff;border-radius:4px;padding:3px 7px}
+
+/* showroom */
+.show{padding-block:clamp(56px,8vw,110px)}
+.sg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center}
+.show h2{font-size:clamp(34px,4.2vw,62px);color:var(--mare);margin-bottom:16px}
+.hours{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:18px 0}
+.hours div{text-align:center;font-size:12.5px;padding:10px 0;border-radius:6px;background:#E6ECEE}
+.hours div.op{background:var(--mare);color:#fff}
+.hours b{display:block;font:400 18px/1 var(--d);margin-bottom:4px}
+.book{background:#fff;border-radius:12px;padding:20px;display:grid;gap:12px;border:1px solid #16212a1a}
+.book label{display:grid;gap:6px;font-size:13.5px;font-weight:600}
+.book select,.book input{border:1.5px solid #16212a33;border-radius:6px;padding:10px;background:#fff}
+.book a{display:inline-flex;justify-content:center;background:var(--tram);color:var(--ink);text-decoration:none;font-weight:700;padding:13px;border-radius:6px}
+.brands{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font:400 20px/1.2 var(--d);color:#5d6b74}
+
+@media (max-width:900px){
+  .hero,.wg,.cg,.sg{grid-template-columns:1fr}
+  .hero figure{aspect-ratio:1/1;border-radius:160px 160px 8px 8px}
+  .line{grid-template-columns:1fr;gap:18px}
+  .line::before{left:21px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .st{display:grid;grid-template-columns:44px 1fr;gap:0 14px;padding-right:0}
+  .st i{margin-bottom:0;grid-row:span 3}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Eureka Infissi" data-note="Anteprima preparata da Umbra per Eureka Infissi di Trapani, a partire dalla vostra ricerca di un social media manager. Indirizzo, orari, marchi e contatti vengono dal vostro sito; i valori tecnici della finestra sono indicativi e i post sono un esempio.">
+
+<div class="bar"><b>Eureka Infissi</b><span>Via Livio Bassi 43, Trapani · <a href="tel:+3909231892604">0923 1892604</a></span></div>
+
+<header class="hero">
+  <div>
+    <h1><span class="ln"><span class="li" style="--i:0">La luce di Trapani</span></span><span class="ln"><span class="li" style="--i:1">entra. Il maestrale</span></span><span class="ln"><span class="li" style="--i:2">resta fuori.</span></span></h1>
+    <p class="fx" style="--i:3">Chi cerca infissi oggi li confronta online prima di passare in showroom. Qui può provare la finestra sulla propria stanza: materiale, vetro, luce dell'ora che preferisce. Poi prenota la visita in Via Livio Bassi con le idee già chiare.</p>
+    <div class="since fx" style="--i:4"><div><b>1995</b><span>l'anno di inizio, da padre a figlio</span></div><div><b>Nurith</b><span>infissi in PVC, esclusiva in città</span></div></div>
+  </div>
+  <figure class="fx" style="--i:2"><img src="img/luce.jpg" alt="Una finestra luminosa con tende leggere" fetchpriority="high"><figcaption>Sopralluogo, misure e posa: segue tutto Eureka, dalla progettazione all'installazione.</figcaption></figure>
+</header>
+
+<section class="win" id="prova">
+  <div class="wrap">
+    <h2>Prova la finestra sulla tua stanza</h2>
+    <p class="lead">Scegli materiale e vetro, poi sposta l'ora: la luce sul pavimento cambia come cambia a Trapani in una giornata di sole. A destra, quello che si sente e quanto si risparmia, spiegato senza schede tecniche.</p>
+    <div class="wg">
+      <div class="room"><svg id="sv" viewBox="0 0 640 420" role="img" aria-label="Una stanza con una finestra e la luce sul pavimento"></svg></div>
+      <div class="panel">
+        <div><h3>Materiale</h3><div class="seg" id="mat"></div></div>
+        <div><h3>Vetro</h3><div class="seg" id="gl"></div></div>
+        <div class="hour"><h3>Ora del giorno</h3><output id="oh">11:00</output><input type="range" id="hr" min="7" max="19" step=".25" value="11"></div>
+        <div class="spec"><div><b id="uw"></b><span>isolamento termico, Uw indicativo</span></div><div><b id="db"></b><span>rumore dalla strada, dentro casa</span></div></div>
+        <p class="say" id="say"></p>
+        <p class="fine">Valori indicativi per una finestra a due ante. Il dato vero dipende da profilo, vetro e posa: lo misura il sopralluogo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>Dal sopralluogo alla posa, un post per tappa</h2>
+    <p class="lead">Ogni cantiere passa da cinque tappe. Raccontate una alla volta, diventano la prova che sul profilo mancava: lavori veri, a Trapani, fatti da voi.</p>
+    <div class="line">
+      <div class="st"><i>1</i><h3>Sopralluogo</h3><p>Misure, esposizione, vecchi infissi da togliere.</p><em>Storia: «oggi a Erice, finestre del 1970»</em></div>
+      <div class="st"><i>2</i><h3>Scelta in showroom</h3><p>Materiale, colore, maniglie, zanzariere MV Line.</p><em>Carosello: tre finiture a confronto</em></div>
+      <div class="st"><i>3</i><h3>Progetto</h3><p>Disegno, preventivo, tempi di produzione.</p><em>Post: cosa c'è dentro un preventivo</em></div>
+      <div class="st"><i>4</i><h3>Posa</h3><p>Smontaggio, montaggio, sigillatura.</p><em>Reel: una finestra in 30 secondi</em></div>
+      <div class="st"><i>5</i><h3>Consegna</h3><p>Prova di chiusura, istruzioni, garanzia.</p><em>Prima e dopo, con la voce del cliente</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="ch">
+  <div class="wrap cg">
+    <div>
+      <h2>Tre canali, tre lettori diversi</h2>
+      <p>Su Instagram e Facebook scrive la famiglia che rifà casa. Su LinkedIn leggono architetti, geometri e imprese che scelgono il fornitore per un cantiere. Stesso lavoro, tre modi di raccontarlo.</p>
+    </div>
+    <div>
+      <div class="tabs" id="tabs" role="group" aria-label="Canale"></div>
+      <article class="post" aria-live="polite">
+        <div class="hd"><i>E</i><span><b>Eureka Infissi</b><small id="pc"></small></span></div>
+        <div class="bd" id="pb"></div>
+        <div class="ph"><div><img src="img/bosco.jpg" alt="" loading="lazy"><span id="p1"></span></div><div style="background:var(--tufo)"><span id="p2"></span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="show">
+  <div class="wrap sg">
+    <div>
+      <h2>Una visita in showroom, prenotata</h2>
+      <p>Chi arriva con la stanza già provata sa cosa chiedere. Il messaggio parte su WhatsApp al responsabile commerciale con stanza, materiale e giorno: niente telefonate perse durante la posa.</p>
+      <div class="hours" aria-label="Orari"><div class="op"><b>L</b>8:30–19:30</div><div class="op"><b>M</b>8:30–19:30</div><div class="op"><b>M</b>8:30–19:30</div><div class="op"><b>G</b>8:30–19:30</div><div class="op"><b>V</b>8:30–19:30</div><div><b>S</b>chiuso</div><div><b>D</b>chiuso</div></div>
+      <p style="font-size:14px">Pausa dalle 13 alle 15. Via Livio Bassi 43, 91100 Trapani.</p>
+      <div class="brands"><span>Nurith</span><span>Flessya</span><span>Ferrero Legno</span><span>Ferwall</span><span>Silvelox</span><span>MV Line</span></div>
+    </div>
+    <form class="book" id="bk" onsubmit="return false">
+      <label>Cosa vuoi cambiare<select id="bw"><option>Finestre di casa</option><option>Porte da interno</option><option>Porta blindata</option><option>Zanzariere</option><option>Tutto, casa da ristrutturare</option></select></label>
+      <label>Quante aperture, più o meno<input id="bn" type="number" min="1" max="40" value="6"></label>
+      <label>Giorno della visita<select id="bd"><option>lunedì</option><option>martedì</option><option>mercoledì</option><option>giovedì</option><option>venerdì</option></select></label>
+      <a id="wa" href="#" target="_blank" rel="noopener">Prenota su WhatsApp</a>
+    </form>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>I cantieri ci sono già. Mancano solo raccontati.</h2>
+    <ul>
+      <li><b>Prova finestra sul sito</b>Il cliente sceglie materiale e vetro da casa, poi prenota la visita.</li>
+      <li><b>Un post per tappa</b>Sopralluogo, scelta, posa, consegna: il piano editoriale si scrive col lavoro.</li>
+      <li><b>LinkedIn per i tecnici</b>Architetti e imprese di Trapani vedono i vostri cantieri, non una pubblicità.</li>
+      <li><b>Da esterni</b>Seguiamo noi profili e contenuti, senza aggiungere una persona in organico.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Eureka Infissi. Valori e post d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var M={pvc:['PVC Nurith',1.1,'#F4F4F2',14,'Bianco, zero manutenzione: il PVC Nurith è quello che regge meglio la salsedine.'],leg:['Legno',1.3,'#8A5A34',16,'Il legno scalda la stanza e va bene per le case d\'epoca del centro storico.'],all:['Alluminio',1.4,'#5E6A70',9,'Profili sottili, più vetro e più luce: per chi vuole il massimo della vista.'],mix:['Legno-alluminio',1.2,'#8A5A34',12,'Legno dentro, alluminio fuori: il calore in casa, il maestrale contro il metallo.']};
+  var G={dop:['Doppio vetro',34],tri:['Triplo vetro',39],acu:['Vetro acustico',43]};
+  var m='pvc',g='dop';
+  function seg(el,O,k,cb){el.innerHTML=Object.keys(O).map(function(x){return '<button type="button" data-k="'+x+'" aria-pressed="'+(x===k)+'">'+O[x][0]+'</button>'}).join('');el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(el.children,function(x){x.setAttribute('aria-pressed',x===b)});cb(b.dataset.k)})}
+  seg($('mat'),M,m,function(k){m=k;draw()});seg($('gl'),G,g,function(k){g=k;draw()});
+  function mix(a,b,t){var pa=a.match(/\w\w/g).map(function(x){return parseInt(x,16)}),pb=b.match(/\w\w/g).map(function(x){return parseInt(x,16)});return '#'+pa.map(function(v,i){return Math.round(v+(pb[i]-v)*t).toString(16).padStart(2,'0')}).join('')}
+  function draw(){var h=+$('hr').value,mt=M[m],gl=G[g];
+    var hh=Math.floor(h),mm=Math.round((h-hh)*60);$('oh').textContent=hh+':'+String(mm).padStart(2,'0');
+    var day=Math.sin(Math.PI*(h-6.5)/13);day=Math.max(0,day);
+    var warm=Math.abs(h-13)/6; warm=Math.min(1,warm);
+    var sky=mix(mix('#8EC3E2','#F2A65A',Math.pow(warm,1.5)),'#1c3550',(1-day)*(1-day)*.9);
+    var lc=mix('#FFF6D8','#FFB25C',warm);
+    var fw=mt[3],x0=110,y0=70,W=200,H=200;
+    /* luce: la proiezione scorre sul pavimento */
+    var sh=-160+(h-7)/12*390, len=60+warm*170;
+    var fy=300, p1=[x0+fw+sh*.2,fy],p2=[x0+W-fw+sh*.2,fy],p3=[x0+W-fw+sh+len*.6,fy+110],p4=[x0+fw+sh+len*.6,fy+110];
+    var s='';
+    s+='<defs><linearGradient id="wl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E9E4DB"/><stop offset="1" stop-color="#D9D2C6"/></linearGradient><linearGradient id="fl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#B99A74"/><stop offset="1" stop-color="#9C7C58"/></linearGradient><filter id="bl"><feGaussianBlur stdDeviation="6"/></filter></defs>';
+    s+='<rect width="640" height="300" fill="url(#wl)"/><rect y="300" width="640" height="120" fill="url(#fl)"/>';
+    s+='<rect x="'+x0+'" y="'+y0+'" width="'+W+'" height="'+H+'" fill="'+sky+'"/>';
+    s+='<circle cx="'+(x0+30+(h-7)/12*(W-60))+'" cy="'+(y0+H-30-day*130)+'" r="14" fill="'+lc+'" opacity="'+(0.35+day*.65)+'"/>';
+    s+='<path d="M'+x0+' '+(y0+H-40)+' q40 -14 80 0 t80 0 t40 0 V'+(y0+H)+' H'+x0+'z" fill="#2E6E8E" opacity=".55"/>';
+    s+='<polygon points="'+[p1,p2,p3,p4].map(function(p){return p.join(',')}).join(' ')+'" fill="'+lc+'" opacity="'+(0.3+day*.6)+'" filter="url(#bl)"/>';
+    s+='<rect x="'+x0+'" y="'+y0+'" width="'+W+'" height="'+H+'" fill="none" stroke="'+mt[2]+'" stroke-width="'+fw*2+'"/>';
+    s+='<line x1="'+(x0+W/2)+'" y1="'+y0+'" x2="'+(x0+W/2)+'" y2="'+(y0+H)+'" stroke="'+mt[2]+'" stroke-width="'+fw+'"/>';
+    if(g!=='dop')s+='<rect x="'+(x0+fw)+'" y="'+(y0+fw)+'" width="'+(W-fw*2)+'" height="'+(H-fw*2)+'" fill="#ffffff" opacity=".07"/>';
+    s+='<rect x="'+(x0-14)+'" y="'+(y0+H+fw)+'" width="'+(W+28)+'" height="10" fill="#C9B48D"/>';
+    s+='<rect x="430" y="210" width="150" height="90" rx="6" fill="#2b4b5e"/><rect x="420" y="190" width="170" height="30" rx="8" fill="#365d73"/><rect x="440" y="300" width="8" height="16" fill="#1f3442"/><rect x="562" y="300" width="8" height="16" fill="#1f3442"/>';
+    s+='<rect x="470" y="70" width="70" height="90" fill="none" stroke="#9c8f7c" stroke-width="3"/><path d="M478 150 l20 -36 l14 22 l8 -12 l12 26z" fill="#9c8f7c" opacity=".6"/>';
+    s+='<rect x="0" y="0" width="640" height="420" fill="#0d2233" opacity="'+((1-day)*.3)+'"/>';
+    $('sv').innerHTML=s;
+    var inside=70-gl[1];
+    $('uw').textContent=String(mt[1]).replace('.',',');
+    $('db').textContent=inside+' dB';
+    $('say').textContent=mt[4]+' Con il '+gl[0].toLowerCase()+' il traffico della strada arriva come '+(inside<=30?'un sussurro':inside<=33?'una conversazione a bassa voce':'una radio lontana')+'.';
+  }
+  $('hr').addEventListener('input',draw);draw();
+  if(!U.reduce){var auto=setInterval(function(){var r=$('hr');var v=+r.value+.25;if(v>17.5){clearInterval(auto);return}r.value=v;draw()},140);$('hr').addEventListener('pointerdown',function(){clearInterval(auto)});$('mat').addEventListener('click',function(){clearInterval(auto)})}
+  /* canali */
+  var P={ig:['Instagram · prima e dopo','Una casa a San Giuliano, finestre del \'78.\nOggi PVC Nurith bianco, vetro acustico e zanzariere MV Line.\n\nQuanto è cambiata la stanza? Scorri.','Prima: legno gonfio di salsedine','Dopo: PVC Nurith bianco'],fb:['Facebook · domanda della settimana','«Il PVC ingiallisce al sole?»\nCe lo chiedete spesso in showroom. La risposta breve: i profili di qualità no, e vi facciamo vedere perché con un campione di dieci anni.\n\nPassate a trovarci in Via Livio Bassi 43.','Il campione dopo 10 anni','Quello nuovo, a confronto'],li:['LinkedIn · per tecnici e imprese','Cantiere chiuso a Trapani: 24 aperture in una palazzina anni \'60, sostituite in 6 giorni lavorativi con condomini abitati.\n\nPer studi tecnici e imprese: schede prodotto e tempi di posa disponibili su richiesta.','Facciata, a cantiere aperto','Planimetria con le 24 aperture']};
+  var pk='ig';
+  $('tabs').innerHTML=Object.keys(P).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===pk)+'">'+P[k][0].split(' · ')[0]+'</button>'}).join('');
+  function post(){var p=P[pk];$('pc').textContent=p[0];$('pb').textContent=p[1];$('p1').textContent=p[2];$('p2').textContent=p[3]}
+  $('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;pk=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});post()});post();
+  /* prenotazione */
+  function wa(){var t='Buongiorno, vorrei passare in showroom '+$('bd').value+'. Devo cambiare: '+$('bw').value.toLowerCase()+', circa '+$('bn').value+' aperture. Ho provato la finestra in '+M[m][0]+' con '+G[g][0].toLowerCase()+'.';$('wa').href='https://wa.me/393939167447?text='+encodeURIComponent(t)}
+  ['bw','bn','bd'].forEach(function(i){$(i).addEventListener('input',wa)});$('mat').addEventListener('click',wa);$('gl').addEventListener('click',wa);wa();
+})();
+</script>
+</body>
+</html>

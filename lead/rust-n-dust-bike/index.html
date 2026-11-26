@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rust'N'Dust Bike · Ogni bici in officina diventa un contenuto</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Shoulders;src:url(../lib/fonts/big-shoulders-display-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Familjen;src:url(../lib/fonts/familjen-grotesk-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* officina: pavimento in cemento, ruggine, olio, cartellino kraft, nastro giallo */
+  --cem:#D3D0CA; --cem2:#C4C0B9; --ink:#1D1A17; --rust:#B0502A; --oil:#26333A; --kraft:#C9A878; --tape:#F0C02E;
+  --d:Shoulders,Impact,sans-serif; --s:Familjen,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--s);color:var(--ink);background:var(--cem)}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:.9;letter-spacing:-.01em;text-transform:uppercase;text-wrap:balance}
+:focus-visible{outline:3px solid var(--tape);outline-offset:3px}
+.wrap{max-width:1300px;margin-inline:auto;padding-inline:var(--pad)}
+
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);background:var(--ink);color:#F3EFE8;overflow:hidden}
+.hero figure{position:relative;margin:0;min-height:60svh}
+.hero figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.hero figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--ink))}
+.hero .tx{display:flex;flex-direction:column;justify-content:space-between;padding:clamp(22px,4vw,56px) var(--pad) clamp(30px,5vw,64px) 0;gap:30px}
+.brand{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px}
+.brand b{font:800 26px/1 var(--d);text-transform:uppercase;letter-spacing:.02em}
+.brand b span{color:var(--rust)}
+.hero h1{font-size:clamp(58px,8.4vw,150px);margin:0}
+.hero h1 .r{color:var(--tape)}
+.hero p{max-width:44ch;font-size:clamp(16px,1.4vw,19px);color:#D6D0C6}
+.hero .go{display:inline-flex;margin-top:18px;align-self:flex-start;background:var(--tape);color:var(--ink);font-weight:700;text-decoration:none;padding:13px 18px;border-radius:4px}
+.brands{display:flex;flex-wrap:wrap;gap:6px 18px;font:700 20px/1 var(--d);text-transform:uppercase;color:#8E877D;letter-spacing:.03em}
+
+/* banco: scheda di lavoro */
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 40px;align-items:end;margin-bottom:clamp(26px,4vw,48px)}
+.sh h2{font-size:clamp(44px,6vw,96px)}
+.sh p{max-width:52ch}
+.bench{display:grid;grid-template-columns:minmax(220px,.62fr) minmax(0,1.38fr);gap:clamp(16px,2.6vw,36px);align-items:start}
+.jobs{display:grid;gap:6px}
+.jobs button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:0;border-left:6px solid transparent;background:var(--cem2);padding:13px 14px;cursor:pointer;font-weight:700;font-size:15.5px}
+.jobs button small{font-weight:400;font-size:13px;opacity:.7}
+.jobs button[aria-pressed=true]{background:var(--ink);color:#F3EFE8;border-left-color:var(--tape)}
+.fld{margin-top:16px;display:grid;gap:6px;font-size:13.5px;font-weight:700}
+.fld input{border:2px solid var(--ink);background:#EFECE6;padding:10px 12px;border-radius:3px;font-weight:400}
+.out{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(14px,2vw,26px);align-items:start}
+.tag{position:relative;background:var(--kraft);padding:44px 22px 22px;border-radius:6px 6px 6px 40px;box-shadow:0 18px 30px -18px #0007;transform:rotate(-1.2deg)}
+.tag::before{content:"";position:absolute;top:16px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--cem);box-shadow:inset 0 0 0 3px #a88a5c}
+.tag::after{content:"";position:absolute;top:-40px;left:50%;width:2px;height:58px;background:#6d6a66;transform:rotate(14deg);transform-origin:bottom}
+.tag h3{font-size:34px;margin-bottom:4px}
+.tag .who{font-size:14px;margin-bottom:14px}
+.tag ol{counter-reset:s;display:grid;gap:7px;font-size:15px}
+.tag li{counter-increment:s;display:grid;grid-template-columns:26px 1fr;gap:6px}
+.tag li::before{content:counter(s);font:800 20px/1 var(--d)}
+.tag .t{display:flex;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:2px dashed #0004;font-weight:700;font-size:14px}
+.reel{background:var(--ink);color:#F3EFE8;border-radius:10px;padding:18px;display:grid;gap:14px}
+.reel .lab{font-size:13px;color:#A7A096}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.shot{aspect-ratio:9/14;border-radius:6px;background:#38352f;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:9px;font-size:12.5px;line-height:1.3}
+.shot b{position:absolute;top:8px;left:9px;font:800 22px/1 var(--d);color:var(--tape)}
+.shot.on{outline:3px solid var(--tape)}
+.shot svg{position:absolute;inset:18% 12% 30%;width:76%;height:52%;opacity:.55}
+.cap{background:#2e2b26;border-radius:6px;padding:12px 13px;font-size:14.5px;white-space:pre-line;min-height:8.5em}
+.rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px}
+.rbar button{border:0;background:var(--tape);color:var(--ink);font-weight:700;padding:9px 14px;border-radius:4px;cursor:pointer}
+
+/* ore in sella */
+.hrs{background:var(--oil);color:#E8E4DC}
+.hrs .sh p{color:#C1C8CB}
+.hg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center}
+.ctl{display:grid;gap:22px}
+.ctl label{display:grid;gap:8px;font-weight:700;font-size:15px}
+.ctl output{font:800 38px/1 var(--d);color:var(--tape)}
+.ctl input[type=range]{accent-color:var(--tape);width:100%}
+.svc{display:grid;gap:14px}
+.svc .row{display:grid;grid-template-columns:150px 1fr 90px;gap:12px;align-items:center;font-size:14.5px}
+.meter{height:16px;background:#ffffff1a;border-radius:3px;overflow:hidden;position:relative}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--tape);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.meter i.hot{background:var(--rust)}
+.svc .row span:last-child{text-align:right;font-weight:700}
+.msg{margin-top:10px;background:#1b2428;border-radius:8px;padding:14px 16px;font-size:15px}
+.msg b{display:block;font:800 24px/1.1 var(--d);text-transform:uppercase;color:#fff;margin-bottom:6px}
+.msg button{margin-top:10px;border:1.5px solid #ffffff55;background:none;color:#fff;padding:8px 12px;border-radius:4px;cursor:pointer;font-weight:700}
+.fine{font-size:13px;color:#9AA4A8;margin-top:14px}
+
+/* settimana sul profilo */
+.grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:620px}
+.g{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--ink);color:#F3EFE8;display:flex;flex-direction:column;justify-content:flex-end;padding:10px;font-size:13px;line-height:1.3}
+.g img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g img+span{position:relative;background:#000a;padding:6px 8px;border-radius:3px}
+.g.t1{background:var(--rust)}.g.t2{background:var(--tape);color:var(--ink)}.g.t3{background:var(--oil)}
+.g h3{font-size:clamp(22px,3vw,36px);margin-bottom:auto}
+.wk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:start}
+.days{display:grid;gap:0;border-top:2px solid var(--ink)}
+.days li{display:grid;grid-template-columns:62px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid #1d1a1733;font-size:15.5px}
+.days li b{font:800 24px/1 var(--d);text-transform:uppercase}
+.days li small{display:block;font-size:13px;opacity:.7}
+
+/* stagione */
+.sea{background:var(--ink);color:#F3EFE8}
+.months{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mo{border-top:6px solid var(--tape);padding:16px 0 0}
+.mo b{font:800 44px/1 var(--d);text-transform:uppercase;display:block;margin-bottom:8px}
+.mo p{font-size:15px;color:#CFC8BD}
+.mo:nth-child(2){border-color:var(--rust)}.mo:nth-child(3){border-color:#8E877D}.mo:nth-child(4){border-color:#F3EFE8}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero figure{min-height:52svh}
+  .hero figure::after{background:linear-gradient(180deg,transparent 50%,var(--ink))}
+  .hero .tx{padding:0 var(--pad) 40px}
+  .sh,.bench,.out,.hg,.wk{grid-template-columns:1fr}
+  .months{grid-template-columns:1fr 1fr}
+  .svc .row{grid-template-columns:110px 1fr 70px}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Rust'N'Dust Bike" data-note="Anteprima preparata da Umbra per Rust'N'Dust Bike di Ramiola, a partire dal vostro annuncio per un tecnico d'officina che segua anche i social. Lavori, didascalie e calendario sono un esempio; gli intervalli di servizio sono indicativi, decide il manuale del produttore.">
+
+<header class="hero">
+  <figure><img src="img/salto.jpg" alt="Un rider in MTB in salto su un sentiero di bosco" fetchpriority="high"></figure>
+  <div class="tx">
+    <div class="brand"><b>Rust<span>'N'</span>Dust</b><span>Via Solferino 72, Ramiola (PR)</span></div>
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">Ogni bici</span></span><span class="ln"><span class="li" style="--i:1">sul cavalletto</span></span><span class="ln"><span class="li r" style="--i:2">è un post.</span></span></h1>
+      <p class="fx" style="--i:3">Cercate un tecnico che ogni giorno racconti anche l'officina su Instagram, Facebook e TikTok. Qui c'è il pezzo che il tecnico non deve fare da solo: la scheda di lavoro diventa video, didascalia e promemoria per il cliente.</p>
+      <a class="go fx" style="--i:4" href="#banco" data-go>Apri il banco di lavoro</a>
+    </div>
+    <div class="brands fx" style="--i:5"><span>Fox</span><span>Marzocchi</span><span>Cane Creek</span><span>Öhlins</span><span>Bosch eBike</span></div>
+  </div>
+</header>
+
+<section class="sec" id="banco">
+  <div class="wrap">
+    <div class="sh"><h2>Dal cavalletto al reel</h2><p>Scegli il lavoro e il nome della bici. Il cartellino resta in officina, il reel e la didascalia vanno sul profilo: tre inquadrature col telefono, durante il lavoro, senza fermarsi.</p></div>
+    <div class="bench">
+      <div>
+        <div class="jobs" id="jobs" role="group" aria-label="Lavoro in officina"></div>
+        <label class="fld">Bici del cliente<input id="bike" value="Santa Cruz Hightower" maxlength="40"></label>
+      </div>
+      <div class="out">
+        <div class="tag" aria-live="polite">
+          <h3 id="tJ"></h3>
+          <div class="who" id="tW"></div>
+          <ol id="tS"></ol>
+          <div class="t"><span id="tT"></span><span>Ramiola</span></div>
+        </div>
+        <div class="reel">
+          <div class="lab">Reel da 20 secondi, girato al banco</div>
+          <div class="shots" id="shots"></div>
+          <div class="cap" id="cap"></div>
+          <div class="rbar"><span id="when"></span><button id="cp" type="button">Copia didascalia</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec hrs">
+  <div class="wrap">
+    <div class="sh"><h2>Il promemoria che riporta il cliente</h2><p>Chi esce con la forcella revisionata oggi torna fra qualche mese, se qualcuno glielo ricorda. Ore in sella al mese e ultimo servizio: il messaggio parte quando serve.</p></div>
+    <div class="hg">
+      <div class="ctl">
+        <label>Ore in sella al mese <output id="oH">14</output><input type="range" id="h" min="2" max="40" value="14"></label>
+        <label>Mesi dall'ultimo servizio <output id="oM">3</output><input type="range" id="m" min="0" max="18" value="3"></label>
+      </div>
+      <div>
+        <div class="svc" id="svc"></div>
+        <div class="msg" id="msg"></div>
+        <p class="fine">Intervalli d'esempio (50 ore per il servizio base, 125 per la revisione completa). Per ogni modello vale il manuale del produttore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap wk">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr"><h2>Una settimana sul profilo</h2><p>Nove riquadri, tutti dal negozio: arrivi, prima e dopo, il giro del sabato. Il tecnico gira, noi montiamo, scriviamo e pubblichiamo.</p></div>
+      <ul class="days">
+        <li><b>Lun</b><span>Prima e dopo della settimana<small>il lavoro più sporco entrato sabato</small></span></li>
+        <li><b>Mar</b><span>Nuovi arrivi<small>foto sul cavalletto, prezzo in didascalia</small></span></li>
+        <li><b>Mer</b><span>Il dettaglio che nessuno guarda<small>paraoli, pastiglie, catena: 15 secondi</small></span></li>
+        <li><b>Gio</b><span>Domanda dal banco<small>la risposta a una domanda vera di un cliente</small></span></li>
+        <li><b>Sab</b><span>Giro dell'Appennino parmense<small>partenza dal negozio, storia con il percorso</small></span></li>
+      </ul>
+    </div>
+    <div class="grid9" aria-label="Anteprima del profilo">
+      <div class="g"><img src="img/sera.jpg" alt="" loading="lazy"><span>Giro del sabato</span></div>
+      <div class="g t1"><h3>Prima</h3>Forcella dopo un inverno di fango</div>
+      <div class="g t2"><h3>Dopo</h3>Stessa forcella, 2 ore dopo</div>
+      <div class="g t3"><h3>Perché cigola?</h3>La domanda di Marco, la risposta del banco</div>
+      <div class="g"><img src="img/bosco.jpg" alt="" loading="lazy"><span>Sentiero di casa</span></div>
+      <div class="g t1"><h3>Arrivata</h3>E-MTB pronta da ritirare</div>
+      <div class="g t2"><h3>15 s</h3>Spurgo freni, senza musica</div>
+      <div class="g"><img src="img/salto.jpg" alt="" loading="lazy" style="object-position:50% 30%"><span>Dopo il tagliando</span></div>
+      <div class="g t3"><h3>Bosch</h3>Aggiornamento software, cosa cambia</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sea">
+  <div class="wrap">
+    <div class="sh"><h2>L'inverno è la stagione dell'officina</h2><p>Da dicembre a marzo si gira meno e si sistema di più. Un piano di quattro mesi per riempire il banco prima della primavera.</p></div>
+    <div class="months">
+      <div class="mo"><b>Dic</b><p>Buono regalo «tagliando di primavera», da mettere sotto l'albero. Post e storie fino al 24.</p></div>
+      <div class="mo"><b>Gen</b><p>Promemoria a chi ha fatto un servizio la scorsa stagione. Settimana delle sospensioni.</p></div>
+      <div class="mo"><b>Feb</b><p>E-MTB: diagnosi batteria e aggiornamenti. Prenotazioni a slot per evitare la coda di marzo.</p></div>
+      <div class="mo"><b>Mar</b><p>Bici pronte per i primi giri. Ogni consegna diventa un prima e dopo sul profilo.</p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il tecnico ripara. Il profilo si aggiorna lo stesso.</h2>
+    <ul>
+      <li><b>Contenuti dal banco</b>Tre inquadrature col telefono, il resto lo montiamo noi: reel, didascalie, orari.</li>
+      <li><b>Promemoria ai clienti</b>Servizi e tagliandi ricordati al momento giusto, senza fogli Excel.</li>
+      <li><b>Piano di stagione</b>Inverno di officina, primavera di giri: un calendario già scritto.</li>
+      <li><b>Da esterni</b>Seguiamo noi la parte social, voi scegliete il tecnico per il banco.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Rust'N'Dust Bike. Lavori e testi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var ICO={fork:'<svg viewBox="0 0 60 80" fill="none" stroke="#F0C02E" stroke-width="3"><path d="M18 4v40M42 4v40M14 44h32M18 44l-2 32M42 44l2 32M14 10h32"/></svg>',
+    brake:'<svg viewBox="0 0 80 80" fill="none" stroke="#F0C02E" stroke-width="3"><circle cx="40" cy="40" r="30"/><circle cx="40" cy="40" r="8"/><path d="M58 18l10 -6M62 26l12 -2"/></svg>',
+    chip:'<svg viewBox="0 0 80 80" fill="none" stroke="#F0C02E" stroke-width="3"><rect x="18" y="18" width="44" height="44" rx="4"/><path d="M30 8v10M40 8v10M50 8v10M30 62v10M40 62v10M50 62v10M8 30h10M8 50h10M62 30h10M62 50h10"/></svg>',
+    wheel:'<svg viewBox="0 0 80 80" fill="none" stroke="#F0C02E" stroke-width="3"><circle cx="40" cy="40" r="32"/><circle cx="40" cy="40" r="24"/><path d="M40 8v64M8 40h64M17 17l46 46M63 17L17 63"/></svg>'};
+  var J={
+    forc:{n:'Tagliando forcella',k:'Servizio base',i:'fork',t:'2 h',s:['Smontaggio foderi e pulizia steli','Paraoli e anelli di tenuta nuovi','Olio di lubrificazione e controllo pressione','Prova al banco e su strada'],sh:['Foderi aperti, olio vecchio nel bicchiere','Paraolo nuovo che entra a pressione','La forcella che scorre, al rallentatore'],c:'La {b} è entrata con un inverno di fango negli steli. Esce con paraoli nuovi, olio fresco e la scorrevolezza del primo giorno.\n\nTagliando forcella fatto in officina a Ramiola. Fox, Marzocchi, Öhlins: se non ricordi l\'ultimo servizio, scrivici.',h:'#mtb #forcella #fox #officinabici #parma'},
+    amm:{n:'Revisione ammortizzatore',k:'Servizio completo',i:'fork',t:'3 h',s:['Scarico aria e smontaggio camera','Revisione idraulica e cambio olio','Tenute nuove e azoto se previsto','Taratura sul peso del rider'],sh:['Camera d\'aria aperta sul banco','Il manometro che sale','Primo affondo in sella, dal davanti'],c:'Il mono della {b} aveva perso il ritorno. Revisione completa, tenute nuove, taratura sul peso di chi la guida.\n\nRust\'N\'Dust, centro assistenza sospensioni Fox, Marzocchi, Cane Creek e Öhlins.',h:'#ammortizzatore #enduro #canecreek #ohlins #mtbitalia'},
+    fren:{n:'Spurgo freni',k:'Impianto idraulico',i:'brake',t:'1 h',s:['Controllo pastiglie e dischi','Spurgo completo con olio nuovo','Allineamento pinze','Prova frenata in piazzale'],sh:['Olio vecchio che esce scuro','Bolla d\'aria che sale nella siringa','Leva dura al primo tocco'],c:'Leva molle sulla {b}: aria nell\'impianto. Spurgo completo e pinze allineate, adesso frena al primo dito.\n\nSe la leva arriva al manubrio, passa in officina prima del prossimo giro.',h:'#freni #mtb #manutenzionebici #ramiola #appennino'},
+    bosc:{n:'Aggiornamento Bosch eBike',k:'Diagnosi e software',i:'chip',t:'45 min',s:['Diagnosi completa del sistema','Aggiornamento software motore e display','Controllo stato batteria','Report stampato per il cliente'],sh:['Il cavo di diagnosi collegato','La barra di aggiornamento sul display','Il report della batteria in mano al cliente'],c:'Diagnosi e aggiornamento sulla {b}: motore, display e batteria controllati. Al cliente resta il report con lo stato della batteria.\n\nPrima della primavera, un controllo vale più di cento chilometri di dubbi.',h:'#ebike #emtb #bosch #officinabici #parma'},
+    tubl:{n:'Conversione tubeless',k:'Ruote',i:'wheel',t:'1 h',s:['Nastro tubeless sul cerchio','Valvole e montaggio copertoni','Lattice e prima tallonatura','Controllo pressione dopo 24 h'],sh:['Il nastro che corre sul cerchio','Il «clac» della tallonatura','Ruota che gira, il lattice che si sparge'],c:'Addio camere d\'aria sulla {b}: nastro, valvole, lattice. Meno forature e pressioni più basse sui sentieri dell\'Appennino.\n\nConversione tubeless in un\'ora, ritiri in giornata.',h:'#tubeless #mtb #gravel #ruote #ciclismo'}
+  };
+  var cur='forc',sel=0;
+  $('jobs').innerHTML=Object.keys(J).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===cur)+'">'+J[k].n+'<small>'+J[k].t+'</small></button>'}).join('');
+  function bike(){return ($('bike').value||'bici').trim()}
+  function draw(){var j=J[cur],b=bike();
+    $('tJ').textContent=j.n;$('tW').textContent=b+' · '+j.k;
+    $('tS').innerHTML=j.s.map(function(x){return '<li>'+x+'</li>'}).join('');
+    $('tT').textContent='Tempo: '+j.t;
+    $('shots').innerHTML=j.sh.map(function(x,i){return '<div class="shot'+(i===sel?' on':'')+'"><b>'+(i+1)+'</b>'+ICO[j.i]+'<span>'+x+'</span></div>'}).join('');
+    $('cap').textContent=j.c.replace('{b}',b)+'\n\n'+j.h;
+    $('when').textContent='Esce: '+['martedì 18:30','mercoledì 13:00','giovedì 18:30'][Object.keys(J).indexOf(cur)%3];
+  }
+  $('jobs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.k;sel=0;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});draw()});
+  $('bike').addEventListener('input',draw);
+  $('cp').addEventListener('click',function(){try{navigator.clipboard.writeText($('cap').textContent)}catch(x){}var b=this;b.textContent='Copiata';setTimeout(function(){b.textContent='Copia didascalia'},1300)});
+  if(!U.reduce)setInterval(function(){sel=(sel+1)%3;var s=document.querySelectorAll('.shot');[].forEach.call(s,function(x,i){x.classList.toggle('on',i===sel)})},1700);
+  draw();
+  /* ore */
+  var MESI=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  function svc(){var h=+$('h').value,m=+$('m').value,done=h*m;$('oH').textContent=h;$('oM').textContent=m;
+    var S=[['Servizio base forcella',50],['Servizio base ammortizzatore',50],['Revisione completa',125]];
+    $('svc').innerHTML=S.map(function(s){var p=Math.min(1,done/s[1]);return '<div class="row"><span>'+s[0]+'</span><span class="meter"><i class="'+(p>=1?'hot':'')+'" style="width:'+Math.round(p*100)+'%"></i></span><span>'+Math.min(done,s[1])+' / '+s[1]+' h</span></div>'}).join('');
+    var left=50-done,now=10;
+    var txt;if(left<=0){txt='<b>Da chiamare adesso</b>Ciao, sono Rust\'N\'Dust: con circa '+done+' ore dall\'ultimo servizio la tua forcella è oltre il tagliando consigliato. Ti teniamo un posto al banco questa settimana?'}
+    else{var mm=Math.ceil(left/h),mi=MESI[(now+mm)%12];txt='<b>Promemoria a '+mi+'</b>Ciao, sono Rust\'N\'Dust: a '+mi+' la tua bici arriva a 50 ore dall\'ultimo servizio. Vuoi che ti teniamo un posto al banco?'}
+    $('msg').innerHTML=txt+'<br><button type="button" id="cpm">Copia il messaggio</button>';
+    $('cpm').onclick=function(){var t=$('msg').querySelector('b').nextSibling.textContent;try{navigator.clipboard.writeText(t)}catch(x){}this.textContent='Copiato'};
+  }
+  $('h').addEventListener('input',svc);$('m').addEventListener('input',svc);svc();
+})();
+</script>
+</body>
+</html>
