@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CriVanni · Mamma e bimba, nella stessa diretta</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Fraunces;src:url(../lib/fonts/fraunces-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../lib/fonts/fraunces-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:Onest;src:url(../lib/fonts/onest-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* Pellaro: lo Stretto, i bergamotti, le pesche, il bianco delle case al sole */
+  --mare:#2B6C8C; --mare2:#1E4F69; --berg:#E9D55A; --pesca:#F5C7B4; --bianco:#F7F9F9; --ink:#1C2932; --mut:#5F6E77;
+  --d:Fraunces,Georgia,serif; --s:Onest,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--bianco)}
+h1,h2,h3{font-family:var(--d);font-weight:600;line-height:1;letter-spacing:-.02em;text-wrap:balance;font-variation-settings:"SOFT" 100,"WONK" 1}
+h1 em,h2 em{font-style:italic;font-weight:400}
+:focus-visible{outline:3px solid var(--mare);outline-offset:3px}
+.wrap{max-width:1260px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--mare);color:#EEF6FA;overflow:hidden;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:var(--bianco);clip-path:path('M0 40 C 240 0 480 0 720 22 S 1200 44 1920 8 V40Z')}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);max-width:1260px;margin-inline:auto;font-size:14px;color:#BBD5E3}
+.bar b{font:600 26px/1 var(--d);color:#fff;font-style:italic}
+.hg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,70px);align-items:center;padding-block:clamp(14px,3vw,40px) clamp(70px,8vw,110px)}
+.hero h1{font-size:clamp(50px,7vw,118px)}
+.hero h1 em{color:var(--berg)}
+.hero p{max-width:46ch;margin-top:20px;font-size:clamp(16.5px,1.4vw,19px);color:#D6E7F0}
+.live{background:#0f2430;border-radius:30px;aspect-ratio:9/15;max-width:300px;justify-self:center;width:100%;position:relative;overflow:hidden;box-shadow:0 30px 50px -30px #0008}
+.live .st{position:absolute;inset:0;background:linear-gradient(160deg,var(--pesca),#e9a98f 50%,var(--mare2));}
+.live .tag{position:absolute;top:14px;left:14px;background:#E2384D;color:#fff;font-size:12px;font-weight:800;padding:4px 9px;border-radius:6px}
+.live .vw{position:absolute;top:14px;right:14px;background:#0006;color:#fff;font-size:12px;padding:4px 9px;border-radius:6px;font-variant-numeric:tabular-nums}
+.live .fig{position:absolute;left:50%;bottom:30%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:10px}
+.live .fig i{display:block;border-radius:40px 40px 8px 8px;background:#ffffffcc}
+.live .cm{position:absolute;left:12px;right:12px;bottom:12px;display:grid;gap:5px;font-size:12.5px}
+.live .cm span{background:#0007;color:#fff;border-radius:10px;padding:5px 9px;animation:up .5s ease}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+.live .cm b{color:var(--berg)}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(40px,5vw,78px)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* coordinati */
+.co{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(260px,.8fr);gap:clamp(14px,2.4vw,28px);align-items:start}
+.pick{background:#fff;border-radius:22px;padding:18px;display:grid;gap:12px;border:1.5px solid #1c29321a}
+.pick h3{font-size:26px}
+.sw{display:flex;flex-wrap:wrap;gap:6px}
+.sw button{border:1.5px solid #1c293233;background:#fff;border-radius:999px;padding:7px 13px;cursor:pointer;font-weight:600;font-size:14px;display:flex;gap:7px;align-items:center}
+.sw button i{width:14px;height:14px;border-radius:50%}
+.sw button[aria-pressed=true]{border-color:var(--mare);background:#E6F1F6}
+.lb{font-size:12.5px;font-weight:700;color:var(--mut)}
+.age{display:grid;gap:6px}
+.age output{font:600 30px/1 var(--d)}
+.age input{accent-color:var(--mare)}
+.size{background:var(--berg);border-radius:14px;padding:10px 12px;font-size:14px}
+.size b{font:600 22px/1 var(--d)}
+.card{background:var(--mare2);color:#EEF6FA;border-radius:22px;padding:20px;display:grid;gap:12px}
+.card h3{font-size:28px;color:#fff}
+.dolls{display:flex;justify-content:center;align-items:flex-end;gap:18px;height:150px}
+.doll{display:grid;justify-items:center}
+.doll i{width:30px;height:30px;border-radius:50%;background:#F2D7C7}
+.doll b{display:block;border-radius:30px 30px 10px 10px;transition:background .4s}
+.card .ln2{font-size:14.5px;color:#C8DDE8;white-space:pre-line}
+.card .pr{display:flex;justify-content:space-between;border-top:1px solid #ffffff26;padding-top:10px;font-weight:700}
+
+/* scaletta */
+.sc{background:#fff}
+.run{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.blk{border-radius:16px;padding:14px;display:grid;gap:6px;align-content:start;background:var(--bianco);border-top:5px solid var(--mare)}
+.blk:nth-child(2n){border-color:var(--pesca)}.blk:nth-child(3n){border-color:var(--berg)}
+.blk b{font:600 24px/1 var(--d)}
+.blk small{font-weight:700;color:var(--mut);font-variant-numeric:tabular-nums}
+.blk span{font-size:14px}
+.wk{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.wk span{background:#E6F1F6;border-radius:999px;padding:7px 13px;font-size:14px}
+.wk span b{color:var(--mare2)}
+
+/* primo giorno */
+.first{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:start}
+.chk{display:grid;gap:8px}
+.chk label{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer;border:1.5px solid #1c293214}
+.chk input{accent-color:var(--mare);margin-top:4px;width:18px;height:18px}
+.chk b{display:block;font-size:15.5px}
+.chk span{font-size:14px;color:var(--mut)}
+.prog{margin-top:12px;font-weight:700;color:var(--mare2)}
+
+@media (max-width:980px){
+  .hg,.sh,.co,.first{grid-template-columns:1fr}
+  .run{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per CriVanni" data-note="Anteprima preparata da Umbra per CriVanni di Pellaro, a partire dal vostro annuncio per una commessa che conduca le dirette dal negozio. Capi, colori, prezzi e commenti sono un esempio; le taglie bambino seguono la tabella europea per altezza.">
+
+<header class="hero">
+  <div class="bar"><b>CriVanni</b><span>Pellaro, Reggio Calabria · donna e bambini</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">Mamma e bimba,</span></span><span class="ln"><span class="li" style="--i:1"><em>nella stessa diretta.</em></span></span></h1>
+      <p class="fx" style="--i:2">Cercate una ragazza che conduca le live dal negozio. Le dirette che vendono di più hanno una scaletta, un abbinamento da mostrare e una risposta pronta per ogni «che taglia prendo per mia figlia?». Qui c'è tutto, già pronto per il primo giorno.</p>
+    </div>
+    <div class="live fx" style="--i:3" aria-label="Una diretta d'esempio">
+      <div class="st"></div><span class="tag">LIVE</span><span class="vw" id="vw">128</span>
+      <div class="fig"><i style="width:70px;height:150px"></i><i style="width:46px;height:96px"></i></div>
+      <div class="cm" id="cm"></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>L'abbinamento <em>da mostrare</em></h2><p>Un capo per la mamma, lo stesso colore per la bimba, la taglia giusta dall'età. È il momento della diretta in cui arrivano più messaggi: la conduttrice ha già la frase da dire e il totale.</p></div>
+    <div class="co">
+      <div class="pick"><h3>Per la mamma</h3><span class="lb">Capo</span><div class="sw" id="mC"></div><span class="lb">Colore</span><div class="sw" id="col"></div></div>
+      <div class="pick"><h3>Per la bimba</h3><span class="lb">Capo</span><div class="sw" id="bC"></div><div class="age"><span class="lb">Età</span><output id="oA"></output><input type="range" id="ag" min="2" max="14" value="6" aria-label="Età della bimba"></div><div class="size" id="sz"></div></div>
+      <div class="card" aria-live="polite"><h3 id="cT"></h3><div class="dolls"><div class="doll"><i></i><b id="d1" style="width:64px;height:110px"></b></div><div class="doll"><i style="width:22px;height:22px"></i><b id="d2" style="width:44px;height:72px"></b></div></div><p class="ln2" id="cL"></p><div class="pr"><span>Insieme</span><span id="cP"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sc">
+  <div class="wrap">
+    <div class="sh"><h2>Una diretta <em>da 45 minuti</em></h2><p>Sei blocchi, sempre uguali. Chi conduce sa cosa viene dopo, chi guarda sa quando arriva l'offerta e resta fino alla fine.</p></div>
+    <div class="run">
+      <div class="blk"><small>0–5 min</small><b>Saluti</b><span>Chi c'è, da dove scrive, cosa vedremo oggi.</span></div>
+      <div class="blk"><small>5–15</small><b>Novità</b><span>Tre capi arrivati in settimana, indossati.</span></div>
+      <div class="blk"><small>15–25</small><b>Coordinati</b><span>Mamma e bimba, con le taglie per età.</span></div>
+      <div class="blk"><small>25–33</small><b>Domande</b><span>Taglie, lavaggi, disponibilità: risposte in diretta.</span></div>
+      <div class="blk"><small>33–40</small><b>L'offerta</b><span>Un capo a prezzo di diretta, solo per chi scrive ora.</span></div>
+      <div class="blk"><small>40–45</small><b>Ordini</b><span>Riepilogo, ritiro in negozio o spedizione.</span></div>
+    </div>
+    <div class="wk"><span><b>Lun</b> novità</span><span><b>Mer</b> coordinati</span><span><b>Ven</b> offerte del weekend</span><span><b>Dom</b> scuola e cerimonie</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap first">
+    <div class="sh" style="grid-template-columns:1fr;margin:0"><h2>Il primo giorno <em>in diretta</em></h2><p>Chi entra a condurre le live non deve imparare da sola davanti a tutti. Sei cose da fare prima di accendere il telefono, spuntate insieme.</p></div>
+    <div>
+      <div class="chk" id="chk">
+        <label><input type="checkbox"><span><b>Prova luce e inquadratura</b>Telefono in verticale, luce davanti, banco libero.</span></label>
+        <label><input type="checkbox"><span><b>Capi pronti in ordine</b>Appesi nell'ordine della scaletta, prezzi sul cartellino.</span></label>
+        <label><input type="checkbox"><span><b>Tabella taglie a portata</b>Bambini per età, donna dalla S alla XL.</span></label>
+        <label><input type="checkbox"><span><b>Tre frasi d'apertura</b>Già scritte, da dire con le sue parole.</span></label>
+        <label><input type="checkbox"><span><b>Chi segna gli ordini</b>Una seconda persona legge i commenti e annota.</span></label>
+        <label><input type="checkbox"><span><b>Prova di 10 minuti</b>Una diretta corta il giorno prima, solo per abituarsi.</span></label>
+      </div>
+      <p class="prog" id="pg"></p>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>La conduttrice ci mette la faccia. La regia la mettiamo noi.</h2>
+    <ul>
+      <li><b>Scalette</b>Ogni diretta con i suoi blocchi, capi e frasi pronte.</li>
+      <li><b>Coordinati e taglie</b>Abbinamenti mamma e bimba con la taglia giusta, da mostrare in un attimo.</li>
+      <li><b>Primo mese</b>Prove, checklist e revisione delle dirette con la nuova conduttrice.</li>
+      <li><b>Da esterni</b>Regia, grafiche e video dalle dirette li seguiamo noi.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per CriVanni. Capi e prezzi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var MC={mag:['Maglione',39],abi:['Abito',49],fel:['Felpa',35]},BC={mag:['Maglioncino',25],abi:['Abitino',29],tut:['Tutina',22]},COL={pan:['Panna','#EDE4D3'],ros:['Rosa cipria','#E9B9B4'],sal:['Salvia','#A9BFA3'],blu:['Blu notte','#2E3F5C']};
+  var mc='mag',bc='mag',co='ros';
+  function sw(el,O,k,colr){el.innerHTML=Object.keys(O).map(function(x){return '<button type="button" data-k="'+x+'" aria-pressed="'+(x===k)+'">'+(colr?'<i style="background:'+O[x][1]+'"></i>':'')+O[x][0]+'</button>'}).join('')}
+  sw($('mC'),MC,mc);sw($('bC'),BC,bc);sw($('col'),COL,co,1);
+  var T={2:92,3:98,4:104,5:110,6:116,7:122,8:128,9:134,10:140,11:146,12:152,13:158,14:164};
+  function draw(){var a=+$('ag').value,cm=T[a];$('oA').textContent=a+' anni';$('sz').innerHTML='Taglia <b>'+a+' anni · '+cm+' cm</b><br>se è alta per la sua età, prendi '+(a<14?(a+1)+' anni':'XS donna');
+    $('d1').style.background=COL[co][1];$('d2').style.background=COL[co][1];
+    var t=MC[mc][1]+BC[bc][1];$('cT').textContent=MC[mc][0]+' e '+BC[bc][0].toLowerCase()+', '+COL[co][0].toLowerCase();
+    $('cL').textContent='«Guardate questo: '+MC[mc][0].toLowerCase()+' '+COL[co][0].toLowerCase()+' per la mamma e '+BC[bc][0].toLowerCase()+' uguale per la bimba. Per una bimba di '+a+' anni prendete la '+a+' anni. Scrivetemi "PRENDO" e il nome e ve lo teniamo da parte.»';
+    $('cP').textContent=t+' €'}
+  [['mC',MC,function(k){mc=k}],['bC',BC,function(k){bc=k}],['col',COL,function(k){co=k}]].forEach(function(p){$(p[0]).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;p[2](b.dataset.k);[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});draw()})});
+  $('ag').addEventListener('input',draw);draw();
+  var C=[['Anna','che taglia per una bimba di 5 anni?'],['Mary_rc','bellissimo il rosa 😍'],['Giusy','PRENDO maglione e maglioncino'],['Federica','spedite anche a Messina?'],['Rosa','la felpa c\'è in M?'],['Teresa','PRENDO abitino 6 anni'],['Lucia','a che ora la prossima diretta?']],ci=0,v=128;
+  function cm(){var c=C[ci%C.length];ci++;var el=$('cm');el.insertAdjacentHTML('beforeend','<span><b>'+c[0]+'</b> '+c[1]+'</span>');while(el.children.length>3)el.removeChild(el.firstChild);v+=Math.round(Math.random()*9-2);$('vw').textContent=v}
+  cm();cm();if(!U.reduce)setInterval(cm,1900);
+  function pg(){var n=$('chk').querySelectorAll('input:checked').length;$('pg').textContent=n===6?'Pronta per la prima diretta.':n+' su 6 fatte'}
+  $('chk').addEventListener('change',pg);pg();
+})();
+</script>
+</body>
+</html>

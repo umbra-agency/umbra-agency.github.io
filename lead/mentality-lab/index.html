@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mentality Lab · Cosa entra nella borsa</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:DMS;src:url(../lib/fonts/dm-serif-display-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:DMS;src:url(../lib/fonts/dm-serif-display-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Space;src:url(../lib/fonts/space-grotesk-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+:root{
+  /* pelletteria: tabacco, cuoio, cognac, la cucitura dorata, la pietra di un bancone */
+  --pietra:#ECEBE7; --tab:#2B1C14; --cuo:#8C4A26; --cog:#C07A40; --oro:#D4B062; --ink:#21160F; --mut:#6C5E55;
+  --d:DMS,Georgia,serif; --s:Space,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--pietra)}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+h1 em,h2 em{font-style:italic}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--tab);color:#F1E6DA;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:var(--pad);right:var(--pad);bottom:22px;border-bottom:2px dashed #D4B06266}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:#BFA996}
+.bar b{font:400 24px/1 var(--d);color:#fff}
+.bar b em{font-style:italic;color:var(--oro)}
+.hero .c{padding-block:clamp(20px,4vw,50px) clamp(70px,9vw,120px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:30px 60px;align-items:end}
+.hero h1{font-size:clamp(56px,8.6vw,150px)}
+.hero h1 em{color:var(--oro)}
+.hero p{font-size:clamp(16.5px,1.4vw,19px);color:#D7C6B4;max-width:44ch}
+.fb{margin-top:20px;display:flex;align-items:baseline;gap:12px}
+.fb b{font:400 52px/1 var(--d);color:#fff}
+.fb span{font-size:14px;color:#BFA996;max-width:22ch}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(40px,5vw,80px)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* borsa */
+.bg{display:grid;grid-template-columns:minmax(220px,.55fr) minmax(0,1fr) minmax(250px,.7fr);gap:clamp(14px,2.4vw,30px);align-items:start}
+.lbl{font-size:12.5px;font-weight:700;color:var(--mut);margin-bottom:8px}
+.mods{display:grid;gap:6px;margin-bottom:18px}
+.mods button{display:flex;justify-content:space-between;border:1.5px solid #21160f26;background:#fff;border-radius:10px;padding:11px 13px;cursor:pointer;font-weight:600;font-size:15px}
+.mods button small{font-weight:400;color:var(--mut)}
+.mods button[aria-pressed=true]{background:var(--tab);color:#fff;border-color:var(--tab)}
+.mods button[aria-pressed=true] small{color:#BFA996}
+.its{display:flex;flex-wrap:wrap;gap:6px}
+.its button{border:1.5px solid var(--cuo);background:none;color:var(--cuo);border-radius:999px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:14px}
+.its button[aria-pressed=true]{background:var(--cuo);color:#fff}
+.bagw{background:#fff;border-radius:18px;padding:clamp(14px,2vw,24px);display:grid;gap:14px;justify-items:center}
+.bagw svg{width:100%;max-width:420px;height:auto}
+.bag-body{transition:d .6s}
+.gauge{width:100%;display:grid;gap:6px;font-size:14px}
+.gauge .tr{height:10px;border-radius:5px;background:#EFE9E3;overflow:hidden}
+.gauge i{display:block;height:100%;background:var(--cog);transition:width .5s}
+.gauge i.over{background:#B3261E}
+.verdict{font:400 28px/1.1 var(--d);text-align:center}
+.verdict em{font-style:italic;color:var(--cuo)}
+.reel{background:var(--tab);color:#F1E6DA;border-radius:18px;padding:18px;display:grid;gap:12px}
+.reel .lb{font-size:12.5px;color:#BFA996}
+.reel h3{font-size:26px;color:#fff}
+.reel ol{counter-reset:s;display:grid;gap:8px;font-size:14.5px}
+.reel li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:6px}
+.reel li::before{content:counter(s);font:italic 400 22px/1 var(--d);color:var(--oro)}
+.reel .cap{background:#ffffff10;border-radius:10px;padding:11px 12px;font-size:14px;white-space:pre-line}
+
+/* set del giovedì */
+.set{background:#fff}
+.tl{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border-top:2px solid var(--tab)}
+.slot{padding:16px 14px 0 0;display:grid;gap:8px;align-content:start;border-right:1px dashed #21160f26}
+.slot:last-child{border:0}
+.slot b{font:400 28px/1 var(--d)}
+.slot span{font-size:14px}
+.slot em{font-style:normal;font-size:12px;font-weight:700;color:var(--cuo)}
+
+/* da Facebook */
+.from{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center}
+.ch{display:grid;gap:10px}
+.ch div{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center;background:#fff;border-radius:14px;padding:14px 16px}
+.ch b{font:400 24px/1 var(--d)}
+.ch span{font-size:14.5px;color:var(--mut)}
+
+@media (max-width:1000px){
+  .hero .c,.sh,.bg,.from{grid-template-columns:1fr}
+  .tl{grid-template-columns:1fr 1fr;row-gap:16px}
+  .slot{border-right:0;border-top:1px dashed #21160f26}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Mentality Lab" data-note="Anteprima preparata da Umbra per Mentality Lab di Melito di Napoli, a partire dal vostro annuncio per chi crei contenuti in sede. Indirizzo, follower e attività vengono dalle vostre pagine pubbliche; modelli, misure e contenuti sono un esempio.">
+
+<header class="hero">
+  <div class="bar"><b>Mentality <em>Lab</em></b><span>Via Roma 265, Melito di Napoli</span></div>
+  <div class="wrap c">
+    <h1><span class="ln"><span class="li" style="--i:0">Cosa entra</span></span><span class="ln"><span class="li" style="--i:1"><em>nella borsa?</em></span></span></h1>
+    <div class="fx" style="--i:2">
+      <p>È la domanda che ogni cliente fa al banco, ed è il formato che funziona di più su TikTok e Instagram. Borse, accessori e calzature, donna e uomo: ogni modello in negozio è un video da girare in sede.</p>
+      <div class="fb"><b>59.505</b><span>persone vi seguono su Facebook: il pubblico per i video c'è già</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>Prova, <em>prima di girarlo</em></h2><p>Scegli il modello e cosa ci metti dentro. La borsa si riempie, l'indicatore dice se entra tutto, e accanto c'è il video pronto da girare con le tre inquadrature e la didascalia.</p></div>
+    <div class="bg">
+      <div>
+        <div class="lbl">Modello</div>
+        <div class="mods" id="mods"></div>
+        <div class="lbl">Cosa ci metti</div>
+        <div class="its" id="its"></div>
+      </div>
+      <div class="bagw">
+        <svg id="sv" viewBox="0 0 420 340" role="img" aria-label="La borsa scelta con gli oggetti dentro"></svg>
+        <div class="gauge"><div style="display:flex;justify-content:space-between"><span>Spazio usato</span><b id="gp"></b></div><div class="tr"><i id="gi"></i></div></div>
+        <p class="verdict" id="vd" aria-live="polite"></p>
+      </div>
+      <div class="reel" aria-live="polite">
+        <span class="lb">Video da 25 secondi, girato al banco</span>
+        <h3 id="rH"></h3>
+        <ol id="rS"></ol>
+        <div class="cap" id="rC"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec set">
+  <div class="wrap">
+    <div class="sh"><h2>Due ore di set, <em>una settimana di post</em></h2><p>Un pomeriggio a settimana in sede, con una scaletta. Ne escono sette contenuti, uno al giorno, e nessuno deve improvvisare davanti alla telecamera.</p></div>
+    <div class="tl">
+      <div class="slot"><em>15:00</em><b>Arrivi</b><span>I modelli nuovi sul bancone, uno per uno.</span></div>
+      <div class="slot"><em>15:15</em><b>Cosa entra</b><span>Due borse, due video del formato qui sopra.</span></div>
+      <div class="slot"><em>15:40</em><b>Indossata</b><span>La stessa borsa con tre look: giorno, ufficio, sera.</span></div>
+      <div class="slot"><em>16:05</em><b>Uomo</b><span>Cintura, portafoglio e scarpa abbinati.</span></div>
+      <div class="slot"><em>16:25</em><b>Dettaglio</b><span>Cuciture, fodera, chiusure: macro col telefono.</span></div>
+      <div class="slot"><em>16:40</em><b>Prezzo</b><span>Il video «quanto costa?» con il cartellino in mano.</span></div>
+      <div class="slot"><em>16:55</em><b>Storie</b><span>Dieci foto veloci per le storie della settimana.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap from">
+    <div class="sh" style="grid-template-columns:1fr;margin:0"><h2>Dallo stesso video, <em>tre canali</em></h2><p>Facebook ha già il pubblico, TikTok porta quello nuovo, Instagram tiene il catalogo. Un video girato una volta, montato in tre versioni.</p></div>
+    <div class="ch">
+      <div><b>TikTok</b><span>Versione veloce, gancio nei primi due secondi, musica di tendenza.</span></div>
+      <div><b>Instagram</b><span>Reel più curato, poi in evidenza per modello: «Borse», «Uomo», «Nuovi arrivi».</span></div>
+      <div><b>Facebook</b><span>Video con il prezzo e l'indirizzo, per chi passa in negozio a Melito.</span></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il set è il negozio. La scaletta la scriviamo noi.</h2>
+    <ul>
+      <li><b>Formati che vendono</b>«Cosa entra», «indossata», «quanto costa»: ogni modello ha i suoi video.</li>
+      <li><b>Set settimanale</b>Due ore in sede, sette contenuti, nessuna improvvisazione.</li>
+      <li><b>Montaggio per canale</b>TikTok, Instagram e Facebook dalla stessa ripresa.</li>
+      <li><b>Da esterni</b>Scalette, montaggio e pubblicazioni li seguiamo noi; davanti alla camera la vostra persona.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Mentality Lab. Modelli e contenuti d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var M={poc:['Pochette','sera',6,'M110 120 H310 L298 250 H122Z','M110 120 L210 175 L310 120'],
+    tra:['Tracolla','tutti i giorni',10,'M95 110 H325 L312 280 H108Z','M95 110 Q210 10 325 110'],
+    sho:['Shopper','lavoro',18,'M70 100 H350 L330 300 H90Z','M140 100 Q140 30 210 30 Q280 30 280 100'],
+    zai:['Zaino','città',16,'M120 70 Q210 30 300 70 L310 300 H110Z','M150 70 Q210 0 270 70'],
+    tro:['Trolley cabina','viaggio',28,'M110 70 H310 V305 H110Z','M180 70 V20 H240 V70']};
+  var I={tel:['Telefono',1,'#2B1C14'],por:['Portafoglio',1.2,'#8C4A26'],chi:['Chiavi',.4,'#D4B062'],occ:['Occhiali',.8,'#5b4a40'],bor:['Borraccia',2,'#7e9aa3'],agn:['Agenda A5',1.8,'#C07A40'],tab:['Tablet 11"',3.5,'#3a3a3a'],omb:['Ombrello',2.2,'#4b5d4a'],pc:['Laptop 14"',6,'#6f6f6f'],gia:['Giacca leggera',5,'#a58c74']};
+  var m='tra',on={tel:1,por:1,chi:1,occ:1,agn:1};
+  $('mods').innerHTML=Object.keys(M).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===m)+'">'+M[k][0]+'<small>'+M[k][1]+'</small></button>'}).join('');
+  $('its').innerHTML=Object.keys(I).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(!!on[k])+'">'+I[k][0]+'</button>'}).join('');
+  function draw(){var b=M[m],used=0,keys=Object.keys(on);keys.forEach(function(k){used+=I[k][1]});var p=used/b[2];
+    var s='<path d="'+b[4]+'" fill="none" stroke="#5a3218" stroke-width="9" stroke-linecap="round"/><path d="'+b[3]+'" fill="#8C4A26"/><path d="'+b[3]+'" fill="none" stroke="#D4B062" stroke-width="2" stroke-dasharray="6 6" transform="translate(0 0)" opacity=".8"/>';
+    var IN={poc:[130,290,140,240],tra:[122,298,130,268],sho:[104,316,120,288],zai:[130,290,100,288],tro:[126,294,90,292]}[m],L=IN[0],R=IN[1],T=IN[2],B=IN[3];
+    s+='<rect x="'+L+'" y="'+T+'" width="'+(R-L)+'" height="'+(B-T)+'" rx="8" fill="#5a3218" opacity=".35"/>';
+    var cx=L+6,cy=B-4,rowH=0;keys.forEach(function(k,i){var ar=I[k][1]*(R-L)*(B-T)/b[2]*.82,w=Math.min(R-L-12,Math.sqrt(ar*2.2)),h=ar/w;if(cx+w>R-4){cx=L+6;cy-=rowH+6;rowH=0}var out=cy-h<T;s+='<rect x="'+cx+'" y="'+(out?T-h-30:cy-h)+'" width="'+w+'" height="'+h+'" rx="4" fill="'+I[k][2]+'" stroke="'+(out?'#B3261E':'none')+'" stroke-width="3" opacity=".95"/>';rowH=Math.max(rowH,h);cx+=w+6});
+    $('sv').innerHTML=s;
+    $('gp').textContent=Math.round(p*100)+'%';$('gi').style.width=Math.min(100,p*100)+'%';$('gi').className=p>1?'over':'';
+    var names=keys.map(function(k){return I[k][0].toLowerCase()});
+    $('vd').innerHTML=p>1?'Troppo: <em>non entra tutto</em>':p>.8?'Entra tutto, <em>giusto giusto</em>':'Entra tutto, <em>e avanza spazio</em>';
+    $('rH').textContent='Cosa entra nella '+b[0].toLowerCase()+'?';
+    $('rS').innerHTML=['La '+b[0].toLowerCase()+' chiusa sul bancone, inquadratura dall\'alto','Dentro uno alla volta: '+names.join(', '),p>1?'L\'ultimo oggetto non entra: la cliente ride, si passa al modello più grande':'Si chiude senza sforzo, poi indossata davanti allo specchio'].map(function(x){return '<li>'+x+'</li>'}).join('');
+    $('rC').textContent='Cosa entra in una '+b[0].toLowerCase()+' da '+b[1]+'? Abbiamo provato con '+names.length+' cose. '+(p>1?'Quasi tutto…':'Tutto.')+'\n\nLa trovi in Via Roma 265, Melito di Napoli.\n#borse #pelletteria #melitodinapoli #cosacenellamiaborsa';
+  }
+  $('mods').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;m=b.dataset.k;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});draw()});
+  $('its').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var k=b.dataset.k;if(on[k])delete on[k];else on[k]=1;b.setAttribute('aria-pressed',!!on[k]);draw()});
+  draw();
+})();
+</script>
+</body>
+</html>

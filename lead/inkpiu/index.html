@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Inkpiù · Gli ordini online, evasi prima di pranzo</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Gloock;src:url(../lib/fonts/gloock-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Instr;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:Hand;src:url(../lib/fonts/dancing-script-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  /* un quaderno a quadretti: carta, righe azzurre, inchiostro blu, penna rossa, evidenziatore */
+  --carta:#FBFBF8; --riga:#DCE6F1; --blu:#23318C; --rosso:#D0343A; --evi:#FFF05A; --ink:#15172B; --mut:#5D6178;
+  --d:Gloock,Georgia,serif; --s:Instr,system-ui,sans-serif; --h:Hand,cursive; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.6 var(--s);color:var(--ink);background:var(--carta)}
+.grid{background-image:linear-gradient(var(--riga) 1px,transparent 1px),linear-gradient(90deg,var(--riga) 1px,transparent 1px);background-size:24px 24px}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--blu);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{position:relative;border-bottom:2px solid var(--rosso)}
+.hero::before{content:"";position:absolute;top:0;bottom:0;left:clamp(10px,3vw,40px);width:2px;background:#f2a3a6}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:var(--mut)}
+.bar b{font:400 26px/1 var(--d);color:var(--blu)}
+.hg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,70px);align-items:center;padding-block:clamp(16px,3vw,40px) clamp(50px,7vw,90px)}
+.hero h1{font-size:clamp(44px,5.6vw,94px);color:var(--blu)}
+.hero h1 mark{background:linear-gradient(transparent 55%,var(--evi) 55%);color:inherit;padding:0 .05em}
+.hero p{max-width:48ch;margin-top:20px;font-size:clamp(16.5px,1.35vw,19px)}
+.note{font:700 26px/1.1 var(--h);color:var(--rosso);transform:rotate(-3deg);display:inline-block;margin-top:18px}
+.tick{background:#fff;border:1.5px solid var(--ink);border-radius:4px;box-shadow:6px 6px 0 var(--blu);padding:16px 18px;display:grid;gap:10px;font-size:14.5px}
+.tick .t{display:flex;justify-content:space-between;font-weight:700}
+.tick .t span{font-variant-numeric:tabular-nums}
+.tick ol{display:grid;gap:6px}
+.tick li{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding-bottom:6px;border-bottom:1px dashed #15172b33}
+.tick li i{font-style:normal;font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;background:#E8ECF8;color:var(--blu)}
+.tick li i.n{background:#FFE6E7;color:var(--rosso)}
+.tick li b{font-variant-numeric:tabular-nums}
+.tick .ok{font-weight:700;color:var(--blu)}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(38px,4.8vw,74px);color:var(--blu)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* bacheca ordini */
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lane{background:#fff;border:1.5px solid var(--ink);border-radius:4px;padding:12px;min-height:320px;display:grid;gap:8px;align-content:start}
+.lane>h3{font-size:24px;display:flex;justify-content:space-between;align-items:baseline}
+.lane>h3 span{font:700 14px/1 var(--s);color:var(--mut)}
+.ord{border-radius:4px;padding:10px 12px;background:var(--carta);font-size:13.5px;display:grid;gap:4px;border-left:4px solid var(--blu);animation:in .5s ease}
+@keyframes in{from{opacity:0;transform:translateY(-6px)}}
+.ord b{font-size:14px}
+.ord small{color:var(--mut)}
+.ord.mix{border-left-color:var(--rosso)}
+.ctrl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.ctrl button{border:1.5px solid var(--ink);background:var(--evi);font-weight:700;padding:10px 14px;border-radius:4px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.ctrl button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.ctrl span{font-size:14px;color:var(--mut)}
+.mail{margin-top:14px;background:#fff;border:1.5px dashed var(--blu);border-radius:4px;padding:14px 16px;font-size:14.5px;white-space:pre-line}
+.mail b{display:block;font:700 22px/1 var(--h);color:var(--blu);margin-bottom:6px}
+
+/* domande */
+.faq{display:grid;grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr);gap:clamp(16px,3vw,40px);align-items:start}
+.qs{display:grid;gap:6px}
+.qs button{text-align:left;border:0;background:none;padding:10px 12px;cursor:pointer;font-size:15.5px;border-radius:4px}
+.qs button[aria-pressed=true]{background:var(--evi);font-weight:700}
+.ans{background:#fff;border:1.5px solid var(--ink);border-radius:4px;padding:clamp(16px,2.4vw,26px);box-shadow:6px 6px 0 var(--rosso);display:grid;gap:12px}
+.ans h3{font-size:28px;color:var(--blu)}
+.ans p{white-space:pre-line}
+.ans small{color:var(--mut);font-size:13px}
+.ans .fill{background:#FFE6E7;color:var(--rosso);padding:0 4px;border-radius:3px;font-weight:700}
+
+/* agende */
+.ag{background:var(--blu);color:#EEF0FA}
+.ag .sh h2{color:#fff}.ag .sh p{color:#C3C8E6}
+.agg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ag .c{background:#ffffff10;border-radius:4px;padding:16px;display:grid;gap:8px;align-content:start}
+.ag .c b{font:700 24px/1 var(--h);color:var(--evi)}
+.ag .c h3{font-size:22px;color:#fff}
+.ag .c p{font-size:14.5px;color:#D5D9F0}
+.ag .c em{font-style:normal;font-weight:700;color:#fff}
+
+@media (max-width:900px){
+  .hg,.sh,.faq{grid-template-columns:1fr}
+  .board{grid-template-columns:1fr}
+  .lane{min-height:0}
+  .agg{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Inkpiù" data-note="Anteprima preparata da Umbra per Inkpiù, a partire dal vostro annuncio per un addetto agli ordini e-commerce e al customer care. Prodotti e prezzi vengono dal vostro sito (26 novembre); ordini, clienti e disponibilità sono un esempio, e le risposte vanno completate con le vostre condizioni.">
+
+<header class="hero grid">
+  <div class="bar"><b>Inkpiù</b><span>cartoleria · Via Pisino 115, Roma</span></div>
+  <div class="wrap hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:0">Ordinato alle 9:14,</span></span><span class="ln"><span class="li" style="--i:1"><mark>in viaggio alle 11.</mark></span></span></h1>
+      <p class="fx" style="--i:2">Cercate una persona che faccia da ponte tra ufficio, magazzino e negozi. Il ponte si può costruire anche nel sito: ogni ordine sa già dove si trova la merce, e le risposte ai clienti partono da sole.</p>
+      <span class="note fx" style="--i:3">e la persona nuova parte già organizzata</span>
+    </div>
+    <div class="tick fx" style="--i:3" aria-label="Un ordine d'esempio">
+      <div class="t"><span>Ordine #10482</span><span>9:14</span></div>
+      <ol>
+        <li><i>Magazzino</i>Agenda Quo Vadis Presidente<b>29,95 €</b></li>
+        <li><i>Magazzino</i>Brush Sign Pen Pentel, ×3<b>11,85 €</b></li>
+        <li><i class="n">Via Pisino</i>Fimo Soft Staedtler, ×4<b>11,20 €</b></li>
+      </ol>
+      <div class="t"><span>Da unire: magazzino + negozio</span><span class="ok">pronto alle 10:50</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>La bacheca degli ordini</h2><p>Gli ordini online arrivano qui e si dividono da soli: tutto in magazzino, tutto in negozio, oppure da unire. Il cliente riceve il messaggio giusto a ogni passaggio, senza che nessuno lo scriva.</p></div>
+    <div class="ctrl"><button type="button" id="add">Arriva un ordine</button><span id="cnt"></span></div>
+    <div class="board" id="board">
+      <div class="lane" data-l="0"><h3>Da preparare <span></span></h3></div>
+      <div class="lane" data-l="1"><h3>Pronti <span></span></h3></div>
+      <div class="lane" data-l="2"><h3>Spediti <span></span></h3></div>
+    </div>
+    <div class="mail" aria-live="polite"><b>messaggio al cliente</b><span id="msg"></span></div>
+  </div>
+</section>
+
+<section class="sec grid" style="border-block:1.5px solid var(--riga)">
+  <div class="wrap faq">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:18px"><h2>Le cinque domande di ogni giorno</h2><p>Spedizioni, resi, cartucce compatibili, ordini per la scuola, fattura. Una risposta pronta per ognuna, scritta una volta e usata sempre.</p></div>
+      <div class="qs" id="qs" role="group" aria-label="Domande dei clienti"></div>
+    </div>
+    <div class="ans" aria-live="polite"><h3 id="aQ"></h3><p id="aA"></p><small>Le parti in rosso si completano con le vostre condizioni.</small></div>
+  </div>
+</section>
+
+<section class="sec ag">
+  <div class="wrap">
+    <div class="sh"><h2>Dicembre è il mese delle agende</h2><p>Quo Vadis, ricambi, planner: chi ne usa una la ricompra ogni anno, a dicembre. Quattro settimane per farglielo trovare prima che lo cerchi altrove.</p></div>
+    <div class="agg">
+      <div class="c"><b>1–7 dic</b><h3>Ricambi pronti</h3><p>Mail a chi ha comprato un ricambio Quo Vadis lo scorso anno: <em>il tuo formato è arrivato</em>.</p></div>
+      <div class="c"><b>8–14 dic</b><h3>Quale agenda fa per te</h3><p>Reel con quattro formati sul banco: settimanale, giornaliera, tascabile, da scrivania.</p></div>
+      <div class="c"><b>15–21 dic</b><h3>Regali sotto i 20 €</h3><p>Brush pen, Fimo, agende piccole: una pagina e una vetrina in negozio uguale.</p></div>
+      <div class="c"><b>22–31 dic</b><h3>Ritiro in negozio</h3><p>Ordini online fino al 23, ritiro in Via Pisino: niente corriere nei giorni di Natale.</p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Meno ordini da rincorrere, più clienti che tornano.</h2>
+    <ul>
+      <li><b>Bacheca ordini</b>Ogni ordine diviso tra magazzino e negozi, con i messaggi al cliente automatici.</li>
+      <li><b>Risposte pronte</b>Le domande di ogni giorno con una risposta scritta una volta.</li>
+      <li><b>Campagne di stagione</b>Agende a dicembre, scuola a settembre: mail e post già in calendario.</li>
+      <li><b>Da esterni</b>Strumenti e campagne li costruiamo noi; la persona nuova li usa dal primo giorno.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Inkpiù. Ordini e clienti d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P=[['Agenda Quo Vadis Presidente','M'],['Nastro adesivo Tesa avana, 6 pz','M'],['Brush Sign Pen Pentel','N'],['Regoli 200 pz CWR','M'],['Fimo Soft Staedtler','N'],['100 buste forate Methodo','M'],['Rotoli termici 57×30, 50 pz','M'],['Profumo per bucato Il Bucato di Adele','N'],['Vernidas 250 ml Fila','N'],['Cartella portadisegni 55×38','M']];
+  var NM=['Giulia, Roma','Studio Ferri, Roma','Marco, Latina','Scuola dell\'infanzia, Ostia','Elena, Viterbo','Bar Centrale, Roma','Paola, Frosinone'];
+  var O=[],n=10480,hh=9,mm=2;
+  function mk(){n++;mm+=7+Math.floor(Math.random()*9);if(mm>=60){hh++;mm-=60}var k=1+Math.floor(Math.random()*3),it=[];for(var i=0;i<k;i++)it.push(P[Math.floor(Math.random()*P.length)]);var w={};it.forEach(function(x){w[x[1]]=1});var where=w.M&&w.N?'mix':w.M?'Magazzino':'Via Pisino';return {id:n,t:hh+':'+String(mm).padStart(2,'0'),c:NM[n%NM.length],it:it,w:where,l:0}}
+  function lab(o){return o.w==='mix'?'da unire: magazzino + Via Pisino':o.w==='Magazzino'?'tutto in magazzino':'tutto in negozio, Via Pisino'}
+  function draw(){[].forEach.call(document.querySelectorAll('.lane'),function(L){var l=+L.dataset.l,os=O.filter(function(o){return o.l===l}).slice(-5);L.querySelector('h3 span').textContent=O.filter(function(o){return o.l===l}).length;
+      [].forEach.call(L.querySelectorAll('.ord'),function(x){x.remove()});os.reverse().forEach(function(o){L.insertAdjacentHTML('beforeend','<div class="ord'+(o.w==='mix'?' mix':'')+'"><b>#'+o.id+' · '+o.t+'</b><span>'+o.it.map(function(x){return x[0]}).join(', ')+'</span><small>'+o.c+' · '+lab(o)+'</small></div>')})});
+    $('cnt').textContent=O.length+' ordini oggi, '+O.filter(function(o){return o.l===2}).length+' già spediti'}
+  function say(o){var t=o.l===0?'Ciao '+o.c.split(',')[0]+', abbiamo ricevuto l\'ordine #'+o.id+'. '+(o.w==='mix'?'Una parte arriva dal magazzino e una dal negozio: lo uniamo e lo spediamo insieme.':'È già in preparazione.'):o.l===1?'L\'ordine #'+o.id+' è pronto e parte con il corriere di oggi.':'L\'ordine #'+o.id+' è in viaggio. Ti scriviamo noi se il corriere ritarda.';$('msg').textContent=t}
+  function step(){O.forEach(function(o){if(o.l<2&&Math.random()<.45)o.l++});var o=mk();O.push(o);draw();say(o)}
+  $('add').addEventListener('click',function(){clearInterval(tm);step()});
+  for(var i=0;i<5;i++){var o=mk();o.l=i<2?2:i<4?1:0;O.push(o)}draw();say(O[4]);
+  var tm=U.reduce?0:setInterval(function(){if(O.length>22){clearInterval(tm);return}step()},3200);
+  var Q=[['Quando arriva il mio ordine?','Ciao! Gli ordini ricevuti entro le <span class="fill">[ora]</span> partono in giornata dal nostro magazzino. Con il corriere arrivano in <span class="fill">[giorni]</span> lavorativi; ti mandiamo il link per seguirlo appena parte.'],
+    ['Posso fare un reso?','Certo. Hai <span class="fill">[giorni]</span> giorni dalla consegna: scrivici il numero d\'ordine e ti mandiamo l\'etichetta. Se preferisci, puoi riportarlo nel nostro negozio di Via Pisino 115.'],
+    ['Questa cartuccia va bene per la mia stampante?','Scrivici marca e modello della stampante (è sull\'etichetta davanti o sotto il coperchio) e ti diciamo quale cartuccia originale o compatibile prendere, con il prezzo.'],
+    ['Fate ordini per scuole e uffici?','Sì. Mandaci la lista con le quantità: prepariamo un preventivo con <span class="fill">[condizioni per scuole e aziende]</span> e la consegna in un\'unica spedizione.'],
+    ['Mi fate la fattura?','Certo. Indica ragione sociale, partita IVA e codice destinatario nelle note dell\'ordine, oppure rispondi a questa mail: la fattura elettronica parte <span class="fill">[quando]</span>.']];
+  $('qs').innerHTML=Q.map(function(q,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===0)+'">'+q[0]+'</button>'}).join('');
+  function qa(i){$('aQ').textContent=Q[i][0];$('aA').innerHTML=Q[i][1];[].forEach.call($('qs').children,function(x,j){x.setAttribute('aria-pressed',j===i)})}
+  $('qs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)qa(+b.dataset.i)});qa(0);
+})();
+</script>
+</body>
+</html>
