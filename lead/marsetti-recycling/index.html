@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Marsetti Recycling · Un'auto entra, quaranta ricambi vanno online</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:SpaceG;src:url(../lib/fonts/space-grotesk-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:Onest;src:url(../lib/fonts/onest-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* acciaio, il bianco del banco foto, il cartellino arancio del ricambio, il verde del riciclo */
+  --acc:#24282C; --acc2:#33393F; --banco:#F1F1EE; --cart:#FF8A1F; --ric:#2F8F5B; --riga:#24282c22;
+  --g:SpaceG,system-ui,sans-serif; --o:Onest,system-ui,sans-serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 16px/1.6 var(--o);color:var(--acc);background:var(--banco)}
+h1,h2,h3{font-family:var(--g);font-weight:700;line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--cart);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1400px;margin-inline:auto}
+
+/* ---------- l'auto esplosa ---------- */
+.top{background:var(--acc);color:#fff;padding-bottom:clamp(40px,6vw,80px);position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff14 1px,transparent 1px);background-size:22px 22px}
+.bar{position:relative;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad)}
+.bar b{font:700 20px/1 var(--g);letter-spacing:-.02em}
+.bar b span{color:var(--cart)}
+.bar a{color:var(--acc);background:var(--cart);font-weight:700;font-size:14px;padding:10px 16px;border-radius:4px;text-decoration:none}
+.tt{position:relative;padding:clamp(10px,2vw,30px) var(--pad) 10px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}
+.tt h1{font-size:clamp(40px,5.6vw,92px);margin:0;max-width:15ch}
+.tt h1 em{font-style:normal;color:var(--cart)}
+.cnt{text-align:right}
+.cnt b{display:block;font:700 clamp(56px,7vw,110px)/1 var(--g);font-variant-numeric:tabular-nums}
+.cnt span{font-size:14px;opacity:.75}
+.ex{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:clamp(16px,3vw,40px);padding:0 var(--pad);align-items:start}
+.ex svg{width:100%;height:auto;display:block}
+.pz{cursor:pointer;outline:none}
+.pz .s{fill:#3D454C;stroke:#ffffff59;stroke-width:1.5;transition:fill .25s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.pz:hover .s,.pz:focus-visible .s{fill:#4E5861}
+.pz.sel .s{fill:var(--cart);stroke:#fff}
+.pz.done .s{fill:var(--ric)}
+.pz text{font:600 12px var(--o);fill:#ffffffb3;pointer-events:none}
+.lead{color:#fff;opacity:.85;font-size:15px;margin:0 0 10px}
+/* la scheda */
+.card{background:#fff;color:var(--acc);border-radius:10px;overflow:hidden;position:sticky;top:16px}
+.card__h{background:var(--cart);padding:14px 18px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card__h b{font:700 22px/1.05 var(--g)}
+.card__h span{font:600 13px var(--o);white-space:nowrap}
+.card__b{padding:16px 18px 18px}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.shots button{aspect-ratio:1;border:1.5px dashed #24282c40;border-radius:6px;background:#f6f6f3;font-size:12px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px;text-align:center}
+.shots button svg{width:28px;height:28px}
+.shots button.ok{border-style:solid;border-color:var(--ric);background:#2f8f5b14;color:var(--ric)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px;margin:0 0 14px}
+.kv dt{opacity:.6}
+.kv dd{margin:0;font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.badges span{font-size:12.5px;font-weight:700;padding:5px 9px;border-radius:99px;background:#24282c10}
+.badges span.g{background:var(--ric);color:#fff}
+.pub{width:100%;border:0;border-radius:6px;background:var(--acc);color:#fff;font-weight:700;font-size:15px;padding:13px;cursor:pointer}
+.pub[disabled]{opacity:.35;cursor:default}
+.pub.done{background:var(--ric)}
+
+/* ---------- la postazione ---------- */
+.pos{padding-block:clamp(70px,9vw,130px)}
+.pos__g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.pos h2{font-size:clamp(40px,5vw,80px);margin:0 0 18px}
+.pos p{font-size:clamp(16.5px,1.4vw,19px);margin:0 0 14px;max-width:50ch}
+.pos ol{list-style:none;margin:20px 0 0;padding:0;counter-reset:p}
+.pos li{counter-increment:p;display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--riga);font-size:15.5px}
+.pos li::before{content:counter(p);font:700 22px/1 var(--g);color:var(--cart)}
+.pos svg{width:100%;height:auto;display:block;background:#fff;border-radius:12px}
+
+/* ---------- il percorso ---------- */
+.per{background:var(--acc2);color:#fff;padding-block:clamp(70px,9vw,130px)}
+.per h2{font-size:clamp(40px,5vw,80px);margin:0 0 clamp(30px,4vw,56px);max-width:16ch}
+.line{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:2px solid var(--cart)}
+.line div{padding:18px 16px 0 0}
+.line i{font-style:normal;font:700 13px var(--g);color:var(--cart)}
+.line b{display:block;font:700 22px/1.05 var(--g);margin:6px 0}
+.line span{font-size:14.5px;opacity:.78}
+.ph3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px;margin-top:clamp(40px,5vw,64px)}
+.ph3 img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
+
+.foot{background:var(--cart);color:var(--acc);padding-block:clamp(36px,5vw,64px)}
+.foot__g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(30px,3.8vw,58px);margin:0}
+.foot p{margin:0;font-size:15px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+
+@media (max-width:1000px){
+  .ex,.pos__g{grid-template-columns:1fr}
+  .card{position:relative;top:auto}
+  .line{grid-template-columns:repeat(3,1fr);row-gap:20px}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .tt{grid-template-columns:1fr}
+  .cnt{text-align:left}
+  .line{grid-template-columns:1fr 1fr}
+  .ph3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per Marsetti Recycling" data-note="Anteprima preparata da Umbra per Marsetti Recycling, a partire dal vostro annuncio per foto e catalogazione dei ricambi. Servizi, garanzia, spedizione e contatti vengono dal vostro sito e dalle vostre pagine; l'auto è disegnata, codici e compatibilità sono di esempio.">
+
+<section class="top" id="top">
+  <header class="bar"><b>MARSETTI <span>RECYCLING</span></b><a href="tel:+390444977209">0444 977209</a></header>
+  <div class="tt">
+    <h1>Un'auto entra in piazzale. <em>Quaranta ricambi vanno online.</em></h1>
+    <div class="cnt"><b id="cnt">0</b><span>pezzi pubblicati da questa auto</span></div>
+  </div>
+  <div class="ex">
+    <div>
+      <p class="lead">Toccate un pezzo dell'auto: si apre la sua scheda, con le sei foto da fare e i dati da compilare.</p>
+      <svg id="car" viewBox="0 0 900 480" role="group" aria-label="Auto in vista esplosa"></svg>
+    </div>
+    <aside class="card" aria-live="polite">
+      <div class="card__h"><b id="cT"></b><span id="cC"></span></div>
+      <div class="card__b">
+        <div class="shots" id="shots"></div>
+        <dl class="kv" id="kv"></dl>
+        <div class="badges"><span class="g">Selezionato e provato</span><span>Garanzia</span><span>Spedizione 24/48h</span></div>
+        <button class="pub" id="pub" disabled>Fate le sei foto per pubblicare</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="pos">
+  <div class="wrap pos__g">
+    <div>
+      <h2>Una postazione, sei foto, un minuto a pezzo.</h2>
+      <p>Il vostro annuncio chiede foto chiare e dettagliate, codici rilevati e corrispondenza tra pezzo e scheda. Con un angolo fisso del magazzino e una regola sempre uguale, lo fa chiunque, dal primo giorno.</p>
+      <ol>
+        <li>Il pezzo sul piano bianco, sempre nello stesso punto.</li>
+        <li>Il telefono sul braccio, sempre alla stessa altezza.</li>
+        <li>Il cartellino col numero di pezzo in ogni foto.</li>
+        <li>Prima il codice, poi le sei viste, poi i difetti se ci sono.</li>
+        <li>La scheda si compila dal codice: marca, modello, compatibilità.</li>
+      </ol>
+    </div>
+    <svg viewBox="0 0 560 420" aria-label="La postazione foto">
+      <rect x="0" y="0" width="560" height="420" fill="#fff"/>
+      <path d="M60 320 L500 320 L470 250 L90 250Z" fill="#F1F1EE" stroke="#24282c33"/>
+      <path d="M90 250 Q280 60 470 250" fill="#F7F7F5" stroke="#24282c22"/>
+      <rect x="230" y="240" width="110" height="46" rx="6" fill="#33393F"/><circle cx="262" cy="262" r="14" fill="#4E5861"/><circle cx="310" cy="262" r="14" fill="#4E5861"/>
+      <path d="M340 252 l26 -8 l0 26 l-26 -6" fill="#FF8A1F"/><text x="370" y="262" font-family="Onest" font-size="12" font-weight="700" fill="#24282C">MR-0418</text>
+      <line x1="285" y1="40" x2="285" y2="140" stroke="#24282C" stroke-width="5"/><line x1="285" y1="40" x2="160" y2="40" stroke="#24282C" stroke-width="5"/><rect x="262" y="140" width="46" height="80" rx="8" fill="#24282C"/><circle cx="285" cy="200" r="8" fill="#4E5861"/>
+      <path d="M90 100 l40 -20 l10 30 z" fill="#FFE2B8"/><path d="M470 100 l-40 -20 l-10 30 z" fill="#FFE2B8"/>
+      <line x1="130" y1="96" x2="210" y2="230" stroke="#FFE2B8" stroke-width="2" stroke-dasharray="5 6"/><line x1="430" y1="96" x2="350" y2="230" stroke="#FFE2B8" stroke-width="2" stroke-dasharray="5 6"/>
+      <text x="40" y="380" font-family="SpaceG" font-weight="700" font-size="16" fill="#24282C">piano bianco · due luci · telefono fisso · cartellino</text>
+    </svg>
+  </div>
+</section>
+
+<section class="per">
+  <div class="wrap">
+    <h2>Dal piazzale al cliente, senza perdere un pezzo.</h2>
+    <div class="line">
+      <div><i>01</i><b>Smontaggio</b><span>Ogni pezzo riceve il suo cartellino.</span></div>
+      <div><i>02</i><b>Prova</b><span>Selezionato e provato, come scrivete voi.</span></div>
+      <div><i>03</i><b>Foto</b><span>Sei viste, sempre uguali.</span></div>
+      <div><i>04</i><b>Scheda</b><span>Codice, compatibilità, garanzia.</span></div>
+      <div><i>05</i><b>Vendita</b><span>Sito, Subito e marketplace dallo stesso archivio.</span></div>
+      <div><i>06</i><b>Spedizione</b><span>In 24/48 ore, con il numero di pezzo sul pacco.</span></div>
+    </div>
+    <div class="ph3"><img src="img/magazzino.jpg" alt="Un magazzino di ricambi" loading="lazy"><img src="img/motore.jpg" alt="Un vano motore" loading="lazy"><img src="img/alternatore.jpg" alt="Il dettaglio di un alternatore" loading="lazy"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Il ricambio originale al miglior prezzo.</h2>
+    <p>Marsetti Recycling srls<br>Via Europa 45 F<br>36033 Isola Vicentina (VI)</p>
+    <p><a href="tel:+390444977209">0444 977209</a> · <a href="tel:+393312321094">331 2321094</a><br><a href="https://marsettirecycling.it">marsettirecycling.it</a></p>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il catalogo online che si riempie da solo, un pezzo al minuto.</h2>
+    <ul>
+      <li><b>La regola delle sei foto</b>Una postazione e una sequenza fissa: chi fotografa non deve decidere niente, e ogni scheda sembra uguale alle altre.</li>
+      <li><b>Schede che si compilano dal codice</b>Marca, modello, anni e compatibilità si riempiono dal numero di ricambio; resta solo da controllare.</li>
+      <li><b>Un archivio, tutti i canali</b>Lo stesso pezzo esce sul vostro sito, su Subito e sui marketplace, e sparisce da tutti quando è venduto.</li>
+      <li><b>I numeri del piazzale</b>Quanti pezzi per auto, quanti venduti, in quanto tempo: per sapere quali auto conviene ritirare.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Marsetti Recycling. Codici e dati di esempio, foto da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* pezzi: id, nome, categoria, forma svg (posizione esplosa), dx, dy, etichetta */
+  var P=[
+    ['faro','Faro anteriore destro','Carrozzeria','<path class="s" d="M100 210 q20 -26 70 -24 l6 34 q-44 6 -76 -10z"/>',-40,-30,[100,180]],
+    ['paraurti','Paraurti anteriore','Carrozzeria','<path class="s" d="M70 250 q0 -30 40 -32 l100 0 0 60 -120 0 q-20 0 -20 -28z"/>',-50,20,[70,300]],
+    ['cofano','Cofano motore','Carrozzeria','<path class="s" d="M150 176 L330 160 L360 196 L176 210Z"/>',-10,-50,[180,140]],
+    ['motore','Motore completo','Motori','<rect class="s" x="190" y="214" width="130" height="70" rx="8"/><path class="s" d="M206 214 v-14 h40 v14 M268 214 v-14 h40 v14" style="fill:none"/>',0,-6,[210,300]],
+    ['alt','Alternatore','Meccanica','<circle class="s" cx="350" cy="260" r="22"/><circle class="s" cx="350" cy="260" r="8"/>',30,40,[330,310]],
+    ['specchio','Specchietto retrovisore','Carrozzeria','<path class="s" d="M380 176 l30 -6 l8 22 l-30 6z"/>',10,-60,[380,100]],
+    ['porta','Portiera anteriore','Carrozzeria','<path class="s" d="M400 190 L540 180 L548 290 L404 296Z"/><path d="M420 200 L530 194 L534 232 L424 236Z" fill="#24282C" opacity=".5"/>',0,-14,[440,330]],
+    ['cambio','Cambio manuale','Trasmissione','<path class="s" d="M410 310 h90 l20 30 h-130z"/>',0,50,[420,400]],
+    ['cerchio','Cerchio in lega','Meccanica','<circle class="s" cx="200" cy="350" r="46"/><circle cx="200" cy="350" r="16" fill="#24282C"/>',-30,40,[150,440]],
+    ['stop','Fanale posteriore','Carrozzeria','<path class="s" d="M770 200 l40 6 l-4 40 l-40 -4z"/>',40,-20,[780,180]],
+    ['portellone','Portellone','Carrozzeria','<path class="s" d="M640 170 L760 190 L762 280 L650 284Z"/>',30,-10,[640,320]],
+    ['cerchio2','Cerchio posteriore','Meccanica','<circle class="s" cx="690" cy="350" r="46"/><circle cx="690" cy="350" r="16" fill="#24282C"/>',30,40,[690,440]]
+  ];
+  var SH=[['codice','<path d="M4 8h20v12H4z" stroke="currentColor" fill="none" stroke-width="2"/><path d="M8 11v6M11 11v6M15 11v6M19 11v6" stroke="currentColor" stroke-width="1.5"/>'],['fronte','<rect x="6" y="6" width="16" height="16" rx="2" stroke="currentColor" fill="none" stroke-width="2"/>'],['retro','<rect x="6" y="6" width="16" height="16" rx="2" stroke="currentColor" fill="none" stroke-width="2" stroke-dasharray="3 2"/>'],['lato','<path d="M8 6l12 4v8L8 22z" stroke="currentColor" fill="none" stroke-width="2"/>'],['attacchi','<circle cx="10" cy="14" r="3" stroke="currentColor" fill="none" stroke-width="2"/><circle cx="18" cy="14" r="3" stroke="currentColor" fill="none" stroke-width="2"/>'],['difetti','<circle cx="12" cy="12" r="6" stroke="currentColor" fill="none" stroke-width="2"/><path d="M17 17l5 5" stroke="currentColor" stroke-width="2"/>']];
+  var CAR='<path d="M60 290 Q60 220 140 200 L300 150 Q360 120 470 120 L620 130 Q700 140 790 200 Q830 230 830 290 L830 320 L60 320Z" fill="none" stroke="#ffffff26" stroke-width="2" stroke-dasharray="6 6"/>'+
+          '<path d="M60 330 H840" stroke="#ffffff26"/>';
+  var sel=null,done={},shots={},n=0;
+  function code(k){var h=0;for(var i=0;i<k.length;i++)h=(h*31+k.charCodeAt(i))%9000;return 'MR-'+(1000+h)}
+  function draw(t){var e=U.ease(U.clamp(t,0,1));var h=CAR;
+    P.forEach(function(p){h+='<g class="pz'+(sel==p[0]?' sel':'')+(done[p[0]]?' done':'')+'" data-k="'+p[0]+'" tabindex="0" role="button" aria-label="'+p[1]+'" transform="translate('+(p[4]*e)+' '+(p[5]*e)+')">'+p[3]+'<text x="'+p[6][0]+'" y="'+p[6][1]+'" opacity="'+e+'">'+p[1].split(' ')[0]+'</text></g>'});
+    $('car').innerHTML=h}
+  var tE=0;U.onScroll(function(y){tE=U.clamp(.55+y/400,0,1);draw(tE)});
+  function card(){var p=P.filter(function(x){return x[0]==sel})[0];if(!p){$('cT').textContent='Scegliete un pezzo';$('cC').textContent='';$('shots').innerHTML='';$('kv').innerHTML='';$('pub').disabled=true;return}
+    var s=shots[sel]||{};$('cT').textContent=p[1];$('cC').textContent=code(sel);
+    $('shots').innerHTML=SH.map(function(x){return '<button class="'+(s[x[0]]?'ok':'')+'" data-s="'+x[0]+'"><svg viewBox="0 0 28 28" aria-hidden="true">'+x[1]+'</svg>'+(s[x[0]]?'fatta':x[0])+'</button>'}).join('');
+    $('kv').innerHTML='<dt>Categoria</dt><dd>'+p[2]+'</dd><dt>Auto</dt><dd>Fiat Grande Punto 1.3 Multijet</dd><dt>Anni</dt><dd>2005 – 2012</dd><dt>Codice</dt><dd>'+code(sel)+' · cod. orig. in foto</dd>';
+    var c=Object.keys(s).length,pb=$('pub');
+    if(done[sel]){pb.disabled=true;pb.className='pub done';pb.textContent='Pubblicato su sito, Subito e marketplace'}
+    else{pb.className='pub';pb.disabled=c<6;pb.textContent=c<6?'Mancano '+(6-c)+' foto per pubblicare':'Pubblica il ricambio'}}
+  $('car').addEventListener('click',function(e){var g=e.target.closest('.pz');if(!g)return;sel=g.dataset.k;draw(tE);card();if(innerWidth<1001)U.scrollTo(document.querySelector('.card'),-10)});
+  $('car').addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' '){var g=e.target.closest('.pz');if(g){e.preventDefault();sel=g.dataset.k;draw(tE);card();var n2=$('car').querySelector('[data-k="'+sel+'"]');if(n2)n2.focus()}}});
+  $('shots').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!sel)return;shots[sel]=shots[sel]||{};shots[sel][b.dataset.s]=1;card()});
+  $('pub').addEventListener('click',function(){if(!sel||done[sel])return;done[sel]=1;n++;$('cnt').textContent=n;draw(tE);card()});
+  sel='alt';draw(.55);card();
+  window.__mr=function(){shots.alt={codice:1,fronte:1,retro:1,lato:1,attacchi:1,difetti:1};card()};
+})();
+</script>
+</body>
+</html>
