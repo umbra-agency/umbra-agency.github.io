@@ -129,6 +129,58 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   .blk--end{width:86vw}
   .rullo{height:40px}
 }
+
+/* ---------- una stagione, due teli ---------- */
+.sta{position:relative;height:420vh;background:#E4E2CF}
+.sta__st{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:clamp(16px,3vh,40px) var(--pad);gap:clamp(12px,2.4vh,26px);max-width:1280px;margin-inline:auto}
+.sta__h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.sta h2{font-size:clamp(36px,4.6vw,72px);margin:0;max-width:12ch}
+.mese{text-align:right}
+.mese b{display:block;font:500 clamp(44px,5.4vw,84px)/.9 var(--n);font-variant-numeric:tabular-nums}
+.mese span{display:block;font-weight:700;font-size:15px;margin-top:6px}
+.bar2{height:4px;background:#1f171026;border-radius:2px;position:relative;overflow:hidden}
+.bar2 i{position:absolute;inset:0;background:var(--foglia);transform-origin:0 50%;transform:scaleX(var(--t,0))}
+.due{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(12px,2.4vw,34px)}
+.lato h3{font-size:clamp(22px,2.2vw,32px);margin:0 0 8px;display:flex;align-items:center;gap:10px}
+.lato h3 i{width:16px;height:16px;border-radius:3px;display:inline-block}
+.lato svg{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 20px 40px -26px #0007}
+.lato p{margin:10px 0 0;font-size:clamp(14.5px,1.2vw,16.5px);min-height:3em;max-width:44ch}
+.todo{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;min-height:32px}
+.todo span{font-size:13.5px;font-weight:700;padding:6px 11px;border-radius:99px;background:#fff;opacity:.25;transition:opacity .3s,background .3s,color .3s}
+.todo span.on{opacity:1;background:var(--ink);color:#fff}
+.todo.carta span.on{background:var(--foglia)}
+
+/* ---------- il lunedì del negozio ---------- */
+.lunp{background:var(--foglia);color:var(--panna);padding-block:clamp(64px,8vw,120px)}
+.lunp h2{font-size:clamp(40px,5.2vw,80px);margin:0 0 14px;max-width:16ch}
+.lunp .lead{max-width:54ch;margin:0 0 26px;font-size:clamp(17px,1.5vw,20px);opacity:.9}
+.wk{display:inline-flex;gap:4px;background:#00000026;border-radius:99px;padding:4px;margin-bottom:18px}
+.wk button{border:0;background:none;color:inherit;border-radius:99px;padding:8px 15px;font-weight:700;font-size:14.5px;cursor:pointer}
+.wk button[aria-pressed=true]{background:var(--panna);color:var(--ink)}
+.dash{background:var(--panna);color:var(--ink);border-radius:14px;padding:clamp(16px,2.4vw,30px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,22px)}
+.kpi{border-top:2px solid var(--ink);padding-top:10px}
+.kpi b{display:block;font:500 clamp(34px,3.6vw,54px)/1 var(--n);font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:14px;font-weight:600;margin-top:6px;line-height:1.3}
+.box{grid-column:span 2;background:#fff;border-radius:10px;padding:18px 18px 16px}
+.box h3{font-size:clamp(22px,2vw,28px);margin:0 0 12px}
+.mag{display:grid;gap:9px}
+.mag div{display:grid;grid-template-columns:86px minmax(0,1fr) 92px;gap:10px;align-items:center;font-size:14px}
+.mag b{font-weight:700}
+.mag i{display:block;height:12px;border-radius:6px;background:#1f171014;overflow:hidden;position:relative}
+.mag i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--germ);border-radius:6px;transition:width .5s}
+.mag div.low i::after{background:#C8582E}
+.mag div.low span{color:#B04A22;font-weight:700}
+.mag span{text-align:right;white-space:nowrap}
+.sea svg{display:block;width:100%;height:auto}
+.sea p{margin:8px 0 0;font-size:14px}
+.fare{grid-column:1/-1;display:grid;gap:8px}
+.fare label{display:flex;gap:12px;align-items:center;background:#fff;border-radius:8px;padding:13px 14px;font-size:15.5px;cursor:pointer}
+.fare input{width:20px;height:20px;accent-color:var(--foglia);flex:none}
+.fare label:has(input:checked) span{text-decoration:line-through;opacity:.5}
+.fare small{margin-left:auto;font-size:12.5px;font-weight:700;opacity:.6;white-space:nowrap}
+.dash>em{grid-column:1/-1;font-style:normal;font-size:13px;opacity:.6}
+@media (max-width:900px){.due{grid-template-columns:1fr}.lato p{min-height:0}.dash{grid-template-columns:1fr 1fr}.box{grid-column:1/-1}.sta{height:480vh}.lato svg{max-height:22svh;object-fit:cover}}
+@media (max-width:560px){.sta h2{font-size:30px}.mese b{font-size:40px}.lato h3{font-size:19px;margin-bottom:4px}.lato p{font-size:13.5px;margin-top:6px}.todo{min-height:0;margin-top:4px}.todo span{font-size:12px;padding:4px 9px}.mag div{grid-template-columns:70px minmax(0,1fr) 78px;font-size:13px}.fare small{display:none}}
 @media (prefers-reduced-motion:reduce){.blk{transition:none}.pianta{transition:none}.msg{animation:none}}
 </style>
 </head>
@@ -218,6 +270,43 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <button data-q="reso">Devo fare un reso</button>
         <button data-q="fattura">Mi serve la fattura</button>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sta" id="sta">
+  <div class="sta__st">
+    <div class="sta__h"><h2>Stessa stagione, due teli.</h2><div class="mese"><b id="sM">Giorno 1</b><span id="sF">Si stende e si trapianta</span></div></div>
+    <div class="bar2" id="sB"><i></i></div>
+    <div class="due">
+      <div class="lato"><h3><i style="background:#1b1b1b"></i>Telo in plastica</h3><svg viewBox="0 0 600 300" aria-hidden="true"><defs><filter id="grp"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .13  0 0 0 0 .07  0 0 0 .5 0"/><feComposite in2="SourceGraphic" operator="in"/></filter><mask id="mkp"><rect width="600" height="300" fill="#fff"/><g id="hlp" fill="#000"></g></mask></defs>
+<rect width="600" height="300" fill="#6E4D30"/><rect width="600" height="300" fill="#6E4D30" filter="url(#grp)"/>
+<g id="wep"></g>
+<g id="flp" mask="url(#mkp)"><rect id="frp" x="0" y="70" width="600" height="160"/><g id="fxp"></g></g>
+<g id="plp"></g><g id="pxp"></g></svg><p id="pP"></p><div class="todo" id="pT"><span>Strappare</span><span>Pulire dalla terra</span><span>Portare allo smaltimento</span></div></div>
+      <div class="lato"><h3><i style="background:var(--carta)"></i>Telo PrimePlant</h3><svg viewBox="0 0 600 300" aria-hidden="true"><defs><filter id="grc"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .13  0 0 0 0 .07  0 0 0 .5 0"/><feComposite in2="SourceGraphic" operator="in"/></filter><mask id="mkc"><rect width="600" height="300" fill="#fff"/><g id="hlc" fill="#000"></g></mask></defs>
+<rect width="600" height="300" fill="#6E4D30"/><rect width="600" height="300" fill="#6E4D30" filter="url(#grc)"/>
+<g id="wec"></g>
+<g id="flc" mask="url(#mkc)"><rect id="frc" x="0" y="70" width="600" height="160"/><g id="fxc"></g></g>
+<g id="plc"></g><g id="pxc"></g></svg><p id="cP"></p><div class="todo carta" id="cT"><span>Niente da togliere</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="lunp">
+  <div class="wrap">
+    <h2>Ogni lunedì, il negozio in una pagina.</h2>
+    <p class="lead">Ordini, bobine in magazzino, fatture da fare e le domande che l'assistente non ha chiuso da solo. Chi segue l'e-commerce apre questa pagina e sa da dove partire. I numeri qui sono d'esempio.</p>
+    <div class="wk" id="wk" role="group" aria-label="Settimana"></div>
+    <div class="dash" aria-live="polite">
+      <div class="kpi"><b id="k1"></b><span>ordini nella settimana</span></div>
+      <div class="kpi"><b id="k2"></b><span>incassati dallo shop</span></div>
+      <div class="kpi"><b id="k3"></b><span>domande chiuse dall'assistente</span></div>
+      <div class="kpi"><b id="k4"></b><span>fatture da emettere</span></div>
+      <div class="box"><h3>Bobine in magazzino</h3><div class="mag" id="mag"></div></div>
+      <div class="box sea"><h3>La stagione dei trapianti</h3><svg viewBox="0 0 400 130" id="seaS" aria-hidden="true"></svg><p id="seaP"></p></div>
+      <div class="fare" id="fare"></div>
+      <em>Nella versione vera i numeri arrivano dallo shop e dal gestionale che usate già, ogni lunedì alle 7.</em>
     </div>
   </div>
 </section>
@@ -326,6 +415,80 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   };
   function add(c,h){var m=document.createElement('div');m.className='msg '+c;m.innerHTML=h;tel.insertBefore(m,q)}
   q.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var r=R[b.dataset.q];b.disabled=true;b.style.opacity=.35;add('io',r[0]);setTimeout(function(){add('lui',r[1])},U.reduce?0:520)});
+})();
+/* ---------- una stagione, due teli ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)},NS='http://www.w3.org/2000/svg';
+  function r(n){var x=Math.sin(n*127.1)*43758.5453;return x-Math.floor(x)}
+  var PX=[];for(var i=0;i<6;i++)PX.push(60+i*96);
+  ['p','c'].forEach(function(k){
+    var pl='',we='';
+    PX.forEach(function(x,i){[118,182].forEach(function(y,j){pl+='<g class="pt" transform="translate('+x+' '+y+')"><circle r="7" fill="#2a1d12"/><g class="lf"><ellipse rx="9" ry="20" fill="#3f8a3a" transform="rotate(0)"/><ellipse rx="9" ry="20" fill="#4d9a42" transform="rotate(60)"/><ellipse rx="9" ry="20" fill="#5aa84a" transform="rotate(120)"/><circle r="8" fill="#74B64B"/></g></g>'})});
+    for(var w=0;w<34;w++){var y=w%2?18+r(w)*40:242+r(w+3)*44,x=8+r(w*3.3)*584;we+='<g transform="translate('+x.toFixed(0)+' '+y.toFixed(0)+')"><g class="wd"><path d="M0 0 l-6 -12 M0 0 l1 -15 M0 0 l7 -11" stroke="#6f9a3c" stroke-width="3" stroke-linecap="round"/></g></g>'}
+    $('pl'+k).innerHTML=pl;$('we'+k).innerHTML=we;
+  });
+  $('frp').setAttribute('fill','#1c1c1c');
+  /* riflessi sulla plastica */
+  $('fxp').innerHTML='<path d="M0 96 L600 88 M0 150 L600 140 M0 204 L600 196" stroke="#ffffff1f" stroke-width="6"/>';
+  $('fxc').innerHTML='<path d="M0 100 Q150 94 300 102 T600 98 M0 160 Q150 152 300 162 T600 156 M0 206 Q150 200 300 210 T600 204" stroke="#00000014" stroke-width="2" fill="none"/>';
+  /* i buchi della carta che si scioglie */
+  var H=[];for(var gx=0;gx<14;gx++)for(var gy=0;gy<5;gy++)H.push([gx*46+r(gx*9+gy)*30,70+gy*40+r(gx+gy*7)*24,.55+r(gx*3+gy*11)*.45]);
+  $('hlc').innerHTML=H.map(function(h){return '<circle cx="'+h[0].toFixed(0)+'" cy="'+h[1].toFixed(0)+'" r="0"/>'}).join('');
+  var HC=$('hlc').children,PT={p:$('plp').children,c:$('plc').children},WD={p:$('wep').querySelectorAll('.wd'),c:$('wec').querySelectorAll('.wd')};
+  var F=[[0,'Giorno 1','Si stende e si trapianta'],[.12,'Mese 1','Le piantine attecchiscono'],[.26,'Mese 2','Sotto il telo è buio'],[.38,'Mese 3','Si cresce'],[.5,'Mese 4','Si cresce'],[.6,'Mese 5','Si raccoglie'],[.7,'Mese 6','Fine del raccolto'],[.8,'Fine ciclo','E adesso il telo?'],[.93,'Sei mesi dopo','Si prepara la semina']];
+  var TP=[[0,'Si stende sul terreno lavorato, si buca e si trapianta.'],[.12,'Ferma le infestanti, ma l\'acqua non passa: serve l\'irrigazione sotto il telo.'],[.6,'Fa il suo lavoro fino al raccolto.'],[.78,'Adesso va tolto, metro per metro: si strappa, si pulisce dalla terra, si porta allo smaltimento.'],[.93,'Qualche frammento resta sempre nel terreno.']];
+  var TC=[[0,'Si stende allo stesso modo e si ferma con i picchetti di pioppo.'],[.12,'Ferma le infestanti e lascia passare l\'acqua. Il terreno respira e non si surriscalda.'],[.6,'Tra il quinto e il settimo mese comincia a sciogliersi.'],[.78,'Non si raccoglie e non si smaltisce: diventa terra.'],[.93,'Il campo è pronto per la prossima semina.']];
+  function pick(a,t){var v=a[0];a.forEach(function(x){if(t>=x[0])v=x});return v}
+  var last='';
+  function paint(t){
+    var f=pick(F,t);if(f[1]!=last){last=f[1];$('sM').textContent=f[1];$('sF').textContent=f[2]}
+    $('pP').textContent=pick(TP,t)[1];$('cP').textContent=pick(TC,t)[1];
+    $('sB').style.setProperty('--t',t.toFixed(3));
+    var grow=U.clamp(U.map(t,.04,.5),0,1),harv=U.clamp(U.map(t,.6,.72),0,1),sc=(.25+.95*grow)*(1-harv);
+    ['p','c'].forEach(function(k){
+      [].forEach.call(PT[k],function(g,i){var lf=g.querySelector('.lf');lf.setAttribute('transform','scale('+Math.max(0,sc*(.85+r(i)*.3)).toFixed(3)+') rotate('+(i*37%60)+')');g.firstChild.setAttribute('r',(7*(1-U.clamp(U.map(t,.78,.95),0,1))+0).toFixed(1))});
+      [].forEach.call(WD[k],function(w,i){w.setAttribute('transform','scale('+(.3+1.3*U.clamp(U.map(t,.06,.6),0,1)*(.6+r(i)*.6)).toFixed(2)+')')});
+    });
+    /* carta: scurisce con l'umidità e si scioglie */
+    var age=U.clamp(U.map(t,.1,.6),0,1),dis=U.clamp(U.map(t,.6,.9),0,1);
+    var c0=[217,186,138],c1=[150,112,72],cc=c0.map(function(v,i){return Math.round(v+(c1[i]-v)*age)});
+    $('frc').setAttribute('fill','rgb('+cc.join(',')+')');
+    [].forEach.call(HC,function(c,i){c.setAttribute('r',(Math.max(0,dis*1.25-(1-H[i][2])*.5)*44).toFixed(1))});
+    $('flc').style.opacity=(1-U.clamp(U.map(t,.86,.93),0,1)).toFixed(3);
+    /* plastica: si strappa da destra e resta qualche pezzo */
+    var rm=U.clamp(U.map(t,.8,.93),0,1);
+    $('frp').setAttribute('width',(600*(1-rm)).toFixed(0));$('fxp').style.opacity=1-rm;
+    var bits='';if(t>.9){for(var b=0;b<16;b++){var x=20+r(b*5.1)*560,y=76+r(b*2.7)*150;bits+='<path d="M'+x.toFixed(0)+' '+y.toFixed(0)+' l'+(6+r(b)*10).toFixed(0)+' '+(2-r(b*3)*5).toFixed(0)+' l'+(-3+r(b*7)*6).toFixed(0)+' '+(4+r(b*9)*6).toFixed(0)+'z" fill="#1c1c1c" opacity=".85"/>'}}
+    $('pxp').innerHTML=bits;
+    [].forEach.call($('pT').children,function(x,i){x.classList.toggle('on',rm>(i+.5)/3.2)});
+    $('cT').children[0].classList.toggle('on',t>.8);
+  }
+  if(U.reduce){paint(.95);return}
+  U.pin($('sta'),paint);paint(0);
+})();
+
+/* ---------- il lunedì del negozio ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  /* settimana: ordini, incasso, domande chiuse/su, fatture, magazzino [larghezza, % rimasta, giorni], frase stagione, cose da fare */
+  var W={
+    'Sett. 2':[9,'612 €','18 su 20',1,[['0,40 m',.8,'oltre 60 gg'],['0,60 m',.7,'oltre 60 gg'],['0,90 m',.62,'45 giorni'],['1,20 m',.74,'oltre 60 gg'],['1,40 m',.5,'52 giorni'],['1,60 m',.66,'oltre 60 gg']],1,[['Preparare la campagna di febbraio sui trapianti','oggi'],['Rispondere a 2 richieste passate dall\'assistente','oggi'],['Emettere 1 fattura a partita IVA','entro mercoledì']]],
+    'Sett. 9':[31,'2.480 €','44 su 49',4,[['0,40 m',.46,'30 giorni'],['0,60 m',.38,'24 giorni'],['0,90 m',.18,'9 giorni'],['1,20 m',.4,'26 giorni'],['1,40 m',.3,'19 giorni'],['1,60 m',.44,'28 giorni']],2,[['Riordinare le bobine 0,90 m: finiscono in 9 giorni','oggi'],['Rispondere a 5 richieste passate dall\'assistente','oggi'],['Emettere 4 fatture a partita IVA','entro mercoledì'],['Rispondere a un vivaio che chiede 40 bobine','oggi']]],
+    'Sett. 15':[47,'3.910 €','63 su 71',6,[['0,40 m',.3,'14 giorni'],['0,60 m',.22,'11 giorni'],['0,90 m',.12,'6 giorni'],['1,20 m',.34,'17 giorni'],['1,40 m',.26,'12 giorni'],['1,60 m',.31,'15 giorni']],3,[['Riordinare 0,90 m e 0,60 m prima del ponte','oggi'],['Rispondere a 8 richieste passate dall\'assistente','oggi'],['Emettere 6 fatture a partita IVA','entro mercoledì'],['Chiedere una recensione ai 20 clienti di marzo','giovedì']]]
+  };
+  var cur='Sett. 9';
+  $('wk').innerHTML=Object.keys(W).map(function(k){return '<button aria-pressed="'+(k==cur)+'">'+k+'</button>'}).join('');
+  var M=['G','F','M','A','M','G','L','A','S','O','N','D'],V=[.18,.62,.95,1,.72,.42,.3,.26,.4,.36,.2,.14];
+  function sea(pos){var w=400,h=130,bw=w/12,o='';V.forEach(function(v,i){var bh=v*88,on=i==pos;o+='<rect x="'+(i*bw+5).toFixed(1)+'" y="'+(100-bh).toFixed(1)+'" width="'+(bw-10).toFixed(1)+'" height="'+bh.toFixed(1)+'" rx="3" fill="'+(on?'#2E6B34':(i>=1&&i<=4?'#74B64B':'#1f171026'))+'"/><text x="'+(i*bw+bw/2).toFixed(1)+'" y="122" text-anchor="middle" font-size="12" font-weight="'+(on?800:500)+'" fill="#1F1710">'+M[i]+'</text>'});$('seaS').innerHTML=o}
+  var SP=['Gennaio: la stagione non è ancora partita, ma chi compra a febbraio decide adesso.','Fine febbraio: i trapianti sono vicini, gli ordini salgono ogni settimana.','Aprile: il picco. Le bobine più vendute finiscono in pochi giorni.'];
+  function draw(){var d=W[cur],idx=Object.keys(W).indexOf(cur);
+    $('k1').textContent=d[0];$('k2').textContent=d[1];$('k3').textContent=d[2];$('k4').textContent=d[3];
+    $('mag').innerHTML=d[4].map(function(m){return '<div'+(m[1]<.2?' class="low"':'')+'><b>'+m[0]+'</b><i style="--w:'+Math.round(m[1]*100)+'%"></i><span>'+m[2]+'</span></div>'}).join('');
+    sea([0,1,3][idx]);$('seaP').textContent=SP[idx];
+    $('fare').innerHTML=d[6].map(function(f,i){return '<label><input type="checkbox"><span>'+f[0]+'</span><small>'+f[1]+'</small></label>'}).join('');
+  }
+  $('wk').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});draw()});
+  draw();
 })();
 </script>
 </body>
