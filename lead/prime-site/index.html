@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Prime Site · Una sera a casa, con un tasto</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Shippori;src:url(../lib/fonts/shippori-mincho-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Shippori;src:url(../lib/fonts/shippori-mincho-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Hanken;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  /* rovere affumicato, alluminio spazzolato, ottone, la luce calda di un dimmer al 30% */
+  --rov:#2B2420; --rov2:#211B18; --all:#D3D4D0; --ott:#B48F58; --luce:#F3E2C2; --bg:#ECEBE7; --ink:#1F1B18; --mut:#6B655E;
+  --d:Shippori,Georgia,serif; --s:Hanken,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 16.5px/1.65 var(--s);color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:var(--d);font-weight:500;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+:focus-visible{outline:2px solid var(--ott);outline-offset:3px}
+.wrap{max-width:1300px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--rov);color:var(--luce);padding-bottom:clamp(40px,6vw,80px)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad);max-width:1300px;margin-inline:auto;font-size:13.5px;color:#A79A88}
+.bar b{font:500 20px/1 var(--d);color:#fff;letter-spacing:.04em}
+.top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px 60px;align-items:end;margin-top:clamp(10px,2vw,30px)}
+.hero h1{font-size:clamp(42px,5.4vw,90px);font-weight:400}
+
+.hero p{max-width:50ch;color:#CDBFA9;font-size:clamp(16.5px,1.35vw,19px)}
+
+/* stanza */
+.stage{margin-top:clamp(28px,4vw,50px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.5fr);gap:clamp(14px,2.4vw,30px);align-items:stretch}
+.room{position:relative;border-radius:6px;overflow:hidden;background:#15110f;aspect-ratio:16/9}
+.room svg{position:absolute;inset:0;width:100%;height:100%}
+.room .lamp,.room .glow,.room .cur,.room .tv,.room .spk,.room .win,.room .scr{transition:all 1.6s cubic-bezier(.4,0,.2,1)}
+.keypad{background:var(--rov2);border-radius:6px;padding:18px;display:grid;gap:8px;align-content:start}
+.keypad small{font-size:12.5px;color:#A79A88;margin-bottom:4px}
+.keypad button{display:flex;justify-content:space-between;align-items:center;border:1px solid #ffffff1f;background:linear-gradient(#3a322c,#2f2824);color:var(--luce);border-radius:4px;padding:13px 14px;cursor:pointer;font:500 15px/1 var(--s);text-align:left}
+.keypad button i{width:7px;height:7px;border-radius:50%;background:#5c5148}
+.keypad button[aria-pressed=true] i{background:var(--ott);box-shadow:0 0 10px var(--ott)}
+.sys{margin-top:8px;display:grid;gap:7px;font-size:13.5px;color:#CDBFA9}
+.sys div{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #ffffff14;padding-top:7px}
+.sys b{font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(34px,4.2vw,64px)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* numeri */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #1f1b1833}
+.nums div{padding:22px 18px 0 0}
+.nums b{display:block;font:400 clamp(40px,4.6vw,70px)/1 var(--d)}
+.nums span{font-size:14.5px;color:var(--mut)}
+
+/* progetti */
+.pj{display:grid;grid-template-columns:minmax(220px,.5fr) minmax(0,1.5fr);gap:clamp(16px,3vw,44px);align-items:start}
+.types{display:grid;gap:2px;border-left:1px solid #1f1b1833}
+.types button{border:0;background:none;text-align:left;padding:10px 16px;cursor:pointer;font:400 22px/1.2 var(--d);color:var(--mut);border-left:2px solid transparent;margin-left:-1px}
+.types button[aria-pressed=true]{color:var(--ink);border-left-color:var(--ott)}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.pd h3{font-size:clamp(28px,3vw,42px);grid-column:1/-1}
+.pd p{grid-column:1/-1;max-width:60ch}
+.lay{background:#fff;border-radius:6px;padding:16px 18px}
+.lay b{display:block;font-size:12.5px;color:var(--mut);font-weight:600;margin-bottom:8px}
+.lay ul{display:grid;gap:6px;font-size:15px}
+.lay li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #1f1b1814;padding-bottom:6px}
+.lay li span{color:var(--mut);font-size:13.5px}
+
+/* demo a casa */
+.demo{background:var(--all)}
+.dg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:start}
+.opts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.opts button{border:1px solid #1f1b1840;background:#ffffff80;border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:14.5px}
+.opts button[aria-pressed=true]{background:var(--rov);color:var(--luce);border-color:var(--rov)}
+.lbl{font-size:13px;font-weight:600;color:var(--mut);margin-bottom:8px}
+.req{background:var(--rov);color:var(--luce);border-radius:6px;padding:clamp(18px,2.6vw,30px);display:grid;gap:12px}
+.req h3{font-size:28px;color:#fff}
+.req p{white-space:pre-line;color:#CDBFA9;font-size:15.5px}
+.req .t{display:flex;gap:10px;flex-wrap:wrap}
+.req .t span{border:1px solid #ffffff2a;border-radius:999px;padding:5px 11px;font-size:13px}
+
+@media (max-width:900px){
+  .top,.stage,.sh,.pj,.dg{grid-template-columns:1fr}
+  .nums{grid-template-columns:1fr 1fr}
+  .pd{grid-template-columns:1fr}
+  .types{display:flex;flex-wrap:wrap;border:0;gap:4px}
+  .types button{font-size:18px;border:1px solid #1f1b1833;border-radius:999px;padding:6px 12px;margin:0}
+  .types button[aria-pressed=true]{border-color:var(--ott)}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Prime Site" data-note="Anteprima preparata da Umbra per Prime Site di Milano. Storia, numeri, marchi e servizi vengono dal vostro sito; la stanza e le scene sono un'illustrazione, non un vostro progetto.">
+
+<header class="hero">
+  <div class="bar"><b>PRIME SITE</b><span>Bang &amp; Olufsen · domotica · Milano</span></div>
+  <div class="wrap">
+    <div class="top"><h1><span class="ln"><span class="li" style="--i:0">Una sera a casa,</span></span><span class="ln"><span class="li" style="--i:1">con un tasto solo.</span></span></h1>
+    <div><p class="fx" style="--i:2">Luci Lutron, tende, il televisore che sale dal mobile, l'audio che parte. Raccontato con le parole sembra una scheda tecnica. Toccato, si capisce in cinque secondi perché vale un sopralluogo.</p></div></div>
+    <div class="stage fx" style="--i:3">
+      <div class="room" aria-label="Un soggiorno che cambia scena">
+        <svg viewBox="0 0 960 540" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <radialGradient id="gl" cx=".5" cy=".2" r=".7"><stop offset="0" stop-color="#F3E2C2" stop-opacity=".9"/><stop offset="1" stop-color="#F3E2C2" stop-opacity="0"/></radialGradient>
+            <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" id="s1" stop-color="#9DB8CF"/><stop offset="1" id="s2" stop-color="#E9D3B0"/></linearGradient>
+            <linearGradient id="tvg" x1="0" x2="1"><stop offset="0" stop-color="#1b2a3a"/><stop offset="1" stop-color="#3b2d4a"/></linearGradient>
+          <clipPath id="cp"><rect x="0" y="0" width="960" height="372"/></clipPath></defs>
+          <rect width="960" height="540" fill="#3a302a"/>
+          <rect y="400" width="960" height="140" fill="#2a221d"/>
+          <rect class="win" x="60" y="70" width="300" height="300" fill="url(#sky)"/>
+          <path d="M60 300 Q140 270 220 290 T360 280 V370 H60Z" fill="#6f7d74" opacity=".6"/>
+          <rect class="cur" id="cL" x="60" y="60" width="40" height="320" fill="#cbbfae"/>
+          <rect class="cur" id="cR" x="320" y="60" width="40" height="320" fill="#cbbfae"/>
+          <rect x="40" y="52" width="340" height="10" fill="#1b1613"/>
+          <ellipse class="glow" id="g1" cx="560" cy="60" rx="220" ry="160" fill="url(#gl)"/>
+          <ellipse class="glow" id="g2" cx="820" cy="60" rx="200" ry="150" fill="url(#gl)"/>
+          <rect class="lamp" id="l1" x="550" y="40" width="20" height="6" rx="3" fill="#F3E2C2"/>
+          <rect class="lamp" id="l2" x="810" y="40" width="20" height="6" rx="3" fill="#F3E2C2"/>
+          <g clip-path="url(#cp)"><g class="tv" id="tv"><rect x="560" y="210" width="300" height="170" rx="4" fill="#0e0d0d"/><rect class="scr" id="scr" x="566" y="216" width="288" height="158" fill="url(#tvg)" opacity="0"/></g></g>
+          <rect x="520" y="370" width="380" height="60" fill="#5a4636"/>
+          <rect x="520" y="370" width="380" height="6" fill="#B48F58"/>
+          <g class="spk" id="spk"><rect x="470" y="250" width="34" height="150" rx="17" fill="#c9cac6"/><rect x="916" y="250" width="34" height="150" rx="17" fill="#c9cac6"/></g>
+          <rect x="120" y="420" width="300" height="70" rx="12" fill="#6b5a4c"/><rect x="110" y="400" width="320" height="34" rx="14" fill="#7d6a5a"/>
+          <rect id="dim" width="960" height="540" fill="#0a0807" opacity="0"/>
+        </svg>
+      </div>
+      <div class="keypad">
+        <small>Tastiera di soggiorno</small>
+        <div id="keys" role="group" aria-label="Scene"></div>
+        <div class="sys" aria-live="polite"><div><span>Luci</span><b id="sL"></b></div><div><span>Tende</span><b id="sT"></b></div><div><span>Televisore</span><b id="sV"></b></div><div><span>Audio</span><b id="sA"></b></div><div><span>Clima</span><b id="sC"></b></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>Dal 1990, nel quadrilatero</h2><p>Nata come punto vendita Bang &amp; Olufsen a Milano, oggi Prime Site progetta sistemi completi di domotica con Lutron, Crestron e Savant, in Italia e all'estero.</p></div>
+    <div class="nums"><div><b>1990</b><span>l'anno di apertura</span></div><div><b>7</b><span>tecnici senior</span></div><div><b>3.000+</b><span>progetti completati</span></div><div><b>40+</b><span>marchi integrati</span></div></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap pj">
+    <div class="types" id="types" role="group" aria-label="Tipo di progetto"></div>
+    <div class="pd" aria-live="polite" id="pd"></div>
+  </div>
+</section>
+
+<section class="sec demo">
+  <div class="wrap dg">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:18px"><h2>Prenota la demo a casa tua</h2><p>Il sito già lo propone. Qui la richiesta arriva completa: che casa è, cosa interessa, quando. Lo staff arriva al sopralluogo gratuito sapendo cosa portare.</p></div>
+      <div class="lbl">La casa</div>
+      <div class="opts" id="oC"><button type="button" aria-pressed="true">Appartamento</button><button type="button" aria-pressed="false">Villa</button><button type="button" aria-pressed="false">Ufficio</button><button type="button" aria-pressed="false">Yacht</button></div>
+      <div class="lbl">Cosa vuoi vedere, anche più di una cosa</div>
+      <div class="opts" id="oI" data-multi="1"><button type="button" aria-pressed="true">Home cinema</button><button type="button" aria-pressed="false">Luci e tende Lutron</button><button type="button" aria-pressed="true">TV dietro lo specchio</button><button type="button" aria-pressed="false">Audio multiroom</button><button type="button" aria-pressed="false">Clima</button><button type="button" aria-pressed="false">Sicurezza</button></div>
+      <div class="lbl">Fase del progetto</div>
+      <div class="opts" id="oF"><button type="button" aria-pressed="false">Sto ristrutturando</button><button type="button" aria-pressed="true">Casa finita</button><button type="button" aria-pressed="false">Lavoro con un architetto</button></div>
+    </div>
+    <div class="req" aria-live="polite"><h3>La richiesta che arriva allo showroom</h3><p id="rq"></p><div class="t" id="rt"></div></div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>La tecnologia si vende meglio quando si può toccare.</h2>
+    <ul>
+      <li><b>Scene sul sito</b>Il visitatore prova una sera a casa e capisce il valore prima del sopralluogo.</li>
+      <li><b>Richieste complete</b>Tipo di casa, interessi e fase del progetto: si arriva preparati.</li>
+      <li><b>Portfolio vivo</b>Appartamenti, ville, hotel e yacht raccontati per quello che integrano.</li>
+      <li><b>Da esterni</b>Sito, contenuti e campagne li seguiamo noi, con il vostro staff tecnico.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Prime Site. Stanza e scene illustrate.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var S={mat:['Mattina',{l:.25,c:0,tv:0,a:'Radio, cucina e bagno',cl:'21,0 °C',sky:['#9DB8CF','#E9D3B0'],d:0,ll:'25%',tt:'aperte',vv:'nel mobile'}],
+    cena:['Cena',{l:.6,c:.35,tv:0,a:'Jazz, a bassa voce',cl:'21,5 °C',sky:['#C98A5B','#5E4A6B'],d:.18,ll:'60%, caldo',tt:'socchiuse',vv:'nel mobile'}],
+    cin:['Cinema',{l:.06,c:1,tv:1,a:'Surround, film',cl:'20,5 °C',sky:['#1D2638','#2B2A3D'],d:.55,ll:'5%',tt:'chiuse',vv:'alzato, acceso'}],
+    out:['Fuori casa',{l:0,c:1,tv:0,a:'Spento',cl:'17,0 °C',sky:['#1D2638','#2B2A3D'],d:.72,ll:'spente',tt:'chiuse',vv:'nel mobile'}]};
+  var cur='cena';
+  $('keys').innerHTML=Object.keys(S).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===cur)+'" style="width:100%;margin-bottom:6px">'+S[k][0]+'<i></i></button>'}).join('');
+  function sc(k){cur=k;var s=S[k][1];
+    [].forEach.call($('keys').children,function(x){x.setAttribute('aria-pressed',x.dataset.k===k)});
+    $('g1').setAttribute('opacity',s.l);$('g2').setAttribute('opacity',s.l*.9);$('l1').setAttribute('opacity',.3+s.l);$('l2').setAttribute('opacity',.3+s.l);
+    var w=40+s.c*110;$('cL').setAttribute('width',w);$('cR').setAttribute('x',360-w);$('cR').setAttribute('width',w);
+    $('tv').style.transform='translateY('+(s.tv?0:170)+'px)';$('scr').setAttribute('opacity',s.tv?1:0);
+    $('s1').setAttribute('stop-color',s.sky[0]);$('s2').setAttribute('stop-color',s.sky[1]);
+    $('dim').setAttribute('opacity',s.d);
+    $('sL').textContent=s.ll;$('sT').textContent=s.tt;$('sV').textContent=s.vv;$('sA').textContent=s.a;$('sC').textContent=s.cl}
+  $('keys').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;clearInterval(tm);sc(b.dataset.k)});
+  sc('cena');var order=['cena','cin','out','mat'],oi=0,tm=U.reduce?0:setInterval(function(){oi=(oi+1)%4;sc(order[oi])},4200);
+  var P={app:['Appartamento','Un tasto per scena in ogni stanza, il televisore che sparisce quando non serve, l\'audio che segue chi si sposta.',[['Lutron','luci e tende'],['Bang & Olufsen','audio e TV'],['Savant','controllo da app']],[['Meccanismo sali-scendi','su misura'],['Placche','finitura a scelta']]],
+    villa:['Villa','Interni, giardino e piscina governati dallo stesso sistema, con il clima per zone e la sicurezza integrata.',[['Crestron','controllo centrale'],['Lutron','luci esterne'],['TVCC','videosorveglianza']],[['Audio da esterno','integrato nel verde'],['Clima','per zone']]],
+    hotel:['Hotel','Camere che si preparano da sole all\'arrivo dell\'ospite e un controllo unico per la manutenzione.',[['Lutron','scene per camera'],['Digital signage','hall e sale'],['Rete','Wi-Fi e TV interattive']],[['Interfaccia','semplice per l\'ospite'],['Assistenza','tecnici certificati']]],
+    neg:['Negozio','Luce che valorizza il prodotto, musica per fascia oraria, schermi in vetrina gestiti da remoto.',[['Distribuzione audio','per zone'],['Digital signage','vetrina e cassa'],['Lutron','scene di luce']],[['Orari','programmati'],['Contenuti','aggiornati da remoto']]],
+    yacht:['Yacht','Spazi piccoli, vibrazioni, salsedine: integrazioni studiate per stare ferme anche quando il mare non lo è.',[['Bang & Olufsen','audio di bordo'],['Crestron','controllo cabine'],['Rete','connessione in navigazione']],[['Finiture','resistenti al salino'],['Meccaniche','silenziose']]]};
+  var pk='app';
+  $('types').innerHTML=Object.keys(P).map(function(k){return '<button type="button" data-k="'+k+'" aria-pressed="'+(k===pk)+'">'+P[k][0]+'</button>'}).join('');
+  function pj(k){var p=P[k];[].forEach.call($('types').children,function(x){x.setAttribute('aria-pressed',x.dataset.k===k)});
+    $('pd').innerHTML='<h3>'+p[0]+'</h3><p>'+p[1]+'</p><div class="lay"><b>Cosa si integra</b><ul>'+p[2].map(function(x){return '<li>'+x[0]+'<span>'+x[1]+'</span></li>'}).join('')+'</ul></div><div class="lay"><b>Cosa si personalizza</b><ul>'+p[3].map(function(x){return '<li>'+x[0]+'<span>'+x[1]+'</span></li>'}).join('')+'</ul></div>'}
+  $('types').addEventListener('click',function(e){var b=e.target.closest('button');if(b)pj(b.dataset.k)});pj('app');
+  function on(id){return [].filter.call($(id).children,function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.textContent})}
+  function rq(){var c=on('oC')[0],i=on('oI'),f=on('oF')[0];
+    $('rq').textContent='Demo personalizzata a domicilio, Milano.\nCasa: '+c.toLowerCase()+'. '+f+'.\nDa mostrare: '+(i.length?i.join(', ').toLowerCase():'da definire')+'.\nSopralluogo gratuito da fissare con lo staff di vendita.';
+    $('rt').innerHTML=i.map(function(x){return '<span>'+x+'</span>'}).join('')}
+  ['oC','oI','oF'].forEach(function(id){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(this.dataset.multi){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')}else{[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)})}rq()})});rq();
+})();
+</script>
+</body>
+</html>

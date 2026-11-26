@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cleanics · Dal check-out al check-in, e un host in più ogni settimana</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Fam;src:url(../lib/fonts/familjen-grotesk-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:Fam;src:url(../lib/fonts/familjen-grotesk-italic.woff2) format("woff2");font-weight:400 700;font-style:italic;font-display:swap}
+:root{
+  /* lenzuola appena cambiate, eucalipto, il giallo di un panno in microfibra, il blu dei portici di Padova la sera */
+  --len:#F3F6F4; --euc:#2E6A5C; --euc2:#1F4A40; --pan:#F3DD4B; --sera:#1D2B45; --ink:#16231F; --mut:#5F6E69;
+  --f:Fam,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--f);color:var(--ink);background:var(--len)}
+h1,h2,h3{font-weight:700;line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+h1 em,h2 em{font-style:italic;font-weight:500}
+:focus-visible{outline:3px solid var(--pan);outline-offset:3px}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);max-width:1280px;margin-inline:auto;font-size:14px;color:var(--mut)}
+.bar b{font-size:22px;color:var(--euc);letter-spacing:-.03em}
+.hero{padding-block:clamp(16px,3vw,40px) clamp(56px,7vw,96px)}
+.hero h1{font-size:clamp(48px,7vw,118px);max-width:14ch}
+.hero h1 em{color:var(--euc)}
+.hero p{max-width:56ch;margin-top:20px;font-size:clamp(16.5px,1.4vw,19.5px);color:#3b4a45}
+
+/* turnover */
+.turn{margin-top:clamp(30px,4vw,56px);background:#fff;border-radius:22px;padding:clamp(16px,2.6vw,30px);box-shadow:0 30px 60px -50px #16231f80}
+.clock{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.clock b{font-size:clamp(44px,5vw,72px);letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--euc)}
+.clock span{font-size:15px;color:var(--mut)}
+.track{position:relative;height:12px;background:#E5ECE9;border-radius:6px;overflow:hidden}
+.track i{position:absolute;inset:0 auto 0 0;background:var(--euc);border-radius:6px;width:0}
+.stp{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px}
+.st{border-radius:14px;padding:12px;background:var(--len);font-size:14px;line-height:1.35;transition:background .4s,color .4s;display:grid;gap:4px;align-content:start}
+.st b{font-size:13px;color:var(--mut);font-weight:700;font-variant-numeric:tabular-nums}
+.st.on{background:var(--pan)}
+.st.done{background:var(--euc);color:#fff}
+.st.done b{color:#cfe3dd}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(40px,5vw,78px)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* report */
+.rep{background:var(--euc);color:#EAF3F0}
+.rep .sh p{color:#C6DED7}
+.rg{display:grid;grid-template-columns:330px minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center}
+.phone{background:#0f1f1b;border-radius:40px;padding:11px;aspect-ratio:9/18.6;box-shadow:0 40px 60px -40px #000a}
+.scr{background:#fff;color:var(--ink);border-radius:30px;height:100%;overflow:hidden;display:flex;flex-direction:column}
+.msg{background:#E7F2EE;padding:14px 16px 10px;font-size:13px;color:var(--mut);display:flex;gap:10px;align-items:center}
+.msg i{width:34px;height:34px;border-radius:50%;background:var(--euc);display:grid;place-items:center;color:#fff;font-style:normal;font-weight:700}
+.msg b{display:block;color:var(--ink);font-size:14.5px}
+.rb{padding:14px 16px;display:grid;gap:10px;overflow:auto}
+.rb h3{font-size:20px}
+.ck{display:grid;gap:6px;font-size:13.5px}
+.ck div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #16231f12;padding-bottom:5px}
+.ck span:last-child{color:var(--euc);font-weight:700}
+.ph{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.ph div{aspect-ratio:1;border-radius:8px;background:linear-gradient(135deg,#d8e6e1,#f4f8f6);display:flex;align-items:flex-end;padding:5px;font-size:11px;color:var(--mut)}
+.note{background:#FFF7CC;border-radius:10px;padding:9px 11px;font-size:13px}
+.pts{display:grid;gap:18px}
+.pts div{border-left:3px solid var(--pan);padding-left:16px}
+.pts b{display:block;font-size:22px;letter-spacing:-.02em;color:#fff;margin-bottom:4px}
+.pts span{color:#C6DED7}
+
+/* calcolatore host */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:center}
+.ctl{display:grid;gap:20px}
+.ctl label{display:grid;grid-template-columns:1fr auto;gap:6px;font-weight:700;font-size:15px}
+.ctl input{grid-column:1/-1;width:100%;accent-color:var(--euc)}
+.ctl output{font-size:22px;color:var(--euc);font-variant-numeric:tabular-nums}
+.free{background:#fff;border-radius:22px;padding:clamp(20px,3vw,34px)}
+.free b{display:block;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.05em;color:var(--euc);font-variant-numeric:tabular-nums}
+.free span{display:block;margin-top:10px;color:var(--mut)}
+.free p{margin-top:16px;font-size:15.5px;border-top:1px solid #16231f1a;padding-top:14px}
+
+/* pipeline */
+.pipe{background:var(--sera);color:#E8ECF4}
+.pipe .sh p{color:#B6C0D3}
+.kb{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.col{background:#ffffff0d;border-radius:16px;padding:12px;display:grid;gap:8px;align-content:start;min-height:280px}
+.col>b{font-size:14px;display:flex;justify-content:space-between;color:#B6C0D3}
+.cd{background:#fff;color:var(--ink);border-radius:12px;padding:11px 12px;font-size:14px;display:grid;gap:4px;cursor:pointer;border:0;text-align:left}
+.cd small{color:var(--mut);font-size:12.5px}
+.cd.mv{animation:mv .6s ease}
+@keyframes mv{from{transform:scale(.94);opacity:.4}}
+.script{margin-top:16px;background:#ffffff12;border-radius:16px;padding:16px 18px;font-size:15px;white-space:pre-line;color:#E8ECF4}
+.script b{display:block;color:var(--pan);font-size:13px;margin-bottom:6px}
+
+@media (max-width:900px){
+  .sh,.rg,.calc{grid-template-columns:1fr}
+  .stp{grid-template-columns:1fr 1fr}
+  .kb{grid-template-columns:1fr 1fr}
+  .phone{max-width:330px;width:100%;justify-self:center}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Cleanics" data-note="Anteprima preparata da Umbra per Cleanics di Padova, a partire dal vostro annuncio di tirocinio per segreteria e marketing. Servizi e metodo vengono dal vostro sito; orari, report, host e numeri sono esempi.">
+
+<div class="bar"><b>cleanics</b><span>Padova · pulizie per affitti brevi</span></div>
+<header class="wrap hero">
+  <h1><span class="ln"><span class="li" style="--i:0">Check-out alle 10,</span></span><span class="ln"><span class="li" style="--i:1">check-in alle 15.</span></span><span class="ln"><span class="li" style="--i:2"><em>In mezzo, Cleanics.</em></span></span></h1>
+  <p class="fx" style="--i:3">Checklist digitali, report fotografici, mezzi elettrici: il metodo c'è già. Cercate qualcuno che porti nuovi host e tenga i contatti. Qui c'è come lo raccontiamo e il motore che riempie l'agenda dei sopralluoghi.</p>
+  <div class="turn fx" style="--i:4" aria-label="Un turnover di esempio">
+    <div class="clock"><b id="ck">10:00</b><span>Via del Santo, bilocale · turnover di esempio</span></div>
+    <div class="track"><i id="tr"></i></div>
+    <div class="stp" id="stp"></div>
+  </div>
+</header>
+
+<section class="sec rep">
+  <div class="wrap rg">
+    <div class="phone" aria-label="Il report che riceve l'host"><div class="scr">
+      <div class="msg"><i>C</i><span><b>Cleanics</b>Report turnover · 13:42</span></div>
+      <div class="rb">
+        <h3>Via del Santo 12 · pronto</h3>
+        <div class="ck"><div><span>Biancheria cambiata</span><span>fatto</span></div><div><span>Bagno e cucina</span><span>fatto</span></div><div><span>Kit cortesia</span><span>fatto</span></div><div><span>Controllo danni</span><span>nessuno</span></div><div><span>Chiavi in cassetta</span><span>fatto</span></div></div>
+        <div class="ph"><div>camera</div><div>bagno</div><div>cucina</div><div>soggiorno</div><div>ingresso</div><div>balcone</div></div>
+        <div class="note">Shampoo quasi finito: lo riportiamo al prossimo turnover.</div>
+      </div>
+    </div></div>
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:28px"><h2>Il report è la vostra pubblicità migliore</h2><p>L'host non vede la pulizia: vede il messaggio alle 13:42 con foto e spunte. Mostrarlo prima, sul sito e nei post, vale più di qualsiasi promessa.</p></div>
+      <div class="pts">
+        <div><b>Sul sito</b><span>Un report vero, anonimo, in prima pagina: si capisce il servizio in dieci secondi.</span></div>
+        <div><b>Nei social</b><span>Il turnover in un reel da 20 secondi, con l'orologio che corre.</span></div>
+        <div><b>Nelle recensioni</b><span>Ogni ospite contento è una recensione a 5 stelle per l'host: chiederla diventa un passo della checklist.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap calc">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:24px"><h2>Quante ore torna ad avere un host</h2><p>La domanda giusta al telefono non è «quanto costa», è «quanto tempo ci passi oggi». Tre cursori e la risposta è sua.</p></div>
+      <div class="ctl" id="ctl">
+        <label for="a">Appartamenti<output id="oa"></output><input type="range" id="a" min="1" max="12" value="3"></label>
+        <label for="t">Turnover al mese per appartamento<output id="ot"></output><input type="range" id="t" min="2" max="20" value="8"></label>
+        <label for="h">Ore che ci mette oggi, viaggio compreso<output id="oh"></output><input type="range" id="h" min="1" max="5" step=".5" value="2.5"></label>
+      </div>
+    </div>
+    <div class="free" aria-live="polite"><b id="fh"></b><span>ore al mese che tornano all'host</span><p id="fp"></p></div>
+  </div>
+</section>
+
+<section class="sec pipe">
+  <div class="wrap">
+    <div class="sh"><h2>L'agenda dei sopralluoghi, piena</h2><p>Host e property manager di Padova in una lista, una telefonata con script, il sopralluogo fissato. Tocca una scheda per spostarla avanti: ogni lunedì il report si scrive da qui.</p></div>
+    <div class="kb" id="kb"></div>
+    <div class="script"><b>Script della prima telefonata</b>«Buongiorno, sono di Cleanics, facciamo i turnover per gli affitti brevi qui a Padova. Le chiedo solo una cosa: quante ore al mese le portano via le pulizie tra un ospite e l'altro? … Se le va, passiamo a vedere l'appartamento: ci vogliono venti minuti e le lasciamo un report di prova.»</div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il metodo ce l'avete. Facciamolo vedere agli host.</h2>
+    <ul>
+      <li><b>Lista host di Padova</b>Property manager e host della zona, ordinati per numero di appartamenti.</li>
+      <li><b>Sito e social</b>Report, turnover e recensioni raccontati con i vostri numeri veri.</li>
+      <li><b>Report del lunedì</b>Chiamate, sopralluoghi, nuovi clienti: una pagina, ogni settimana.</li>
+      <li><b>Da esterni</b>Lista, contenuti e report li prepariamo noi; il tirocinante chiama già con tutto in mano.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Cleanics. Orari, host e numeri d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var ST=[[600,'10:00','Check-out dell\'ospite'],[630,'10:30','Arrivo con il mezzo elettrico'],[645,'10:45','Biancheria e letti'],[720,'12:00','Bagno, cucina, pavimenti'],[790,'13:10','Checklist e foto'],[822,'13:42','Report all\'host']];
+  $('stp').innerHTML=ST.map(function(s){return '<div class="st"><b>'+s[1]+'</b>'+s[2]+'</div>'}).join('');
+  var t0=600,tEnd=900,t=t0;
+  function paint(){var h=Math.floor(t/60),m=Math.floor(t%60);$('ck').textContent=h+':'+String(m).padStart(2,'0');$('tr').style.width=((t-t0)/(tEnd-t0)*100)+'%';
+    var el=$('stp').children;ST.forEach(function(s,i){var nx=ST[i+1]?ST[i+1][0]:tEnd;el[i].className='st'+(t>=nx?' done':t>=s[0]?' on':'')})}
+  if(U.reduce){t=822;paint()}else{setInterval(function(){t+=2;if(t>tEnd+40)t=t0;paint()},60)}
+  paint();
+  function calc(){var a=+$('a').value,tt=+$('t').value,h=+$('h').value,tot=a*tt*h;
+    $('oa').textContent=a;$('ot').textContent=tt;$('oh').textContent=String(h).replace('.',',')+' h';
+    $('fh').textContent=Math.round(tot);
+    $('fp').textContent=a*tt+' turnover al mese. Sono '+Math.round(tot/8)+' giornate di lavoro: il tempo per un appartamento in più, o per non pensarci.'}
+  $('ctl').addEventListener('input',calc);calc();
+  var COL=['Da chiamare','Chiamato','Sopralluogo','Cliente'];
+  var H=[['Host privato','2 bilocali · Portello',0],['Property manager','14 appartamenti · Centro',0],['Host privato','1 monolocale · Arcella',1],['B&B in centro','5 camere · Prato della Valle',1],['Host privato','3 appartamenti · Santo',2],['Agenzia affitti brevi','22 appartamenti · Padova e Abano',0],['Host privato','Attico · Piazza dei Signori',3]];
+  function kb(mv){$('kb').innerHTML=COL.map(function(c,ci){var it=H.filter(function(h){return h[2]===ci});return '<div class="col"><b>'+c+'<span>'+it.length+'</span></b>'+it.map(function(h){var i=H.indexOf(h);return '<button type="button" class="cd'+(i===mv?' mv':'')+'" data-i="'+i+'"><b>'+h[0]+'</b><small>'+h[1]+'</small></button>'}).join('')+'</div>'}).join('')}
+  $('kb').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i;if(H[i][2]<3)H[i][2]++;kb(i)});kb(-1);
+})();
+</script>
+</body>
+</html>

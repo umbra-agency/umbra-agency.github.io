@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Union Energia · La bolletta, letta in trenta secondi</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Archivo;src:url(../lib/fonts/archivo-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:Archivo;src:url(../lib/fonts/archivo-italic.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-style:italic;font-display:swap}
+:root{
+  /* luce e gas: il giallo del sole sul tetto, il blu della fiamma, la notte di un contatore */
+  --notte:#0E2352; --notte2:#0A1A3E; --sole:#FFC83A; --fiamma:#3D7BFF; --bg:#EDF2FA; --ink:#0B1430; --mut:#56607A;
+  --f:Archivo,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--f);color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-weight:800;font-stretch:72%;line-height:.92;letter-spacing:-.02em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--sole);outline-offset:3px}
+.wrap{max-width:1300px;margin-inline:auto;padding-inline:var(--pad)}
+.hero{background:var(--notte);color:#E7EDFB;overflow:hidden}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);max-width:1300px;margin-inline:auto;font-size:14px;color:#9FB0D6}
+.bar b{font:800 22px/1 var(--f);font-stretch:85%;color:#fff}
+.hero .c{padding-block:clamp(20px,4vw,50px) clamp(56px,7vw,96px)}
+.hero h1{font-size:clamp(54px,8vw,140px);max-width:12ch}
+.formula{margin-top:clamp(28px,4vw,52px);display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;border-top:1px solid #ffffff2a}
+.fo{padding:18px 30px 0 0;margin-right:30px;border-right:1px solid #ffffff2a}
+.fo:last-child{border:0}
+.fo small{display:block;font-size:13px;color:#9FB0D6;margin-bottom:6px}
+.fo b{font:700 clamp(26px,3.2vw,48px)/1 var(--f);font-stretch:80%;color:#fff;font-variant-numeric:tabular-nums}
+.fo b i{font-style:normal;color:var(--sole)}
+.fo.g b i{color:#8DB2FF}
+.hero p{max-width:56ch;margin-top:26px;color:#C2CDE8;font-size:clamp(16.5px,1.35vw,19px)}
+
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;margin-bottom:clamp(24px,4vw,44px)}
+.sh h2{font-size:clamp(42px,5.4vw,86px)}
+.sh p{max-width:54ch;color:var(--mut)}
+
+/* calcolo */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2.4vw,30px);align-items:start}
+.ctl{background:#fff;border-radius:18px;padding:clamp(18px,2.6vw,30px);display:grid;gap:20px}
+.ctl .grp{display:grid;gap:14px}
+.ctl .grp>b{font-size:13px;font-weight:700;color:var(--mut)}
+.ctl label{display:grid;grid-template-columns:1fr auto;gap:6px;font-weight:600;font-size:15px}
+.ctl output{font:800 22px/1 var(--f);font-stretch:80%;font-variant-numeric:tabular-nums}
+.ctl input{grid-column:1/-1;width:100%;accent-color:var(--fiamma)}
+.ctl .l input{accent-color:#D99B00}
+.ex{font-size:12.5px;color:var(--mut);font-weight:400}
+.bill{background:var(--notte2);color:#E7EDFB;border-radius:18px;padding:clamp(18px,2.6vw,30px);display:grid;gap:16px}
+.line{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding-bottom:14px;border-bottom:1px dashed #ffffff26;font-size:15px}
+.line span:nth-child(2){font-weight:700;font-variant-numeric:tabular-nums}
+.line small{grid-column:1/-1;color:#93A3C8;font-size:13px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tot b{font:800 clamp(56px,7vw,96px)/.9 var(--f);font-stretch:70%;color:var(--sole);font-variant-numeric:tabular-nums}
+.tot span{font-size:14px;color:#B9C5E2;max-width:22ch;text-align:right}
+.stack{display:flex;height:14px;border-radius:7px;overflow:hidden;background:#ffffff14}
+.stack i{display:block;height:100%;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.lg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:#B9C5E2}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.note{font-size:13px;color:#93A3C8}
+.cons{background:#fff;border-radius:14px;padding:16px 18px;margin-top:14px;font-size:14.5px;display:grid;gap:8px;border-left:5px solid var(--sole)}
+.cons b{font-size:13px;color:var(--mut)}
+
+/* telefono */
+.soc{background:#fff}
+.sg{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(24px,5vw,80px);align-items:center}
+.fmts{display:grid;gap:8px}
+.fmts button{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;text-align:left;border:0;background:var(--bg);border-radius:14px;padding:14px 16px;cursor:pointer}
+.fmts button b{grid-row:span 2;font:800 30px/1 var(--f);font-stretch:70%;color:var(--fiamma)}
+.fmts button span{font-weight:700}
+.fmts button small{font-size:14px;color:var(--mut)}
+.fmts button[aria-pressed=true]{background:var(--notte);color:#fff}
+.fmts button[aria-pressed=true] small{color:#B9C5E2}.fmts button[aria-pressed=true] b{color:var(--sole)}
+.phone{width:100%;max-width:340px;aspect-ratio:9/18.5;border-radius:42px;background:#0B1430;padding:12px;box-shadow:0 40px 60px -40px #0b143099;justify-self:center}
+.scr{width:100%;height:100%;border-radius:32px;overflow:hidden;position:relative;background:var(--notte)}
+.slide{position:absolute;inset:0;padding:30px 22px;display:flex;flex-direction:column;gap:14px;color:#fff;opacity:0;transition:opacity .5s}
+.slide.on{opacity:1}
+.slide h3{font-size:38px}
+.slide .k{font-size:12.5px;color:#9FB0D6}
+.slide svg{width:100%;height:auto}
+.slide .big{font:800 72px/.9 var(--f);font-stretch:68%;color:var(--sole)}
+.slide p{font-size:15px;color:#D2DAF0}
+.dots{position:absolute;top:12px;left:16px;right:16px;display:flex;gap:4px}
+.dots i{flex:1;height:3px;border-radius:2px;background:#ffffff33;overflow:hidden}
+.dots i b{display:block;height:100%;width:0;background:#fff}
+.dots i.on b{animation:fill 3.6s linear forwards}
+.dots i.done b{width:100%}
+@keyframes fill{to{width:100%}}
+
+/* dicembre */
+.dec{background:var(--notte);color:#E7EDFB}
+.dec .sh p{color:#B9C5E2}
+.wk{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.wk div{border-top:3px solid var(--sole);padding-top:14px;display:grid;gap:10px;align-content:start}
+.wk div:nth-child(even){border-color:var(--fiamma)}
+.wk b{font:800 30px/1 var(--f);font-stretch:72%}
+.wk p{font-size:14.5px;color:#C2CDE8}
+.wk p em{font-style:normal;font-size:12px;font-weight:700;display:block;color:var(--sole);margin-bottom:2px}
+
+@media (max-width:900px){
+  .sh,.calc,.sg{grid-template-columns:1fr}
+  .formula{grid-template-columns:1fr;gap:14px}
+  .fo{border:0;border-bottom:1px solid #ffffff2a;padding:12px 0;margin:0}
+  .wk{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Union Energia" data-note="Anteprima preparata da Umbra per Union Energia, a partire dalla vostra ricerca di social media manager e content creator. Condizioni Union Flex, contatti e progetti vengono dal vostro sito (26 novembre); PUN e PSV nel calcolo sono valori d'esempio, i post sono bozze.">
+
+<header class="hero">
+  <div class="bar"><b>Union Energia</b><span>Cappelle sul Tavo (PE) · 800 22 78 25</span></div>
+  <div class="wrap c">
+    <h1><span class="ln"><span class="li" style="--i:0">La bolletta,</span></span><span class="ln"><span class="li" style="--i:1">letta in trenta</span></span><span class="ln"><span class="li" style="--i:2">secondi.</span></span></h1>
+    <div class="formula fx" style="--i:3" aria-label="Condizioni Union Flex">
+      <div class="fo"><small>Luce</small><b>PUN <i>+ 0,029</i> €/kWh</b></div>
+      <div class="fo g"><small>Gas</small><b>PSV <i>+ 0,15</i> €/Smc</b></div>
+      <div class="fo"><small>Quota fissa per fornitura</small><b><i>12,00</i> € al mese</b></div>
+    </div>
+    <p class="fx" style="--i:4">Union Flex è un'offerta che si spiega in una riga. Il lavoro del social media manager è farla capire a chi non sa cosa sia il PUN: con un calcolo che si tocca, una serie di post che torna ogni settimana e un consulente che riceve richieste già complete.</p>
+  </div>
+</header>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sh"><h2>Quanto pesa la quota di vendita</h2><p>Consumi del mese e prezzo di mercato: il conto della sola parte Union, con le stesse regole delle vostre condizioni. Trasporto, oneri e imposte restano fuori e lo dice chiaramente, come fate voi.</p></div>
+    <div class="calc">
+      <div>
+        <div class="ctl" id="ctl">
+          <div class="grp l"><b>Luce</b>
+            <label for="kw">Consumo al mese<output id="okw"></output><input id="kw" type="range" min="80" max="600" step="10" value="230"></label>
+            <label for="pun">PUN del mese <span class="ex">valore d'esempio</span><output id="opun"></output><input id="pun" type="range" min="0.06" max="0.20" step="0.005" value="0.11"></label>
+          </div>
+          <div class="grp"><b>Gas</b>
+            <label for="sm">Consumo al mese<output id="osm"></output><input id="sm" type="range" min="0" max="250" step="5" value="90"></label>
+            <label for="psv">PSV del mese <span class="ex">valore d'esempio</span><output id="opsv"></output><input id="psv" type="range" min="0.25" max="0.70" step="0.01" value="0.42"></label>
+          </div>
+        </div>
+        <div class="cons"><b>Cosa riceve il consulente, insieme alla bolletta</b><span id="cons"></span></div>
+      </div>
+      <div class="bill" aria-live="polite">
+        <div class="line"><span>Energia elettrica</span><span id="bL"></span><small id="bLs"></small></div>
+        <div class="line"><span>Gas</span><span id="bG"></span><small id="bGs"></small></div>
+        <div class="line"><span>Quote fisse</span><span id="bQ"></span><small>12,00 € al mese per ogni fornitura attiva</small></div>
+        <div class="tot"><b id="bT"></b><span>quota di vendita al mese, IVA esclusa</span></div>
+        <div class="stack" aria-hidden="true"><i id="sL" style="background:var(--sole)"></i><i id="sG" style="background:var(--fiamma)"></i><i id="sQ" style="background:#9FB0D6"></i></div>
+        <div class="lg"><span><i style="background:var(--sole)"></i>luce</span><span><i style="background:var(--fiamma)"></i>gas</span><span><i style="background:#9FB0D6"></i>quote fisse</span></div>
+        <p class="note">Calcolo della sola quota di vendita del fornitore. Trasporto, oneri di sistema e imposte sono indicati per intero nelle CTE e non cambiano con nessuno sconto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec soc">
+  <div class="wrap sg">
+    <div>
+      <div class="sh" style="grid-template-columns:1fr;margin-bottom:22px"><h2>Quattro rubriche che tornano ogni settimana</h2><p>Una community di oltre 120.000 persone vuole sapere tre cose: quanto costa l'energia questa settimana, come leggere la bolletta, cosa ci guadagna a restare. Le rubriche rispondono a turno.</p></div>
+      <div class="fmts" id="fmts" role="group" aria-label="Rubriche"></div>
+    </div>
+    <div class="phone" aria-label="Anteprima delle storie"><div class="scr" id="scr"><div class="dots" id="dots"></div></div></div>
+  </div>
+</section>
+
+<section class="sec dec">
+  <div class="wrap">
+    <div class="sh"><h2>Dicembre, settimana per settimana</h2><p>Il mese in cui il gas pesa di più e tutti aprono la bolletta. Casa su Instagram e Facebook, imprese e condomini su LinkedIn.</p></div>
+    <div class="wk">
+      <div><b>1–7</b><p><em>Casa</em>Riscaldamento acceso: quanto vale un grado in meno, in Smc.</p><p><em>Business</em>Condomini: come si legge la bolletta del gas centralizzato.</p></div>
+      <div><b>8–14</b><p><em>Casa</em>Bonus sociale energia: chi ne ha diritto e come si chiede.</p><p><em>Business</em>Fotovoltaico Union Smart per le PMI: un impianto raccontato dal tetto.</p></div>
+      <div><b>15–21</b><p><em>Casa</em>Regali con il cashback MyUnion: la guida in tre storie.</p><p><em>Business</em>Union Point: un partner del territorio racconta il suo primo anno.</p></div>
+      <div><b>22–31</b><p><em>Casa</em>Il PUN dell'anno in un grafico, e cosa aspettarsi a gennaio.</p><p><em>Business</em>Bilancio energetico di fine anno per professionisti.</p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Un'offerta chiara merita contenuti altrettanto chiari.</h2>
+    <ul>
+      <li><b>Calcolo sul sito</b>La quota di vendita in trenta secondi, con la richiesta al consulente già compilata.</li>
+      <li><b>Rubriche settimanali</b>PUN della settimana, domande in bolletta, cashback, Union Point.</li>
+      <li><b>Casa e business</b>Instagram e Facebook per le famiglie, LinkedIn per PMI e condomini.</li>
+      <li><b>Da esterni</b>Piano, grafiche e pubblicazioni li seguiamo noi, accanto al vostro team.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Union Energia. Prezzi di mercato e post d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var e2=function(v){return v.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' €'};
+  function calc(){var kw=+$('kw').value,pun=+$('pun').value,sm=+$('sm').value,psv=+$('psv').value;
+    $('okw').textContent=kw+' kWh';$('opun').textContent=pun.toLocaleString('it-IT',{minimumFractionDigits:3})+' €';$('osm').textContent=sm+' Smc';$('opsv').textContent=psv.toLocaleString('it-IT',{minimumFractionDigits:2})+' €';
+    var L=(pun+.029)*kw,G=(psv+.15)*sm,Q=12+(sm>0?12:0),T=L+G+Q;
+    $('bL').textContent=e2(L);$('bLs').textContent=kw+' kWh × ('+pun.toLocaleString('it-IT',{minimumFractionDigits:3})+' + 0,029) €/kWh';
+    $('bG').textContent=e2(G);$('bGs').textContent=sm+' Smc × ('+psv.toLocaleString('it-IT',{minimumFractionDigits:2})+' + 0,15) €/Smc';
+    $('bQ').textContent=e2(Q);$('bT').textContent=e2(T);
+    $('sL').style.width=(L/T*100)+'%';$('sG').style.width=(G/T*100)+'%';$('sQ').style.width=(Q/T*100)+'%';
+    $('cons').textContent=(sm>0?'Dual luce e gas':'Solo luce')+', circa '+kw+' kWh e '+sm+' Smc al mese. Quota di vendita stimata '+e2(T)+' + IVA. Bolletta allegata, richiamare in giornata.'}
+  $('ctl').addEventListener('input',calc);calc();
+  var F=[
+    ['PUN','Il PUN della settimana','Ogni lunedì, il prezzo in un grafico',function(){var v=[.118,.112,.124,.109,.103,.115,.121],x=v.map(function(p,i){return (10+i*40)+','+(120-(p-.09)*2500)}).join(' ');return '<span class="k">Lunedì · rubrica fissa</span><h3>Il PUN della settimana</h3><svg viewBox="0 0 270 140" fill="none"><polyline points="'+x+'" stroke="#FFC83A" stroke-width="4" stroke-linejoin="round"/><line x1="0" y1="130" x2="270" y2="130" stroke="#ffffff33"/></svg><div class="big">0,115</div><p>€/kWh, media d\'esempio. Con Union Flex paghi questo + 0,029. Nient\'altro sulla quota energia.</p>'}],
+    ['?','Domande in bolletta','Una voce della bolletta, un reel',function(){return '<span class="k">Mercoledì · reel da 20 secondi</span><h3>Che cos\'è la quota fissa?</h3><div class="big">12 €</div><p>Al mese per fornitura, uguale per tutta la durata dell\'offerta. Copre il servizio del fornitore, non trasporto e imposte.</p><p style="color:#FFC83A">Scrivi la tua domanda: risponde un consulente, non un call center.</p>'}],
+    ['%','Cashback MyUnion','Quanto torna indietro, con un esempio',function(){return '<span class="k">Venerdì · storia</span><h3>La spesa di Natale torna in bolletta</h3><div class="big">↺</div><p>Scarica MyUnion, acquista dai negozi convenzionati, guarda il cashback accumularsi. Le condizioni sono nel regolamento dell\'app.</p>'}],
+    ['UP','Union Point del mese','Un partner, una città, una storia',function(){return '<span class="k">Sabato · intervista</span><h3>Union Point a Pescara</h3><p>«Le persone entrano con la bolletta in mano e escono avendola capita.»</p><div class="big">1 anno</div><p>Il racconto di un partner del territorio. Vuoi aprirne uno? Scopri We.Share.</p>'}]
+  ];
+  var cur=0,tm;
+  $('fmts').innerHTML=F.map(function(f,i){return '<button type="button" data-i="'+i+'" aria-pressed="'+(i===0)+'"><b>'+f[0]+'</b><span>'+f[1]+'</span><small>'+f[2]+'</small></button>'}).join('');
+  $('scr').insertAdjacentHTML('beforeend',F.map(function(f,i){return '<div class="slide'+(i===0?' on':'')+'">'+f[3]()+'</div>'}).join(''));
+  $('dots').innerHTML=F.map(function(){return '<i><b></b></i>'}).join('');
+  function show(i){cur=i;var s=document.querySelectorAll('.slide'),d=$('dots').children;
+    [].forEach.call(s,function(x,j){x.classList.toggle('on',j===i)});
+    [].forEach.call(d,function(x,j){x.className=j<i?'done':j===i?'on':''});
+    [].forEach.call($('fmts').children,function(x,j){x.setAttribute('aria-pressed',j===i)})}
+  $('fmts').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;clearInterval(tm);show(+b.dataset.i)});
+  show(0);if(!U.reduce)tm=setInterval(function(){show((cur+1)%F.length)},3600);
+})();
+</script>
+</body>
+</html>
