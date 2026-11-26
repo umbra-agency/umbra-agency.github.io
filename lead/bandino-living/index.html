@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bandino Living e Materassi &amp; Co. · Una casa, due marchi</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:ISans;src:url(../lib/fonts/instrument-sans-normal.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../lib/fonts/fraunces-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url(../lib/fonts/fraunces-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+:root{
+  /* Bandino Living: alluminio antracite, il giallo delle tende, la luce di mezzogiorno.
+     Materassi & Co.: blu notte, lino, la luce dell'abat-jour. */
+  --antra:#2A2D32; --sole:#F4B81E; --calce:#F6F3EC; --notte:#111A30; --lino:#EFE6D6; --abat:#FFCB85;
+  --b:ISans,system-ui,sans-serif; --m:Fraunces,Georgia,serif; --pad:clamp(16px,4vw,60px);
+}
+body{font:400 17px/1.5 var(--b);color:var(--antra);background:var(--calce)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sole);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1360px;margin-inline:auto}
+
+/* ---------- la casa ---------- */
+.st{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#bfe0f3;transition:background 1.2s}
+.st[data-st=pioggia]{background:#9aa5af}.st[data-st=notte]{background:#0b1124}
+.st canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.nogl .st{background:url(img/dehor.jpg) center/cover}
+.st__bar{position:absolute;inset:0 0 auto;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px var(--pad)}
+.lock{position:relative;height:30px;min-width:230px}
+.lock b{position:absolute;left:0;top:0;white-space:nowrap;transition:opacity .7s,transform .7s}
+.lock .bl{font:700 25px/30px var(--b);letter-spacing:-.04em;color:var(--antra)}
+.lock .bl::after{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--sole);margin-left:5px}
+.lock .mc{font:500 italic 27px/30px var(--m);color:var(--lino);opacity:0;transform:translateY(8px)}
+.st[data-st=notte] .lock .bl{opacity:0;transform:translateY(-8px)}
+.st[data-st=notte] .lock .mc{opacity:1;transform:none}
+.st__call{white-space:nowrap;font:600 15px/1 var(--b);text-decoration:none;color:var(--antra);background:#ffffffd9;padding:11px 16px;border-radius:99px;transition:background .7s,color .7s}
+.st[data-st=notte] .st__call{background:#ffffff1f;color:var(--lino)}
+.card{position:absolute;z-index:3;left:var(--pad);bottom:clamp(20px,4vw,48px);width:min(440px,calc(100% - 2*var(--pad)));background:var(--calce);border-radius:4px;padding:24px 26px 22px;box-shadow:0 30px 60px -30px #0006;transition:background .9s,color .9s}
+.card h1{font:700 clamp(31px,3.3vw,46px)/1 var(--b);letter-spacing:-.045em;margin:0 0 12px;text-wrap:balance}
+.card p{margin:0;font-size:16.5px;line-height:1.45;max-width:38ch}
+.card h1,.card p{transition:opacity .35s}
+.card.sw h1,.card.sw p{opacity:0}
+.st[data-st=notte] .card{background:var(--notte);color:var(--lino)}
+.st[data-st=notte] .card h1{font:400 italic clamp(34px,3.6vw,50px)/1 var(--m);letter-spacing:-.02em}
+.met{position:absolute;z-index:3;right:var(--pad);bottom:clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(4,92px);gap:8px}
+.met::before{content:"Che tempo fa a Cagliari?";grid-column:1/-1;font:600 14px/1 var(--b);color:var(--antra);background:#ffffffd9;justify-self:start;padding:7px 11px;border-radius:99px;margin-bottom:2px}
+.met button{border:0;background:#ffffffd9;border-radius:4px;padding:12px 4px 10px;display:grid;gap:7px;justify-items:center;font:600 13.5px/1 var(--b);cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.met button svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.met button[aria-pressed=true]{background:var(--antra);color:#fff;transform:translateY(-4px)}
+.met button[data-s=sole][aria-pressed=true]{background:var(--sole);color:var(--antra)}
+.met button[data-s=notte][aria-pressed=true]{background:var(--notte);color:var(--abat)}
+
+/* ---------- due voci ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr}
+.two__h{grid-column:1/-1;padding:clamp(60px,8vw,120px) var(--pad) clamp(30px,4vw,54px);background:var(--calce)}
+.two__h h2{font:700 clamp(40px,6vw,92px)/.95 var(--b);letter-spacing:-.05em;margin:0;max-width:14ch}
+.two__h h2 span{font:400 italic 1.02em/1 var(--m);letter-spacing:-.02em}
+.two__h p{margin:18px 0 0;max-width:54ch;font-size:clamp(17px,1.5vw,20px)}
+.v{padding:clamp(28px,4vw,56px) var(--pad) clamp(50px,7vw,96px)}
+.v--b{background:#fff}
+.v--m{background:var(--notte);color:var(--lino)}
+.v h3{margin:0 0 6px}
+.v--b h3{font:700 30px/1 var(--b);letter-spacing:-.04em}
+.v--m h3{font:500 italic 33px/1 var(--m)}
+.v>p{margin:0 0 26px;font-size:15.5px;opacity:.75;max-width:40ch}
+.po{display:grid;grid-template-columns:132px 1fr;gap:16px;align-items:start;padding:16px 0;border-top:1px solid #2a2d3222}
+.v--m .po{border-color:#efe6d62b}
+.po img{width:132px;height:165px;object-fit:cover;border-radius:3px;display:block}
+.po small{display:block;font:600 13px/1 var(--b);opacity:.6;margin-bottom:7px}
+.v--b .po b{display:block;font:700 21px/1.12 var(--b);letter-spacing:-.03em}
+.v--m .po b{display:block;font:400 italic 24px/1.12 var(--m)}
+.po span{display:block;font-size:15px;margin-top:8px;opacity:.82;line-height:1.42}
+.po.po--t{grid-template-columns:1fr}
+
+/* ---------- dicembre ---------- */
+.cal{padding-block:clamp(60px,8vw,120px);background:var(--calce)}
+.cal h2{font:700 clamp(38px,5.4vw,80px)/.96 var(--b);letter-spacing:-.05em;margin:0 0 14px;max-width:16ch}
+.cal .lead{margin:0 0 34px;max-width:56ch;font-size:clamp(17px,1.5vw,20px)}
+.cal__g{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:clamp(20px,3vw,48px);align-items:start}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.days i{font:600 12.5px/1 var(--b);font-style:normal;opacity:.55;padding:0 0 6px 4px}
+.days div,.days button{aspect-ratio:1/.86;border-radius:3px;border:0;background:#fff;text-align:left;padding:8px 9px;position:relative;font:600 14px/1 var(--b);min-width:0}
+.days div{color:#2a2d3255}
+.days div.x{background:none}
+.days button{cursor:pointer;color:var(--antra)}
+.days button.m{background:var(--notte);color:var(--lino)}
+.days button.b{background:var(--sole)}
+.days button span{position:absolute;left:9px;right:6px;bottom:7px;font:600 11.5px/1.15 var(--b);opacity:.85;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.days button.m span{font:400 italic 12.5px/1.1 var(--m)}
+.days button[aria-pressed=true]{outline:3px solid var(--antra);outline-offset:2px}
+.det{position:sticky;top:20px;border-radius:4px;padding:26px 26px 24px;background:#fff;transition:background .4s,color .4s}
+.det.m{background:var(--notte);color:var(--lino)}
+.det small{font:600 13.5px/1 var(--b);opacity:.65}
+.det h3{font:700 clamp(26px,2.5vw,34px)/1.05 var(--b);letter-spacing:-.04em;margin:12px 0 12px}
+.det.m h3{font:400 italic clamp(28px,2.7vw,37px)/1.05 var(--m);letter-spacing:-.01em}
+.det p{margin:0;font-size:16px;line-height:1.45}
+.det em{display:block;font-style:normal;font-size:14px;margin-top:16px;padding-top:14px;border-top:1px solid currentColor;opacity:.7}
+.jolly{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.jolly div{border:1.5px dashed #2a2d3255;border-radius:4px;padding:14px 16px;font-size:15px}
+.jolly b{display:block;margin-bottom:3px}
+
+/* ---------- prove ---------- */
+.prf{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1px;background:#2a2d3226}
+.prf>div{background:var(--calce);padding:clamp(28px,4vw,54px) var(--pad)}
+.prf q{display:block;font:700 clamp(25px,2.6vw,38px)/1.08 var(--b);letter-spacing:-.04em;quotes:"«" "»"}
+.prf cite{display:block;font-style:normal;font-size:14.5px;margin-top:12px;opacity:.7}
+.prf b{display:block;font:700 clamp(46px,5vw,76px)/.9 var(--b);letter-spacing:-.05em}
+.prf .mm b{font:400 italic clamp(50px,5.4vw,82px)/.9 var(--m)}
+.prf span{display:block;font-size:15px;margin-top:10px;max-width:26ch;opacity:.8}
+
+.ft{display:grid;grid-template-columns:1fr 1fr}
+.ft>div{padding:clamp(34px,5vw,64px) var(--pad)}
+.ft .fb{background:var(--sole)} .ft .fm{background:var(--notte);color:var(--lino)}
+.ft h2{margin:0 0 14px}
+.ft .fb h2{font:700 34px/1 var(--b);letter-spacing:-.04em}
+.ft .fm h2{font:500 italic 37px/1 var(--m)}
+.ft p{margin:0;font-size:16px;line-height:1.6}
+.ft a{color:inherit;font-weight:600}
+
+@media (max-width:900px){
+  .st{height:auto;min-height:0;display:flex;flex-direction:column}
+  .st canvas{position:relative;inset:auto;height:56svh;min-height:330px;flex:none}
+  .card{position:relative;left:auto;bottom:auto;width:auto;border-radius:0;box-shadow:none;padding:22px var(--pad) 18px}
+  .met{position:relative;right:auto;bottom:auto;grid-template-columns:repeat(4,1fr);padding:0 var(--pad) 22px;background:var(--calce);transition:background .9s}
+  .met::before{background:none;padding:0;margin:0 0 4px}
+  .met button{background:#fff}
+  .st[data-st=notte] .met{background:var(--notte)}
+  .st[data-st=notte] .met::before{color:var(--lino)}
+  .two,.ft{grid-template-columns:1fr}
+  .cal__g{grid-template-columns:1fr}
+  .det{position:relative;top:auto}
+  .prf{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .lock .bl{font-size:21px}.lock .mc{font-size:23px}
+  .days{gap:3px}
+  .days div,.days button{padding:5px 5px;font-size:12px;aspect-ratio:1/1.05}
+  .days button span{display:none}
+  .po{grid-template-columns:96px 1fr}
+  .po.po--t{grid-template-columns:1fr}
+  .po img{width:96px;height:120px}
+  .jolly{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-umbra="un'anteprima per Bandino Living e Materassi & Co." data-note="Anteprima preparata da Umbra per Bandino Living e Materassi & Co. Prodotti, sedi, recensioni e frasi vengono dai vostri siti e dalle vostre pagine. La casa è un modello 3D, il piano di dicembre è una proposta, le foto sono di esempio.">
+
+<section class="st" id="top" data-st="sole">
+  <canvas id="scene" aria-label="Una terrazza con pergola bioclimatica, tenda da sole e vetrate: cambia con il tempo scelto"></canvas>
+  <header class="st__bar">
+    <div class="lock"><b class="bl">bandino living</b><b class="mc">Materassi &amp; Co.</b></div>
+    <a class="st__call" id="call" href="tel:+39070212056">070 21 2056</a>
+  </header>
+  <div class="card" id="card" aria-live="polite"><h1 id="h"></h1><p id="s"></p></div>
+  <div class="met" id="met" role="group" aria-label="Che tempo fa a Cagliari?">
+    <button data-s="sole" aria-pressed="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="5.5"/><path d="M16 3v4M16 25v4M3 16h4M25 16h4M6.8 6.8l2.8 2.8M22.4 22.4l2.8 2.8M6.8 25.2l2.8-2.8M22.4 9.6l2.8-2.8"/></svg>Sole</button>
+    <button data-s="vento" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M3 12h16a4 4 0 1 0-4-4M3 18h22a4 4 0 1 1-4 4M3 24h10"/></svg>Maestrale</button>
+    <button data-s="pioggia" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M9 19a6 6 0 0 1 .6-12 8 8 0 0 1 15 2.6A5 5 0 0 1 23 19zM11 23l-1.5 4M16.5 23L15 27M22 23l-1.5 4"/></svg>Acquazzone</button>
+    <button data-s="notte" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M26 19.5A11 11 0 0 1 12.5 6 11 11 0 1 0 26 19.5z"/></svg>Notte</button>
+  </div>
+</section>
+
+<section class="two">
+  <div class="two__h">
+    <h2>Due marchi, due voci. <span>Una regia sola.</span></h2>
+    <p>Di giorno si parla di ombra, vento e cantieri. Di sera si parla di come si dorme. Chi vi segue riconosce subito chi sta parlando, e voi avete un solo calendario da guardare.</p>
+  </div>
+  <div class="v v--b">
+    <h3>bandino living</h3>
+    <p>Voce tecnica e diretta. Si vede il lavoro: cantieri, meccanismi, prima e dopo.</p>
+    <div class="po"><img src="img/lam.jpg" alt="Lamelle di una pergola bioclimatica viste da sotto" loading="lazy"><div><small>Reel, 15 secondi</small><b>Acquazzone su Cagliari. Sotto, il caffè è ancora caldo.</b><span>Le lamelle si chiudono da sole: basta farlo vedere, senza una parola.</span></div></div>
+    <div class="po"><img src="img/dehor.jpg" alt="Un dehor coperto da una tenda da sole" loading="lazy"><div><small>Carosello, 5 schede</small><b>Vetrate scorrevoli: serve un permesso?</b><span>La domanda che vi fanno tutti, con la risposta che avete già scritto sul sito.</span></div></div>
+    <div class="po po--t"><div><small>Storia dal cantiere</small><b>Simone e Piero, ore 8: oggi si monta a Pirri.</b><span>Trenta secondi girati col telefono: i clienti li nominano già nelle recensioni.</span></div></div>
+  </div>
+  <div class="v v--m">
+    <h3>Materassi &amp; Co.</h3>
+    <p>Voce bassa, da ora di andare a letto. Un consiglio alla volta, e la buonanotte in fondo.</p>
+    <div class="po"><img src="img/letto.jpg" alt="Un letto bianco nella luce del mattino" loading="lazy"><div><small>Carosello, 4 schede</small><b>Dormi sul fianco? Guarda queste tre cose.</b><span>Spalla, bacino, cuscino. Poi l'invito a provarlo sdraiati in Viale Monastir.</span></div></div>
+    <div class="po"><img src="img/trap.jpg" alt="La trapuntatura di un materasso, da vicino" loading="lazy"><div><small>Reel, 20 secondi</small><b>Cosa succede sotto la schiena.</b><span>Una mano che preme, il materasso che risponde. Niente musica: si sente il silenzio.</span></div></div>
+    <div class="po po--t"><div><small>Storia delle 22</small><b>Buonanotte a tutti.</b><span>La vostra firma di sempre diventa un appuntamento fisso: ogni sera, un consiglio in una riga.</span></div></div>
+  </div>
+</section>
+
+<section class="cal">
+  <div class="wrap">
+    <h2>Dicembre è già in calendario.</h2>
+    <p class="lead">Sedici uscite, otto per marchio, mai lo stesso giorno. Toccate un giorno per leggere cosa esce.</p>
+    <div class="cal__g">
+      <div>
+        <div class="days" id="days"></div>
+        <div class="jolly">
+          <div><b>Se piove</b>Esce subito il reel delle lamelle chiuse, qualunque giorno sia.</div>
+          <div><b>Se tira maestrale</b>Esce la tenda che rientra nel cassonetto.</div>
+        </div>
+      </div>
+      <article class="det" id="det" aria-live="polite"><small id="dS"></small><h3 id="dT"></h3><p id="dP"></p><em id="dE"></em></article>
+    </div>
+  </div>
+</section>
+
+<section class="prf">
+  <div><q>Semplicemente perfetti: sono cliente da 15 anni.</q><cite>Pierpaolo, recensione Google di Bandino Living</cite></div>
+  <div><b>3 sedi</b><span>a Cagliari per Bandino Living, con installatori in tutta la Sardegna.</span></div>
+  <div class="mm"><b>5,0</b><span>la valutazione di Materassi &amp; Co. su Facebook, con 33 recensioni.</span></div>
+</section>
+
+<footer class="ft">
+  <div class="fb"><h2>bandino living</h2><p>Via dell'Artigianato 11D, Cagliari<br>Via Italia 5, Pirri<br><a href="tel:+39070212056">070 21 2056</a> · WhatsApp <a href="https://wa.me/393793792056">379 379 2056</a></p></div>
+  <div class="fm"><h2>Materassi &amp; Co.</h2><p>Viale Monastir 118, Cagliari<br><a href="tel:+39070283217">070 283217</a><br>Buonanotte a tutti.</p></div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Due marchi, un solo piano. Voi girate trenta secondi, il resto arriva pronto.</h2>
+    <ul>
+      <li><b>Dal telefono al reel</b>Mandate il girato dal cantiere o dallo showroom su WhatsApp: torna montato, con testi e grafica del marchio giusto.</li>
+      <li><b>Un calendario, due voci</b>Bandino Living e Materassi &amp; Co. non si pestano i piedi: giorni diversi, tono diverso, stessa regia.</li>
+      <li><b>Il meteo fa il palinsesto</b>Quando a Cagliari piove o tira vento esce il contenuto giusto, già pronto da settimane.</li>
+      <li><b>Ogni campagna ha la sua pagina</b>Pergole, vetrate, materassi: chi clicca atterra dove può chiedere il sopralluogo o la prova in showroom.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Bandino Living e Materassi &amp; Co. Foto di esempio da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/three.min.js"></script>
+<script src="../lib/u2.js"></script>
+<script>
+/* ---------- testi e stato ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var TX={
+    sole:['Luglio, le due del pomeriggio.','La tenda da sole esce e le lamelle della pergola si girano: sotto c\'è ombra, e l\'aria passa.'],
+    vento:['Poi gira il maestrale.','La tenda rientra nel cassonetto e sul lato del vento scende la chiusura verticale. Il tavolo resta apparecchiato.'],
+    pioggia:['Acquazzone di novembre.','Lamelle chiuse, vetrate scorrevoli tirate. La stanza in più resta asciutta.'],
+    notte:['Poi si spegne la luce.','Da qui in avanti lavora il materasso. Materassi & Co., Viale Monastir 118: venite a provarlo sdraiati.']
+  };
+  var stg=$('top'),card=$('card'),cur='sole';
+  function txt(k){$('h').textContent=TX[k][0];$('s').textContent=TX[k][1]}
+  txt('sole');
+  window.__meteo=function(){};
+  function set(k){if(k==cur)return;cur=k;stg.setAttribute('data-st',k);
+    [].forEach.call($('met').children,function(b){b.setAttribute('aria-pressed',b.dataset.s==k)});
+    card.classList.add('sw');setTimeout(function(){txt(k);card.classList.remove('sw')},340);
+    var c=$('call');if(k=='notte'){c.textContent='070 283217';c.href='tel:+39070283217'}else{c.textContent='070 21 2056';c.href='tel:+39070212056'}
+    window.__meteo(k)}
+  $('met').addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(b.dataset.s)});
+  window.__set=set;
+})();
+
+/* ---------- la casa in 3D ---------- */
+(function(){
+  var cv=document.getElementById('scene');if(!window.THREE)return;
+  var st=U.three(cv,{fov:32,shadows:true,exposure:1.02,alpha:false});if(!st)return;
+  var T=st.T,sc=st.scene,cam=st.camera;cam.far=600;cam.updateProjectionMatrix();
+  function C(h){return new T.Color(h).convertSRGBToLinear()}
+  function M(h,r,o){var p={color:C(h),roughness:r==null?.85:r,metalness:0};if(o)for(var k in o)p[k]=o[k];return new T.MeshStandardMaterial(p)}
+  function box(w,h,d,m,x,y,z,cast,recv){var b=new T.Mesh(new T.BoxGeometry(w,h,d),m);b.position.set(x,y,z);b.castShadow=cast!==false;b.receiveShadow=recv!==false;sc.add(b);return b}
+
+  /* cielo, mare, luce */
+  var skyG=new T.SphereGeometry(300,32,16),skyC=new Float32Array(skyG.attributes.position.count*3);
+  skyG.setAttribute('color',new T.BufferAttribute(skyC,3));
+  sc.add(new T.Mesh(skyG,new T.MeshBasicMaterial({vertexColors:true,side:T.BackSide,fog:false,depthWrite:false})));
+  var seaM=new T.MeshStandardMaterial({color:C('#2f86b8'),roughness:.35}),sea=new T.Mesh(new T.PlaneGeometry(900,900),seaM);sea.rotation.x=-Math.PI/2;sea.position.y=-9;sc.add(sea);
+  sc.fog=new T.Fog(0xffffff,70,290);
+  var sun=new T.DirectionalLight(0xffffff,3);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);var sh=sun.shadow.camera;sh.left=-11;sh.right=11;sh.top=11;sh.bottom=-11;sh.near=1;sh.far=50;sun.shadow.bias=-.0006;sun.shadow.normalBias=.03;sun.shadow.radius=3;sc.add(sun);sc.add(sun.target);
+  var hemi=new T.HemisphereLight(0xffffff,C('#d8cdb8'),.7);sc.add(hemi);
+
+  /* terrazza */
+  var tc=document.createElement('canvas');tc.width=tc.height=256;var g=tc.getContext('2d');g.fillStyle='#d9d2c5';g.fillRect(0,0,256,256);g.strokeStyle='#b9b1a3';g.lineWidth=3;g.strokeRect(0,0,256,256);
+  for(var i=0;i<900;i++){g.fillStyle='rgba('+(120+Math.random()*80|0)+','+(110+Math.random()*70|0)+','+(95+Math.random()*60|0)+',.07)';g.fillRect(Math.random()*256,Math.random()*256,3,3)}
+  var tt=new T.CanvasTexture(tc);tt.wrapS=tt.wrapT=T.RepeatWrapping;tt.repeat.set(13,9);tt.encoding=T.sRGBEncoding;tt.anisotropy=8;
+  var floorM=new T.MeshStandardMaterial({map:tt,roughness:.9});box(16,.2,10.5,floorM,0,-.1,2.25,false);
+  var wallM=M('#f3efe7',.95),antra=M('#34373c',.45,{metalness:.35});
+  box(16.4,9,11,wallM,0,-4.7,2.2,false);                                   /* il palazzo sotto */
+  box(.16,.95,10.5,wallM,-8,.47,2.25);box(16,.95,.16,wallM,0,.47,7.5);      /* parapetti */
+  box(6.3,5.2,.3,wallM,-4.85,2.6,-3);box(6.3,5.2,.3,wallM,4.85,2.6,-3);box(3.4,2.75,.3,wallM,0,3.825,-3);
+
+  /* la camera da letto dietro la vetrata */
+  var woodM=M('#a8845f',.7);box(6.4,.1,5,woodM,0,-.05,-5.6,false);
+  box(6.4,3,.2,M('#e7dfd2'),0,1.5,-8.1);box(.2,3,5,M('#e7dfd2'),-3.2,1.5,-5.6);box(.2,3,5,M('#e7dfd2'),3.2,1.5,-5.6);box(6.6,.2,5.2,wallM,0,3,-5.6);
+  box(2.15,.34,2.3,M('#34425f'),0,.2,-6.7);box(2.02,.3,2.2,M('#f6f1e8',.95),0,.52,-6.7);box(2.08,.12,1.45,M('#ded5c5',1),0,.72,-6.3);
+  box(.82,.16,.5,M('#ffffff',1),-.5,.75,-7.5);box(.82,.16,.5,M('#ffffff',1),.5,.75,-7.5);box(2.4,1.15,.12,M('#27324a'),0,.95,-7.92);
+  box(.5,.5,.45,woodM,1.5,.25,-7.6);box(.5,.5,.45,woodM,-1.5,.25,-7.6);
+  var lampM=new T.MeshStandardMaterial({color:C('#fff3dc'),emissive:C('#ffcb85'),emissiveIntensity:0}),lamp=new T.Mesh(new T.SphereGeometry(.16,20,14),lampM);lamp.position.set(1.5,.72,-7.6);sc.add(lamp);
+  var roomL=new T.PointLight(C('#ffcb85'),0,11,1.6);roomL.position.set(1.2,1.5,-6.9);sc.add(roomL);
+  var roomF=new T.PointLight(C('#ffd9a8'),0,9,1.8);roomF.position.set(-.6,2.2,-5);sc.add(roomF);
+
+  /* la pergola bioclimatica */
+  [[-2.4,1.3],[2.4,1.3],[-2.4,-2.75],[2.4,-2.75]].forEach(function(p){box(.14,2.6,.14,antra,p[0],1.3,p[1])});
+  box(4.94,.22,.14,antra,0,2.6,1.3);box(4.94,.22,.14,antra,0,2.6,-2.75);box(.14,.22,4.05,antra,-2.4,2.6,-.725);box(.14,.22,4.05,antra,2.4,2.6,-.725);
+  var lam=[],lamM=M('#f2f2ee',.5,{metalness:.2});
+  for(i=0;i<17;i++){lam.push(box(4.66,.03,.215,lamM,0,2.6,-2.55+i*.228))}
+  var ledM=new T.MeshStandardMaterial({color:C('#fff3dc'),emissive:C('#ffcb85'),emissiveIntensity:0});
+  box(4.6,.03,.03,ledM,0,2.47,1.21,false,false);box(4.6,.03,.03,ledM,0,2.47,-2.66,false,false);box(.03,.03,3.8,ledM,-2.31,2.47,-.725,false,false);box(.03,.03,3.8,ledM,2.31,2.47,-.725,false,false);
+  var ledL=new T.PointLight(C('#ffcb85'),0,10,1.5);ledL.position.set(0,2.3,-.7);sc.add(ledL);
+  /* chiusura verticale sul lato del vento */
+  var zg=new T.PlaneGeometry(4.05,2.5);zg.translate(0,-1.25,0);
+  var zip=new T.Mesh(zg,new T.MeshStandardMaterial({color:C('#8e939a'),roughness:1,transparent:true,opacity:.86,side:T.DoubleSide}));zip.rotation.y=Math.PI/2;zip.position.set(-2.4,2.5,-.725);zip.castShadow=true;sc.add(zip);
+  var zbar=box(.07,.07,4.05,antra,-2.4,2.5,-.725);
+  /* vetrate scorrevoli sul fronte */
+  var glM=new T.MeshStandardMaterial({color:C('#cfe6f2'),roughness:.05,transparent:true,opacity:.2,side:T.DoubleSide}),gl=[];
+  for(i=0;i<4;i++){var pn=new T.Group(),pg=new T.Mesh(new T.PlaneGeometry(1.16,2.38),glM);pn.add(pg);
+    [[0,1.19,1.16,.04],[0,-1.19,1.16,.04],[-.58,0,.03,2.38],[.58,0,.03,2.38]].forEach(function(f){var b=new T.Mesh(new T.BoxGeometry(f[2],f[3],.03),antra);b.position.set(f[0],f[1],0);pn.add(b)});
+    pn.position.set(0,1.2,1.3);sc.add(pn);gl.push(pn)}
+  /* la tenda da sole sulla finestra accanto */
+  box(1.7,1.5,.06,M('#1c2430',.2),-5.2,1.55,-2.84,false,false);box(2.7,.17,.17,antra,-5.2,2.72,-2.74);
+  var ac=document.createElement('canvas');ac.width=256;ac.height=16;g=ac.getContext('2d');for(i=0;i<8;i++){g.fillStyle=i%2?'#fbf7ee':'#f4b81e';g.fillRect(i*32,0,32,16)}
+  var at=new T.CanvasTexture(ac);at.encoding=T.sRGBEncoding;
+  var ag=new T.BoxGeometry(2.6,.02,1);ag.translate(0,0,.5);var awn=new T.Mesh(ag,new T.MeshStandardMaterial({map:at,roughness:.95,side:T.DoubleSide}));awn.position.set(-5.2,2.68,-2.66);awn.rotation.x=.3;awn.castShadow=true;sc.add(awn);
+  var abar=box(2.66,.06,.06,antra,-5.2,2.6,-1);
+
+  /* divano, tavolino, piante */
+  var sofaM=M('#e4ddd0',1);box(3.3,.02,2.3,M('#c8b596',1),-.7,.012,-1.2,false);
+  box(2.5,.36,.95,sofaM,-.9,.2,-2.05);box(2.5,.5,.22,sofaM,-.9,.62,-2.42);box(.22,.5,.95,sofaM,-2.04,.52,-2.05);
+  box(.5,.14,.5,M('#f4b81e',1),-1.5,.47,-2.1);box(.5,.14,.5,M('#3d4b63',1),-.3,.47,-2.1);
+  box(1.15,.06,.62,woodM,-.75,.4,-.75);[[-1.25,-.5],[-.25,-.5],[-1.25,-1],[-.25,-1]].forEach(function(p){box(.05,.38,.05,antra,p[0],.19,p[1])});
+  box(.16,.2,.16,M('#ffffff',.6),-.6,.53,-.75);
+  var plants=[],potM=M('#b9623f',.9),leafM=M('#3f7a45',.9),leafM2=M('#5d9a52',.9);
+  [[3.5,1.9,1],[-3.7,2.2,1.25],[6.9,-2,1.5],[-6.9,-2.1,.9]].forEach(function(p,k){
+    var gp=new T.Group(),pot=new T.Mesh(new T.CylinderGeometry(.3,.22,.5,18),potM);pot.position.y=.25;pot.castShadow=true;gp.add(pot);
+    var top=new T.Group();top.position.y=.5;for(var j=0;j<7;j++){var s=new T.Mesh(new T.IcosahedronGeometry(.2+Math.random()*.16,1),j%2?leafM:leafM2);s.position.set((Math.random()-.5)*.5,.25+Math.random()*.85*p[2],(Math.random()-.5)*.5);s.castShadow=true;top.add(s)}
+    gp.add(top);gp.position.set(p[0],0,p[1]);sc.add(gp);plants.push(top)});
+
+  /* pioggia e raffiche */
+  var NR=900,rp=new Float32Array(NR*6),rs=[];for(i=0;i<NR;i++)rs.push([Math.random()*18-9,Math.random()*9,Math.random()*12-3.5,.7+Math.random()*.6]);
+  var rg=new T.BufferGeometry();rg.setAttribute('position',new T.BufferAttribute(rp,3));
+  var rainM=new T.LineBasicMaterial({color:0xdde8f2,transparent:true,opacity:0,fog:false}),rain=new T.LineSegments(rg,rainM);rain.frustumCulled=false;sc.add(rain);
+  var NW=46,wp=new Float32Array(NW*6),ws=[];for(i=0;i<NW;i++)ws.push([Math.random()*22-11,.4+Math.random()*4.4,Math.random()*12-3.5,.6+Math.random()*.9]);
+  var wg=new T.BufferGeometry();wg.setAttribute('position',new T.BufferAttribute(wp,3));
+  var windM=new T.LineBasicMaterial({color:0xffffff,transparent:true,opacity:0,fog:false}),wind=new T.LineSegments(wg,windM);wind.frustumCulled=false;sc.add(wind);
+
+  /* i quattro tempi */
+  var S={
+    sole:   {sp:[4,10,6],  si:3.1, sc:'#fff0d2',hi:.8, st:'#3a8be0',sh:'#cfe8f6',sea:'#2f86b8',lam:.8, zip:0,gl:0,aw:1,rain:0,wind:.12,led:0,room:0,wet:0,cam:0},
+    vento:  {sp:[-6,8,6],  si:2.6, sc:'#ffffff',hi:.85,st:'#4f97d8',sh:'#e4eef4',sea:'#276d9c',lam:.28,zip:1,gl:0,aw:0,rain:0,wind:1,  led:0,room:0,wet:0,cam:0},
+    pioggia:{sp:[2,9,4],   si:.55, sc:'#b9c6d4',hi:.85,st:'#5a6572',sh:'#a3adb7',sea:'#5c6b78',lam:0,  zip:1,gl:1,aw:0,rain:1,wind:.45,led:.5,room:0,wet:1,cam:0},
+    notte:  {sp:[-6,8,3],  si:.3,  sc:'#8fa8ff',hi:.14,st:'#060a18',sh:'#1b2644',sea:'#0a1124',lam:0,  zip:0,gl:0,aw:0,rain:0,wind:.05,led:1,room:1,wet:0,cam:1}
+  };
+  var keys=['si','hi','lam','zip','gl','aw','rain','wind','led','room','wet','cam'],P={},Tg=S.sole,k;
+  for(k in keys)P[keys[k]]=S.sole[keys[k]];P.lam=0;P.aw=0;
+  var cSun=C(S.sole.sc),cTop=C(S.sole.st),cHor=C(S.sole.sh),cSea=C(S.sole.sea),vSun=new T.Vector3(4,10,6),tmpC=new T.Color(),tmpV=new T.Vector3();
+  var floorDry=new T.Color(1,1,1),floorWet=new T.Color(.5,.53,.58);
+  window.__meteo=function(n){Tg=S[n]};
+  var mx=0,my=0;if(U.fine)addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+  var camP=new T.Vector3(),camT=new T.Vector3(),last=0,skyPos=skyG.attributes.position;
+  function sky(){for(var i=0;i<skyPos.count;i++){var h=U.clamp(skyPos.getY(i)/300,0,1);h=Math.pow(h,.55);skyC[i*3]=cHor.r+(cTop.r-cHor.r)*h;skyC[i*3+1]=cHor.g+(cTop.g-cHor.g)*h;skyC[i*3+2]=cHor.b+(cTop.b-cHor.b)*h}skyG.attributes.color.needsUpdate=true}
+  st.frame(function(t){
+    var dt=Math.min(.05,t-last);last=t;var a=U.reduce?1:1-Math.exp(-dt*2.1);
+    for(var i=0;i<keys.length;i++){var q=keys[i];P[q]+=(Tg[q]-P[q])*a}
+    cSun.lerp(tmpC.set(Tg.sc).convertSRGBToLinear(),a);cTop.lerp(tmpC.set(Tg.st).convertSRGBToLinear(),a);cHor.lerp(tmpC.set(Tg.sh).convertSRGBToLinear(),a);cSea.lerp(tmpC.set(Tg.sea).convertSRGBToLinear(),a);
+    vSun.lerp(tmpV.set(Tg.sp[0],Tg.sp[1],Tg.sp[2]),a);
+    sky();sc.fog.color.copy(cHor);seaM.color.copy(cSea);
+    sun.color.copy(cSun);sun.intensity=P.si;sun.position.copy(vSun).normalize().multiplyScalar(22);hemi.intensity=P.hi;hemi.color.copy(cHor);
+    /* lamelle, chiusure, vetrate, tenda */
+    for(i=0;i<lam.length;i++)lam[i].rotation.x=-P.lam;
+    zip.scale.y=Math.max(.02,P.zip);zbar.position.y=2.5-2.5*Math.max(.02,P.zip)+ (P.wind>.5?Math.sin(t*9)*.006:0);
+    for(i=0;i<4;i++){gl[i].position.x=U.lerp(-1.78+i*.07,-1.755+i*1.17,P.gl);gl[i].position.z=U.lerp(1.3-i*.035,1.3,P.gl)}
+    var L=.06+2.1*P.aw;awn.scale.z=L;abar.position.set(-5.2,2.68-Math.sin(.3)*L,-2.66+Math.cos(.3)*L);
+    /* luci di sera */
+    ledM.emissiveIntensity=P.led*2.6;ledL.intensity=P.led*.55;lampM.emissiveIntensity=P.room*3;roomL.intensity=P.room*1.15;roomF.intensity=P.room*.3;
+    floorM.color.copy(floorDry).lerp(floorWet,P.wet);floorM.roughness=.9-.62*P.wet;
+    for(i=0;i<plants.length;i++){plants[i].rotation.z=Math.sin(t*(2+i*.3)+i)*.05*P.wind+P.wind*.09;plants[i].rotation.x=Math.cos(t*1.7+i)*.04*P.wind}
+    /* pioggia: sopra la pergola chiusa si ferma al tetto */
+    rainM.opacity=P.rain*.55;rain.visible=P.rain>.02;
+    if(rain.visible)for(i=0;i<NR;i++){var r=rs[i];r[1]-=dt*15*r[3];r[0]+=dt*2.2;
+      var roof=(r[0]>-2.45&&r[0]<2.45&&r[2]>-2.9&&r[2]<1.35)?2.66:(r[2]<-2.85?5.4:0);
+      if(r[1]<roof||r[0]>9){r[1]=roof+3+Math.random()*6;if(r[1]>9)r[1]=9;r[0]=Math.random()*18-9.5;r[2]=Math.random()*12-3.5}
+      var o=i*6;rp[o]=r[0];rp[o+1]=r[1];rp[o+2]=r[2];rp[o+3]=r[0]-.05;rp[o+4]=r[1]+.34;rp[o+5]=r[2]}
+    if(rain.visible)rg.attributes.position.needsUpdate=true;
+    var wv=U.map(P.wind,.5,1);windM.opacity=wv*.34;wind.visible=wv>.02;
+    if(wind.visible){for(i=0;i<NW;i++){var w=ws[i];w[0]+=dt*13*w[3];w[2]+=dt*3*w[3];if(w[0]>11){w[0]=-11;w[2]=Math.random()*12-4.5;w[1]=.4+Math.random()*4.4}
+      var o2=i*6;wp[o2]=w[0];wp[o2+1]=w[1];wp[o2+2]=w[2];wp[o2+3]=w[0]-1.3*w[3];wp[o2+4]=w[1];wp[o2+5]=w[2]-.3*w[3]}wg.attributes.position.needsUpdate=true}
+    /* camera: di giorno dalla terrazza, di notte verso la camera da letto */
+    var asp=cam.aspect,kk=asp<.7?1.5:asp<1.25?1.08:1,c=U.ease(U.clamp(P.cam,0,1)),wide=asp>1.25;
+    camP.set(U.lerp((wide?6.2:5.4)*kk,wide?1.5:.7,c),U.lerp((wide?3.5:3.9)*kk,1.75,c),U.lerp((wide?9.6:9.4)*kk,wide?5.4:6.2,c));
+    camT.set(U.lerp(wide?-2.3:-.2,wide?-.7:0,c),U.lerp(wide?1.1:1.5,1.15,c),U.lerp(-.6,-6.6,c));
+    cam.position.set(camP.x+mx*.7,camP.y-my*.35,camP.z);cam.lookAt(camT);
+  });
+})();
+
+/* ---------- dicembre 2026 ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var DN=['lunedì','martedì','mercoledì','giovedì','venerdì','sabato','domenica'];
+  var E={
+    1:['b','Reel','Acquazzone su Cagliari. Sotto, il caffè è ancora caldo.','Quindici secondi senza una parola: piove, le lamelle si chiudono, la tazzina resta sul tavolo.'],
+    2:['m','Carosello','Dormi sul fianco? Guarda queste tre cose.','Spalla, bacino, cuscino: una scheda per ciascuno e l\'invito a provarlo in showroom.'],
+    4:['b','Carosello','Vetrate scorrevoli: serve un permesso?','La risposta è già sul vostro sito: sono elementi rimovibili di edilizia libera. Qui diventa cinque schede chiare.'],
+    5:['m','Storia','Sabato in showroom: dieci minuti sdraiati.','Un materasso non si sceglie in piedi. La storia del sabato ricorda dove siete e fino a che ora.'],
+    7:['b','Post','Sconto in fattura sugli infissi: come funziona.','Una domanda, una risposta, un numero da chiamare. Il rimando è alla pagina che avete già.'],
+    9:['m','Reel','Cosa succede sotto la schiena.','Una mano che preme, il materasso che risponde. Venti secondi, girati in showroom col telefono.'],
+    11:['b','Reel','Prima e dopo: il terrazzo diventa una stanza in più.','Due riprese dallo stesso punto, a distanza di un cantiere. È il contenuto che vende di più.'],
+    12:['m','Post','Idea regalo: il cuscino giusto, scelto di persona.','A due settimane da Natale, un regalo che si prova prima di incartarlo.'],
+    14:['b','Storia','Simone e Piero, ore 8: oggi si monta.','I clienti li nominano nelle recensioni: farli vedere al lavoro vale più di una pubblicità.'],
+    16:['m','Carosello','Cuscino alto o basso? Dipende da come dormi.','Tre posizioni, tre cuscini. In fondo, la buonanotte.'],
+    18:['b','Post','«Sono cliente da 15 anni».','La recensione di Pierpaolo, così com\'è, sopra la foto di un lavoro finito.'],
+    19:['m','Reel','Buonanotte a tutti.','La vostra firma diventa un formato: una luce che si spegne e un consiglio in una riga.'],
+    21:['b','Carosello','Tende col cassonetto: cosa cambia col maestrale.','Dove va a finire il telo quando tira vento, spiegato con tre foto.'],
+    23:['m','Storia','Ultimi giorni per provarlo prima di Natale.','Orari dello showroom e indicazioni per Viale Monastir 118.'],
+    28:['b','Reel','Un anno di cantieri in trenta secondi.','Il montaggio di fine anno con i lavori del 2026: lo preparate una volta, gira per settimane.'],
+    30:['m','Post','Proposito per il 2027: dormire meglio.','Si chiude l\'anno con un invito semplice, e con la buonanotte.']
+  };
+  var h=['lun','mar','mer','gio','ven','sab','dom'].map(function(d){return '<i>'+d+'</i>'}).join('')+'<div class="x"></div>';
+  for(var d=1;d<=31;d++){var e=E[d];h+=e?'<button class="'+e[0]+'" data-d="'+d+'" aria-pressed="false" aria-label="'+d+' dicembre: '+e[2]+'">'+d+'<span>'+e[1]+'</span></button>':'<div>'+d+'</div>'}
+  $('days').innerHTML=h;
+  function show(d){var e=E[d];[].forEach.call($('days').querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',b.dataset.d==d)});
+    $('det').className='det '+e[0];$('dS').textContent=DN[d%7]+' '+d+' dicembre · '+e[1];$('dT').textContent=e[2];$('dP').textContent=e[3];
+    $('dE').textContent=e[0]=='b'?'Esce sui profili di Bandino Living':'Esce sui profili di Materassi & Co.'}
+  $('days').addEventListener('click',function(ev){var b=ev.target.closest('button');if(b)show(+b.dataset.d)});
+  show(1);
+})();
+</script>
+</body>
+</html>
