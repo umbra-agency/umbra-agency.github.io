@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Alessandra Ferioli · scrittrice</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Fr;src:url(../lib/fonts/fraunces-normal.woff2) format("woff2");font-weight:300 900;font-display:swap}
+@font-face{font-family:Fr;src:url(../lib/fonts/fraunces-italic.woff2) format("woff2");font-weight:300 900;font-style:italic;font-display:swap}
+@font-face{font-family:Hk;src:url(../lib/fonts/hanken-grotesk-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* Bologna di sera: inchiostro, mattone dei portici, luce gialla dei lampioni, carta del quaderno */
+  --nt:#1C1A1B; --nt2:#2A2627; --mat:#A8432B; --lamp:#E9B64C; --pp:#FBFAF7; --ink:#201C1C; --mut:#726A67; --rule:#201C1C1f;
+  --h:Fr,Georgia,serif; --b:Hk,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17.5px/1.65 var(--b);color:var(--ink);background:var(--pp)}
+:focus-visible{outline:3px solid var(--lamp);outline-offset:3px}
+.w{max-width:1180px;margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--h);font-weight:400;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+
+.hero{background:var(--nt);color:#EEE7E2;min-height:92vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;gap:16px;padding:22px var(--pad);max-width:1180px;margin-inline:auto;width:100%;font-size:14.5px;color:#B9AFAA}
+.top b{font:italic 400 20px/1 var(--h);color:#fff}
+.top nav{display:flex;gap:20px}
+.hg{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center;padding-block:20px 60px}
+.hero h1{font-size:clamp(54px,8vw,128px);font-weight:300;color:#fff}
+.hero h1 em{font-weight:400;color:var(--lamp)}
+.hero p{max-width:44ch;margin-top:22px;font-size:clamp(17px,1.4vw,19.5px);color:#C9BFBA}
+/* il foglio */
+.sheet{background:var(--pp);color:var(--ink);border-radius:2px;padding:clamp(22px,3vw,40px) clamp(22px,3vw,44px);box-shadow:0 40px 80px -40px #000;transform:rotate(1.6deg);position:relative;max-width:470px;justify-self:center;background-image:repeating-linear-gradient(#0000 0 31px,#201C1C10 31px 32px)}
+.sheet::before{content:"";position:absolute;left:22px;top:0;bottom:0;width:1px;background:#A8432B44}
+.sheet h2{font:italic 400 22px/1.2 var(--h);color:var(--mat);margin-bottom:12px}
+.sheet p{font:400 18px/32px var(--h);min-height:288px}
+.sheet .car{display:inline-block;width:2px;height:1.05em;background:var(--ink);vertical-align:-3px;margin-left:1px;animation:cb 1s steps(2) infinite}
+@keyframes cb{50%{opacity:0}}
+.sheet small{display:block;text-align:right;font:600 12px var(--b);color:var(--mut);margin-top:10px}
+.lamp{position:absolute;right:8%;top:-30px;width:2px;height:120px;background:#ffffff22}
+.lamp::after{content:"";position:absolute;left:-60px;top:110px;width:120px;height:120px;border-radius:50%;background:radial-gradient(#E9B64C55,#0000 70%)}
+
+/* libri */
+.sec{padding-block:clamp(60px,8vw,120px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,5vw,70px);align-items:end;margin-bottom:34px}
+.sh h2{font-size:clamp(38px,5vw,72px)}
+.sh p{color:#4D4644;max-width:50ch}
+.reader{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(20px,4vw,60px);align-items:center}
+.cover{aspect-ratio:2/3;max-width:330px;width:100%;justify-self:center;border-radius:3px 10px 10px 3px;background:var(--mat);color:#fff;padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 8px 0 0 #0000002a,0 30px 50px -28px #000a;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:auto -30% -30% -30%;height:70%;background:repeating-radial-gradient(circle at 50% 100%,#ffffff12 0 2px,#0000 2px 14px)}
+.cover small{font:700 11px/1.3 var(--b);letter-spacing:.12em}
+.cover b{font:italic 400 38px/1.02 var(--h)}
+.cover span{font:600 13px var(--b);opacity:.85}
+.pages{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:clamp(20px,3vw,36px);position:relative;min-height:340px;display:flex;flex-direction:column}
+.pages .pg{font:400 19px/1.75 var(--h);flex:1;transition:opacity .35s,transform .45s}
+.pages .pg.turn{opacity:0;transform:translateX(-14px) rotateY(8deg)}
+.pages .pg::first-letter{font-size:3.1em;float:left;line-height:.9;margin:6px 8px 0 0;color:var(--mat)}
+.pnav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font:600 14px var(--b);color:var(--mut)}
+.pnav button{border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:9px 16px;font:700 14px var(--b);cursor:pointer;color:var(--ink)}
+.pnav button[disabled]{opacity:.3;cursor:default}
+
+/* incontri */
+.ev{background:var(--nt);color:#EEE7E2}
+.ev .sh p{color:#B9AFAA}
+.arch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.arc{border-radius:200px 200px 6px 6px;background:var(--nt2);padding:70px 18px 22px;position:relative;min-height:280px;display:flex;flex-direction:column;gap:6px;border:1px solid #ffffff14}
+.arc::before{content:"";position:absolute;left:50%;top:22px;width:14px;height:14px;border-radius:50%;background:var(--lamp);box-shadow:0 0 30px 10px #E9B64C55;transform:translateX(-50%)}
+.arc b{font:400 40px/1 var(--h);color:#fff}
+.arc i{font-style:normal;font:700 12px var(--b);color:var(--lamp)}
+.arc h3{font:italic 400 21px/1.2 var(--h);color:#fff;margin-top:6px}
+.arc p{font-size:14.5px;color:#B9AFAA;margin-top:auto}
+
+/* lettera */
+.let{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center}
+.let h2{font-size:clamp(38px,5vw,72px)}
+.let p{color:#4D4644;margin-top:16px;max-width:44ch}
+.let form{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap;max-width:460px}
+.let input{flex:1;min-width:0;border:1.5px solid #201C1C33;border-radius:999px;padding:13px 16px;font:500 16px var(--b);background:#fff}
+.let button{border:0;border-radius:999px;padding:13px 18px;font:800 15px var(--b);background:var(--mat);color:#fff;cursor:pointer}
+.env{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:clamp(20px,3vw,34px);box-shadow:0 20px 50px -34px #201C1C66;position:relative}
+.env .st{position:absolute;right:18px;top:18px;width:54px;height:64px;border:2px dashed #A8432B88;border-radius:4px;display:grid;place-items:center;font:italic 400 13px/1.1 var(--h);color:var(--mat);text-align:center;transform:rotate(4deg)}
+.env small{font:700 12px var(--b);color:var(--mut)}
+.env h3{font:italic 400 26px/1.15 var(--h);margin:12px 0 10px;max-width:16ch}
+.env p{font:400 17px/1.7 var(--h);color:var(--ink);margin:0}
+
+@media (max-width:900px){
+  .top nav{display:none}
+  .hg,.sh,.reader,.let{grid-template-columns:1fr}
+  .arch{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero{min-height:0}
+}
+@media (max-width:520px){.arch{grid-template-columns:1fr}.arc{min-height:220px}}
+</style>
+</head>
+<body data-umbra="per Alessandra" data-note="Anteprima preparata da Umbra. Dal tuo profilo abbiamo immaginato il sito di una scrittrice: titoli, testi e incontri sono d'esempio. Se il sito ti serve per un'altra attività, lo rifacciamo su quella.">
+
+<header class="hero" data-dark>
+  <div class="top"><b>Alessandra Ferioli</b><nav><span>Libri</span><span>Incontri</span><span>La lettera</span><span>Contatti</span></nav></div>
+  <div class="lamp" aria-hidden="true"></div>
+  <div class="w hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:1">Storie scritte</span></span><span class="ln"><span class="li" style="--i:2">sotto i portici,</span></span><span class="ln"><span class="li" style="--i:3"><em>di sera.</em></span></span></h1>
+      <p class="fx" style="--i:4">Il sito di una scrittrice deve fare una cosa sola: far venire voglia di leggere. Qui si comincia dalla prima pagina, che si scrive mentre la guardi.</p>
+    </div>
+    <div class="sheet fx" style="--i:3" aria-live="off">
+      <h2>Capitolo primo</h2>
+      <p id="type"></p>
+      <small>prima stesura · Bologna</small>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sec w" aria-labelledby="h-l">
+  <div class="sh"><h2 id="h-l">Le prime pagine, da sfogliare qui.</h2><p>Ogni libro ha la sua pagina con la copertina, le prime pagine da leggere e i link per comprarlo in libreria o online. Prova a voltare pagina.</p></div>
+  <div class="reader">
+    <div class="cover"><small>ROMANZO</small><b>Il titolo del tuo libro</b><span>Alessandra Ferioli</span></div>
+    <div class="pages">
+      <div class="pg" id="pg"></div>
+      <div class="pnav"><button type="button" id="pv" aria-label="Pagina precedente">←</button><span id="pn">1 / 3</span><button type="button" id="nx" aria-label="Pagina successiva">→</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="ev" data-dark aria-labelledby="h-e">
+  <div class="sec w">
+    <div class="sh"><h2 id="h-e">Dove incontrarsi, la prossima volta.</h2><p>Presentazioni, letture, firmacopie. Si aggiornano da una pagina sola, e chi è iscritto alla lettera lo sa per primo.</p></div>
+    <div class="arch" id="arch"></div>
+  </div>
+</section>
+
+<section class="sec w let" aria-labelledby="h-n">
+  <div>
+    <h2 id="h-n">Una lettera al mese, non di più.</h2>
+    <p>Cosa stai scrivendo, cosa stai leggendo, dove ci si vede. Chi lascia l'email riceve la lettera così: scrivi il tuo nome e guarda.</p>
+    <form id="nf" onsubmit="event.preventDefault();this.querySelector('button').textContent='Iscritta ✓'"><input id="nn" placeholder="Il tuo nome" aria-label="Il tuo nome" value="Giulia"><button type="submit">Iscriviti</button></form>
+  </div>
+  <div class="env" aria-live="polite"><div class="st">Bologna<br>dicembre</div><small>LA LETTERA DI ALESSANDRA · N. 1</small><h3 id="lh">Cara Giulia,</h3><p>a dicembre la città si accende presto e io scrivo di più. Ti racconto a che punto è il nuovo libro, ti lascio due titoli che mi hanno tenuto sveglia e le date delle prossime letture. A presto, sotto i portici.</p></div>
+</section>
+</main>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il tuo sito, avviato da zero e tuo per sempre.</h2>
+    <ul>
+      <li><b>Dominio e indirizzo</b>Scegliamo il nome giusto, lo registriamo a tuo nome con una casella email.</li>
+      <li><b>Poche pagine belle</b>Chi sei, i libri, gli incontri, la lettera, i contatti.</li>
+      <li><b>Lo aggiorni tu</b>Un nuovo incontro o una recensione si aggiungono in due minuti.</li>
+      <li><b>Di persona, se vuoi</b>Siamo a Rovigo, a un'ora da Bologna: le scelte le facciamo insieme.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Alessandra Ferioli. Titoli, testi e incontri d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var T='Quella sera la pioggia aveva il passo lento dei portici. Lei contava gli archi da via Zamboni fino a casa, come faceva da bambina, e ogni volta il numero cambiava. Forse erano gli archi a spostarsi. Forse era lei.';
+  var el=$('type'),i=0,started=false;
+  function tick(){if(i<=T.length){el.innerHTML=T.slice(0,i)+'<span class="car"></span>';i+=U.reduce?T.length:1;setTimeout(tick,i<4?400:28+Math.random()*40)}}
+  setTimeout(function(){if(!started){started=true;tick()}},U.reduce?0:1700);
+  var P=['Il primo capitolo comincia sempre da una cosa piccola: una finestra, un nome sbagliato, un tram perso. Qui il lettore trova le prime righe del libro, così come sono stampate, con la stessa voce e lo stesso ritmo.',
+    'La seconda pagina è quella che decide. Se chi legge arriva fin qui, vuole sapere come va a finire, e trova subito dove comprare il libro: in libreria a Bologna, sugli store online, o con la dedica se lo chiede a te.',
+    'Alla terza pagina la lettura si interrompe con garbo. Sotto c\'è il pulsante per comprare il libro e quello per iscriversi alla lettera: chi non compra oggi, ti ritrova il mese prossimo.'];
+  var k=0;
+  function show(){var pg=$('pg');pg.classList.add('turn');setTimeout(function(){pg.textContent=P[k];pg.classList.remove('turn')},U.reduce?0:220);$('pn').textContent=(k+1)+' / '+P.length;$('pv').disabled=k===0;$('nx').disabled=k===P.length-1}
+  $('pv').onclick=function(){if(k>0){k--;show()}};$('nx').onclick=function(){if(k<P.length-1){k++;show()}};
+  $('pg').textContent=P[0];$('pv').disabled=true;
+  var M=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'],now=new Date();
+  var E=[[9,'Presentazione','Una libreria del centro','Lettura del primo capitolo e firmacopie'],[23,'Lettura a voce alta','Sotto i portici','Con il pubblico e un bicchiere di vino'],[40,'Incontro con le scuole','Un liceo di Bologna','Come nasce una storia'],[58,'Festival','Fuori città','Dialogo con un\'altra autrice']];
+  $('arch').innerHTML=E.map(function(e){var d=new Date(now.getTime()+e[0]*864e5);return '<div class="arc"><b>'+d.getDate()+'</b><i>'+M[d.getMonth()]+' '+d.getFullYear()+' · '+e[1]+'</i><h3>'+e[2]+'</h3><p>'+e[3]+'</p></div>'}).join('');
+  $('nn').addEventListener('input',function(){$('lh').textContent='Cara '+(this.value.trim()||'lettrice')+','});
+})();
+</script>
+</body>
+</html>
