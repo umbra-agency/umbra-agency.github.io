@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>La tua agenzia a Roma · un immobile online in un minuto</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:YS;src:url(../lib/fonts/young-serif-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:On;src:url(../lib/fonts/onest-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* Roma: pietra chiara, verde dei pini di Villa Pamphili, rosso pompeiano delle facciate */
+  --st:#EFEEEA; --st2:#E2E0D9; --pin:#1E3A2F; --pin2:#2E5444; --pom:#A63A27; --ink:#17201C; --mut:#66706B; --rule:#17201C1c;
+  --h:YS,Georgia,serif; --b:On,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--b);color:var(--ink);background:var(--st)}
+:focus-visible{outline:3px solid var(--pom);outline-offset:3px}
+.w{max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--h);font-weight:400;line-height:1.04;letter-spacing:-.01em;text-wrap:balance}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px var(--pad);max-width:1240px;margin-inline:auto}
+.logo{font:400 23px/1 var(--h);color:var(--pin)}
+.logo small{display:block;font:600 11px/1.3 var(--b);color:var(--mut);margin-top:3px}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:15px;font-weight:600}
+.nav .cta{background:var(--pin);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;font-size:14px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,70px);align-items:center;padding-block:clamp(24px,4vw,56px) clamp(40px,6vw,80px)}
+.hero h1{font-size:clamp(42px,5.8vw,84px);color:var(--pin)}
+.hero h1 i{font-style:normal;color:var(--pom)}
+.hero p{font-size:clamp(17px,1.4vw,19.5px);color:#3E4843;max-width:50ch;margin-top:20px}
+.search{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;background:#fff;border-radius:16px;padding:8px;box-shadow:0 10px 30px -18px #17201C55;max-width:560px}
+.search select,.search button{border:0;border-radius:10px;padding:12px 14px;font:600 15px var(--b);background:var(--st);color:var(--ink);min-width:0;flex:1}
+.search button{background:var(--pom);color:#fff;flex:0 0 auto;cursor:pointer}
+
+/* telefono che pubblica */
+.phone{width:min(100%,320px);margin-inline:auto;border:9px solid #17201C;border-radius:36px;background:#fff;overflow:hidden;box-shadow:0 30px 60px -30px #17201C88}
+.phone .tb{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font:700 13px/1 var(--b);border-bottom:1px solid var(--rule)}
+.phone .tb span{color:var(--mut);font-weight:600}
+.pf{padding:14px 16px 18px;display:grid;gap:10px}
+.pf label{display:grid;gap:4px;font:700 11.5px/1 var(--b);color:var(--mut)}
+.pf select,.pf input{width:100%;min-width:0;border:1px solid #17201C26;border-radius:9px;padding:10px 11px;font:500 15px var(--b);background:var(--st);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ph{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.ph button{aspect-ratio:1;border-radius:8px;border:2px solid transparent;cursor:pointer;padding:0;overflow:hidden}
+.ph button[aria-pressed=true]{border-color:var(--pom)}
+.ph svg{width:100%;height:100%;display:block}
+.pub{border:0;border-radius:12px;padding:14px;font:800 15px var(--b);background:var(--pin);color:#fff;cursor:pointer}
+.pub.ok{background:#2E7D4F}
+
+/* annunci */
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.sh h2{font-size:clamp(32px,4.2vw,58px);color:var(--pin)}
+.sh p{max-width:46ch;color:#3E4843}
+.zones{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.zones button{border:1.5px solid #17201C26;background:transparent;border-radius:999px;padding:8px 14px;font:600 14px var(--b);cursor:pointer;color:var(--ink)}
+.zones button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:#fff;border-radius:16px;overflow:hidden;transition:transform .5s,opacity .4s}
+.card .im{aspect-ratio:4/3;position:relative}
+.card .im svg{width:100%;height:100%;display:block}
+.card .tag{position:absolute;left:10px;top:10px;background:#fff;border-radius:999px;padding:5px 10px;font:700 12px/1 var(--b)}
+.card .tag.new{background:var(--pom);color:#fff}
+.card .bd{padding:14px 16px 18px}
+.card .pr{font:400 26px/1 var(--h);color:var(--pin)}
+.card h3{font:700 16px/1.3 var(--b);margin-top:8px}
+.card .sp{display:flex;gap:12px;margin-top:10px;font-size:13.5px;color:var(--mut)}
+.card.fresh{animation:pop .9s cubic-bezier(.2,.9,.2,1.2)}
+@keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:none;opacity:1}}
+.card[hidden]{display:none}
+
+/* google */
+.gg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center}
+.serp{background:#fff;border-radius:16px;padding:20px 22px;box-shadow:0 10px 40px -24px #17201C66;font-family:Arial,system-ui,sans-serif}
+.serp .u{font-size:13px;color:#202124;display:flex;align-items:center;gap:8px}
+.serp .u i{width:26px;height:26px;border-radius:50%;background:var(--pin);display:grid;place-items:center;color:#fff;font:400 13px/1 var(--h);font-style:normal}
+.serp .t{font-size:20px;color:#1a0dab;margin:6px 0 4px;line-height:1.3}
+.serp .d{font-size:14px;color:#4d5156;line-height:1.55}
+.serp+.serp{margin-top:12px;opacity:.55}
+.gg h2{font-size:clamp(32px,4.2vw,58px);color:var(--pin)}
+.gg p{color:#3E4843;margin-top:16px;max-width:48ch}
+.pts{margin-top:20px;display:grid;gap:10px;list-style:none}
+.pts li{display:flex;gap:10px;font-size:16px}
+.pts li::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--pom);margin-top:8px;flex:none}
+
+/* velocità */
+.dark{background:var(--pin);color:#E9EFEA}
+.speed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #ffffff33}
+.speed div{padding:24px 22px 28px 0}
+.speed div+div{padding-left:22px;border-left:1px solid #ffffff33}
+.speed b{display:block;font:400 clamp(40px,5vw,64px)/1 var(--h);color:#fff}
+.speed span{display:block;margin-top:10px;color:#BFD0C6;font-size:16px}
+.dark h2{font-size:clamp(32px,4.2vw,58px);color:#fff;max-width:18ch;margin-bottom:30px}
+
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero,.gg{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .speed{grid-template-columns:1fr}
+  .speed div+div{padding-left:0;border-left:0;border-top:1px solid #ffffff33}
+}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.search select{flex:1 1 40%}}
+</style>
+</head>
+<body data-umbra="per Eleonora Perugini" data-note="Anteprima preparata da Umbra per la tua agenzia immobiliare. Nome, immobili e prezzi sono d'esempio: con i tuoi diventa il sito vero, in WordPress, che aggiorni dal telefono.">
+
+<header class="nav">
+  <div class="logo">La tua agenzia<small>Immobiliare · Roma</small></div>
+  <ul><li>Vendita</li><li>Affitto</li><li>Valuta casa</li><li>Chi siamo</li></ul>
+  <a class="cta" href="#annunci">Vedi gli immobili</a>
+</header>
+
+<main>
+<section class="hero w">
+  <div>
+    <h1><span class="ln"><span class="li" style="--i:1">Un immobile nuovo</span></span><span class="ln"><span class="li" style="--i:2">online <i>in un minuto,</i></span></span><span class="ln"><span class="li" style="--i:3">dal telefono.</span></span></h1>
+    <p class="fx" style="--i:4">Hai scritto che vuoi un sito pulito, veloce da telefono e facile da aggiornare. Prova dal telefono qui a fianco: compili, premi «Pubblica» e l'annuncio compare nella pagina degli immobili, con la sua scheda già pronta per Google.</p>
+    <form class="search fx" style="--i:5" onsubmit="event.preventDefault();U.scrollTo(document.getElementById('annunci'))">
+      <select aria-label="Contratto"><option>Vendita</option><option>Affitto</option></select>
+      <select aria-label="Zona" id="sz"><option>Tutta Roma</option></select>
+      <button type="submit">Cerca</button>
+    </form>
+  </div>
+  <div class="phone fx" style="--i:4">
+    <div class="tb">Nuovo immobile <span>dal telefono</span></div>
+    <form class="pf" id="pf">
+      <div class="two">
+        <label>Tipologia<select id="ft"><option>Bilocale</option><option selected>Trilocale</option><option>Quadrilocale</option><option>Attico</option><option>Villino</option></select></label>
+        <label>Zona<select id="fz"></select></label>
+      </div>
+      <div class="two">
+        <label>Metri quadri<input id="fm" type="number" min="20" max="400" value="85" inputmode="numeric"></label>
+        <label>Prezzo €<input id="fp" type="number" min="30000" step="5000" value="420000" inputmode="numeric"></label>
+      </div>
+      <label>Una riga che la racconta<input id="fd" maxlength="70" value="Luminoso, terzo piano con ascensore e balcone"></label>
+      <label>Foto di copertina</label>
+      <div class="ph" id="fph"></div>
+      <button class="pub" type="submit" id="pb">Pubblica</button>
+    </form>
+  </div>
+</section>
+
+<section class="sec w" id="annunci" aria-labelledby="h-a">
+  <div class="sh"><h2 id="h-a">Gli immobili, zona per zona.</h2><p>Chi cerca casa a Roma cerca per quartiere. Ogni zona ha la sua pagina, e ogni immobile la sua scheda con foto, planimetria e contatto su WhatsApp.</p></div>
+  <div class="zones" id="zs" role="group" aria-label="Filtra per zona"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="sec" style="background:var(--st2)" aria-labelledby="h-g">
+  <div class="w gg">
+    <div>
+      <h2 id="h-g">La scheda per Google si scrive da sola.</h2>
+      <p>Il problema dei siti fatti in casa è quasi sempre qui: titoli tutti uguali, pagine che Google non capisce. In questo sito ogni immobile pubblicato genera il suo titolo e la sua descrizione, con zona, metri e prezzo. Guarda il risultato in alto: cambia con l'ultimo immobile pubblicato.</p>
+      <ul class="pts">
+        <li>Una pagina per ogni quartiere, con gli immobili di quella zona</li>
+        <li>Dati strutturati per gli annunci, così Google legge prezzo e metri</li>
+        <li>Immagini compresse in automatico quando carichi le foto</li>
+      </ul>
+    </div>
+    <div>
+      <div class="serp" id="serp"></div>
+      <div class="serp" aria-hidden="true"><div class="u"><i>i</i>portale-annunci.it › roma</div><div class="t">Case in vendita a Roma: 12.840 annunci</div><div class="d">Trova casa a Roma tra migliaia di annunci di privati e agenzie…</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" data-dark aria-labelledby="h-s">
+  <div class="sec w">
+    <h2 id="h-s">Pensato prima per il telefono, poi per il computer.</h2>
+    <div class="speed">
+      <div><b>1</b><span>pulsante per chiamare o scrivere su WhatsApp, sempre in basso sullo schermo</span></div>
+      <div><b>3</b><span>campi per chiedere una valutazione: indirizzo, metri, telefono. Niente moduli lunghi</span></div>
+      <div><b>0</b><span>plugin inutili: solo quelli che servono, così il sito resta veloce e si aggiorna senza rompersi</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Rifatto da capo, in WordPress, e lo aggiorni tu.</h2>
+    <ul>
+      <li><b>Sito nuovo, non una pezza</b>Partiamo dai contenuti del sito che hai e li rimettiamo in una struttura pulita.</li>
+      <li><b>Annunci dal telefono</b>Un modulo semplice per caricare immobili, foto e prezzi senza toccare il resto.</li>
+      <li><b>SEO di base fatta bene</b>Pagine per zona, titoli e descrizioni per ogni immobile, redirect dalle vecchie pagine.</li>
+      <li><b>Da remoto</b>Lavoriamo da esterni: ti mostro il sito in prova prima di metterlo online.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Eleonora Perugini. Nome dell'agenzia, immobili e prezzi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var Z=['Prati','Monteverde','San Giovanni','Trieste','Eur','Pigneto','Balduina','Parioli'];
+  var PAL=[['#C9B79C','#8E5B3E','#E9DCC6'],['#B8C4BD','#3F5B4E','#E2E8E3'],['#D7B49A','#A63A27','#F1E1D3'],['#C3C0D0','#4A4766','#E6E4EE']];
+  function pic(p,v){var c=PAL[p];return '<svg viewBox="0 0 120 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="120" height="90" fill="'+c[2]+'"/><rect x="0" y="'+(56+v)+'" width="120" height="40" fill="'+c[0]+'"/><rect x="'+(18+v*2)+'" y="18" width="44" height="44" fill="'+c[1]+'" opacity=".9"/><rect x="'+(24+v*2)+'" y="24" width="14" height="16" fill="'+c[2]+'"/><rect x="'+(42+v*2)+'" y="24" width="14" height="16" fill="'+c[2]+'"/><rect x="70" y="'+(30-v)+'" width="34" height="32" fill="'+c[0]+'"/><circle cx="98" cy="16" r="7" fill="#fff" opacity=".7"/></svg>'}
+  var L=[
+    {t:'Bilocale',z:'Prati',m:55,p:385000,d:'A due passi da piazza Cola di Rienzo',c:0,v:2},
+    {t:'Trilocale',z:'Monteverde',m:92,p:449000,d:'Con terrazzo sui pini di Villa Pamphili',c:1,v:6},
+    {t:'Quadrilocale',z:'San Giovanni',m:110,p:520000,d:'Doppia esposizione, vicino alla metro A',c:2,v:0},
+    {t:'Attico',z:'Trieste',m:130,p:890000,d:'Terrazzo abitabile su due lati',c:3,v:4},
+    {t:'Bilocale',z:'Pigneto',m:48,p:249000,d:'Ristrutturato, ideale anche come investimento',c:2,v:8},
+    {t:'Villino',z:'Eur',m:180,p:980000,d:'Giardino privato e box doppio',c:1,v:3}
+  ];
+  var zf='Tutte';
+  var fz=$('fz');fz.innerHTML=Z.map(function(z){return '<option'+(z==='Monteverde'?' selected':'')+'>'+z+'</option>'}).join('');
+  $('sz').innerHTML='<option>Tutta Roma</option>'+Z.map(function(z){return '<option>'+z+'</option>'}).join('');
+  function eur(n){return n.toLocaleString('it-IT')+' €'}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function card(x,fresh){return '<article class="card'+(fresh?' fresh':'')+'" data-z="'+x.z+'"><div class="im">'+pic(x.c,x.v)+'<span class="tag'+(fresh?' new':'')+'">'+(fresh?'Appena pubblicato':x.z)+'</span></div><div class="bd"><div class="pr">'+eur(x.p)+'</div><h3>'+x.t+' in vendita a '+x.z+'</h3><p style="font-size:14.5px;color:#4b5550;margin-top:4px">'+esc(x.d)+'</p><div class="sp"><span>'+x.m+' m²</span><span>'+(x.t==='Bilocale'?2:x.t==='Trilocale'?3:4)+' locali</span><span>Rif. '+(100+L.indexOf(x))+'</span></div></div></article>'}
+  function draw(fi){$('grid').innerHTML=L.map(function(x,i){return card(x,i===fi)}).join('');filt()}
+  function filt(){[].forEach.call($('grid').children,function(c){c.hidden=zf!=='Tutte'&&c.getAttribute('data-z')!==zf})}
+  $('zs').innerHTML=['Tutte'].concat(Z).map(function(z){return '<button type="button" aria-pressed="'+(z===zf)+'">'+z+'</button>'}).join('');
+  $('zs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;zf=b.textContent;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});filt()});
+  var pc=1;
+  $('fph').innerHTML=PAL.map(function(_,i){return '<button type="button" aria-label="Foto '+(i+1)+'" aria-pressed="'+(i===pc)+'">'+pic(i,i*2)+'</button>'}).join('');
+  $('fph').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;pc=[].indexOf.call(this.children,b);[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)})});
+  function serp(x){$('serp').innerHTML='<div class="u"><i>A</i>latuaagenzia.it › '+x.z.toLowerCase().replace(/ /g,'-')+'</div><div class="t">'+x.t+' in vendita a '+x.z+', '+x.m+' m² – La tua agenzia</div><div class="d">'+eur(x.p)+' · '+esc(x.d)+'. Guarda foto e planimetria, prenota una visita su WhatsApp.</div>'}
+  $('pf').addEventListener('submit',function(e){e.preventDefault();
+    var x={t:$('ft').value,z:fz.value,m:Math.max(20,+$('fm').value||80),p:Math.max(30000,+$('fp').value||300000),d:$('fd').value.trim()||'Nuovo immobile in zona',c:pc,v:5};
+    L.unshift(x);if(L.length>9)L.pop();zf='Tutte';[].forEach.call($('zs').children,function(b){b.setAttribute('aria-pressed',b.textContent==='Tutte')});
+    draw(0);serp(x);
+    var pb=$('pb');pb.textContent='Pubblicato ✓';pb.classList.add('ok');setTimeout(function(){pb.textContent='Pubblica';pb.classList.remove('ok')},1800);
+    if(innerWidth>900)setTimeout(function(){U.scrollTo($('annunci'))},350);
+  });
+  draw(-1);serp(L[1]);
+})();
+</script>
+</body>
+</html>

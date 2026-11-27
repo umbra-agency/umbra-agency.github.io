@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>La testata online · dalla bozza alla prima pagina</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Gloock;src:url(../lib/fonts/gloock-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:News;src:url(../lib/fonts/newsreader-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+@font-face{font-family:News;src:url(../lib/fonts/newsreader-italic.woff2) format("woff2");font-weight:300 800;font-style:italic;font-display:swap}
+@font-face{font-family:Sch;src:url(../lib/fonts/schibsted-grotesk-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{
+  /* rotativa: carta da giornale fredda, nero tipografico, rosso della testata, giallo della bozza */
+  --pa:#F6F5F1; --pa2:#ECEAE3; --ink:#111214; --ink2:#3A3C40; --mut:#6B6D72; --red:#B21E1A; --draft:#F3D34A; --ok:#1F6B45; --rule:#11121422;
+  --h:Gloock,Georgia,serif; --b:News,Georgia,serif; --u:Sch,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+html{scroll-padding-top:20px}
+body{font:400 18px/1.55 var(--b);color:var(--ink);background:var(--pa)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.w{max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
+.u{font-family:var(--u)}
+.top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px var(--pad);max-width:1240px;margin-inline:auto;font:500 13px/1.4 var(--u);color:var(--mut)}
+.top b{color:var(--ink);font-weight:700}
+
+/* testata */
+.mast{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:6px}
+.mast .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:16px;padding-block:18px 12px}
+.mast .l,.mast .r{font:500 12.5px/1.35 var(--u);color:var(--ink2)}
+.mast .r{text-align:right}
+.mast h1{font:400 clamp(40px,7.4vw,112px)/.9 var(--h);letter-spacing:-.02em;text-align:center;white-space:nowrap}
+.mast h1 em{font-style:normal;color:var(--red)}
+.cats{border-bottom:3px double var(--ink)}
+.cats .w{display:flex;gap:clamp(12px,2.4vw,34px);overflow-x:auto;padding-block:10px;font:700 12.5px/1 var(--u);letter-spacing:.04em;scrollbar-width:none}
+.cats .w::-webkit-scrollbar{display:none}
+.cats a{white-space:nowrap;color:var(--ink)}
+.cats a[aria-current]{color:var(--red)}
+
+/* prima pagina */
+.front{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:0;border-bottom:1px solid var(--ink)}
+.front>*{padding:26px 26px 30px 0}
+.front>*+*{padding-left:26px;padding-right:0;border-left:1px solid var(--rule)}
+.kick{font:800 12px/1 var(--u);letter-spacing:.08em;color:var(--red);text-transform:uppercase}
+.lead h2{font:400 clamp(36px,4.6vw,68px)/.98 var(--h);letter-spacing:-.015em;margin:12px 0 14px;text-wrap:balance}
+.lead p.s{font-size:clamp(18px,1.5vw,21px);color:var(--ink2);max-width:58ch}
+.by{font:600 12.5px/1.4 var(--u);color:var(--mut);margin-top:14px}
+.ph{aspect-ratio:16/8;margin-top:20px;background:
+  linear-gradient(180deg,#0000 55%,#0006),
+  repeating-linear-gradient(90deg,#c9c6bc 0 2px,#d6d3ca 2px 7px);position:relative;overflow:hidden}
+.ph svg{position:absolute;inset:0;width:100%;height:100%}
+.ph small{position:absolute;left:12px;bottom:10px;font:600 11.5px/1 var(--u);color:#fff}
+.side article{padding-block:0 18px;margin-bottom:18px;border-bottom:1px solid var(--rule)}
+.side h3{font:400 24px/1.08 var(--h);margin-top:8px}
+.side p{font-size:16px;color:var(--ink2);margin-top:6px}
+.ad{border:1.5px dashed #11121455;display:grid;place-items:center;text-align:center;font:600 12px/1.35 var(--u);color:var(--mut);background:repeating-linear-gradient(-45deg,#0000 0 9px,#1112140a 9px 10px)}
+.ad b{display:block;color:var(--ink);font-size:12.5px}
+.ad.lb{height:96px;margin:22px 0 0}
+.ad.mpu{aspect-ratio:300/250}
+.row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--ink)}
+.row article{padding:18px 18px 22px;border-left:1px solid var(--rule)}
+.row article:first-child{border-left:0;padding-left:0}
+.row h3{font:400 21px/1.1 var(--h);margin-top:8px}
+.row .new{animation:flash 2.2s ease}
+@keyframes flash{0%{background:var(--draft)}100%{background:transparent}}
+
+/* redazione */
+.sec{padding-block:clamp(60px,9vw,120px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,5vw,70px);align-items:end;margin-bottom:36px}
+.sh h2{font:400 clamp(36px,5vw,72px)/.98 var(--h);letter-spacing:-.015em;text-wrap:balance}
+.sh p{font-size:19px;color:var(--ink2);max-width:52ch}
+.desk{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1fr);gap:16px;align-items:start}
+.card{background:#fff;border:1px solid var(--rule);border-radius:4px;box-shadow:0 1px 0 #1112140d}
+.card header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--rule);font:700 13px/1 var(--u)}
+.card header span{font-weight:600;color:var(--mut)}
+.role{display:inline-flex;align-items:center;gap:6px}
+.role i{width:9px;height:9px;border-radius:50%;background:var(--draft)}
+.role.dir i{background:var(--red)}
+.ed{padding:14px;display:grid;gap:10px}
+.ed label{display:grid;gap:5px;font:700 12px/1 var(--u);color:var(--mut)}
+.ed input,.ed select,.ed textarea{width:100%;min-width:0;border:1px solid #11121430;border-radius:3px;padding:10px 11px;font:400 16px/1.35 var(--b);background:var(--pa);color:var(--ink)}
+.ed input.t{font:400 21px/1.15 var(--h)}
+.ed textarea{min-height:96px;resize:vertical}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:3px;padding:12px 16px;font:800 14px/1 var(--u);cursor:pointer;background:var(--ink);color:#fff}
+.btn.red{background:var(--red)}
+.btn.gh{background:transparent;color:var(--ink);border:1px solid #11121440}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.q{padding:10px 14px 14px;display:grid;gap:10px;min-height:160px}
+.q .em{font:500 14px/1.45 var(--u);color:var(--mut);padding:16px 2px}
+.it{border:1px solid var(--rule);border-left:4px solid var(--draft);border-radius:3px;padding:10px 12px;background:#FFFCEB}
+.it b{display:block;font:400 18px/1.15 var(--h)}
+.it small{display:block;font:600 12px/1.4 var(--u);color:var(--mut);margin-top:4px}
+.it .a{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.it.ok{border-left-color:var(--ok);background:#F1F8F3}
+.xml{margin:0;padding:12px 14px 16px;font:500 12px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2b2d31;white-space:pre-wrap;word-break:break-all;max-height:330px;overflow:auto}
+.xml .n{background:var(--draft);display:block}
+.xml .tg{color:var(--red)}
+.note{font:500 13.5px/1.5 var(--u);color:var(--mut);margin-top:14px;max-width:70ch}
+
+/* setup */
+.dark{background:var(--ink);color:#EDEBE6}
+.dark .sh p{color:#BDBBB6}
+.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #ffffff30}
+.list li{list-style:none;padding:24px 22px 28px 0;border-bottom:1px solid #ffffff30}
+.list li:nth-child(3n+2),.list li:nth-child(3n){padding-left:22px;border-left:1px solid #ffffff30}
+.list h3{font:400 26px/1.08 var(--h);margin:12px 0 8px}
+.list p{font-size:16.5px;color:#C9C7C2}
+.list .k{font:800 12px/1 var(--u);letter-spacing:.06em;color:#F08A84}
+.chk{display:flex;gap:10px;align-items:center;margin-top:14px;font:600 13px/1.3 var(--u);color:#EDEBE6}
+.chk i{width:18px;height:18px;border-radius:3px;border:1.5px solid #ffffff70;flex:none;display:grid;place-items:center}
+.chk i::after{content:"";width:9px;height:5px;border-left:2px solid #111214;border-bottom:2px solid #111214;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.list li.in .chk i{background:#F3D34A;border-color:#F3D34A;transition:background .4s calc(var(--d,0)*1ms)}
+.list li.in .chk i::after{opacity:1;transition:opacity .3s calc(var(--d,0)*1ms + 200ms)}
+
+/* telefono */
+.mob{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,6vw,90px);align-items:center}
+.phone{width:min(100%,330px);margin-inline:auto;border:10px solid #111214;border-radius:38px;background:var(--pa);overflow:hidden;box-shadow:0 30px 60px -30px #0007}
+.phone .scr{height:560px;overflow:hidden;position:relative}
+.phone .in{transition:transform .2s linear}
+.phone .m{border-bottom:2px solid var(--ink);padding:16px 14px 8px;font:400 30px/1 var(--h);text-align:center}
+.phone .m em{font-style:normal;color:var(--red)}
+.phone .ar{padding:14px}
+.phone .ar h4{font:400 26px/1.05 var(--h);margin:8px 0 10px}
+.phone .ar p{font-size:15px;line-height:1.55;margin-bottom:10px;color:var(--ink2)}
+.phone .ad{height:250px;margin:14px 0}
+.mob h2{font:400 clamp(34px,4.6vw,64px)/.98 var(--h);text-wrap:balance}
+.mob p{font-size:19px;color:var(--ink2);margin-top:16px;max-width:48ch}
+.meter{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.meter div{border-top:3px solid var(--ink);padding-top:10px;font:600 13px/1.35 var(--u);color:var(--mut)}
+.meter b{display:block;font:400 30px/1 var(--h);color:var(--ink);margin-bottom:6px}
+
+@media (max-width:900px){
+  .front{grid-template-columns:1fr}
+  .front>*{padding-right:0}
+  .front>*+*{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row article:nth-child(3){border-left:0;padding-left:0}
+  .sh,.mob{grid-template-columns:1fr}
+  .desk{grid-template-columns:1fr}
+  .list{grid-template-columns:1fr}
+  .list li,.list li:nth-child(3n+2),.list li:nth-child(3n){padding-left:0;border-left:0}
+  .mast .w{grid-template-columns:1fr}
+  .mast .l,.mast .r{display:none}
+}
+@media (max-width:520px){
+  body{font-size:17px}
+  .row{grid-template-columns:1fr}
+  .row article{border-left:0;padding-left:0;border-top:1px solid var(--rule)}
+  .mast h1{font-size:clamp(34px,11vw,56px)}
+  .meter b{font-size:24px}
+}
+</style>
+</head>
+<body data-umbra="per Angelo Di Natale" data-note="Anteprima preparata da Umbra per il tuo quotidiano digitale. Nome della testata, titoli e articoli sono d'esempio: con logo e testi tuoi diventa il sito vero, in WordPress.">
+
+<div class="top"><span>Anteprima per <b>Angelo Di Natale</b> · quotidiano digitale</span><span id="today"></span></div>
+
+<header class="mast">
+  <div class="w">
+    <div class="l">Direttore responsabile: il tuo nome<br>Reg. Trib. n. 00/2026</div>
+    <h1><span class="ln"><span class="li">La <em>Testata</em></span></span></h1>
+    <div class="r">Quotidiano online<br>Aggiornato <span id="upd">adesso</span></div>
+  </div>
+</header>
+<nav class="cats" aria-label="Sezioni"><div class="w u">
+  <a href="#" aria-current="page">Prima pagina</a><a href="#">Cronaca</a><a href="#">Giudiziaria</a><a href="#">Politica</a><a href="#">Economia</a><a href="#">Cultura</a><a href="#">Sport</a><a href="#">Inchieste</a><a href="#">Opinioni</a>
+</div></nav>
+
+<main>
+<section class="w" aria-label="Prima pagina d'esempio">
+  <div class="front">
+    <article class="lead">
+      <div class="kick fx" style="--i:2">Il sito</div>
+      <h2><span class="ln"><span class="li" style="--i:3">Il giornale è pronto.</span></span><span class="ln"><span class="li" style="--i:4">Mancano solo le notizie.</span></span></h2>
+      <p class="s fx" style="--i:5">Questa è la prima pagina che vedrebbero i tuoi lettori: veloce, pulita, con le sezioni che scegli tu e gli spazi pubblicitari già al loro posto. Più sotto c'è la parte che conta per una redazione di due persone: la bozza che passa dal collaboratore al direttore.</p>
+      <div class="by fx" style="--i:6">di La Redazione · 4 min di lettura</div>
+      <div class="ph fx" style="--i:6" aria-hidden="true">
+        <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice"><g fill="#11121418"><rect x="40" y="150" width="90" height="250"/><rect x="140" y="110" width="70" height="290"/><rect x="220" y="180" width="120" height="220"/><rect x="350" y="80" width="60" height="320"/><rect x="420" y="140" width="110" height="260"/><rect x="540" y="200" width="80" height="200"/><rect x="630" y="120" width="130" height="280"/></g><g fill="#11121426"><rect x="60" y="260" width="740" height="140"/></g></svg>
+        <small>Foto d'apertura · 1600 × 800, compressa in automatico</small>
+      </div>
+      <div class="ad lb"><span><b>Spazio AdSense · 728 × 90</b>sotto l'apertura, su telefono diventa 320 × 100</span></div>
+    </article>
+    <aside class="side" id="side">
+      <article><div class="kick">Cronaca</div><h3>Titolo di cronaca d'esempio, su due righe al massimo</h3><p>Il sommario si legge in un respiro e porta all'articolo.</p></article>
+      <article><div class="kick">Giudiziaria</div><h3>Una seconda notizia, con la sua sezione e il suo colore</h3></article>
+      <div class="ad mpu"><span><b>Spazio AdSense · 300 × 250</b>colonna laterale</span></div>
+    </aside>
+  </div>
+  <div class="row" id="row">
+    <article><div class="kick">Politica</div><h3>Le notizie brevi stanno qui, in fila</h3></article>
+    <article><div class="kick">Economia</div><h3>Ogni sezione ha la sua pagina e il suo feed</h3></article>
+    <article><div class="kick">Cultura</div><h3>Le firme dei collaboratori sotto ogni titolo</h3></article>
+    <article><div class="kick">Opinioni</div><h3>Gli editoriali del direttore in evidenza</h3></article>
+  </div>
+</section>
+
+<section class="sec w" id="redazione" aria-labelledby="h-red">
+  <div class="sh">
+    <h2 id="h-red">Dalla bozza alla prima pagina, in due.</h2>
+    <p>Hai scritto: direttore più un collaboratore, con flusso bozze e approvazione. In WordPress è così: il collaboratore scrive e invia, ma non può pubblicare. Pubblica solo il direttore. Provalo qui.</p>
+  </div>
+  <div class="desk">
+    <div class="card">
+      <header><span class="role"><i></i>Collaboratore</span><span>scrive e invia</span></header>
+      <form class="ed" id="ed">
+        <label>Titolo<input class="t" id="tt" maxlength="90" value="Consiglio comunale, approvato il bilancio dopo sei ore"></label>
+        <label>Sezione<select id="sz"><option>Cronaca</option><option>Giudiziaria</option><option selected>Politica</option><option>Economia</option><option>Cultura</option><option>Sport</option><option>Inchieste</option></select></label>
+        <label>Testo<textarea id="tx">Seduta fiume ieri sera in aula. Il documento passa con dodici voti favorevoli e sette contrari.</textarea></label>
+        <button class="btn" type="submit" id="send">Invia al direttore</button>
+      </form>
+    </div>
+    <div class="card">
+      <header><span class="role dir"><i></i>Direttore</span><span id="qn">0 in attesa</span></header>
+      <div class="q" id="q"><p class="em">Qui arrivano le bozze del collaboratore. Il direttore le legge, corregge se serve e decide quando escono.</p></div>
+    </div>
+    <div class="card">
+      <header><span>news-sitemap.xml</span><span>per Google News</span></header>
+      <pre class="xml" id="xml"></pre>
+    </div>
+  </div>
+  <p class="note">Quando il direttore approva, l'articolo va in prima pagina e nella sitemap di Google News, che segnala a Google gli articoli degli ultimi due giorni. Scrivi un titolo tuo e prova: la prima pagina qui sopra si aggiorna.</p>
+</section>
+
+<section class="dark" data-dark aria-labelledby="h-set">
+  <div class="sec w">
+    <div class="sh">
+      <h2 id="h-set">Il setup che hai chiesto, voce per voce.</h2>
+      <p>Hai già logo e pagine legali. Il resto lo facciamo noi, e alla consegna ti resta un sito che aggiornate voi due senza chiamare nessuno.</p>
+    </div>
+    <ul class="list">
+      <li data-in><span class="k">Hosting</span><h3>Hosting veloce, configurato</h3><p>Acquisto a tuo nome, PHP aggiornato, cache, certificato SSL e backup giornaliero. Nel preventivo trovi il costo fisso annuo, scritto chiaro.</p><div class="chk" style="--d:0"><i></i>Il sito resta tuo, con le tue credenziali</div></li>
+      <li data-in><span class="k">WordPress</span><h3>Tema editoriale leggero</h3><p>GeneratePress, come hai indicato, impostato come un giornale: apertura, colonna, fila di brevi e pagina articolo pulita.</p><div class="chk" style="--d:150"><i></i>Niente page builder pesanti</div></li>
+      <li data-in><span class="k">Sezioni</span><h3>Categorie e menu</h3><p>Le sezioni che decidi tu, ognuna con la sua pagina e il suo feed, e le firme degli autori sotto ogni articolo.</p><div class="chk" style="--d:300"><i></i>Ruoli: direttore e collaboratore</div></li>
+      <li data-in><span class="k">Google</span><h3>SEO di base e Google News</h3><p>Titoli e descrizioni, dati strutturati per gli articoli, sitemap generale e sitemap Google News. Search Console collegata.</p><div class="chk" style="--d:450"><i></i>Pronto per il Publisher Center</div></li>
+      <li data-in><span class="k">Pubblicità</span><h3>Spazi AdSense predisposti</h3><p>Sotto l'apertura, in colonna e dentro gli articoli, con le misure giuste su telefono. Il file ads.txt è già al suo posto.</p><div class="chk" style="--d:600"><i></i>Spazi riservati, la pagina non salta</div></li>
+      <li data-in><span class="k">GDPR</span><h3>Privacy e cookie in regola</h3><p>Banner dei consensi che blocca la pubblicità finché il lettore non sceglie, gerenza e privacy con i tuoi testi.</p><div class="chk" style="--d:750"><i></i>Gerenza nel piè di pagina</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec w" aria-labelledby="h-mob">
+  <div class="mob">
+    <div>
+      <h2 id="h-mob">La maggior parte dei lettori arriva dal telefono.</h2>
+      <p>Per questo l'articolo è pensato prima per lo schermo piccolo: testo grande, foto leggere, pubblicità che non copre il pezzo. Scorri la pagina e guarda l'articolo scorrere nel telefono.</p>
+      <div class="meter"><div><b>1</b>colonna di testo, larga quanto serve</div><div><b>18 px</b>corpo del testo, si legge senza zoom</div><div><b>0</b>pop-up sopra l'articolo</div></div>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="scr"><div class="in" id="pin">
+        <div class="m">La <em>Testata</em></div>
+        <div class="ar">
+          <div class="kick">Inchieste</div>
+          <h4>Come si legge un articolo sul telefono</h4>
+          <p class="u" style="font-size:12px;color:#6B6D72">di Il Collaboratore · 27 novembre</p>
+          <p>Il primo paragrafo dice già tutto quello che serve: chi, cosa, dove. Chi continua a leggere trova i dettagli, le citazioni e i documenti.</p>
+          <p>Le foto si caricano mentre si scorre, così la pagina si apre subito anche con poca rete.</p>
+          <div class="ad"><span><b>AdSense · 300 × 250</b>dentro l'articolo</span></div>
+          <p>Dopo la pubblicità il testo riprende dove si era fermato, senza salti.</p>
+          <p>In fondo, gli articoli della stessa sezione e il pulsante per condividere su WhatsApp.</p>
+          <p>Le pagine legali e la gerenza sono sempre raggiungibili dal piè di pagina.</p>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Messa online tecnica, fatta bene e una volta sola.</h2>
+    <ul>
+      <li><b>Preventivo chiaro</b>Setup iniziale tutto incluso e, a parte, i costi fissi annui dell'hosting.</li>
+      <li><b>Consegna con le chiavi</b>Accessi a nome tuo, ruoli per te e il collaboratore, una guida di una pagina per pubblicare.</li>
+      <li><b>Google News</b>Sitemap, dati strutturati e Search Console pronti per la richiesta di inclusione.</li>
+      <li><b>Da remoto</b>Lavoriamo da esterni: una call per le scelte, poi ti mostro il sito in prova prima di metterlo online.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Angelo Di Natale. Testata, titoli e articoli d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var M=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  var G=['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'];
+  var now=new Date();
+  $('today').textContent=G[now.getDay()]+' '+now.getDate()+' '+M[now.getMonth()]+' '+now.getFullYear();
+  function pad(n){return (n<10?'0':'')+n}
+  function iso(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':00+01:00'}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function slug(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)}
+
+  /* sitemap */
+  var pub=[{t:'Le notizie brevi stanno qui, in fila',d:new Date(now-36e5*5)},{t:'Ogni sezione ha la sua pagina e il suo feed',d:new Date(now-36e5*9)}];
+  function xml(hi){
+    var s='<span class="tg">&lt;urlset</span> xmlns:news="…/schemas/sitemap-news/0.9"&gt;\n';
+    pub.forEach(function(p,i){
+      var row='  <span class="tg">&lt;url&gt;</span>\n    &lt;loc&gt;https://latestata.it/'+slug(p.t)+'/&lt;/loc&gt;\n    <span class="tg">&lt;news:news&gt;</span>\n      &lt;news:publication&gt;&lt;news:name&gt;La Testata&lt;/news:name&gt;&lt;news:language&gt;it&lt;/news:language&gt;&lt;/news:publication&gt;\n      &lt;news:publication_date&gt;'+iso(p.d)+'&lt;/news:publication_date&gt;\n      &lt;news:title&gt;'+esc(p.t)+'&lt;/news:title&gt;\n    <span class="tg">&lt;/news:news&gt;</span>\n  <span class="tg">&lt;/url&gt;</span>\n';
+      s+=(hi&&i===0)?'<span class="n">'+row+'</span>':row});
+    $('xml').innerHTML=s+'<span class="tg">&lt;/urlset&gt;</span>';
+  }
+  xml(false);
+
+  /* bozza -> direttore */
+  var q=[],nid=0;
+  function drawQ(){
+    $('qn').textContent=q.filter(function(x){return !x.ok}).length+' in attesa';
+    if(!q.length){$('q').innerHTML='<p class="em">Qui arrivano le bozze del collaboratore. Il direttore le legge, corregge se serve e decide quando escono.</p>';return}
+    $('q').innerHTML=q.map(function(x){
+      return '<div class="it'+(x.ok?' ok':'')+'"><b>'+esc(x.t)+'</b><small>'+x.s+' · '+(x.ok?'pubblicato alle '+pad(x.at.getHours())+':'+pad(x.at.getMinutes()):'in attesa di revisione')+'</small>'+
+        (x.ok?'':'<div class="a"><button class="btn red" type="button" data-ok="'+x.id+'">Approva e pubblica</button><button class="btn gh" type="button" data-no="'+x.id+'">Rimanda</button></div>')+'</div>'}).join('');
+  }
+  $('ed').addEventListener('submit',function(e){e.preventDefault();
+    var t=$('tt').value.trim();if(!t){$('tt').focus();return}
+    q.unshift({id:++nid,t:t,s:$('sz').value,x:$('tx').value.trim()});drawQ();
+    $('send').textContent='Inviata ✓';setTimeout(function(){$('send').textContent='Invia al direttore'},1400);
+    $('tt').value='';$('tx').value='';$('tt').focus();
+  });
+  $('q').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    var id=+(b.getAttribute('data-ok')||b.getAttribute('data-no')),x=q.filter(function(o){return o.id===id})[0];if(!x)return;
+    if(b.hasAttribute('data-no')){q=q.filter(function(o){return o!==x});drawQ();return}
+    x.ok=true;x.at=new Date();drawQ();
+    pub.unshift({t:x.t,d:x.at});if(pub.length>4)pub.pop();xml(true);
+    var a=document.createElement('article');a.className='new';
+    a.innerHTML='<div class="kick">'+esc(x.s)+'</div><h3>'+esc(x.t)+'</h3>';
+    var row=$('row');row.insertBefore(a,row.firstChild);if(row.children.length>4)row.removeChild(row.lastElementChild);
+    $('upd').textContent='alle '+pad(x.at.getHours())+':'+pad(x.at.getMinutes());
+  });
+
+  /* telefono che scorre */
+  var ph=document.querySelector('.phone'),pin=$('pin');
+  U.onScroll(function(){
+    var r=ph.getBoundingClientRect(),vh=innerHeight;
+    var p=U.clamp((vh-r.top)/(vh+r.height),0,1);
+    var max=Math.max(0,pin.scrollHeight-560);
+    pin.style.transform='translateY('+(-max*U.ease(p)).toFixed(1)+'px)';
+  });
+
+  /* checklist */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.4});
+    document.querySelectorAll('.list li').forEach(function(l){io.observe(l)});
+  }else document.querySelectorAll('.list li').forEach(function(l){l.classList.add('in')});
+})();
+</script>
+</body>
+</html>

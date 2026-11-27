@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Il trasloco del tuo sito fatto con l'AI · piano di migrazione</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Unb;src:url(../lib/fonts/unbounded-normal.woff2) format("woff2");font-weight:300 900;font-display:swap}
+@font-face{font-family:Arc;src:url(../lib/fonts/archivo-normal.woff2) format("woff2");font-weight:300 900;font-display:swap}
+@font-face{font-family:Arc;src:url(../lib/fonts/archivo-italic.woff2) format("woff2");font-weight:300 900;font-style:italic;font-display:swap}
+:root{
+  /* sala server: lamiera grigio freddo, cavo verde dei dati, ambra degli avvisi */
+  --bg:#E8EDEF; --bg2:#DCE3E6; --ink:#0F1A1C; --ink2:#36474B; --mut:#66777B; --grn:#0A8A65; --grn2:#B9E7D6; --amb:#D99A06; --amb2:#FBEBC2; --red:#C2412D; --rule:#0F1A1C1f;
+  --h:Unb,system-ui,sans-serif; --b:Arc,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.55 var(--b);color:var(--ink);background:var(--bg)}
+:focus-visible{outline:3px solid var(--grn);outline-offset:3px}
+.w{max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
+.bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:18px var(--pad);max-width:1240px;margin-inline:auto;font-size:14px;color:var(--mut)}
+.bar b{color:var(--ink)}
+h1,h2,h3{font-family:var(--h);font-weight:600;letter-spacing:-.02em;line-height:1.02;text-wrap:balance}
+
+.hero{padding-block:clamp(30px,6vw,80px) clamp(40px,6vw,70px)}
+.hero h1{font-size:clamp(38px,6.2vw,92px);font-weight:700;max-width:14ch}
+.hero h1 span.g{color:var(--grn)}
+.hero .lead{max-width:58ch;font-size:clamp(17px,1.4vw,20px);color:var(--ink2);margin-top:22px}
+.quote{margin-top:26px;max-width:62ch;border-left:3px solid var(--grn);padding:4px 0 4px 16px;font-style:italic;color:var(--ink2)}
+.quote b{font-style:normal;display:block;font-size:13px;color:var(--mut);margin-top:6px}
+
+/* la mappa del trasloco */
+.map{display:grid;grid-template-columns:minmax(0,1fr) 90px minmax(0,1fr);align-items:stretch;gap:0;margin-top:clamp(36px,5vw,60px)}
+.srv{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:320px}
+.srv h3{font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.srv h3 small{font:600 12px/1 var(--b);color:var(--mut);letter-spacing:0}
+.led{display:flex;gap:5px}.led i{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:bl 1.6s infinite}
+.led i:nth-child(2){animation-delay:.3s;background:var(--amb)}.led i:nth-child(3){animation-delay:.7s}
+@keyframes bl{50%{opacity:.25}}
+.pc{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;background:var(--bg);font-weight:600;font-size:15px;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s,background .4s}
+.pc i{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font:700 11px/1 var(--h);color:#fff;background:var(--ink2);flex:none}
+.pc small{margin-left:auto;font-weight:600;font-size:12px;color:var(--mut)}
+.pc.st i{background:var(--grn)}
+.pc.ad i{background:var(--amb)}
+.pc.ex i{background:#7B8A8E}
+.pc.ghost{opacity:.25;background:transparent;border:1.5px dashed var(--rule)}
+.wire{position:relative}
+.wire svg{position:absolute;inset:0;width:100%;height:100%}
+.wire .dot{fill:var(--grn)}
+
+/* configuratore */
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,5vw,70px);align-items:end;margin-bottom:30px}
+.sh h2{font-size:clamp(30px,4vw,56px)}
+.sh p{color:var(--ink2);font-size:18px;max-width:54ch}
+.cfg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;align-items:start}
+.qs{display:grid;gap:18px}
+fieldset{border:0;padding:0;margin:0}
+legend{font:700 13px/1 var(--b);color:var(--mut);margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-flex;padding:10px 14px;border-radius:999px;border:1.5px solid #0F1A1C30;background:#fff;font-weight:600;font-size:15px;cursor:pointer}
+.opts input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opts input:focus-visible+span{outline:3px solid var(--grn);outline-offset:2px}
+.out{background:#fff;border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols>div{padding:14px;border-right:1px solid var(--rule);min-height:200px}
+.cols>div:last-child{border-right:0}
+.cols h4{font:700 12.5px/1.2 var(--b);display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.cols h4 i{width:10px;height:10px;border-radius:3px}
+.cols ul{list-style:none;display:grid;gap:8px}
+.cols li{font-size:14.5px;line-height:1.35;padding:8px 10px;border-radius:8px;background:var(--bg)}
+.cols li small{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
+.c1 h4 i{background:var(--grn)}.c2 h4 i{background:var(--amb)}.c3 h4 i{background:#7B8A8E}
+.c2 li{background:var(--amb2)}
+.warn{padding:14px;border-top:1px solid var(--rule);font-size:15px;color:var(--ink2);display:flex;gap:10px}
+.warn b{color:var(--ink)}
+
+/* i passi */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.steps li{list-style:none;padding:18px 16px 22px 0;position:relative}
+.steps li+li{padding-left:16px;border-left:1px solid var(--rule)}
+.steps li::before{counter-increment:s;content:counter(s);font:700 44px/1 var(--h);color:var(--grn);display:block;margin-bottom:12px}
+.steps h3{font-size:17px;margin-bottom:8px}
+.steps p{font-size:15px;color:var(--ink2)}
+.zero{margin-top:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:16px;color:var(--ink2)}
+.tl{flex:1;min-width:260px;height:38px;border-radius:8px;background:var(--bg2);position:relative;overflow:hidden}
+.tl i{position:absolute;top:0;bottom:0;left:0;width:var(--w,0%);background:linear-gradient(90deg,var(--grn),#18b386);transition:width .2s linear}
+.tl span{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font:700 12px/1 var(--b);color:var(--ink)}
+
+/* chiavi */
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.key{background:var(--ink);color:#DDE6E8;border-radius:14px;padding:18px}
+.key h3{font-size:18px;color:#fff;margin:10px 0 8px}
+.key p{font-size:15px;color:#A9B7BA}
+.key code{font:600 13px/1.4 ui-monospace,Menlo,monospace;color:#7FE3C0;background:#ffffff10;border-radius:5px;padding:2px 6px}
+
+@media (max-width:900px){
+  .map{grid-template-columns:1fr;gap:0}
+  .wire{height:70px}
+  .sh,.cfg{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps li,.steps li+li{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .keys{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .cols{grid-template-columns:1fr}
+  .cols>div{border-right:0;border-bottom:1px solid var(--rule);min-height:0}
+}
+</style>
+</head>
+<body data-umbra="per Alexander" data-note="Anteprima preparata da Umbra sulla tua richiesta. Non conosciamo ancora il tuo sito: scegli qui sotto con cosa è fatto e il piano si adatta. I dettagli veri li vediamo insieme sul codice.">
+
+<div class="bar"><span>Piano di migrazione per <b>Alexander Reg</b></span><span>sito fatto con l'AI → Tophost</span></div>
+
+<header class="hero w">
+  <h1><span class="ln"><span class="li" style="--i:1">Il trasloco</span></span><span class="ln"><span class="li" style="--i:2">del tuo sito,</span></span><span class="ln"><span class="li g" style="--i:3"><span class="g">pezzo per pezzo.</span></span></span></h1>
+  <p class="lead fx" style="--i:4">Un sito fatto con l'AI non è un sito qualunque: frontend, database, chiavi delle API e funzioni che girano sul server stanno in posti diversi. Prima di spostarlo bisogna sapere cosa va dove. Ecco come lo facciamo.</p>
+  <p class="quote fx" style="--i:5">«Cerco una persona che mi aiuta nella migrazione di un sito web fatto con l'AI, dove sono presenti diverse integrazioni (API, database ecc.) in un hosting di Tophost.»<b>Il tuo post, 18 novembre</b></p>
+
+  <div class="map fx" style="--i:6" aria-label="Schema del trasloco">
+    <div class="srv">
+      <h3>Dov'è adesso <span class="led"><i></i><i></i><i></i></span></h3>
+      <div class="pc st" data-k="front"><i>UI</i>Frontend<small>pagine e grafica</small></div>
+      <div class="pc ad" data-k="db"><i>DB</i>Database<small id="dbn">Supabase</small></div>
+      <div class="pc ad" data-k="fn"><i>λ</i>Funzioni server<small>chiamano le API</small></div>
+      <div class="pc ex" data-k="api"><i>API</i>Servizi esterni<small>restano dove sono</small></div>
+      <div class="pc st" data-k="env"><i>.env</i>Chiavi segrete<small>mai nel codice</small></div>
+    </div>
+    <div class="wire" aria-hidden="true"><svg viewBox="0 0 90 320" preserveAspectRatio="none"><path id="wp" d="M0 160 C45 160 45 160 90 160" stroke="#0F1A1C33" stroke-width="2" fill="none" stroke-dasharray="4 5"/><circle class="dot" r="5" cx="0" cy="160"><animate attributeName="cx" values="0;90" dur="1.6s" repeatCount="indefinite"/></circle><circle class="dot" r="4" cx="0" cy="160" opacity=".5"><animate attributeName="cx" values="0;90" dur="1.6s" begin=".8s" repeatCount="indefinite"/></circle></svg></div>
+    <div class="srv" style="border-color:var(--grn)">
+      <h3>Tophost <small>PHP + MySQL</small></h3>
+      <div class="pc st"><i>UI</i>Frontend compilato<small>file statici</small></div>
+      <div class="pc st"><i>DB</i>MySQL<small>dati importati</small></div>
+      <div class="pc ad"><i>PHP</i>Endpoint al posto delle funzioni<small>stessi input</small></div>
+      <div class="pc ex ghost"><i>API</i>Servizi esterni<small>chiamati da qui</small></div>
+      <div class="pc st"><i>.env</i>Chiavi fuori dalla cartella pubblica<small></small></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" style="background:var(--bg2)" aria-labelledby="h-cfg">
+  <div class="w">
+    <div class="sh">
+      <h2 id="h-cfg">Dimmi con cosa è fatto, ti dico cosa si sposta.</h2>
+      <p>Tre domande. Il piano a destra cambia in base alle risposte: in verde quello che si trasferisce così com'è, in giallo quello che va riscritto per girare su un hosting condiviso.</p>
+    </div>
+    <div class="cfg">
+      <div class="qs">
+        <fieldset><legend>Con cosa l'hai fatto?</legend><div class="opts" id="o1">
+          <label><input type="radio" name="t" value="lovable" checked><span>Lovable</span></label>
+          <label><input type="radio" name="t" value="bolt"><span>Bolt</span></label>
+          <label><input type="radio" name="t" value="replit"><span>Replit</span></label>
+          <label><input type="radio" name="t" value="v0"><span>v0 / Next.js</span></label>
+          <label><input type="radio" name="t" value="altro"><span>Altro</span></label>
+        </div></fieldset>
+        <fieldset><legend>Dove stanno i dati?</legend><div class="opts" id="o2">
+          <label><input type="radio" name="d" value="supabase" checked><span>Supabase</span></label>
+          <label><input type="radio" name="d" value="firebase"><span>Firebase</span></label>
+          <label><input type="radio" name="d" value="sqlite"><span>File / SQLite</span></label>
+          <label><input type="radio" name="d" value="mysql"><span>Già MySQL</span></label>
+        </div></fieldset>
+        <fieldset><legend>Quali integrazioni ci sono?</legend><div class="opts" id="o3">
+          <label><input type="checkbox" value="pay" checked><span>Pagamenti</span></label>
+          <label><input type="checkbox" value="ai" checked><span>AI (OpenAI, ecc.)</span></label>
+          <label><input type="checkbox" value="mail"><span>Email</span></label>
+          <label><input type="checkbox" value="login"><span>Login utenti</span></label>
+          <label><input type="checkbox" value="cron"><span>Operazioni a orario</span></label>
+        </div></fieldset>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="cols">
+          <div class="c1"><h4><i></i>Si sposta così</h4><ul id="l1"></ul></div>
+          <div class="c2"><h4><i></i>Va adattato</h4><ul id="l2"></ul></div>
+          <div class="c3"><h4><i></i>Resta dov'è</h4><ul id="l3"></ul></div>
+        </div>
+        <div class="warn" id="warn"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec w" aria-labelledby="h-st">
+  <div class="sh">
+    <h2 id="h-st">Cinque passi, e il sito vecchio resta acceso fino all'ultimo.</h2>
+    <p>Lavoriamo su una copia. Il dominio passa a Tophost solo quando la copia funziona in tutto, e se qualcosa non va si torna indietro in pochi minuti.</p>
+  </div>
+  <ol class="steps">
+    <li><h3>Inventario</h3><p>Leggiamo il codice: pagine, tabelle, funzioni, chiavi. Esce una lista di cosa c'è e dove sta.</p></li>
+    <li><h3>Copia di prova</h3><p>Su Tophost, in un sottodominio di prova: frontend compilato, database importato.</p></li>
+    <li><h3>Integrazioni</h3><p>Le funzioni che chiamano le API diventano endpoint PHP, con le chiavi fuori dalla cartella pubblica.</p></li>
+    <li><h3>Prove</h3><p>Una lista di controllo: ogni modulo, ogni pagamento in modalità test, ogni email che parte.</p></li>
+    <li><h3>Cambio DNS</h3><p>Il dominio punta a Tophost. Il vecchio resta acceso finché la propagazione non è finita.</p></li>
+  </ol>
+  <div class="zero"><b>Tempo di fermo previsto</b><div class="tl" id="tl"><i></i><span><em>vecchio sito</em><em>nuovo sito</em></span></div><span>il cambio si fa la sera, quando il traffico è basso</span></div>
+</section>
+
+<section class="sec" style="background:var(--ink);color:#DDE6E8" data-dark aria-labelledby="h-k">
+  <div class="w">
+    <div class="sh"><h2 id="h-k" style="color:#fff">Tre cose che nei siti fatti con l'AI saltano fuori sempre.</h2><p style="color:#A9B7BA">Le controlliamo prima di spostare qualsiasi cosa, perché è lì che i traslochi si rompono.</p></div>
+    <div class="keys">
+      <div class="key"><code>VITE_…</code><h3>Chiavi finite nel browser</h3><p>Le variabili con certi prefissi finiscono nel codice che scarica il visitatore. Le chiavi segrete devono stare solo sul server.</p></div>
+      <div class="key"><code>/api/…</code><h3>Funzioni che non girano</h3><p>Le funzioni scritte per Node o per Supabase non partono su un hosting PHP. Si riscrivono con la stessa logica, oppure restano su un servizio esterno.</p></div>
+      <div class="key"><code>localhost</code><h3>Indirizzi scritti a mano</h3><p>URL di prova rimasti nel codice, callback dei pagamenti, redirect del login: vanno aggiornati tutti col dominio nuovo.</p></div>
+    </div>
+  </div>
+</section>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Pagato a ore come hai chiesto, con l'inventario prima.</h2>
+    <ul>
+      <li><b>Prima l'inventario</b>Ci dai accesso al codice, in una giornata ti diciamo cosa si sposta e quante ore servono.</li>
+      <li><b>Copia di prova</b>Vedi il sito funzionare su Tophost prima che il dominio cambi.</li>
+      <li><b>Niente fermo</b>Cambio DNS la sera, il vecchio sito acceso fino alla fine.</li>
+      <li><b>Lo conosciamo</b>Costruiamo siti anche con Lovable: sappiamo dove mettono le cose.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Alexander Reg. Lo schema è generale: il piano vero esce dal tuo codice.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var T={lovable:'Lovable',bolt:'Bolt',replit:'Replit',v0:'v0 / Next.js',altro:'il tuo generatore'};
+  var D={supabase:'Supabase',firebase:'Firebase',sqlite:'file / SQLite',mysql:'MySQL'};
+  function li(t,s){return '<li>'+t+(s?'<small>'+s+'</small>':'')+'</li>'}
+  function draw(){
+    var t=document.querySelector('[name=t]:checked').value,d=document.querySelector('[name=d]:checked').value;
+    var ex=[].slice.call(document.querySelectorAll('#o3 input:checked')).map(function(i){return i.value});
+    var a=[],b=[],c=[];
+    if(t==='v0'){b.push(li('Frontend Next.js','esportato in statico dove si può, il resto in PHP'))}
+    else if(t==='replit'){b.push(li('App su Replit','separiamo pagine e server, le pagine diventano file statici'))}
+    else a.push(li('Frontend di '+T[t],'compilato in file statici, si carica via FTP'));
+    a.push(li('Immagini e file','con i percorsi aggiornati'));
+    if(d==='mysql')a.push(li('Database MySQL','esportato e importato così com\'è'));
+    else if(d==='sqlite')b.push(li('Dati da file / SQLite','convertiti in tabelle MySQL'));
+    else{b.push(li('Dati da '+D[d],'tabelle ricreate in MySQL e dati importati'));c.push(li(D[d]+' (opzione)','se preferisci, il database resta lì e il sito lo chiama da Tophost'))}
+    if(ex.indexOf('login')>-1)b.push(li('Login utenti','password migrate o reset al primo accesso'));
+    if(ex.indexOf('pay')>-1){b.push(li('Pagamenti','webhook spostato su un endpoint PHP'));c.push(li('Stripe / PayPal','resta il tuo account, cambia solo l\'indirizzo di ritorno'))}
+    if(ex.indexOf('ai')>-1){b.push(li('Chiamate all\'AI','dal server PHP, mai dal browser'));c.push(li('OpenAI e simili','stesso account, chiave spostata sul server'))}
+    if(ex.indexOf('mail')>-1){a.push(li('Email del sito','via SMTP della casella Tophost o del servizio che usi'))}
+    if(ex.indexOf('cron')>-1){b.push(li('Operazioni a orario','diventano cron job dal pannello'))}
+    a.push(li('Dominio e SSL','certificato attivato sul nuovo hosting'));
+    $('l1').innerHTML=a.join('');$('l2').innerHTML=b.join('');$('l3').innerHTML=c.join('')||li('Niente','tutto passa su Tophost');
+    $('dbn').textContent=D[d];
+    var n=b.length;
+    $('warn').innerHTML='<span>⚑</span><span><b>'+n+(n===1?' parte da adattare':' parti da adattare')+'.</b> '+(n<=2?'Trasloco leggero: si fa in poche ore di lavoro.':n<=4?'Trasloco medio: serve una giornata per riscrivere le funzioni e provarle.':'Trasloco pesante: conviene valutare se tenere una parte su un servizio esterno.')+' La stima vera la diamo dopo aver letto il codice.</span>';
+  }
+  document.querySelectorAll('.qs input').forEach(function(i){i.addEventListener('change',draw)});draw();
+
+  var tl=$('tl');
+  U.onScroll(function(){var r=tl.getBoundingClientRect(),p=U.clamp((innerHeight-r.top)/(innerHeight*.8),0,1);tl.style.setProperty('--w',(U.ease(p)*100).toFixed(1)+'%')});
+})();
+</script>
+</body>
+</html>

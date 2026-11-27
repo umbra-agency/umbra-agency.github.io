@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>I 7 Vizi · Gusto e qualità italiana, in cucina dai ristoranti</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:Corm;src:url(../lib/fonts/cormorant-garamond-normal.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:Corm;src:url(../lib/fonts/cormorant-garamond-italic.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap}
+@font-face{font-family:Man;src:url(../lib/fonts/manrope-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* frantoio pugliese: verde oliva scuro, oro dell'olio appena franto, calce delle masserie, terra rossa */
+  --ol:#2C3318; --ol2:#46512A; --oro:#C9A227; --oro2:#E8CF6A; --cal:#F4F2EA; --terra:#9C4A2F; --ink:#1D2012; --mut:#6D705F; --rule:#1D20121f;
+  --h:Corm,Georgia,serif; --b:Man,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.6 var(--b);color:var(--ink);background:var(--cal)}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+.w{max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--h);font-weight:500;line-height:.98;letter-spacing:-.01em;text-wrap:balance}
+
+.hero{background:var(--ol);color:#F1EEDC;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px var(--pad);max-width:1240px;margin-inline:auto;font-size:14px;color:#C9C8B0}
+.brand{font:600 26px/1 var(--h);color:#fff}
+.brand b{color:var(--oro2);font-weight:600}
+.hg{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(20px,4vw,60px);align-items:center;padding-block:clamp(20px,4vw,50px) clamp(60px,8vw,110px)}
+.hero h1{font-size:clamp(52px,7.4vw,118px);color:#fff}
+.hero h1 em{color:var(--oro2)}
+.hero p{max-width:48ch;margin-top:22px;font-size:clamp(17px,1.4vw,19.5px);color:#D7D5C0}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 20px;font:800 15px var(--b);cursor:pointer;border:0}
+.btn.o{background:var(--oro);color:var(--ol)}
+.btn.l{background:transparent;color:#fff;border:1.5px solid #ffffff55}
+
+/* la goccia */
+.pour{position:relative;height:min(64vh,560px);display:grid;place-items:center}
+.pour svg{width:min(100%,420px);height:100%;overflow:visible}
+.drop{animation:fall 2.6s cubic-bezier(.5,0,.8,.4) infinite}
+@keyframes fall{0%{transform:translateY(0) scale(.6);opacity:0}12%{opacity:1}70%{transform:translateY(250px) scale(1)}71%,100%{transform:translateY(250px) scale(1);opacity:0}}
+.ripple{transform-origin:210px 432px;animation:rip 2.6s ease-out infinite}
+@keyframes rip{0%,70%{transform:scale(.2);opacity:0}72%{opacity:.9}100%{transform:scale(1.6);opacity:0}}
+
+/* il viaggio */
+.sec{padding-block:clamp(60px,8vw,120px)}
+.trip{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,70px);align-items:center}
+.trip h2{font-size:clamp(40px,5vw,74px);color:var(--ol)}
+.trip p{color:#4A4D3C;margin-top:18px;max-width:46ch}
+.it{width:100%;height:auto;max-height:520px}
+.it .rt{stroke-dasharray:6 7}
+.it .lab{font:700 13px var(--b);fill:var(--ink)}
+.it .lab2{font:600 11.5px var(--b);fill:var(--mut)}
+
+/* ordine */
+.ord{background:#fff;border-radius:22px;padding:clamp(18px,3vw,34px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(20px,4vw,50px);box-shadow:0 20px 60px -40px #1D201266}
+.ord h2{font-size:clamp(36px,4.4vw,64px);color:var(--ol)}
+.ord .sub{color:#4A4D3C;margin:12px 0 22px;max-width:48ch}
+.prod{display:grid;gap:10px}
+.pr{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px;border-radius:14px;background:var(--cal)}
+.pr .ic{width:52px;height:52px;border-radius:12px;background:var(--ol);display:grid;place-items:center}
+.pr b{display:block;font-weight:800}
+.pr small{color:var(--mut);font-size:13.5px}
+.qt{display:flex;align-items:center;gap:4px;background:#fff;border-radius:999px;padding:4px}
+.qt button{width:34px;height:34px;border-radius:50%;border:0;background:var(--cal);font:800 18px/1 var(--b);cursor:pointer;color:var(--ink)}
+.qt output{min-width:28px;text-align:center;font-weight:800}
+.opt{margin-top:18px;display:grid;gap:12px}
+.opt fieldset{border:0;padding:0;margin:0}
+.opt legend{font:800 12.5px var(--b);color:var(--mut);margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1.5px solid #1D201226;background:#fff;border-radius:999px;padding:8px 13px;font:700 14px var(--b);cursor:pointer;color:var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ol);color:#fff;border-color:var(--ol)}
+.wa{background:#E7F3E5;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:100%}
+.wa .hd{display:flex;align-items:center;gap:10px;font-weight:800}
+.wa .hd i{width:36px;height:36px;border-radius:50%;background:var(--ol);display:grid;place-items:center;color:var(--oro2);font:600 15px var(--h);font-style:normal}
+.bub{background:#fff;border-radius:14px 14px 14px 4px;padding:12px 14px;font-size:15px;white-space:pre-line;box-shadow:0 1px 0 #0001;align-self:flex-start;max-width:100%}
+.bub.me{background:#D9FDD3;border-radius:14px 14px 4px 14px;align-self:flex-end}
+.wa .send{margin-top:auto;background:#1F8F4E;color:#fff;justify-content:center}
+.note{font-size:13px;color:var(--mut)}
+
+/* cartellino */
+.tent{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:center}
+.tent h2{font-size:clamp(36px,4.4vw,64px);color:var(--ol)}
+.tent p{color:#4A4D3C;margin-top:16px;max-width:46ch}
+.tent input{margin-top:20px;width:100%;max-width:380px;border:1.5px solid #1D201230;border-radius:12px;padding:12px 14px;font:600 17px var(--b);background:#fff}
+.card{perspective:900px;display:grid;place-items:center}
+.cardin{width:min(100%,360px);aspect-ratio:3/4;background:var(--cal);border:1px solid #1D201222;border-radius:6px;box-shadow:0 30px 50px -30px #1D201277;transform:rotateX(8deg) rotateY(-10deg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;gap:10px;background-image:radial-gradient(circle at 50% 30%,#fff 0,#0000 60%)}
+.cardin small{font:700 11px/1.3 var(--b);letter-spacing:.14em;color:var(--mut)}
+.cardin b{font:500 34px/1 var(--h);color:var(--ol)}
+.cardin em{font:500 italic 24px/1.1 var(--h);color:var(--terra)}
+.cardin span{font-size:13px;color:#4A4D3C;max-width:24ch}
+.quote{margin-top:22px;border-left:3px solid var(--oro);padding-left:14px;font:500 italic 22px/1.3 var(--h);color:var(--ol);max-width:40ch}
+.quote small{display:block;font:600 13px var(--b);font-style:normal;color:var(--mut);margin-top:6px}
+
+@media (max-width:900px){
+  .hg,.trip,.ord,.tent{grid-template-columns:1fr}
+  .pour{height:360px}
+}
+</style>
+</head>
+<body data-umbra="per Vittorio Di Savino" data-note="Anteprima preparata da Umbra per I 7 Vizi. Prodotti, formati e testi sono d'esempio: con i tuoi listini e le tue foto diventa il sito vero.">
+
+<header class="hero" data-dark>
+  <div class="top"><div class="brand">I <b>7</b> Vizi</div><span>Gusto e qualità italiana · Emilia-Romagna</span></div>
+  <div class="w hg">
+    <div>
+      <h1><span class="ln"><span class="li" style="--i:1">L'unico vizio</span></span><span class="ln"><span class="li" style="--i:2">che lo chef</span></span><span class="ln"><span class="li" style="--i:3"><em>non toglie.</em></span></span></h1>
+      <p class="fx" style="--i:4">Olio extravergine pugliese e prodotti italiani scelti uno per uno, portati direttamente nelle cucine dei ristoranti in Emilia-Romagna. Ordini su WhatsApp, consegna a cadenza fissa, sempre la stessa persona dall'altra parte.</p>
+      <div class="btns fx" style="--i:5"><a class="btn o" href="#ordine">Ordina per il ristorante</a><a class="btn l" href="#viaggio">Da dove arriva</a></div>
+    </div>
+    <div class="pour fx" style="--i:3" aria-hidden="true">
+      <svg viewBox="0 0 420 470">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8CF6A"/><stop offset="1" stop-color="#B98F14"/></linearGradient></defs>
+        <g transform="translate(150 0)"><rect x="20" y="0" width="80" height="18" rx="4" fill="#1D2012"/><path d="M28 18h64l4 40H24z" fill="#3A4320"/><path d="M50 58h20l-4 30H54z" fill="#3A4320"/><circle cx="60" cy="96" r="4" fill="url(#g)"/></g>
+        <g class="drop"><path d="M210 110c-7 12-12 19-12 26a12 12 0 0 0 24 0c0-7-5-14-12-26z" fill="url(#g)"/></g>
+        <ellipse cx="210" cy="432" rx="150" ry="26" fill="#ffffff10"/>
+        <ellipse cx="210" cy="430" rx="120" ry="18" fill="url(#g)" opacity=".95"/>
+        <ellipse class="ripple" cx="210" cy="432" rx="40" ry="7" fill="none" stroke="#FFF6C8" stroke-width="2"/>
+        <path d="M60 430c0 22 67 40 150 40s150-18 150-40" fill="none" stroke="#ffffff22" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="sec w trip" id="viaggio" aria-labelledby="h-v">
+  <div>
+    <h2 id="h-v">Dal frantoio in Puglia alla tua cucina in Romagna.</h2>
+    <p>Chi compra l'olio per un ristorante vuole sapere tre cose: da dove arriva, quando arriva e chi risponde se qualcosa va storto. Questa pagina risponde alle tre, prima ancora che lo chef ti scriva.</p>
+  </div>
+  <svg class="it" viewBox="0 0 520 540" role="img" aria-label="Il percorso dell'olio lungo l'A14, dalla Puglia all'Emilia-Romagna">
+    <path d="M150 40 C190 90 230 130 262 175 C292 220 318 262 352 300 C390 343 430 380 470 470" fill="none" stroke="#DCD8C6" stroke-width="34" stroke-linecap="round"/>
+    <path id="rt" d="M470 470 C430 380 390 343 352 300 C318 262 292 220 262 175 C230 130 190 90 150 40" fill="none" stroke="#9C4A2F" stroke-width="3" class="rt"/>
+    <circle r="8" fill="#C9A227" stroke="#fff" stroke-width="2"><animateMotion dur="6s" repeatCount="indefinite"><mpath href="#rt"/></animateMotion></circle>
+    <g font-family="Manrope,system-ui,sans-serif">
+      <circle cx="150" cy="40" r="7" fill="#2C3318"/><text class="lab" x="168" y="36">Bologna</text><text class="lab2" x="168" y="52">le cucine dei ristoranti</text>
+      <circle cx="205" cy="104" r="5" fill="#2C3318"/><text class="lab" x="222" y="108">Ravenna · Rimini</text>
+      <circle cx="262" cy="175" r="4" fill="#9C4A2F"/><text class="lab2" x="278" y="179">Ancona</text>
+      <circle cx="352" cy="300" r="4" fill="#9C4A2F"/><text class="lab2" x="368" y="304">Pescara</text>
+      <circle cx="470" cy="470" r="7" fill="#2C3318"/><text class="lab" x="300" y="500">Puglia · il frantoio</text><text class="lab2" x="300" y="516">raccolta e frangitura</text>
+      <text class="lab2" x="40" y="300">lungo l'A14,</text><text class="lab2" x="40" y="316">a cadenza fissa</text>
+    </g>
+  </svg>
+</section>
+
+<section class="sec" style="background:var(--ol2)" id="ordine" aria-labelledby="h-o" data-dark>
+  <div class="w">
+    <div class="ord">
+      <div>
+        <h2 id="h-o">L'ordine del ristorante, in trenta secondi.</h2>
+        <p class="sub">Lo chef sceglie formati e quantità, decide ogni quanto vuole la consegna e il messaggio ti arriva su WhatsApp Business già scritto. Tu rispondi con la conferma.</p>
+        <div class="prod" id="prod"></div>
+        <div class="opt">
+          <fieldset><legend>Ogni quanto</legend><div class="seg" id="every"><button type="button" aria-pressed="false">Solo questa volta</button><button type="button" aria-pressed="true">Ogni 2 settimane</button><button type="button" aria-pressed="false">Ogni mese</button></div></fieldset>
+          <fieldset><legend>Giorno di consegna</legend><div class="seg" id="day"><button type="button" aria-pressed="false">Lunedì</button><button type="button" aria-pressed="true">Martedì</button><button type="button" aria-pressed="false">Mercoledì</button><button type="button" aria-pressed="false">Giovedì</button></div></fieldset>
+        </div>
+      </div>
+      <div class="wa">
+        <div class="hd"><i>7</i>I 7 Vizi <span class="note" style="margin-left:auto">WhatsApp Business</span></div>
+        <div class="bub">Ciao! Dimmi cosa ti serve per la cucina e quando vuoi la consegna 🫒</div>
+        <div class="bub me" id="msg"></div>
+        <a class="btn send" id="send" href="#" target="_blank" rel="noopener">Manda l'ordine su WhatsApp</a>
+        <p class="note">Prezzi e listino a richiesta: li vede solo chi è cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec w tent" aria-labelledby="h-t">
+  <div>
+    <h2 id="h-t">Il cartellino da mettere sul tavolo.</h2>
+    <p>Un ristorante che usa un olio buono vuole farlo sapere. Scrivi il nome del locale: il sito prepara il cartellino da stampare, e chi lo legge cerca I 7 Vizi.</p>
+    <label class="note" style="display:block;margin-top:20px" for="rn">Nome del ristorante</label>
+    <input id="rn" value="Locanda Dei Casta" maxlength="34">
+    <p class="quote">«Lavoro con lui da tempo per l'olio extravergine d'oliva»<small>Locanda Dei Casta, commento su Facebook</small></p>
+  </div>
+  <div class="card" aria-live="polite"><div class="cardin"><small>IN QUESTA CUCINA</small><em id="rname">Locanda Dei Casta</em><span>condisce con l'olio extravergine pugliese di</span><b>I 7 Vizi</b><span>Gusto e qualità italiana</span></div></div>
+</section>
+</main>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Il sito, e gli ordini che arrivano già scritti.</h2>
+    <ul>
+      <li><b>Sito professionale</b>Prodotti, provenienza, zone di consegna e le parole dei ristoranti che servi già.</li>
+      <li><b>Ordini su WhatsApp</b>Il modulo d'ordine apre WhatsApp Business con il messaggio pronto: ti mostriamo come rispondere in un minuto.</li>
+      <li><b>Di persona</b>Siamo a Rovigo, a un'ora da Ravenna: le scelte le facciamo seduti allo stesso tavolo.</li>
+      <li><b>Tuo per sempre</b>Dominio e accessi a tuo nome, e ti insegniamo ad aggiornare prodotti e foto da solo.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Vittorio Di Savino. Prodotti, formati e testi d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var P=[{n:'Olio extravergine',f:'latta da 5 litri',q:2},{n:'Olio extravergine',f:'bottiglia da 0,75 l per la sala',q:6},{n:'Olio novello',f:'bottiglia da 0,5 l, finché dura',q:0}];
+  var ic='<svg width="26" height="32" viewBox="0 0 26 32" aria-hidden="true"><path d="M9 0h8v5H9z" fill="#E8CF6A"/><path d="M7 5h12l3 7v18H4V12z" fill="#C9A227"/></svg>';
+  function sel(id){var b=[].filter.call($(id).children,function(x){return x.getAttribute('aria-pressed')==='true'})[0];return b?b.textContent:''}
+  function draw(){
+    $('prod').innerHTML=P.map(function(p,i){return '<div class="pr"><div class="ic">'+ic+'</div><div><b>'+p.n+'</b><small>'+p.f+'</small></div><div class="qt"><button type="button" data-i="'+i+'" data-d="-1" aria-label="Meno">−</button><output>'+p.q+'</output><button type="button" data-i="'+i+'" data-d="1" aria-label="Più">+</button></div></div>'}).join('');
+    msg();
+  }
+  function msg(){
+    var r=$('rn').value.trim()||'il mio ristorante';
+    var lines=P.filter(function(p){return p.q>0}).map(function(p){return '• '+p.q+' × '+p.n.toLowerCase()+', '+p.f});
+    var t='Ciao Vittorio, sono di '+r+'.\nPer la cucina mi servono:\n'+(lines.length?lines.join('\n'):'• (scegli i prodotti)')+'\nConsegna: '+sel('day').toLowerCase()+', '+sel('every').toLowerCase()+'.';
+    $('msg').textContent=t;$('send').href='https://wa.me/?text='+encodeURIComponent(t);
+  }
+  $('prod').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var p=P[+b.getAttribute('data-i')];p.q=Math.max(0,Math.min(40,p.q+(+b.getAttribute('data-d'))));draw()});
+  ['every','day'].forEach(function(id){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});msg()})});
+  $('rn').addEventListener('input',function(){$('rname').textContent=this.value.trim()||'Il tuo ristorante';msg()});
+  draw();
+})();
+</script>
+</body>
+</html>

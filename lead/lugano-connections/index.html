@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lugano Connections · consulenza finanziaria tra Como e Lugano</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../lib/u2.css">
+<style>
+@font-face{font-family:IS;src:url(../lib/fonts/instrument-serif-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:IS;src:url(../lib/fonts/instrument-serif-400-italic.woff2) format("woff2");font-style:italic;font-display:swap}
+@font-face{font-family:IT;src:url(../lib/fonts/inter-tight-normal.woff2) format("woff2");font-weight:300 800;font-display:swap}
+:root{
+  /* il lago tra Como e Lugano: blu ardesia dell'acqua d'inverno, nebbia, ottone dei battelli */
+  --lk:#1F3A48; --lk2:#2F5566; --fog:#EDF1F2; --fog2:#DCE4E7; --br:#B08A4E; --ink:#14232B; --mut:#5F6F77; --rule:#14232B1c;
+  --h:IS,Georgia,serif; --b:IT,system-ui,sans-serif; --pad:clamp(16px,4vw,56px);
+}
+body{font:400 17px/1.6 var(--b);color:var(--ink);background:var(--fog)}
+:focus-visible{outline:3px solid var(--br);outline-offset:3px}
+.w{max-width:1200px;margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:var(--h);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px var(--pad);max-width:1200px;margin-inline:auto}
+.logo{font:400 26px/1 var(--h)}
+.logo i{color:var(--br)}
+.nav a.cta{border:1.5px solid var(--ink);border-radius:999px;padding:9px 16px;font:700 14px var(--b)}
+
+.hero{padding-block:clamp(20px,4vw,50px) 0}
+.hero h1{font-size:clamp(50px,7.6vw,120px);max-width:12ch}
+.hero h1 em{color:var(--lk2)}
+.hero p{max-width:52ch;font-size:clamp(17px,1.4vw,20px);color:#3D4F57;margin-top:20px}
+
+/* il lago */
+.lake{margin-top:clamp(20px,4vw,40px);position:relative}
+.lake svg{width:100%;height:auto;display:block}
+.lake .lb{font:700 13px var(--b);fill:var(--ink)}
+.lake .lb2{font:500 12px var(--b);fill:var(--mut)}
+.boat{transition:transform .2s linear}
+
+/* temi */
+.sec{padding-block:clamp(56px,8vw,110px)}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,5vw,70px);align-items:end;margin-bottom:30px}
+.sh h2{font-size:clamp(38px,5vw,72px)}
+.sh p{color:#3D4F57;max-width:50ch}
+.topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.topics button{background:var(--fog);border:0;text-align:left;padding:22px 20px 24px;cursor:pointer;color:var(--ink);display:flex;flex-direction:column;gap:8px;min-height:170px;transition:background .3s}
+.topics button b{font:400 28px/1.05 var(--h)}
+.topics button span{font-size:15px;color:var(--mut)}
+.topics button[aria-pressed=true]{background:var(--lk);color:#fff}
+.topics button[aria-pressed=true] span{color:#C9D6DB}
+.topics button i{font-style:normal;font:700 12px var(--b);color:var(--br)}
+
+/* prenota */
+.book{background:var(--lk);color:#E8EEF0}
+.bk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:start}
+.bk h2{font-size:clamp(38px,5vw,72px);color:#fff}
+.bk p{color:#BFD0D7;margin-top:16px;max-width:46ch}
+.panel{background:#fff;color:var(--ink);border-radius:18px;padding:clamp(16px,2.6vw,26px);display:grid;gap:16px}
+.panel h3{font:700 13px var(--b);color:var(--mut)}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.seg button{border:1.5px solid #14232B26;background:#fff;border-radius:999px;padding:9px 14px;font:600 14.5px var(--b);cursor:pointer;color:var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:8px}
+.days button{border:1.5px solid #14232B1f;background:var(--fog);border-radius:12px;padding:10px 4px;cursor:pointer;font:600 13px/1.25 var(--b);color:var(--ink)}
+.days button b{display:block;font:400 24px/1 var(--h)}
+.days button[aria-pressed=true]{background:var(--br);border-color:var(--br);color:#fff}
+.slots{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.slots button{border:1.5px solid #14232B1f;background:#fff;border-radius:10px;padding:8px 12px;font:600 14px var(--b);cursor:pointer;color:var(--ink)}
+.slots button[aria-pressed=true]{background:var(--ink);color:#fff}
+.sum{border-top:1px solid var(--rule);padding-top:14px;font-size:15.5px}
+.sum b{font:400 24px/1.1 var(--h);display:block;margin-bottom:4px}
+.go{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.go a{border-radius:999px;padding:12px 16px;font:800 14.5px var(--b);background:var(--ink);color:#fff}
+.go a.l{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+/* come lavora */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px)}
+.steps div{border-top:2px solid var(--ink);padding-top:16px}
+.steps b{font:400 30px/1.05 var(--h);display:block;margin-bottom:10px}
+.steps p{color:#3D4F57;font-size:16px}
+.fine{margin-top:30px;font-size:13.5px;color:var(--mut);max-width:80ch}
+
+@media (max-width:900px){
+  .sh,.bk{grid-template-columns:1fr}
+  .topics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:520px){.topics{grid-template-columns:1fr}.days button b{font-size:20px}}
+</style>
+</head>
+<body data-umbra="per Serena" data-note="Anteprima preparata da Umbra per Lugano Connections. Testi, temi e orari sono d'esempio: con i tuoi diventa il sito vero, semplice e moderno come lo hai chiesto.">
+
+<header class="nav"><div class="logo">Lugano <i>Connections</i></div><a class="cta" href="#prenota">Primo incontro</a></header>
+
+<main>
+<section class="hero w">
+  <h1><span class="ln"><span class="li" style="--i:1">I tuoi soldi</span></span><span class="ln"><span class="li" style="--i:2">tra due rive,</span></span><span class="ln"><span class="li" style="--i:3"><em>un'unica persona.</em></span></span></h1>
+  <p class="fx" style="--i:4">Consulenza finanziaria per chi vive, lavora o investe tra Como e Lugano. Un primo incontro per capire dove sei, cosa vuoi e cosa conviene fare, senza fretta e senza prodotti già scelti.</p>
+  <div class="lake fx" style="--i:5" aria-hidden="true">
+    <svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid meet">
+      <defs><linearGradient id="wa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F5566"/><stop offset="1" stop-color="#1F3A48"/></linearGradient></defs>
+      <path d="M0 170 C150 120 260 210 420 160 C560 115 640 200 780 170 C920 140 1040 205 1200 150 L1200 300 L0 300Z" fill="url(#wa)"/>
+      <path d="M0 150 L80 90 L150 130 L230 60 L320 120 L400 80 L470 135 L540 105 L560 160 C420 175 280 200 0 175Z" fill="#C8D3D8"/>
+      <path d="M640 165 L700 95 L770 140 L850 70 L930 120 L1010 85 L1090 130 L1200 100 L1200 150 C1060 190 900 150 640 175Z" fill="#B7C6CC"/>
+      <line x1="600" y1="40" x2="600" y2="300" stroke="#B08A4E" stroke-width="1.5" stroke-dasharray="5 6"/>
+      <text class="lb" x="120" y="36">Como</text><text class="lb2" x="120" y="54">Italia</text>
+      <text class="lb" x="1010" y="36">Lugano</text><text class="lb2" x="1010" y="54">Svizzera</text>
+      <text class="lb2" x="612" y="58">il confine</text>
+      <g class="boat" id="boat"><path d="M-26 0 h52 l-8 12 h-36z" fill="#F4F1E8"/><rect x="-10" y="-14" width="20" height="14" fill="#F4F1E8"/><rect x="-6" y="-11" width="4" height="5" fill="#1F3A48"/><rect x="2" y="-11" width="4" height="5" fill="#1F3A48"/></g>
+      <path d="M0 230 C200 220 400 240 600 228 C800 216 1000 236 1200 226" stroke="#ffffff22" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+</section>
+
+<section class="sec w" aria-labelledby="h-t">
+  <div class="sh"><h2 id="h-t">Di cosa parliamo al primo incontro?</h2><p>Scegli uno o più temi: il riepilogo della prenotazione qui sotto si aggiorna, così arrivi all'incontro e si parte subito dal punto giusto.</p></div>
+  <div class="topics" id="tp" role="group" aria-label="Temi">
+    <button type="button" aria-pressed="true"><i>Risparmio</i><b>Far lavorare quello che metti da parte</b><span>Obiettivi, tempi e quanto rischio ha senso per te.</span></button>
+    <button type="button" aria-pressed="false"><i>Pensione</i><b>Pensare oggi a quando smetti</b><span>Quanto avrai e come colmare la differenza.</span></button>
+    <button type="button" aria-pressed="false"><i>Frontalieri</i><b>Stipendio in Svizzera, vita in Italia</b><span>Le domande di chi attraversa il confine ogni mattina.</span></button>
+    <button type="button" aria-pressed="false"><i>Casa</i><b>Comprare casa senza sorprese</b><span>Mutuo, anticipo e quanto puoi permetterti davvero.</span></button>
+    <button type="button" aria-pressed="false"><i>Protezione</i><b>Mettere al sicuro chi ami</b><span>Coperture per famiglia, salute e imprevisti.</span></button>
+    <button type="button" aria-pressed="false"><i>Impresa</i><b>Partita IVA e piccole aziende</b><span>Liquidità, TFR e futuro di chi lavora in proprio.</span></button>
+  </div>
+</section>
+
+<section class="book" id="prenota" data-dark aria-labelledby="h-b">
+  <div class="sec w bk">
+    <div>
+      <h2 id="h-b">Il primo incontro si prenota da qui.</h2>
+      <p>Dove ti è più comodo, nei giorni che scegli. Ti arriva subito il riepilogo, e Serena ti conferma l'orario.</p>
+    </div>
+    <div class="panel" aria-live="polite">
+      <div><h3>Dove</h3><div class="seg" id="wh"><button type="button" aria-pressed="true">A Como</button><button type="button" aria-pressed="false">A Lugano</button><button type="button" aria-pressed="false">In videochiamata</button></div></div>
+      <div><h3>Giorno</h3><div class="days" id="dy"></div></div>
+      <div><h3>Orario</h3><div class="slots" id="sl"></div></div>
+      <div class="sum" id="sum"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec w" aria-labelledby="h-c">
+  <div class="sh"><h2 id="h-c">Come funziona, senza giri di parole.</h2><p>Tre passaggi, sempre gli stessi, per chiunque arrivi dal sito.</p></div>
+  <div class="steps">
+    <div><b>Ascolto</b><p>Un'ora per capire la tua situazione: entrate, spese, progetti, paure. Porti quello che hai, anche solo le domande.</p></div>
+    <div><b>Proposta scritta</b><p>Entro una settimana ricevi un documento chiaro con cosa fare, perché e quanto costa.</p></div>
+    <div><b>Accanto nel tempo</b><p>Un controllo ogni anno, e una persona che risponde quando cambia qualcosa nella tua vita.</p></div>
+  </div>
+  <p class="fine">Le informazioni su questo sito hanno carattere generale e non costituiscono consulenza personalizzata. I dati di iscrizione e i riferimenti normativi vanno qui, nel piè di pagina.</p>
+</section>
+</main>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Semplice, moderno, funzionale. Come l'hai chiesto.</h2>
+    <ul>
+      <li><b>Poche pagine, quelle giuste</b>Chi sei, di cosa ti occupi, come lavori, come prenotare. Niente di più.</li>
+      <li><b>Prenotazione del primo incontro</b>Il visitatore sceglie dove e quando, tu ricevi la richiesta e confermi.</li>
+      <li><b>In regola</b>Spazio per i dati di iscrizione, privacy e cookie fatti bene.</li>
+      <li><b>Da esterni</b>Lavoriamo da remoto: ti mostro il sito in prova prima di metterlo online.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Lugano Connections. Testi, temi e orari d'esempio.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../lib/u2.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var G=['dom','lun','mar','mer','gio','ven','sab'],M=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  var GF=['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'],MF=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  var days=[],d=new Date();d.setHours(12,0,0,0);
+  while(days.length<5){d=new Date(d.getTime()+864e5);if(d.getDay()!==0&&d.getDay()!==6)days.push(new Date(d))}
+  var di=0,si=1,SL=['9:30','11:00','14:30','16:00','18:00'];
+  $('dy').innerHTML=days.map(function(x,i){return '<button type="button" aria-pressed="'+(i===di)+'">'+G[x.getDay()]+'<b>'+x.getDate()+'</b>'+M[x.getMonth()]+'</button>'}).join('');
+  function sel(id){var b=[].filter.call($(id).children,function(x){return x.getAttribute('aria-pressed')==='true'});return b.map(function(x){return x.querySelector('b')&&id==='tp'?x.querySelector('b').textContent:x.textContent})}
+  function slots(){var busy=[(di*2)%5,(di+3)%5];$('sl').innerHTML=SL.map(function(s,i){var dis=busy.indexOf(i)>-1;return '<button type="button" '+(dis?'disabled style="opacity:.3;text-decoration:line-through" ':'')+'aria-pressed="'+(i===si&&!dis)+'">'+s+'</button>'}).join('');if(busy.indexOf(si)>-1){si=[0,1,2,3,4].filter(function(i){return busy.indexOf(i)<0})[0];slots()}}
+  function sum(){
+    var w=sel('wh')[0],t=[].filter.call($('tp').children,function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.querySelector('i').textContent.toLowerCase()});
+    var x=days[di],when=GF[x.getDay()]+' '+x.getDate()+' '+MF[x.getMonth()]+', ore '+SL[si];
+    var txt='Buongiorno Serena, vorrei un primo incontro '+(w.charAt(0).toLowerCase()+w.slice(1))+' '+when+'. Temi: '+(t.join(', ')||'da definire')+'.';
+    $('sum').innerHTML='<b>'+w+' · '+when+'</b>Temi: '+(t.join(', ')||'scegline almeno uno qui sopra')+'<div class="go"><a href="mailto:?subject='+encodeURIComponent('Primo incontro')+'&body='+encodeURIComponent(txt)+'">Prenota via email</a><a class="l" href="https://wa.me/?text='+encodeURIComponent(txt)+'" target="_blank" rel="noopener">Scrivi su WhatsApp</a></div>';
+  }
+  function grp(id,multi){$(id).addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;
+    if(multi)b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');else [].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});
+    if(id==='dy'){di=[].indexOf.call(this.children,b);slots()}if(id==='sl')si=[].indexOf.call(this.children,b);sum()})}
+  grp('tp',true);grp('wh');grp('dy');grp('sl');slots();sum();
+
+  var boat=$('boat'),lk=document.querySelector('.lake');
+  U.onScroll(function(){var r=lk.getBoundingClientRect(),p=U.clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);var x=180+840*U.ease(p),y=205+Math.sin(p*Math.PI*3)*6;boat.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+')')});
+})();
+</script>
+</body>
+</html>
