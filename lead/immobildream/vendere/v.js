@@ -171,7 +171,7 @@
     if (s.giard) con.push('giardino'); if (s.dot.piscina) con.push('piscina'); if (s.balc) con.push('balconi');
     if (s.dot.box) con.push('box auto'); if (s.dot.posto) con.push('posto auto'); if (s.dot.vista) con.push('vista aperta'); if (s.dot.portiere) con.push('portiere'); if (s.dot.camino) con.push('camino');
     if (con.length) out += ', con ' + lista(con);
-    if (s.dot.epoca) out += ', in palazzo d’epoca';
+    if (s.dot.epoca) out += indip(t) ? ', d’epoca' : ', in palazzo d’epoca';
     if (s.stato) out += ', ' + (s.stato.k === 'ok' ? (t.g === 'f' ? 'ristrutturata' : 'ristrutturato') : s.stato.k === 'da' ? 'da ristrutturare' : 'in buono stato');
     return out;
   }
@@ -187,7 +187,7 @@
     if (s.dot.piscina) add('Piscina', .05);
     if (s.dot.vista) add('Vista aperta', .06);
     if (s.dot.box) add('Box auto', .035); else if (s.dot.posto) add('Posto auto', .02);
-    if (s.dot.epoca) add('Palazzo d’epoca', .03);
+    if (s.dot.epoca) add(indip(t) ? 'Dimora d’epoca' : 'Palazzo d’epoca', .03);
     if (s.dot.portiere) add('Portiere', .015);
     if (s.dot.noasc && !indip(t)) add('Senza ascensore', -.05);
     if (s.stato) add(s.stato.l, s.stato.adj);
@@ -251,7 +251,7 @@
     var e = []; if (S.terr) e.push(S.terr.mq ? 'Terrazzo di ' + S.terr.mq + ' mq' : 'Terrazzo'); if (S.giard) e.push('Giardino'); if (S.dot.piscina) e.push('Piscina'); if (S.balc) e.push('Balconi');
     if (e.length) put('kEst', e.join(', '));
     if (S.stato) put('kStato', S.stato.l);
-    var q = []; if (S.dot.box) q.push('Box auto'); if (S.dot.posto) q.push('Posto auto'); if (S.dot.vista) q.push('Vista aperta'); if (S.dot.portiere) q.push('Portiere'); if (S.dot.epoca) q.push('Palazzo d’epoca'); if (S.dot.asc) q.push('Ascensore'); if (S.dot.noasc) q.push('Senza ascensore'); if (S.dot.camino) q.push('Camino'); if (S.dot.cantina) q.push('Cantina');
+    var q = []; if (S.dot.box) q.push('Box auto'); if (S.dot.posto) q.push('Posto auto'); if (S.dot.vista) q.push('Vista aperta'); if (S.dot.portiere) q.push('Portiere'); if (S.dot.epoca) q.push(indip(S.tipo || DEF) ? 'Dimora d’epoca' : 'Palazzo d’epoca'); if (S.dot.asc) q.push('Ascensore'); if (S.dot.noasc) q.push('Senza ascensore'); if (S.dot.camino) q.push('Camino'); if (S.dot.cantina) q.push('Cantina');
     if (q.length) put('kDot', q.join(', '));
   }
   var shown = { lo: 0, hi: 0 };
@@ -468,7 +468,7 @@
     if (s.giard) p.push(it ? 'Il giardino privato ' + (indip(t) ? 'la circonda e ' : '') + 'la separa dalla strada.' : 'A private garden sets it back from the street.');
     if (s.dot.piscina) p.push(it ? 'In giardino, la piscina.' : 'The garden has a swimming pool.');
     if (s.dot.vista) p.push(it ? 'Gli affacci sono aperti e portano luce in ogni stanza.' : 'Open views bring light into every room.');
-    if (s.dot.epoca) p.push(it ? 'Il palazzo d’epoca conserva soffitti alti e proporzioni generose.' : 'The period building keeps its high ceilings and generous proportions.');
+    if (s.dot.epoca) p.push(indip(t) ? (it ? 'È una dimora d’epoca: soffitti alti, proporzioni generose.' : 'A period residence, with high ceilings and generous proportions.') : (it ? 'Il palazzo d’epoca conserva soffitti alti e proporzioni generose.' : 'The period building keeps its high ceilings and generous proportions.'));
     if (s.dot.portiere) p.push(it ? 'Il palazzo ha il servizio di portineria.' : 'The building has a concierge service.');
     if (s.balc && !s.terr) p.push(it ? 'I balconi danno aria alle stanze.' : 'Balconies open the rooms to the air.');
     if (s.dot.box) p.push(it ? 'Completa la proprietà il box auto.' : 'A private garage completes the property.');
