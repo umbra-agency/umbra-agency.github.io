@@ -489,6 +489,8 @@
     if (key === lastKey && !force) return; lastKey = key;
     $('#fRif').textContent = lang === 'it' ? 'Scheda di presentazione, bozza' : 'Property presentation, draft';
     $('#fCap').textContent = lang === 'it' ? 'Fotografia d’esempio' : 'Sample photograph';
+    var im = $('#fImg'), src = s.zona === 'cortina' ? '../img/cortina.jpg' : '../img/villa.jpg';
+    if (im && im.getAttribute('src') !== src) { im.setAttribute('src', src); im.alt = s.zona === 'cortina' ? 'Cortina d’Ampezzo, con le Dolomiti alle spalle' : 'Un portico romano che si apre su un giardino di pini'; }
     $('#fN').textContent = lang === 'it' ? (mine ? 'Bozza scritta da Dora dalle sue parole.' : 'Un esempio. Racconti la sua casa a Dora e la bozza si riscrive.') : (mine ? 'Draft written by Dora from the owner’s description.' : 'An example. Describe your home to Dora and the draft is rewritten with your details.');
     $('#fF').innerHTML = o.f.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
     var H = $('#fH'), P = $('#fP'); clearInterval(tw);
