@@ -198,9 +198,11 @@
 
   /* ---- stato ---- */
   var dpr = 1, carve = reduce ? 1 : 0, started = 0, live = true, raf = 0;
+  var q = 1, fN = 0, fT = 0, lastT = 0, slow = 0;
   var cur = { x: -.25, y: .12 }, tgt = { x: .7, y: .24 }, dim = 0, lastMove = 0, ready = false;
   function size() {
-    dpr = Math.min(coarse ? 2 : 1.5, devicePixelRatio || 1);
+    var base = Math.min(coarse ? 2 : 1.5, devicePixelRatio || 1);
+    dpr = Math.max(Math.min(1, base), base * q); // mai sotto un pixel per pixel
     var w = Math.round(cv.clientWidth * dpr), h = Math.round(cv.clientHeight * dpr);
     if (!w || !h) return false;
     if (w === W && h === H) { if (foot && Math.abs(foot.offsetTop - footAt) > 2) build(); return true; }
@@ -222,7 +224,11 @@
     var e = 1 - Math.pow(1 - carve, 3);
     gl.uniform2f(U.u_light, cur.x, cur.y); gl.uniform1f(U.u_carve, e); gl.uniform1f(U.u_dim, dim);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
-    if (busy && live) req();
+    // se i fotogrammi arrivano lenti si abbassa la risoluzione: meglio una pietra più morbida che una pagina a scatti
+    if (busy && live) {
+      if (lastT && now - lastT < 250 && ++fN > 8) { fT += now - lastT; if (fN === 38) { slow = fT / 30 > 30 ? slow + 1 : 0; if (slow > 1 && q > .55) { q = Math.max(.5, q * .72); slow = 0; } fN = 0; fT = 0; } }
+      lastT = now; req();
+    } else lastT = 0;
   }
   function req() { if (!raf) raf = requestAnimationFrame(render); }
 
@@ -253,5 +259,5 @@
   if (f && f.ready && f.ready.then) f.ready.then(function () { setTimeout(req, 60); });
   if (f && f.load) Promise.all([f.load('600 80px "Cinzel"', 'SOLIDE REALTÀ'), f.load('500 20px "Cinzel"', 'IMMOBILDREAM')]).then(go, go);
   else go();
-  window.__stone = { carveNow: function () { carve = 1; started = 1; req(); }, light: function (x, y) { tgt.x = x; tgt.y = y; cur.x = x; cur.y = y; req(); } };
+  window.__stone = { quality: function () { return q; }, lock: function () { q = 1; fN = -1e9; req(); }, carveNow: function () { carve = 1; started = 1; req(); }, light: function (x, y) { tgt.x = x; tgt.y = y; cur.x = x; cur.y = y; req(); } };
 })();
