@@ -1,6 +1,6 @@
 /* Immobildream · landing «Entra in squadra»
    Rosso del marchio, nero, bianco. Un solo carattere, Archivo, stretto per i titoli e normale per i testi. */
-@font-face{font-family:Archivo;src:url(../../lib/fonts/archivo-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:Archivo;src:url(../../../lib/fonts/archivo-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
 :root{
   --rosso:#D40000; --rosso2:#A80000; --nero:#000; --bianco:#fff; --carta:#F3F2EF; --grigio:#6A6A6A; --riga:rgba(0,0,0,.14);
   --f:Archivo,"Helvetica Neue",Arial,sans-serif; --pad:clamp(20px,4.6vw,72px); --w:1320px;

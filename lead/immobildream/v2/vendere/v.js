@@ -490,7 +490,7 @@
     $('#fRif').textContent = lang === 'it' ? 'Scheda di presentazione, bozza' : 'Property presentation, draft';
     $('#fCap').textContent = lang === 'it' ? 'Fotografia d’esempio' : 'Sample photograph';
     var tk = (s.tipo || DEF).k, ph = s.zona === 'cortina' ? ['cortina', 'Cortina d’Ampezzo, con le Dolomiti alle spalle'] : tk === 'villa' ? ['giardino', 'Una villa tra i pini, con il prato davanti'] : (tk === 'attico' || s.terr) ? ['belvedere', 'Roma vista da un terrazzo, con le cupole all’orizzonte'] : ['salone', 'Un salone luminoso con parquet chiaro'];
-    var im = $('#fImg'), src = '../img/' + ph[0] + '.jpg';
+    var im = $('#fImg'), src = '../../img/' + ph[0] + '.jpg';
     if (im && im.getAttribute('src') !== src) { im.setAttribute('src', src); im.alt = ph[1]; }
     $('#fN').textContent = lang === 'it' ? (mine ? 'Bozza scritta da Dora dalle sue parole.' : 'Un esempio. Racconti la sua casa a Dora e la bozza si riscrive.') : (mine ? 'Draft written by Dora from the owner’s description.' : 'An example. Describe your home to Dora and the draft is rewritten with your details.');
     $('#fF').innerHTML = o.f.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
