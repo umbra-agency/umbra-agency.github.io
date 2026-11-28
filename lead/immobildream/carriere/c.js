@@ -287,7 +287,7 @@
     user(raw, o.marks);
     if (verdetto) return say('<p>' + (inviato ? 'È già tutto fissato. Per cambiare giorno chiama lo 06 3200007.' : 'Il ruolo lo confermi in sede. Scegli il giorno qui sopra e chiudiamo.') + '</p>');
     if (!n) {
-      var q = fold(raw), a = /fisso|stipendio|quanto\s+si\s+guadagna|provvigion|soldi|retribuzion/.test(q) ? 'Si guadagna su quello che si vende: provvigioni tra le più alte del settore e un incentivo per ogni incarico. Le condizioni complete si vedono in sede, con chi passa la selezione.'
+      var q = fold(raw), a = /fisso|stipendio|quanto\s+si\s+guadagna|provvigion|soldi|retribuzion/.test(q) ? 'Qui si guadagna con le vendite: provvigioni tra le più alte del settore e un incentivo per ogni incarico. Le condizioni te le dicono in sede, al secondo colloquio.'
         : /dove|sede|ufficio|indirizzo/.test(q) ? 'In via Dora 2, a Roma. Gli uffici sono quelli di Roma Parioli.'
           : /chi\s+sei|robot|\bbot\b|intelligenza|\bai\b|umano/.test(q) ? 'Sono un’assistente AI. Faccio il primo colloquio e fisso il secondo, che è con una persona.'
             : /orari|part.?time|full.?time|remoto|smart/.test(q) ? 'Di orari e organizzazione parli in sede. Io raccolgo il profilo e fisso l’incontro.'

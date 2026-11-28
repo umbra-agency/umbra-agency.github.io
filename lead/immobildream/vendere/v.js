@@ -317,7 +317,7 @@
     if (fz || cm) {
       user(raw); if (!firstRaw) firstRaw = raw; awaiting = null;
       altro = fz ? 'Fuori zona: ' + fz[1].replace(/(^|\s)([a-z])(?!ei\s|i\s)/g, function (x, a, b) { return a + b.toUpperCase(); }) : 'Immobile commerciale: ' + (cm[1] || cm[2]);
-      say('<p>' + (fz ? 'Fuori da Roma e da Cortina d’Ampezzo non faccio stime: i valori cambiano troppo da un comune all’altro. Mi lasci nome e telefono: un consulente la richiama e le dice se possiamo seguirla.' : 'Negozi, uffici e stabili interi non li stimo io: il valore dipende dalla via, dalle vetrine, da chi c’è dentro. Mi lasci nome e telefono e la richiama un consulente.') + '</p>', function (b) {
+      say('<p>' + (fz ? 'Seguiamo anche case fuori Roma. Lì la stima non la faccio io: i valori cambiano troppo da un luogo all’altro. Mi lasci nome e telefono e la richiama un consulente.' : 'Negozi, uffici e stabili interi non li stimo io: il valore dipende dalla via, dalle vetrine, da chi c’è dentro. Mi lasci nome e telefono e la richiama un consulente.') + '</p>', function (b) {
         chips(b, [['Sì, richiamatemi', function (l) { user(l); modulo(); }], ['Ho anche una casa a Roma', function (l) { user(l); altro = ''; say('<p>Bene. Mi dica dov’è e quanto è grande.</p>'); if (!coarse) txt.focus(); }]]);
       });
       return;
