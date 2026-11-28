@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Immobildream · Due porte, due landing page, un solo metodo</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../../lib/u2.css">
+<style>
+@font-face{font-family:Caslon;src:url(../../lib/fonts/libre-caslon-display-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;src:url(../../lib/fonts/manrope-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{
+  /* travertino, carta, inchiostro, il blu della sera sui tetti, l'ottone delle maniglie dei portoni */
+  --trav:#E8E1D3; --carta:#F7F3EC; --ink:#1A1C1F; --sera:#1E2C44; --sera2:#152036; --ott:#A8844F; --ott2:#C9A56B; --pino:#2F4A3A; --riga:#1a1c1f1f;
+  --c:Caslon,Georgia,serif; --m:Manrope,system-ui,sans-serif; --pad:clamp(16px,4vw,64px);
+}
+body{font:400 16.5px/1.6 var(--m);color:var(--ink);background:var(--carta)}
+h1,h2,h3{font-family:var(--c);font-weight:400;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ott);outline-offset:3px}
+.wrap{padding-inline:var(--pad);max-width:1360px;margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:2px;padding:15px 22px;font-weight:700;font-size:15px;letter-spacing:.01em;cursor:pointer;text-decoration:none}
+.btn--o{background:var(--ott);color:#fff}
+.btn--l{background:none;border:1px solid currentColor}
+
+/* ---------- le due porte ---------- */
+.porte{position:relative;height:100svh;min-height:640px;overflow:hidden;background:var(--ink);color:#fff;--x:50%}
+.porta{position:absolute;inset:0}
+.porta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.porta::after{content:"";position:absolute;inset:0}
+.porta--a::after{background:linear-gradient(90deg,#0c0d0fcc 0,#0c0d0f55 45%,transparent 70%),linear-gradient(0deg,#0c0d0fb3,transparent 45%)}
+.porta--b{clip-path:inset(0 0 0 var(--x));transition:clip-path .08s linear}
+.porta--b img{filter:saturate(.75)}
+.porta--b::after{background:linear-gradient(270deg,#152036f0 0,#152036a6 45%,#15203640 75%),linear-gradient(0deg,#152036d9,transparent 50%)}
+.porte.anim .porta--b{transition:clip-path .9s cubic-bezier(.7,0,.2,1)}
+.p-txt{position:absolute;bottom:clamp(40px,8vh,90px);z-index:2;width:min(500px,40vw)}
+.p-txt small{display:block;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ott2);margin-bottom:14px}
+.p-txt h2{font-size:clamp(34px,3.8vw,60px);margin:0 0 16px}
+.p-txt p{margin:0 0 22px;font-size:16px;opacity:.88;max-width:40ch}
+.porta--a .p-txt{left:var(--pad);opacity:var(--oa,1);transition:opacity .4s}
+.porta--b .p-txt{opacity:var(--ob,1);transition:opacity .4s}
+.porta--b .p-txt{right:var(--pad);text-align:right}
+.porta--b .p-txt p{margin-left:auto}
+.lama{position:absolute;top:0;bottom:0;left:var(--x);z-index:3;width:1px;background:#ffffffb3;transition:left .08s linear}
+.porte.anim .lama{transition:left .9s cubic-bezier(.7,0,.2,1)}
+.lama button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;border:1px solid #fff;background:#1a1c1f80;backdrop-filter:blur(6px);cursor:ew-resize;display:grid;place-items:center;color:#fff;font-size:18px;touch-action:none}
+.top{position:absolute;inset:0 0 auto;z-index:4;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad)}
+.top b{font:400 26px/1 var(--c);letter-spacing:.01em}
+.top b span{color:var(--ott2)}
+.top a{color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;border:1px solid #ffffff80;padding:10px 16px;border-radius:2px}
+.motto{position:absolute;z-index:4;top:clamp(90px,16vh,160px);left:0;right:0;text-align:center;pointer-events:none}
+.motto em{font:400 italic clamp(19px,1.8vw,26px)/1.2 var(--c);font-style:italic;opacity:.95}
+.motto small{display:block;font-size:12.5px;letter-spacing:.04em;opacity:.7;margin-top:8px}
+
+/* ---------- il brief ---------- */
+.brief{padding-block:clamp(70px,9vw,130px)}
+.brief__g{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,100px);align-items:end}
+.brief h2{font-size:clamp(42px,5.4vw,84px);margin:0}
+.brief p{font-size:clamp(17px,1.4vw,19px);margin:0 0 14px;max-width:52ch}
+.req{list-style:none;margin:clamp(40px,5vw,70px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.req li{padding:18px 22px 4px 0;font-size:15px}
+.req b{display:block;font:400 26px/1.05 var(--c);margin-bottom:8px}
+
+/* ---------- landing A: prestigio ---------- */
+.la{background:var(--trav)}
+.la__hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.la__hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.12 - var(--p,0)*.12))}
+.la__hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0c0d0fd9 0,#0c0d0f33 55%,#0c0d0f59 100%)}
+.la__hero .wrap{position:relative;z-index:1;padding-bottom:clamp(40px,6vw,80px);width:100%}
+.tag{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.05em;border:1px solid currentColor;padding:6px 10px;margin-bottom:18px}
+.la__hero h2{font-size:clamp(46px,7vw,118px);margin:0;max-width:13ch}
+.la__hero p{font-size:clamp(17px,1.5vw,20px);max-width:50ch;margin:18px 0 0;opacity:.9}
+.la__body{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,520px);gap:clamp(28px,5vw,80px);padding-block:clamp(56px,7vw,100px);align-items:start}
+.div3{display:grid;gap:0;border-top:1px solid var(--ink)}
+.div3 div{padding:20px 0;border-bottom:1px solid var(--riga);display:grid;grid-template-columns:200px 1fr;gap:20px}
+.div3 b{font:400 24px/1.1 var(--c)}
+.div3 span{font-size:15.5px}
+.la__body h3{font-size:clamp(30px,3vw,44px);margin:0 0 20px}
+
+/* il modulo a passi */
+.fun{background:var(--carta);border-radius:2px;box-shadow:0 40px 70px -40px #1a1c1f59;position:sticky;top:20px}
+.fun__bar{display:flex;gap:4px;padding:16px 22px 0}
+.fun__bar i{flex:1;height:3px;background:var(--riga)}
+.fun__bar i.on{background:var(--ott)}
+.fun__in{padding:18px 26px 26px;min-height:420px;display:flex;flex-direction:column}
+.fun__in small{font-size:13px;font-weight:700;color:var(--ott)}
+.fun__in h4{font:400 30px/1.08 var(--c);margin:6px 0 18px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{border:1px solid #1a1c1f40;background:#fff;border-radius:2px;padding:11px 14px;font-weight:600;font-size:15px;cursor:pointer}
+.opts button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rng{margin-top:6px}
+.rng output{display:block;font:400 52px/1 var(--c);margin-bottom:6px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:none;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--ink)}
+input[type=range]::-moz-range-track{height:2px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ott);border:4px solid var(--carta);box-shadow:0 0 0 1px var(--ott);margin-top:-10px;cursor:grab}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--ott);border:4px solid var(--carta);box-shadow:0 0 0 1px var(--ott);cursor:grab}
+.fld{display:block;margin-top:10px}
+.fld span{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
+.fld input{width:100%;padding:13px 14px;border:1px solid #1a1c1f40;background:#fff;border-radius:2px;font-size:16px}
+.fun__nav{margin-top:auto;padding-top:22px;display:flex;justify-content:space-between;gap:10px}
+.fun__nav .btn[disabled]{opacity:.35;cursor:default}
+.lead{border:1px solid var(--ink);padding:18px;margin-top:4px;background:#fff}
+.lead__h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.lead__h b{font:400 26px/1 var(--c)}
+.score{font:800 13px/1 var(--m);padding:8px 10px;color:#fff;background:var(--pino)}
+.score.b{background:var(--ott)}.score.c{background:#7c7f86}
+.lead dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:14.5px}
+.lead dt{opacity:.6}
+.lead dd{margin:0;font-weight:600}
+.next{list-style:none;margin:16px 0 0;padding:0;font-size:14.5px}
+.next li{display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--riga)}
+.next li i{font-style:normal;font-weight:800;color:var(--ott);min-width:62px}
+
+/* ---------- landing B: entra nel gruppo ---------- */
+.lb{background:var(--sera);color:#fff;position:relative;overflow:hidden}
+.lb__hero{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}
+.lb__hero .t{padding:clamp(56px,8vw,120px) var(--pad);display:flex;flex-direction:column;justify-content:flex-end}
+.lb__hero h2{font-size:clamp(44px,6vw,100px);margin:0 0 18px}
+.lb__hero p{font-size:clamp(17px,1.5vw,20px);margin:0;max-width:44ch;opacity:.85}
+.lb__hero figure{margin:0;position:relative;overflow:hidden}
+.lb__hero img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.05)}
+.lb__hero figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--sera),transparent 40%)}
+.lb__body{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);padding-block:clamp(56px,7vw,100px)}
+.sl{margin-bottom:26px}
+.sl label{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;margin-bottom:4px}
+.sl output{font:400 34px/1 var(--c);color:var(--ott2)}
+.lb input[type=range]::-webkit-slider-runnable-track{background:#ffffff59}
+.lb input[type=range]::-moz-range-track{background:#ffffff59}
+.lb input[type=range]::-webkit-slider-thumb{border-color:var(--sera)}
+.lb input[type=range]::-moz-range-thumb{border-color:var(--sera)}
+.lb .opts button{background:none;border-color:#ffffff59}
+.lb .opts button[aria-pressed=true]{background:#fff;color:var(--sera);border-color:#fff}
+.prof{border:1px solid #ffffff38;padding:28px;position:sticky;top:20px}
+.prof small{font-size:13px;font-weight:700;color:var(--ott2)}
+.prof h3{font-size:clamp(38px,4vw,58px);margin:8px 0 14px}
+.prof p{margin:0 0 18px;font-size:16px;opacity:.88}
+.prof ul{list-style:none;margin:0 0 22px;padding:0;font-size:15px}
+.prof li{padding:9px 0;border-top:1px solid #ffffff26;display:flex;gap:10px}
+.prof li::before{content:"";width:6px;height:6px;margin-top:9px;background:var(--ott2);flex:none}
+.giorni{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.giorni button{border:1px solid #ffffff59;background:none;padding:10px 12px;font-weight:700;font-size:14px;cursor:pointer;border-radius:2px}
+.giorni button[aria-pressed=true]{background:var(--ott);border-color:var(--ott)}
+.ruoli{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #ffffff38;margin-top:clamp(20px,3vw,40px)}
+.ruoli div{padding:20px 20px 6px 0}
+.ruoli b{display:block;font:400 24px/1.1 var(--c);margin-bottom:6px}
+.ruoli span{font-size:14.5px;opacity:.8}
+
+/* ---------- la regia ---------- */
+.reg{padding-block:clamp(70px,9vw,130px)}
+.reg h2{font-size:clamp(42px,5.6vw,88px);margin:0 0 14px;max-width:15ch}
+.reg .lead2{font-size:clamp(17px,1.4vw,19px);max-width:56ch;margin:0 0 clamp(30px,4vw,50px)}
+.sw{display:inline-flex;border:1px solid var(--ink);margin-bottom:28px}
+.sw button{border:0;background:none;padding:11px 18px;font-weight:700;cursor:pointer}
+.sw button[aria-pressed=true]{background:var(--ink);color:#fff}
+.reg__g{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);align-items:start}
+.ads{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ad{background:#fff;border:1px solid var(--riga);border-radius:10px;overflow:hidden;font-size:14px;position:relative;transition:transform .4s,box-shadow .4s;cursor:pointer;text-align:left;padding:0}
+.ad.win{box-shadow:0 0 0 2px var(--pino),0 30px 50px -34px #0006;transform:translateY(-4px)}
+.ad__h{display:flex;gap:8px;align-items:center;padding:10px 12px}
+.ad__h i{width:28px;height:28px;border-radius:50%;background:var(--ink);display:grid;place-items:center;color:var(--ott2);font:400 15px/1 var(--c);font-style:normal}
+.ad__h b{font-size:13.5px;line-height:1.1}
+.ad__h b span{display:block;font-weight:500;opacity:.6;font-size:12px}
+.ad__t{padding:0 12px 10px;font-size:13.5px;line-height:1.4}
+.ad__img{aspect-ratio:1/1;position:relative;overflow:hidden}
+.ad__img img{width:100%;height:100%;object-fit:cover}
+.ad__img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0c0d0fd9 0,#0c0d0f00 60%)}
+.ad__img em{z-index:1}
+.ad__img em{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;font:400 22px/1.05 var(--c);text-shadow:0 2px 14px #000b;font-style:normal}
+.ad__f{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#f1efe9;font-size:12.5px}
+.ad__f span{font-weight:700;background:#e2ded5;padding:7px 10px;border-radius:4px}
+.ad__k{position:absolute;top:10px;right:10px;background:var(--pino);color:#fff;font:800 11.5px/1 var(--m);padding:6px 8px;border-radius:3px;opacity:0;transition:opacity .4s}
+.ad.win .ad__k{opacity:1}
+.kpi{border-top:1px solid var(--ink)}
+.kpi__r{display:grid;grid-template-columns:150px 1fr 74px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--riga);font-size:14.5px}
+.kpi__r b{font-weight:700}
+.kpi__r .bar{height:20px;background:var(--trav);position:relative}
+.kpi__r .bar i{position:absolute;inset:0 auto 0 0;background:var(--ink);transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.kpi__r span{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.kpi__t{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.kpi__t div{background:var(--trav);padding:16px}
+.kpi__t b{display:block;font:400 38px/1 var(--c);font-variant-numeric:tabular-nums}
+.kpi__t span{font-size:13px;font-weight:700}
+.nota{font-size:13px;opacity:.65;margin-top:14px}
+
+/* ---------- automazioni ---------- */
+.aut{background:var(--ink);color:#fff;padding-block:clamp(70px,9vw,130px)}
+.aut h2{font-size:clamp(40px,5vw,78px);margin:0 0 clamp(30px,4vw,56px);max-width:16ch}
+.line{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.line::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:#ffffff40}
+.line li{position:relative;padding:34px 22px 0 0}
+.line li::before{content:"";position:absolute;top:2px;left:0;width:15px;height:15px;border-radius:50%;background:var(--ink);border:1px solid var(--ott2);transition:background .5s}
+.line.in li::before{background:var(--ott2)}
+.line li:nth-child(2)::before{transition-delay:.25s}.line li:nth-child(3)::before{transition-delay:.5s}.line li:nth-child(4)::before{transition-delay:.75s}.line li:nth-child(5)::before{transition-delay:1s}
+.line time{font-size:13px;font-weight:800;color:var(--ott2);display:block;margin-bottom:8px}
+.line b{display:block;font:400 25px/1.1 var(--c);margin-bottom:6px}
+.line span{font-size:14.5px;opacity:.78}
+
+.foot{background:var(--trav);padding-block:clamp(40px,6vw,80px)}
+.foot__g{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;align-items:end}
+.foot h2{font-size:clamp(34px,4vw,60px);margin:0}
+.foot p{margin:0;font-size:15.5px;line-height:1.7}
+.foot a{color:inherit;font-weight:700}
+.foot figure{margin:0}
+.foot img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;margin-bottom:10px}
+
+@media (max-width:1000px){
+  .p-txt{width:min(420px,44vw)}
+  .brief__g,.la__body,.lb__body,.reg__g{grid-template-columns:1fr}
+  .req{grid-template-columns:1fr 1fr}
+  .fun,.prof{position:relative;top:auto}
+  .ruoli{grid-template-columns:1fr 1fr}
+  .line{grid-template-columns:1fr;gap:6px}
+  .line::before{left:7px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .line li{padding:0 0 18px 34px}
+  .foot__g{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .porte{height:auto;min-height:0;display:flex;flex-direction:column;--x:100%!important}
+  .porta{position:relative;height:72svh;min-height:470px}
+  .porta--b{clip-path:none!important}
+  .lama{display:none}
+  .p-txt{width:auto;left:var(--pad)!important;right:var(--pad)!important;text-align:left!important}
+  .porta--b .p-txt p{margin-left:0}
+  .motto{top:78px}
+  .lb__hero{grid-template-columns:1fr}
+  .lb__hero figure{height:40vh;order:-1}
+  .lb__hero figure::after{background:linear-gradient(0deg,var(--sera),transparent 50%)}
+  .div3 div{grid-template-columns:1fr;gap:4px}
+  .ads{grid-template-columns:1fr 1fr;gap:10px}
+  .ad__img em{font-size:17px}
+  .kpi__r{grid-template-columns:110px 1fr 60px}
+  .kpi__t b{font-size:23px}
+  .porta--a .p-txt,.porta--b .p-txt{opacity:1!important}
+  .req{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.porta--b,.lama,.la__hero img{transition:none!important}}
+</style>
+</head>
+<body data-dark data-umbra="un'anteprima per Immobildream" data-note="Anteprima preparata da Umbra per Immobildream, a partire dal vostro annuncio per Social Media Manager. Sedi, divisioni, ruoli e motto vengono dal vostro sito; i numeri delle campagne sono di esempio e da questa pagina non parte nessun dato. Foto di esempio.">
+
+<section class="porte" id="top">
+  <div class="porta porta--a">
+    <img src="../img/villa.jpg" alt="Un portone su un giardino di pini, a Roma">
+    <div class="p-txt">
+      <small>Per chi vende</small>
+      <h2>Ha un immobile di pregio a Roma o a Cortina.</h2>
+      <p>Una pagina che parla solo a lei: due minuti di domande, e un consulente la chiama entro due ore.</p>
+      <a class="btn btn--o" href="#vendi" data-go>Valuti il suo immobile</a>
+    </div>
+  </div>
+  <div class="porta porta--b" id="pb">
+    <img src="../img/team.jpg" alt="Una squadra di consulenti al tavolo">
+    <div class="p-txt">
+      <small>Per chi vende case di mestiere</small>
+      <h2>Lavora nel mercato immobiliare.</h2>
+      <p>Una pagina che seleziona agenti e team manager prima del colloquio, e porta in agenda solo chi ha il profilo giusto.</p>
+      <a class="btn btn--l" href="#entra" data-go>Scopri il tuo profilo</a>
+    </div>
+  </div>
+  <div class="lama" id="lama"><button id="lamaB" aria-label="Sposta la divisione tra le due pagine">↔</button></div>
+  <header class="top"><b>Immobil<span>dream</span></b><a href="tel:+39063200007">06 3200007</a></header>
+  <div class="motto"><em>Non vendiamo sogni, ma solide realtà.</em><small>Due porte, due pubblici. Trascina la linea.</small></div>
+</section>
+
+<section class="brief">
+  <div class="wrap">
+    <div class="brief__g">
+      <h2>Il vostro annuncio chiede due landing page. Eccole, già costruite.</h2>
+      <div>
+        <p>Una per acquisire immobili medio alti e di lusso, una per trovare agenti immobiliari per Roma. Sotto, la regia che le fa lavorare: campagne Facebook e Instagram, test A/B, pixel, funnel e automazioni.</p>
+        <p>Scorrete e provatele: si compilano davvero, e alla fine vedete il contatto così come arriverebbe a voi.</p>
+      </div>
+    </div>
+    <ul class="req">
+      <li><b>Due landing page</b>Acquisizione luxury e reclutamento agenti, ognuna con il suo modulo a passi.</li>
+      <li><b>Lead qualificati</b>Ogni contatto arriva con una classe A, B o C, già pronto per il consulente.</li>
+      <li><b>Campagne Meta</b>Creatività in test A/B, con CPL, CPA e appuntamenti fissati sotto gli occhi.</li>
+      <li><b>Automazioni</b>WhatsApp, email, CRM e retargeting partono da soli, nell'ordine giusto.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- landing A -->
+<section class="la" id="vendi">
+  <div class="la__hero" data-p>
+    <img src="../img/roma.jpg" alt="I tetti di Roma al tramonto, con le cupole" loading="lazy">
+    <div class="wrap">
+      <span class="tag">Landing 1 · Immobili di pregio</span>
+      <h2>La sua casa merita un acquirente all'altezza.</h2>
+      <p>Attici, ville e residenze di prestigio a Roma e a Cortina d'Ampezzo. Una valutazione fatta da chi vende questi immobili ogni giorno, con un sopralluogo e un piano scritto.</p>
+    </div>
+  </div>
+  <div class="wrap la__body">
+    <div>
+      <h3>Perché affidarlo a Immobildream</h3>
+      <div class="div3">
+        <div><b>Prestigio</b><span>Una selezione dedicata alle residenze di pregio, con acquirenti già profilati.</span></div>
+        <div><b>Grandi Cantieri</b><span>La divisione che segue l'intermediazione per la vendita di immobili residenziali e commerciali dei costruttori.</span></div>
+        <div><b>Interi Stabili</b><span>Vendita di interi stabili e loro frazionamento, per proprietà e fondi immobiliari.</span></div>
+        <div><b>Roma e Cortina</b><span>La sede di Via Dora a Roma e gli uffici di Cortina d'Ampezzo.</span></div>
+      </div>
+    </div>
+    <div class="fun" aria-live="polite">
+      <div class="fun__bar" id="aBar"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="fun__in" id="aIn"></div>
+    </div>
+  </div>
+</section>
+
+<!-- landing B -->
+<section class="lb" id="entra">
+  <div class="lb__hero">
+    <div class="t">
+      <span class="tag" style="color:var(--ott2)">Landing 2 · Entra in Immobildream</span>
+      <h2>Porta la tua esperienza dove c'è un marchio a sostenerla.</h2>
+      <p>Cerchiamo agenti immobiliari e team manager per Roma e per Cortina d'Ampezzo. Tre domande, e sai subito se il colloquio fa per te.</p>
+    </div>
+    <figure><img src="../img/cupola.jpg" alt="San Pietro al tramonto" loading="lazy"></figure>
+  </div>
+  <div class="wrap lb__body">
+    <div>
+      <div class="sl"><label for="anni">Anni nell'intermediazione immobiliare <output id="anniO"></output></label><input id="anni" type="range" min="0" max="20" value="6"></div>
+      <div class="sl"><label for="vend">Compravendite chiuse negli ultimi 12 mesi <output id="vendO"></output></label><input id="vend" type="range" min="0" max="40" value="12"></div>
+      <div class="sl"><label>Porti una squadra con te?</label><div class="opts" id="sq" role="group" aria-label="Squadra"><button aria-pressed="false" data-v="0">No, da solo</button><button aria-pressed="true" data-v="1">Sì, 2–4 persone</button><button aria-pressed="false" data-v="2">Sì, 5 o più</button></div></div>
+      <div class="sl"><label>Dove vuoi lavorare?</label><div class="opts" id="dove" role="group" aria-label="Sede"><button aria-pressed="true">Roma</button><button aria-pressed="false">Cortina d'Ampezzo</button></div></div>
+    </div>
+    <aside class="prof" aria-live="polite">
+      <small>Il tuo profilo</small>
+      <h3 id="pT"></h3>
+      <p id="pP"></p>
+      <ul id="pL"></ul>
+      <div class="giorni" id="gg" role="group" aria-label="Giorno del colloquio"></div>
+      <button class="btn btn--o" id="pB">Prenota il colloquio</button>
+    </aside>
+  </div>
+  <div class="wrap" style="padding-bottom:clamp(56px,7vw,100px)">
+    <div class="ruoli">
+      <div><b>Team manager</b><span>Per chi porta o costruisce una squadra di consulenti.</span></div>
+      <div><b>Agenti immobiliari</b><span>Acquisizione e vendita, a Roma e a Cortina.</span></div>
+      <div><b>Property manager</b><span>Gestione di immobili residenziali per conto della proprietà.</span></div>
+      <div><b>Stage</b><span>Full time e part time, per chi comincia.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- regia -->
+<section class="reg">
+  <div class="wrap">
+    <h2>La regia che le fa lavorare, ogni settimana.</h2>
+    <p class="lead2">Ogni landing ha le sue creatività in test. Toccate l'annuncio che pensate vinca: i numeri sotto si aggiornano. Sono numeri di esempio, per mostrare cosa guardiamo ogni lunedì.</p>
+    <div class="sw" id="sw" role="group" aria-label="Quale campagna"><button aria-pressed="true" data-k="a">Acquisizione luxury</button><button aria-pressed="false" data-k="b">Reclutamento agenti</button></div>
+    <div class="reg__g">
+      <div class="ads" id="ads"></div>
+      <div>
+        <div class="kpi" id="kpi"></div>
+        <div class="kpi__t" id="kpiT"></div>
+        <p class="nota">Dati di esempio. Nella versione vera arrivano dal Meta Pixel e dal CRM, aggiornati ogni giorno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aut">
+  <div class="wrap">
+    <h2>Il contatto non resta mai fermo.</h2>
+    <ol class="line" id="line">
+      <li><time>Minuto 0</time><b>Il modulo</b><span>Il lead entra nel CRM con campagna, creatività e classe A, B o C.</span></li>
+      <li><time>Minuto 1</time><b>WhatsApp</b><span>Un messaggio con il nome del consulente che lo seguirà.</span></li>
+      <li><time>Minuto 5</time><b>Email</b><span>Il dossier: come lavora Immobildream e cosa succede al sopralluogo.</span></li>
+      <li><time>Entro 2 ore</time><b>La chiamata</b><span>I lead di classe A vanno al consulente di zona, con promemoria.</span></li>
+      <li><time>Per 7 giorni</time><b>Retargeting</b><span>Chi non ha finito il modulo rivede le creatività giuste, e solo quelle.</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__g">
+    <h2>Immobildream RE, Roma e Cortina d'Ampezzo.</h2>
+    <p>Via Dora 2, Roma<br><a href="tel:+39063200007">06 3200007</a><br><a href="mailto:info@immobildreamre.it">info@immobildreamre.it</a></p>
+    <figure><img src="../img/cortina.jpg" alt="Cortina d'Ampezzo d'estate" loading="lazy"><p>Gli uffici di Cortina d'Ampezzo</p></figure>
+  </div>
+</footer>
+
+<aside class="u-end">
+  <div class="u-end__in">
+    <div class="u-end__m"><i></i>umbra</div>
+    <h2>Le due landing, le campagne e le automazioni. Da esterni, da subito.</h2>
+    <ul>
+      <li><b>Due landing page su misura</b>Acquisizione di immobili di pregio e reclutamento di agenti, ognuna con il suo modulo a passi e il suo pubblico.</li>
+      <li><b>Campagne Meta che si leggono</b>Creatività in A/B, pixel ed eventi impostati, e un rapporto ogni lunedì con CPL, CPA e appuntamenti fissati.</li>
+      <li><b>IA dove serve</b>Varianti di copy e creatività, analisi delle campagne e automazioni: quello che chiede il vostro annuncio, senza tempi di inserimento.</li>
+      <li><b>Lead già qualificati</b>Il consulente riceve il contatto con la classe A, B o C e sa chi chiamare per primo.</li>
+    </ul>
+    <div class="u-end__f"><span>Anteprima preparata da Umbra per Immobildream. Numeri di esempio, foto di esempio da Unsplash.</span><a href="https://umbragency.it">umbragency.it</a></div>
+  </div>
+</aside>
+
+<script src="../../lib/u2.js"></script>
+<script>
+/* ---------- la lama tra le due porte ---------- */
+(function(){
+  var P=document.getElementById('top'),b=document.getElementById('lamaB'),drag=false;
+  function set(x){x=U.clamp(x,8,92);P.style.setProperty('--x',x+'%');P.style.setProperty('--oa',U.clamp((x-36)/12,0,1));P.style.setProperty('--ob',U.clamp((64-x)/12,0,1))}
+  function fromE(e){var r=P.getBoundingClientRect();set((e.clientX-r.left)/r.width*100)}
+  b.addEventListener('pointerdown',function(e){drag=true;P.classList.remove('anim');b.setPointerCapture(e.pointerId)});
+  b.addEventListener('pointermove',function(e){if(drag)fromE(e)});
+  b.addEventListener('pointerup',function(){drag=false});
+  b.addEventListener('keydown',function(e){var x=parseFloat(getComputedStyle(P).getPropertyValue('--x'))||50;if(e.key=='ArrowLeft'){set(x-5);e.preventDefault()}if(e.key=='ArrowRight'){set(x+5);e.preventDefault()}});
+  if(U.fine)P.addEventListener('pointermove',function(e){if(drag||e.target.closest('a,button'))return;var r=P.getBoundingClientRect(),t=(e.clientX-r.left)/r.width;P.classList.add('anim');set(t<.5?62:38)});
+  if(!U.reduce){P.classList.add('anim');setTimeout(function(){set(66)},900);setTimeout(function(){set(34)},2100);setTimeout(function(){set(50)},3300)}
+  document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();U.scrollTo(document.querySelector(a.getAttribute('href')),0)})});
+})();
+
+/* ---------- landing A: il modulo a passi ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)},st=0,d={zona:'Parioli',tipo:'Attico',mq:180,plus:['Terrazzo','Vista'],tempi:'Entro 3 mesi',nome:'',tel:''};
+  var Z=['Centro storico','Parioli','Prati','Trieste','Aventino','Monteverde','EUR','Cortina d\'Ampezzo'],T=['Attico','Appartamento','Villa','Interi stabili'],PL=['Terrazzo','Vista','Giardino','Portineria','Box','Piscina'],TM=['Entro 3 mesi','Entro 6 mesi','Sto valutando'];
+  function opts(arr,cur,multi){return '<div class="opts">'+arr.map(function(x){var on=multi?cur.indexOf(x)>=0:cur==x;return '<button aria-pressed="'+on+'" data-v="'+x+'">'+x+'</button>'}).join('')+'</div>'}
+  function score(){var s=0;if(['Centro storico','Parioli','Aventino','Prati','Cortina d\'Ampezzo'].indexOf(d.zona)>=0)s+=2;if(d.mq>=150)s+=2;else if(d.mq>=100)s++;s+=Math.min(2,d.plus.length/2);if(d.tempi=='Entro 3 mesi')s+=2;else if(d.tempi=='Entro 6 mesi')s++;return s>=6?'A':s>=4?'B':'C'}
+  var S=[
+    function(){return '<small>1 di 5</small><h4>Dove si trova l\'immobile?</h4>'+opts(Z,d.zona)},
+    function(){return '<small>2 di 5</small><h4>Che immobile è, e quanto è grande?</h4>'+opts(T,d.tipo)+'<div class="rng"><output id="mqO">'+d.mq+' m²</output><input id="mq" type="range" min="60" max="600" step="10" value="'+d.mq+'" aria-label="Metri quadrati"></div>'},
+    function(){return '<small>3 di 5</small><h4>Cosa lo rende speciale?</h4>'+opts(PL,d.plus,true)},
+    function(){return '<small>4 di 5</small><h4>Quando pensa di vendere?</h4>'+opts(TM,d.tempi)},
+    function(){return '<small>5 di 5</small><h4>A chi mandiamo la valutazione?</h4><label class="fld"><span>Nome e cognome</span><input id="nm" value="'+d.nome+'" autocomplete="off" placeholder="Es. Giulia Ferri"></label><label class="fld"><span>Telefono</span><input id="tl" value="'+d.tel+'" inputmode="tel" autocomplete="off" placeholder="Es. 333 1234567"></label>'},
+    function(){var sc=score();return '<small>Così arriva a voi</small><h4>Grazie: la chiamiamo entro due ore.</h4><div class="lead"><div class="lead__h"><b>'+(d.nome||'Giulia Ferri')+'</b><span class="score '+sc.toLowerCase()+'">Lead classe '+sc+'</span></div><dl><dt>Immobile</dt><dd>'+d.tipo+', '+d.mq+' m²</dd><dt>Zona</dt><dd>'+d.zona+'</dd><dt>Plus</dt><dd>'+(d.plus.join(', ')||'nessuno')+'</dd><dt>Tempi</dt><dd>'+d.tempi+'</dd><dt>Arriva da</dt><dd>Instagram, creatività B</dd></dl><ul class="next"><li><i>Subito</i>WhatsApp con il nome del consulente</li><li><i>2 ore</i>'+(sc=='A'?'Chiamata del consulente di zona':'Chiamata dall\'ufficio')+'</li><li><i>48 ore</i>Sopralluogo e valutazione scritta</li></ul></div>'}
+  ];
+  function draw(){
+    $('aIn').innerHTML=S[st]()+'<div class="fun__nav">'+(st>0&&st<5?'<button class="btn btn--l" id="bk">Indietro</button>':'<span></span>')+(st<4?'<button class="btn btn--o" id="nx">Continua</button>':st==4?'<button class="btn btn--o" id="nx">Richiedi la valutazione</button>':'<button class="btn btn--l" id="rs">Rifai la prova</button>')+'</div>';
+    [].forEach.call($('aBar').children,function(i,k){i.classList.toggle('on',k<=Math.min(st,4))});
+    var mq=$('mq');if(mq)mq.addEventListener('input',function(){d.mq=+this.value;$('mqO').textContent=d.mq+' m²'});
+    ['nm','tl'].forEach(function(k){var e=$(k);if(e)e.addEventListener('input',function(){d[k=='nm'?'nome':'tel']=this.value.replace(/[<>&"]/g,'')})});
+  }
+  $('aIn').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    if(b.id=='nx'){st++;draw();return}if(b.id=='bk'){st--;draw();return}if(b.id=='rs'){st=0;draw();return}
+    var v=b.dataset.v;if(!v)return;
+    if(st==0)d.zona=v;else if(st==1)d.tipo=v;else if(st==3)d.tempi=v;else if(st==2){var i=d.plus.indexOf(v);if(i>=0)d.plus.splice(i,1);else d.plus.push(v)}
+    if(st==2)b.setAttribute('aria-pressed',d.plus.indexOf(v)>=0);else [].forEach.call(b.parentNode.children,function(x){x.setAttribute('aria-pressed',x==b)});
+  });
+  draw();
+})();
+
+/* ---------- landing B: il profilo ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)},sq=1,dv='Roma';
+  var G=['lun 30 nov','mar 1 dic','mer 2 dic','gio 3 dic'],g=1;
+  $('gg').innerHTML=G.map(function(x,i){return '<button aria-pressed="'+(i==g)+'">'+x+'</button>'}).join('');
+  function grp(el,cb){el.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(el.children,function(x){x.setAttribute('aria-pressed',x==b)});cb(b,[].indexOf.call(el.children,b));upd()})}
+  function upd(){var a=+$('anni').value,v=+$('vend').value,t,p,l;
+    $('anniO').textContent=a+(a==1?' anno':' anni');$('vendO').textContent=v;
+    if(sq>0&&a>=5){t='Team manager';p='Porti la tua squadra e la fai crescere con il marchio, le campagne e gli immobili di Immobildream.';l=['Colloquio con la direzione di '+dv,'Piano per inserire la tua squadra','Lead dalle campagne dedicati alla tua zona']}
+    else if(a>=3||v>=8){t='Agente immobiliare';p='Hai già il mestiere: ti servono immobili da vendere e contatti che arrivano ogni settimana.';l=['Colloquio nella sede di '+dv,'Portafoglio e zona assegnati','Lead qualificati dalle campagne']}
+    else{t='Consulente in formazione';p='Cominci con una squadra esperta accanto, e impari sul campo come si acquisisce e si vende.';l=['Incontro conoscitivo a '+dv,'Affiancamento a un team manager','Percorso di formazione']}
+    $('pT').textContent=t;$('pP').textContent=p;$('pL').innerHTML=l.map(function(x){return '<li>'+x+'</li>'}).join('');
+    $('pB').textContent='Prenota il colloquio · '+G[g];
+  }
+  grp($('sq'),function(b){sq=+b.dataset.v});grp($('dove'),function(b){dv=b.textContent});grp($('gg'),function(b,i){g=i});
+  ['anni','vend'].forEach(function(k){$(k).addEventListener('input',upd)});
+  $('pB').addEventListener('click',function(){this.textContent='In questa anteprima non parte nulla'});
+  upd();
+})();
+
+/* ---------- la regia ---------- */
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var C={
+    a:{ads:[['img/palazzo.jpg','Quanto vale davvero un attico ai Parioli?','Lo chiedono in molti. Glielo diciamo dopo averlo visto, per iscritto, in 48 ore.','Valuta l\'immobile'],['img/roma.jpg','Gli acquirenti di questo immobile esistono già.','Residenze di pregio a Roma e Cortina: li conosciamo per nome.','Scopri di più']],
+       f:[['Persone raggiunte',48000],['Clic sulla landing',1150],['Moduli completati',84],['Lead di classe A',23],['Sopralluoghi fissati',11]],budget:1500},
+    b:{ads:[['img/team.jpg','La tua squadra merita un marchio che la sostenga.','Cerchiamo team manager e agenti a Roma e Cortina. Tre domande e sai se fa per te.','Scopri il profilo'],['img/cupola.jpg','Hai chiuso più di 8 compravendite quest\'anno?','Allora parliamo. Colloquio in sede, in settimana.','Candidati']],
+       f:[['Persone raggiunte',36000],['Clic sulla landing',980],['Profili completati',61],['Profili in linea',19],['Colloqui fissati',9]],budget:900}
+  };
+  var k='a',win=1;
+  function draw(){var c=C[k],m=win==0?.78:1;
+    $('ads').innerHTML=c.ads.map(function(a,i){return '<button class="ad'+(i==win?' win':'')+'" data-i="'+i+'" aria-pressed="'+(i==win)+'"><span class="ad__k">Vince il test</span><div class="ad__h"><i>I</i><b>Immobildream<span>Sponsorizzato</span></b></div><div class="ad__t">'+a[2]+'</div><div class="ad__img"><img src="'+a[0]+'" alt="" loading="lazy"><em>'+a[1]+'</em></div><div class="ad__f">immobildream.it<span>'+a[3]+'</span></div></button>'}).join('');
+    var top=c.f[0][1];
+    $('kpi').innerHTML=c.f.map(function(r,i){var v=Math.round(i==0?r[1]:r[1]*m);return '<div class="kpi__r"><b>'+r[0]+'</b><div class="bar"><i style="width:'+Math.max(1.5,Math.pow(v/top,.32)*100)+'%"></i></div><span>'+v.toLocaleString('it-IT')+'</span></div>'}).join('');
+    var leads=Math.round(c.f[2][1]*m),fin=Math.round(c.f[4][1]*m);
+    $('kpiT').innerHTML='<div><b>'+c.budget.toLocaleString('it-IT')+' €</b><span>Budget del mese</span></div><div><b>'+Math.round(c.budget/leads)+' €</b><span>Costo per lead</span></div><div><b>'+Math.round(c.budget/fin)+' €</b><span>Costo per appuntamento</span></div>';
+  }
+  $('sw').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;k=b.dataset.k;win=1;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x==b)});draw()});
+  $('ads').addEventListener('click',function(e){var b=e.target.closest('.ad');if(!b)return;win=+b.dataset.i;draw()});
+  draw();
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e,o){if(e[0].isIntersecting){$('line').classList.add('in');o.disconnect()}},{threshold:.4}).observe($('line'));else $('line').classList.add('in');
+})();
+</script>
+</body>
+</html>
