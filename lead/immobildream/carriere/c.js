@@ -62,10 +62,10 @@
   }
   var nome = '', inp = $('#nome');
   function setNome(v) {
-    nome = v.replace(/\s+/g, ' ').replace(/^\s/, '').slice(0, 30);
+    nome = v.replace(/\s+/g, ' ').replace(/^\s/, '').slice(0, 38);
     $$('.js-nome').forEach(function (b) {
       var n = nome.trim(); b.textContent = n || 'Il tuo nome'; b.classList.toggle('vuoto', !n);
-      b.style.fontSize = n.length > 22 ? '.62em' : n.length > 16 ? '.76em' : n.length > 12 ? '.9em' : '';
+      b.style.setProperty('--s', n.length > 31 ? .52 : n.length > 24 ? .62 : n.length > 19 ? .74 : n.length > 15 ? .86 : 1); // i nomi lunghi si stringono, senza uscire dal biglietto
     });
   }
   inp.addEventListener('input', function () { setNome(inp.value); });
@@ -120,10 +120,11 @@
     else if (hit(/(?:ho\s+il\s+)?patentino|abilitat[oa]|abilitazione|iscritt[oa]\s+(?:al\s+)?(?:rea|ruolo)/)) o.lic = 'si';
     // altro settore
     if ((m = hit(/(?:vendo|vendevo|lavoro|vengo)\s+(?:da[il]?\s+|nel(?:le|la|l')?\s*|in\s+|come\s+)?(auto|assicurazion\w+|banc\w+|finanz\w+|moda|telefonia|energia|abbigliamento|arredamento|retail)/))) o.altro = m[1];
-    else if (hit(/altro\s+settore|non\s+(?:ho\s+mai\s+)?(?:lavorato|venduto)\s+(?:nell'|in\s+)?immobiliare|nessuna\s+esperienza|prima\s+esperienza|sto\s+iniziando|comincio\s+(?:adesso|ora)/)) o.zero = 1;
+    else if (hit(/altro\s+settore|non\s+(?:ho\s+mai\s+)?(?:lavorato|venduto)\s+(?:nell'|in\s+)?immobiliare|nessuna\s+esperienza|non\s+ho\s+(?:alcuna\s+|molta\s+)?esperienza|senza\s+esperienza|zero\s+esperienza|prima\s+esperienza|sto\s+iniziando|comincio\s+(?:adesso|ora)|mai\s+(?:fatto|lavorato|venduto)/)) o.zero = 1;
     // anni
     if ((m = hit(new RegExp('da\\s+(?:circa\\s+|oltre\\s+|piu\\s+di\\s+)?' + NW + '\\s+ann[io]'))) || (m = hit(new RegExp(NW + '\\s+ann[io]\\s+(?:di\\s+)?(?:esperienza|vendite|nel|nell|in\\s|come|da\\s|tra|sul)')))) o.anni = num(m[1]);
     else if ((m = new RegExp(NW + '\\s+ann[io]').exec(t)) && !/ho\s+\d{2}\s+ann[io](?!\s+di)/.test(t)) { o.anni = num(m[1]); mark(m.index, m.index + m[0].length); }
+    else if ((m = hit(/\bdal\s+(19[89]\d|20[0-2]\d)\b/))) o.anni = Math.max(0, new Date().getFullYear() - +m[1]);
     // vendite
     if ((m = hit(new RegExp(NW + '\\s+(?:vendite|compravendite|rogiti|transazioni|chiusure|(?:immobili|case|appartamenti)\\s+vendut[ie])'))) || (m = hit(new RegExp('(?:venduto|chiuso|concluso)\\s+' + NW)))) o.vend = num(m[1]);
     // squadra
@@ -157,12 +158,12 @@
     if (p.lic === 'si' || (p.anni || 0) >= 2) return 'B';
     return 'C';
   }
-  function anniTxt(p) { var a = p.anni; if (a == null) return null; if (!a) return 'Comincia adesso'; return a + (a === 1 ? ' anno' : ' anni') + (p.altro ? ' di vendita, ' + p.altro : ' nell’immobiliare'); }
+  function anniTxt(p) { var a = p.anni; if (a == null) return null; if (!a) return 'Comincia adesso'; return a + (a === 1 ? ' anno' : ' anni') + (p.altro ? ', altro settore (' + p.altro + ')' : ' nell’immobiliare'); }
   var LIC = { si: 'Sì', corso: 'In corso', no: 'Non ancora' };
   function teamTxt(p) { return p.team == null ? null : p.team ? p.team + ' persone' : 'Lavora da solo'; }
   function riassunto(p) {
     var a = [];
-    if (p.anni != null) a.push(p.anni ? p.anni + (p.anni === 1 ? ' anno' : ' anni') + (p.altro ? ' di vendita nel settore ' + p.altro : ' nell’immobiliare') : 'cominci adesso');
+    if (p.anni != null) a.push(p.anni ? p.anni + (p.anni === 1 ? ' anno' : ' anni') + (p.altro ? ' in un altro settore (' + p.altro + ')' : ' nell’immobiliare') : 'cominci adesso');
     if (p.vend != null) a.push(p.vend + ' vendite negli ultimi dodici mesi');
     if (p.lic) a.push(p.lic === 'si' ? 'patentino sì' : p.lic === 'corso' ? 'patentino in corso' : 'patentino non ancora');
     if (p.team != null) a.push(p.team ? 'una squadra di ' + p.team : 'da solo');
@@ -211,7 +212,7 @@
     say('<p>Ciao' + (n ? ', ' + esc(n) : '') + '. Sono Dora, faccio il primo colloquio per Immobildream.</p><p>Dimmi in due righe che agente sei: da quanto vendi, quanto hai chiuso l’anno scorso, se hai il patentino, se hai una squadra.</p>');
   }
   function chiedi(k) {
-    attesa = k; chiesto[k] = 1;
+    attesa = k; chiesto[k] = (chiesto[k] || 0) + 1;
     function risp(l, patch) { user(l); attesa = null; unisci(P, Object.assign({ zone: [] }, patch)); profilo(); avanti(); }
     if (k === 'lic') say('<p>Hai il patentino?</p>', function (b) { chips(b, [['Sì', { lic: 'si' }], ['Lo sto prendendo', { lic: 'corso' }], ['No', { lic: 'no' }]].map(function (c) { return [c[0], function (l) { risp(l, c[1]); }]; })); });
     if (k === 'anni') say('<p>Da quanto vendi case?</p>', function (b) { chips(b, [['Comincio adesso', 0], ['1–3 anni', 2], ['4–8 anni', 6], ['Più di 8', 10]].map(function (c) { return [c[0], function (l) { risp(l, { anni: c[1] }); }]; })); });
@@ -220,10 +221,11 @@
   }
   function avanti() {
     if (verdetto) return;
-    if (P.lic == null && !chiesto.lic) return chiedi('lic');
-    if (P.anni == null && !chiesto.anni) return chiedi('anni');
-    if (P.team == null && !chiesto.team && P.lic === 'si' && immAnni(P) >= 4) return chiedi('team');
-    if (P.vend == null && !chiesto.vend && P.lic === 'si' && immAnni(P) >= 2) return chiedi('vend');
+    function da(k) { return P[k] == null && (chiesto[k] || 0) < 2; } // una domanda senza risposta si rifà una volta, poi si va avanti
+    if (da('lic')) return chiedi('lic');
+    if (da('anni')) return chiedi('anni');
+    if (da('team') && P.lic === 'si' && immAnni(P) >= 4) return chiedi('team');
+    if (da('vend') && P.lic === 'si' && immAnni(P) >= 2) return chiedi('vend');
     decidi();
   }
   function decidi() {
@@ -231,7 +233,8 @@
     var perche = r === 'tm' ? 'Hai il patentino e una squadra di ' + P.team + ': è il profilo che serve per guidare un gruppo.'
       : r === 'nc' ? 'Hai il patentino e vieni dalle vendite in cantiere.'
         : r === 'ag' ? 'Hai il patentino e ' + immAnni(P) + ' anni sul campo.'
-          : P.lic !== 'si' ? (P.altro ? 'Sai vendere, ma non hai ancora il patentino. ' : 'Non hai ancora il patentino. ') + 'Da consulente hai l’Academy, un tutor e una zona tua.'
+          : P.lic == null ? 'Del patentino non mi hai detto, quindi parto dal ruolo da consulente: Academy, un tutor, una zona tua. In sede vedete se è quello giusto.'
+            : P.lic !== 'si' ? (P.altro ? 'Sai vendere, ma non hai ancora il patentino. ' : 'Non hai ancora il patentino. ') + 'Da consulente hai l’Academy, un tutor e una zona tua.'
             : 'Hai il patentino ma pochi anni sul campo. Da consulente hai una zona tua e un tutor.';
     var altro = pref && pref !== r ? '<p>Mi avevi detto ' + R[pref].n + '. Con questi dati vedo meglio questo, ma in sede ne parlate.</p>' : '';
     say('<p>Per te vedo questo posto.</p><div class="verd"><span>Ruolo</span><strong>' + R0.n + '</strong><ul>' + R0.t.slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div><p>' + perche + '</p>' + altro, function () { setRuolo(R0.n); ruolo(r); });
@@ -278,7 +281,8 @@
     var o = leggi(raw), w = attesa, m; attesa = null;
     if (w === 'anni' && o.anni == null && (m = /\d{1,2}/.exec(raw))) { o.anni = +m[0]; o.marks = [[m.index, m.index + m[0].length]]; }
     if (w === 'vend' && o.vend == null && (m = /\d{1,3}/.exec(raw))) { o.vend = +m[0]; o.marks = [[m.index, m.index + m[0].length]]; }
-    if (w === 'lic' && !o.lic) { var t = fold(raw); if (/^s[iì]\b|certo|ce l'ho/.test(t)) o.lic = 'si'; else if (/^no\b/.test(t)) o.lic = 'no'; }
+    if (w === 'lic' && !o.lic) { var t = fold(raw); if (/in\s+corso|sto\s+(?:prendendo|facendo|studiando)|quasi|a\s+breve/.test(t)) o.lic = 'corso'; else if (/^s[iì]\b|certo|ce\s+l'ho|^ok\b/.test(t)) o.lic = 'si'; else if (/^no\b|non\s+ancora|non\s+ce\s+l'ho/.test(t)) o.lic = 'no'; }
+    if (w === 'team' && o.team == null) { var t2 = fold(raw); if (/\bsol[oa]\b|nessun|^no\b/.test(t2)) o.team = 0; else if ((m = /\d{1,2}/.exec(raw))) { o.team = +m[0]; o.marks = [[m.index, m.index + m[0].length]]; } }
     var n = pieno(o);
     user(raw, o.marks);
     if (verdetto) return say('<p>' + (inviato ? 'È già tutto fissato. Per cambiare giorno chiama lo 06 3200007.' : 'Il ruolo lo confermi in sede. Scegli il giorno qui sopra e chiudiamo.') + '</p>');
@@ -323,7 +327,7 @@
     var nota = r === 'tm' ? 'Chiedere quanti della squadra lo seguirebbero, e in che tempi.'
       : r === 'nc' ? 'Chiedere su quali cantieri ha lavorato e con quali costruttori.'
         : r === 'ag' ? ((P.vend || 0) >= 8 ? 'Volume alto. Chiedere del portafoglio incarichi attuale.' : 'Chiedere degli incarichi in corso e delle zone che copre.')
-          : P.lic !== 'si' ? 'Da avviare all’abilitazione. Verificare la disponibilità per l’Academy.' : 'Pochi anni sul campo. Valutare zona e tutor.';
+          : P.lic == null ? 'Abilitazione non dichiarata: chiederla subito.' : P.lic !== 'si' ? 'Da avviare all’abilitazione. Verificare la disponibilità per l’Academy.' : 'Pochi anni sul campo. Valutare zona e tutor.';
     $('#qP').innerHTML = '<b>Oggetto: Candidatura, ' + esc(o.n) + ', ' + R[r].n.toLowerCase() + ' (classe ' + c + ')</b>\n\nColloquio: ' + app.g.l + ', ' + app.h + ', via Dora 2\nTelefono: ' + esc(o.t) + '\nCV: ' + (app.cv ? 'allegato (' + esc(app.cv) + ')' : 'lo porta al colloquio') +
       '\n\nEsperienza: ' + (anniTxt(P) || 'non indicata') + '\nAbilitazione: ' + (P.lic ? LIC[P.lic].toLowerCase() : 'non indicata') + '\nVendite, ultimi 12 mesi: ' + (P.vend != null ? P.vend : 'non indicate') + '\nSquadra: ' + (teamTxt(P) || 'non indicata').toLowerCase() + '\nZone: ' + (P.zone.length ? P.zone.join(', ') : 'non indicate') +
       (primo ? '\n\nParole del candidato:\n«' + esc(primo) + '»' : '') + '\n\nNota di Dora: ' + nota + '\n\nProvenienza: landing «Lavora con noi»';

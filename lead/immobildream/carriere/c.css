@@ -62,7 +62,7 @@ h2{font:800 clamp(44px,6.6vw,104px)/.9 var(--f);font-stretch:62%;letter-spacing:
 .carta__m{position:relative;padding-top:.62em;font:800 clamp(15px,1.7vw,24px)/1 var(--f);letter-spacing:-.035em}
 .carta__m::before{content:"";position:absolute;left:0;top:0;width:1.35em;height:.24em;background:var(--rosso)}
 .carta__n{align-self:end;min-width:0}
-.carta__n b{display:block;font:800 clamp(25px,3.5vw,50px)/.92 var(--f);font-stretch:62%;letter-spacing:-.008em;overflow-wrap:anywhere}
+.carta__n b{display:block;font:800 clamp(25px,3.5vw,50px)/.92 var(--f);font-size:calc(clamp(25px,3.5vw,50px)*var(--s,1));font-stretch:62%;letter-spacing:-.008em;overflow-wrap:anywhere}
 .carta__n b.vuoto{color:#C9C7C2}
 .carta__n span{display:block;margin-top:.5em;font:500 clamp(11.5px,1.08vw,15.5px)/1.2 var(--f)}
 .carta__c{display:flex;justify-content:space-between;gap:10px;margin-top:6%;padding-top:4.4%;border-top:1px solid rgba(0,0,0,.16);font:400 clamp(10px,.94vw,13.5px)/1.2 var(--f);color:#333}

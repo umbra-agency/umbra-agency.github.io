@@ -199,7 +199,10 @@
 
   /* ---------- la conversazione ---------- */
   var log = $('#log'), form = $('#say'), txt = $('#txt');
-  var S = { dot: {} }, firstRaw = '', awaiting = null, asked = {}, given = false, chain = Promise.resolve(), sent = false;
+  var S = { dot: {} }, firstRaw = '', awaiting = null, asked = {}, given = false, chain = Promise.resolve(), sent = false, altro = '';
+  /* fuori zona e immobili commerciali: Dora non stima, passa al consulente */
+  var FUORI = /\b(?:a|ad|in|di|vicino\s+a)\s+(milano|napoli|torino|firenze|bologna|venezia|genova|palermo|bari|verona|catania|padova|brescia|bergamo|perugia|cagliari|pescara|ancona|trento|bolzano|parma|modena|pisa|siena|lecce|salerno|latina|viterbo|frosinone|rieti|civitavecchia|fiumicino|anzio|nettuno|fregene|santa\s+marinella|bracciano|tivoli|frascati|grottaferrata|sabaudia|san\s+felice\s+circeo|formia|gaeta|terracina|pomezia|ladispoli|cerveteri|manziana|capalbio|porto\s+ercole|ansedonia|forte\s+dei\s+marmi|portofino|capri|porto\s+cervo|courmayeur|madonna\s+di\s+campiglio)\b/;
+  var COMM = /(?:^|\b(?:un|uno|il|mio|nostro|vendo|vendere|ho)\s+)(negozio|ufficio|capannone|magazzino|laboratorio|studio\s+professionale)\b|\b(locale\s+commerciale|attivita\s+commerciale|intero\s+stabile|stabile\s+intero|palazzina\s+intera)\b/;
   function down() { requestAnimationFrame(function () { log.scrollTo ? log.scrollTo({ top: log.scrollHeight, behavior: reduce ? 'auto' : 'smooth' }) : (log.scrollTop = log.scrollHeight); }); }
   function say(html, after) {
     chain = chain.then(function () {
@@ -310,6 +313,16 @@
   ];
   function handle(raw) {
     raw = raw.trim(); if (!raw) return;
+    var t0 = fold(raw), fz = !given && !sent && FUORI.exec(t0), cm = !given && !sent && !fz && COMM.exec(t0);
+    if (fz || cm) {
+      user(raw); if (!firstRaw) firstRaw = raw; awaiting = null;
+      altro = fz ? 'Fuori zona: ' + fz[1].replace(/(^|\s)([a-z])(?!ei\s|i\s)/g, function (x, a, b) { return a + b.toUpperCase(); }) : 'Immobile commerciale: ' + (cm[1] || cm[2]);
+      say('<p>' + (fz ? 'Fuori da Roma e da Cortina d’Ampezzo non faccio stime: i valori cambiano troppo da un comune all’altro. Mi lasci nome e telefono: un consulente la richiama e le dice se possiamo seguirla.' : 'Negozi, uffici e stabili interi non li stimo io: il valore dipende dalla via, dalle vetrine, da chi c’è dentro. Mi lasci nome e telefono e la richiama un consulente.') + '</p>', function (b) {
+        chips(b, [['Sì, richiamatemi', function (l) { user(l); modulo(); }], ['Ho anche una casa a Roma', function (l) { user(l); altro = ''; say('<p>Bene. Mi dica dov’è e quanto è grande.</p>'); if (!coarse) txt.focus(); }]]);
+      });
+      return;
+    }
+    altro = '';
     var r = parse(raw), w = awaiting, m; awaiting = null;
     if (w === 'mq' && !r.mq && (m = /\d{2,4}/.exec(raw))) { r.mq = +m[0]; r.marks = [[m.index, m.index + m[0].length, 'mq']]; }
     var n = filled(r);
@@ -334,7 +347,7 @@
   /* modulo di contatto dentro la conversazione */
   function modulo() {
     if (sent) return say('<p>La richiesta c’è già. La richiamiamo noi.</p>');
-    say('<p>Nome e telefono, e la richiama un consulente senior. La telefonata serve solo a fissare il sopralluogo.</p>', function (b) {
+    say('<p>' + (altro ? 'Nome e telefono, e la richiama un consulente.' : 'Nome e telefono, e la richiama un consulente senior. La telefonata serve solo a fissare il sopralluogo.') + '</p>', function (b) {
       var f = el('div', 'mini');
       f.innerHTML = '<label>Nome e cognome<input type="text" name="n" autocomplete="name"></label>' +
         '<label>Telefono<input type="tel" name="t" autocomplete="tel" inputmode="tel"></label>' +
@@ -355,7 +368,7 @@
         var name = nm.value.trim(), tel = tl.value.trim(); sent = true;
         f.innerHTML = '<p style="font:400 15px/1.5 var(--sans);color:var(--ink2)">' + esc(name) + ' · ' + esc(tel) + ' · ' + when.toLowerCase() + '</p>';
         var quando = when === 'Mattina' ? 'in mattinata' : when === 'Pomeriggio' ? 'nel pomeriggio' : 'in serata';
-        say('<p><b>Fatto, ' + esc(name.split(' ')[0]) + '.</b> Un consulente senior la richiama ' + quando + ' per fissare il sopralluogo.</p><p>La strategia di vendita la legge prima di firmare qualsiasi cosa.</p>');
+        say(altro ? '<p><b>Fatto, ' + esc(name.split(' ')[0]) + '.</b> Un consulente la richiama ' + quando + '.</p>' : '<p><b>Fatto, ' + esc(name.split(' ')[0]) + '.</b> Un consulente senior la richiama ' + quando + ' per fissare il sopralluogo.</p><p>La strategia di vendita la legge prima di firmare qualsiasi cosa.</p>');
         setTimeout(function () { quinte({ n: name, t: tel, w: quando }); }, reduce ? 200 : 2300);
       };
       if (!coarse) setTimeout(function () { $('[name=n]', f).focus({ preventScroll: true }); }, 60);
@@ -368,7 +381,7 @@
   form.addEventListener('submit', function (e) { e.preventDefault(); if (typing) return; var v = txt.value; txt.value = ''; grow(); handle(v); });
   var typing = false;
   function reset() {
-    S = { dot: {} }; firstRaw = ''; awaiting = null; asked = {}; given = false; sent = false; shown = { lo: 0, hi: 0 }; chain = Promise.resolve();
+    S = { dot: {} }; firstRaw = ''; awaiting = null; asked = {}; given = false; sent = false; altro = ''; shown = { lo: 0, hi: 0 }; chain = Promise.resolve();
     log.innerHTML = ''; $('#stima').hidden = true;
     ['kTipo', 'kMq', 'kPiano', 'kEst', 'kStato', 'kDot'].forEach(function (id) { var x = $('#' + id); x.className = ''; x.removeAttribute('data-v'); x.textContent = 'in attesa'; });
     $('#tg').classList.remove('targa--legno'); $('#tgS').textContent = 'Roma'; $('#tgB').textContent = 'La sua zona';
@@ -389,7 +402,16 @@
   /* ---------- dietro le quinte ---------- */
   var Q = $('#quinte'), qData = null, qCh = 'mail';
   function qDraw() {
-    if (!qData) return; var r = stima(S) || { lo: 0, hi: 0, f: [] };
+    if (!qData) return;
+    if (!stima(S)) {
+      var nota = altro || 'Stima non calcolata';
+      $('#qP').innerHTML = qCh === 'mail'
+        ? '<b>Oggetto: Nuova richiesta dalla landing «Vendere» (da valutare)</b>\n\nNome: ' + esc(qData.n) + '\nTelefono: ' + esc(qData.t) + '\nRichiamare: ' + qData.w + '\n\nNota di Dora: ' + esc(nota) + '. Nessuna stima inviata.\n\nParole del proprietario:\n«' + esc(firstRaw || '') + '»\n\nProvenienza: landing «Vendere»'
+        : '<b>Nuova richiesta (da valutare)</b>\n' + esc(qData.n) + ', ' + esc(qData.t) + '\n' + esc(nota) + '\nRichiamare ' + qData.w;
+      $('#qPri').textContent = 'Da valutare. ' + nota;
+      return;
+    }
+    var r = stima(S);
     var pr = r.hi >= 900000 ? 'A' : r.hi >= 500000 ? 'B' : 'C', t = S.tipo || DEF;
     var f = r.f.map(function (x) { return x.l + ' ' + pct(x.p); }).join(', ') || 'nessuno';
     $('#qP').innerHTML = qCh === 'mail'
